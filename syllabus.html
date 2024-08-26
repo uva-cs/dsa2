@@ -8,21 +8,16 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
+    ul.task-list{list-style: none;}
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="markdown.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="dsa2-syllabus">DSA2: Syllabus</h1>
@@ -62,7 +57,6 @@
 </ul>
 <p><strong>Programming Assignments (PAs):</strong> The goal of Programming assignments (PAs) is to explore one or more topics from a unit by applying an algorithm to a problem, implementing it Java and Python, and showing it works correctly by passing a set of test-cases. Grading will be primarily based on passing test-cases on GradeScope. Some PAs may require a short write-up. Submissions must include information about sources, collaborators, etc. For more information, see sections below on “Collaboration and Outside Sources” for PAs.</p>
 <p><strong>Problem Sets (PSs):</strong> Each <em>weekly</em> Problem Set (PS) will be approximately 2 to 3 questions. Some may be simple questions on concepts or details of what’s be taught, but most will require students to design an algorithm, analyze it’s complexity, make proofs or other logical arguments about its complexity, correctness, etc. For information on collaboration on PSs, see the section below on “Collaboration and Outside Sources” for PSs.</p>
-<p><strong>Activities and Course Feedback (ACs):</strong> We will have occasional activities or course feedback moments (such as surveys, check-ins, or think and share activities) throughout the semester.</p>
 <p><strong>LaTeX Warm-up:</strong> PS0 will be designed to help learn how to use the LaTeX typesetting system.</p>
 <p><strong>Textbook and Readings:</strong> We will assign readings from the “CLRS” textbook: Introduction to Algorithms, by Cormen, Leiserson, Rivest and Stein, 4th Edition. (3rd edition is OK, but is missing some new material.) The book is available for free for UVA users in an online format through the UVA Library at <a href="https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615">this link</a>. There may be additional readings from online sources.</p>
 <h3 id="coding">Coding</h3>
@@ -83,15 +77,14 @@
 <h2 id="grades">Grades</h2>
 <p>Grades will be calculated by the following formula:</p>
 <ul>
-<li>Quizzes (50%)</li>
-<li>PAs (programming assignments) (20%)</li>
+<li>Final exam &amp; quizzes (50%)</li>
+<li>PAs (programming assignments) (25%)</li>
 <li>PSs (problem sets) (25%)</li>
-<li>ACs (5%)</li>
 </ul>
 <p>We <em>expect</em> that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc. <strong>Note:</strong> we reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly. In particular, if the grade averages are very high, then you will need higher than a 90 to get an A-.</p>
 <h3 id="extensions-and-late-submissions">Extensions and late submissions</h3>
 <p>Assignments turned in after the due date are penalized 25% per day (or fraction thereof) late; this means a maximum of 3 days (i.e. 72 hours) late. For example, anywhere from 1 second late to 24 hours late receives 25% percent off.</p>
-<p>You may request an extension on any assignment (PA or PS) for any reason. That extension is 5 days. To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page. You can assume that the extension will be automatically provided by filling out the form. An extension will delay the onset of the late penalty – so if you get an extension, then the late penalty does not kick in until the 6th day after the due date.</p>
+<p>You may request an extension on any assignment (PA or PS) for any reason. That extension is 4 days. To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page. You can assume that the extension will be automatically provided by filling out the form. An extension will delay the onset of the late penalty – so if you get an extension, then the late penalty does not kick in until the 6th day after the due date.</p>
 <p>This extension rule does not apply to quizzes, exams, or any in-class activities. It only applies to programming assignments (PAs) and written assignments (PSs).</p>
 <p>However, there are a few specifics to this extension rule:</p>
 <ul>
@@ -100,9 +93,9 @@
 <li>Note that the Google Forms form will allow submissions at any time, and does not know the due date for the assignment you are requesting an extension for. We will filter out late extension requests ourselves.</li>
 </ul></li>
 <li>This extension time covers any and all situations – being sick, busy, exam or homework congestion, your dog ate your homework, etc.</li>
-<li>We are not expecting to allow any further extensions beyond this 5 days, unless there are considerable extenuating circumstances – basically, something that would have granted an extension for more than 5 days in the first place. If you get busy or sick at the end of your 5 day extension request, then that’s your tough luck.</li>
+<li>We are not expecting to allow any further extensions beyond this 4 days, unless there are considerable extenuating circumstances – basically, something that would have granted an extension for more than 4 days in the first place. If you get busy or sick at the end of your 4 day extension request, then that’s your tough luck.</li>
 <li>After you extension ends, the late penalty (above) kicks in for the next three days.</li>
-<li>This policy <em>already includes</em> SDAC accommodations less than 5 days (we are just extending these accommodations to everybody). Likewise, religious accommodations of a short time (a few days) are handled by this policy as well.<br />
+<li>This policy <em>already includes</em> SDAC accommodations less than 4 days (we are just extending these accommodations to everybody). Likewise, religious accommodations of a short time (a few days) are handled by this policy as well.<br />
 </li>
 <li>If there is a valid need for an extended accommodation – SDAC, religious, health, etc. – please chat with one of the instructors, and we’d be happy to discuss it with you.</li>
 <li>For written assignments, if you turn your assignment in on time, then that will be the version graded – you can’t turn it in on time, then file an extension, then submit it later, and expect the later version to be graded. We will have already started grading the on-time submissions, and we just don’t have the staffing capacity to grade multiple submissions from students.</li>
@@ -166,16 +159,41 @@
 <p>If the case is particularly egregious and beyond our comfort level handling in-course, we will refer the case to the University Honor System.</p>
 <hr />
 <h2 id="life">Life</h2>
-<p>Bad things happen. People forget things and make mistakes. Bad days coincide with due dates. Etc. We aim to have our extension policy, above, help to cover these types of issues. If you believe that circumstances warrant an change in deadline, a second chance, or some other accommodation in order to more accurately synchronize grade with knowledge, come talk to your professor and we’ll resolve the situation as best we can. Note that there needs to be a significant reason for this, as we already are providing a free 5 day extension.</p>
-<h3 id="special-circumstances">Special Circumstances</h3>
-<p>General SDAC accommodations are handles as per our <a href="https://uva-cs.github.io/dsa2/sdac.html">SDAC Accommodations</a> (<a href="https://uva-cs.github.io/dsa2/sdac.md">md</a>) page. We can provide these accommodations when we receive the formal email from SDAC. Note that most late-assignment-submission SDAC accommodations are covered by the extension policy, above.</p>
-<p>We are fortunate to have an SDAC advisor, Courtney MacMasters, physically located in Engineering. You may email her at <a href="mailto:cmacmasters@virginia.edu">cmacmasters@virginia.edu</a> to schedule an appointment. For general questions please visit the SDAC website: <a href="http://sdac.studenthealth.virginia.edu/">sdac.studenthealth.virginia.edu</a>.</p>
-<h3 id="religious-accommodations">Religious Accommodations</h3>
-<p>It is the University’s long-standing policy and practice to reasonably accommodate students so that they do not experience an adverse academic consequence when sincerely held religious beliefs or observances conflict with academic requirements. If the accommodation is not covered by our extension policy, please come chat with one of the instructors.</p>
-<h3 id="your-well-being">Your Well Being</h3>
-<p>The Engineering School proudly serves as a safe space for its students and aims to promote their well being. If you are feeling overwhelmed, stressed, or isolated, there are many individuals here who are ready and wanting to help. In addition to the course instructors, you can seek help through the Engineering Undergraduate office (Thornton A122), or Alex Hall (aec5d, 924-7601) who is the assistant dean of students for the Engineering school.</p>
-<p>Alternatively, there are also other University of Virginia resources available. The Student Health Center offers Counseling and Psychological Services (CAPS) for its students. Call 434-243-5150 (or 434-972-7004 for after hours and weekend crisis assistance) to get started and schedule an appointment. If you prefer to speak anonymously and confidentially over the phone, call Madison House’s HELP Line at any hour of any day: 434-295-8255.</p>
-<p>If you or someone you know is struggling with gender, sexual, or domestic violence, there are many community and University of Virginia resources available. The Office of the Dean of Students, Sexual Assault Resource Agency (SARA), Shelter for Help in Emergency (SHE), and UVA Women’s Center are ready and eager to help. Contact the Director of Sexual and Domestic Violence Services at 434-982-2774.</p>
+<p>Bad things happen. People forget things and make mistakes. Bad days coincide with due dates. etc. We aim to have our extension policy, above, help to cover these types of issues. If you believe that circumstances warrant an change in deadline, a second chance, or some other accommodation in order to more accurately synchronize grade with knowledge, come talk to your professor and we’ll resolve the situation as best we can. Note that there needs to be a significant reason for this, as we already are providing a free 4 day extension.</p>
+<h3 id="students-with-disabilities-or-learning-needs">Students with disabilities or learning needs</h3>
+<p>It is our goal to create a learning experience that is as accessible as possible. If you anticipate any issues related to the format, materials, or requirements of this course, please meet with one of us outside of class so we can explore potential options. Students with disabilities may also wish to work with the Student Disability Access Center (SDAC) to discuss a range of options to removing barriers in this course, including official accommodations. We are fortunate to have an SDAC advisor, Courtney MacMasters, physically located in Engineering. You may email her at <a href="mailto:cmacmasters@virginia.edu">cmacmasters@virginia.edu</a> to schedule an appointment. For general questions please visit the <a href="https://sdac.studenthealth.virginia.edu">SDAC website</a>. If you have already been approved for accommodations through SDAC, please send us your accommodation letter and meet with me so we can develop an implementation plan together.</p>
+<p>Note that we expect most (or perhaps all) accommodation requests will be handled by our extension policy, above.</p>
+<h3 id="religious-accommodations">Religious accommodations</h3>
+<p>It is the University’s long-standing policy and practice to reasonably accommodate students so that they do not experience an adverse academic consequence when sincerely held religious beliefs or observances conflict with academic requirements.</p>
+<p>As with the previous section, we expect most (or perhaps all) accommodation requests will be handled by our extension policy, above.</p>
+<p>Students who wish to request academic accommodation for a religious observance should submit their request to us by email as far in advance as possible. Students who have questions or concerns about academic accommodations for religious observance or religious beliefs may contact the <a href="https://eocr.virginia.edu/">University’s Office for Equal Opportunity and Civil Rights</a> (EOCR) at <a href="mailto:UVAEOCR@virginia.edu">UVAEOCR@virginia.edu</a> or 434-924-3200.</p>
+<h3 id="harassment-discrimination-and-interpersonal-violence">Harassment, Discrimination, and Interpersonal Violence</h3>
+<p>The University of Virginia is dedicated to providing a safe and equitable learning environment for all students. If you or someone you know has been affected by power-based personal violence, more information can be found on the <a href="http://www.virginia.edu/sexualviolence">UVA Sexual Violence website</a> that describes reporting options and resources available.</p>
+<p>The same resources and options for individuals who experience sexual misconduct are available for discrimination, harassment, and retaliation. <a href="https://uvapolicy.virginia.edu/policy/HRM-009">UVA prohibits discrimination and harassment</a> based on age, color, disability, family medical or genetic information, gender identity or expression, marital status, military status, national or ethnic origin, political affiliation, pregnancy (including childbirth and related conditions), race, religion, sex, sexual orientation, or veteran status. <a href="https://uvapolicy.virginia.edu/policy/HRM-010">UVA policy</a> also prohibits retaliation for reporting such behavior.</p>
+<p>If you witness or are aware of someone who has experienced prohibited conduct, you are encouraged to submit a report to <a href="https://justreportit.virginia.edu">Just Report It</a> or <a href="mailto:UVAEOCR@virginia.edu">contact EOCR</a>, the office of Equal Opportunity and Civil Rights.</p>
+<p>If you would prefer to disclose such conduct to a confidential resource where what you share is not reported to the University, you can turn to <a href="https://www.studenthealth.virginia.edu/caps">Counseling &amp; Psychological Services (“CAPS”)</a> and <a href="https://womenscenter.virginia.edu/counseling/our-counseling-services">Women’s Center Counseling Staff and Confidential Advocates</a> (for students of all genders).</p>
+<p>As your professors and as people, know that we care about you and your well-being and stand ready to provide support and resources as we can. As a faculty member, we are responsible employees, which means that we are required by University policy and by federal law to report certain kinds of conduct that you report to me to the University’s Title IX Coordinator. The Title IX Coordinator’s job is to ensure that the reporting student receives the resources and support that they need, while also determining whether further action is necessary to ensure survivor safety and the safety of the University community.</p>
+<h3 id="support-for-your-career-development">Support for your career development</h3>
+<p>Engaging in your career development is an important part of your student experience. For example, presenting at a research conference, attending an interview for a job or internship, or participating in an extern/shadowing experience are not only necessary steps on your path but are also invaluable lessons in and of themselves. I wish to encourage and support you in activities related to your career development. To that end, please notify me by email as far in advance as possible to arrange for appropriate accommodations.</p>
+<h3 id="student-support-team">Student support team</h3>
+<p>You have many resources available to you when you experience academic or personal stresses. In addition to your professor, the School of Engineering and Applied Science has staff members located in Thornton Hall who you can contact to help manage academic or personal challenges. Please do not wait until the end of the semester to ask for help!</p>
+<h3 id="learning">Learning</h3>
+<ul>
+<li><a href="mailto:ll4uu@virginia.edu">Lisa Lampe</a>, Assistant Dean for Undergraduate Affairs</li>
+<li><a href="mailto:gnembhard@virginia.edu">Georgina Nembhard</a>, Director of Student Success</li>
+<li><a href="mailto:cmacmasters@virginia.edu">Courtney MacMasters</a>, Accessibility Specialist</li>
+<li><a href="https://engineering.virginia.edu/current-students/current-undergraduate-students/student-support/tutoring">Free tutoring</a> is available for most classes.</li>
+</ul>
+<h3 id="health-and-well-being">Health and Well-being</h3>
+<ul>
+<li><a href="mailto:mwu5gs@virginia.edu">Kelly Garrett</a>, Assistant Dean of Students, Student Safety and Support<br />
+</li>
+<li>Elizabeth Ramirez-Weaver, CAPS counselor</li>
+<li>Katie Fowler, CAPS counselor</li>
+</ul>
+<p>You may schedule time with the CAPS counselors through <a href="https://www.studenthealth.virginia.edu/getting-started-caps">Student Health</a>. When scheduling, be sure to specify that you are an Engineering student. You are also urged to use <a href="https://www.studenthealth.virginia.edu/timelycare">TimelyCare</a> for either scheduled or on-demand 24/7 mental health care.</p>
+<h3 id="community-and-identity">Community and Identity</h3>
+<p>The <a href="https://engineering.virginia.edu/about/diversity-and-engagement/center-diversity-engineering">Center for Diversity in Engineering</a> (CDE) is a student space dedicated to advocating for underrepresented groups in STEM. It exists to connect students with the academic, financial, health, and community resources they need to thrive both at UVA and in the world. The CDE includes an open study area, event space, and staff members on site. Through this space, we affirm and empower equitable participation toward intercultural fluency and provide the resources necessary for students to be successful during their academic journey and future careers.</p>
 <hr />
 <h2 id="additional-notes">Additional Notes</h2>
 <p><strong>Syllabus Note</strong>: This syllabus is to be considered a reference document that may be adjusted throughout the course of the semester to address necessary changes. This syllabus can be changed at any time without notification; we will announce any major changes. Final authority on any decision in this course rests with the professors, not with this document.</p>
