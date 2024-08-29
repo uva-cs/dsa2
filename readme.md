@@ -13,6 +13,7 @@ Repository Contents
 -------------------
 
 - [Course syllabus](syllabus.html) ([md](syllabus.md))
+- [PS0](ps0.zip)
 - [SDAC Accommodations](sdac.html) ([md](sdac.md))
 
 License
