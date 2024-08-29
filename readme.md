@@ -1,10 +1,10 @@
-CS 3100: Data Structures and Algoritms 2 (DSA2)
+CS 3100: Data Structures and Algorithms 2 (DSA2)
 ===============================================
 
 Overview
 --------
 
-This repository contains the materials for an Data Structures and Algoritms 2 (DSA2) course at the [University of Virginia](http://www.virginia.edu).  The content of this repo will be filled in as the semester progresses.  The content can be viewed online at [http://uva-cs.github.io/dsa2](http://uva-cs.github.io/dsa2).
+This repository contains the materials for an Data Structures and Algorithms 2 (DSA2) course at the [University of Virginia](http://www.virginia.edu).  The content of this repo will be filled in as the semester progresses.  The content can be viewed online at [http://uva-cs.github.io/dsa2](http://uva-cs.github.io/dsa2).
 
 The primary authors of this repository are [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) ([aaron@virginia.edu](<mailto:aaron@virginia.edu>)) and [Ray Pettit](https://engineering.virginia.edu/faculty/raymond-pettit) ([raymond.pettit@virginia.edu](<mailto:raymond.pettit@virginia.edu>)). Many of the materials were taken, with permission, from other sources -- see the License section, and the bottom, for details.
 
