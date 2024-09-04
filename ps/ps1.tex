@@ -1,0 +1,62 @@
+%---------change this every homework
+\def\yourid{mst3k}
+\def\collabs{list your collaborators}
+\def\sources{Cormen, et al, Introduction to Algorithms; Adams, Douglas, Hitchhiker's Guide to the Galaxy}
+% -----------------------------------------------------
+\def\duedate{September 11, 2024 at 11:59p}
+\def\pnumber{1}
+%-------------------------------------
+
+\documentclass[10pt]{article}
+\usepackage{dsa2}
+\usepackage{tikz-cd}
+
+
+\begin{document}
+\thispagestyle{empty}
+\handout
+
+%----Begin your modifications here
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem} Asymptotics \end{problem}
+\begin{enumerate}
+\item Consider the following functions, $f(n)=n^{1.5}$ and $g(n)=n (\log n)^2$. Which grows more quickly?  (That is, which would be a ``worse'' time-complexity.)  Express your answer in terms of one of the order-classes we've studied. If you can use little-omega $\omega$ or little-oh $o$, use that. If not, use big-Oh $O$ or big-Omega $\Omega$. Your answer will be of the form $f(n) = \Theta(g(n))$ but with something other than Big-Theta $\Theta$.  Explain your answer with a short proof; you may use any definitions from the course slides.
+\end{enumerate}
+
+\solution{
+% Your solution here
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem} Trick or Treat: More Candy \end{problem}
+
+October 31st is just around the corner and Prof. Bloomfield's children are making big plans for trick-or-treating in their neighborhood. In an attempt to limit the amount of candy the children can collect, Prof. Bloomfield told them that they can only visit 3 street/block segments (a "street" is considered to be a portion of a road between 2 intersections, walking one city block). The children will be starting at their house, which happens to be next to an intersection of 2 roads, meaning that can choose one of 4 street segments to start on. When they reach a new intersection, they will need to choose a new street segments that connects to that intersection. They will do this until they have chosen 3 connecting street segments. Then they'll backtrack and return home. The children's goal is to maximize the number of houses that they pass along the way. Based on a map of the neighborhood, they know how many houses on each street segment. 
+
+The map can be visualized as a graph containing nodes (intersections) and edges (street segments). Edge weights can represent the number of houses on a given street segment. 
+
+Create an algorithm that finds the optimal path in the shortest number of operations possible. Clearly describe your algorithm. Analyze and state the time complexity of your algorithm using asymptotic notation.   
+\vskip 2em
+
+
+
+\solution{
+% Your solution here
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem} Trick or Treat: Parental Supervision \end{problem}
+
+Given number of children that will be trick-or-treating in Prof. Bloomfield's neighborhood, he really thinks parents should be watching the streets. When a parent is present at a given intersection they can see each street segment that connects to that intersection.  
+
+Use the same graph representation as in the previous problem. Create an algorithm that finds the minimal number of parents needed such that each street segment has a parent stationed at one of the connecting intersections. Clearly describe your algorithm. Analyze and state the time complexity of your algorithm using asymptotic notation.   
+\vskip 2em
+
+
+\solution{
+% Your solution here
+}
+
+
+\end{document}
