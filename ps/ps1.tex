@@ -10,6 +10,7 @@
 \documentclass[10pt]{article}
 \usepackage{dsa2}
 \usepackage{tikz-cd}
+\usepackage{wrapfig}
 
 
 \begin{document}
@@ -30,13 +31,30 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{problem} Trick or Treat: More Candy \end{problem}
+\begin{problem} Trick or Treat: Maximum Candy \end{problem}
 
-October 31st is just around the corner and Prof. Bloomfield's children are making big plans for trick-or-treating in their neighborhood. In an attempt to limit the amount of candy the children can collect, Prof. Bloomfield told them that they can only visit 3 street/block segments (a "street" is considered to be a portion of a road between 2 intersections, walking one city block). The children will be starting at their house, which happens to be next to an intersection of 2 roads, meaning that can choose one of 4 street segments to start on. When they reach a new intersection, they will need to choose a new street segments that connects to that intersection. They will do this until they have chosen 3 connecting street segments. Then they'll backtrack and return home. The children's goal is to maximize the number of houses that they pass along the way. Based on a map of the neighborhood, they know how many houses on each street segment. 
+%October 31st is just around the corner and Prof. Bloomfield's children are making big plans for trick-or-treating in their neighborhood. In an attempt to limit the amount of candy the children can collect, Prof. Bloomfield told them that they can only visit 3 street/block segments (a "street" is considered to be a portion of a road between 2 intersections, walking one city block). The children will be starting at their house, which happens to be next to an intersection of 2 roads, meaning that can choose one of 4 street segments to start on. When they reach a new intersection, they will need to choose a new street segments that connects to that intersection. They will do this until they have chosen 3 connecting street segments. Then they'll backtrack and return home. The children's goal is to maximize the number of houses that they pass along the way. Based on a map of the neighborhood, they know how many houses on each street segment. 
 
-The map can be visualized as a graph containing nodes (intersections) and edges (street segments). Edge weights can represent the number of houses on a given street segment. 
+October 31st is just around the corner and Prof. Bloomfield's children are making big plans for trick-or-treating in their neighborhood. In an attempt to limit the amount of candy his children can collect, Prof. Bloomfield -- being a mean father -- told them that they can only go 2 blocks away in any direction.  The children will be starting at their house, which happens to be next to an intersection, meaning that can choose one of 4 street segments to start on.  Each street segment has a number of houses that provide candy on it.  Given a map of the neighborhood, what will Prof. Bloomfield's dental bill be?
 
-Create an algorithm that finds the optimal path in the shortest number of operations possible. Clearly describe your algorithm. Analyze and state the time complexity of your algorithm using asymptotic notation.   
+
+%\clearpage
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{halloween-graph.pdf}
+  \end{center}
+  \caption{Neighborhood roads}
+\end{wrapfigure}
+
+%\includegraphics[width=3in]{halloween-graph.pdf}
+
+Rather, how much candy can each child collect?
+
+
+The map can be visualized as a graph containing nodes (intersections) and edges (street segments). Edge weights represent the number of houses that provide candy on a given street segment.  In the figure to the right, if the children start at node S (in the middle of the graph), there are three streets (edges) that they cannot travel to, as they are more than 2 blocks away: J-F, G-H, and E-I.  The total candy they can collect is the sum of the other edges, or 44.
+
+Given a weighted, connected, unidirectional graph $G=(V,E)$, a designated start vertex $s$, and a parameter $n$ (the maximum number of blocks that can be traveled), create an algorithm that finds the amount of candy that the children can collect. Clearly describe your algorithm. Analyze and state the time complexity of your algorithm using asymptotic notation.   
 \vskip 2em
 
 
@@ -48,9 +66,9 @@ Create an algorithm that finds the optimal path in the shortest number of operat
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{problem} Trick or Treat: Parental Supervision \end{problem}
 
-Given number of children that will be trick-or-treating in Prof. Bloomfield's neighborhood, he really thinks parents should be watching the streets. When a parent is present at a given intersection they can see each street segment that connects to that intersection.  
+Given the number of children that will be trick-or-treating in Prof. Bloomfield's neighborhood, he really thinks parents should be watching the streets. When a parent is present at a given intersection they can see each street segment that connects to that intersection.
 
-Use the same graph representation as in the previous problem. Create an algorithm that finds the minimal number of parents needed such that each street segment has a parent stationed at one of the connecting intersections. Clearly describe your algorithm. Analyze and state the time complexity of your algorithm using asymptotic notation.   
+Use the same graph representation as in the previous problem. Note that while the graph above is orthogonal (all the streets are on a grid, the provided graph may not be -- there may be any number of roads connecting to an intersection, a block of three streets (edges), etc. Create an algorithm that finds the minimal number of parents needed such that each street segment has a parent stationed at one of the connecting intersections. In the graph above, the answer is 4 (nodes E, F, G, and S).  Clearly describe your algorithm. Analyze and state the time complexity of your algorithm using asymptotic notation.   
 \vskip 2em
 
 
