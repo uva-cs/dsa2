@@ -91,7 +91,7 @@ We *expect* that grades will follow the standard decade curve: 90 and above is a
 
 Assignments turned in after the due date are penalized 25% per day (or fraction thereof) late; this means a maximum of 3 days (i.e. 72 hours) late.  For example, anywhere from 1 second late to 24 hours late receives 25% percent off.
 
-You may request an extension on any assignment (PA or PS) for any reason.  That extension is 4 days.  To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page.  You can assume that the extension will be automatically provided by filling out the form.  An extension will delay the onset of the late penalty -- so if you get an extension, then the late penalty does not kick in until the 6th day after the due date.
+You may request an extension on any assignment (PA or PS) for any reason.  That extension is 4 days.  To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page.  You can assume that the extension will be automatically provided by filling out the form; you will not receive a reply.  An extension will delay the onset of the late penalty -- so if you get an extension, then the late penalty does not kick in until the 6th day after the due date.
 
 This extension rule does not apply to quizzes, exams, or any in-class activities.  It only applies to programming assignments (PAs) and written assignments (PSs).
 
