@@ -1,3 +1,7 @@
+---
+title: "DSA2: Syllabus"
+---
+
 DSA2: Syllabus
 ==============
 

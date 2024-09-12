@@ -1,6 +1,6 @@
 ---
-
-# PS0
+title: "DSA2: Problem Set 0"
+---
 
 This problem set is intended to help you to get set up with LaTeX (Overleaf). Like future PSs, you will be asked to submit the pdf that is generated from the LaTeX file.
 

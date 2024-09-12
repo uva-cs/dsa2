@@ -1,4 +1,8 @@
-Resources for CS 3100: Data Structures and Algoritms 2 (DSA2)
+---
+title: "DSA2: Resources for CS 3100"
+---
+
+Resources for CS 3100: Data Structures and Algorithms 2 (DSA2)
 =============================================================
 
 This course assumes knowledge of several topics from discrete math (CS2120 at UVA), two semesters of programming experience (through CS2100 at UVA), and data structures (also CS2100 at UVA). In particular, we assume knowledge of the following topics. Links to resources are provided:

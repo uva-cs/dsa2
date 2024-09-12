@@ -1,8 +1,5 @@
 ---
-layout: default 
-title: Problem Set 1 
-nav_order: 1
-parent: Problem Sets
+title: "DSA2: Problem Set 1"
 ---
 
 A `.tex` file is provided with the questions where you'll also enter your answers (see below), but [here's a PDF file with the questions](ps1.pdf) if you want to see them before you set up the LaTeX project.

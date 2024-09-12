@@ -1,8 +1,5 @@
 ---
-layout: default 
-title: PA1 - FedUps 
-nav_order: 1
-parent: Programming Assignments
+title: "DSA2: PA1: FedUps"
 ---
 
 Package delivery isn't what it used to be.  With a rise in premium package delivery services, FedEx and UPS have now created a new tier in their delivery service options: FedUps sub-premium delivery subscription service.  Subscribers to FedUps will receive a small discount on their shipping costs, but they must agree to receive only the worst customer treatment and delivery times for all packages. One example of this intentionally poor treatment is that FedUps will now send your packages to you via routes that are not guaranteed to be the most efficient. Instead, FedEx and UPS will try to use FedUps orders to do their best to minimize the excess capacity of all of their vehicles.
