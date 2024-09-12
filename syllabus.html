@@ -8,16 +8,21 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="markdown.css" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <h1 id="dsa2-syllabus">DSA2: Syllabus</h1>
@@ -84,7 +89,7 @@
 <p>We <em>expect</em> that grades will follow the standard decade curve: 90 and above is an A of some sort (A-, A, or A+), 80 and above is some sort of a B, etc. <strong>Note:</strong> we reserve the right to modify the weighting (changing the curve, adding pop quizzes, etc.), especially if attendance drops off significantly. In particular, if the grade averages are very high, then you will need higher than a 90 to get an A-.</p>
 <h3 id="extensions-and-late-submissions">Extensions and late submissions</h3>
 <p>Assignments turned in after the due date are penalized 25% per day (or fraction thereof) late; this means a maximum of 3 days (i.e. 72 hours) late. For example, anywhere from 1 second late to 24 hours late receives 25% percent off.</p>
-<p>You may request an extension on any assignment (PA or PS) for any reason. That extension is 4 days. To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page. You can assume that the extension will be automatically provided by filling out the form. An extension will delay the onset of the late penalty – so if you get an extension, then the late penalty does not kick in until the 6th day after the due date.</p>
+<p>You may request an extension on any assignment (PA or PS) for any reason. That extension is 4 days. To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page. You can assume that the extension will be automatically provided by filling out the form; most requests will not receive a reply. An extension will delay the onset of the late penalty – so if you get an extension, then the late penalty does not kick in until the 6th day after the due date.</p>
 <p>This extension rule does not apply to quizzes, exams, or any in-class activities. It only applies to programming assignments (PAs) and written assignments (PSs).</p>
 <p>However, there are a few specifics to this extension rule:</p>
 <ul>
