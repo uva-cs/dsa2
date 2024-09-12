@@ -1,9 +1,6 @@
 ---
-title: "DSA2: Home Page"
+title: "CS 3100: Data Structures and Algorithms 2 (DSA2)"
 ---
-
-CS 3100: Data Structures and Algoritms 2 (DSA2)
-===============================================
 
 Overview
 --------
