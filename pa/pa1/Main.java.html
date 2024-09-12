@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>Main.java</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900"> * CS3100 - Fall 2024 - Programming Assignment 1</font></i>
+<i><font color="#9A1900"> *********************************</font></i>
+<i><font color="#9A1900"> * Collaboration Policy: You may discuss the problem and the overall</font></i>
+<i><font color="#9A1900"> * strategy with up to 4 other students, but you MUST list those people</font></i>
+<i><font color="#9A1900"> * in your submission under collaborators.  You may NOT share code,</font></i>
+<i><font color="#9A1900"> * look at others' code, or help others debug their code.  Please read</font></i>
+<i><font color="#9A1900"> * the syllabus carefully around coding.  Do not seek published or online</font></i>
+<i><font color="#9A1900"> * solutions for any assignments. If you use any published or online resources</font></i>
+<i><font color="#9A1900"> * (which may not include solutions) when completing this assignment, be sure to</font></i>
+<i><font color="#9A1900"> * cite them. Do not submit a solution that you are unable to explain orally to a</font></i>
+<i><font color="#9A1900"> * member of the course staff.</font></i>
+<i><font color="#9A1900"> **************************************/</font></i>
+
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>io<font color="#990000">.</font>BufferedReader<font color="#990000">;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>io<font color="#990000">.</font>FileReader<font color="#990000">;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>util<font color="#990000">.</font>ArrayList<font color="#990000">;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>util<font color="#990000">.</font>List<font color="#990000">;</font>
+
+<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">Main</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font>String<font color="#990000">[]</font> args<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <font color="#009900">int</font> numCities <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+        <font color="#009900">int</font> start <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+        <font color="#009900">int</font> end <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+        <font color="#008080">List&lt;String&gt;</font> capacities <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;&gt;();</font>
+        <font color="#008080">List&lt;String&gt;</font> loads <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;&gt;();</font>
+        <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+        <b><font color="#0000FF">try</font></b> <font color="#990000">(</font><font color="#008080">BufferedReader</font> br <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">BufferedReader</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">FileReader</font></b><font color="#990000">(</font><font color="#FF0000">"example.txt"</font><font color="#990000">)))</font> <font color="#FF0000">{</font>
+            <font color="#008080">String</font> line<font color="#990000">;</font>
+            <font color="#009900">boolean</font> capacitiesDone <font color="#990000">=</font> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
+            <b><font color="#0000FF">while</font></b> <font color="#990000">((</font>line <font color="#990000">=</font> br<font color="#990000">.</font><b><font color="#000000">readLine</font></b><font color="#990000">())</font> <font color="#990000">!=</font> <b><font color="#0000FF">null</font></b><font color="#990000">)</font> <font color="#FF0000">{</font>
+                <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>i <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">)</font>
+                    numCities <font color="#990000">=</font> Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>line<font color="#990000">);</font>
+                <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>i <font color="#990000">==</font> <font color="#993399">1</font><font color="#990000">)</font>
+                    start <font color="#990000">=</font> Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>line<font color="#990000">);</font>
+                <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>i <font color="#990000">==</font> <font color="#993399">2</font><font color="#990000">)</font>
+                    end <font color="#990000">=</font> Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>line<font color="#990000">);</font>
+                <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>line<font color="#990000">.</font><b><font color="#000000">equals</font></b><font color="#990000">(</font><font color="#FF0000">"---"</font><font color="#990000">))</font>
+                    capacitiesDone <font color="#990000">=</font> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
+                <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(!</font>capacitiesDone<font color="#990000">)</font>
+                    capacities<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font>line<font color="#990000">.</font><b><font color="#000000">trim</font></b><font color="#990000">());</font>
+                <b><font color="#0000FF">else</font></b>
+                    loads<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font>line<font color="#990000">.</font><b><font color="#000000">trim</font></b><font color="#990000">());</font>
+                i<font color="#990000">++;</font>
+            <font color="#FF0000">}</font>
+
+            <i><font color="#9A1900">// Call method and print the result</font></i>
+            <font color="#008080">Long</font> startT <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+            <font color="#008080">FedUps</font> f <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">FedUps</font></b><font color="#990000">();</font>
+            <font color="#008080">List&lt;Integer&gt;</font> output <font color="#990000">=</font> f<font color="#990000">.</font><b><font color="#000000">compute</font></b><font color="#990000">(</font>numCities<font color="#990000">,</font> capacities<font color="#990000">,</font> loads<font color="#990000">,</font> start<font color="#990000">,</font> end<font color="#990000">);</font>
+            <font color="#008080">Long</font> endT <font color="#990000">=</font> System<font color="#990000">.</font><b><font color="#000000">currentTimeMillis</font></b><font color="#990000">();</font>
+            <b><font color="#0000FF">for</font></b> <font color="#990000">(</font><font color="#008080">Integer</font> city <font color="#990000">:</font> output<font color="#990000">)</font>
+                System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>city<font color="#990000">);</font>
+            System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"time: "</font> <font color="#990000">+</font> <font color="#990000">((</font>endT <font color="#990000">-</font> startT<font color="#990000">)</font> <font color="#990000">/</font> <font color="#993399">1000.0</font><font color="#990000">));</font>
+        <font color="#FF0000">}</font> <b><font color="#0000FF">catch</font></b> <font color="#990000">(</font><font color="#008080">Exception</font> e<font color="#990000">)</font> <font color="#FF0000">{</font>
+            e<font color="#990000">.</font><b><font color="#000000">printStackTrace</font></b><font color="#990000">();</font>
+            System<font color="#990000">.</font>err<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"Error occurred when reading file"</font><font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

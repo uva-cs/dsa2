@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>FedUps.py</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900"># CS3100 - Fall 2024 - Programming Assignment 1</font></i>
+<i><font color="#9A1900">#################################</font></i>
+<i><font color="#9A1900"># Collaboration Policy: You may discuss the problem and the overall</font></i>
+<i><font color="#9A1900"># strategy with up to 4 other students, but you MUST list those people</font></i>
+<i><font color="#9A1900"># in your submission under collaborators.  You may NOT share code,</font></i>
+<i><font color="#9A1900"># look at others' code, or help others debug their code.  Please read</font></i>
+<i><font color="#9A1900"># the syllabus carefully around coding.  Do not seek published or online</font></i>
+<i><font color="#9A1900"># solutions for any assignments. If you use any published or online resources</font></i>
+<i><font color="#9A1900"># (which may not include solutions) when completing this assignment, be sure to</font></i>
+<i><font color="#9A1900"># cite them. Do not submit a solution that you are unable to explain orally to a</font></i>
+<i><font color="#9A1900"># member of the course staff.</font></i>
+<i><font color="#9A1900">#################################</font></i>
+<i><font color="#9A1900"># Your Computing ID: </font></i>
+<i><font color="#9A1900"># Collaborators: </font></i>
+<i><font color="#9A1900"># Sources: Introduction to Algorithms, Cormen</font></i>
+<i><font color="#9A1900">#################################</font></i>
+<b><font color="#000080">from</font></b> Graph <b><font color="#000080">import</font></b> Graph 
+
+<b><font color="#0000FF">class</font></b> FedUps<font color="#990000">:</font>
+
+    <b><font color="#0000FF">def</font></b> <b><font color="#000000">__init__</font></b><font color="#990000">(</font>self<font color="#990000">):</font>
+        <b><font color="#0000FF">return</font></b>
+
+    <i><font color="#9A1900"># This is the method that should run the computation</font></i>
+    <i><font color="#9A1900"># of FedUps.  It takes as input the number of cities, </font></i>
+    <i><font color="#9A1900"># a list of carrying capacities as strings in the form:</font></i>
+    <i><font color="#9A1900">#</font></i>
+    <i><font color="#9A1900"># 2,5,100</font></i>
+    <i><font color="#9A1900">#</font></i>
+    <i><font color="#9A1900"># which means that there is a truck from city 2 to city</font></i>
+    <i><font color="#9A1900"># 5 with a carrying capacity of 100, and lastly a list</font></i>
+    <i><font color="#9A1900"># of current loads as strings in the form:</font></i>
+    <i><font color="#9A1900">#</font></i>
+    <i><font color="#9A1900"># 2,5,40</font></i>
+    <i><font color="#9A1900">#</font></i>
+    <i><font color="#9A1900"># which means that the truck from city 2 to city 5 has</font></i>
+    <i><font color="#9A1900"># current load of 40, the starting city, and the</font></i>
+    <i><font color="#9A1900"># destination city.</font></i>
+    <i><font color="#9A1900">#</font></i>
+    <i><font color="#9A1900"># @return a list of integers indicating the sequence</font></i>
+    <i><font color="#9A1900"># of cities which starts in the start city and ends</font></i>
+    <i><font color="#9A1900"># in the destination city that also minimizes the</font></i>
+    <i><font color="#9A1900"># cumulative sum of percentages of the truck capacities</font></i>
+    <i><font color="#9A1900"># for the route.</font></i>
+    <b><font color="#0000FF">def</font></b> <b><font color="#000000">compute</font></b><font color="#990000">(</font>self<font color="#990000">,</font> numCities<font color="#990000">,</font> capacities<font color="#990000">,</font> loads<font color="#990000">,</font> start<font color="#990000">,</font> end<font color="#990000">):</font>
+        <b><font color="#0000FF">return</font></b> <font color="#990000">[]</font> 
+</tt></pre>
+</body>
+</html>

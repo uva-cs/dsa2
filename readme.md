@@ -13,9 +13,12 @@ Repository Contents
 -------------------
 
 - [Course syllabus](syllabus.html) ([md](syllabus.md))
-- [PS0](ps/ps0.html) ([md](ps/ps0.md))
-- [PS1](ps/ps1.html) ([md](ps/ps1.md))
 - [SDAC Accommodations](sdac.html) ([md](sdac.md))
+- Problem set assignments:
+	- [PS0](ps/ps0.html) ([md](ps/ps0.md))
+	- [PS1](ps/ps1.html) ([md](ps/ps1.md))
+- Programming assignments:
+	- [PA1](pa/pa1/index.html) ([md](pa/pa1/index.md))
 
 License
 -------
