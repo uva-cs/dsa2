@@ -1,5 +1,5 @@
 ---
-"DSA2: Problem Set 2"
+title: "DSA2: Problem Set 2"
 ---
 
 A `.tex` file is provided with the questions where you'll also enter your answers (see below), but [here's a PDF file with the questions](ps2.pdf) if you want to see them before you set up the LaTeX project.
