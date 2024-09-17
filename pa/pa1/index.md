@@ -12,7 +12,7 @@ Your goal will be to write an algorithm which finds the path from a given start 
 
 ### Changelog
 
-- Sun, 9/15: the original graph had an error: the edge from 0->3 should be "0/60" (as now shown below)
+- Sun, 9/15: the original graph had an error: the edge from 0->3 should be "0/60" (as now shown below); the example.txt and the I/O output below was fixed the next day
 
 ### Input
 
@@ -80,7 +80,7 @@ The actual output would be:
 ```
 0,1,16
 0,2,60
-0,3,60
+0,3,0
 1,4,16
 2,3,40
 ```
@@ -100,7 +100,7 @@ The exact input would be the following; this is available in the [example.txt](e
 ---
 0,1,16
 0,2,60
-0,3,60
+0,3,0
 1,4,16
 2,3,40
 4,3,16

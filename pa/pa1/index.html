@@ -34,7 +34,7 @@
 <p>Your goal will be to write an algorithm which finds the path from a given start city to a destination city which maximizes the remaining capacities averaged across the nodes in the graph. Note that the number of trucks is irrelevant, we only care to maximize the average of these percentages. At-capacity trucks may not be used, since FedUps could not add a package to that truck.</p>
 <h3 id="changelog">Changelog</h3>
 <ul>
-<li>Sun, 9/15: the original graph had an error: the edge from 0-&gt;3 should be “0/60” (as now shown below)</li>
+<li>Sun, 9/15: the original graph had an error: the edge from 0-&gt;3 should be “0/60” (as now shown below); the example.txt and the I/O output below was fixed the next day</li>
 </ul>
 <h3 id="input">Input</h3>
 <p>Your input will be 5 parameters containing the following information:</p>
@@ -86,7 +86,7 @@
 </ul>
 <pre><code>0,1,16
 0,2,60
-0,3,60
+0,3,0
 1,4,16
 2,3,40</code></pre>
 <p>The exact input would be the following; this is available in the <a href="example.txt">example.txt</a> file.</p>
@@ -102,7 +102,7 @@
 ---
 0,1,16
 0,2,60
-0,3,60
+0,3,0
 1,4,16
 2,3,40
 4,3,16</code></pre>
