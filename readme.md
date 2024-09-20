@@ -19,6 +19,7 @@ Repository Contents
 	- [PS0](ps/ps0.html) ([md](ps/ps0.md))
 	- [PS1](ps/ps1.html) ([md](ps/ps1.md))
 	- [PS2](ps/ps2.html) ([md](ps/ps2.md))
+	- [PS3](ps/ps3.html) ([md](ps/ps3.md))
 - Programming assignments:
 	- [PA1](pa/pa1/index.html) ([md](pa/pa1/index.md))
 
