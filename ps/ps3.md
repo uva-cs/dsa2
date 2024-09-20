@@ -1,14 +1,14 @@
 ---
-title: "DSA2: Problem Set 2"
+title: "DSA2: Problem Set 3"
 ---
 
-A `.tex` file is provided with the questions where you'll also enter your answers (see below), but [here's a PDF file with the questions](ps2.pdf) if you want to see them before you set up the LaTeX project.
+A `.tex` file is provided with the questions where you'll also enter your answers (see below), but [here's a PDF file with the questions](ps3.pdf) if you want to see them before you set up the LaTeX project.
 
 ### Set Up Your LaTeX Project
 
 The instructions in this section assume you're using Overleaf. As you did in PS0, you should create a separate Overleaf project for this PS. The easiest way to set up the repository is to upload the zip file posted with each exercise. To do this:
 
-1. Download the [ps2.tex](ps2.tex) file; you will also need the [dsa2.sty](dsa2.sty) file (it's the same as PS0, and won't change this semester).
+1. Download the [ps3.tex](ps3.tex) file; you will also need the [dsa2.sty](dsa2.sty) file (it's the same as PS0, and won't change this semester).
 2. In Overleaf, click on New Project and select Upload Project from the menu
 3. Select the files you downloaded in step 1
 
@@ -21,7 +21,7 @@ The instructions in this section assume you're using Overleaf. As you did in PS0
 2. Then, try rebuilding the PDF by clicking Recompile. You should see a file that includes your name and collaborators.
 
 ### Deliverable
-- Modify the ps2.tex file to complete the problems.
+- Modify the ps3.tex file to complete the problems.
 - Submit the generated **pdf** (NOT a .tex or .zip file) to Gradescope.
 - Match Problems to Pages - When you submit your pdf to Gradescope, you will be shown a "Question Outline" and be prompted to "Select a question or a page". Click on the first problem (usually labeled "1 Problem 1"), then choose the page (or pages) of the pdf file on which your answer appears. Repeat for each question listed. 
 

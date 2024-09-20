@@ -28,9 +28,14 @@
 <header id="title-block-header">
 <h1 class="title">DSA2: PA1: FedUps</h1>
 </header>
+<h3 id="description">Description</h3>
 <p>Package delivery isn’t what it used to be. With a rise in premium package delivery services, FedEx and UPS have now created a new tier in their delivery service options: FedUps sub-premium delivery subscription service. Subscribers to FedUps will receive a small discount on their shipping costs, but they must agree to receive only the worst customer treatment and delivery times for all packages. One example of this intentionally poor treatment is that FedUps will now send your packages to you via routes that are not guaranteed to be the most efficient. Instead, FedEx and UPS will try to use FedUps orders to do their best to minimize the excess capacity of all of their vehicles.</p>
 <p>Your algorithm will receive two weighted graphs (lists of edges) as input. The first graph will represent the total transportation capacities of their vehicles. The nodes represent cities, edges represent trucks traveling between cities, and the weight of the edge represents the maximum weight that can be carried by each truck. The second graph will represent the remaining available capacities on all vehicles. The same nodes and edges will be present as for the first graph, but now the edges represent how much more cargo each truck can carry.</p>
 <p>Your goal will be to write an algorithm which finds the path from a given start city to a destination city which maximizes the remaining capacities averaged across the nodes in the graph. Note that the number of trucks is irrelevant, we only care to maximize the average of these percentages. At-capacity trucks may not be used, since FedUps could not add a package to that truck.</p>
+<h3 id="changelog">Changelog</h3>
+<ul>
+<li>Sun, 9/15: the original graph had an error: the edge from 0-&gt;3 should be “0/60” (as now shown below); the example.txt and the I/O output below was fixed the next day</li>
+</ul>
 <h3 id="input">Input</h3>
 <p>Your input will be 5 parameters containing the following information:</p>
 <ul>
@@ -44,15 +49,15 @@
 <h3 id="output">Output</h3>
 <p>Your output will be a list of integers indicating the sequence of cities which starts in the start city and ends in the destination city, that also maximizes the average of available capacity percentage of truck available capacity. The main method provided will print this list one city per line. An example output is given below.</p>
 <h3 id="running-time-requirements">Running Time Requirements</h3>
-<p>The worst-case asymptotic running time of your program should belong to <span class="math inline"><em>O</em>(<em>c</em>⋅<em>t</em>)</span>, where <span class="math inline"><em>c</em></span> is the number of cities and <span class="math inline"><em>t</em></span> is the number of trucks.</p>
+<p>The worst-case asymptotic running time of your program should belong to <span class="math inline"><em>O</em>(<em>c</em> ⋅ <em>t</em>)</span>, where <span class="math inline"><em>c</em></span> is the number of cities and <span class="math inline"><em>t</em></span> is the number of trucks.</p>
 <h3 id="example">Example</h3>
 <p><img src="pa1-graph.jpg" style="float:right" /></p>
 <p>Consider the graph to the right. The start is at node 0, and the end is at node 3.</p>
 <p>In this example, there are three paths from the start node to the end node. The correct path your algorithm should return would be [0,2,3].</p>
 <ul>
-<li>The edge [0,3] is at capacity, so it cannot be used.</li>
-<li>The path [0,1,4,3] has available space 16/40 (40%) on each of the three segments, so this averages to 40%.</li>
-<li>The path [0,2,3] has free capacity 60/100 (60%) for the path from 0-2, and 40/100 (40%) for the path from 2-3. This averages to 50%.</li>
+<li>The edge [0,3] is at capacity (has 0 available space), so it cannot be used.</li>
+<li>The path [0,1,4,3] has available capacity 16/40 (40%) on each of the three segments, so this averages to 40%.</li>
+<li>The path [0,2,3] has available capacity 60/100 (60%) for the path from 0-2, and 40/100 (40%) for the path from 2-3. This averages to 50%.</li>
 </ul>
 <p>As the third path maximizes the percentage of available capacity, it would be the output path.</p>
 <p>The actual output would be:</p>
@@ -81,7 +86,7 @@
 </ul>
 <pre><code>0,1,16
 0,2,60
-0,3,60
+0,3,0
 1,4,16
 2,3,40</code></pre>
 <p>The exact input would be the following; this is available in the <a href="example.txt">example.txt</a> file.</p>
@@ -97,7 +102,7 @@
 ---
 0,1,16
 0,2,60
-0,3,60
+0,3,0
 1,4,16
 2,3,40
 4,3,16</code></pre>
