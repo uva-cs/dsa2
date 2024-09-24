@@ -8,11 +8,12 @@ Package delivery isn't what it used to be.  With a rise in premium package deliv
 
 Your algorithm will receive two weighted graphs (lists of edges) as input. The first graph will represent the total transportation capacities of their vehicles. The nodes represent cities, edges represent trucks traveling between cities, and the weight of the edge represents the maximum weight that can be carried by each truck.  The second graph will represent the remaining available capacities on all vehicles. The same nodes and edges will be present as for the first graph, but now the edges represent how much more cargo each truck can carry.
 
-Your goal will be to write an algorithm which finds the path from a given start city to a destination city which maximizes the remaining capacities averaged across the nodes in the graph. Note that the number of trucks is irrelevant, we only care to maximize the average of these percentages. At-capacity trucks may not be used, since FedUps could not add a package to that truck.
+Your goal will be to write an algorithm which finds the path from a given start city to a destination city which *minimizes the sum of load percentages* across the nodes in the graph. Note that the number of trucks is irrelevant, we only care to *minimizes the sum of load percentages*. At-capacity trucks may not be used, since FedUps could not add a package to that truck.
 
 ### Changelog
 
-- Sun, 9/15: the original graph had an error: the edge from 0->3 should be "0/60" (as now shown below); the example.txt and the I/O output below was fixed the next day
+- Tue, 9/24: To make this assignment more feasible, we are changing the goal: instead of "maximizes the percentage of available capacity" we are "minimizes the sum of load percentages".  Note that what you have to minimize is the load percentage (how much space is taken), but what is given to you in the problem is the available space (how much space is left).  Also, another example test cases was added.
+- Sun, 9/15: The original graph had an error: the edge from 0->3 should be "0/60" (as now shown below); the example.txt and the I/O output below was fixed the next day
 
 ### Input
 
@@ -28,7 +29,7 @@ The provided skeleton code, below, already reads in the input from an `example.t
 
 ### Output
 
-Your output will be a list of integers indicating the sequence of cities which starts in the start city and ends in the destination city, that also maximizes the average of available capacity percentage of truck available capacity.  The main method provided will print this list one city per line.  An example output is given below.
+Your output will be a list of integers indicating the sequence of cities which starts in the start city and ends in the destination city, that also *minimizes the sum of load percentages*.  The main method provided will print this list one city per line.  An example output is given below.
 
 ### Running Time Requirements
 
@@ -45,10 +46,10 @@ Consider the graph to the right.  The start is at node 0, and the end is at node
 In this example, there are three paths from the start node to the end node.  The correct path your algorithm should return would be [0,2,3]. 
 
 - The edge [0,3] is at capacity (has 0 available space), so it cannot be used.
-- The path [0,1,4,3] has available capacity 16/40 (40%) on each of the three segments, so this averages to 40%.
-- The path [0,2,3] has available capacity 60/100 (60%) for the path from 0-2, and 40/100 (40%) for the path from 2-3.  This averages to 50%.
+- The path [0,1,4,3] has available capacity 16/40 (40%) on each of the three segments, or 40%.  The sum of these is 120%/
+- The path [0,2,3] has available capacity 60/100 (60%) for the path from 0-2, and 40/100 (40%) for the path from 2-3.  This sums to 100%.
 
-As the third path maximizes the percentage of available capacity, it would be the output path.
+As the third path *minimizes the sum of load percentages*, it would be the output path.
 
 The actual output would be:
 
@@ -57,6 +58,14 @@ The actual output would be:
 2
 3
 ```
+
+If we made one graph change -- changing the available capacity of the (0,3) edge to 60 (so there is a lot of available space on that truck), then the output would be:
+
+```
+0
+3
+```
+
 
 <br clear='all'>
 
