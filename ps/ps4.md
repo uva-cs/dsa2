@@ -2,7 +2,7 @@
 title: "DSA2: Problem Set 4"
 ---
 
-A `.tex` file is provided with the questions where you'll also enter your answers (see below), but [here's a PDF file with the questions](ps4.pdf) if you want to see them before you set up the LaTeX project.
+A `.tex` file is provided with the questions where you'll also enter your answers (see below), but [here's a PDF file with the questions](ps4.pdf) if you want to see them before you set up the LaTeX project.  [Here](ps4-graph.png) is the graph of the city streets.
 
 ### Set Up Your LaTeX Project
 
