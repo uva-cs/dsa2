@@ -22,6 +22,7 @@ Repository Contents
 	- [PS3](ps/ps3.html) ([md](ps/ps3.md))
 - Programming assignments:
 	- [PA1](pa/pa1/index.html) ([md](pa/pa1/index.md))
+	- [PA2](pa/pa2/index.html) ([md](pa/pa2/index.md))
 
 License
 -------

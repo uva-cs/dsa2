@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>PA2Skeleton.java</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// DSA2 PA2 skeleton code</font></i>
+
+<i><font color="#9A1900">// This code shows how to read in the input in the format described at:</font></i>
+<i><font color="#9A1900">// https://uva-cs.github.io/dsa2/pa/pa2/</font></i>
+
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>util<font color="#990000">.</font>Scanner<font color="#990000">;</font>
+
+<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">PA2Skeleton</font> <font color="#FF0000">{</font>
+	<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font>String<font color="#990000">[]</font> args<font color="#990000">)</font> <font color="#FF0000">{</font>
+		<font color="#008080">Scanner</font> stdin <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Scanner</font></b><font color="#990000">(</font>System<font color="#990000">.</font>in<font color="#990000">);</font>
+		<font color="#009900">int</font> cases <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font> <i><font color="#9A1900">// how many test cases are in the file</font></i>
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> cases<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+			<font color="#009900">int</font> result<font color="#990000">;</font> <i><font color="#9A1900">// how many test cases are in the file</font></i>
+			<font color="#009900">int</font> size <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font> <i><font color="#9A1900">// how many not-so-ordered books are in this particular test case</font></i>
+			<font color="#009900">int</font><font color="#990000">[]</font> shelf <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">int</font><font color="#990000">[</font>size<font color="#990000">];</font>
+			<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> j <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> j <font color="#990000">&lt;</font> size<font color="#990000">;</font> j<font color="#990000">++</font> <font color="#990000">)</font>
+				shelf<font color="#990000">[</font>j<font color="#990000">]</font> <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+
+			<i><font color="#9A1900">// The shelf of not-so-ordered book numbers is in the `shelf` variable</font></i>
+
+			<i><font color="#9A1900">// Do something here.</font></i>
+
+			System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>result<font color="#990000">);</font> <i><font color="#9A1900">// the only output is one integer printed per test case</font></i>
+		<font color="#FF0000">}</font>
+		
+	<font color="#FF0000">}</font>
+<font color="#FF0000">}</font></tt></pre>
+</body>
+</html>
