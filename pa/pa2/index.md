@@ -35,6 +35,7 @@ Your algorithm must run in $\Theta(n\ \log n)$ time.  We are going to check this
 
 **You will need to name your recursive function `solve()` (not `Solve()`, not `solver()`, not anything else).**
 
+**You will need to use a `long` counter for this program if using Java, as there may be more than 2^32 (the number of values in a 32-bit integer) book pairs that are out-of-order.**
 
 ### Example Input
 

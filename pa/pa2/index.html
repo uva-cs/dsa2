@@ -41,8 +41,9 @@
 <p>All output is to be printed to standard output.</p>
 <h3 id="requirements">Requirements</h3>
 <p>This can be done via two nested for loops, but that yields a <span class="math inline"><em>Θ</em>(<em>n</em><sup>2</sup>)</span> algorithm. Your algorithm must be a <strong>divide and conquer</strong> algorithm, as discussed in class – we are going to check this. You cannot use parallelization – your program will be limited to one thread/process.</p>
-<p>Your algorithm must run in <span class="math inline"><em>Θ</em>(<em>n</em> log<em>n</em>)</span> time. We are going to check this with a <em>very</em> large test case provided via standard input. If your algorithm is not <span class="math inline"><em>O</em>(<em>n</em> log<em>n</em>)</span>, Gradescope will time out on your submission.</p>
+<p>Your algorithm must run in <span class="math inline"><em>Θ</em>(<em>n</em> log <em>n</em>)</span> time. We are going to check this with a <em>very</em> large test case provided via standard input. If your algorithm is not <span class="math inline"><em>O</em>(<em>n</em> log <em>n</em>)</span>, Gradescope will time out on your submission.</p>
 <p><strong>You will need to name your recursive function <code>solve()</code> (not <code>Solve()</code>, not <code>solver()</code>, not anything else).</strong></p>
+<p><strong>You will need to use a <code>long</code> counter for this program if using Java, as there may be more than 2^32 (the number of values in a 32-bit integer) book pairs that are out-of-order.</strong></p>
 <h3 id="example-input">Example Input</h3>
 <pre><code>2
 4
