@@ -50,10 +50,9 @@ The first test case corresponds to the diagram above.  The blank lines are only 
 1 3
 0 25
 
-40 4
+40 3
 2 3
 1 6
-1 8
 0 30
 
 5550 3
@@ -92,10 +91,10 @@ There should NOT be blank lines between test cases -- that is only to help illus
 -1
 ```
 
-Note that the second test case could have also had the output `3` as the second line, since either the 2nd or 3rd box would have enough weights of the correct mass to fulfill the requirements.
-
 ### Requirements
 
 This needs to be a greedy solution.  Brute force solutions will time out with the test cases we are going to provide.
 
 There is no skeleton code being provided for this (or future) programming assignments.  You can look at [PA2](../pa2/index.html) for how to read in the input from standard input (but note that the input for this assignment is quite different than for PA2).
+
+Your source code file must be named either `pa3.py` or `PA3.java`.
