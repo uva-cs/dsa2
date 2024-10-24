@@ -163,7 +163,7 @@ Tile(n):
 :::
 
 ::: {.fragment}
-<p class='red center'>Run time: $\Omega(2^n)$</p>
+<p class='red center'>Run time: $\Theta(1.6^n)$</p>
 :::
 
 ::: {.fragment}
@@ -172,7 +172,7 @@ Tile(n):
 
 
 
-## Computing $Tile(n)$ with memory
+## Computing <span style="font-size:90%">$Tile(n)$</span> with memory
 
 :::: {.columns}
 
@@ -215,7 +215,7 @@ Tile(n):
 
 
 
-## [Computing $Tile(n)$ with memory -- "Top Down"]{.r-fit-text}
+## [Computing <span style="font-size:90%">$Tile(n)$</span> with memory]{.r-fit-text}
 
 :::: {.columns}
 
@@ -359,7 +359,7 @@ Tile(n):
 
 
 
-## [Computing $Tile(n)$ with memory "Top Down"]{.r-fit-text}
+## [Computing <span style="font-size:90%">$Tile(n)$</span> with memory "Top Down"]{.r-fit-text}
 
 :::: {.columns}
 
@@ -403,7 +403,7 @@ Tile(n):
 
 
 
-## [Computing $Tile(n)$ with memory "Bottom Up"]{.r-fit-text}
+## [Computing <span style="font-size:90%">$Tile(n)$</span> with memory "Bottom Up"]{.r-fit-text}
 
 :::: {.columns}
 
