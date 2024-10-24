@@ -1,0 +1,291 @@
+/* slide formatting */
+div.slides {
+	margin-top:-50px !important;
+}
+img.center, .center img {
+	margin:auto;
+	text-align:center;
+	display:block;
+}
+.reveal .slide ul li {
+	margin-top:0.1em !important;
+	margin-bottom:0.1em !important;
+}
+.reveal table td {
+	border-bottom:none;
+}
+div.no-bullets ul, div.no-bullets ul ul {
+	/* from https://www.w3schools.com/howto/howto_css_list_without_bullets.asp */
+  list-style-type: none; /* Remove bullets */
+}
+.titlereading {
+	font-size:x-large;
+	position:fixed;
+	bottom:0;
+}
+
+table.border th td, table.border tr td, td.border {
+	border:1px solid black;
+	border-bottom:1px solid black !important;
+}
+
+/* h2 styling from https://stackoverflow.com/questions/22083157/extend-background-color-of-header-beyond-container-with-css */
+#container {
+    width: 100px;
+    margin: 0 auto;
+    background-color: #202d4d;
+}
+h2:not(.subtitle) {
+    background-color:#202d4d;
+    height: 100px;
+    position: relative;
+    color:white !important;
+}
+h2:not(.subtitle):before {
+    content:"";
+    background-color:#202d4d;
+    position: absolute;
+    height: 100%;
+    width: 4000px;
+    left: -2000px;
+    z-index: -1;
+}
+#container {
+    width: 100px;
+    margin: 0 auto;
+    background-color: #E46C0A;
+}
+div.orangetitle {
+    background-color:#E46C0A;
+    height: 100px;
+    position: relative;
+    color:black !important;
+}
+div.orangetitle:before {
+    content:"";
+    background-color:#E46C0A;
+    position: absolute;
+    height: 350%;
+    width: 4000px;
+    left: -2000px;
+    z-index: -1;
+}
+
+/* different table styles */
+
+table.compact th, table.compact th td, table.compact td, table.compact td td,
+div.compact table th, div.compact table th td, div.compact table td, div.compact table td td {
+	margin:0;
+	padding:0;
+}
+div.allcenter table thead tr th, div.allcenter table th td, div.allcenter table tr td, ttable.allcenter th td, table.allcenter tr td {
+	vertical-align:middle;
+	text-align:center;
+	border-bottom:none;
+}
+
+/* ... */
+
+.half-circle {
+    /* width: 200px; */
+    /* height: 100px; */ /* as the half of the width */
+    /* border-top-left-radius: 110px; */ /* 100px of height + 10px of border */
+    /* border-top-right-radius: 110px; */ /* 100px of height + 10px of border */
+    border: 5px solid red;
+    border-bottom: 0;
+}
+
+
+
+/* the blue table with alternating color rows */
+div.blue-table table {
+	font-size:xx-large;
+}
+div.blue-table table th {
+	background-color:rgb(20,60,110);
+	padding:5px;
+	text-align:center;
+	border-bottom:3px solid white;
+}
+div.blue-table table tr td {
+  text-align: center;
+  font-size: 80%;
+  line-height: 120%;
+}
+div.blue-table table tr:nth-child(2n+1) {
+  background-color: #888888;
+  padding-left: 5px;
+  color: white;
+}
+div.blue-table table tr:nth-child(2n) {
+  background-color: rgb(110,160,220);
+  padding-left: 5px;
+  color: white;
+}
+
+/* ... */
+
+ul li p, ul li span {
+	display:inline-block;
+}
+li.purple {
+	border:2px solid #5f497a;
+	background-color:#e5dfec;
+	border-radius:5px;
+	color:black;
+}
+
+/* this is the green-and-yellow tile example in the DP slide set */
+table.cells. table.cellssmall {
+ 	border-collapse: collapse;
+}
+table.cells tr, table.cellssmall tr {
+ 	border-collapse: collapse;
+}
+td.tdbottom, tr.trbottom {
+	border-bottom:2px solid black !important;
+}
+table.cells td {
+	width:20px;
+	height:45px;
+	border:2px solid black;
+ 	border-collapse: collapse;
+}
+table.cellssmall td {
+	font-size:x-large;
+	width:10px;
+	height:30px;
+	border:2px solid black;
+ 	border-collapse: collapse;
+}
+td.noborder, tr.noborder, tr.noborder td {
+	border:none !important;
+}
+
+table.dominov {
+  background-color: lightgreen;
+	border: 2px solid black;
+	border-radius:5px;
+	border-collapse:separate;
+	width:50px;
+	height:100px;
+	padding:0;
+	margin-top:6px;
+}
+table.dominoh {
+  background-color: lightgreen;
+	border: 2px solid black;
+	border-radius:5px;
+	border-collapse:separate;
+	width:100px;
+	height:50px;
+	padding:0;
+}
+table.dominoholder tr td {
+	margin:0;
+	padding:3px;
+}
+table.dominogrid tr td {
+	border:2px solid black;
+	border-bottom:2px solid black !important;
+	margin:0;
+	padding:0;
+	width:50px;
+	height:50px;
+}
+
+/* purple note class */
+table.purplenote {
+  background-image: linear-gradient(to bottom, #eee6f9, #c9b4e9);
+	border: 2px solid #8c74ab;
+	border-radius:25px;
+	border-collapse:separate;
+}
+/* blue note class */
+table.bluenote {
+  background-image: linear-gradient(to bottom, #e1fbff, #9ce9ff);
+	border: 2px solid #4529c4;
+	border-radius:25px;
+	border-collapse:separate;
+}
+
+
+
+span.rotate90 {
+  display: inline-block;
+  transform: rotate(90deg);
+}
+
+/* colors */
+.red { color:red; }
+.green { color:green; }
+.purple { color:purple; }
+.blue { color:blue; }
+.magenta { color:magenta; }
+.grey { color:grey; }
+
+td.red { background-color:red; color:black; }
+td.orange { background-color:orange; color:black; }
+td.yellow { background-color:yellow; color:black; }
+td.green { background-color:green; color:black; }
+td.blue { background-color:blue; color:white; }
+td.purple { background-color:purple; color:white; }
+td.clear {}
+
+td.redtext { color:red; }
+td.orangetext { color:orange; }
+td.yellowtext { color:yellow; }
+td.greentext { color:green; }
+td.bluetext { color:blue; }
+td.purpletext { color:purple; }
+
+
+
+/* sizes */
+.smaller {
+	font-size: smaller;
+}
+.small {
+	font-size: small;
+}
+.medium {
+	font-size: medium;
+}
+.large {
+	font-size: large;
+}
+.x-large {
+	font-size: x-large;
+}
+.xx-large {
+	font-size: xx-large;
+}
+.xxx-large {
+	font-size: xxx-large;
+}
+
+
+/* pseudocode */
+div.medium-pseudocode pre code {
+	font-size:1.5em;
+	line-height:1.1em;
+	max-height:unset;
+}
+div.large-pseudocode pre code {
+	font-size:2em;
+	line-height:1.2em;
+	max-height:unset;
+}
+
+/* unfiled */
+p.center {
+	text-align:center;
+}
+div.underbrace {
+	text-align:left !important;
+	margin-top:-80px;
+}
+div.underbrace p span div {
+	text-align:left !important;
+}
+

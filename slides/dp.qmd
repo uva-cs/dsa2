@@ -1,0 +1,2820 @@
+---
+title: "Dynamic Programming"
+---
+
+# Introduction <!-- from day16.pptx -->
+
+::: {.titlereading}
+Readings in CLRS 4th edition: ...
+:::
+
+## Warm Up
+
+&nbsp;
+
+<p style="text-align:center;font-size:1.5em">$2 \times n$ board with dominoes?</p>
+
+&nbsp;
+
+<table><tr><td>
+
+How many ways to tile this:
+
+<table class="dominogrid">
+	<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+
+With these?
+
+<table class="allcenter"><tr>
+<td><table class="dominov"><tr><td></td></tr></table></td>
+<td><table class="dominoh"><tr><td></td></tr></table></td>
+</tr></table>
+
+</td><td>
+
+For example:
+
+<table class="dominoholder"><tr>
+<td><table class="dominov"><tr><td></td></tr></table><td>
+<td><table class="dominov"><tr><td></td></tr></table><td>
+<td style="vertical-align:top">
+	<table>
+		<tr><td><table class="dominoh"><tr><td></td></tr></table></td></tr>
+		<tr><td><table class="dominoh"><tr><td></td></tr></table></td></tr>
+	</table>
+</td>
+<td style="vertical-align:top">
+	<table>
+		<tr><td><table class="dominoh"><tr><td></td></tr></table></td></tr>
+		<tr><td><table class="dominoh"><tr><td></td></tr></table></td></tr>
+	</table>
+</td>
+<td><table class="dominov"><tr><td></td></tr></table><td>
+</tr></table>
+
+&nbsp;
+
+<table class="dominoholder"><tr>
+<td style="vertical-align:top">
+	<table>
+		<tr><td><table class="dominoh"><tr><td></td></tr></table></td></tr>
+		<tr><td><table class="dominoh"><tr><td></td></tr></table></td></tr>
+	</table>
+</td>
+<td style="vertical-align:top">
+	<table>
+		<tr><td><table class="dominoh"><tr><td></td></tr></table></td></tr>
+		<tr><td><table class="dominoh"><tr><td></td></tr></table></td></tr>
+	</table>
+</td>
+<td><table class="dominov"><tr><td></td></tr></table><td>
+<td><table class="dominov"><tr><td></td></tr></table><td>
+<td><table class="dominov"><tr><td></td></tr></table><td>
+</tr></table>
+
+</td></tr></table>
+
+----
+
+## Warm Up
+
+How many ways are there to tile a $2 \times n$ board with dominoes?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<p class="xx-large">Two ways to fill the final column:</p>
+
+::: {.fragment fragment-index=1}
+<table class="cells" style="margin-left:0">
+<tr><td></td><td></td><td></td><td></td><td></td><td class='clear'></td><td class='green'></td></tr>
+<tr class="trbottom"><td></td><td></td><td></td><td></td><td></td><td class='clear'></td><td class='green'></td></tr>
+</table>
+:::
+
+::: {.fragment fragment-index=3}
+<p style="margin:0"><img src="images/underbrace-red.svg" style="width:380px;margin:0"></p>
+
+<p style="color:red;text-align:center;font-size:80%;margin-top:0">$n-1$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+:::
+
+::: {.fragment fragment-index=2}
+<table class="cells" style="margin-left:0">
+<tr><td></td><td></td><td></td><td></td><td></td><td class='green'></td><td class='green'></td></tr>
+<tr class="trbottom"><td></td><td></td><td></td><td></td><td></td><td class='yellow'></td><td class='yellow'></td></tr>
+</table>
+:::
+
+::: {.fragment fragment-index=4}
+<p style="margin:0"><img src="images/underbrace-red.svg" style="width:320px;margin:0"></p>
+
+<p style="color:red;text-align:center;font-size:80%;margin-top:0">$n-2$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+:::
+
+:::
+
+::: {.column width="30%"}
+::: {.fragment fragment-index=5}
+<div class="red xx-large">
+$$Tile(n) = Tile(n-1) + Tile(n-2)$$
+$$Tile(0) = 1$$
+$$Tile(1) = 1$$
+</div>
+:::
+:::
+
+::::
+
+
+## How to compute $Tile(n)$?
+&nbsp;
+<div class='large-pseudocode'>
+```
+Tile(n):
+	if n < 2:
+		return 1
+	return Tile(n-1) + Tile(n-2)
+```
+</div>
+&nbsp;
+
+::: {.fragment}
+<div class='red' style="font-size:2em">Problem?</div>
+:::
+
+
+## Recursion Tree  {auto-animate=true}
+
+::: {.center}
+![](graphs/dp.dot.svg)
+:::
+
+
+## Recursion Tree {auto-animate=true}
+
+::: {.center}
+![](graphs/dp.dot.2.svg)
+:::
+
+::: {.fragment}
+<p class='red center'>Many redundant calls!</p>
+:::
+
+::: {.fragment}
+<p class='red center'>Run time: $\Omega(2^n)$</p>
+:::
+
+::: {.fragment}
+<p class='magenta'>Better way: Use Memory!</p>
+:::
+
+
+
+## Computing $Tile(n)$ with memory
+
+:::: {.columns}
+
+::: {.column width="80%"}
+&nbsp;
+<div class='large-pseudocode'>
+```
+Initialize memory M
+Tile(n):
+	if n < 2:
+		return 1
+	if M[n] is filled:
+		return M[n]
+	M[n] = Tile(n-1)+Tile(n-2)
+	return M[n]
+```
+</div>
+&nbsp;
+
+::: {.fragment}
+<table class="purplenote"><tr><td>Technique: memoization (note no 'r')</td></tr></table>
+:::
+:::
+
+::: {.column width="10%"}
+<table class='cells'>
+<tr><td class="noborder" style="min-width:50px">M</td><td class="noborder"></td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">0</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">1</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">2</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">3</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">4</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">5</td></tr>
+<tr><td class="tdbottom">&nbsp;</td><td class="noborder magenta">6</td></tr>
+</table>
+:::
+
+::::
+
+
+
+
+## [Computing $Tile(n)$ with memory -- "Top Down"]{.r-fit-text}
+
+:::: {.columns}
+
+::: {.column width="80%"}
+&nbsp;
+<div class='large-pseudocode'>
+```
+Initialize memory M
+Tile(n):
+	if n < 2:
+		return 1
+	if M[n] is filled:
+		return M[n]
+	M[n] = Tile(n-1)+Tile(n-2)
+	return M[n]
+```
+</div>
+:::
+
+::: {.column width="10%"}
+<table class='cells'>
+<tr><td class="noborder" style="min-width:50px">M</td><td class="noborder"></td></tr>
+<tr><td>1</td><td class="noborder magenta">0</td></tr>
+<tr><td>1</td><td class="noborder magenta">1</td></tr>
+<tr><td>2</td><td class="noborder magenta">2</td></tr>
+<tr><td>3</td><td class="noborder magenta">3</td></tr>
+<tr><td>5</td><td class="noborder magenta">4</td></tr>
+<tr><td>8</td><td class="noborder magenta">5</td></tr>
+<tr><td class="tdbottom">13</td><td class="noborder magenta">6</td></tr>
+</table>
+:::
+
+::::
+
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+	1. Identify recursive structure of the problem
+		- What is the “last thing” done?
+
+::: {.fragment}
+
+<table><tr><td>
+
+<table class="cells">
+<tr><td></td><td></td><td></td><td></td><td></td><td class='clear'></td><td class='green'></td></tr>
+<tr class="trbottom"><td></td><td></td><td></td><td></td><td></td><td class='clear'></td><td class='green'></td></tr>
+</table>
+
+<p style="margin:0"><img src="images/underbrace-red.svg" style="width:380px;margin:0"></p>
+
+<p style="font-size:80%;text-align:center;color:red">$n-1$</p>
+
+</td><td>
+
+<table class="cells">
+<tr><td></td><td></td><td></td><td></td><td></td><td class='green'></td><td class='green'></td></tr>
+<tr class="trbottom"><td></td><td></td><td></td><td></td><td></td><td class='yellow'></td><td class='yellow'></td></tr>
+</table>
+
+<p style="margin:0"><img src="images/underbrace-red.svg" style="width:320px;margin:0"></p>
+
+<p style="font-size:80%;text-align:center;color:red">$n-2$</p>
+
+</td></tr></table>
+:::
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+	1. Identify recursive structure of the problem
+		- What is the “last thing” done?
+	2. Save the solution to each subproblem in memory
+
+
+
+## Generic Divide and Conquer Solution
+
+::: {.no-bullets}
+- &nbsp;
+- def <b>myDCalgo</b>(<span class='red'>problem</span>):
+  - &nbsp;
+    - &nbsp;
+  - if baseCase(<span class='red'>problem</span>):
+    - <span class='purple'>solution</span> = solve(<span class='red'>problem</span>)
+&nbsp;
+    - &nbsp;
+    - return <span class='purple'>solution</span>
+  - for <span class='green'>subproblem</span> of <span class='red'>problem</span>: <span class='grey'># After dividing</span>
+    - <span class='blue'>subsolutions</span>.append(<b>myDCalgo</b>(<span class='green'>subproblem</span>))
+  - <span class='purple'>solution</span> = Combine(<span class='blue'>subsolutions</span>)
+  - &nbsp;
+  - return <span class='purple'>solution</span>
+:::
+
+
+## Generic Top-Down DP Solution
+
+::: {.no-bullets}
+- &nbsp;
+- def <b>myDCalgo</b>(<span class='red'>problem</span>):
+  - &nbsp;
+    - &nbsp;
+  - if baseCase(<span class='red'>problem</span>):
+    - <span class='purple'>solution</span> = solve(<span class='red'>problem</span>)
+&nbsp;
+    - &nbsp;
+    - return <span class='purple'>solution</span>
+  - for <span class='green'>subproblem</span> of <span class='red'>problem</span>:
+    - <span class='blue'>subsolutions</span>.append(<b>myDPalgo</b>(<span class='green'>subproblem</span>))
+  - <span class='purple'>solution</span> = OptimalSubstructure(<span class='blue'>subsolutions</span>)
+  - &nbsp;
+  - return <span class='purple'>solution</span>
+:::
+
+
+## Generic Top-Down DP Solution
+::: {.no-bullets}
+- mem = {}
+- def <b>myDCalgo</b>(<span class='red'>problem</span>):
+  - if mem[<span class='red'>problem</span>] not blank:
+    - return mem[<span class='red'>problem</span>]
+  - if baseCase(<span class='red'>problem</span>):
+    - <span class='purple'>solution</span> = solve(<span class='red'>problem</span>)
+&nbsp;
+    - mem[<span class='red'>problem</span>] = <span class='purple'>solution</span>
+    - return <span class='purple'>solution</span>
+  - for <span class='green'>subproblem</span> of <span class='red'>problem</span>: <span class='grey'># After dividing</span>
+    - <span class='blue'>subsolutions</span>.append(<b>myDPalgo</b>(<span class='green'>subproblem</span>))
+  - <span class='purple'>solution</span> = OptimalSubstructure(<span class='blue'>subsolutions</span>)
+  - mem[<span class='red'>problem</span>] = <span class='purple'>solution</span>
+  - return <span class='purple'>solution</span>
+:::
+
+
+
+## [Computing $Tile(n)$ with memory "Top Down"]{.r-fit-text}
+
+:::: {.columns}
+
+::: {.column width="80%"}
+&nbsp;
+<div class='large-pseudocode'>
+```
+Initialize memory M
+Tile(n):
+	if n < 2:
+		return 1
+	if M[n] is filled:
+		return M[n]
+	M[n] = Tile(n-1)+Tile(n-2)
+	return M[n]
+```
+</div>
+
+&nbsp;
+
+::: {.fragment}
+<p class='red'>Recursive calls happen in a predictable order</p>
+:::
+
+:::
+
+::: {.column width="10%"}
+<table class='cells'>
+<tr><td class="noborder" style="min-width:50px">M</td><td class="noborder"></td></tr>
+<tr><td>1</td><td class="noborder magenta">0</td></tr>
+<tr><td>1</td><td class="noborder magenta">1</td></tr>
+<tr><td>2</td><td class="noborder magenta">2</td></tr>
+<tr><td>3</td><td class="noborder magenta">3</td></tr>
+<tr><td>5</td><td class="noborder magenta">4</td></tr>
+<tr><td>8</td><td class="noborder magenta">5</td></tr>
+<tr><td class="tdbottom">13</td><td class="noborder magenta">6</td></tr>
+</table>
+:::
+
+::::
+
+
+
+## [Computing $Tile(n)$ with memory "Bottom Up"]{.r-fit-text}
+
+:::: {.columns}
+
+::: {.column width="75%"}
+&nbsp;
+<div class='large-pseudocode'>
+```
+Tile(n):
+    Initialize memory M
+	M[0] = 1
+	M[1] = 1
+	for i = 2 to n:
+	  M[i] = M[i-1] + M[i-2]
+	return M[n]
+```
+</div>
+
+:::
+
+::: {.column width="10%"}
+::: {.fragment .fade-down}
+<p style="text-align:center;margin-right:0"><img src="images/down-arrow-blue.svg" style="padding-top:50px;height:480px;object-fit:fill;max-width:unset;max-height:unset"></p>
+:::
+:::
+
+::: {.column width="10%"}
+<table class='cells'>
+<tr><td class="noborder" style="min-width:50px">M</td><td class="noborder"></td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">0</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">1</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">2</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">3</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">4</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magenta">5</td></tr>
+<tr><td class="tdbottom">&nbsp;</td><td class="noborder magenta">6</td></tr>
+</table>
+:::
+
+::::
+
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+	1. Identify recursive structure of the problem
+		- What is the “last thing” done?
+	2. Save the solution to each subproblem in memory
+	3. Select a good order for solving subproblems
+		- "Top Down": Solve each recursively
+		- "Bottom Up": Iteratively solve smallest to largest
+
+
+## [More on Optimal Substructure Property]{.r-fit-text}
+- Detailed discussion on CLRS p. 379
+	- If A is an optimal solution to a problem, then the components of A are optimal solutions to subproblems
+- Examples (we’ll see these come up later):
+	- True for coin-changing
+	- True for single-source shortest path
+	- True for knapsack problem
+
+
+
+# Log Cutting <!-- from day16.pptx -->
+
+::: {.titlereading}
+Readings in CLRS 4th edition: ...
+:::
+
+
+## Log Cutting
+
+<p style="font-size:90%;margin-bottom:50px">Find the best way to cut the log, given a log of length $n$ and<br>
+a list (of length $n$) of prices <span class='blue'>$P$</span> where <span class='blue'>$P[i]$</span> is the price of a cut of size $i$</p>
+
+
+<table class="cells">
+<tr><td class='noborder bluetext'>Price:</td><td class='tdbottom'>1</td><td class='tdbottom'>5</td><td class='tdbottom'>8</td><td class='tdbottom'>9</td><td class='tdbottom'>10</td><td class='tdbottom'>17</td><td class='tdbottom'>17</td><td class='tdbottom'>20</td><td class='tdbottom'>24</td><td class='tdbottom'>30</td></tr>
+<tr class='magenta noborder'><td>Length:</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+</table>
+
+::: {.center}
+![](images/dp/log.webp){style="width:70%;padding-left:175px"}
+:::
+
+::: {.no-bullets}
+- Select a list of lengths $\ell_1, \ldots, \ell_k$ such that:
+  - $\sum\ell_i=n$ to maximize $\sum\color{blue}{P[\ell_i]}$
+:::
+
+::: {.fragment}
+<p class='red' style="text-align:center">Brute force: $O(2^n)$</p>
+:::
+
+## Greedy Algorithm
+
+<span class='red'>Greedy algorithms</span> build a solution by picking the best option "right now"
+
+::: {.fragment style="margin-bottom:56px"}
+- Select the most profitable cut first
+:::
+
+
+<table><tr><td>
+<table class="cellssmall">
+<tr><td class='noborder bluetext'>Price:</td><td class='tdbottom'>1</td><td class='tdbottom'>5</td><td class='tdbottom'>18</td><td class='tdbottom'>24</td><td class='tdbottom'>36</td><td class='tdbottom'>50</td></tr>
+<tr class='magenta noborder'><td>Length:</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+</table>
+
+::: {.center}
+![](images/dp/log.webp){style="width:50%;padding-left:100px"}
+:::
+
+</td><td>
+::: {.fragment}
+<p><span class="red" style="font-size:xx-large">Greedy: Lengths: 5, 1</span></p>
+<p><span class="red" style="font-size:xx-large">Profit: 51</span></p>
+:::
+::: {.fragment}
+<p><span class="blue" style="font-size:xx-large">Better: Lengths: 2, 4</span></p>
+<p><span class="blue" style="font-size:xx-large">Profit: 54</span></p>
+:::
+</td></tr></table>
+
+
+
+## Greedy Algorithm
+
+<span class='red'>Greedy algorithms</span> build a solution by picking the best option "right now"
+
+::: {.fragment}
+- Select the "most bang for your buck"
+	- (best price / length ratio)
+:::
+
+<table><tr><td>
+<table class="cellssmall">
+<tr><td class='noborder bluetext'>Price:</td><td class='tdbottom'>1</td><td class='tdbottom'>5</td><td class='tdbottom'>18</td><td class='tdbottom'>24</td><td class='tdbottom'>36</td><td class='tdbottom'>50</td></tr>
+<tr class='magenta noborder'><td>Length:</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+</table>
+
+::: {.center}
+![](images/dp/log.webp){style="width:50%;padding-left:100px"}
+:::
+
+</td><td>
+<p><span class="red" style="font-size:xx-large">Greedy: Lengths: 5, 1</span></p>
+<p><span class="red" style="font-size:xx-large">Profit: 51</span></p>
+<p><span class="blue" style="font-size:xx-large">Better: Lengths: 2, 4</span></p>
+<p><span class="blue" style="font-size:xx-large">Profit: 54</span></p>
+</td></tr></table>
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li class="purple">Identify recursive structure of the problem
+    	<ul><li>What is the “last thing” done?</li></ul></li>
+	<li>Save the solution to each subproblem in memory</li>
+	<li>Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
+
+## 1. Identify Recursive Substructure
+
+<span class='blue'>$P[i] =$</span> value of a cut of length $i$
+
+<span class='magenta'>$Cut(n)=$</span> value of best way to cut a log of length $n$
+
+::: {.fragment fragment-index=4}
+$$\color{magenta}{Cut(x)} = max
+\begin{cases}
+\color{magenta}{Cut(n-1)} + \color{blue}{P[1]} \\
+\color{magenta}{Cut(n-2)} + \color{blue}{P[2]} \\
+\color{black}{\ldots} \\
+\color{magenta}{Cut(0)} + \color{blue}{P[n]}
+\end{cases}$$
+:::
+
+
+<table class='compact' style="z-index:1">
+<tr><td style="font-size:75%;text-align:center;color:magenta"> 
+::: {.fragment fragment-index=2}
+$Cut(n-\ell_k)$ <br>
+<img src="images/overbrace-red.svg" style="width:500px;height:50px;margin:0">
+:::
+</td><td style="color:blue;text-align:center;vertical-align:middle;width:100px">
+::: {.fragment fragment-index=3}
+$\ell_k$
+:::
+</td></tr>
+</table>
+
+<table style="margin-top:-30px">
+
+<tr><td>
+
+::: {.r-stack}
+<table class="compact" style="z-index:0">
+<tr>
+<td style="text-align:left;width:850px">
+![](images/dp/log.webp){style="opacity:0.4;filter:alpha(opacity=40);min-width:90%"}
+</td></tr></table>
+
+::: {.fragment fragment-index=1}
+<table style="z-index:2">
+<tr><td style="font-size:xx-large;vertical-align:middle;color:magenta">
+::: {.fragment fragment-index=2}
+best way to cut a log of length $n-\ell_k$
+:::
+</td><td style="border-left:5px solid blue;font-size:xx-large;height:100px;vertical-align:middle;color:blue">
+::: {.fragment fragment-index=3}
+last cut
+:::
+</td>
+</tr>
+</table>
+:::
+:::
+
+</td></tr>
+
+</table>
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li>Identify recursive structure of the problem
+    	<ul><li>What is the “last thing” done?</li></ul></li>
+	<li>Save the solution to each subproblem in memory</li>
+	<li class="purple">Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
+
+
+
+## [3. Select a Good Order for Solving Subproblems]{.r-fit-text}
+
+Solve Smallest subproblem first
+
+<table><tr><td style="padding:0;vertical-align:middle">
+$$\color{magenta}{Cut(0)}=0$$
+<td style="padding:0;vertical-align:bottom"><img src="images/spacer.png" style="min-height:265px;width:10px"></td>
+</tr></table>
+
+<table class="cells">
+<tr><td class='noborder bluetext'>Cut(i):</td><td class='tdbottom yellow'>0</td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td></tr>
+<tr class='magenta noborder'><td>Length:</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+</table>
+
+<table>
+<tr><td style="text-align:left;width:800px">
+![](images/dp/log.webp){style="padding-left:125px;transform:scaleX(1.5);height:100px;width:0px;object-fit:cover;object-position:0% 0;border-right:5px solid blue"}
+</td></tr>
+</table>
+
+
+## [3. Select a Good Order for Solving Subproblems]{.r-fit-text}
+
+Solve Smallest subproblem first
+
+::: {.fragment}
+<table><tr><td style="padding:0;vertical-align:middle">
+$$\color{magenta}{Cut(1)}=\color{magenta}{Cut(0)}+\color{blue}{P[1]}$$
+</td>
+<td style="padding:0;vertical-align:bottom"><img src="images/spacer.png" style="min-height:265px;width:10px"></td>
+</tr></table>
+:::
+
+<table class="cells">
+<tr><td class='noborder bluetext'>Cut(i):</td><td class='tdbottom'>0</td><td class='tdbottom yellow'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td></tr>
+<tr class='magenta noborder'><td>Length:</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+</table>
+
+<table>
+<tr><td style="text-align:left;width:800px">
+![](images/dp/log.webp){style="padding-left:125px;transform:scaleX(1.5);height:100px;width:50px;object-fit:cover;object-position:0% 0;border-right:5px solid blue"}
+</td></tr>
+</table>
+
+
+
+## [3. Select a Good Order for Solving Subproblems]{.r-fit-text}
+
+Solve Smallest subproblem first
+
+::: {.fragment}
+<table><tr><td style="padding:0;vertical-align:middle">
+$$\color{magenta}{Cut(2)} = max
+\begin{cases}
+\color{magenta}{Cut(1)} + \color{blue}{P[1]} \\
+\color{magenta}{Cut(0)} + \color{blue}{P[2]} \\
+\end{cases}$$
+</td>
+<td style="padding:0;vertical-align:bottom"><img src="images/spacer.png" style="min-height:265px;width:10px"></td>
+</tr></table>
+:::
+
+<table class="cells">
+<tr><td class='noborder bluetext'>Cut(i):</td><td class='tdbottom'>0</td><td class='tdbottom'></td><td class='tdbottom yellow'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td></tr>
+<tr class='magenta noborder'><td>Length:</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+</table>
+
+<table>
+<tr><td style="text-align:left;width:800px">
+![](images/dp/log.webp){style="padding-left:135px;transform:scaleX(1.5);height:100px;width:100px;object-fit:cover;object-position:0% 0;border-right:5px solid blue"}
+</td></tr>
+</table>
+
+
+
+## [3. Select a Good Order for Solving Subproblems]{.r-fit-text}
+
+Solve Smallest subproblem first
+
+::: {.fragment}
+<table><tr><td style="padding:0;vertical-align:middle">
+$$\color{magenta}{Cut(3)} = max
+\begin{cases}
+\color{magenta}{Cut(2)} + \color{blue}{P[1]} \\
+\color{magenta}{Cut(1)} + \color{blue}{P[2]} \\
+\color{magenta}{Cut(0)} + \color{blue}{P[3]} \\
+\end{cases}$$
+</td>
+<td style="padding:0;vertical-align:bottom"><img src="images/spacer.png" style="min-height:265px;width:10px"></td>
+</tr></table>
+:::
+
+<table class="cells">
+<tr><td class='noborder bluetext'>Cut(i):</td><td class='tdbottom'>0</td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom yellow'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td></tr>
+<tr class='magenta noborder'><td>Length:</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+</table>
+
+<table>
+<tr><td style="text-align:left;width:800px">
+![](images/dp/log.webp){style="padding-left:143px;transform:scaleX(1.5);height:100px;width:140px;object-fit:cover;object-position:0% 0;border-right:5px solid blue"}
+</td></tr>
+</table>
+
+
+## [3. Select a Good Order for Solving Subproblems]{.r-fit-text}
+
+Solve Smallest subproblem first
+
+::: {.fragment}
+<table><tr><td style="padding:0;vertical-align:middle;">
+$$\color{magenta}{Cut(4)} = max
+\begin{cases}
+\color{magenta}{Cut(3)} + \color{blue}{P[1]} \\
+\color{magenta}{Cut(2)} + \color{blue}{P[2]} \\
+\color{magenta}{Cut(1)} + \color{blue}{P[3]} \\
+\color{magenta}{Cut(0)} + \color{blue}{P[4]} \\
+\end{cases}$$
+</td>
+<td style="padding:0;vertical-align:bottom"><img src="images/spacer.png" style="min-height:265px;width:10px"></td>
+</tr></table>
+:::
+
+<table class="cells">
+<tr><td class='noborder bluetext'>Cut(i):</td><td class='tdbottom'>0</td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom yellow'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td><td class='tdbottom'></td></tr>
+<tr class='magenta noborder'><td>Length:</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+</table>
+
+<table>
+<tr><td style="text-align:left;width:800px">
+![](images/dp/log.webp){style="padding-left:151px;transform:scaleX(1.5);height:100px;width:180px;object-fit:cover;object-position:0% 0;border-right:5px solid blue"}
+</td></tr>
+</table>
+
+
+
+## Log Cutting Pseudocode
+
+&nbsp;
+
+::: {.no-bullets}
+- Initialize Memory C
+- Cut(n):
+  - C[0] = 0
+  - for i=1 to n:  <span class='grey'>// log size</span>
+    - best = 0
+    - for j = 1 to i: <span class='grey'>// last cut</span>
+      - best = max(best, <span class='magenta'>C[i-j]</span> + <span class='blue'>P[j]</span>)
+    - C[i] = best
+  - return C[n]
+:::
+
+::: {.fragment}
+<span class='red'>Run time: $O(n^2)$</span>
+:::
+
+## How to find the cuts?
+
+&nbsp;<br>
+
+- This procedure told us the profit, but not the cuts themselves
+- Idea: <span class='red'>remember</span> the choice that you made, then <span class='red'>backtrack</span>
+
+
+
+## Remember the choice made
+
+::: {.no-bullets}
+- Initialize Memory C, Choices
+- Cut(n):
+  - C[0] = 0
+  - for i=1 to n:  <span class='grey'>// log size</span>
+    - best = 0
+    - for j = 1 to i: <span class='grey'>// last cut</span>
+      - if best < <span class='magenta'>C[i-j]</span> + <span class='blue'>P[j]</span>:
+        - best = <span class='magenta'>C[i-j]</span> + <span class='blue'>P[j]</span>
+        - <span style="border:2px solid red; padding:5px">Choices[i] = j</span> <span class='red'>// gives the size of the last cut</span>
+      - C[i] = best
+  - return C[n]
+:::
+
+
+## Reconstruct the Cuts
+
+- Backtrack through the choices
+
+<table class="compact"><tr>
+<td style="width:160px"></td>
+<td>
+::: {.fragment fragment-index=9}
+<div class="half-circle" style="width:55px;height:30px;border-top-left-radius: 70px;border-top-right-radius: 70px"></div>
+:::
+</td><td>
+::: {.fragment fragment-index=7}
+<div class="half-circle" style="width:55px;height:30px;border-top-left-radius: 70px;border-top-right-radius: 70px"></div>
+:::
+</td><td>
+::: {.fragment fragment-index=5}
+<div class="half-circle" style="width:220px;height:50px;border-top-left-radius: 70px;border-top-right-radius: 70px"></div>
+:::
+</td><td>
+::: {.fragment fragment-index=3}
+<div class="half-circle" style="width:55px;height:30px;border-top-left-radius: 70px;border-top-right-radius: 70px"></div>
+:::
+</td><td>
+::: {.fragment fragment-index=1}
+<div class="half-circle" style="width:165px;height:50px;border-top-left-radius: 70px;border-top-right-radius: 70px"></div>
+:::
+</td></tr></table>
+
+<table class="cells">
+<tr><td class='noborder bluetext'>Choices:</td><td class='tdbottom'>0</td><td class='tdbottom'>1</td><td class='tdbottom'>1</td><td class='tdbottom'>2</td><td class='tdbottom'>4</td><td class='tdbottom'>3</td><td class='tdbottom'>4</td><td class='tdbottom'>1</td><td class='tdbottom'>2</td><td class='tdbottom'>4</td><td class='tdbottom'>3</td></tr>
+<tr class='magenta noborder'><td>Length:</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+</table>
+
+::: {.r-stack}
+
+::: {.center}
+![](images/dp/log.webp){style="width:700px;padding-left:175px"}
+:::
+
+
+<table class="compact"><tr>
+<td style="width:120px"></td>
+<td style="width:85px">
+::: {.fragment fragment-index=8}
+<table><tr><td style="border-left:5px solid red;height:150px"></td></tr></table>
+:::
+</td>
+<td style="width:50px">
+::: {.fragment fragment-index=6}
+<table><tr><td style="border-left:5px solid red;height:150px"></td></tr></table>
+:::
+</td>
+<td style="width:60px"></td>
+<td style="width:60px"></td>
+<td style="width:60px"></td>
+<td style="width:85px">
+::: {.fragment fragment-index=4}
+<table><tr><td style="border-left:5px solid red;height:150px"></td></tr></table>
+:::
+</td>
+<td style="width:50px">
+::: {.fragment fragment-index=2}
+<table><tr><td style="border-left:5px solid red;height:150px"></td></tr></table>
+:::
+</td>
+<td style="width:50px"></td>
+<td style="width:50px"></td>
+</tr></table>
+
+:::
+
+
+&nbsp;
+
+::: {.fragment fragment-index=10}
+<table class="purplenote"><tr><td style="font-size:xx-large">Example to demo Choices[] only.<br>Profit of 20 is not optimal! </td></tr></table>
+:::
+
+
+## Backtracking Pseudocode
+
+&nbsp;
+
+::: {.no-bullets}
+- i = n
+- while i > 0:
+  - print Choices[i]
+  - i = i - Choices[i]
+:::
+
+
+
+## [Our Example: Getting Optimal Solution]{.r-fit-text}
+
+<div style="scale:50%">
+<table class="cells">
+<tr><td class='noborder bluetext'>Choices:</td><td class='tdbottom'>1</td><td class='tdbottom'>5</td><td class='tdbottom'>8</td><td class='tdbottom'>9</td><td class='tdbottom'>10</td><td class='tdbottom'>17</td><td class='tdbottom'>17</td><td class='tdbottom'>20</td><td class='tdbottom'>24</td><td class='tdbottom'>30</td></tr>
+<tr class='magenta noborder'><td>Length:</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+</table>
+</div>
+
+::: {.blue-table}
+| i | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|----|----|----|----|----|----|----|----|----|----|----|----|
+| C[i] | 0 | 1 | 5 | 8 | 10 | 13 | 17 | 18 | 22 | 25 | 30 |
+| Choice[i] | 0 | 1 | 2 | 3 | 2 | 2 | 6 | 1 | 2 | 3 | 10 |
+:::
+
+- If n were 5
+  - Best score is 13
+  - Cut at Choice[n]=2, then cut at<br>Choice[n-Choice[n]]= Choice[5-2]= Choice[3]=3
+- If n were 7
+  - Best score is 18
+  - Cut at 1, then cut at 6
+
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+	1. Identify recursive structure of the problem
+		- What is the “last thing” done?
+	2. Save the solution to each subproblem in memory
+	3. Select a good order for solving subproblems
+		- "Top Down": Solve each recursively
+		- "Bottom Up": Iteratively solve smallest to largest
+
+
+# Matrix Chaining <!-- from day17.pptx -->
+
+::: {.titlereading}
+Readings in CLRS 4th edition: ...
+:::
+
+
+
+## Warm-Up
+
+<p style="text-align:center">How many arithmetic operations are required to multiply a $n \times m$ matrix by a $m \times p$ matrix?</p>
+
+<p style="text-align:center">(don't overthink this)</p>
+
+<table class="allcenter">
+  <tr>
+  <td style="padding:0">
+    <table>
+		  <tr><td></td><td style="font-size:x-large">$m$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$n$</td>
+			  <td style="border:1px solid black;background-color:cornflowerblue;width:150px;height:100px"></td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table>
+		  <tr><td></td><td style="font-size:x-large">$p$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$m$</td>
+			  <td style="border:1px solid black;background-color:cornflowerblue;width:50px;height:150px"></td>
+		  </tr>
+	  </table>
+  </td>
+</tr>
+</table>
+
+&nbsp;
+
+::: {.fragment}
+- $m$ multiplications and $m-1$ additions per element
+- $n \cdot p$ elements to compute
+- Total cost: $O(m \cdot n \cdot p)$
+:::
+
+
+## Matrix Chaining
+
+- Given a sequence of matrices ($M_1, M_2, \ldots, M_n$), what is the most efficient way to multiply them?
+
+
+<table class="allcenter">
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_1$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$r_1$</td>
+			  <td style="border:1px solid black;background-color:yellow;width:200px;height:100px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_2$</td>
+			  <td style="border:1px solid black;background-color:red;width:50px;height:200px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_3$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:200px;height:50px;color:white">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_4$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_4$</td>
+			  <td style="border:1px solid black;background-color:green;width:100px;height:200px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+
+
+## Order Matters!
+
+<table class="allcenter">
+  <tr>
+  <td style="padding:0">
+    <table>
+		  <tr><td></td><td style="font-size:x-large">$c_1$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$r_1$</td>
+			  <td style="border:1px solid black;background-color:yellow;width:100px;height:50px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table>
+		  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_2$</td>
+			  <td style="border:1px solid black;background-color:red;width:150px;height:100px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table>
+		  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_3$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:50px;height:150px;color:white">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+  <tr><td colspan='2'><img src="images/underbrace-red.svg" style="width:100%;min-height:40px;margin-bottom: 0;padding-bottom: 0;margin-top: 0;"></td><td></td></tr>
+  <tr><td colspan='2'>
+    <table>
+		  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$r_1$</td>
+			  <td style="border:1px solid black;background-color:chocolate;width:150px;height:50px;color:white"></td>
+		  </tr>
+	  </table>
+  </td><td></td></tr>
+</table>
+
+&nbsp;
+
+- Note that $c_1=r_2$ and $c_2=r_3$
+- $($<span style="background-color:yellow">$M_1$</span> $\times$ <span style="background-color:red">$M_2$</span>$)$ $\times$ <span style="background-color:CornflowerBlue;color:white">$M_3$</span>
+  - uses <span style="background-color:burlywood">$c_1 \cdot r_1 \cdot c_2$</span> + $c_2 \cdot r_1 \cdot c_3$</span> multiplications
+
+
+
+## Order Matters!
+
+<table class="allcenter">
+  <tr>
+  <td style="padding:0">
+    <table>
+		  <tr><td></td><td style="font-size:x-large">$c_1$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$r_1$</td>
+			  <td style="border:1px solid black;background-color:yellow;width:100px;height:50px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table>
+		  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_2$</td>
+			  <td style="border:1px solid black;background-color:red;width:150px;height:100px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table>
+		  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_3$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:50px;height:150px;color:white">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+  <tr><td></td><td colspan='2'><img src="images/underbrace-red.svg" style="width:100%;min-height:40px;margin-bottom: 0;padding-bottom: 0;margin-top: 0;"></td></tr>
+  <tr><td></td><td colspan='2'>
+    <table>
+		  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$r_2$</td>
+			  <td style="border:1px solid black;background-color:purple;width:50px;height:125px;color:white"></td>
+		  </tr>
+	  </table>
+  </td></tr>
+</table>
+
+
+- Note that $c_1=r_2$ and $c_2=r_3$
+- <span style="background-color:yellow">$M_1$</span> $\times$ $($<span style="background-color:red">$M_2$</span> $\times$ <span style="background-color:CornflowerBlue;color:white">$M_3$</span>$)$
+  - uses $c_1 \cdot r_1 \cdot c_3$ + <span style="background-color:plum">$c_2 \cdot r_2 \cdot c_3$</span> multiplications
+
+
+
+
+## Order Matters!
+
+<table><tr><td style="vertical-align:top">
+
+- Note that $c_1=r_2$ and $c_2=r_3$
+- $($<span style="background-color:yellow">$M_1$</span> $\times$ <span style="background-color:red">$M_2$</span>$)$ $\times$ <span style="background-color:CornflowerBlue;color:white">$M_3$</span>
+  - uses <span style="background-color:burlywood">$c_1 \cdot r_1 \cdot c_2$</span> + $c_2 \cdot r_1 \cdot c_3$</span> multiplications
+  - $10 \cdot 7 \cdot 20 + 20 \cdot 7 \cdot 8 = 2520$
+- <span style="background-color:yellow">$M_1$</span> $\times$ $($<span style="background-color:red">$M_2$</span> $\times$ <span style="background-color:CornflowerBlue;color:white">$M_3$</span>$)$
+    - uses $c_1 \cdot r_1 \cdot c_3$ + <span style="background-color:plum">$c_2 \cdot r_2 \cdot c_3$</span> multiplications
+    - $10 \cdot 7 \cdot 8 + 20 \cdot 10 \cdot 8 = 2160$
+
+</td><td style="vertical-align:top">
+
+::: {.no-bullets}
+- $M_1=7 \times 10$
+- $M_2=10 \times 20$
+- $M_3 = 20 \times 8$
+
+&nbsp;
+
+- $c_1=10$
+- $c_2=20$
+- $c_3=8$
+- $r_1=7$
+- $r_2=10$
+- $r_3=20$
+:::
+
+</td></tr></table>
+
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li class="purple">Identify recursive structure of the problem
+    	<ul><li>What is the “last thing” done?</li></ul></li>
+	<li>Save the solution to each subproblem in memory</li>
+	<li>Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+$Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
+
+<div style="font-size:80%;opacity:0">$$\color{magenta}{Best(1,4)} = min
+\begin{cases}
+\color{magenta}{Best(2,4)} + r_1r_2c_4 \\
+\color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
+\color{green}{Best(1,3)} + r_1r_4c_4 \\
+\end{cases}$$</div>
+
+<table class="allcenter" style="scale:80%;margin-top:-80px">
+
+<tr>
+  <td style="height:200px"></td>
+  <td colspan="3">
+
+  </td>
+</tr>
+
+<tr>
+  <td></td>
+  <td colspan="3">
+  	<img src="images/overbrace-red.svg" style="width:600px;min-height:40px;opacity:0">
+  </td>
+</tr>
+
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_1$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$r_1$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:200px;height:100px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_2$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:50px;height:200px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_3$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:200px;height:50px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_4$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_4$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:100px;height:200px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+$Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
+
+<div style="font-size:80%">$$\color{magenta}{Best(1,4)} = min
+\begin{cases}
+\color{magenta}{Best(2,4)} + r_1r_2c_4 \\
+\  \\
+\  \\
+\end{cases}$$</div>
+
+<table class="allcenter" style="scale:80%;margin-top:-80px">
+
+<tr>
+  <td style="height:200px"></td>
+  <td colspan="3">
+
+<table class="allcenter">
+  <tr><td></td><td style="font-size:x-large">$c_4$</td></tr>
+  <tr>
+	  <td style="font-size:x-large">$r_2$</td>
+	  <td style="border:1px solid black;background-color:magenta;width:100px;height:150px"></td>
+  </tr>
+</table>
+
+  </td>
+</tr>
+
+<tr>
+  <td></td>
+  <td colspan="3">
+  	<img src="images/overbrace-red.svg" style="width:600px;min-height:40px">
+  </td>
+</tr>
+
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_1$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$r_1$</td>
+			  <td style="border:1px solid black;background-color:green;width:200px;height:100px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_2$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:50px;height:200px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_3$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:200px;height:50px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_4$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_4$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:100px;height:200px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+$Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
+
+<div style="font-size:80%">$$\color{magenta}{Best(1,4)} = min
+\begin{cases}
+\color{magenta}{Best(2,4)} + r_1r_2c_4 \\
+\color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
+\  \\
+\end{cases}$$</div>
+
+<table class="allcenter" style="scale:80%;margin-top:-80px">
+
+<tr>
+  <td colspan="2" style="height:200px">
+
+<table class="allcenter">
+  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
+  <tr>
+	  <td style="font-size:x-large">$r_1$</td>
+	  <td style="border:1px solid black;background-color:green;width:50px;height:150px"></td>
+  </tr>
+</table>
+
+  </td>
+  <td colspan="2">
+
+<table class="allcenter">
+  <tr><td></td><td style="font-size:x-large">$c_4$</td></tr>
+  <tr>
+	  <td style="font-size:x-large">$r_3$</td>
+	  <td style="border:1px solid black;background-color:magenta;width:150px;height:50px"></td>
+  </tr>
+</table>
+
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2">
+  	<img src="images/overbrace-red.svg" style="width:400px;min-height:40px">
+  </td>
+  <td colspan="2">
+  	<img src="images/overbrace-red.svg" style="width:400px;min-height:40px">
+  </td>
+</tr>
+
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_1$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$r_1$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:200px;height:100px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_2$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:50px;height:200px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_3$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:200px;height:50px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_4$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_4$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:100px;height:200px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+$Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
+
+<div style="font-size:80%">$$\color{magenta}{Best(1,4)} = min
+\begin{cases}
+\color{magenta}{Best(2,4)} + r_1r_2c_4 \\
+\color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
+\color{green}{Best(1,3)} + r_1r_4c_4 \\
+\end{cases}$$</div>
+
+<table class="allcenter" style="scale:80%;margin-top:-80px">
+
+<tr>
+  <td colspan="3">
+
+<table class="allcenter">
+  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
+  <tr>
+	  <td style="font-size:x-large">$r_1$</td>
+	  <td style="border:1px solid black;background-color:green;width:100px;height:150px"></td>
+  </tr>
+</table>
+
+  </td>
+  <td style="height:200px"></td>
+</tr>
+
+<tr>
+  <td colspan="3">
+  	<img src="images/overbrace-red.svg" style="width:600px;min-height:40px">
+  </td>
+  <td></td>
+</tr>
+
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_1$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$r_1$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:200px;height:100px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_2$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:50px;height:200px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_3$</td>
+			  <td style="border:1px solid black;background-color:CornflowerBlue;width:200px;height:50px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:x-large">$c_4$</td></tr>
+		  <tr>
+			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_4$</td>
+			  <td style="border:1px solid black;background-color:magenta;width:100px;height:200px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+
+In general:
+
+<p style="font-size:90%">$Best(i,j)$ = cheapest way to multiply together $M_i$ through $M_j$</p>
+
+::: {.fragment}
+<p style="font-size:90%">$Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)$</p>
+
+<p style="font-size:90%">$Best(i,i)=0$</p>
+:::
+
+::: {.fragment}
+<p style="font-size:90%">$Best(1,n) = min
+\begin{cases}
+\color{magenta}{Best(2,n)} + r_1r_2c_n \\
+\color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
+\color{green}{Best(1,3)} + \color{magenta}{Best(4,n)} + r_1r_4c_n \\
+\color{green}{Best(1,4)} + \color{magenta}{Best(5,n)} + r_1r_5c_n \\
+\ldots \\
+\color{green}{Best(1,n-1)} +  r_1r_nc_n \\
+\end{cases}$</p>
+:::
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li>Identify recursive structure of the problem
+    	<ul><li>What is the “last thing” done?</li></ul></li>
+	<li class="purple">Save the solution to each subproblem in memory</li>
+	<li>Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
+
+## [2. Save Subsolutions in Memory]{.r-fit-text}
+In general:
+
+<div style="font-size:90%">
+
+<p style="font-size:90%">$Best(i,j)$ = cheapest way to multiply together $M_i$ through $M_j$</p>
+
+::: {.fragment}
+- <span class='red'>If $Best(i,j)$ is in memory, read it and done</span>
+:::
+
+<p style="font-size:90%">$Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)$</p>
+
+::: {.fragment}
+- <span class='red'>Read</span> $\color{green}{Best(i,k)}$ <span class='red'>and/or</span> $\color{magenta}{Best(k+1,j)}$ <span class='red'>from memory, if available</span>
+- <span class='red'>Save computed $Best(i,j)$ to memory</span>
+:::
+
+<p style="font-size:90%">$Best(i,i)=0$</p>
+
+<p style="font-size:90%">$Best(1,n) = min
+\begin{cases}
+\color{magenta}{Best(2,n)} + r_1r_2c_n \\
+\color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
+\color{green}{Best(1,3)} + \color{magenta}{Best(4,n)} + r_1r_4c_n \\
+\color{green}{Best(1,4)} + \color{magenta}{Best(5,n)} + r_1r_5c_n \\
+\ldots \\
+\color{green}{Best(1,n-1)} +  r_1r_nc_n \\
+\end{cases}$</p>
+
+</div>
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li>Identify recursive structure of the problem
+    	<ul><li>What is the “last thing” done?</li></ul></li>
+	<li>Save the solution to each subproblem in memory</li>
+	<li class="purple">Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
+
+## [3. Select a good order for solving subproblems]{.r-fit-text}
+In general:
+
+<div style="font-size:90%">
+
+<p style="font-size:90%">$Best(i,j)$ = cheapest way to multiply together $M_i$ through $M_j$</p>
+
+- <span class='red'>If $Best(i,j)$ is in memory, read it and done</span>
+
+<p style="font-size:90%">$Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)$</p>
+
+- <span class='red'>Read</span> $\color{green}{Best(i,k)}$ <span class='red'>and/or</span> $\color{magenta}{Best(k+1,j)}$ <span class='red'>from memory, if available</span>
+- <span class='red'>Save computed $Best(i,j)$ to memory</span>
+
+<p style="font-size:90%">$Best(i,i)=0$</p>
+
+<p style="font-size:90%">$Best(1,n) = min
+\begin{cases}
+\color{magenta}{Best(2,n)} + r_1r_2c_n \\
+\color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
+\color{green}{Best(1,3)} + \color{magenta}{Best(4,n)} + r_1r_4c_n \\
+\color{green}{Best(1,4)} + \color{magenta}{Best(5,n)} + r_1r_5c_n \\
+\ldots \\
+\color{green}{Best(1,n-1)} +  r_1r_nc_n \\
+\end{cases}$</p>
+
+</div>
+
+
+## [3. Select a good order for solving subproblems]{.r-fit-text}
+<table class="allcenter">
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$35$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$30$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:60px;width:70px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$15$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$35$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:70px;width:30px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$5$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$15$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:30px;width:10px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$10$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$5$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$20$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$10$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">$M_5$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$25$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$20$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">$M_6$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+::: {.fragment}
+<div style="font-size:80%;text-align:left">
+$Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)$<br>
+$Best(i,i)=0$
+</div>
+:::
+
+<table class="allcenter">
+<tr><td style="width:50%;text-align:left;font-size:50%">
+<!-- formula here -->
+</td>
+<td style="width:50%">
+<table class="allcenter" style="font-size:90%">
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td>3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td>4</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td>5</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+</table>
+</td></tr></table>
+
+
+## [3. Select a good order for solving subproblems]{.r-fit-text}
+<table class="allcenter">
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$35$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$30$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:60px;width:70px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$15$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$35$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:70px;width:30px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$5$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$15$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:30px;width:10px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$10$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$5$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$20$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$10$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">$M_5$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$25$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$20$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">$M_6$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+<div style="font-size:80%;text-align:left">
+$Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)$<br>
+$Best(i,i)=0$
+</div>
+
+<table class="allcenter">
+<tr><td style="width:50%;text-align:center;font-size:75%">
+$Best(1,2) = min$<br>&nbsp;<br>
+$\begin{cases}
+\  \\
+\  \\
+{\color{green}Best(1,1)} + {\color{magenta}Best(2,2)} + r_1r_1c_2 \\
+\  \\
+\  \\
+\end{cases}$
+</td>
+<td style="width:50%">
+<table class="allcenter" style="font-size:90%">
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border yellow" style="font-size:small">15750</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td>3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td>4</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td>5</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+</table>
+</td></tr></table>
+
+
+## [3. Select a good order for solving subproblems]{.r-fit-text}
+<table class="allcenter">
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$35$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$30$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:60px;width:70px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$15$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$35$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:70px;width:30px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$5$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$15$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:30px;width:10px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$10$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$5$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$20$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$10$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">$M_5$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$25$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$20$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">$M_6$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+<div style="font-size:80%;text-align:left">
+$Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)$<br>
+$Best(i,i)=0$
+</div>
+
+<table class="allcenter">
+<tr><td style="width:50%;text-align:center;font-size:75%">
+$Best(1,2) = min$<br>&nbsp;<br>
+$\begin{cases}
+\  \\
+\  \\
+{\color{green}Best(2,2)} + {\color{magenta}Best(3,3)} + r_2r_3c_3 \\
+\  \\
+\  \\
+\end{cases}$
+</td>
+<td style="width:50%">
+<table class="allcenter" style="font-size:90%">
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border yellow" style="font-size:small">2625</td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td>3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td>4</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td>5</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+</table>
+</td></tr></table>
+
+
+## [3. Select a good order for solving subproblems]{.r-fit-text}
+<table class="allcenter">
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$35$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$30$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:60px;width:70px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$15$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$35$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:70px;width:30px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$5$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$15$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:30px;width:10px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$10$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$5$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$20$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$10$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">$M_5$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$25$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$20$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">$M_6$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+<div style="font-size:80%;text-align:left">
+$Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)$<br>
+$Best(i,i)=0$
+</div>
+
+<table class="allcenter">
+<tr><td style="width:50%;text-align:left;font-size:50%">
+<!-- formula here -->
+</td>
+<td style="width:50%">
+<table class="allcenter" style="font-size:90%">
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border"></td><td class="border"></td><td>3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border"></td><td>4</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+</table>
+</td></tr></table>
+
+
+## [3. Select a good order for solving subproblems]{.r-fit-text}
+<table class="allcenter">
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$35$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$30$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:60px;width:70px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$15$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$35$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:70px;width:30px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$5$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$15$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:30px;width:10px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$10$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$5$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$20$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$10$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">$M_5$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$25$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$20$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">$M_6$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+<div style="font-size:80%;text-align:left">
+$Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)$<br>
+$Best(i,i)=0$
+</div>
+
+<table class="allcenter">
+<tr><td style="width:50%;text-align:center;font-size:75%">
+
+::: {.fragment}
+$r_1r_2c_3=30 \cdot 35 \cdot 5=5250$<br>
+:::
+::: {.fragment}
+$r_1r_3c_3=30 \cdot 15 \cdot 5=2250$<br>
+:::
+
+&nbsp;
+
+$Best(1,2) = min$<br>&nbsp;<br>
+$\begin{cases}
+\  \\
+\  (below:0+2625+5250) \\
+{\color{green}Best(1,1)} + {\color{magenta}Best(2,3)} + r_1r_2c_3 \\
+{\color{green}Best(1,2)} + {\color{magenta}Best(3,3)} + r_1r_3c_3 \\
+\  (above:15750+0+2250) \\
+\end{cases}$
+</td>
+<td style="width:50%">
+<table class="allcenter" style="font-size:90%">
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border yellow" style="font-size:small">
+::: {.fragment}
+7875
+:::
+</td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border"></td><td class="border"></td><td>3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border"></td><td>4</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+</table>
+</td></tr></table>
+
+
+## [3. Select a good order for solving subproblems]{.r-fit-text}
+<table class="allcenter">
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$35$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$30$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:60px;width:70px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$15$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$35$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:70px;width:30px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$5$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$15$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:30px;width:10px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$10$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$5$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$20$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$10$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">$M_5$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$25$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$20$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">$M_6$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+<div style="font-size:80%;text-align:left">
+$Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)$<br>
+$Best(i,i)=0$
+</div>
+
+<table class="allcenter">
+<tr><td style="width:50%;text-align:left;font-size:75%">
+To find $Best(i,j)$: need all preceeding terms of row $i$ and column $j$
+
+Conclusion: solve in order of diagonal
+
+</td>
+<td style="width:50%">
+<table class="allcenter" style="font-size:90%">
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
+<tr><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">15750</td><td class="border yellow" style="font-size:small">7875</td><td class="border green"></td><td class="border blue"></td><td class="border purple"></td><td>1</td></tr>
+<tr><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">2625</td><td class="border yellow"></td><td class="border green"></td><td class="border blue"></td><td>2</td></tr>
+<tr><td></td><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">750</td><td class="border yellow"></td><td class="border green"></td><td>3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">1000</td><td class="border yellow"></td><td>4</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">5000</td><td>5</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border red">0</td><td>6</td></tr>
+</table>
+</td></tr></table>
+
+
+## Matrix Chaining
+<table class="allcenter">
+  <tr>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$35$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$30$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:60px;width:70px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$15$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$35$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:70px;width:30px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$5$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$15$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:30px;width:10px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$10$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$5$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:10px;width:20px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$20$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$10$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:20px;width:40px">$M_5$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$25$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$20$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:40px;width:50px">$M_6$</td>
+		  </tr>
+	  </table>
+  </td>
+  </tr>
+</table>
+
+<div style="font-size:80%;text-align:left">
+$Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)$<br>
+$Best(i,i)=0$
+</div>
+
+<table class="allcenter">
+<tr><td style="width:50%;text-align:center;font-size:75%">
+::: {.fragment}
+$Best(1,6) = min$<br>&nbsp;<br>
+$\begin{cases}
+\color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
+\color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
+\color{green}{Best(1,3)} + \color{magenta}{Best(4,6)} + r_1r_4c_6 \\
+\color{green}{Best(1,4)} + \color{magenta}{Best(5,6)} + r_1r_5c_6 \\
+\color{green}{Best(1,5)} + \color{magenta}{Best(6,6)} + r_1r_6c_6 \\
+\end{cases}$
+:::
+</td>
+<td style="width:50%">
+<table class="allcenter" style="font-size:90%">
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border" style="font-size:small">7875</td><td class="border" style="font-size:small">9375</td><td class="border" style="font-size:small">11875</td><td class="border yellow" style="font-size:small">
+::: {.fragment}
+15125
+:::
+</td><td>1</td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border" style="font-size:small">4375</td><td class="border" style="font-size:small">7125</td><td class="border" style="font-size:small">10500</td><td>2</td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border" style="font-size:small">2500</td><td class="border" style="font-size:small">5375</td><td>3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border" style="font-size:small">3500</td><td>4</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+</table>
+</td></tr></table>
+
+
+
+## Run Time
+
+<table><tr><td style="vertical-align:top;width:67%">
+
+1. Initialize $Best[i,i]$ to be all 0s
+2. Starting at each main diagonal, working to the upper-right, fill in each cell using:
+   - <span style="font-size:65%">$Best[i,i]=0$</span>
+   - <span style="font-size:65%">$Best[i,j] = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)$</span>
+
+::: {.fragment fragment-index=3}
+<table class="purplenote"><tr><td style="font-size:80%">Each "call" to $Best(i,j)$ is an<br>$O(1)$ memory lookup</td></tr></table>
+:::
+
+</td><td style="vertical-align:top;width:33%">
+
+::: {.fragment fragment-index=1}
+<span class='red'>$\Theta(n^2)$ cells in the array</span>
+:::
+
+&nbsp;
+
+::: {.fragment fragment-index=2}
+<span class='red'>$\Theta(n)$ options for each cell</span>
+:::
+
+</td></tr></table>
+
+
+::: {.fragment fragment-index=4}
+<span class='red'>$\Theta(n^3)$ overall run time</span>
+:::
+
+
+## Backtrack to find the best order
+
+&nbsp;
+
+"remember" which choice of $k$ was the minimum at each cell
+
+&nbsp;
+
+<div style="font-size:80%;text-align:left">
+$Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)$<br>
+$Best(i,i)=0$
+</div>
+
+<table class="allcenter">
+<tr><td style="width:50%;text-align:center;font-size:75%">
+$Best(1,2) = min$<br>&nbsp;<br>
+$\begin{cases}
+\color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
+\color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
+\boxed{\color{green}{Best(1,3)} + \color{magenta}{Best(4,6)} + r_1r_4c_6} \\
+\color{green}{Best(1,4)} + \color{magenta}{Best(5,6)} + r_1r_5c_6 \\
+\color{green}{Best(1,5)} + \color{magenta}{Best(6,6)} + r_1r_6c_6 \\
+\end{cases}$
+</td>
+<td style="width:50%">
+<table class="allcenter" style="font-size:90%">
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border" style="font-size:small">7875<br><span class='red'>1</span></td><td class="border" style="font-size:small">9375</td><td class="border" style="font-size:small">11875</td><td class="border yellow" style="font-size:small">15125<br><span class='red'>3</span></td><td>1</td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border" style="font-size:small">4375</td><td class="border" style="font-size:small">7125</td><td class="border" style="font-size:small">10500</td><td>2</td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border" style="font-size:small">2500</td><td class="border" style="font-size:small">5375</td><td>3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border" style="font-size:small">3500<br><span class='red'>5</span></td><td>4</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+</table>
+</td></tr></table>
+
+
+
+
+## Matrix Chaining
+<table class="allcenter">
+  <tr>
+  <td style="padding:0"><span style="font-size:3em;padding:0;margin:0">(</span></td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$35$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$30$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:60px;width:70px">$M_1$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$15$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;<span style="font-size:5em;padding:0;margin:0">(</span>&nbsp;$35$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:70px;width:30px">$M_2$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$5$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$15$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:30px;width:10px">$M_3$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0"><span style="font-size:2.25em;padding:0;margin:0">)</span><span style="font-size:3em;padding:0;margin:0">)</span></td>
+  <td style="font-size:x-large">$\times$</td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$10$</td></tr>
+		  <tr>
+			  <td style="font-size:large"><span style="font-size:6em;padding:0;margin:0">(</span>&nbsp;<span style="font-size:5em;padding:0;margin:0">(</span>&nbsp;$5$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:10px;width:20px">$M_4$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$20$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$10$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:20px;width:40px">$M_5$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0"><span style="font-size:2.25em;padding:0;margin:0">)</span></td>
+  <td style="padding:0">
+    <table class="allcenter">
+		  <tr><td></td><td style="font-size:large">$25$</td></tr>
+		  <tr>
+			  <td style="font-size:large">$\times$&nbsp;&nbsp;$20$</td>
+			  <td style="font-size:large;border:1px solid black;background-color:yellow;height:40px;width:50px">$M_6$</td>
+		  </tr>
+	  </table>
+  </td>
+  <td style="padding:0"><span style="font-size:3em;padding:0;margin:0">)</span></td>
+  </tr>
+</table>
+
+<div style="font-size:80%;text-align:left">
+$Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)$<br>
+$Best(i,i)=0$
+</div>
+
+<table class="allcenter">
+<tr><td style="width:50%;text-align:center;font-size:75%">
+$Best(1,2) = min$<br>&nbsp;<br>
+$\begin{cases}
+\color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
+\color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
+\boxed{\color{green}{Best(1,3)} + \color{magenta}{Best(4,6)} + r_1r_4c_6} \\
+\color{green}{Best(1,4)} + \color{magenta}{Best(5,6)} + r_1r_5c_6 \\
+\color{green}{Best(1,5)} + \color{magenta}{Best(6,6)} + r_1r_6c_6 \\
+\end{cases}$
+</td>
+<td style="width:50%">
+<table class="allcenter" style="font-size:90%">
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border" style="font-size:small">7875<br><span class='red'>1</span></td><td class="border" style="font-size:small">9375</td><td class="border" style="font-size:small">11875</td><td class="border yellow" style="font-size:small">15125<br><span class='red'>3</span></td><td>1</td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border" style="font-size:small">4375</td><td class="border" style="font-size:small">7125</td><td class="border" style="font-size:small">10500</td><td>2</td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border" style="font-size:small">2500</td><td class="border" style="font-size:small">5375</td><td>3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border" style="font-size:small">3500<br><span class='red'>5</span></td><td>4</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+</table>
+</td></tr></table>
+
+
+
+
+## [Storing and Recovering Optimal Solution]{.r-fit-text}
+
+- Maintain table <span class='blue'>Choice[i,j]</span> in addition to <span class='blue'>Best</span> table
+	- <span class='blue'>Choice[i,j] = k</span> means the best "split" was right after <span class='magenta'>$M_k$</span>
+	- Work backwards from value for whole problem, <span class='blue'>Choice[1,n]</span>
+	- Note: <span class='blue'>Choice[i,i+1] = i</span> because there are just 2 matrices 
+- From our example:
+	- <span class='blue'>Choice[1,6] = 3</span>.   So <span class='magenta'>[$M_1$ $M_2$ $M_3$] [$M_4$ $M_5$ $M_6$]</span>
+	- We then need <span class='blue'>Choice[1,3] = 1.   So <span class='magenta'>[($M_1$) ($M_2$ $M_3$)]</span>
+	- Also need <span class='blue'>Choice[4,6] = 5</span>.  So <span class='magenta'>[($M_4$ $M_5$) $M_6$]</span>
+	- Overall: <span class='magenta'>[($M_1$) ($M_2$ $M_3$)] [($M_4$ $M_5$) $M_6$]</span>
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+	1. Identify recursive structure of the problem
+		- What is the “last thing” done?
+	2. Save the solution to each subproblem in memory
+	3. Select a good order for solving subproblems
+		- "Top Down": Solve each recursively
+		- "Bottom Up": Iteratively solve smallest to largest
+
+
+
+# Making Change <!-- from day18.pptx -->
+
+::: {.titlereading}
+Readings in CLRS 4th edition: ...
+:::
+
+
+
+## Warm-Up
+
+**Remember change making?**
+
+Given access to unlimited quantities of pennies, nickels, dimes, toms, and quarters (worth value 1, 5, 10, 11, 25 respectively), give 90 cents change using the **fewest** number of coins.
+
+<table class="allcenter compact"><tr><td>
+
+![](https://upload.wikimedia.org/wikipedia/commons/e/e2/United_States_penny%2C_obverse%2C_2002.jpg){style="height:114px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/f/f9/United_States_penny%2C_reverse.jpg){style="height:114px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Jefferson-Nickel-Unc-Obv.jpg/780px-Jefferson-Nickel-Unc-Obv.jpg){style="height:132px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/2/23/US_Nickel_Reverse.jpg){style="height:132px"}
+
+![](https://upload.wikimedia.org/wikipedia/commons/8/84/2005-Dime-Obv-Unc-P.png){style="height:107px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/2005-Dime-unc-GS_%28reverse%29.png/775px-2005-Dime-unc-GS_%28reverse%29.png){style="height:107px"}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:146px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Virginia_quarter%2C_reverse_side%2C_2000.jpg/769px-Virginia_quarter%2C_reverse_side%2C_2000.jpg){style="height:146px"} 
+
+</td><td>
+
+::: {.r-stack}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Thomas_Jefferson_Presidential_%241_Coin_obverse.png/1024px-Thomas_Jefferson_Presidential_%241_Coin_obverse.png){style="height:200px;z-index:0"}
+<table style="z-index:1">
+<tr>
+<td style="text-align:right;width:150px;font-size:small">
+11&nbsp;&nbsp;<br>cents
+</td></tr></table>
+:::
+
+</td></tr></table>
+
+
+## [Remember: Greedy Change Making Algorithm]{.r-fit-text}
+
+- Given: target value $x$, list of coins $C=[c_1, \ldots, c_n]$
+	- For the US, $C=[1,5,10,25]$
+- Repeatedly select the largest coin less than the remaining target value
+
+&nbsp;
+
+::: {.no-bullets}
+- while ( x > 0 )
+  - let $c = \max(c_i \in {c_1,\ldots,c_n} | c_i \le x)$
+  - print $c$
+  - $x=x-c$
+:::
+
+
+## Greedy Solution
+
+90 cents
+
+<table><tr><td>
+::: {.fragment}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:219px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:219px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:219px"} 
+:::
+</td><td>
+::: {.fragment}
+::: {.r-stack}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Thomas_Jefferson_Presidential_%241_Coin_obverse.png/1024px-Thomas_Jefferson_Presidential_%241_Coin_obverse.png){style="height:225px;z-index:0"}
+<table style="z-index:1">
+<tr>
+<td style="text-align:right;width:170px;font-size:large">
+11&nbsp;&nbsp;<br>cents
+</td></tr></table>
+:::
+:::
+</td></tr>
+<tr><td colspan='2'>
+::: {.fragment}
+![](https://upload.wikimedia.org/wikipedia/commons/e/e2/United_States_penny%2C_obverse%2C_2002.jpg){style="height:171px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/e/e2/United_States_penny%2C_obverse%2C_2002.jpg){style="height:171px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/e/e2/United_States_penny%2C_obverse%2C_2002.jpg){style="height:171px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/e/e2/United_States_penny%2C_obverse%2C_2002.jpg){style="height:171px"} 
+:::
+</td></tr></table>
+
+
+## Greedy Solution
+
+90 cents
+
+::: {.fragment}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:292px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:292px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:292px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/8/84/2005-Dime-Obv-Unc-P.png){style="height:214px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Jefferson-Nickel-Unc-Obv.jpg/780px-Jefferson-Nickel-Unc-Obv.jpg){style="height:264px"} 
+:::
+
+## [Why does greedy always work for US coins?]{.r-fit-text}
+
+
+- If $x<5$, then pennies only
+  - Else 5 pennies can be exchanged for a nickel
+  - <span class='red'>Only case Greedy uses pennies</span>
+- If $x \le 5 < 10$, we must have a nickel
+  - Else 2 nickels can be exchanged for a dime
+  - <span class='red'>Only case Greedy uses nickels</span>
+- If $10 \le x < 25$, we must have at least 1 dime
+  - Else 3 dimes can be exchanged for a quarter and a nickel
+  - <span class='red'>Only case Greedy uses dimes</span>
+- If $x \ge 25$, we must have at least 1 quarter
+  - <span class='red'>Only case Greedy uses quarters</span>
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li class="purple">Identify recursive structure of the problem
+    	<ul><li>What is the “last thing” done?</li></ul></li>
+	<li>Save the solution to each subproblem in memory</li>
+	<li>Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+
+<span style="font-size:80%;text-align:center">$Change(n)$: minimum number of coins needed to give change for cents</span>
+
+::: {.allcenter .compact style="font-size:75%"}
+| Possibilities<br>for last coin | Coins needed | |
+|----|----|----|
+| ![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:73px"} | $Change(n-25)+1$ | if $n \ge 25$
+|  ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Thomas_Jefferson_Presidential_%241_Coin_obverse.png/1024px-Thomas_Jefferson_Presidential_%241_Coin_obverse.png){style="height:75px;z-index:0"} | $Change(n-11)+1$ | if $n \ge 11$ |
+| ![](https://upload.wikimedia.org/wikipedia/commons/8/84/2005-Dime-Obv-Unc-P.png){style="height:57px"}  | $Change(n-10)+1$ | if $n \ge 10$ |
+| ![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Jefferson-Nickel-Unc-Obv.jpg/780px-Jefferson-Nickel-Unc-Obv.jpg){style="height:66px"} | $Change(n-5)+1$ | if $n \ge 5$ |
+| ![](https://upload.wikimedia.org/wikipedia/commons/e/e2/United_States_penny%2C_obverse%2C_2002.jpg){style="height:57px"} | $Change(n-1)+1$ | if $n \ge 1$ |
+:::
+
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+
+<span style="font-size:80%;text-align:center">$Change(n)$: minimum number of coins needed to give change for cents</span>
+
+<table><tr><td style="font-size:75%">
+::: {.fragment fragment-index=1}
+$$Change(n) = \min
+\begin{cases}
+Change(n-25)+1 \text{ if } n \ge 25 \\
+Change(n-11)+1 \text{ if } n \ge 11 \\
+Change(n-10)+1 \text{ if } n \ge 10 \\
+Change(n-5)+1 \text{ if } n \ge 5 \\
+Change(n-1)+1 \text{ if } n \ge 1 \\
+\end{cases}$$
+:::
+</td><td style="vertical-align:top">
+::: {.fragment fragment-index=2}
+<table class="bluenote"><tr><td style="font-size:75%"><b>Correctness:</b> The optimal solution must be contained in one of these configurations</td></tr></table>
+:::
+</td></tr></table>
+
+<table style="font-size:80%"><tr><td>
+::: {.fragment fragment-index=3}
+<span>**Base Case:** $Change(0)=0$</span>
+:::
+</td><td></td><td></td></tr>
+
+<tr><td>
+::: {.fragment fragment-index=4}
+**Running time:** $O(kn)$
+:::
+</td><td>
+::: {.fragment fragment-index=5}
+Is this&nbsp;<span style="text-decoration:underline">efficient</span>?
+:::
+</td>
+<td>
+::: {.fragment fragment-index=6}
+<table class="purplenote"><tr><td>Input size is $O(k \log n)$</td></tr></table>
+:::
+</td>
+</tr>
+
+<tr><td>
+::: {.fragment fragment-index=4}
+$k$ is the number of coins
+:::
+</td><td colspan='2'>
+::: {.fragment fragment-index=6}
+No, this is <span style="text-decoration:underline">pseudo-polynomial</span> time
+:::
+</td></tr>
+
+</table>
+
+
+
+# Seam Carving <!-- from day18.pptx -->
+
+::: {.titlereading}
+Readings in CLRS 4th edition: ...
+:::
+
+
+
+## Seam Carving
+
+## Seam Carving
+
+## Cropping
+
+## Scaling
+
+## Seam Carving
+
+## Seam Carving
+
+## Seattle Skyline
+
+## Energy of a Seam
+
+## Dynamic Programming
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+
+## Computing $S(n,k)$
+
+## Computing $S(n,k)$
+
+## Computing $S(n,k)$
+
+## [Finding the Least Energy Seam]{.r-fit-text}
+
+## Dynamic Programming
+
+## Bring It All Together
+
+## Bring It All Together
+
+## Finding the Seam
+
+## Run Time?
+
+## Repeated Seam Removal
+
+
+
+
+# Longest Common Subsequence <!-- from day18.pptx and day19.pptx -->
+
+::: {.titlereading}
+Readings in CLRS 4th edition: ...
+:::
+
+
+
+## Longest Common Subsequence
+
+## Dynamic Programming
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+
+## (blank)
+
+## [Top-Down Solution with Memoization]{.r-fit-text}
+
+## (blank)
+
+## Dynamic Programming
+
+## Solve in a Good Order
+
+## LCS Length Algorithm
+
+## Run Time?
+
+## Reconstructing the LCS
+
+## Reconstructing the LCS
+
+## Reconstructing the LCS
+
+
+
+
+
+
+
+# Gerrymandering <!-- from day19.pptx -->
+
+::: {.titlereading}
+Readings in CLRS 4th edition: ...
+:::
+
+
+## (blank)
+
+## (blank)
+
+## Gerrymandering
+
+## [According to the Supreme Court]{.r-fit-text}
+
+## VA 5th district
+
+## VA 5th district
+
+## VA 5th district (today)
+
+## Gerrymandering Today
+
+## Gerrymandering Today
+
+## Gerrymandering Today
+
+## (blank)
+
+## How does it work?
+
+## How does it work?
+
+## [Gerrymandering Problem Statement]{.r-fit-text}
+
+## Dynamic Programming
+
+## Dynamic Programming
+
+## Consider the last precinct
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+
+## Two ways to satisfy $S(j,k,x,y)$
+
+## Final Algorithm
+
+## Final Algorithm
+
+## Run Time
+
+## $\Theta(n^4m^2)$
+
