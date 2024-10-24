@@ -24,9 +24,17 @@ div.no-bullets ul, div.no-bullets ul ul {
 	bottom:0;
 }
 
-table.border th td, table.border tr td, td.border {
+table.border th td, table.border tr td, td.border, tr.border td {
 	border:1px solid black;
 	border-bottom:1px solid black !important;
+	border-collapse:collapse;
+}
+
+table.border2px th td, table.border2px tr td, td.border2px, tr.border2px td {
+	border:2px solid black;
+	border-bottom:2px solid black !important;
+	border-bottom:2px solid black !important;
+	border-collapse:collapse;
 }
 
 /* h2 styling from https://stackoverflow.com/questions/22083157/extend-background-color-of-header-beyond-container-with-css */

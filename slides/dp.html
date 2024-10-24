@@ -363,7 +363,7 @@
 <section id="introduction" class="title-slide slide level1 center">
 <h1>Introduction <!-- from day16.pptx --></h1>
 <div class="titlereading">
-<p>Readings in CLRS 4th edition: …</p>
+<p>Readings in CLRS 4th edition: chapter 14</p>
 </div>
 </section>
 <section id="warm-up" class="slide level2">
@@ -691,7 +691,7 @@ Two ways to fill the final column:
 </div><div class="column" style="width:30%;">
 <div class="fragment" data-fragment-index="5">
 <div class="red xx-large">
-<p><span class="math display">\[Tile(n) = Tile(n-1) + Tile(n-2)\]</span> <span class="math display">\[Tile(0) = 1\]</span> <span class="math display">\[Tile(1) = 1\]</span></p>
+<p><span class="math display">\[Tile(n) = Tile(n-1) + Tile(n-2)\]</span> <span class="math display">\[Tile(1) = 1\]</span> <span class="math display">\[Tile(0) = 1\]</span></p>
 </div>
 </div>
 </div></div>
@@ -740,7 +740,7 @@ Better way: Use Memory!
 </div>
 </section>
 <section id="computing-tilen-with-memory" class="slide level2">
-<h2>Computing <span style="font-size:80%"><span class="math inline">\(Tile(n)\)</span></span> with memory</h2>
+<h2>Computing <span style="font-size:90%"><span class="math inline">\(Tile(n)\)</span></span> with memory</h2>
 <div class="columns">
 <div class="column" style="width:80%;">
 &nbsp;
@@ -833,7 +833,7 @@ M
 </div></div>
 </section>
 <section id="computing-tilen-with-memory-1" class="slide level2">
-<h2><span class="r-fit-text">Computing <span style="font-size:80%"><span class="math inline">\(Tile(n)\)</span></span> with memory</span></h2>
+<h2><span class="r-fit-text">Computing <span style="font-size:90%"><span class="math inline">\(Tile(n)\)</span></span> with memory</span></h2>
 <div class="columns">
 <div class="column" style="width:80%;">
 &nbsp;
@@ -1040,7 +1040,7 @@ M
 </section>
 <section id="generic-divide-and-conquer-solution" class="slide level2">
 <h2>Generic Divide and Conquer Solution</h2>
-<div class="no-bullets">
+<div class="no-bullets" style="font-size:90%">
 <ul>
 <li>&nbsp;</li>
 <li>def <b>myDCalgo</b>(<span class="red">problem</span>):
@@ -1068,7 +1068,7 @@ M
 </section>
 <section id="generic-top-down-dp-solution" class="slide level2">
 <h2>Generic Top-Down DP Solution</h2>
-<div class="no-bullets">
+<div class="no-bullets" style="font-size:90%">
 <ul>
 <li>&nbsp;</li>
 <li>def <b>myDCalgo</b>(<span class="red">problem</span>):
@@ -1096,7 +1096,7 @@ M
 </section>
 <section id="generic-top-down-dp-solution-1" class="slide level2">
 <h2>Generic Top-Down DP Solution</h2>
-<div class="no-bullets">
+<div class="no-bullets" style="font-size:90%">
 <ul>
 <li>mem = {}</li>
 <li>def <b>myDCalgo</b>(<span class="red">problem</span>):
@@ -1123,7 +1123,7 @@ M
 </div>
 </section>
 <section id="computing-tilen-with-memory-top-down" class="slide level2">
-<h2><span class="r-fit-text">Computing <span style="font-size:80%"><span class="math inline">\(Tile(n)\)</span></span> with memory “Top Down”</span></h2>
+<h2><span class="r-fit-text">Computing <span style="font-size:90%"><span class="math inline">\(Tile(n)\)</span></span> with memory “Top Down”</span></h2>
 <div class="columns">
 <div class="column" style="width:80%;">
 &nbsp;
@@ -1340,7 +1340,7 @@ M
 <section id="log-cutting" class="title-slide slide level1 center">
 <h1>Log Cutting <!-- from day16.pptx --></h1>
 <div class="titlereading">
-<p>Readings in CLRS 4th edition: …</p>
+<p>Readings in CLRS 4th edition: chapter 14, specifically 14.1</p>
 </div>
 </section>
 <section id="log-cutting-1" class="slide level2">
@@ -1440,7 +1440,7 @@ Brute force: <span class="math inline">\(O(2^n)\)</span>
 <section id="greedy-algorithm" class="slide level2">
 <h2>Greedy Algorithm</h2>
 <p><span class="red">Greedy algorithms</span> build a solution by picking the best option “right now”</p>
-<div class="fragment" style="margin-bottom:56px">
+<div class="fragment" style="margin-bottom:58px">
 <ul>
 <li>Select the most profitable cut first</li>
 </ul>
@@ -1448,16 +1448,13 @@ Brute force: <span class="math inline">\(O(2^n)\)</span>
 <table>
 <tbody><tr>
 <td>
-<table class="cellssmall">
-<tbody><tr>
-<td class="noborder bluetext">
+<table>
+<tbody><tr class="border2px">
+<td class="noborder bluetext" style="border-bottom:0 !important">
 Price:
 </td>
 <td class="tdbottom">
 1
-</td>
-<td class="tdbottom">
-5
 </td>
 <td class="tdbottom">
 18
@@ -1467,6 +1464,9 @@ Price:
 </td>
 <td class="tdbottom">
 36
+</td>
+<td class="tdbottom">
+50
 </td>
 <td class="tdbottom">
 50
@@ -1497,7 +1497,7 @@ Length:
 </tr>
 </tbody></table>
 <div class="center">
-<p><img data-src="images/dp/log.webp" style="width:50%;padding-left:100px"></p>
+<p><img data-src="images/dp/log.webp" style="width:75%;padding-left:170px"></p>
 </div>
 </td>
 <td>
@@ -1535,16 +1535,13 @@ Length:
 <table>
 <tbody><tr>
 <td>
-<table class="cellssmall">
-<tbody><tr>
-<td class="noborder bluetext">
+<table>
+<tbody><tr class="border2px">
+<td class="noborder bluetext" style="border-bottom:0 !important">
 Price:
 </td>
 <td class="tdbottom">
 1
-</td>
-<td class="tdbottom">
-5
 </td>
 <td class="tdbottom">
 18
@@ -1554,6 +1551,9 @@ Price:
 </td>
 <td class="tdbottom">
 36
+</td>
+<td class="tdbottom">
+50
 </td>
 <td class="tdbottom">
 50
@@ -1584,7 +1584,7 @@ Length:
 </tr>
 </tbody></table>
 <div class="center">
-<p><img data-src="images/dp/log.webp" style="width:50%;padding-left:100px"></p>
+<p><img data-src="images/dp/log.webp" style="width:75%;padding-left:170px"></p>
 </div>
 </td>
 <td>
@@ -1643,7 +1643,7 @@ Select a good order for solving subproblems
 <p><span class="blue"><span class="math inline">\(P[i] =\)</span></span> value of a cut of length <span class="math inline">\(i\)</span></p>
 <p><span class="magenta"><span class="math inline">\(Cut(n)=\)</span></span> value of best way to cut a log of length <span class="math inline">\(n\)</span></p>
 <div class="fragment" data-fragment-index="4">
-<p><span class="math display">\[\color{magenta}{Cut(x)} = max
+<p><span class="math display">\[\color{magenta}{Cut(n)} = max
 \begin{cases}
 \color{magenta}{Cut(n-1)} + \color{blue}{P[1]} \\
 \color{magenta}{Cut(n-2)} + \color{blue}{P[2]} \\
@@ -2633,7 +2633,7 @@ Length:
 <section id="matrix-chaining" class="title-slide slide level1 center">
 <h1>Matrix Chaining <!-- from day17.pptx --></h1>
 <div class="titlereading">
-<p>Readings in CLRS 4th edition: …</p>
+<p>Readings in CLRS 4th edition: chapter 14, specifically 14.2</p>
 </div>
 </section>
 <section id="warm-up-2" class="slide level2">
@@ -6324,7 +6324,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <section id="making-change" class="title-slide slide level1 center">
 <h1>Making Change <!-- from day18.pptx --></h1>
 <div class="titlereading">
-<p>Readings in CLRS 4th edition: …</p>
+<p>Readings in CLRS 4th edition: chapter 14</p>
 </div>
 </section>
 <section id="warm-up-3" class="slide level2">
@@ -6602,7 +6602,7 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 <section id="seam-carving" class="title-slide slide level1 center">
 <h1>Seam Carving <!-- from day18.pptx --></h1>
 <div class="titlereading">
-<p>Readings in CLRS 4th edition: …</p>
+<p>Readings in CLRS 4th edition: chapter 14</p>
 </div>
 </section>
 <section id="seam-carving-1" class="slide level2">
@@ -6669,7 +6669,7 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 <section id="longest-common-subsequence" class="title-slide slide level1 center">
 <h1>Longest Common Subsequence <!-- from day18.pptx and day19.pptx --></h1>
 <div class="titlereading">
-<p>Readings in CLRS 4th edition: …</p>
+<p>Readings in CLRS 4th edition: chapter 14, specifically 14.4</p>
 </div>
 </section>
 <section id="longest-common-subsequence-1" class="slide level2">
@@ -6718,7 +6718,7 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 <section id="gerrymandering" class="title-slide slide level1 center">
 <h1>Gerrymandering <!-- from day19.pptx --></h1>
 <div class="titlereading">
-<p>Readings in CLRS 4th edition: …</p>
+<p>Readings in CLRS 4th edition: chapter 14</p>
 </div>
 </section>
 <section id="blank-2" class="slide level2">
