@@ -7,6 +7,10 @@ img.center, .center img {
 	text-align:center;
 	display:block;
 }
+table.center {
+	margin-left:auto;
+	margin-right:auto;
+}
 .reveal .slide ul li {
 	margin-top:0.1em !important;
 	margin-bottom:0.1em !important;
@@ -35,6 +39,13 @@ table.border2px th td, table.border2px tr td, td.border2px, tr.border2px td {
 	border-bottom:2px solid black !important;
 	border-bottom:2px solid black !important;
 	border-collapse:collapse;
+}
+
+/* centering an image */
+ .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* h2 styling from https://stackoverflow.com/questions/22083157/extend-background-color-of-header-beyond-container-with-css */
@@ -86,7 +97,7 @@ div.compact table th, div.compact table th td, div.compact table td, div.compact
 	margin:0;
 	padding:0;
 }
-div.allcenter table thead tr th, div.allcenter table th td, div.allcenter table tr td, ttable.allcenter th td, table.allcenter tr td {
+div.allcenter table thead tr th, div.allcenter table th td, div.allcenter table tr td, table.allcenter thead th td, table.allcenter tbody tr td {
 	vertical-align:middle;
 	text-align:center;
 	border-bottom:none;
@@ -224,6 +235,25 @@ span.rotate90 {
   transform: rotate(90deg);
 }
 
+/* for the DP seam carving tables */
+table.table-of-boxes {
+	vertical-align:middle;
+	text-align:center;
+	border-bottom:none;
+}
+table.table-of-boxes tbody tr td table {
+	margin-right:10px;
+	margin-bottom:10px;
+	vertical-align:middle;
+	text-align:center;
+	border-bottom:none;
+}
+table.table-of-boxes tbody tr td table tbody tr td{
+	font-size:50%;
+	width:150px;
+	height:150px;
+}
+
 /* colors */
 .red { color:red; }
 .green { color:green; }
@@ -297,3 +327,47 @@ div.underbrace p span div {
 	text-align:left !important;
 }
 
+/* ducks in dp slide set */
+img.ducks-left {
+	width: 315px; /* have to add 15 to the amount, but the two parts should add to the width of 512 */
+	min-height: 384px;
+	max-height: 384px;
+	object-fit: none;
+	object-position: left;
+	margin-right:0;
+	z-index:-1;
+	min-width:300px;
+}
+img.ducks-right {
+	width: 227px; /* have to add 15 to the amount, but the two parts should add to the width of 512 */
+	min-height: 384px;
+	max-height: 384px;
+	object-fit: none;
+	object-position: right;
+	margin-left:0;
+	z-index:-1;
+}
+img.ducks-right-red-box {
+	background-color:red;
+	height:384px;
+	width:227px; /* have to add 15 to the amount, but the two parts should add to the width of 512 */
+	opacity:0.4;
+	margin:0;
+}
+img.ducks-crop-bars {
+	background-color:red;
+	height:384px;
+	max-width:1px;
+	margin: 0 10px 0 10px;
+}
+img.ducks-normal {
+	min-height:384px;
+	max-height:384px;
+	min-width:512px;
+	max-width:512px;
+}
+img.ducks-scaled {
+	width:384px;
+	height:384px;
+	min-height:384px;
+}

@@ -1218,7 +1218,7 @@ Readings in CLRS 4th edition: chapter 14, specifically 14.2
 ## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
 $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 
-<div style="font-size:80%;opacity:0">$$\color{magenta}{Best(1,4)} = min
+<div style="font-size:80%;opacity:0">$$\color{magenta}{Best(1,4)} = \min
 \begin{cases}
 \color{magenta}{Best(2,4)} + r_1r_2c_4 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
@@ -1286,7 +1286,7 @@ $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 ## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
 $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 
-<div style="font-size:80%">$$\color{magenta}{Best(1,4)} = min
+<div style="font-size:80%">$$\color{magenta}{Best(1,4)} = \min
 \begin{cases}
 \color{magenta}{Best(2,4)} + r_1r_2c_4 \\
 \  \\
@@ -1362,7 +1362,7 @@ $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 ## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
 $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 
-<div style="font-size:80%">$$\color{magenta}{Best(1,4)} = min
+<div style="font-size:80%">$$\color{magenta}{Best(1,4)} = \min
 \begin{cases}
 \color{magenta}{Best(2,4)} + r_1r_2c_4 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
@@ -1450,7 +1450,7 @@ $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 ## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
 $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 
-<div style="font-size:80%">$$\color{magenta}{Best(1,4)} = min
+<div style="font-size:80%">$$\color{magenta}{Best(1,4)} = \min
 \begin{cases}
 \color{magenta}{Best(2,4)} + r_1r_2c_4 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
@@ -1536,7 +1536,7 @@ In general:
 :::
 
 ::: {.fragment}
-<p style="font-size:90%">$Best(1,n) = min
+<p style="font-size:90%">$Best(1,n) = \min
 \begin{cases}
 \color{magenta}{Best(2,n)} + r_1r_2c_n \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
@@ -1585,7 +1585,7 @@ In general:
 
 <p style="font-size:90%">$Best(i,i)=0$</p>
 
-<p style="font-size:90%">$Best(1,n) = min
+<p style="font-size:90%">$Best(1,n) = \min
 \begin{cases}
 \color{magenta}{Best(2,n)} + r_1r_2c_n \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
@@ -1631,7 +1631,7 @@ In general:
 
 <p style="font-size:90%">$Best(i,i)=0$</p>
 
-<p style="font-size:90%">$Best(1,n) = min
+<p style="font-size:90%">$Best(1,n) = \min
 \begin{cases}
 \color{magenta}{Best(2,n)} + r_1r_2c_n \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
@@ -1795,7 +1795,7 @@ $Best(i,i)=0$
 
 <table class="allcenter">
 <tr><td style="width:50%;text-align:center;font-size:75%">
-$Best(1,2) = min$<br>&nbsp;<br>
+$Best(1,2) = \min$<br>&nbsp;<br>
 $\begin{cases}
 \  \\
 \  \\
@@ -1884,7 +1884,7 @@ $Best(i,i)=0$
 
 <table class="allcenter">
 <tr><td style="width:50%;text-align:center;font-size:75%">
-$Best(1,2) = min$<br>&nbsp;<br>
+$Best(1,2) = \min$<br>&nbsp;<br>
 $\begin{cases}
 \  \\
 \  \\
@@ -2065,7 +2065,7 @@ $r_1r_3c_3=30 \cdot 15 \cdot 5=2250$<br>
 
 &nbsp;
 
-$Best(1,2) = min$<br>&nbsp;<br>
+$Best(1,2) = \min$<br>&nbsp;<br>
 $\begin{cases}
 \  \\
 \  (below:0+2625+5250) \\
@@ -2244,7 +2244,7 @@ $Best(i,i)=0$
 <table class="allcenter">
 <tr><td style="width:50%;text-align:center;font-size:75%">
 ::: {.fragment}
-$Best(1,6) = min$<br>&nbsp;<br>
+$Best(1,6) = \min$<br>&nbsp;<br>
 $\begin{cases}
 \color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
@@ -2320,7 +2320,7 @@ $Best(i,i)=0$
 
 <table class="allcenter">
 <tr><td style="width:50%;text-align:center;font-size:75%">
-$Best(1,2) = min$<br>&nbsp;<br>
+$Best(1,2) = \min$<br>&nbsp;<br>
 $\begin{cases}
 \color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
@@ -2416,7 +2416,7 @@ $Best(i,i)=0$
 
 <table class="allcenter">
 <tr><td style="width:50%;text-align:center;font-size:75%">
-$Best(1,2) = min$<br>&nbsp;<br>
+$Best(1,2) = \min$<br>&nbsp;<br>
 $\begin{cases}
 \color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
@@ -2681,44 +2681,491 @@ Readings in CLRS 4th edition: chapter 14
 
 ## Seam Carving
 
-## Seam Carving
+Method for image resizing that doesn’t scale/crop the image
+
+::: {.fragment}
+![](images/dp/ducks-small.webp){.center .stretch}
+:::
 
 ## Cropping
+Removes a "block" of pixels
+
+<table class='center allcenter'>
+<tr><td>
+
+<table class="compact"><tr><td>
+![](images/dp/ducks-small.webp){.ducks-left}
+</td><td>
+
+::: {.r-stack}
+![](images/dp/ducks-small.webp){.ducks-right style="z-"}
+
+::: {.fragment fragment-index=1 .fade-in}
+![](images/spacer.png){.ducks-right-red-box}
+:::
+:::
+
+</td></tr></table></td>
+<td>
+::: {.fragment fragment-index=2}
+&rarr;
+:::
+</td><td>
+::: {.fragment fragment-index=2}
+![](images/dp/ducks-small.webp){.ducks-left}
+:::
+</td></tr></table>
+
 
 ## Scaling
+Removes "stripes" of pixels
+
+<table class='center allcenter'>
+<tr><td>
+
+::: {.r-stack}
+![](images/dp/ducks-small.webp){.ducks-normal}
+
+::: {.fragment fragment-index=1}
+<table class="compact center allcenter"><tr>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+<td>![](images/spacer.png){.ducks-crop-bars}</td>
+</tr></table>
+:::
+:::
+
+</td><td>
+::: {.fragment fragment-index=2}
+&rarr;
+:::
+</td><td>
+::: {.fragment fragment-index=2}
+![](images/dp/ducks-small.webp){.ducks-scaled}
+:::
+</td></tr></table>
+
 
 ## Seam Carving
 
+Removes "least energy seam" of pixels
+
+[https://trekhleb.dev/js-image-carver/](https://trekhleb.dev/js-image-carver/) 
+
+
+<table class='center allcenter'>
+<tr><td>
+
+::: {.r-stack}
+![](images/dp/ducks-small.webp){.ducks-normal}
+
+::: {.fragment fragment-index=1}
+![](images/dp/ducks-seams.svg){.ducks-normal}
+:::
+:::
+
+</td><td>
+::: {.fragment fragment-index=2}
+&rarr;
+:::
+</td><td>
+::: {.fragment fragment-index=2}
+![](images/dp/ducks-carved.webp){style="height:384px"}
+:::
+</td></tr></table>
+
+
 ## Seam Carving
+
+Method for image resizing that doesn’t scale/crop the image
+
+::: {.allcenter}
+| Cropped | Scaled | Carved |
+|----|----|----|
+| ![](images/dp/ducks-small.webp){.ducks-left} | ![](images/dp/ducks-small.webp){.ducks-scaled} | ![](images/dp/ducks-carved.webp){style="height:384px"} |
+:::
 
 ## Seattle Skyline
 
 ## Energy of a Seam
 
+- Sum of the energies of each pixel
+  - $e(p)=$ energy of pixel $p$
+
+&nbsp;
+
+- Many choices for pixel energy
+  - E.g.: change of gradient (how much the color of this pixel differs from its neighbors)
+  - Particular choice doesn’t matter, we use it as a "black box"
+
+&nbsp;
+
+- Goal: find least-energy seam to remove
+
 ## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li class="purple">Identify recursive structure of the problem
+    	<ul><li>What is the "last thing" done?</li></ul></li>
+	<li>Save the solution to each subproblem in memory</li>
+	<li>Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
 
 ## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
 
-## Computing $S(n,k)$
+<table style="compact"><tr><td style="height:150px">
+Let ${\color{red}S(i,j)}=$ least energy seam from the bottom of the image up to pixel $p_{i,j}$
+</td></tr></table>
+<table class="compact allcenter"><tr><td style="width:150px">
+<span style="display:none;">formula</span>
+</td><td style="width:20px">
+<span style="display:none;">
+![](images/underbrace-red.svg){style="transform:rotate(90deg)scale(21,6);z-index:2"}
+</span>
+</td><td>
+::: {.r-stack}
+![](images/dp/seam-grid-1.svg){style="width:800px;margin-bottom:0"}
 
-## Computing $S(n,k)$
+<p style="margin-left:470px;margin-top:50px">$p_{i,j}$<br>
+![](images/dp/seam-1.svg){style="transform:scale(1,1.3);margin-top:50px;margin-left:0px"}
+</p>
 
-## Computing $S(n,k)$
+<p style="display:none;margin-left:280px;margin-top:-40px">$p_{n,k}$<br>
+![](images/dp/seam-2.svg){style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px"}
+</p>
 
-## [Finding the Least Energy Seam]{.r-fit-text}
+<table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px"><tr><td style="width:140px;height:130px">&nbsp;</td></tr></table>
+
+:::
+</td></tr>
+<tr><td></td><td></td><td><span style="display:none;">![](images/underbrace-red.svg){style="transform:scale(4,1);margin-left:-20px"}<br><p style="margin-top:-30px">$m$</p></span></td></tr>
+</table>
+
+
+
+## Computing $\color{pink}S(n,k)$
+
+<table style="compact"><tr><td style="height:150px">
+Assume we know the least energy seams for all of row $n-1$ (i.e., we know $S(n-1,\ell)$ for all $\ell$)
+</td></tr></table>
+<table class="compact allcenter"><tr><td style="width:150px">
+<span style="">Known<br>through<br>$n-1$</span>
+</td><td style="width:20px">
+<span style="">
+![](images/underbrace-red.svg){style="transform:rotate(90deg)scale(21,6);z-index:2"}
+</span>
+</td><td>
+::: {.r-stack}
+![](images/dp/seam-grid-1.svg){style="width:800px;margin-bottom:0"}
+
+<p style="display:none;margin-left:470px;margin-top:50px">$p_{i,j}$<br>
+![](images/dp/seam-1.svg){style="transform:scale(1,1.3);margin-top:50px;margin-left:0px"}
+</p>
+
+<p style="margin-left:280px;margin-top:-40px">$p_{n,k}$<br>
+![](images/dp/seam-2.svg){style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px"}
+</p>
+
+::: {.fragment}
+<table style="border:3px solid orange;margin-top:-235px;margin-left:-147px"><tr><td style="width:140px;height:130px">&nbsp;</td></tr></table>
+:::
+
+:::
+</td></tr>
+<tr><td></td><td></td><td><span style="">![](images/underbrace-red.svg){style="transform:scale(4,1);margin-left:-20px"}<br><p style="margin-top:-30px">$m$</p></span></td></tr>
+</table>
+
+
+## Computing $\color{pink}S(n,k)$
+
+Assume we know the least energy seams for all of row $n-1$ (i.e., we know $S(n-1,\ell)$ for all $\ell$)
+
+<table class='allcenter compact table-of-boxes'>
+<tr><td></td><td>$p_{n,k}$</td><td></td></tr>
+<tr><td>
+<table><tr><td style="background-color:grey"></td></tr></table>
+</td><td>
+<table><tr><td style="background-color:red">$\color{white}S(n,k)$</td></tr></table>
+</td><td>
+<table><tr><td style="background-color:grey"></td></tr></table>
+</td></tr><tr><td>
+<table><tr><td style="background-color:blue">$\color{white}S(n-1,k-1)$</td></tr></table>
+</td><td>
+<table><tr><td style="background-color:purple">$\color{white}S(n-1,k)$</td></tr></table>
+</td><td>
+<table><tr><td style="background-color:magenta">$\color{white}S(n-1,k+1)$</td></tr></table>
+</td></tr></table>
+
+::: {.fragment}
+$${\color{red}S(n,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{n,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{n,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{n,k}) \\
+\end{cases}$$
+:::
+
+## Finding the Least Energy Seam
+
+<table style="compact"><tr><td style="height:150px">
+Want to delete the least energy seam going from bottom to top, so delete: $\min_{k=1}^m({\color{red}S(n,k)})$
+</td></tr></table>
+<table class="compact allcenter"><tr><td style="width:150px">
+<span style="">$n$</span>
+</td><td style="width:20px">
+<span style="">
+![](images/underbrace-red.svg){style="transform:rotate(90deg)scale(21,6);z-index:2"}
+</span>
+</td><td>
+::: {.r-stack}
+![](images/dp/seam-grid-1.svg){style="width:800px;margin-bottom:0"}
+
+<p style="display:none;margin-left:470px;margin-top:50px">$p_{i,j}$<br>
+![](images/dp/seam-1.svg){style="transform:scale(1,1.3);margin-top:50px;margin-left:0px"}
+</p>
+
+<p style="margin-left:280px;margin-top:-40px">$p_{n,k}$<br>
+![](images/dp/seam-2.svg){style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px"}
+</p>
+
+<table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px"><tr><td style="width:140px;height:130px">&nbsp;</td></tr></table>
+
+:::
+</td></tr>
+<tr><td></td><td></td><td><span style="">![](images/underbrace-red.svg){style="transform:scale(4,1);margin-left:-20px"}<br><p style="margin-top:-30px">$m$</p></span></td></tr>
+</table>
+
+
 
 ## Dynamic Programming
 
-## Bring It All Together
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li>Identify recursive structure of the problem
+    	<ul><li>What is the "last thing" done?</li></ul></li>
+	<li class="purple">Save the solution to each subproblem in memory</li>
+	<li>Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
+
+## Computing $\color{pink}S(n,k)$
+
+Assume we know the least energy seams for all of row $n-1$ (i.e., we know $S(n-1,\ell)$ for all $\ell$)
+
+<table class='allcenter compact table-of-boxes'>
+<tr><td></td><td>$p_{n,k}$</td><td></td></tr>
+<tr><td>
+<table><tr><td style="background-color:grey"></td></tr></table>
+</td><td>
+<table><tr><td style="background-color:red">$\color{white}S(n,k)$</td></tr></table>
+</td><td>
+<table><tr><td style="background-color:grey"></td></tr></table>
+</td></tr><tr><td>
+<table><tr><td style="background-color:blue">$\color{white}S(n-1,k-1)$</td></tr></table>
+</td><td>
+<table><tr><td style="background-color:purple">$\color{white}S(n-1,k)$</td></tr></table>
+</td><td>
+<table><tr><td style="background-color:magenta">$\color{white}S(n-1,k+1)$</td></tr></table>
+</td></tr></table>
+
+$${\color{red}S(n,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{n,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{n,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{n,k}) \\
+\end{cases}$$
+
+
+## Finding the Least Energy Seam
+
+<table style="compact"><tr><td style="height:150px">
+Want to delete the least energy seam going from bottom to top, so delete: $\min_{k=1}^m({\color{red}S(n,k)})$
+</td></tr></table>
+<table class="compact allcenter"><tr><td style="width:150px">
+<span style="">$n$</span>
+</td><td style="width:20px">
+<span style="">
+![](images/underbrace-red.svg){style="transform:rotate(90deg)scale(21,6);z-index:2"}
+</span>
+</td><td>
+::: {.r-stack}
+![](images/dp/seam-grid-1.svg){style="width:800px;margin-bottom:0"}
+
+<p style="display:none;margin-left:470px;margin-top:50px">$p_{i,j}$<br>
+![](images/dp/seam-1.svg){style="transform:scale(1,1.3);margin-top:50px;margin-left:0px"}
+</p>
+
+<p style="margin-left:280px;margin-top:-40px">$p_{n,k}$<br>
+![](images/dp/seam-2.svg){style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px"}
+</p>
+
+<table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px"><tr><td style="width:140px;height:130px">&nbsp;</td></tr></table>
+
+:::
+</td></tr>
+<tr><td></td><td></td><td><span style="">![](images/underbrace-red.svg){style="transform:scale(4,1);margin-left:-20px"}<br><p style="margin-top:-30px">$m$</p></span></td></tr>
+</table>
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li>Identify recursive structure of the problem
+    	<ul><li>What is the "last thing" done?</li></ul></li>
+	<li>Save the solution to each subproblem in memory</li>
+	<li class="purple">Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
+
+
 
 ## Bring It All Together
+<table style="font-size:80%;text-size:80%;width:100%">
+<tr style="height:70px"><td>Start from bottom of image (row 1), solve up to top</td><td style="width:170px"></td></tr>
+<tr style="height:80px"><td><span class='green'>Initialize $S(1,k)=e(p_{1,k})$ for each pixel in row 1</span></td><td><span style="display:none;">$\color{green}\Theta(m)$</span></td></tr>
+<tr style="height:240px"><td>
+<span style="display:none;font-size:90%">$${\color{red}\text{For }i>2 \text{ find }} {\color{red}S(i,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
+\end{cases}$$
+</span></td><td><span style="display:none;">$\color{red}\Theta(n \cdot m)$</span></td></tr>
+<tr style="height:80px"><td><span style="display:none;">Pick smallest from top row, backtrack, removing those pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
+<tr style="height:300px"><td> ![](images/dp/seam-grid-2.svg) </td><td style="color:green;vertical-align:middle;font-size:75%"><span style="">Energy of the seam initialized to the energy of that pixel</span></td></tr>
+</table>
+</span>
+
+
+
+## Bring It All Together
+<table style="font-size:80%;text-size:80%;width:100%">
+<tr style="height:70px"><td>Start from bottom of image (row 1), solve up to top</td><td style="width:170px"></td></tr>
+<tr style="height:80px"><td><span class='green'>Initialize $S(1,k)=e(p_{1,k})$ for each pixel $p_{1,k}$</span></td><td><span style="display:none;">$\color{green}\Theta(m)$</span></td></tr>
+<tr style="height:240px"><td>
+<span style="font-size:90%">$${\color{red}\text{For }i>2 \text{ find }} {\color{red}S(i,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
+\end{cases}$$
+</span></td><td><span style="display:none;">$\color{red}\Theta(n \cdot m)$</span></td></tr>
+<tr style="height:80px"><td><span style="display:none;">Pick smallest from top row, backtrack, removing those pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
+<tr style="height:300px"><td> ![](images/dp/seam-grid-3.svg) </td><td style="color:green;vertical-align:middle;font-size:75%"><span style="">Energy of the seam initialized to the energy of that pixel</span></td></tr>
+</table>
+</span>
+
+
 
 ## Finding the Seam
+<table style="font-size:80%;text-size:80%;width:100%">
+<tr style="height:70px"><td>Start from bottom of image (row 1), solve up to top</td><td style="width:170px"></td></tr>
+<tr style="height:80px"><td><span class='green'>Initialize $S(1,k)=e(p_{1,k})$ for each pixel $p_{1,k}$</span></td><td><span style="display:none;">$\color{green}\Theta(m)$</span></td></tr>
+<tr style="height:240px"><td>
+<span style="font-size:90%">$${\color{red}\text{For }i>2 \text{ find }} {\color{red}S(i,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
+\end{cases}$$
+</span></td><td><span style="display:none;">$\color{red}\Theta(n \cdot m)$</span></td></tr>
+<tr style="height:80px"><td><span style="">Pick smallest from top row, backtrack, removing those pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
+<tr style="height:300px"><td> ![](images/dp/seam-grid-3.svg) </td><td style="color:green;vertical-align:middle;font-size:75%"><span style="">Energy of the seam initialized to the energy of that pixel</span></td></tr>
+</table>
+</span>
+
+
 
 ## Run Time?
+<table style="font-size:80%;text-size:80%;width:100%">
+<tr style="height:70px"><td>Start from bottom of image (row 1), solve up to top</td><td style="width:170px"></td></tr>
+<tr style="height:80px"><td><span class='green'>Initialize $S(1,k)=e(p_{1,k})$ for each pixel $p_{1,k}$</span></td><td>
+::: {.fragment}
+<span style="">$\color{green}\Theta(m)$</span>
+:::
+</td></tr>
+<tr style="height:240px"><td>
+<span style="font-size:90%">$${\color{red}\text{For }i>2 \text{ find }} {\color{red}S(i,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
+\end{cases}$$
+</span></td><td>
+::: {.fragment}
+<span style="">$\color{red}\Theta(n \cdot m)$</span>
+:::
+</td></tr>
+<tr style="height:80px"><td><span style="">Pick smallest from top row, backtrack, removing those pixels</td><td>
+::: {.fragment}
+<span style="">$\Theta(n+m)$</span>
+:::
+</td></tr>
+<tr style="height:300px"><td> ![](images/dp/seam-grid-3.svg) </td><td style="color:green;vertical-align:middle;font-size:75%"><span style="">Energy of the seam initialized to the energy of that pixel</span></td></tr>
+</table>
+</span>
+
+
 
 ## Repeated Seam Removal
+Only need to update <span class='blue'>pixels dependant</span> on the <span color='red'>removed seam</span>
 
+<table style="width:100%">
+<tr><td class='bluetext'>$2n$ pixels change</td><td>
+::: {.fragment}
+$\Theta(2n)$ time to update pixels
+:::
+</td></tr>
+<tr><td></td><td>
+::: {.fragment}
+$\Theta(n+m)$ to find min+backtrack
+:::
+</td></tr>
+</table>
+
+
+![](images/dp/seam-grid-4.svg){.center .stretch}
 
 
 

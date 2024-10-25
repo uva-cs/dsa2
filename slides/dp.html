@@ -3058,7 +3058,7 @@ Select a good order for solving subproblems
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
 <div style="font-size:80%;opacity:0">
-<span class="math display">\[\color{magenta}{Best(1,4)} = min
+<span class="math display">\[\color{magenta}{Best(1,4)} = \min
 \begin{cases}
 \color{magenta}{Best(2,4)} + r_1r_2c_4 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
@@ -3163,7 +3163,7 @@ Select a good order for solving subproblems
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
 <div style="font-size:80%">
-<span class="math display">\[\color{magenta}{Best(1,4)} = min
+<span class="math display">\[\color{magenta}{Best(1,4)} = \min
 \begin{cases}
 \color{magenta}{Best(2,4)} + r_1r_2c_4 \\
 \  \\
@@ -3284,7 +3284,7 @@ Select a good order for solving subproblems
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
 <div style="font-size:80%">
-<span class="math display">\[\color{magenta}{Best(1,4)} = min
+<span class="math display">\[\color{magenta}{Best(1,4)} = \min
 \begin{cases}
 \color{magenta}{Best(2,4)} + r_1r_2c_4 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
@@ -3422,7 +3422,7 @@ Select a good order for solving subproblems
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
 <div style="font-size:80%">
-<span class="math display">\[\color{magenta}{Best(1,4)} = min
+<span class="math display">\[\color{magenta}{Best(1,4)} = \min
 \begin{cases}
 \color{magenta}{Best(2,4)} + r_1r_2c_4 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
@@ -3555,7 +3555,7 @@ Select a good order for solving subproblems
 </div>
 <div class="fragment">
 <p style="font-size:90%">
-<span class="math inline">\(Best(1,n) = min
+<span class="math inline">\(Best(1,n) = \min
 \begin{cases}
 \color{magenta}{Best(2,n)} + r_1r_2c_n \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
@@ -3626,7 +3626,7 @@ Select a good order for solving subproblems
 <span class="math inline">\(Best(i,i)=0\)</span>
 </p>
 <p style="font-size:90%">
-<span class="math inline">\(Best(1,n) = min
+<span class="math inline">\(Best(1,n) = \min
 \begin{cases}
 \color{magenta}{Best(2,n)} + r_1r_2c_n \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
@@ -3693,7 +3693,7 @@ Select a good order for solving subproblems
 <span class="math inline">\(Best(i,i)=0\)</span>
 </p>
 <p style="font-size:90%">
-<span class="math inline">\(Best(1,n) = min
+<span class="math inline">\(Best(1,n) = \min
 \begin{cases}
 \color{magenta}{Best(2,n)} + r_1r_2c_n \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
@@ -4113,7 +4113,7 @@ Select a good order for solving subproblems
 <table class="allcenter">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<span class="math inline">\(Best(1,2) = min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<span class="math inline">\(Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
 \  \\
 \  \\
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,2)} + r_1r_1c_2 \\
@@ -4400,7 +4400,7 @@ Select a good order for solving subproblems
 <table class="allcenter">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<span class="math inline">\(Best(1,2) = min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<span class="math inline">\(Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
 \  \\
 \  \\
 {\color{green}Best(2,2)} + {\color{magenta}Best(3,3)} + r_2r_3c_3 \\
@@ -4980,7 +4980,7 @@ Select a good order for solving subproblems
 <p><span class="math inline">\(r_1r_3c_3=30 \cdot 15 \cdot 5=2250\)</span><br></p>
 </div>
 <p>&nbsp;</p>
-<span class="math inline">\(Best(1,2) = min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<span class="math inline">\(Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
 \  \\
 \  (below:0+2625+5250) \\
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,3)} + r_1r_2c_3 \\
@@ -5562,7 +5562,7 @@ Select a good order for solving subproblems
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
 <div class="fragment">
-<p><span class="math inline">\(Best(1,6) = min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<p><span class="math inline">\(Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
 \color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
 \color{green}{Best(1,3)} + \color{magenta}{Best(4,6)} + r_1r_4c_6 \\
@@ -5789,7 +5789,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <table class="allcenter">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<span class="math inline">\(Best(1,2) = min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<span class="math inline">\(Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
 \color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
 \boxed{\color{green}{Best(1,3)} + \color{magenta}{Best(4,6)} + r_1r_4c_6} \\
@@ -6105,7 +6105,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <table class="allcenter">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<span class="math inline">\(Best(1,2) = min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<span class="math inline">\(Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
 \color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
 \color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
 \boxed{\color{green}{Best(1,3)} + \color{magenta}{Best(4,6)} + r_1r_4c_6} \\
@@ -6607,64 +6607,921 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 </section>
 <section id="seam-carving-1" class="slide level2">
 <h2>Seam Carving</h2>
-</section>
-<section id="seam-carving-2" class="slide level2">
-<h2>Seam Carving</h2>
+<p>Method for image resizing that doesn’t scale/crop the image</p>
+<div class="fragment">
+<p><img data-src="images/dp/ducks-small.webp" class="center stretch"></p>
+</div>
 </section>
 <section id="cropping" class="slide level2">
 <h2>Cropping</h2>
+<p>Removes a “block” of pixels</p>
+<table class="center allcenter">
+<tbody><tr>
+<td>
+<table class="compact">
+<tbody><tr>
+<td>
+<img data-src="images/dp/ducks-small.webp" class="ducks-left">
+</td>
+<td>
+<div class="r-stack">
+<p><img data-src="images/dp/ducks-small.webp" class="ducks-right" style="z-"></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><img data-src="images/spacer.png" class="ducks-right-red-box"></p>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<div class="fragment" data-fragment-index="2">
+<p>→</p>
+</div>
+</td>
+<td>
+<div class="fragment" data-fragment-index="2">
+<p><img data-src="images/dp/ducks-small.webp" class="ducks-left"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
 </section>
 <section id="scaling" class="slide level2">
 <h2>Scaling</h2>
+<p>Removes “stripes” of pixels</p>
+<table class="center allcenter">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<p><img data-src="images/dp/ducks-small.webp" class="ducks-normal"></p>
+<div class="fragment" data-fragment-index="1">
+<table class="compact center allcenter">
+<tbody><tr>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+<td>
+<img data-src="images/spacer.png" class="ducks-crop-bars">
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</td>
+<td>
+<div class="fragment" data-fragment-index="2">
+<p>→</p>
+</div>
+</td>
+<td>
+<div class="fragment" data-fragment-index="2">
+<p><img data-src="images/dp/ducks-small.webp" class="ducks-scaled"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="seam-carving-2" class="slide level2">
+<h2>Seam Carving</h2>
+<p>Removes “least energy seam” of pixels</p>
+<p><a href="https://trekhleb.dev/js-image-carver/">https://trekhleb.dev/js-image-carver/</a></p>
+<table class="center allcenter">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<p><img data-src="images/dp/ducks-small.webp" class="ducks-normal"></p>
+<div class="fragment" data-fragment-index="1">
+<p><img data-src="images/dp/ducks-seams.svg" class="ducks-normal"></p>
+</div>
+</div>
+</td>
+<td>
+<div class="fragment" data-fragment-index="2">
+<p>→</p>
+</div>
+</td>
+<td>
+<div class="fragment" data-fragment-index="2">
+<p><img data-src="images/dp/ducks-carved.webp" style="height:384px"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
 </section>
 <section id="seam-carving-3" class="slide level2">
 <h2>Seam Carving</h2>
-</section>
-<section id="seam-carving-4" class="slide level2">
-<h2>Seam Carving</h2>
+<p>Method for image resizing that doesn’t scale/crop the image</p>
+<div class="allcenter">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Cropped</th>
+<th>Scaled</th>
+<th>Carved</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img data-src="images/dp/ducks-small.webp" class="ducks-left"></td>
+<td><img data-src="images/dp/ducks-small.webp" class="ducks-scaled"></td>
+<td><img data-src="images/dp/ducks-carved.webp" style="height:384px"></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="seattle-skyline" class="slide level2">
 <h2>Seattle Skyline</h2>
 </section>
 <section id="energy-of-a-seam" class="slide level2">
 <h2>Energy of a Seam</h2>
+<ul>
+<li>Sum of the energies of each pixel
+<ul>
+<li><span class="math inline">\(e(p)=\)</span> energy of pixel <span class="math inline">\(p\)</span></li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Many choices for pixel energy
+<ul>
+<li>E.g.: change of gradient (how much the color of this pixel differs from its neighbors)</li>
+<li>Particular choice doesn’t matter, we use it as a “black box”</li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Goal: find least-energy seam to remove</li>
+</ul>
 </section>
 <section id="dynamic-programming-11" class="slide level2">
 <h2>Dynamic Programming</h2>
+<ul>
+<li>Requires <span class="magenta">Optimal Substructure</span>
+<ul>
+<li>Solution to larger problem contains the (optimal) solutions to smaller ones</li>
+</ul></li>
+<li>Idea:
+<ol>
+<li class="purple">
+Identify recursive structure of the problem
+<ul>
+<li>
+What is the “last thing” done?
+</li>
+</ul>
+</li>
+<li>
+Save the solution to each subproblem in memory
+</li>
+<li>
+Select a good order for solving subproblems
+<ul>
+<li>
+“Top Down”: Solve each recursively
+</li>
+<li>
+“Bottom Up”: Iteratively solve smallest to largest
+</li>
+</ul>
+</li>
+</ol></li>
+</ul>
 </section>
 <section id="identify-the-recursive-structure-of-the-problem-7" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
+<table style="compact">
+<tbody><tr>
+<td style="height:150px">
+Let <span class="math inline">\({\color{red}S(i,j)}=\)</span> least energy seam from the bottom of the image up to pixel <span class="math inline">\(p_{i,j}\)</span>
+</td>
+</tr>
+</tbody></table>
+<table class="compact allcenter">
+<tbody><tr>
+<td style="width:150px">
+<span style="display:none;">formula</span>
+</td>
+<td style="width:20px">
+<span style="display:none;"> <img data-src="images/underbrace-red.svg" style="transform:rotate(90deg)scale(21,6);z-index:2"> </span>
+</td>
+<td>
+<div class="r-stack">
+<p><img data-src="images/dp/seam-grid-1.svg" style="width:800px;margin-bottom:0"></p>
+<p style="margin-left:470px;margin-top:50px">
+<span class="math inline">\(p_{i,j}\)</span><br> <img data-src="images/dp/seam-1.svg" style="transform:scale(1,1.3);margin-top:50px;margin-left:0px">
+</p>
+<p style="display:none;margin-left:280px;margin-top:-40px">
+<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px">
+</p>
+<table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px">
+<tbody><tr>
+<td style="width:140px;height:130px">
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+<span style="display:none;"><img data-src="images/underbrace-red.svg" style="transform:scale(4,1);margin-left:-20px"><br>
+<p style="margin-top:-30px">
+<span class="math inline">\(m\)</span>
+</p>
+</span>
+</td>
+</tr>
+</tbody></table>
 </section>
-<section id="computing-snk" class="slide level2">
-<h2>Computing <span class="math inline">\(S(n,k)\)</span></h2>
+<section id="computing-colorpinksnk" class="slide level2">
+<h2>Computing <span class="math inline">\(\color{pink}S(n,k)\)</span></h2>
+<table style="compact">
+<tbody><tr>
+<td style="height:150px">
+Assume we know the least energy seams for all of row <span class="math inline">\(n-1\)</span> (i.e., we know <span class="math inline">\(S(n-1,\ell)\)</span> for all <span class="math inline">\(\ell\)</span>)
+</td>
+</tr>
+</tbody></table>
+<table class="compact allcenter">
+<tbody><tr>
+<td style="width:150px">
+<span style="">Known<br>through<br><span class="math inline">\(n-1\)</span></span>
+</td>
+<td style="width:20px">
+<span style=""> <img data-src="images/underbrace-red.svg" style="transform:rotate(90deg)scale(21,6);z-index:2"> </span>
+</td>
+<td>
+<div class="r-stack">
+<p><img data-src="images/dp/seam-grid-1.svg" style="width:800px;margin-bottom:0"></p>
+<p style="display:none;margin-left:470px;margin-top:50px">
+<span class="math inline">\(p_{i,j}\)</span><br> <img data-src="images/dp/seam-1.svg" style="transform:scale(1,1.3);margin-top:50px;margin-left:0px">
+</p>
+<p style="margin-left:280px;margin-top:-40px">
+<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px">
+</p>
+<div class="fragment">
+<table style="border:3px solid orange;margin-top:-235px;margin-left:-147px">
+<tbody><tr>
+<td style="width:140px;height:130px">
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+<span style=""><img data-src="images/underbrace-red.svg" style="transform:scale(4,1);margin-left:-20px"><br>
+<p style="margin-top:-30px">
+<span class="math inline">\(m\)</span>
+</p>
+</span>
+</td>
+</tr>
+</tbody></table>
 </section>
-<section id="computing-snk-1" class="slide level2">
-<h2>Computing <span class="math inline">\(S(n,k)\)</span></h2>
-</section>
-<section id="computing-snk-2" class="slide level2">
-<h2>Computing <span class="math inline">\(S(n,k)\)</span></h2>
+<section id="computing-colorpinksnk-1" class="slide level2">
+<h2>Computing <span class="math inline">\(\color{pink}S(n,k)\)</span></h2>
+<p>Assume we know the least energy seams for all of row <span class="math inline">\(n-1\)</span> (i.e., we know <span class="math inline">\(S(n-1,\ell)\)</span> for all <span class="math inline">\(\ell\)</span>)</p>
+<table class="allcenter compact table-of-boxes">
+<tbody><tr>
+<td>
+</td>
+<td>
+<span class="math inline">\(p_{n,k}\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:grey">
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:red">
+<span class="math inline">\(\color{white}S(n,k)\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:grey">
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:blue">
+<span class="math inline">\(\color{white}S(n-1,k-1)\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:purple">
+<span class="math inline">\(\color{white}S(n-1,k)\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:magenta">
+<span class="math inline">\(\color{white}S(n-1,k+1)\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<div class="fragment">
+<p><span class="math display">\[{\color{red}S(n,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{n,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{n,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{n,k}) \\
+\end{cases}\]</span></p>
+</div>
 </section>
 <section id="finding-the-least-energy-seam" class="slide level2">
-<h2><span class="r-fit-text">Finding the Least Energy Seam</span></h2>
+<h2>Finding the Least Energy Seam</h2>
+<table style="compact">
+<tbody><tr>
+<td style="height:150px">
+Want to delete the least energy seam going from bottom to top, so delete: <span class="math inline">\(\min_{k=1}^m({\color{red}S(n,k)})\)</span>
+</td>
+</tr>
+</tbody></table>
+<table class="compact allcenter">
+<tbody><tr>
+<td style="width:150px">
+<span style=""><span class="math inline">\(n\)</span></span>
+</td>
+<td style="width:20px">
+<span style=""> <img data-src="images/underbrace-red.svg" style="transform:rotate(90deg)scale(21,6);z-index:2"> </span>
+</td>
+<td>
+<div class="r-stack">
+<p><img data-src="images/dp/seam-grid-1.svg" style="width:800px;margin-bottom:0"></p>
+<p style="display:none;margin-left:470px;margin-top:50px">
+<span class="math inline">\(p_{i,j}\)</span><br> <img data-src="images/dp/seam-1.svg" style="transform:scale(1,1.3);margin-top:50px;margin-left:0px">
+</p>
+<p style="margin-left:280px;margin-top:-40px">
+<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px">
+</p>
+<table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px">
+<tbody><tr>
+<td style="width:140px;height:130px">
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+<span style=""><img data-src="images/underbrace-red.svg" style="transform:scale(4,1);margin-left:-20px"><br>
+<p style="margin-top:-30px">
+<span class="math inline">\(m\)</span>
+</p>
+</span>
+</td>
+</tr>
+</tbody></table>
 </section>
 <section id="dynamic-programming-12" class="slide level2">
 <h2>Dynamic Programming</h2>
+<ul>
+<li>Requires <span class="magenta">Optimal Substructure</span>
+<ul>
+<li>Solution to larger problem contains the (optimal) solutions to smaller ones</li>
+</ul></li>
+<li>Idea:
+<ol>
+<li>
+Identify recursive structure of the problem
+<ul>
+<li>
+What is the “last thing” done?
+</li>
+</ul>
+</li>
+<li class="purple">
+Save the solution to each subproblem in memory
+</li>
+<li>
+Select a good order for solving subproblems
+<ul>
+<li>
+“Top Down”: Solve each recursively
+</li>
+<li>
+“Bottom Up”: Iteratively solve smallest to largest
+</li>
+</ul>
+</li>
+</ol></li>
+</ul>
+</section>
+<section id="computing-colorpinksnk-2" class="slide level2">
+<h2>Computing <span class="math inline">\(\color{pink}S(n,k)\)</span></h2>
+<p>Assume we know the least energy seams for all of row <span class="math inline">\(n-1\)</span> (i.e., we know <span class="math inline">\(S(n-1,\ell)\)</span> for all <span class="math inline">\(\ell\)</span>)</p>
+<table class="allcenter compact table-of-boxes">
+<tbody><tr>
+<td>
+</td>
+<td>
+<span class="math inline">\(p_{n,k}\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:grey">
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:red">
+<span class="math inline">\(\color{white}S(n,k)\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:grey">
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:blue">
+<span class="math inline">\(\color{white}S(n-1,k-1)\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:purple">
+<span class="math inline">\(\color{white}S(n-1,k)\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table>
+<tbody><tr>
+<td style="background-color:magenta">
+<span class="math inline">\(\color{white}S(n-1,k+1)\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<p><span class="math display">\[{\color{red}S(n,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{n,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{n,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{n,k}) \\
+\end{cases}\]</span></p>
+</section>
+<section id="finding-the-least-energy-seam-1" class="slide level2">
+<h2>Finding the Least Energy Seam</h2>
+<table style="compact">
+<tbody><tr>
+<td style="height:150px">
+Want to delete the least energy seam going from bottom to top, so delete: <span class="math inline">\(\min_{k=1}^m({\color{red}S(n,k)})\)</span>
+</td>
+</tr>
+</tbody></table>
+<table class="compact allcenter">
+<tbody><tr>
+<td style="width:150px">
+<span style=""><span class="math inline">\(n\)</span></span>
+</td>
+<td style="width:20px">
+<span style=""> <img data-src="images/underbrace-red.svg" style="transform:rotate(90deg)scale(21,6);z-index:2"> </span>
+</td>
+<td>
+<div class="r-stack">
+<p><img data-src="images/dp/seam-grid-1.svg" style="width:800px;margin-bottom:0"></p>
+<p style="display:none;margin-left:470px;margin-top:50px">
+<span class="math inline">\(p_{i,j}\)</span><br> <img data-src="images/dp/seam-1.svg" style="transform:scale(1,1.3);margin-top:50px;margin-left:0px">
+</p>
+<p style="margin-left:280px;margin-top:-40px">
+<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px">
+</p>
+<table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px">
+<tbody><tr>
+<td style="width:140px;height:130px">
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td>
+<span style=""><img data-src="images/underbrace-red.svg" style="transform:scale(4,1);margin-left:-20px"><br>
+<p style="margin-top:-30px">
+<span class="math inline">\(m\)</span>
+</p>
+</span>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="dynamic-programming-13" class="slide level2">
+<h2>Dynamic Programming</h2>
+<ul>
+<li>Requires <span class="magenta">Optimal Substructure</span>
+<ul>
+<li>Solution to larger problem contains the (optimal) solutions to smaller ones</li>
+</ul></li>
+<li>Idea:
+<ol>
+<li>
+Identify recursive structure of the problem
+<ul>
+<li>
+What is the “last thing” done?
+</li>
+</ul>
+</li>
+<li>
+Save the solution to each subproblem in memory
+</li>
+<li class="purple">
+Select a good order for solving subproblems
+<ul>
+<li>
+“Top Down”: Solve each recursively
+</li>
+<li>
+“Bottom Up”: Iteratively solve smallest to largest
+</li>
+</ul>
+</li>
+</ol></li>
+</ul>
 </section>
 <section id="bring-it-all-together" class="slide level2">
 <h2>Bring It All Together</h2>
+<table style="font-size:80%;text-size:80%;width:100%">
+<tbody><tr style="height:70px">
+<td>
+Start from bottom of image (row 1), solve up to top
+</td>
+<td style="width:170px">
+</td>
+</tr>
+<tr style="height:80px">
+<td>
+<span class="green">Initialize <span class="math inline">\(S(1,k)=e(p_{1,k})\)</span> for each pixel in row 1</span>
+</td>
+<td>
+<span style="display:none;"><span class="math inline">\(\color{green}\Theta(m)\)</span></span>
+</td>
+</tr>
+<tr style="height:240px">
+<td>
+<span style="display:none;font-size:90%"><span class="math display">\[{\color{red}\text{For }i&gt;2 \text{ find }} {\color{red}S(i,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
+\end{cases}\]</span> </span>
+</td>
+<td>
+<span style="display:none;"><span class="math inline">\(\color{red}\Theta(n \cdot m)\)</span></span>
+</td>
+</tr>
+<tr style="height:80px">
+<td>
+<span style="display:none;">Pick smallest from top row, backtrack, removing those pixels
+</span></td>
+<td>
+<span style="display:none;"><span class="math inline">\(\Theta(n+m)\)</span></span>
+</td>
+</tr>
+<tr style="height:300px">
+<td>
+<img data-src="images/dp/seam-grid-2.svg">
+</td>
+<td style="color:green;vertical-align:middle;font-size:75%">
+<span style="">Energy of the seam initialized to the energy of that pixel</span>
+</td>
+</tr>
+</tbody></table>
+<p></p>
 </section>
 <section id="bring-it-all-together-1" class="slide level2">
 <h2>Bring It All Together</h2>
+<table style="font-size:80%;text-size:80%;width:100%">
+<tbody><tr style="height:70px">
+<td>
+Start from bottom of image (row 1), solve up to top
+</td>
+<td style="width:170px">
+</td>
+</tr>
+<tr style="height:80px">
+<td>
+<span class="green">Initialize <span class="math inline">\(S(1,k)=e(p_{1,k})\)</span> for each pixel <span class="math inline">\(p_{1,k}\)</span></span>
+</td>
+<td>
+<span style="display:none;"><span class="math inline">\(\color{green}\Theta(m)\)</span></span>
+</td>
+</tr>
+<tr style="height:240px">
+<td>
+<span style="font-size:90%"><span class="math display">\[{\color{red}\text{For }i&gt;2 \text{ find }} {\color{red}S(i,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
+\end{cases}\]</span> </span>
+</td>
+<td>
+<span style="display:none;"><span class="math inline">\(\color{red}\Theta(n \cdot m)\)</span></span>
+</td>
+</tr>
+<tr style="height:80px">
+<td>
+<span style="display:none;">Pick smallest from top row, backtrack, removing those pixels
+</span></td>
+<td>
+<span style="display:none;"><span class="math inline">\(\Theta(n+m)\)</span></span>
+</td>
+</tr>
+<tr style="height:300px">
+<td>
+<img data-src="images/dp/seam-grid-3.svg">
+</td>
+<td style="color:green;vertical-align:middle;font-size:75%">
+<span style="">Energy of the seam initialized to the energy of that pixel</span>
+</td>
+</tr>
+</tbody></table>
+<p></p>
 </section>
 <section id="finding-the-seam" class="slide level2">
 <h2>Finding the Seam</h2>
+<table style="font-size:80%;text-size:80%;width:100%">
+<tbody><tr style="height:70px">
+<td>
+Start from bottom of image (row 1), solve up to top
+</td>
+<td style="width:170px">
+</td>
+</tr>
+<tr style="height:80px">
+<td>
+<span class="green">Initialize <span class="math inline">\(S(1,k)=e(p_{1,k})\)</span> for each pixel <span class="math inline">\(p_{1,k}\)</span></span>
+</td>
+<td>
+<span style="display:none;"><span class="math inline">\(\color{green}\Theta(m)\)</span></span>
+</td>
+</tr>
+<tr style="height:240px">
+<td>
+<span style="font-size:90%"><span class="math display">\[{\color{red}\text{For }i&gt;2 \text{ find }} {\color{red}S(i,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
+\end{cases}\]</span> </span>
+</td>
+<td>
+<span style="display:none;"><span class="math inline">\(\color{red}\Theta(n \cdot m)\)</span></span>
+</td>
+</tr>
+<tr style="height:80px">
+<td>
+<span style="">Pick smallest from top row, backtrack, removing those pixels
+</span></td>
+<td>
+<span style="display:none;"><span class="math inline">\(\Theta(n+m)\)</span></span>
+</td>
+</tr>
+<tr style="height:300px">
+<td>
+<img data-src="images/dp/seam-grid-3.svg">
+</td>
+<td style="color:green;vertical-align:middle;font-size:75%">
+<span style="">Energy of the seam initialized to the energy of that pixel</span>
+</td>
+</tr>
+</tbody></table>
+<p></p>
 </section>
 <section id="run-time-1" class="slide level2">
 <h2>Run Time?</h2>
+<table style="font-size:80%;text-size:80%;width:100%">
+<tbody><tr style="height:70px">
+<td>
+Start from bottom of image (row 1), solve up to top
+</td>
+<td style="width:170px">
+</td>
+</tr>
+<tr style="height:80px">
+<td>
+<span class="green">Initialize <span class="math inline">\(S(1,k)=e(p_{1,k})\)</span> for each pixel <span class="math inline">\(p_{1,k}\)</span></span>
+</td>
+<td>
+<div class="fragment">
+<p><span style=""><span class="math inline">\(\color{green}\Theta(m)\)</span></span></p>
+</div>
+</td>
+</tr>
+<tr style="height:240px">
+<td>
+<span style="font-size:90%"><span class="math display">\[{\color{red}\text{For }i&gt;2 \text{ find }} {\color{red}S(i,k) = \min}
+\begin{cases}
+{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
+\end{cases}\]</span> </span>
+</td>
+<td>
+<div class="fragment">
+<p><span style=""><span class="math inline">\(\color{red}\Theta(n \cdot m)\)</span></span></p>
+</div>
+</td>
+</tr>
+<tr style="height:80px">
+<td>
+<span style="">Pick smallest from top row, backtrack, removing those pixels
+</span></td>
+<td>
+<div class="fragment">
+<p><span style=""><span class="math inline">\(\Theta(n+m)\)</span></span></p>
+</div>
+</td>
+</tr>
+<tr style="height:300px">
+<td>
+<img data-src="images/dp/seam-grid-3.svg">
+</td>
+<td style="color:green;vertical-align:middle;font-size:75%">
+<span style="">Energy of the seam initialized to the energy of that pixel</span>
+</td>
+</tr>
+</tbody></table>
+<p></p>
 </section>
 <section id="repeated-seam-removal" class="slide level2">
 <h2>Repeated Seam Removal</h2>
-</section></section>
+<p>Only need to update <span class="blue">pixels dependant</span> on the <span color="red">removed seam</span></p>
+<table style="width:100%">
+<tbody><tr>
+<td class="bluetext">
+<span class="math inline">\(2n\)</span> pixels change
+</td>
+<td>
+<div class="fragment">
+<p><span class="math inline">\(\Theta(2n)\)</span> time to update pixels</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<div class="fragment">
+<p><span class="math inline">\(\Theta(n+m)\)</span> to find min+backtrack</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+
+<img data-src="images/dp/seam-grid-4.svg" class="center stretch"></section></section>
 <section>
 <section id="longest-common-subsequence" class="title-slide slide level1 center">
 <h1>Longest Common Subsequence <!-- from day18.pptx and day19.pptx --></h1>
@@ -6675,7 +7532,7 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 <section id="longest-common-subsequence-1" class="slide level2">
 <h2>Longest Common Subsequence</h2>
 </section>
-<section id="dynamic-programming-13" class="slide level2">
+<section id="dynamic-programming-14" class="slide level2">
 <h2>Dynamic Programming</h2>
 </section>
 <section id="identify-the-recursive-structure-of-the-problem-8" class="slide level2">
@@ -6693,7 +7550,7 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 <section id="blank-1" class="slide level2">
 <h2>(blank)</h2>
 </section>
-<section id="dynamic-programming-14" class="slide level2">
+<section id="dynamic-programming-15" class="slide level2">
 <h2>Dynamic Programming</h2>
 </section>
 <section id="solve-in-a-good-order" class="slide level2">
@@ -6763,10 +7620,10 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 <section id="gerrymandering-problem-statement" class="slide level2">
 <h2><span class="r-fit-text">Gerrymandering Problem Statement</span></h2>
 </section>
-<section id="dynamic-programming-15" class="slide level2">
+<section id="dynamic-programming-16" class="slide level2">
 <h2>Dynamic Programming</h2>
 </section>
-<section id="dynamic-programming-16" class="slide level2">
+<section id="dynamic-programming-17" class="slide level2">
 <h2>Dynamic Programming</h2>
 </section>
 <section id="consider-the-last-precinct" class="slide level2">
