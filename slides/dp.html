@@ -1643,7 +1643,7 @@ Select a good order for solving subproblems
 <p><span class="blue"><span class="math inline">\(P[i] =\)</span></span> value of a cut of length <span class="math inline">\(i\)</span></p>
 <p><span class="magenta"><span class="math inline">\(Cut(n)=\)</span></span> value of best way to cut a log of length <span class="math inline">\(n\)</span></p>
 <div class="fragment" data-fragment-index="4">
-<p><span class="math display">\[\color{magenta}{Cut(n)} = max
+<p><span class="math display">\[\color{magenta}{Cut(n)} = \max
 \begin{cases}
 \color{magenta}{Cut(n-1)} + \color{blue}{P[1]} \\
 \color{magenta}{Cut(n-2)} + \color{blue}{P[2]} \\
@@ -1917,7 +1917,7 @@ Length:
 <table>
 <tbody><tr>
 <td style="padding:0;vertical-align:middle">
-<span class="math display">\[\color{magenta}{Cut(2)} = max
+<span class="math display">\[\color{magenta}{Cut(2)} = \max
 \begin{cases}
 \color{magenta}{Cut(1)} + \color{blue}{P[1]} \\
 \color{magenta}{Cut(0)} + \color{blue}{P[2]} \\
@@ -2012,7 +2012,7 @@ Length:
 <table>
 <tbody><tr>
 <td style="padding:0;vertical-align:middle">
-<span class="math display">\[\color{magenta}{Cut(3)} = max
+<span class="math display">\[\color{magenta}{Cut(3)} = \max
 \begin{cases}
 \color{magenta}{Cut(2)} + \color{blue}{P[1]} \\
 \color{magenta}{Cut(1)} + \color{blue}{P[2]} \\
@@ -2108,7 +2108,7 @@ Length:
 <table>
 <tbody><tr>
 <td style="padding:0;vertical-align:middle;">
-<span class="math display">\[\color{magenta}{Cut(4)} = max
+<span class="math display">\[\color{magenta}{Cut(4)} = \max
 \begin{cases}
 \color{magenta}{Cut(3)} + \color{blue}{P[1]} \\
 \color{magenta}{Cut(2)} + \color{blue}{P[2]} \\
@@ -7531,33 +7531,288 @@ Start from bottom of image (row 1), solve up to top
 </section>
 <section id="longest-common-subsequence-1" class="slide level2">
 <h2>Longest Common Subsequence</h2>
+<table>
+<tbody><tr>
+<td style="width:50%">
+<p>Given two sequences <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, find the length of their longest common subsequence</p>
+<p>&nbsp;</p>
+<p>Example:<br> 𝑋 = 𝐴<span class="red">𝑇𝐶𝑇</span>𝐺<span class="red">𝐴</span>𝑇<br> 𝑌 = <span class="red">𝑇</span>𝐺<span class="red">𝐶</span>𝐴<span class="red">𝑇𝐴</span><br> 𝐿𝐶𝑆 = <span class="red">𝑇𝐶𝑇𝐴</span></p>
+</td>
+<td style="vertical-align:top;width:50%">
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/DNA_simple2.svg/728px-DNA_simple2.svg.png">
+</td>
+</tr>
+</tbody></table>
+<p>Brute force: compare every subsequence of <span class="math inline">\(X\)</span> with <span class="math inline">\(Y\)</span>: <span class="math inline">\(\Omega(2^n)\)</span></p>
 </section>
 <section id="dynamic-programming-14" class="slide level2">
 <h2>Dynamic Programming</h2>
+<ul>
+<li>Requires <span class="magenta">Optimal Substructure</span>
+<ul>
+<li>Solution to larger problem contains the (optimal) solutions to smaller ones</li>
+</ul></li>
+<li>Idea:
+<ol>
+<li class="purple">
+Identify recursive structure of the problem
+<ul>
+<li>
+What is the “last thing” done?
+</li>
+</ul>
+</li>
+<li>
+Save the solution to each subproblem in memory
+</li>
+<li>
+Select a good order for solving subproblems
+<ul>
+<li>
+“Top Down”: Solve each recursively
+</li>
+<li>
+“Bottom Up”: Iteratively solve smallest to largest
+</li>
+</ul>
+</li>
+</ol></li>
+</ul>
 </section>
 <section id="identify-the-recursive-structure-of-the-problem-8" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
-</section>
-<section id="identify-the-recursive-structure-of-the-problem-9" class="slide level2">
-<h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
-</section>
-<section id="blank" class="slide level2">
-<h2>(blank)</h2>
-</section>
-<section id="top-down-solution-with-memoization" class="slide level2">
-<h2><span class="r-fit-text">Top-Down Solution with Memoization</span></h2>
-</section>
-<section id="blank-1" class="slide level2">
-<h2>(blank)</h2>
+<div style="font-size:70% !important">
+<p>Let <span class="math inline">\(LCS(i.j)=\)</span> length of the LCS for the first <span class="math inline">\(i\)</span> characters of <span class="math inline">\(X\)</span>, first <span class="math inline">\(j\)</span> character of <span class="math inline">\(Y\)</span></p>
+<p>Find <span class="math inline">\(\color{magenta}LCS(i,j)\)</span>:</p>
+<table>
+<tbody><tr>
+<td style="vertical-align:middle;width:50%">
+<span class="green">Case 1</span>: <span class="math inline">\(\color{magenta}X[i]=Y[i]\)</span>
+</td>
+<td style="width:50%">
+X = <span class="red">T</span>G<span class="red">C</span>A<span class="red">T</span>A<span class="magenta">T</span><br> Y = A<span class="red">TCT</span>GCG<span class="magenta">T</span>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<span class="math inline">\(LCS(i,j)=LCS(i-1,j-1)+1\)</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:middle">
+<span class="blue">Case 2</span>: <span class="math inline">\(\color{magenta}X[i]\ne Y[i]\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+X = <span class="red">T</span>G<span class="red">C</span>A<span class="red">T</span>A<span class="magenta">T</span><br> Y = A<span class="red">TCT</span>G<span class="magenta">C</span>GT
+</td>
+<td style="text-align:center">
+X = <span class="red">T</span>G<span class="red">C</span>A<span class="red">T</span><span class="magenta">A</span>T<br> Y = A<span class="red">TCT</span>GCG<span class="magenta">A</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(LCS(i,j)=LCS(i,j-1)\)</span>
+</td>
+<td>
+<span class="math inline">\(LCS(i,j)=LCS(i-1,j)\)</span>
+</td>
+</tr>
+</tbody></table>
+<table style="border-top:1px solid black">
+<tbody><tr>
+<td style="vertical-align:top">
+<span> <span class="math display">\[LCS(i,j) = \max
+\begin{cases}
+0 \\
+{\color{green}LCS(i-1,j-1)+1} \\
+{\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} \\
+\end{cases}\]</span></span>
+</td>
+<td style="vertical-align:top">
+<p style="margin-top:35px">
+if <span class="math inline">\(i=0\)</span> or <span class="math inline">\(j=0\)</span><br> if <span class="math inline">\(X[i]=Y[i]\)</span><br> otherwise
+</p>
+</td>
+</tr>
+</tbody></table>
+</div>
 </section>
 <section id="dynamic-programming-15" class="slide level2">
 <h2>Dynamic Programming</h2>
+<ul>
+<li>Requires <span class="magenta">Optimal Substructure</span>
+<ul>
+<li>Solution to larger problem contains the (optimal) solutions to smaller ones</li>
+</ul></li>
+<li>Idea:
+<ol>
+<li>
+Identify recursive structure of the problem
+<ul>
+<li>
+What is the “last thing” done?
+</li>
+</ul>
+</li>
+<li class="purple">
+Save the solution to each subproblem in memory
+</li>
+<li>
+Select a good order for solving subproblems
+<ul>
+<li>
+“Top Down”: Solve each recursively
+</li>
+<li>
+“Bottom Up”: Iteratively solve smallest to largest
+</li>
+</ul>
+</li>
+</ol></li>
+</ul>
+</section>
+<section id="top-down-solution-with-memoization" class="slide level2">
+<h2><span class="r-fit-text">Top-Down Solution with Memoization</span></h2>
+<p>We need two functions; one will be recursive.</p>
+<div style="font-size:60% !important">
+<table>
+<tbody><tr>
+<td style="vertical-align:top">
+<table>
+<tbody><tr>
+<td style="border:2px solid blue">
+<div class="no-bullets">
+<ul>
+<li><b>LCS-Length(X, Y):</b> <span class="green">// Y is M’s cols.</span>
+<ul>
+<li>n = length(X)</li>
+<li>m = length(Y)</li>
+<li>Create table M[n,m]</li>
+<li>Assign -1 to all cells M[i,j]</li>
+<li><span class="green">// get value for entire sequences</span></li>
+<li>return <b>LCS-recur</b>(X, Y, M, n, m)</li>
+</ul></li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table>
+<tbody><tr style="border:2px dashed black">
+<td style="font-size:70%">
+0<br> <span class="math inline">\(\color{green}LCS(i-1,j-1)+1\)</span><br> <span class="math inline">\(\color{blue}\max(LCS(i,j-1),LCS(i-1,j))\)</span>
+</td>
+<td style="font-size:70%">
+if <span class="math inline">\(i=0\)</span> or <span class="math inline">\(j=0\)</span><br> if <span class="math inline">\(X[i]=Y[i]\)</span><br> otherwise
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table>
+<tbody><tr>
+<td style="border:2px solid blue !important">
+<div class="no-bullets">
+<ul>
+<li><b>LCS-recur(X, Y, M, i, j):</b>
+<ul>
+<li>if (i == 0 || j == 0) return 0</li>
+<li><span class="green">// have we already calculated </span></li>
+<li><span class="green">// this subproblem? </span></li>
+<li>if ( M[i,j] != -1 ) return M[i,j]</li>
+<li>if ( X[i] == Y[j] )
+<ul>
+<li>M[i,j] = <b>LCS-recur</b>(X, Y, M, <span style="background-color:yellow">i-1</span>, <span style="background-color:yellow">j-1</span>) + 1</li>
+</ul></li>
+<li>else <span class="green">// X[i] != Y[j]</span>
+<ul>
+<li>M[i,j] = max( <b>LCS-recur</b>(X, Y, M, <span style="background-color:yellow">i-1</span>, <span style="background-color:yellow">j</span>),
+<ul>
+<li><b>LCS-recur</b>(X, Y, M, <span style="background-color:yellow">i</span>, <span style="background-color:yellow">j-1</span>) )</li>
+</ul></li>
+</ul></li>
+<li>return M[i,j]</li>
+</ul></li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</div>
+</section>
+<section id="dynamic-programming-16" class="slide level2">
+<h2>Dynamic Programming</h2>
+<ul>
+<li>Requires <span class="magenta">Optimal Substructure</span>
+<ul>
+<li>Solution to larger problem contains the (optimal) solutions to smaller ones</li>
+</ul></li>
+<li>Idea:
+<ol>
+<li>
+Identify recursive structure of the problem
+<ul>
+<li>
+What is the “last thing” done?
+</li>
+</ul>
+</li>
+<li>
+Save the solution to each subproblem in memory
+</li>
+<li class="purple">
+Select a good order for solving subproblems
+<ul>
+<li>
+“Top Down”: Solve each recursively
+</li>
+<li>
+“Bottom Up”: Iteratively solve smallest to largest
+</li>
+</ul>
+</li>
+</ol></li>
+</ul>
 </section>
 <section id="solve-in-a-good-order" class="slide level2">
 <h2>Solve in a Good Order</h2>
 </section>
 <section id="lcs-length-algorithm" class="slide level2">
 <h2>LCS Length Algorithm</h2>
+<div class="no-bullets">
+<ul>
+<li>LCS-Length(X, Y) <span class="green">// Y for M’s rows, X for its columns</span>
+<ul>
+<li>n = length(X) <span class="green">// get the # of symbols in X</span></li>
+<li>m = length(Y) <span class="green">// get the # of symbols in Y</span></li>
+<li>for i = 1 to n: M[i,0] = 0 <span class="green">// special case: X0</span></li>
+<li>for j = 1 to m: M[0,j] = 0 <span class="green">// special case: Y0</span></li>
+<li>for i = 1 to n: <span class="green">// for all Xi</span></li>
+<li>for j = 1 to m: <span class="green">// for all Yj</span>
+<ul>
+<li>if ( X[i] == Y[j] )
+<ul>
+<li>M[i,j] = M[i-1,j-1] + 1</li>
+</ul></li>
+<li>else
+<ul>
+<li>M[i,j] = max( M[i-1,j], M[i,j-1] )</li>
+</ul></li>
+</ul></li>
+<li>return M[n,m] <span class="green">// return LCS length for Y and X</span></li>
+</ul></li>
+</ul>
+</div>
 </section>
 <section id="run-time-2" class="slide level2">
 <h2>Run Time?</h2>
@@ -7578,10 +7833,10 @@ Start from bottom of image (row 1), solve up to top
 <p>Readings in CLRS 4th edition: chapter 14</p>
 </div>
 </section>
-<section id="blank-2" class="slide level2">
+<section id="blank" class="slide level2">
 <h2>(blank)</h2>
 </section>
-<section id="blank-3" class="slide level2">
+<section id="blank-1" class="slide level2">
 <h2>(blank)</h2>
 </section>
 <section id="gerrymandering-1" class="slide level2">
@@ -7608,7 +7863,7 @@ Start from bottom of image (row 1), solve up to top
 <section id="gerrymandering-today-2" class="slide level2">
 <h2>Gerrymandering Today</h2>
 </section>
-<section id="blank-4" class="slide level2">
+<section id="blank-2" class="slide level2">
 <h2>(blank)</h2>
 </section>
 <section id="how-does-it-work" class="slide level2">
@@ -7620,16 +7875,16 @@ Start from bottom of image (row 1), solve up to top
 <section id="gerrymandering-problem-statement" class="slide level2">
 <h2><span class="r-fit-text">Gerrymandering Problem Statement</span></h2>
 </section>
-<section id="dynamic-programming-16" class="slide level2">
+<section id="dynamic-programming-17" class="slide level2">
 <h2>Dynamic Programming</h2>
 </section>
-<section id="dynamic-programming-17" class="slide level2">
+<section id="dynamic-programming-18" class="slide level2">
 <h2>Dynamic Programming</h2>
 </section>
 <section id="consider-the-last-precinct" class="slide level2">
 <h2>Consider the last precinct</h2>
 </section>
-<section id="identify-the-recursive-structure-of-the-problem-10" class="slide level2">
+<section id="identify-the-recursive-structure-of-the-problem-9" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 </section>
 <section id="two-ways-to-satisfy-sjkxy" class="slide level2">

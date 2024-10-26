@@ -582,7 +582,7 @@ a list (of length $n$) of prices <span class='blue'>$P$</span> where <span class
 <span class='magenta'>$Cut(n)=$</span> value of best way to cut a log of length $n$
 
 ::: {.fragment fragment-index=4}
-$$\color{magenta}{Cut(n)} = max
+$$\color{magenta}{Cut(n)} = \max
 \begin{cases}
 \color{magenta}{Cut(n-1)} + \color{blue}{P[1]} \\
 \color{magenta}{Cut(n-2)} + \color{blue}{P[2]} \\
@@ -708,7 +708,7 @@ Solve Smallest subproblem first
 
 ::: {.fragment}
 <table><tr><td style="padding:0;vertical-align:middle">
-$$\color{magenta}{Cut(2)} = max
+$$\color{magenta}{Cut(2)} = \max
 \begin{cases}
 \color{magenta}{Cut(1)} + \color{blue}{P[1]} \\
 \color{magenta}{Cut(0)} + \color{blue}{P[2]} \\
@@ -737,7 +737,7 @@ Solve Smallest subproblem first
 
 ::: {.fragment}
 <table><tr><td style="padding:0;vertical-align:middle">
-$$\color{magenta}{Cut(3)} = max
+$$\color{magenta}{Cut(3)} = \max
 \begin{cases}
 \color{magenta}{Cut(2)} + \color{blue}{P[1]} \\
 \color{magenta}{Cut(1)} + \color{blue}{P[2]} \\
@@ -766,7 +766,7 @@ Solve Smallest subproblem first
 
 ::: {.fragment}
 <table><tr><td style="padding:0;vertical-align:middle;">
-$$\color{magenta}{Cut(4)} = max
+$$\color{magenta}{Cut(4)} = \max
 \begin{cases}
 \color{magenta}{Cut(3)} + \color{blue}{P[1]} \\
 \color{magenta}{Cut(2)} + \color{blue}{P[2]} \\
@@ -3179,23 +3179,196 @@ Readings in CLRS 4th edition: chapter 14, specifically 14.4
 
 ## Longest Common Subsequence
 
+<table><tr>
+<td style="width:50%">
+Given two sequences $X$ and $Y$, find the length of their longest common subsequence
+
+&nbsp;
+
+Example:<br>
+𝑋 = 𝐴<span class='red'>𝑇𝐶𝑇</span>𝐺<span class='red'>𝐴</span>𝑇<br> 
+𝑌 = <span class='red'>𝑇</span>𝐺<span class='red'>𝐶</span>𝐴<span class='red'>𝑇𝐴</span><br>
+𝐿𝐶𝑆 = <span class='red'>𝑇𝐶𝑇𝐴</span>
+
+</td><td style="vertical-align:top;width:50%"> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/DNA_simple2.svg/728px-DNA_simple2.svg.png) </td>
+</tr></table>
+
+Brute force: compare every subsequence of $X$ with $Y$: $\Omega(2^n)$
+
 ## Dynamic Programming
 
-## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li class="purple">Identify recursive structure of the problem
+    	<ul><li>What is the "last thing" done?</li></ul></li>
+	<li>Save the solution to each subproblem in memory</li>
+	<li>Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
+
 
 ## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
 
-## (blank)
+<div style="font-size:70% !important">
+
+Let $LCS(i.j)=$ length of the LCS for the first $i$ characters of $X$, first $j$ character of $Y$
+
+Find $\color{magenta}LCS(i,j)$:
+
+
+<table>
+
+<tr><td style="vertical-align:middle;width:50%"><span class='green'>Case 1</span>: $\color{magenta}X[i]=Y[i]$</td>
+<td style="width:50%">X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span>A<span class='magenta'>T</span><br>
+Y = A<span class='red'>TCT</span>GCG<span class='magenta'>T</span></td></tr>
+
+<tr><td></td><td>$LCS(i,j)=LCS(i-1,j-1)+1$</td></tr>
+
+<tr><td style="vertical-align:middle"><span class='blue'>Case 2</span>: $\color{magenta}X[i]\ne Y[i]$</td>
+<td></td></tr>
+
+<tr><td style="text-align:center">X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span>A<span class='magenta'>T</span><br>
+Y = A<span class='red'>TCT</span>G<span class='magenta'>C</span>GT</td>
+<td style="text-align:center">X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span><span class='magenta'>A</span>T<br>
+Y = A<span class='red'>TCT</span>GCG<span class='magenta'>A</span></td></tr>
+
+<tr><td>$LCS(i,j)=LCS(i,j-1)$</td><td>$LCS(i,j)=LCS(i-1,j)$</td></tr>
+
+</table>
+
+<table style="border-top:1px solid black"><tr><td style="vertical-align:top">
+<span>
+$$LCS(i,j) = \max
+\begin{cases}
+0 \\
+{\color{green}LCS(i-1,j-1)+1} \\
+{\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} \\
+\end{cases}$$</span>
+</td><td style="vertical-align:top">
+
+<p style="margin-top:35px">if $i=0$ or $j=0$<br>
+if $X[i]=Y[i]$<br>
+otherwise</p>
+
+</td></tr></table>
+</div>
+
+
+## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li>Identify recursive structure of the problem
+    	<ul><li>What is the "last thing" done?</li></ul></li>
+	<li class="purple">Save the solution to each subproblem in memory</li>
+	<li>Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
+
 
 ## [Top-Down Solution with Memoization]{.r-fit-text}
 
-## (blank)
+We need two functions; one will be recursive.
+
+<div style="font-size:60% !important">
+
+<table><tr><td style="vertical-align:top">
+
+<table><tr><td style="border:2px solid blue">
+::: {.no-bullets}
+- <b>LCS-Length(X, Y):</b> <span class='green'>// Y is M’s cols.</span>
+  - n = length(X)
+  - m  = length(Y)
+  - Create table M[n,m]
+  - Assign -1 to all cells M[i,j]
+  - <span class='green'>// get value for entire sequences</span>
+  - return <b>LCS-recur</b>(X, Y, M, n, m)
+:::
+</td></tr></table>
+
+&nbsp;
+
+<table><tr style="border:2px dashed black"><td style="font-size:70%">
+0<br>
+$\color{green}LCS(i-1,j-1)+1$<br>
+$\color{blue}\max(LCS(i,j-1),LCS(i-1,j))$
+</td><td style="font-size:70%">
+if $i=0$ or $j=0$<br>
+if $X[i]=Y[i]$<br>
+otherwise
+</td></tr></table>
+
+</td><td>
+
+<table><tr><td style="border:2px solid blue !important">
+::: {.no-bullets}
+- <b>LCS-recur(X, Y, M, i, j):</b>
+  - if (i == 0 || j == 0) return 0
+  - <span class='green'>// have we already calculated </span>
+  - <span class='green'>// this subproblem? </span>
+  - if ( M[i,j] != -1 ) return M[i,j]
+  - if ( X[i] == Y[j] )		
+    - M[i,j] = <b>LCS-recur</b>(X, Y, M, <span style="background-color:yellow">i-1</span>, <span style="background-color:yellow">j-1</span>) + 1
+  - else <span class='green'>// X[i] != Y[j]</span>
+    - M[i,j] = max( <b>LCS-recur</b>(X, Y, M, <span style="background-color:yellow">i-1</span>, <span style="background-color:yellow">j</span>),
+      - <b>LCS-recur</b>(X, Y, M, <span style="background-color:yellow">i</span>, <span style="background-color:yellow">j-1</span>) )
+  - return M[i,j]
+:::
+</td></tr></table>
+
+</td></tr></table>
+
+</div>
+
 
 ## Dynamic Programming
+
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li>Identify recursive structure of the problem
+    	<ul><li>What is the "last thing" done?</li></ul></li>
+	<li>Save the solution to each subproblem in memory</li>
+	<li class="purple">Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
 
 ## Solve in a Good Order
 
 ## LCS Length Algorithm
+
+::: {.no-bullets}
+- LCS-Length(X, Y) <span class='green'>// Y for M’s rows, X for its columns</span>
+  - n = length(X)  <span class='green'>// get the # of symbols in X</span>
+  - m  = length(Y) <span class='green'>// get the # of symbols in Y</span>
+  - for i = 1 to n: M[i,0] = 0 <span class='green'>// special case: X0</span>
+  - for j = 1 to m: M[0,j] = 0 <span class='green'>// special case: Y0</span>
+  - for i = 1 to n: <span class='green'>// for all Xi</span>
+  - for j = 1 to m: <span class='green'>// for all Yj</span>
+    - if ( X[i] == Y[j] )
+      - M[i,j] = M[i-1,j-1] + 1
+    - else
+      - M[i,j] = max( M[i-1,j], M[i,j-1] )
+  - return M[n,m]   <span class='green'>// return LCS length for Y and X</span>
+:::
+
 
 ## Run Time?
 
