@@ -3193,7 +3193,9 @@ Example:<br>
 </td><td style="vertical-align:top;width:50%"> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/DNA_simple2.svg/728px-DNA_simple2.svg.png) </td>
 </tr></table>
 
+::: {.fragment}
 Brute force: compare every subsequence of $X$ with $Y$: $\Omega(2^n)$
+:::
 
 ## Dynamic Programming
 
@@ -3221,42 +3223,68 @@ Let $LCS(i.j)=$ length of the LCS for the first $i$ characters of $X$, first $j$
 
 Find $\color{magenta}LCS(i,j)$:
 
-
 <table>
 
 <tr><td style="vertical-align:middle;width:50%"><span class='green'>Case 1</span>: $\color{magenta}X[i]=Y[i]$</td>
-<td style="width:50%">X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span>A<span class='magenta'>T</span><br>
-Y = A<span class='red'>TCT</span>GCG<span class='magenta'>T</span></td></tr>
+<td style="width:50%">
 
-<tr><td></td><td>$LCS(i,j)=LCS(i-1,j-1)+1$</td></tr>
+::: {.fragment fragment-index=1}
+X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span>A<span class='magenta'>T</span><br>
+Y = A<span class='red'>TCT</span>GCG<span class='magenta'>T</span>
+:::
 
-<tr><td style="vertical-align:middle"><span class='blue'>Case 2</span>: $\color{magenta}X[i]\ne Y[i]$</td>
+</td></tr>
+
+<tr><td></td><td>
+
+::: {.fragment fragment-index=2}
+$LCS(i,j)=LCS(i-1,j-1)+1$
+:::
+
+</td></tr><tr><td style="vertical-align:middle"><span class='blue'>Case 2</span>: $\color{magenta}X[i]\ne Y[i]$</td>
 <td></td></tr>
 
-<tr><td style="text-align:center">X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span>A<span class='magenta'>T</span><br>
-Y = A<span class='red'>TCT</span>G<span class='magenta'>C</span>GT</td>
-<td style="text-align:center">X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span><span class='magenta'>A</span>T<br>
-Y = A<span class='red'>TCT</span>GCG<span class='magenta'>A</span></td></tr>
+<tr><td style="text-align:center">
 
-<tr><td>$LCS(i,j)=LCS(i,j-1)$</td><td>$LCS(i,j)=LCS(i-1,j)$</td></tr>
+::: {.fragment fragment-index=3}
+X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span>A<span class='magenta'>T</span><br>
+Y = A<span class='red'>TCT</span>G<span class='magenta'>C</span>GT
+:::
+
+</td><td style="text-align:center">
+
+::: {.fragment fragment-index=5}
+X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span><span class='magenta'>A</span>T<br>
+Y = A<span class='red'>TCT</span>GCG<span class='magenta'>A</span>
+:::
+
+</td></tr>
+
+<tr style="border-bottom:1px solid black"><td>
+
+::: {.fragment fragment-index=4}
+$LCS(i,j)=LCS(i,j-1)$
+:::
+
+</td><td>
+
+::: {.fragment fragment-index=6}
+$LCS(i,j)=LCS(i-1,j)$
+:::
+
+</td></tr>
 
 </table>
 
-<table style="border-top:1px solid black"><tr><td style="vertical-align:top">
-<span>
-$$LCS(i,j) = \max
+::: {.fragment fragment-index=7}
+$$\small LCS(i,j) = \max
 \begin{cases}
-0 \\
-{\color{green}LCS(i-1,j-1)+1} \\
-{\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} \\
-\end{cases}$$</span>
-</td><td style="vertical-align:top">
+0 & \text{if } i=0 \text{ or } j=0 \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
+\end{cases}$$
+:::
 
-<p style="margin-top:35px">if $i=0$ or $j=0$<br>
-if $X[i]=Y[i]$<br>
-otherwise</p>
-
-</td></tr></table>
 </div>
 
 
@@ -3351,10 +3379,32 @@ otherwise
 
 
 ## Solve in a Good Order
+<div style="font-size:90%">
+$$\scriptstyle LCS(i,j) = \max
+\begin{cases}
+0 & \text{if } i=0 \text{ or } j=0 \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
+\end{cases}$$
+
+::: {.r-stack}
+![](images/dp/lcs-table.svg){.center style="width:100%"}
+
+![](images/spacer.png)
+:::
+
+::: {.fragment}
+To fill in cell $(i,j)$ we need cells $(i-1,j-1)$, $(i-1,j)$, and $(i,j-1)$
+Fill from top &rarr; bottom, left &rarr; right (with any preference)
+:::
+</div>
+
+
+
 
 ## LCS Length Algorithm
 
-::: {.no-bullets}
+::: {.no-bullets style="font-size:90%"}
 - LCS-Length(X, Y) <span class='green'>// Y for M’s rows, X for its columns</span>
   - n = length(X)  <span class='green'>// get the # of symbols in X</span>
   - m  = length(Y) <span class='green'>// get the # of symbols in Y</span>
@@ -3370,13 +3420,241 @@ otherwise
 :::
 
 
+
 ## Run Time?
+<div style="font-size:90%">
+$$\scriptstyle LCS(i,j) = \max
+\begin{cases}
+0 & \text{if } i=0 \text{ or } j=0 \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
+\end{cases}$$
 
-## Reconstructing the LCS
+::: {.r-stack}
+![](images/dp/lcs-table.svg){.center style="width:100%"}
 
-## Reconstructing the LCS
+![](images/spacer.png)
+:::
 
-## Reconstructing the LCS
+::: {.fragment}
+<span class='red'>Run time: $\Theta(n \cdot m)$ (for $|X|=n$, $|Y|=m$)</span>
+:::
+</div>
+
+
+
+
+
+<!-- all x/y boxes -->
+<!-- img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-right:250px"> --> <!-- y=1 -->
+<!-- img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-right:100px"> --> <!-- y=2 -->
+<!-- img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:45px"> --> <!-- y=3 -->
+<!-- img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:194px"> --> <!-- y=4 -->
+<!-- img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:343px"> --> <!-- y=5 -->
+<!-- img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:494px"> --> <!-- y=6 -->
+<!-- img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:640px"> --> <!-- y=7 -->
+<!-- img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px"> --> <!-- x=1 -->
+<!-- img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px"> --> <!-- x=2 -->
+<!-- img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-42px;margin-right:600px"> --> <!-- x=3 -->
+<!-- img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-78px;margin-right:600px"> --> <!-- x=4 -->
+<!-- img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px"> --> <!-- x=5 -->
+<!-- img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-150px;margin-right:600px"> --> <!-- x=6 -->
+
+
+<!-- all arrows (n, then w, then nw): the are all listed top-to-bottom, right-to-left.  spaces have to be between them for them to stack properly -->
+<!--
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:135px;margin-left:600px">
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:62px;margin-left:450px">
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-12px;margin-left:300px">
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-53px;margin-left:150px">
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-89px;margin-left:0px">
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-right:155px">
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-right:305px">
+<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:155px;margin-left:565px">
+<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:80px;margin-left:410px">
+<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:5px;margin-left:260px">
+<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-30px;margin-left:110px">
+<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-68px;margin-right:45px">
+<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-104px;margin-right:200px">
+<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-142px;margin-right:350px">
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-left:565px">
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-left:415px">
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:55px;margin-left:265px">
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-10px;margin-left:115px">
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-56px;margin-right:43px">
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-right:195px">
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-130px;margin-right:345px">
+-->
+
+
+
+
+
+## Reconstructing the LCS example 1
+<div style="font-size:90%">
+$$\scriptstyle LCS(i,j) = \max
+\begin{cases}
+0 & \text{if } i=0 \text{ or } j=0 \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
+\end{cases}$$
+
+::: {.r-stack}
+![](images/dp/lcs-table.svg){.center style="width:100%"}
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:194px"> <!-- y=4 -->
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:343px"> <!-- y=5 -->
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:494px"> <!-- y=6 -->
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:640px"> <!-- y=7 -->
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px" class="fragment" > <!-- x=5 -->
+
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-left:600px" class="fragment">
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-78px;margin-right:600px" class="fragment"> <!-- x=4 -->
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:565px" class="fragment">
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-56px;margin-left:415px" class="fragment">
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px" class="fragment"> <!-- x=2 -->
+
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-12px;margin-left:300px" class="fragment">
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px" class="fragment"> <!-- x=1 -->
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:55px;margin-left:265px" class="fragment">
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-left:115px" class="fragment">
+
+:::
+
+::: {.fragment fragment-index=1}
+Start from bottom right,<br>
+<span class='green'>if symbols matched, print that symbol then go diagonally</span>, <br>
+<span class='blue'>else go to largest adjacent</span>
+:::
+
+</div>
+
+
+
+
+
+
+## Reconstructing the LCS example 2
+<div style="font-size:90%">
+$$\scriptstyle LCS(i,j) = \max
+\begin{cases}
+0 & \text{if } i=0 \text{ or } j=0 \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
+\end{cases}$$
+
+::: {.r-stack}
+![](images/dp/lcs-table.svg){.center style="width:100%"}
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-right:100px"> <!-- y=2 -->
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:45px"> <!-- y=3 -->
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:494px"> <!-- y=6 -->
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:640px"> <!-- y=7 -->
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px"> <!-- x=1 -->
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px"> <!-- x=2 -->
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-42px;margin-right:600px"> <!-- x=3 -->
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-78px;margin-right:600px" > <!-- x=4 -->
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px" > <!-- x=5 -->
+
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-left:600px" class="fragment">
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:565px" class="fragment">
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-56px;margin-left:415px" class="fragment">
+
+<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-30px;margin-left:265px" class="fragment">
+
+<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-30px;margin-left:110px" class="fragment">
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-10px;margin-right:43px" class="fragment">
+
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:62px;margin-right:155px" class="fragment">
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-right:195px" class="fragment">
+
+:::
+
+Start from bottom right,<br>
+<span class='green'>if symbols matched, print that symbol then go diagonally</span>, <br>
+<span class='blue'>else go to largest adjacent</span>
+</div>
+
+
+
+
+
+
+## Reconstructing the LCS page 3
+<div style="font-size:90%">
+$$\scriptstyle LCS(i,j) = \max
+\begin{cases}
+0 & \text{if } i=0 \text{ or } j=0 \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
+\end{cases}$$
+
+::: {.r-stack}
+![](images/dp/lcs-table.svg){.center style="width:100%"}
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-150px;margin-right:600px"> <!-- x=6 -->
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px"> <!-- x=5 -->
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-42px;margin-right:600px"> <!-- x=3 -->
+
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px"> <!-- x=2 -->
+
+<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-142px;margin-left:565px" class="fragment">
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:494px" class="fragment"> <!-- y=6 -->
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-130px;margin-left:415px" class="fragment">
+
+<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-104px;margin-left:260px" class="fragment">
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:194px" class="fragment"> <!-- y=4 -->
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:115px" class="fragment">
+
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-53px;margin-left:0px" class="fragment">
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:45px" class="fragment"> <!-- y=3 -->
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-10px;margin-right:43px" class="fragment">
+
+<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:62px;margin-right:155px" class="fragment">
+
+<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-right:100px" class="fragment"> <!-- y=2 -->
+
+<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-right:195px" class="fragment">
+
+:::
+
+Start from bottom right,<br>
+<span class='green'>if symbols matched, print that symbol then go diagonally</span>, <br>
+<span class='blue'>else go to largest adjacent</span>
+</div>
+
+
 
 
 

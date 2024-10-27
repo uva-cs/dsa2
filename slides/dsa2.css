@@ -235,6 +235,18 @@ span.rotate90 {
   transform: rotate(90deg);
 }
 
+/* for the LCS in DP */
+table.dnabox {
+	border:3px solid magenta;
+	margin:0;
+	padding:0;
+}
+table.dnabox tbody tr td, table.dnabox thead th td {
+	width:30px;
+	height:30px;
+	padding:0;
+}
+
 /* for the DP seam carving tables */
 table.table-of-boxes {
 	vertical-align:middle;
