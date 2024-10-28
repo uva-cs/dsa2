@@ -71,6 +71,20 @@ The first test case corresponds to the diagram above.  The blank lines are only 
 
 Note that the third and fourth test cases are rather tricky, so focus on getting the others to work first.
 
+Your program will be run as follows (if in Python):
+
+```
+$ python pa3.py < sample.in
+```
+
+Or, if Java:
+
+```
+$ java PA3 < sample.in
+```
+
+The `<` will provide the contents of the [sample.in](sample.in) file as standard input to your program.
+
 ### Sample output
 
 There should NOT be blank lines between test cases -- that is only to help illustrate which values are the output for which test cases.  The blank lines are not present in the [sample.out](sample.out) file.
