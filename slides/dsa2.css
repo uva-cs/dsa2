@@ -27,6 +27,10 @@ div.no-bullets ul, div.no-bullets ul ul {
 	position:fixed;
 	bottom:0;
 }
+span.math {
+	font-size:90%;
+}
+
 
 table.border th td, table.border tr td, td.border, tr.border td {
 	border:1px solid black;

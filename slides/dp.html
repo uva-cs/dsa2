@@ -691,7 +691,7 @@ Two ways to fill the final column:
 </div><div class="column" style="width:30%;">
 <div class="fragment" data-fragment-index="5">
 <div class="red xx-large">
-<p><span class="math display">\[Tile(n) = Tile(n-1) + Tile(n-2)\]</span> <span class="math display">\[Tile(1) = 1\]</span> <span class="math display">\[Tile(0) = 1\]</span></p>
+<p><span class="math display">\[Tile(0) = 1\]</span> <span class="math display">\[Tile(1) = 1\]</span> <span class="math display">\[Tile(n) = Tile(n-1) + Tile(n-2)\]</span></p>
 </div>
 </div>
 </div></div>
@@ -740,7 +740,7 @@ Better way: Use Memory!
 </div>
 </section>
 <section id="computing-tilen-with-memory" class="slide level2">
-<h2>Computing <span style="font-size:90%"><span class="math inline">\(Tile(n)\)</span></span> with memory</h2>
+<h2>Computing <span class="math inline">\(Tile(n)\)</span> with memory</h2>
 <div class="columns">
 <div class="column" style="width:80%;">
 &nbsp;
@@ -833,7 +833,7 @@ M
 </div></div>
 </section>
 <section id="computing-tilen-with-memory-1" class="slide level2">
-<h2><span class="r-fit-text">Computing <span style="font-size:90%"><span class="math inline">\(Tile(n)\)</span></span> with memory</span></h2>
+<h2>Computing <span class="math inline">\(Tile(n)\)</span> with memory</h2>
 <div class="columns">
 <div class="column" style="width:80%;">
 &nbsp;
@@ -1123,7 +1123,7 @@ M
 </div>
 </section>
 <section id="computing-tilen-with-memory-top-down" class="slide level2">
-<h2><span class="r-fit-text">Computing <span style="font-size:90%"><span class="math inline">\(Tile(n)\)</span></span> with memory “Top Down”</span></h2>
+<h2><span class="r-fit-text">Computing <span class="math inline">\(Tile(n)\)</span> with memory “Top Down”</span></h2>
 <div class="columns">
 <div class="column" style="width:80%;">
 &nbsp;
@@ -1212,7 +1212,7 @@ M
 </div></div>
 </section>
 <section id="computing-tilen-with-memory-bottom-up" class="slide level2">
-<h2><span class="r-fit-text">Computing <span style="font-size:90%"><span class="math inline">\(Tile(n)\)</span></span> with memory “Bottom Up”</span></h2>
+<h2><span class="r-fit-text">Computing <span class="math inline">\(Tile(n)\)</span> with memory “Bottom Up”</span></h2>
 <div class="columns">
 <div class="column" style="width:75%;">
 &nbsp;
@@ -1421,7 +1421,7 @@ Length:
 </tr>
 </tbody></table>
 <div class="center">
-<p><img data-src="images/dp/log.webp" style="width:70%;padding-left:175px"></p>
+<p><img data-src="images/dp/log.webp" style="width:70%;height:150px;padding-left:175px"></p>
 </div>
 <div class="no-bullets">
 <ul>
@@ -1440,11 +1440,17 @@ Brute force: <span class="math inline">\(O(2^n)\)</span>
 <section id="greedy-algorithm" class="slide level2">
 <h2>Greedy Algorithm</h2>
 <p><span class="red">Greedy algorithms</span> build a solution by picking the best option “right now”</p>
-<div class="fragment" style="margin-bottom:58px">
+<table style="width:100%">
+<tbody><tr>
+<td style="text-align:left;height:150px">
+<div class="fragment">
 <ul>
 <li>Select the most profitable cut first</li>
 </ul>
 </div>
+</td>
+</tr>
+</tbody></table>
 <table>
 <tbody><tr>
 <td>
@@ -1524,6 +1530,9 @@ Length:
 <section id="greedy-algorithm-1" class="slide level2">
 <h2>Greedy Algorithm</h2>
 <p><span class="red">Greedy algorithms</span> build a solution by picking the best option “right now”</p>
+<table style="width:100%">
+<tbody><tr>
+<td style="text-align:left;height:150px">
 <div class="fragment">
 <ul>
 <li>Select the “most bang for your buck”
@@ -1532,6 +1541,9 @@ Length:
 </ul></li>
 </ul>
 </div>
+</td>
+</tr>
+</tbody></table>
 <table>
 <tbody><tr>
 <td>
@@ -1672,7 +1684,7 @@ Select a good order for solving subproblems
 <table class="compact" style="z-index:0">
 <tbody><tr>
 <td style="text-align:left;width:850px">
-<img data-src="images/dp/log.webp" style="opacity:0.4;filter:alpha(opacity=40);min-width:90%">
+<img data-src="images/dp/log.webp" style="opacity:0.5;filter:alpha(opacity=40);min-width:90%;height:150px">
 </td>
 </tr>
 </tbody></table>
@@ -2201,6 +2213,9 @@ Length:
 <section id="log-cutting-pseudocode" class="slide level2">
 <h2>Log Cutting Pseudocode</h2>
 <p>&nbsp;</p>
+<table>
+<tbody><tr>
+<td>
 <div class="no-bullets">
 <ul>
 <li>Initialize Memory C</li>
@@ -2220,9 +2235,14 @@ Length:
 </ul></li>
 </ul>
 </div>
+</td>
+<td style="vertical-align:top">
 <div class="fragment">
 <p><span class="red">Run time: <span class="math inline">\(O(n^2)\)</span></span></p>
 </div>
+</td>
+</tr>
+</tbody></table>
 </section>
 <section id="how-to-find-the-cuts" class="slide level2">
 <h2>How to find the cuts?</h2>
@@ -2384,7 +2404,7 @@ Length:
 </tbody></table>
 <div class="r-stack">
 <div class="center">
-<p><img data-src="images/dp/log.webp" style="width:700px;padding-left:175px"></p>
+<p><img data-src="images/dp/log.webp" style="width:700px;padding-left:175px;height:150px"></p>
 </div>
 <table class="compact">
 <tbody><tr>
@@ -2470,7 +2490,7 @@ Example to demo Choices[] only.<br>Profit of 20 is not optimal!
 </section>
 <section id="our-example-getting-optimal-solution" class="slide level2">
 <h2><span class="r-fit-text">Our Example: Getting Optimal Solution</span></h2>
-<div style="scale:50%">
+<div style="scale:70%">
 <table class="cells">
 <tbody><tr>
 <td class="noborder bluetext">
@@ -2594,18 +2614,20 @@ Length:
 </tbody>
 </table>
 </div>
+<div style="font-size:90%">
 <ul>
-<li>If n were 5
+<li>If <span class="math inline">\(n\)</span> were 5
 <ul>
 <li>Best score is 13</li>
 <li>Cut at Choice[n]=2, then cut at<br>Choice[n-Choice[n]]= Choice[5-2]= Choice[3]=3</li>
 </ul></li>
-<li>If n were 7
+<li>If <span class="math inline">\(n\)</span> were 7
 <ul>
 <li>Best score is 18</li>
 <li>Cut at 1, then cut at 6</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="dynamic-programming-5" class="slide level2">
 <h2>Dynamic Programming</h2>
@@ -3061,8 +3083,8 @@ Select a good order for solving subproblems
 <span class="math display">\[\color{magenta}{Best(1,4)} = \min
 \begin{cases}
 \color{magenta}{Best(2,4)} + r_1r_2c_4 \\
-\color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
-\color{green}{Best(1,3)} + r_1r_4c_4 \\
+\ this formula is hidden \\
+\  \\
 \end{cases}\]</span>
 </div>
 <table class="allcenter" style="scale:80%;margin-top:-80px">
@@ -3070,13 +3092,29 @@ Select a good order for solving subproblems
 <td style="height:200px">
 </td>
 <td colspan="3">
+<table class="allcenter">
+<tbody><tr>
+<td>
+</td>
+<td style="font-size:x-large;opacity:0">
+<span class="math inline">\(c_4\)</span>
+</td>
+</tr>
+<tr>
+<td style="font-size:x-large;opacity:0">
+<span class="math inline">\(r_2\)</span>
+</td>
+<td style="border:1px solid transparent;background-color:transparent;width:100px;height:150px">
+</td>
+</tr>
+</tbody></table>
 </td>
 </tr>
 <tr>
 <td>
 </td>
 <td colspan="3">
-<img src="images/overbrace-red.svg" style="width:600px;min-height:40px;opacity:0">
+<img src="images/overbrace-red.svg" style="width:600px;min-height:40px;opacity:0;margin-bottom:-20px;margin-top:0">
 </td>
 </tr>
 <tr>
@@ -3163,9 +3201,9 @@ Select a good order for solving subproblems
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
 <div style="font-size:80%">
-<span class="math display">\[\color{magenta}{Best(1,4)} = \min
+<span class="math display">\[Best(1,4) = \min
 \begin{cases}
-\color{magenta}{Best(2,4)} + r_1r_2c_4 \\
+{\color{magenta}Best(2,4)} + r_1r_2c_4 \\
 \  \\
 \  \\
 \end{cases}\]</span>
@@ -3197,7 +3235,7 @@ Select a good order for solving subproblems
 <td>
 </td>
 <td colspan="3">
-<img src="images/overbrace-red.svg" style="width:600px;min-height:40px">
+<img src="images/overbrace-red.svg" style="width:600px;min-height:40px;margin-bottom:-20px;margin-top:0">
 </td>
 </tr>
 <tr>
@@ -3284,10 +3322,10 @@ Select a good order for solving subproblems
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
 <div style="font-size:80%">
-<span class="math display">\[\color{magenta}{Best(1,4)} = \min
+<span class="math display">\[Best(1,4) = \min
 \begin{cases}
-\color{magenta}{Best(2,4)} + r_1r_2c_4 \\
-\color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
+{\color{magenta}Best(2,4)} + r_1r_2c_4 \\
+{\color{green}Best(1,2)} + {\color{magenta}Best(3,4)} + r_1r_3c_4 \\
 \  \\
 \end{cases}\]</span>
 </div>
@@ -3332,10 +3370,10 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td colspan="2">
-<img src="images/overbrace-red.svg" style="width:400px;min-height:40px">
+<img src="images/overbrace-red.svg" style="width:400px;min-height:40px;margin-bottom:-20px;margin-top:0">
 </td>
 <td colspan="2">
-<img src="images/overbrace-red.svg" style="width:400px;min-height:40px">
+<img src="images/overbrace-red.svg" style="width:400px;min-height:40px;margin-bottom:-20px;margin-top:0">
 </td>
 </tr>
 <tr>
@@ -3422,11 +3460,11 @@ Select a good order for solving subproblems
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
 <div style="font-size:80%">
-<span class="math display">\[\color{magenta}{Best(1,4)} = \min
+<span class="math display">\[Best(1,4) = \min
 \begin{cases}
-\color{magenta}{Best(2,4)} + r_1r_2c_4 \\
-\color{green}{Best(1,2)} + \color{magenta}{Best(3,4)} + r_1r_3c_4 \\
-\color{green}{Best(1,3)} + r_1r_4c_4 \\
+{\color{magenta}Best(2,4)} + r_1r_2c_4 \\
+{\color{green}Best(1,2)} + {\color{magenta}Best(3,4)} + r_1r_3c_4 \\
+{\color{green}Best(1,3)} + r_1r_4c_4 \\
 \end{cases}\]</span>
 </div>
 <table class="allcenter" style="scale:80%;margin-top:-80px">
@@ -3454,7 +3492,7 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td colspan="3">
-<img src="images/overbrace-red.svg" style="width:600px;min-height:40px">
+<img src="images/overbrace-red.svg" style="width:600px;min-height:40px;margin-bottom:-20px;margin-top:0">
 </td>
 <td>
 </td>
@@ -3542,29 +3580,21 @@ Select a good order for solving subproblems
 <section id="identify-the-recursive-structure-of-the-problem-4" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p>In general:</p>
-<p style="font-size:90%">
-<span class="math inline">\(Best(i,j)\)</span> = cheapest way to multiply together <span class="math inline">\(M_i\)</span> through <span class="math inline">\(M_j\)</span>
-</p>
+<p><span class="math inline">\(Best(i,j)\)</span> = cheapest way to multiply together <span class="math inline">\(M_i\)</span> through <span class="math inline">\(M_j\)</span></p>
 <div class="fragment">
-<p style="font-size:90%">
-<span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span>
-</p>
-<p style="font-size:90%">
-<span class="math inline">\(Best(i,i)=0\)</span>
-</p>
+<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span></p>
+<p><span class="math inline">\(Best(i,i)=0\)</span></p>
 </div>
 <div class="fragment">
-<p style="font-size:90%">
-<span class="math inline">\(Best(1,n) = \min
+<p><span class="math inline">\(Best(1,n) = \min
 \begin{cases}
-\color{magenta}{Best(2,n)} + r_1r_2c_n \\
-\color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
-\color{green}{Best(1,3)} + \color{magenta}{Best(4,n)} + r_1r_4c_n \\
-\color{green}{Best(1,4)} + \color{magenta}{Best(5,n)} + r_1r_5c_n \\
+{\color{magenta}Best(2,n)} + r_1r_2c_n \\
+{\color{green}Best(1,2)} + {\color{magenta}Best(3,n)} + r_1r_3c_n \\
+{\color{green}Best(1,3)} + {\color{magenta}Best(4,n)} + r_1r_4c_n \\
+{\color{green}Best(1,4)} + {\color{magenta}Best(5,n)} + r_1r_5c_n \\
 \ldots \\
-\color{green}{Best(1,n-1)} +  r_1r_nc_n \\
-\end{cases}\)</span>
-</p>
+{\color{green}Best(1,n-1)} +  r_1r_nc_n \\
+\end{cases}\)</span></p>
 </div>
 </section>
 <section id="dynamic-programming-7" class="slide level2">
@@ -3602,40 +3632,32 @@ Select a good order for solving subproblems
 </ul>
 </section>
 <section id="save-subsolutions-in-memory" class="slide level2">
-<h2><span class="r-fit-text">2. Save Subsolutions in Memory</span></h2>
+<h2>2. Save Subsolutions in Memory</h2>
+<div style="font-size:80%">
 <p>In general:</p>
-<div style="font-size:90%">
-<p style="font-size:90%">
-<span class="math inline">\(Best(i,j)\)</span> = cheapest way to multiply together <span class="math inline">\(M_i\)</span> through <span class="math inline">\(M_j\)</span>
-</p>
+<p><span class="math inline">\(Best(i,j)\)</span> = cheapest way to multiply together <span class="math inline">\(M_i\)</span> through <span class="math inline">\(M_j\)</span></p>
 <div class="fragment">
 <ul>
 <li><span class="red">If <span class="math inline">\(Best(i,j)\)</span> is in memory, read it and done</span></li>
 </ul>
 </div>
-<p style="font-size:90%">
-<span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span>
-</p>
+<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span></p>
 <div class="fragment">
 <ul>
 <li><span class="red">Read</span> <span class="math inline">\(\color{green}{Best(i,k)}\)</span> <span class="red">and/or</span> <span class="math inline">\(\color{magenta}{Best(k+1,j)}\)</span> <span class="red">from memory, if available</span></li>
 <li><span class="red">Save computed <span class="math inline">\(Best(i,j)\)</span> to memory</span></li>
 </ul>
 </div>
-<p style="font-size:90%">
-<span class="math inline">\(Best(i,i)=0\)</span>
-</p>
-<p style="font-size:90%">
-<span class="math inline">\(Best(1,n) = \min
+<p><span class="math inline">\(Best(i,i)=0\)</span></p>
+<p><span class="math inline">\(Best(1,n) = \min
 \begin{cases}
-\color{magenta}{Best(2,n)} + r_1r_2c_n \\
-\color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
-\color{green}{Best(1,3)} + \color{magenta}{Best(4,n)} + r_1r_4c_n \\
-\color{green}{Best(1,4)} + \color{magenta}{Best(5,n)} + r_1r_5c_n \\
+{\color{magenta}Best(2,n)} + r_1r_2c_n \\
+{\color{green}Best(1,2)} + {\color{magenta}Best(3,n)} + r_1r_3c_n \\
+{\color{green}Best(1,3)} + {\color{magenta}Best(4,n)} + r_1r_4c_n \\
+{\color{green}Best(1,4)} + {\color{magenta}Best(5,n)} + r_1r_5c_n \\
 \ldots \\
-\color{green}{Best(1,n-1)} +  r_1r_nc_n \\
-\end{cases}\)</span>
-</p>
+{\color{green}Best(1,n-1)} +  r_1r_nc_n \\
+\end{cases}\)</span></p>
 </div>
 </section>
 <section id="dynamic-programming-8" class="slide level2">
@@ -3674,35 +3696,27 @@ Select a good order for solving subproblems
 </section>
 <section id="select-a-good-order-for-solving-subproblems-5" class="slide level2">
 <h2><span class="r-fit-text">3. Select a good order for solving subproblems</span></h2>
+<div style="font-size:80%">
 <p>In general:</p>
-<div style="font-size:90%">
-<p style="font-size:90%">
-<span class="math inline">\(Best(i,j)\)</span> = cheapest way to multiply together <span class="math inline">\(M_i\)</span> through <span class="math inline">\(M_j\)</span>
-</p>
+<p><span class="math inline">\(Best(i,j)\)</span> = cheapest way to multiply together <span class="math inline">\(M_i\)</span> through <span class="math inline">\(M_j\)</span></p>
 <ul>
 <li><span class="red">If <span class="math inline">\(Best(i,j)\)</span> is in memory, read it and done</span></li>
 </ul>
-<p style="font-size:90%">
-<span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span>
-</p>
+<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span></p>
 <ul>
 <li><span class="red">Read</span> <span class="math inline">\(\color{green}{Best(i,k)}\)</span> <span class="red">and/or</span> <span class="math inline">\(\color{magenta}{Best(k+1,j)}\)</span> <span class="red">from memory, if available</span></li>
 <li><span class="red">Save computed <span class="math inline">\(Best(i,j)\)</span> to memory</span></li>
 </ul>
-<p style="font-size:90%">
-<span class="math inline">\(Best(i,i)=0\)</span>
-</p>
-<p style="font-size:90%">
-<span class="math inline">\(Best(1,n) = \min
+<p><span class="math inline">\(Best(i,i)=0\)</span></p>
+<p><span class="math inline">\(Best(1,n) = \min
 \begin{cases}
-\color{magenta}{Best(2,n)} + r_1r_2c_n \\
-\color{green}{Best(1,2)} + \color{magenta}{Best(3,n)} + r_1r_3c_n \\
-\color{green}{Best(1,3)} + \color{magenta}{Best(4,n)} + r_1r_4c_n \\
-\color{green}{Best(1,4)} + \color{magenta}{Best(5,n)} + r_1r_5c_n \\
+{\color{magenta}Best(2,n)} + r_1r_2c_n \\
+{\color{green}Best(1,2)} + {\color{magenta}Best(3,n)} + r_1r_3c_n \\
+{\color{green}Best(1,3)} + {\color{magenta}Best(4,n)} + r_1r_4c_n \\
+{\color{green}Best(1,4)} + {\color{magenta}Best(5,n)} + r_1r_5c_n \\
 \ldots \\
-\color{green}{Best(1,n-1)} +  r_1r_nc_n \\
-\end{cases}\)</span>
-</p>
+{\color{green}Best(1,n-1)} +  r_1r_nc_n \\
+\end{cases}\)</span></p>
 </div>
 </section>
 <section id="select-a-good-order-for-solving-subproblems-6" class="slide level2">
@@ -3722,11 +3736,14 @@ Select a good order for solving subproblems
 <td style="font-size:large">
 <span class="math inline">\(30\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:60px;width:70px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:60px;width:70px">
 <span class="math inline">\(M_1\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -3739,13 +3756,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(35\)</span>
+<span class="math inline">\(35\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:70px;width:30px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:70px;width:30px">
 <span class="math inline">\(M_2\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -3758,13 +3778,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(15\)</span>
+<span class="math inline">\(15\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:30px;width:10px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:30px;width:10px">
 <span class="math inline">\(M_3\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -3777,13 +3800,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(5\)</span>
+<span class="math inline">\(5\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:10px;width:20px">
 <span class="math inline">\(M_4\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -3796,13 +3822,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(10\)</span>
+<span class="math inline">\(10\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:20px;width:40px">
 <span class="math inline">\(M_5\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -3815,9 +3844,9 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(20\)</span>
+<span class="math inline">\(20\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:40px;width:50px">
 <span class="math inline">\(M_6\)</span>
 </td>
 </tr>
@@ -3826,11 +3855,10 @@ Select a good order for solving subproblems
 </tr>
 </tbody></table>
 <div class="fragment">
-<div style="font-size:80%;text-align:left">
-<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(Best(i,i)=0\)</span></p>
+<!-- first of these slides -->
+<p><span class="math inline">\(\scriptsize Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(\scriptsize Best(i,i)=0\)</span></p>
 </div>
-</div>
-<table class="allcenter">
+<table class="allcenter" style="margin-top:-20px">
 <tbody><tr>
 <td style="width:50%;text-align:left;font-size:50%">
 <!-- formula here -->
@@ -4011,6 +4039,9 @@ Select a good order for solving subproblems
 </tbody></table>
 </td>
 <td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
+</td>
+<td style="padding:0">
 <table class="allcenter">
 <tbody><tr>
 <td>
@@ -4021,13 +4052,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(35\)</span>
+<span class="math inline">\(35\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:70px;width:30px">
 <span class="math inline">\(M_2\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4040,13 +4074,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(15\)</span>
+<span class="math inline">\(15\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:30px;width:10px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:30px;width:10px">
 <span class="math inline">\(M_3\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4059,13 +4096,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(5\)</span>
+<span class="math inline">\(5\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:10px;width:20px">
 <span class="math inline">\(M_4\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4078,13 +4118,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(10\)</span>
+<span class="math inline">\(10\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:20px;width:40px">
 <span class="math inline">\(M_5\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4097,9 +4140,9 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(20\)</span>
+<span class="math inline">\(20\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:40px;width:50px">
 <span class="math inline">\(M_6\)</span>
 </td>
 </tr>
@@ -4107,16 +4150,14 @@ Select a good order for solving subproblems
 </td>
 </tr>
 </tbody></table>
-<div style="font-size:80%;text-align:left">
-<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(Best(i,i)=0\)</span></p>
-</div>
-<table class="allcenter">
+<p><span class="math inline">\(\scriptsize Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(\scriptsize Best(i,i)=0\)</span></p>
+<table class="allcenter" style="margin-top:-20px">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
 <span class="math inline">\(Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
 \  \\
 \  \\
-{\color{green}Best(1,1)} + {\color{magenta}Best(2,2)} + r_1r_1c_2 \\
+{\color{green}Best(1,1)} + {\color{magenta}Best(2,2)} + r_1r_2c_2 \\
 \  \\
 \  \\
 \end{cases}\)</span>
@@ -4291,11 +4332,14 @@ Select a good order for solving subproblems
 <td style="font-size:large">
 <span class="math inline">\(30\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:60px;width:70px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:60px;width:70px">
 <span class="math inline">\(M_1\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4308,13 +4352,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(35\)</span>
+<span class="math inline">\(35\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:70px;width:30px">
 <span class="math inline">\(M_2\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4327,13 +4374,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(15\)</span>
+<span class="math inline">\(15\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:30px;width:10px">
 <span class="math inline">\(M_3\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4346,13 +4396,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(5\)</span>
+<span class="math inline">\(5\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:10px;width:20px">
 <span class="math inline">\(M_4\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4365,13 +4418,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(10\)</span>
+<span class="math inline">\(10\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:20px;width:40px">
 <span class="math inline">\(M_5\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4384,9 +4440,9 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(20\)</span>
+<span class="math inline">\(20\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:40px;width:50px">
 <span class="math inline">\(M_6\)</span>
 </td>
 </tr>
@@ -4394,13 +4450,11 @@ Select a good order for solving subproblems
 </td>
 </tr>
 </tbody></table>
-<div style="font-size:80%;text-align:left">
-<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(Best(i,i)=0\)</span></p>
-</div>
-<table class="allcenter">
+<p><span class="math inline">\(\scriptsize Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(\scriptsize Best(i,i)=0\)</span></p>
+<table class="allcenter" style="margin-top:-20px">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<span class="math inline">\(Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<span class="math inline">\(Best(2,3) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
 \  \\
 \  \\
 {\color{green}Best(2,2)} + {\color{magenta}Best(3,3)} + r_2r_3c_3 \\
@@ -4579,11 +4633,14 @@ Select a good order for solving subproblems
 <td style="font-size:large">
 <span class="math inline">\(30\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:60px;width:70px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:60px;width:70px">
 <span class="math inline">\(M_1\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4596,13 +4653,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(35\)</span>
+<span class="math inline">\(35\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:70px;width:30px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:70px;width:30px">
 <span class="math inline">\(M_2\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4615,13 +4675,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(15\)</span>
+<span class="math inline">\(15\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:30px;width:10px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:30px;width:10px">
 <span class="math inline">\(M_3\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4634,13 +4697,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(5\)</span>
+<span class="math inline">\(5\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:10px;width:20px">
 <span class="math inline">\(M_4\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4653,13 +4719,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(10\)</span>
+<span class="math inline">\(10\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:20px;width:40px">
 <span class="math inline">\(M_5\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4672,9 +4741,9 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(20\)</span>
+<span class="math inline">\(20\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:40px;width:50px">
 <span class="math inline">\(M_6\)</span>
 </td>
 </tr>
@@ -4682,10 +4751,8 @@ Select a good order for solving subproblems
 </td>
 </tr>
 </tbody></table>
-<div style="font-size:80%;text-align:left">
-<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(Best(i,i)=0\)</span></p>
-</div>
-<table class="allcenter">
+<p><span class="math inline">\(\scriptsize Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(\scriptsize Best(i,i)=0\)</span></p>
+<table class="allcenter" style="margin-top:-20px">
 <tbody><tr>
 <td style="width:50%;text-align:left;font-size:50%">
 <!-- formula here -->
@@ -4871,6 +4938,9 @@ Select a good order for solving subproblems
 </tbody></table>
 </td>
 <td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
+</td>
+<td style="padding:0">
 <table class="allcenter">
 <tbody><tr>
 <td>
@@ -4881,13 +4951,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(35\)</span>
+<span class="math inline">\(35\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:70px;width:30px">
 <span class="math inline">\(M_2\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4900,13 +4973,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(15\)</span>
+<span class="math inline">\(15\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:30px;width:10px">
 <span class="math inline">\(M_3\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4919,13 +4995,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(5\)</span>
+<span class="math inline">\(5\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:10px;width:20px">
 <span class="math inline">\(M_4\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4938,13 +5017,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(10\)</span>
+<span class="math inline">\(10\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:20px;width:40px">
 <span class="math inline">\(M_5\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -4957,9 +5039,9 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(20\)</span>
+<span class="math inline">\(20\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:40px;width:50px">
 <span class="math inline">\(M_6\)</span>
 </td>
 </tr>
@@ -4967,10 +5049,8 @@ Select a good order for solving subproblems
 </td>
 </tr>
 </tbody></table>
-<div style="font-size:80%;text-align:left">
-<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(Best(i,i)=0\)</span></p>
-</div>
-<table class="allcenter">
+<p><span class="math inline">\(\scriptsize Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(\scriptsize Best(i,i)=0\)</span></p>
+<table class="allcenter" style="margin-top:-20px">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
 <div class="fragment">
@@ -4980,12 +5060,12 @@ Select a good order for solving subproblems
 <p><span class="math inline">\(r_1r_3c_3=30 \cdot 15 \cdot 5=2250\)</span><br></p>
 </div>
 <p>&nbsp;</p>
-<span class="math inline">\(Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<span class="math inline">\(Best(1,3) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
 \  \\
-\  (below:0+2625+5250) \\
+\  (\text{below:}0+2625+5250=7875) \\
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,3)} + r_1r_2c_3 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,3)} + r_1r_3c_3 \\
-\  (above:15750+0+2250) \\
+\  (\text{above:}15750+0+2250=18000) \\
 \end{cases}\)</span>
 </td>
 <td style="width:50%">
@@ -5165,11 +5245,14 @@ Select a good order for solving subproblems
 <td style="font-size:large">
 <span class="math inline">\(30\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:60px;width:70px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:60px;width:70px">
 <span class="math inline">\(M_1\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -5182,13 +5265,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(35\)</span>
+<span class="math inline">\(35\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:70px;width:30px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:70px;width:30px">
 <span class="math inline">\(M_2\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -5201,13 +5287,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(15\)</span>
+<span class="math inline">\(15\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:30px;width:10px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:30px;width:10px">
 <span class="math inline">\(M_3\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -5220,13 +5309,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(5\)</span>
+<span class="math inline">\(5\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:10px;width:20px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:10px;width:20px">
 <span class="math inline">\(M_4\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -5239,13 +5331,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(10\)</span>
+<span class="math inline">\(10\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:20px;width:40px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:20px;width:40px">
 <span class="math inline">\(M_5\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -5258,9 +5353,9 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(20\)</span>
+<span class="math inline">\(20\)</span>
 </td>
-<td style="font-size:large;border:1px solid black;background-color:CornflowerBlue;height:40px;width:50px">
+<td style="font-size:large;border:1px solid black;background-color:cornflowerblue;height:40px;width:50px">
 <span class="math inline">\(M_6\)</span>
 </td>
 </tr>
@@ -5268,10 +5363,8 @@ Select a good order for solving subproblems
 </td>
 </tr>
 </tbody></table>
-<div style="font-size:80%;text-align:left">
-<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(Best(i,i)=0\)</span></p>
-</div>
-<table class="allcenter">
+<p><span class="math inline">\(\scriptsize Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(\scriptsize Best(i,i)=0\)</span></p>
+<table class="allcenter" style="margin-top:-20px">
 <tbody><tr>
 <td style="width:50%;text-align:left;font-size:75%">
 <p>To find <span class="math inline">\(Best(i,j)\)</span>: need all preceeding terms of row <span class="math inline">\(i\)</span> and column <span class="math inline">\(j\)</span></p>
@@ -5459,6 +5552,9 @@ Select a good order for solving subproblems
 </tbody></table>
 </td>
 <td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
+</td>
+<td style="padding:0">
 <table class="allcenter">
 <tbody><tr>
 <td>
@@ -5469,13 +5565,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(35\)</span>
+<span class="math inline">\(35\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:70px;width:30px">
 <span class="math inline">\(M_2\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -5488,13 +5587,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(15\)</span>
+<span class="math inline">\(15\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:30px;width:10px">
 <span class="math inline">\(M_3\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -5507,13 +5609,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(5\)</span>
+<span class="math inline">\(5\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:10px;width:20px">
 <span class="math inline">\(M_4\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -5526,13 +5631,16 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(10\)</span>
+<span class="math inline">\(10\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:20px;width:40px">
 <span class="math inline">\(M_5\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -5545,7 +5653,7 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(20\)</span>
+<span class="math inline">\(20\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:40px;width:50px">
 <span class="math inline">\(M_6\)</span>
@@ -5555,19 +5663,17 @@ Select a good order for solving subproblems
 </td>
 </tr>
 </tbody></table>
-<div style="font-size:80%;text-align:left">
-<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(Best(i,i)=0\)</span></p>
-</div>
-<table class="allcenter">
+<p><span class="math inline">\(\scriptsize Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(\scriptsize Best(i,i)=0\)</span></p>
+<table class="allcenter" style="margin-top:-20px">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
 <div class="fragment">
 <p><span class="math inline">\(Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
-\color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
-\color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
-\color{green}{Best(1,3)} + \color{magenta}{Best(4,6)} + r_1r_4c_6 \\
-\color{green}{Best(1,4)} + \color{magenta}{Best(5,6)} + r_1r_5c_6 \\
-\color{green}{Best(1,5)} + \color{magenta}{Best(6,6)} + r_1r_6c_6 \\
+{\color{green}Best(1,1)} + {\color{magenta}Best(2,6)} + r_1r_2c_6 \\
+{\color{green}Best(1,2)} + {\color{magenta}Best(3,6)} + r_1r_3c_6 \\
+{\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6 \\
+{\color{green}Best(1,4)} + {\color{magenta}Best(5,6)} + r_1r_5c_6 \\
+{\color{green}Best(1,5)} + {\color{magenta}Best(6,6)} + r_1r_6c_6 \\
 \end{cases}\)</span></p>
 </div>
 </td>
@@ -5747,20 +5853,13 @@ Select a good order for solving subproblems
 <td style="vertical-align:top;width:67%">
 <ol type="1">
 <li>Initialize <span class="math inline">\(Best[i,i]\)</span> to be all 0s</li>
-<li>Starting at each main diagonal, working to the upper-right, fill in each cell using:
-<ul>
-<li><span style="font-size:65%"><span class="math inline">\(Best[i,i]=0\)</span></span></li>
-<li><span style="font-size:65%"><span class="math inline">\(Best[i,j] = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span></span></li>
-</ul></li>
+<li>Starting at each main diagonal, working to the upper-right, fill in each cell using:</li>
 </ol>
-<div class="fragment" data-fragment-index="3">
-<table class="purplenote">
-<tbody><tr>
-<td style="font-size:80%">
-Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span class="math inline">\(O(1)\)</span> memory lookup
-</td>
-</tr>
-</tbody></table>
+<div class="no-bullets" style="margin-top:-20px;margin-bottom:0">
+<ul>
+<li><span class="math inline">\(\small Best[i,i]=0\)</span></li>
+<li><span class="math inline">\(\small \begin{align} Best[i,j] = \min_{k=i}^{j-1} ( &amp; {\color{green}Best(i,k)} + \\  &amp; {\color{magenta}Best(k+1,j)} + \\ &amp; r_ir_{k+1}c_j ) \end{align}\)</span></li>
+</ul>
 </div>
 </td>
 <td style="vertical-align:top;width:33%">
@@ -5773,28 +5872,40 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </div>
 </td>
 </tr>
+<tr>
+<td>
+<div class="fragment" data-fragment-index="3">
+<table class="purplenote">
+<tbody><tr>
+<td style="font-size:80%">
+Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span class="math inline">\(O(1)\)</span> memory lookup
+</td>
+</tr>
 </tbody></table>
+</div>
+</td>
+<td>
 <div class="fragment" data-fragment-index="4">
 <p><span class="red"><span class="math inline">\(\Theta(n^3)\)</span> overall run time</span></p>
 </div>
+</td>
+</tr>
+</tbody></table>
 </section>
 <section id="backtrack-to-find-the-best-order" class="slide level2">
 <h2>Backtrack to find the best order</h2>
+<p>“Remember” which choice of <span class="math inline">\(k\)</span> was the minimum at each cell</p>
 <p>&nbsp;</p>
-<p>“remember” which choice of <span class="math inline">\(k\)</span> was the minimum at each cell</p>
-<p>&nbsp;</p>
-<div style="font-size:80%;text-align:left">
-<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(Best(i,i)=0\)</span></p>
-</div>
+<p><span class="math inline">\(\scriptsize Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(\scriptsize Best(i,i)=0\)</span></p>
 <table class="allcenter">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<span class="math inline">\(Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
-\color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
-\color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
-\boxed{\color{green}{Best(1,3)} + \color{magenta}{Best(4,6)} + r_1r_4c_6} \\
-\color{green}{Best(1,4)} + \color{magenta}{Best(5,6)} + r_1r_5c_6 \\
-\color{green}{Best(1,5)} + \color{magenta}{Best(6,6)} + r_1r_6c_6 \\
+<span class="math inline">\(Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+{\color{green}Best(1,1)} + {\color{magenta}Best(2,6)} + r_1r_2c_6 \\
+{\color{green}Best(1,2)} + {\color{magenta}Best(3,6)} + r_1r_3c_6 \\
+\boxed{{\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6} \\
+{\color{green}Best(1,4)} + {\color{magenta}Best(5,6)} + r_1r_5c_6 \\
+{\color{green}Best(1,5)} + {\color{magenta}Best(6,6)} + r_1r_6c_6 \\
 \end{cases}\)</span>
 </td>
 <td style="width:50%">
@@ -5966,7 +6077,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </section>
 <section id="matrix-chaining-3" class="slide level2">
 <h2>Matrix Chaining</h2>
-<table class="allcenter">
+<table class="allcenter" style="margin-top:-20px">
 <tbody><tr>
 <td style="padding:0">
 <span style="font-size:3em;padding:0;margin:0">(</span>
@@ -5991,6 +6102,12 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </tbody></table>
 </td>
 <td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
+</td>
+<td style="padding:0">
+<span style="font-size:2.25em;padding:0;margin:0">(</span>
+</td>
+<td style="padding:0">
 <table class="allcenter">
 <tbody><tr>
 <td>
@@ -6001,13 +6118,16 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;<span style="font-size:5em;padding:0;margin:0">(</span>&nbsp;<span class="math inline">\(35\)</span>
+<span class="math inline">\(35\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:70px;width:30px">
 <span class="math inline">\(M_2\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -6020,7 +6140,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(15\)</span>
+<span class="math inline">\(15\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:30px;width:10px">
 <span class="math inline">\(M_3\)</span>
@@ -6029,10 +6149,19 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </tbody></table>
 </td>
 <td style="padding:0">
-<span style="font-size:2.25em;padding:0;margin:0">)</span><span style="font-size:3em;padding:0;margin:0">)</span>
+<span style="font-size:2.25em;padding:0;margin:0">)</span>
 </td>
-<td style="font-size:x-large">
+<td style="padding:0">
+<span style="font-size:3em;padding:0;margin:0">)</span>
+</td>
+<td style="padding:0">
 <span class="math inline">\(\times\)</span>
+</td>
+<td style="padding:0">
+<span style="font-size:3em;padding:0;margin:0">(</span>
+</td>
+<td style="padding:0">
+<span style="font-size:2.25em;padding:0;margin:0">(</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -6045,13 +6174,16 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </tr>
 <tr>
 <td style="font-size:large">
-<span style="font-size:6em;padding:0;margin:0">(</span>&nbsp;<span style="font-size:5em;padding:0;margin:0">(</span>&nbsp;<span class="math inline">\(5\)</span>
+<span class="math inline">\(5\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:10px;width:20px">
 <span class="math inline">\(M_4\)</span>
 </td>
 </tr>
 </tbody></table>
+</td>
+<td style="padding:0">
+&nbsp;<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -6064,7 +6196,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(10\)</span>
+<span class="math inline">\(10\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:20px;width:40px">
 <span class="math inline">\(M_5\)</span>
@@ -6074,6 +6206,9 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </td>
 <td style="padding:0">
 <span style="font-size:2.25em;padding:0;margin:0">)</span>
+</td>
+<td style="padding:0">
+<span class="math inline">\(\times\)</span>
 </td>
 <td style="padding:0">
 <table class="allcenter">
@@ -6086,7 +6221,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </tr>
 <tr>
 <td style="font-size:large">
-<span class="math inline">\(\times\)</span>&nbsp;&nbsp;<span class="math inline">\(20\)</span>
+<span class="math inline">\(20\)</span>
 </td>
 <td style="font-size:large;border:1px solid black;background-color:yellow;height:40px;width:50px">
 <span class="math inline">\(M_6\)</span>
@@ -6099,18 +6234,16 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </td>
 </tr>
 </tbody></table>
-<div style="font-size:80%;text-align:left">
-<p><span class="math inline">\(Best(i,j) = \min_{k=i}^{j-1} \left( \color{green}{Best(i,k)} + \color{magenta}{Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(Best(i,i)=0\)</span></p>
-</div>
+<p><span class="math inline">\(\scriptsize Best(i,j) = \min_{k=i}^{j-1} \left( {\color{green}Best(i,k)} + {\color{magenta}Best(k+1,j)}+r_ir_{k+1}c_j \right)\)</span><br> <span class="math inline">\(\scriptsize Best(i,i)=0\)</span></p>
 <table class="allcenter">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<span class="math inline">\(Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
-\color{green}{Best(1,1)} + \color{magenta}{Best(2,6)} + r_1r_2c_6 \\
-\color{green}{Best(1,2)} + \color{magenta}{Best(3,6)} + r_1r_3c_6 \\
-\boxed{\color{green}{Best(1,3)} + \color{magenta}{Best(4,6)} + r_1r_4c_6} \\
-\color{green}{Best(1,4)} + \color{magenta}{Best(5,6)} + r_1r_5c_6 \\
-\color{green}{Best(1,5)} + \color{magenta}{Best(6,6)} + r_1r_6c_6 \\
+<span class="math inline">\(Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+{\color{green}Best(1,1)} + {\color{magenta}Best(2,6)} + r_1r_2c_6 \\
+{\color{green}Best(1,2)} + {\color{magenta}Best(3,6)} + r_1r_3c_6 \\
+\boxed{{\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6} \\
+{\color{green}Best(1,4)} + {\color{magenta}Best(5,6)} + r_1r_5c_6 \\
+{\color{green}Best(1,5)} + {\color{magenta}Best(6,6)} + r_1r_6c_6 \\
 \end{cases}\)</span>
 </td>
 <td style="width:50%">
@@ -6807,6 +6940,7 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 </section>
 <section id="energy-of-a-seam" class="slide level2">
 <h2>Energy of a Seam</h2>
+<div style="font-size:90%">
 <ul>
 <li>Sum of the energies of each pixel
 <ul>
@@ -6825,6 +6959,7 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 <ul>
 <li>Goal: find least-energy seam to remove</li>
 </ul>
+</div>
 </section>
 <section id="dynamic-programming-11" class="slide level2">
 <h2>Dynamic Programming</h2>
@@ -7639,7 +7774,7 @@ Select a good order for solving subproblems
 </tr>
 </tbody></table>
 <div class="fragment" data-fragment-index="7">
-<p><span class="math display">\[\small LCS(i,j) = \max
+<p><span class="math display">\[LCS(i,j) = \max
 \begin{cases}
 0 &amp; \text{if } i=0 \text{ or } j=0 \\
 {\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[i] \\
