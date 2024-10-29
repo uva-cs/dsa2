@@ -200,13 +200,13 @@ Tile(n):
 ::: {.column width="10%"}
 <table class='cells'>
 <tr><td class="noborder" style="min-width:50px">M</td><td class="noborder"></td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">0</td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">1</td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">2</td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">3</td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">4</td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">5</td></tr>
-<tr><td class="tdbottom">&nbsp;</td><td class="noborder magenta">6</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">0</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">1</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">2</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">3</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">4</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">5</td></tr>
+<tr><td class="tdbottom">&nbsp;</td><td class="noborder magentatext">6</td></tr>
 </table>
 :::
 
@@ -238,13 +238,13 @@ Tile(n):
 ::: {.column width="10%"}
 <table class='cells'>
 <tr><td class="noborder" style="min-width:50px">M</td><td class="noborder"></td></tr>
-<tr><td>1</td><td class="noborder magenta">0</td></tr>
-<tr><td>1</td><td class="noborder magenta">1</td></tr>
-<tr><td>2</td><td class="noborder magenta">2</td></tr>
-<tr><td>3</td><td class="noborder magenta">3</td></tr>
-<tr><td>5</td><td class="noborder magenta">4</td></tr>
-<tr><td>8</td><td class="noborder magenta">5</td></tr>
-<tr><td class="tdbottom">13</td><td class="noborder magenta">6</td></tr>
+<tr><td>1</td><td class="noborder magentatext">0</td></tr>
+<tr><td>1</td><td class="noborder magentatext">1</td></tr>
+<tr><td>2</td><td class="noborder magentatext">2</td></tr>
+<tr><td>3</td><td class="noborder magentatext">3</td></tr>
+<tr><td>5</td><td class="noborder magentatext">4</td></tr>
+<tr><td>8</td><td class="noborder magentatext">5</td></tr>
+<tr><td class="tdbottom">13</td><td class="noborder magentatext">6</td></tr>
 </table>
 :::
 
@@ -389,13 +389,13 @@ Tile(n):
 ::: {.column width="10%"}
 <table class='cells'>
 <tr><td class="noborder" style="min-width:50px">M</td><td class="noborder"></td></tr>
-<tr><td>1</td><td class="noborder magenta">0</td></tr>
-<tr><td>1</td><td class="noborder magenta">1</td></tr>
-<tr><td>2</td><td class="noborder magenta">2</td></tr>
-<tr><td>3</td><td class="noborder magenta">3</td></tr>
-<tr><td>5</td><td class="noborder magenta">4</td></tr>
-<tr><td>8</td><td class="noborder magenta">5</td></tr>
-<tr><td class="tdbottom">13</td><td class="noborder magenta">6</td></tr>
+<tr><td>1</td><td class="noborder magentatext">0</td></tr>
+<tr><td>1</td><td class="noborder magentatext">1</td></tr>
+<tr><td>2</td><td class="noborder magentatext">2</td></tr>
+<tr><td>3</td><td class="noborder magentatext">3</td></tr>
+<tr><td>5</td><td class="noborder magentatext">4</td></tr>
+<tr><td>8</td><td class="noborder magentatext">5</td></tr>
+<tr><td class="tdbottom">13</td><td class="noborder magentatext">6</td></tr>
 </table>
 :::
 
@@ -432,13 +432,13 @@ Tile(n):
 ::: {.column width="10%"}
 <table class='cells'>
 <tr><td class="noborder" style="min-width:50px">M</td><td class="noborder"></td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">0</td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">1</td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">2</td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">3</td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">4</td></tr>
-<tr><td>&nbsp;</td><td class="noborder magenta">5</td></tr>
-<tr><td class="tdbottom">&nbsp;</td><td class="noborder magenta">6</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">0</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">1</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">2</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">3</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">4</td></tr>
+<tr><td>&nbsp;</td><td class="noborder magentatext">5</td></tr>
+<tr><td class="tdbottom">&nbsp;</td><td class="noborder magentatext">6</td></tr>
 </table>
 :::
 
@@ -538,10 +538,10 @@ a list (of length $n$) of prices <span class='blue'>$P$</span> where <span class
 <span class='red'>Greedy algorithms</span> build a solution by picking the best option "right now"
 
 <table style="width:100%"><tr><td style="text-align:left;height:150px">
-::: {.fragment}
+
 - Select the "most bang for your buck"
 	- (best price / length ratio)
-:::
+
 </td></tr></table>
 
 <table><tr><td>
@@ -586,12 +586,12 @@ a list (of length $n$) of prices <span class='blue'>$P$</span> where <span class
 <span class='magenta'>$Cut(n)=$</span> value of best way to cut a log of length $n$
 
 ::: {.fragment fragment-index=4}
-$$\color{magenta}{Cut(n)} = \max
+$${\color{magenta}Cut(n)} = \max
 \begin{cases}
-\color{magenta}{Cut(n-1)} + \color{blue}{P[1]} \\
-\color{magenta}{Cut(n-2)} + \color{blue}{P[2]} \\
+{\color{magenta}Cut(n-1)} + \color{blue}{P[1]} \\
+{\color{magenta}Cut(n-2)} + \color{blue}{P[2]} \\
 \color{black}{\ldots} \\
-\color{magenta}{Cut(0)} + \color{blue}{P[n]}
+{\color{magenta}Cut(0)} + \color{blue}{P[n]}
 \end{cases}$$
 :::
 
@@ -665,7 +665,7 @@ last cut
 Solve Smallest subproblem first
 
 <table><tr><td style="padding:0;vertical-align:middle">
-$$\color{magenta}{Cut(0)}=0$$
+$${\color{magenta}Cut(0)}=0$$
 <td style="padding:0;vertical-align:bottom"><img src="images/spacer.png" style="min-height:265px;width:10px"></td>
 </tr></table>
 
@@ -687,7 +687,7 @@ Solve Smallest subproblem first
 
 ::: {.fragment}
 <table><tr><td style="padding:0;vertical-align:middle">
-$$\color{magenta}{Cut(1)}=\color{magenta}{Cut(0)}+\color{blue}{P[1]}$$
+$${\color{magenta}Cut(1)}={\color{magenta}Cut(0)}+\color{blue}{P[1]}$$
 </td>
 <td style="padding:0;vertical-align:bottom"><img src="images/spacer.png" style="min-height:265px;width:10px"></td>
 </tr></table>
@@ -712,10 +712,10 @@ Solve Smallest subproblem first
 
 ::: {.fragment}
 <table><tr><td style="padding:0;vertical-align:middle">
-$$\color{magenta}{Cut(2)} = \max
+$${\color{magenta}Cut(2)} = \max
 \begin{cases}
-\color{magenta}{Cut(1)} + \color{blue}{P[1]} \\
-\color{magenta}{Cut(0)} + \color{blue}{P[2]} \\
+{\color{magenta}Cut(1)} + \color{blue}{P[1]} \\
+{\color{magenta}Cut(0)} + \color{blue}{P[2]} \\
 \end{cases}$$
 </td>
 <td style="padding:0;vertical-align:bottom"><img src="images/spacer.png" style="min-height:265px;width:10px"></td>
@@ -741,11 +741,11 @@ Solve Smallest subproblem first
 
 ::: {.fragment}
 <table><tr><td style="padding:0;vertical-align:middle">
-$$\color{magenta}{Cut(3)} = \max
+$${\color{magenta}Cut(3)} = \max
 \begin{cases}
-\color{magenta}{Cut(2)} + \color{blue}{P[1]} \\
-\color{magenta}{Cut(1)} + \color{blue}{P[2]} \\
-\color{magenta}{Cut(0)} + \color{blue}{P[3]} \\
+{\color{magenta}Cut(2)} + \color{blue}{P[1]} \\
+{\color{magenta}Cut(1)} + \color{blue}{P[2]} \\
+{\color{magenta}Cut(0)} + \color{blue}{P[3]} \\
 \end{cases}$$
 </td>
 <td style="padding:0;vertical-align:bottom"><img src="images/spacer.png" style="min-height:265px;width:10px"></td>
@@ -770,12 +770,12 @@ Solve Smallest subproblem first
 
 ::: {.fragment}
 <table><tr><td style="padding:0;vertical-align:middle;">
-$$\color{magenta}{Cut(4)} = \max
+$${\color{magenta}Cut(4)} = \max
 \begin{cases}
-\color{magenta}{Cut(3)} + \color{blue}{P[1]} \\
-\color{magenta}{Cut(2)} + \color{blue}{P[2]} \\
-\color{magenta}{Cut(1)} + \color{blue}{P[3]} \\
-\color{magenta}{Cut(0)} + \color{blue}{P[4]} \\
+{\color{magenta}Cut(3)} + \color{blue}{P[1]} \\
+{\color{magenta}Cut(2)} + \color{blue}{P[2]} \\
+{\color{magenta}Cut(1)} + \color{blue}{P[3]} \\
+{\color{magenta}Cut(0)} + \color{blue}{P[4]} \\
 \end{cases}$$
 </td>
 <td style="padding:0;vertical-align:bottom"><img src="images/spacer.png" style="min-height:265px;width:10px"></td>
@@ -940,7 +940,7 @@ This is similar to the back link in Dijkstra's shortest path algorithm
 
 <div style="scale:70%">
 <table class="cells">
-<tr><td class='noborder bluetext'>Choices:</td><td class='tdbottom'>1</td><td class='tdbottom'>5</td><td class='tdbottom'>8</td><td class='tdbottom'>9</td><td class='tdbottom'>10</td><td class='tdbottom'>17</td><td class='tdbottom'>17</td><td class='tdbottom'>20</td><td class='tdbottom'>24</td><td class='tdbottom'>30</td></tr>
+<tr><td class='noborder bluetext'>Prices:</td><td class='tdbottom'>1</td><td class='tdbottom'>5</td><td class='tdbottom'>8</td><td class='tdbottom'>9</td><td class='tdbottom'>10</td><td class='tdbottom'>17</td><td class='tdbottom'>17</td><td class='tdbottom'>20</td><td class='tdbottom'>24</td><td class='tdbottom'>30</td></tr>
 <tr class='magenta noborder'><td>Length:</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
 </table>
 </div>
@@ -1073,9 +1073,9 @@ Readings in CLRS 4th edition: chapter 14, specifically 14.2
 
 ## Order Matters!
 
-<table class="allcenter">
+<table class="allcenter" style="width:70%">
   <tr>
-  <td style="padding:0">
+  <td>
     <table>
 		  <tr><td></td><td style="font-size:x-large">$c_1$</td></tr>
 		  <tr>
@@ -1084,35 +1084,39 @@ Readings in CLRS 4th edition: chapter 14, specifically 14.2
 		  </tr>
 	  </table>
   </td>
-  <td style="padding:0">
+  <td>$\times$</td>
+  <td>
     <table>
 		  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
 		  <tr>
-			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_2$</td>
+			  <td style="font-size:x-large">$r_2$</td>
 			  <td style="border:1px solid black;background-color:red;width:150px;height:100px">$M_2$</td>
 		  </tr>
 	  </table>
   </td>
-  <td style="padding:0">
+  <td>$\times$</td>
+  <td>
     <table>
 		  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
 		  <tr>
-			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_3$</td>
+			  <td style="font-size:x-large">$r_3$</td>
 			  <td style="border:1px solid black;background-color:CornflowerBlue;width:50px;height:150px;color:white">$M_3$</td>
 		  </tr>
 	  </table>
   </td>
   </tr>
-  <tr><td colspan='2'><img src="images/underbrace-red.svg" style="width:100%;min-height:40px;margin-bottom: 0;padding-bottom: 0;margin-top: 0;"></td><td></td></tr>
-  <tr><td colspan='2'>
+
+  <tr><td colspan='3'><img src="images/underbrace-red.svg" style="width:100%;min-height:40px;margin-bottom: -20px;padding-bottom: 0;margin-top: 0;"></td><td></td><td></td></tr>
+  
+  <tr><td colspan='3'>
     <table>
 		  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
 		  <tr>
 			  <td style="font-size:x-large">$r_1$</td>
-			  <td style="border:1px solid black;background-color:chocolate;width:150px;height:50px;color:white"></td>
+			  <td style="border:1px solid black;background-color:orange;width:150px;height:50px;color:white"></td>
 		  </tr>
 	  </table>
-  </td><td></td></tr>
+  </td><td></td><td></td></tr>
 </table>
 
 &nbsp;
@@ -1125,9 +1129,9 @@ Readings in CLRS 4th edition: chapter 14, specifically 14.2
 
 ## Order Matters!
 
-<table class="allcenter">
+<table class="allcenter" style="width:70%">
   <tr>
-  <td style="padding:0">
+  <td>
     <table>
 		  <tr><td></td><td style="font-size:x-large">$c_1$</td></tr>
 		  <tr>
@@ -1136,27 +1140,32 @@ Readings in CLRS 4th edition: chapter 14, specifically 14.2
 		  </tr>
 	  </table>
   </td>
-  <td style="padding:0">
+  <td>$\times$</td>
+  <td>
     <table>
 		  <tr><td></td><td style="font-size:x-large">$c_2$</td></tr>
 		  <tr>
-			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_2$</td>
+			  <td style="font-size:x-large">$r_2$</td>
 			  <td style="border:1px solid black;background-color:red;width:150px;height:100px">$M_2$</td>
 		  </tr>
 	  </table>
   </td>
-  <td style="padding:0">
+  <td>$\times$</td>
+  <td>
     <table>
 		  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
 		  <tr>
-			  <td style="font-size:x-large">$\times$&nbsp;&nbsp;$r_3$</td>
+			  <td style="font-size:x-large">$r_3$</td>
 			  <td style="border:1px solid black;background-color:CornflowerBlue;width:50px;height:150px;color:white">$M_3$</td>
 		  </tr>
 	  </table>
   </td>
   </tr>
-  <tr><td></td><td colspan='2'><img src="images/underbrace-red.svg" style="width:100%;min-height:40px;margin-bottom: 0;padding-bottom: 0;margin-top: 0;"></td></tr>
-  <tr><td></td><td colspan='2'>
+
+  </tr>
+  <tr><td></td><td></td><td colspan='3'><img src="images/underbrace-red.svg" style="width:100%;min-height:40px;margin-bottom: -20px;padding-bottom: 0;margin-top: 0;"></td></tr>
+
+  <tr><td></td><td></td><td colspan='3'>
     <table>
 		  <tr><td></td><td style="font-size:x-large">$c_3$</td></tr>
 		  <tr>
@@ -1306,7 +1315,7 @@ $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 
 <div style="font-size:80%">$$Best(1,4) = \min
 \begin{cases}
-{\color{magenta}Best(2,4)} + r_1r_2c_4 \\
+{\color{green}Best(1,1)}+{\color{magenta}Best(2,4)} + r_1r_2c_4 \\
 \  \\
 \  \\
 \end{cases}$$</div>
@@ -1382,7 +1391,7 @@ $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 
 <div style="font-size:80%">$$Best(1,4) = \min
 \begin{cases}
-{\color{magenta}Best(2,4)} + r_1r_2c_4 \\
+{\color{green}Best(1,1)}+{\color{magenta}Best(2,4)} + r_1r_2c_4 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,4)} + r_1r_3c_4 \\
 \  \\
 \end{cases}$$</div>
@@ -1470,9 +1479,9 @@ $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 
 <div style="font-size:80%">$$Best(1,4) = \min
 \begin{cases}
-{\color{magenta}Best(2,4)} + r_1r_2c_4 \\
+{\color{green}Best(1,1)}+{\color{magenta}Best(2,4)} + r_1r_2c_4 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,4)} + r_1r_3c_4 \\
-{\color{green}Best(1,3)} + r_1r_4c_4 \\
+{\color{green}Best(1,3)} + {\color{magenta}Best(4,4)} + r_1r_4c_4 \\
 \end{cases}$$</div>
 
 <table class="allcenter" style="scale:80%;margin-top:-80px">
@@ -1556,12 +1565,12 @@ $Best(i,i)=0$
 ::: {.fragment}
 $Best(1,n) = \min
 \begin{cases}
-{\color{magenta}Best(2,n)} + r_1r_2c_n \\
+{\color{green}Best(1,1)} + {\color{magenta}Best(2,n)} + r_1r_2c_n \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,n)} + r_1r_3c_n \\
 {\color{green}Best(1,3)} + {\color{magenta}Best(4,n)} + r_1r_4c_n \\
 {\color{green}Best(1,4)} + {\color{magenta}Best(5,n)} + r_1r_5c_n \\
 \ldots \\
-{\color{green}Best(1,n-1)} +  r_1r_nc_n \\
+{\color{green}Best(1,n-1)} + {\color{magenta}Best(n,n)} + r_1r_nc_n \\
 \end{cases}$
 :::
 
@@ -1607,12 +1616,12 @@ $Best(i,i)=0$
 
 $Best(1,n) = \min
 \begin{cases}
-{\color{magenta}Best(2,n)} + r_1r_2c_n \\
+{\color{green}Best(1,1)} + {\color{magenta}Best(2,n)} + r_1r_2c_n \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,n)} + r_1r_3c_n \\
 {\color{green}Best(1,3)} + {\color{magenta}Best(4,n)} + r_1r_4c_n \\
 {\color{green}Best(1,4)} + {\color{magenta}Best(5,n)} + r_1r_5c_n \\
 \ldots \\
-{\color{green}Best(1,n-1)} +  r_1r_nc_n \\
+{\color{green}Best(1,n-1)} + {\color{magenta}Best(n,n)} + r_1r_nc_n \\
 \end{cases}$
 
 </div>
@@ -1657,12 +1666,12 @@ $Best(i,i)=0$
 
 $Best(1,n) = \min
 \begin{cases}
-{\color{magenta}Best(2,n)} + r_1r_2c_n \\
+{\color{green}Best(1,1)} + {\color{magenta}Best(2,n)} + r_1r_2c_n \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,n)} + r_1r_3c_n \\
 {\color{green}Best(1,3)} + {\color{magenta}Best(4,n)} + r_1r_4c_n \\
 {\color{green}Best(1,4)} + {\color{magenta}Best(5,n)} + r_1r_5c_n \\
 \ldots \\
-{\color{green}Best(1,n-1)} +  r_1r_nc_n \\
+{\color{green}Best(1,n-1)} + {\color{magenta}Best(n,n)} + r_1r_nc_n \\
 \end{cases}$
 
 </div>
