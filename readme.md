@@ -28,6 +28,7 @@ Repository Contents
 	- [PA2](pa/pa2/index.html) ([md](pa/pa2/index.md))
 	- [PA3](pa/pa3/index.html) ([md](pa/pa3/index.md))
 - Slide sets:
+	- [Daily announcements slides](slides/announcements.html#/)
     - [Dynamic Programming](slides/dp.html#/)
 
 License
