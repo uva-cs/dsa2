@@ -3,6 +3,9 @@
 	font-size:75%;
 }
 /* slide formatting */
+.reveal ul {
+	display:block;
+}
 div.slides {
 	margin-top:-50px !important;
 }
