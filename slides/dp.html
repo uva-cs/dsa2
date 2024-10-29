@@ -6001,7 +6001,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <span class="math inline">\(\small Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\small \begin{cases}
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,6)} + r_1r_2c_6 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,6)} + r_1r_3c_6 \\
-\boxed{{\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6} \\
+{\color{red}Best(1,3) + Best(4,6) + r_1r_4c_6} \\
 {\color{green}Best(1,4)} + {\color{magenta}Best(5,6)} + r_1r_5c_6 \\
 {\color{green}Best(1,5)} + {\color{magenta}Best(6,6)} + r_1r_6c_6 \\
 \end{cases}\)</span>
@@ -6354,7 +6354,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <span class="math inline">\(\small Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\small \begin{cases}
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,6)} + r_1r_2c_6 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,6)} + r_1r_3c_6 \\
-\boxed{{\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6} \\
+{\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6 \\
 {\color{green}Best(1,4)} + {\color{magenta}Best(5,6)} + r_1r_5c_6 \\
 {\color{green}Best(1,5)} + {\color{magenta}Best(6,6)} + r_1r_6c_6 \\
 \end{cases}\)</span>
@@ -8269,6 +8269,567 @@ Select a good order for solving subproblems
 </section>
 <section id="gerrymandering-1" class="slide level2">
 <h2>Gerrymandering</h2>
+<!--
+
+
+## image
+
+![](images/dp/gerrymander-1.webp)
+
+
+## image
+
+![](images/dp/gerrymander-2.webp)
+
+
+## image
+
+![](images/dp/gerrymander-3.webp)
+
+
+## image
+
+![](images/dp/gerrymander-4.webp)
+
+
+## image
+
+![](images/dp/gerrymander-5.webp)
+
+
+
+## image
+
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Virginia%27s_5th_congressional_district_%28from_2023%29.png/1024px-Virginia%27s_5th_congressional_district_%28from_2023%29.png)](https://commons.wikimedia.org/wiki/File:Virginia%27s_5th_congressional_district_(from_2023).png)
+
+## image
+
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/The_Gerry-Mander_Edit.png/733px-The_Gerry-Mander_Edit.png)](https://commons.wikimedia.org/wiki/File:The_Gerry-Mander_Edit.png)
+
+## image
+
+[![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Virginia_US_Congressional_District_5_%28since_2013%29.tif/lossless-page1-1024px-Virginia_US_Congressional_District_5_%28since_2013%29.tif.png)](https://commons.wikimedia.org/wiki/File:Virginia_US_Congressional_District_5_(since_2013).tif)
+
+## image
+
+[![](https://upload.wikimedia.org/wikipedia/commons/d/d6/2020_Congressional_election_in_Virginia%27s_5th_congressional_district_colored_by_locality.svg)](https://commons.wikimedia.org/wiki/File:2020_Congressional_election_in_Virginia%27s_5th_congressional_district_colored_by_locality.svg)
+
+## image
+
+[![](https://upload.wikimedia.org/wikipedia/commons/3/3d/Gerrymandering.jpg)](https://commons.wikimedia.org/wiki/File:Gerrymandering.jpg)
+
+## image
+
+[![](https://upload.wikimedia.org/wikipedia/commons/b/bf/Ugly_Gerry_font_sample.png)](https://commons.wikimedia.org/wiki/File:Ugly_Gerry_font_sample.png)
+
+## image
+
+[![](images/dp/md-3rd-district.webp)](https://www.reddit.com/r/MapPorn/comments/268ezy/marylands_3rd_congressional_district_what_60/)
+
+## image
+
+[![](images/dp/pa-7th-district.webp)](https://cis471.blogspot.com/2018/01/using-gerrymandering-technology-to.html)
+
+CC BY-NC-SA 3.0 license
+
+
+## (blank)
+
+## (blank)
+
+## Gerrymandering
+
+## [According to the Supreme Court]{.r-fit-text}
+
+## VA 5th district
+
+## VA 5th district
+
+## VA 5th district (today)
+
+## Gerrymandering Today
+
+## Gerrymandering Today
+
+## Gerrymandering Today
+
+## (blank)
+
+## How does it work?
+
+## How does it work?
+
+## [Gerrymandering Problem Statement]{.r-fit-text}
+
+## Dynamic Programming
+
+## Dynamic Programming
+
+## Consider the last precinct
+
+<div style="font-size:70%">
+
+
+<table class="allcenter caption-top" data-quarto-postprocess="true" style="width=100%">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="padding-left: 0; padding-right: 0"><table class="caption-top" data-quarto-postprocess="true" style="border:0px solid red">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>After assigning first<br />
+$n-1$ precincts<br />
+$p_1,p_2,\ldots,p_{n-1}$</td>
+</tr>
+<tr class="even">
+<td><table class="magentabox caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_1$<br />
+$k$ precincts<br />
+$x$ voters for $R$<br />
+ </td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td><table class="greenbox caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_2$<br />
+$n-k-1$<br />
+precincts<br />
+$y$ voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table></td>
+<td style="padding-left: 0; padding-right: 0"><table class="caption-top" data-quarto-postprocess="true" style="compact">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="padding-left: 0; padding-right: 0">If we<br />
+assign<br />
+$p_n \text{ to } D_1$</td>
+</tr>
+<tr class="even">
+<td style="padding-left: 0; padding-right: 0"><table class="greenbox caption-top" data-quarto-postprocess="true" style="border-radius:15px;width:unset;margin:auto">
+<tbody>
+<tr class="odd">
+<td style="background-color: navy; border-radius: 10px">$p_n$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td style="padding-left: 0; padding-right: 0">If we<br />
+assign<br />
+$p_n \text{ to } D_2$</td>
+</tr>
+</tbody>
+</table></td>
+<td style="padding: 0"><table class="caption-top" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td>![](images/dp/up-arrow-magenta.svg)</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td>![](images/dp/down-arrow-green.svg)</td>
+</tr>
+</tbody>
+</table></td>
+<td style="padding-left: 0"><table class="allcenter caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="padding: 0"> </td>
+</tr>
+<tr class="even">
+<td style="padding: 0"><table class="magentabox caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_1$<br />
+$k+1$ precincts<br />
+$x+R(p_n)$ voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td style="padding: 0">Valid gerrymandering<br />
+if: $k+1=\frac{n}{2}$, $x+R(p_n), y &gt; \frac{mn}{4}$</td>
+</tr>
+<tr class="even">
+<td style="padding: 0"> </td>
+</tr>
+<tr class="odd">
+<td style="padding: 0"><table class="greenbox caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_2$<br />
+$n-k$ precincts<br />
+$y+R(p_n)$ voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td style="padding: 0">Valid gerrymandering<br />
+if: $n-k=\frac{n}{2}$, $x,y+R(p_n), y &gt; \frac{mn}{4}$</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+</tbody>
+</table></td>
+<td style="padding-right: 0"><table class="caption-top" data-quarto-postprocess="true" style="border:0px solid blue;font-size:60%;background-color:lavender">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><table class="magentabox caption-top" data-quarto-postprocess="true" style="margin-top:10px">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_1$<br />
+$k+1$ precincts<br />
+$x+R(p_n)$ voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td><table class="greenbox caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_2$<br />
+$n-k-1$ precincts<br />
+$y$ voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td>Valid gerrymandering if: $n-k=\frac{n}{2}$,<br />
+$x,y+R(p_n), y &gt; \frac{mn}{4}$</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">World One</td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td style="background-color: white"> </td>
+</tr>
+<tr class="even">
+<td><table class="magentabox caption-top" data-quarto-postprocess="true" style="margin-top:10px">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_1$<br />
+$k$ precincts<br />
+$x$ voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td><table class="greenbox caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_2$<br />
+$n-k$ precincts<br />
+$y+R(p_n)$ voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td>Valid gerrymandering if: $n-k=\frac{n}{2}$,<br />
+$x,y+R(p_n), y &gt; \frac{mn}{4}$</td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">World Two</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+
+## Two ways to satisfy $S(j,k,x,y)$
+
+<div style="font-size:70%">
+
+
+<table class="allcenter caption-top" data-quarto-postprocess="true" style="width=100%">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="padding-left: 0; padding-right: 0"><table class="caption-top" data-quarto-postprocess="true" style="border:0px solid blue;font-size:60%;background-color:lavender">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><table class="magentabox caption-top" data-quarto-postprocess="true" style="margin-top:10px">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$\Theta(2n)$ time to update pixels<br />
+$\Theta(n+m)$ to find min+backtrack<br />
+ </td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td><table class="greenbox caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_2$<br />
+$j-k$ precincts<br />
+$y$ voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
+<td style="background-color: white"> </td>
+</tr>
+<tr class="even">
+<td><table class="magentabox caption-top" data-quarto-postprocess="true" style="margin-top:10px">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_1$<br />
+$k$ precincts<br />
+$x$ voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td><table class="greenbox caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_2$<br />
+??? precincts<br />
+??? voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td></td>
+</tr>
+</tbody>
+</table></td>
+<td style="width: 10px"></td>
+<td><table class="caption-top" data-quarto-postprocess="true" style="compact">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="padding-left: 0; padding-right: 0"><table class="greenbox caption-top" data-quarto-postprocess="true" style="border-radius:15px;width:unset;margin:auto">
+<tbody>
+<tr class="odd">
+<td style="background-color: navy; border-radius: 10px">$p_n$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td style="padding-left: 0; padding-right: 0">Then assign<br />
+$p_j$ to $D_1$</td>
+</tr>
+<tr class="odd">
+<td style="padding-left: 0; padding-right: 0"><span style="font-size:3em">OR</span></td>
+</tr>
+<tr class="even">
+<td style="padding-left: 0; padding-right: 0"><table class="greenbox caption-top" data-quarto-postprocess="true" style="border-radius:15px;width:unset;margin:auto">
+<tbody>
+<tr class="odd">
+<td style="background-color: navy; border-radius: 10px">$p_n$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td style="padding-left: 0; padding-right: 0">Then assign<br />
+$p_j$ to $D_2$</td>
+</tr>
+<tr class="even">
+<td style="padding-left: 0; padding-right: 0"></td>
+</tr>
+</tbody>
+</table></td>
+<td><table class="caption-top" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td style="height: 40px"></td>
+</tr>
+<tr class="even">
+<td><img data-src="images/dp/up-arrow-magenta.svg" style="transform:rotate(70deg)" /></td>
+</tr>
+<tr class="odd">
+<td style="height: 60px"></td>
+</tr>
+<tr class="even">
+<td><img data-src="images/dp/down-arrow-green.svg" style="transform:rotate(-20deg)" /></td>
+</tr>
+</tbody>
+</table></td>
+<td><table class="caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><table class="border caption-top" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="font-size: 70%">$S(j,k,x,y)$ true if:<br />
+    from among the first $j$ precincts<br />
+    $k$ are assigned to $D_1$<br />
+    exactly $x$ vote for $R$ in $D_1$<br />
+    exactly $y$ vote for $R$ in $D_1$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="even">
+<td><table class="magentabox caption-top" data-quarto-postprocess="true" style="margin-top:10px">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_1$<br />
+??? precincts<br />
+??? voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr class="odd">
+<td><table class="greenbox caption-top" data-quarto-postprocess="true" style="margin-top:10px">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>$D_1$<br />
+??? precincts<br />
+??? voters for $R$</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table>
+
+
+
+$$S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}S(j-1,k,x,y-R(p_j))}$$
+
+</div>
+
+
+
+## Final Algorithm
+
+## Final Algorithm
+
+## Run Time
+
+## $\Theta(n^4m^2)$
+
+-->
 <div class="quarto-auto-generated-content">
 <p><img src="images/quarto.webp" class="slide-logo"></p>
 <div class="footer footer-default">
