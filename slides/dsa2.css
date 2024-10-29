@@ -281,9 +281,10 @@ table.table-of-boxes tbody tr td table tbody tr td{
 td.red { background-color:red; color:black; }
 td.orange { background-color:orange; color:black; }
 td.yellow { background-color:yellow; color:black; }
-td.green { background-color:green; color:black; }
+td.green { background-color:green; color:white; }
 td.blue { background-color:blue; color:white; }
 td.purple { background-color:purple; color:white; }
+td.magenta { background-color:magenta; color:white; }
 td.clear {}
 
 td.redtext { color:red; }
@@ -386,4 +387,32 @@ img.ducks-scaled {
 	width:384px;
 	height:384px;
 	min-height:384px;
+}
+
+/* for the DP gerrymandering slides */
+table.magentabox {
+	border:2px solid black;
+	border-radius:25px;
+	border-collapse:separate;
+	margin-left:0;
+	margin-right:0;
+	width:100%;
+}
+table.magentabox tr td {
+	background-color:magenta;
+	color:white;
+	border-radius:20px;
+}
+table.greenbox {
+	border:2px solid black;
+	border-radius:25px;
+	border-collapse:separate;
+	margin-left:0;
+	margin-right:0;
+	width:100%;
+}
+table.greenbox tr td {
+	background-color:green;
+	color:white;
+	border-radius:20px;
 }

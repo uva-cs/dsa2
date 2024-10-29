@@ -1421,7 +1421,7 @@ Length:
 </tr>
 </tbody></table>
 <div class="center">
-<p><img data-src="images/dp/log.webp" style="width:70%;height:150px;padding-left:175px"></p>
+<p><img data-src="images/dp/log.webp" style="width:70%;height:125px;padding-left:175px"></p>
 </div>
 <div class="no-bullets">
 <ul>
@@ -1666,12 +1666,12 @@ Select a good order for solving subproblems
 <table class="compact" style="z-index:1">
 <tbody><tr>
 <td style="font-size:75%;text-align:center;color:magenta">
-<div class="fragment" data-fragment-index="2">
+<div class="fragment" data-fragment-index="3">
 <p><span class="math inline">\(Cut(n-\ell_k)\)</span> <br> <img src="images/overbrace-red.svg" style="width:500px;height:50px;margin:0"></p>
 </div>
 </td>
 <td style="color:blue;text-align:center;vertical-align:middle;width:100px">
-<div class="fragment" data-fragment-index="3">
+<div class="fragment" data-fragment-index="2">
 <p><span class="math inline">\(\ell_k\)</span></p>
 </div>
 </td>
@@ -1684,7 +1684,7 @@ Select a good order for solving subproblems
 <table class="compact" style="z-index:0">
 <tbody><tr>
 <td style="text-align:left;width:850px">
-<img data-src="images/dp/log.webp" style="opacity:0.5;filter:alpha(opacity=40);min-width:90%;height:150px">
+<img data-src="images/dp/log.webp" style="opacity:0.4;filter:alpha(opacity=40);min-width:90%;height:150px">
 </td>
 </tr>
 </tbody></table>
@@ -1692,12 +1692,12 @@ Select a good order for solving subproblems
 <table style="z-index:2">
 <tbody><tr>
 <td style="font-size:xx-large;vertical-align:middle;color:magenta">
-<div class="fragment" data-fragment-index="2">
+<div class="fragment" data-fragment-index="3">
 <p>best way to cut a log of length <span class="math inline">\(n-\ell_k\)</span></p>
 </div>
 </td>
 <td style="border-left:5px solid blue;font-size:xx-large;height:100px;vertical-align:middle;color:blue">
-<div class="fragment" data-fragment-index="3">
+<div class="fragment" data-fragment-index="2">
 <p>last cut</p>
 </div>
 </td>
@@ -2212,37 +2212,28 @@ Length:
 </section>
 <section id="log-cutting-pseudocode" class="slide level2">
 <h2>Log Cutting Pseudocode</h2>
-<p>&nbsp;</p>
-<table>
-<tbody><tr>
-<td>
 <div class="no-bullets">
 <ul>
-<li>Initialize Memory C</li>
+<li>Initialize Memory <em>profit</em></li>
 <li>Cut(n):
 <ul>
-<li>C[0] = 0</li>
+<li>profit[0] = 0</li>
 <li>for i=1 to n: <span class="grey">// log size</span>
 <ul>
 <li>best = 0</li>
 <li>for j = 1 to i: <span class="grey">// last cut</span>
 <ul>
-<li>best = max(best, <span class="magenta">C[i-j]</span> + <span class="blue">P[j]</span>)</li>
+<li>best = max(best, <span class="magenta">profit[i-j]</span> + <span class="blue">P[j]</span>)</li>
 </ul></li>
-<li>C[i] = best</li>
+<li>profit[i] = best</li>
 </ul></li>
-<li>return C[n]</li>
+<li>return profit[n]</li>
 </ul></li>
 </ul>
 </div>
-</td>
-<td style="vertical-align:top">
 <div class="fragment">
 <p><span class="red">Run time: <span class="math inline">\(O(n^2)\)</span></span></p>
 </div>
-</td>
-</tr>
-</tbody></table>
 </section>
 <section id="how-to-find-the-cuts" class="slide level2">
 <h2>How to find the cuts?</h2>
@@ -2256,24 +2247,24 @@ Length:
 <h2>Remember the choice made</h2>
 <div class="no-bullets">
 <ul>
-<li>Initialize Memory C, Choices</li>
+<li>Initialize Memory <em>profit</em>, <em>choices</em></li>
 <li>Cut(n):
 <ul>
-<li>C[0] = 0</li>
+<li>profit[0] = 0</li>
 <li>for i=1 to n: <span class="grey">// log size</span>
 <ul>
 <li>best = 0</li>
 <li>for j = 1 to i: <span class="grey">// last cut</span>
 <ul>
-<li>if best &lt; <span class="magenta">C[i-j]</span> + <span class="blue">P[j]</span>:
+<li>if best &lt; <span class="magenta">profit[i-j]</span> + <span class="blue">P[j]</span>:
 <ul>
-<li>best = <span class="magenta">C[i-j]</span> + <span class="blue">P[j]</span></li>
-<li><span style="border:2px solid red; padding:5px">Choices[i] = j</span> <span class="red">// gives the size of the last cut</span></li>
+<li>best = <span class="magenta">profit[i-j]</span> + <span class="blue">P[j]</span></li>
+<li><span style="border:2px solid red; padding:5px">choices[i] = j</span> <span class="red">// gives the size of the last cut</span></li>
 </ul></li>
-<li>C[i] = best</li>
+<li>profit[i] = best</li>
 </ul></li>
 </ul></li>
-<li>return C[n]</li>
+<li>return profit[n]</li>
 </ul></li>
 </ul>
 </div>
@@ -2476,14 +2467,15 @@ Example to demo Choices[] only.<br>Profit of 20 is not optimal!
 </section>
 <section id="backtracking-pseudocode" class="slide level2">
 <h2>Backtracking Pseudocode</h2>
+<p>This is similar to the back link in Dijkstra’s shortest path algorithm</p>
 <p>&nbsp;</p>
 <div class="no-bullets">
 <ul>
 <li>i = n</li>
 <li>while i &gt; 0:
 <ul>
-<li>print Choices[i]</li>
-<li>i = i - Choices[i]</li>
+<li>print choices[i]</li>
+<li>i = i - choices[i]</li>
 </ul></li>
 </ul>
 </div>
@@ -2584,7 +2576,7 @@ Length:
 </thead>
 <tbody>
 <tr class="odd">
-<td>C[i]</td>
+<td>profit[i]</td>
 <td>0</td>
 <td>1</td>
 <td>5</td>
@@ -2598,7 +2590,7 @@ Length:
 <td>30</td>
 </tr>
 <tr class="even">
-<td>Choice[i]</td>
+<td>choice[i]</td>
 <td>0</td>
 <td>1</td>
 <td>2</td>
@@ -2619,7 +2611,7 @@ Length:
 <li>If <span class="math inline">\(n\)</span> were 5
 <ul>
 <li>Best score is 13</li>
-<li>Cut at Choice[n]=2, then cut at<br>Choice[n-Choice[n]]= Choice[5-2]= Choice[3]=3</li>
+<li>Cut at choice[n]=2, then cut at<br>choice[n-choice[n]]= choice[5-2]= choice[3]=3</li>
 </ul></li>
 <li>If <span class="math inline">\(n\)</span> were 7
 <ul>
@@ -3889,6 +3881,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -3908,6 +3902,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 1
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -3929,6 +3925,8 @@ Select a good order for solving subproblems
 <td>
 2
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -3948,6 +3946,9 @@ Select a good order for solving subproblems
 </td>
 <td>
 3
+</td>
+<td>
+<span class="math inline">\(=i\)</span>
 </td>
 </tr>
 <tr>
@@ -3969,6 +3970,8 @@ Select a good order for solving subproblems
 <td>
 4
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -3989,6 +3992,8 @@ Select a good order for solving subproblems
 <td>
 5
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4008,6 +4013,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 6
+</td>
+<td>
 </td>
 </tr>
 </tbody></table>
@@ -4154,7 +4161,7 @@ Select a good order for solving subproblems
 <table class="allcenter" style="margin-top:-20px">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<span class="math inline">\(Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<span class="math inline">\(\small Best(1,2) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\small \begin{cases}
 \  \\
 \  \\
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,2)} + r_1r_2c_2 \\
@@ -4188,6 +4195,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4209,6 +4218,8 @@ Select a good order for solving subproblems
 <td>
 1
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4228,6 +4239,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 2
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4249,6 +4262,9 @@ Select a good order for solving subproblems
 <td>
 3
 </td>
+<td>
+<span class="math inline">\(=i\)</span>
+</td>
 </tr>
 <tr>
 <td>
@@ -4268,6 +4284,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 4
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4289,6 +4307,8 @@ Select a good order for solving subproblems
 <td>
 5
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4308,6 +4328,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 6
+</td>
+<td>
 </td>
 </tr>
 </tbody></table>
@@ -4454,7 +4476,7 @@ Select a good order for solving subproblems
 <table class="allcenter" style="margin-top:-20px">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<span class="math inline">\(Best(2,3) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<span class="math inline">\(\small Best(2,3) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\small \begin{cases}
 \  \\
 \  \\
 {\color{green}Best(2,2)} + {\color{magenta}Best(3,3)} + r_2r_3c_3 \\
@@ -4488,6 +4510,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4508,6 +4532,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 1
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4530,6 +4556,8 @@ Select a good order for solving subproblems
 <td>
 2
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4549,6 +4577,9 @@ Select a good order for solving subproblems
 </td>
 <td>
 3
+</td>
+<td>
+<span class="math inline">\(=i\)</span>
 </td>
 </tr>
 <tr>
@@ -4570,6 +4601,8 @@ Select a good order for solving subproblems
 <td>
 4
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4590,6 +4623,8 @@ Select a good order for solving subproblems
 <td>
 5
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4609,6 +4644,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 6
+</td>
+<td>
 </td>
 </tr>
 </tbody></table>
@@ -4783,6 +4820,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4803,6 +4842,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 1
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -4825,6 +4866,8 @@ Select a good order for solving subproblems
 <td>
 2
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4845,6 +4888,9 @@ Select a good order for solving subproblems
 </td>
 <td>
 3
+</td>
+<td>
+<span class="math inline">\(=i\)</span>
 </td>
 </tr>
 <tr>
@@ -4867,6 +4913,8 @@ Select a good order for solving subproblems
 <td>
 4
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4888,6 +4936,8 @@ Select a good order for solving subproblems
 <td>
 5
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -4907,6 +4957,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 6
+</td>
+<td>
 </td>
 </tr>
 </tbody></table>
@@ -5060,12 +5112,12 @@ Select a good order for solving subproblems
 <p><span class="math inline">\(r_1r_3c_3=30 \cdot 15 \cdot 5=2250\)</span><br></p>
 </div>
 <p>&nbsp;</p>
-<span class="math inline">\(Best(1,3) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
-\  \\
-\  (\text{below:}0+2625+5250=7875) \\
+<span class="math inline">\(\small Best(1,3) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\small \begin{cases}
+\  (\text{below: }0+2625+5250=7875) \\
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,3)} + r_1r_2c_3 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,3)} + r_1r_3c_3 \\
-\  (\text{above:}15750+0+2250=18000) \\
+\  (\text{above: }15750+0+2250=18000) \\
+\ \\
 \end{cases}\)</span>
 </td>
 <td style="width:50%">
@@ -5094,6 +5146,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5118,6 +5172,8 @@ Select a good order for solving subproblems
 <td>
 1
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5138,6 +5194,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 2
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -5160,6 +5218,9 @@ Select a good order for solving subproblems
 <td>
 3
 </td>
+<td>
+<span class="math inline">\(=i\)</span>
+</td>
 </tr>
 <tr>
 <td>
@@ -5180,6 +5241,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 4
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -5202,6 +5265,8 @@ Select a good order for solving subproblems
 <td>
 5
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5221,6 +5286,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 6
+</td>
+<td>
 </td>
 </tr>
 </tbody></table>
@@ -5368,6 +5435,7 @@ Select a good order for solving subproblems
 <tbody><tr>
 <td style="width:50%;text-align:left;font-size:75%">
 <p>To find <span class="math inline">\(Best(i,j)\)</span>: need all preceeding terms of row <span class="math inline">\(i\)</span> and column <span class="math inline">\(j\)</span></p>
+<p>(In other words, everything below and to the left)</p>
 <p>Conclusion: solve in order of diagonal</p>
 </td>
 <td style="width:50%">
@@ -5396,6 +5464,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5418,6 +5488,8 @@ Select a good order for solving subproblems
 <td>
 1
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5438,6 +5510,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 2
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -5460,6 +5534,9 @@ Select a good order for solving subproblems
 <td>
 3
 </td>
+<td>
+<span class="math inline">\(=i\)</span>
+</td>
 </tr>
 <tr>
 <td>
@@ -5480,6 +5557,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 4
+</td>
+<td>
 </td>
 </tr>
 <tr>
@@ -5502,6 +5581,8 @@ Select a good order for solving subproblems
 <td>
 5
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5521,6 +5602,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 6
+</td>
+<td>
 </td>
 </tr>
 </tbody></table>
@@ -5668,7 +5751,7 @@ Select a good order for solving subproblems
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
 <div class="fragment">
-<p><span class="math inline">\(Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<p><span class="math inline">\(\small Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\small \begin{cases}
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,6)} + r_1r_2c_6 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,6)} + r_1r_3c_6 \\
 {\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6 \\
@@ -5703,6 +5786,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5730,6 +5815,8 @@ Select a good order for solving subproblems
 <td>
 1
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5754,6 +5841,8 @@ Select a good order for solving subproblems
 <td>
 2
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5777,6 +5866,9 @@ Select a good order for solving subproblems
 <td>
 3
 </td>
+<td>
+<span class="math inline">\(=i\)</span>
+</td>
 </tr>
 <tr>
 <td>
@@ -5799,6 +5891,8 @@ Select a good order for solving subproblems
 <td>
 4
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5820,6 +5914,8 @@ Select a good order for solving subproblems
 <td>
 5
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5839,6 +5935,8 @@ Select a good order for solving subproblems
 </td>
 <td>
 6
+</td>
+<td>
 </td>
 </tr>
 </tbody></table>
@@ -5863,18 +5961,18 @@ Select a good order for solving subproblems
 </div>
 </td>
 <td style="vertical-align:top;width:33%">
-<div class="fragment" data-fragment-index="1">
+<div class="fragment" data-fragment-index="2">
 <p><span class="red"><span class="math inline">\(\Theta(n^2)\)</span> cells in the array</span></p>
 </div>
 <p>&nbsp;</p>
-<div class="fragment" data-fragment-index="2">
+<div class="fragment" data-fragment-index="3">
 <p><span class="red"><span class="math inline">\(\Theta(n)\)</span> options for each cell</span></p>
 </div>
 </td>
 </tr>
 <tr>
 <td>
-<div class="fragment" data-fragment-index="3">
+<div class="fragment" data-fragment-index="1">
 <table class="purplenote">
 <tbody><tr>
 <td style="font-size:80%">
@@ -5900,7 +5998,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <table class="allcenter">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<span class="math inline">\(Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<span class="math inline">\(\small Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\small \begin{cases}
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,6)} + r_1r_2c_6 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,6)} + r_1r_3c_6 \\
 \boxed{{\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6} \\
@@ -5934,6 +6032,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </td>
 <td>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5959,6 +6059,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <td>
 1
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -5983,6 +6085,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <td>
 2
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6006,6 +6110,9 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <td>
 3
 </td>
+<td>
+<span class="math inline">\(=i\)</span>
+</td>
 </tr>
 <tr>
 <td>
@@ -6028,6 +6135,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <td>
 4
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6049,6 +6158,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <td>
 5
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6068,6 +6179,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </td>
 <td>
 6
+</td>
+<td>
 </td>
 </tr>
 </tbody></table>
@@ -6238,7 +6351,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <table class="allcenter">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<span class="math inline">\(Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\begin{cases}
+<span class="math inline">\(\small Best(1,6) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\small \begin{cases}
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,6)} + r_1r_2c_6 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,6)} + r_1r_3c_6 \\
 \boxed{{\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6} \\
@@ -6272,6 +6385,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </td>
 <td>
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6297,6 +6412,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <td>
 1
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6321,6 +6438,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <td>
 2
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6344,6 +6463,9 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <td>
 3
 </td>
+<td>
+<span class="math inline">\(=i\)</span>
+</td>
 </tr>
 <tr>
 <td>
@@ -6366,6 +6488,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <td>
 4
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6387,6 +6511,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <td>
 5
 </td>
+<td>
+</td>
 </tr>
 <tr>
 <td>
@@ -6407,6 +6533,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <td>
 6
 </td>
+<td>
+</td>
 </tr>
 </tbody></table>
 </td>
@@ -6416,17 +6544,17 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <section id="storing-and-recovering-optimal-solution" class="slide level2">
 <h2><span class="r-fit-text">Storing and Recovering Optimal Solution</span></h2>
 <ul>
-<li>Maintain table <span class="blue">Choice[i,j]</span> in addition to <span class="blue">Best</span> table
+<li>Maintain table <span class="blue">choice[i,j]</span> in addition to <span class="blue">Best</span> table
 <ul>
-<li><span class="blue">Choice[i,j] = k</span> means the best “split” was right after <span class="magenta"><span class="math inline">\(M_k\)</span></span></li>
-<li>Work backwards from value for whole problem, <span class="blue">Choice[1,n]</span></li>
-<li>Note: <span class="blue">Choice[i,i+1] = i</span> because there are just 2 matrices</li>
+<li><span class="blue">choice[i,j] = k</span> means the best “split” was right after <span class="magenta"><span class="math inline">\(M_k\)</span></span></li>
+<li>Work backwards from value for whole problem, <span class="blue">choice[1,n]</span></li>
+<li>Note: <span class="blue">choice[i,i+1] = i</span> because there are just 2 matrices</li>
 </ul></li>
 <li>From our example:
 <ul>
-<li><span class="blue">Choice[1,6] = 3</span>. So <span class="magenta">[<span class="math inline">\(M_1\)</span> <span class="math inline">\(M_2\)</span> <span class="math inline">\(M_3\)</span>] [<span class="math inline">\(M_4\)</span> <span class="math inline">\(M_5\)</span> <span class="math inline">\(M_6\)</span>]</span></li>
-<li>We then need <span class="blue">Choice[1,3] = 1. So <span class="magenta">[(<span class="math inline">\(M_1\)</span>) (<span class="math inline">\(M_2\)</span> <span class="math inline">\(M_3\)</span>)]</span></span></li>
-<li>Also need <span class="blue">Choice[4,6] = 5</span>. So <span class="magenta">[(<span class="math inline">\(M_4\)</span> <span class="math inline">\(M_5\)</span>) <span class="math inline">\(M_6\)</span>]</span></li>
+<li><span class="blue">choice[1,6] = 3</span>. So <span class="magenta">[<span class="math inline">\(M_1\)</span> <span class="math inline">\(M_2\)</span> <span class="math inline">\(M_3\)</span>] [<span class="math inline">\(M_4\)</span> <span class="math inline">\(M_5\)</span> <span class="math inline">\(M_6\)</span>]</span></li>
+<li>We then need <span class="blue">choice[1,3] = 1. So <span class="magenta">[(<span class="math inline">\(M_1\)</span>) (<span class="math inline">\(M_2\)</span> <span class="math inline">\(M_3\)</span>)]</span></span></li>
+<li>Also need <span class="blue">choice[4,6] = 5</span>. So <span class="magenta">[(<span class="math inline">\(M_4\)</span> <span class="math inline">\(M_5\)</span>) <span class="math inline">\(M_6\)</span>]</span></li>
 <li>Overall: <span class="magenta">[(<span class="math inline">\(M_1\)</span>) (<span class="math inline">\(M_2\)</span> <span class="math inline">\(M_3\)</span>)] [(<span class="math inline">\(M_4\)</span> <span class="math inline">\(M_5\)</span>) <span class="math inline">\(M_6\)</span>]</span></li>
 </ul></li>
 </ul>
@@ -6475,7 +6603,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Thomas_Jefferson_Presidential_%241_Coin_obverse.png/1024px-Thomas_Jefferson_Presidential_%241_Coin_obverse.png" style="height:200px;z-index:0">
 <table style="z-index:1">
 <tbody><tr>
-<td style="text-align:right;width:150px;font-size:small">
+<td style="text-align:right;width:160px;font-size:small">
 11&nbsp;&nbsp;<br>cents
 </td>
 </tr>
@@ -6522,7 +6650,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Thomas_Jefferson_Presidential_%241_Coin_obverse.png/1024px-Thomas_Jefferson_Presidential_%241_Coin_obverse.png" style="height:225px;z-index:0">
 <table style="z-index:1">
 <tbody><tr>
-<td style="text-align:right;width:170px;font-size:large">
+<td style="text-align:right;width:185px;font-size:large">
 11&nbsp;&nbsp;<br>cents
 </td>
 </tr>
@@ -6540,8 +6668,8 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </tr>
 </tbody></table>
 </section>
-<section id="greedy-solution-1" class="slide level2">
-<h2>Greedy Solution</h2>
+<section id="correct-solution" class="slide level2">
+<h2>Correct Solution</h2>
 <p>90 cents</p>
 <div class="fragment">
 <p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg" style="height:292px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg" style="height:292px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg" style="height:292px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/8/84/2005-Dime-Obv-Unc-P.png" style="height:214px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Jefferson-Nickel-Unc-Obv.jpg/780px-Jefferson-Nickel-Unc-Obv.jpg" style="height:264px"></p>
@@ -6553,21 +6681,21 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <li>If <span class="math inline">\(x&lt;5\)</span>, then pennies only
 <ul>
 <li>Else 5 pennies can be exchanged for a nickel</li>
-<li><span class="red">Only case Greedy uses pennies</span></li>
+<li><span class="red">Only case where Greedy uses pennies</span></li>
 </ul></li>
 <li>If <span class="math inline">\(x \le 5 &lt; 10\)</span>, we must have a nickel
 <ul>
 <li>Else 2 nickels can be exchanged for a dime</li>
-<li><span class="red">Only case Greedy uses nickels</span></li>
+<li><span class="red">Only case where Greedy uses nickels</span></li>
 </ul></li>
 <li>If <span class="math inline">\(10 \le x &lt; 25\)</span>, we must have at least 1 dime
 <ul>
 <li>Else 3 dimes can be exchanged for a quarter and a nickel</li>
-<li><span class="red">Only case Greedy uses dimes</span></li>
+<li><span class="red">Only case where Greedy uses dimes</span></li>
 </ul></li>
 <li>If <span class="math inline">\(x \ge 25\)</span>, we must have at least 1 quarter
 <ul>
-<li><span class="red">Only case Greedy uses quarters</span></li>
+<li><span class="red">Only case where Greedy uses quarters</span></li>
 </ul></li>
 </ul>
 </section>
@@ -8139,74 +8267,8 @@ Select a good order for solving subproblems
 <p>Readings in CLRS 4th edition: chapter 14</p>
 </div>
 </section>
-<section id="blank" class="slide level2">
-<h2>(blank)</h2>
-</section>
-<section id="blank-1" class="slide level2">
-<h2>(blank)</h2>
-</section>
 <section id="gerrymandering-1" class="slide level2">
 <h2>Gerrymandering</h2>
-</section>
-<section id="according-to-the-supreme-court" class="slide level2">
-<h2><span class="r-fit-text">According to the Supreme Court</span></h2>
-</section>
-<section id="va-5th-district" class="slide level2">
-<h2>VA 5th district</h2>
-</section>
-<section id="va-5th-district-1" class="slide level2">
-<h2>VA 5th district</h2>
-</section>
-<section id="va-5th-district-today" class="slide level2">
-<h2>VA 5th district (today)</h2>
-</section>
-<section id="gerrymandering-today" class="slide level2">
-<h2>Gerrymandering Today</h2>
-</section>
-<section id="gerrymandering-today-1" class="slide level2">
-<h2>Gerrymandering Today</h2>
-</section>
-<section id="gerrymandering-today-2" class="slide level2">
-<h2>Gerrymandering Today</h2>
-</section>
-<section id="blank-2" class="slide level2">
-<h2>(blank)</h2>
-</section>
-<section id="how-does-it-work" class="slide level2">
-<h2>How does it work?</h2>
-</section>
-<section id="how-does-it-work-1" class="slide level2">
-<h2>How does it work?</h2>
-</section>
-<section id="gerrymandering-problem-statement" class="slide level2">
-<h2><span class="r-fit-text">Gerrymandering Problem Statement</span></h2>
-</section>
-<section id="dynamic-programming-17" class="slide level2">
-<h2>Dynamic Programming</h2>
-</section>
-<section id="dynamic-programming-18" class="slide level2">
-<h2>Dynamic Programming</h2>
-</section>
-<section id="consider-the-last-precinct" class="slide level2">
-<h2>Consider the last precinct</h2>
-</section>
-<section id="identify-the-recursive-structure-of-the-problem-9" class="slide level2">
-<h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
-</section>
-<section id="two-ways-to-satisfy-sjkxy" class="slide level2">
-<h2>Two ways to satisfy <span class="math inline">\(S(j,k,x,y)\)</span></h2>
-</section>
-<section id="final-algorithm" class="slide level2">
-<h2>Final Algorithm</h2>
-</section>
-<section id="final-algorithm-1" class="slide level2">
-<h2>Final Algorithm</h2>
-</section>
-<section id="run-time-3" class="slide level2">
-<h2>Run Time</h2>
-</section>
-<section id="thetan4m2" class="slide level2">
-<h2><span class="math inline">\(\Theta(n^4m^2)\)</span></h2>
 <div class="quarto-auto-generated-content">
 <p><img src="images/quarto.webp" class="slide-logo"></p>
 <div class="footer footer-default">

@@ -488,7 +488,7 @@ a list (of length $n$) of prices <span class='blue'>$P$</span> where <span class
 </table>
 
 ::: {.center}
-![](images/dp/log.webp){style="width:70%;height:150px;padding-left:175px"}
+![](images/dp/log.webp){style="width:70%;height:125px;padding-left:175px"}
 :::
 
 ::: {.no-bullets}
@@ -598,12 +598,12 @@ $$\color{magenta}{Cut(n)} = \max
 
 <table class='compact' style="z-index:1">
 <tr><td style="font-size:75%;text-align:center;color:magenta"> 
-::: {.fragment fragment-index=2}
+::: {.fragment fragment-index=3}
 $Cut(n-\ell_k)$ <br>
 <img src="images/overbrace-red.svg" style="width:500px;height:50px;margin:0">
 :::
 </td><td style="color:blue;text-align:center;vertical-align:middle;width:100px">
-::: {.fragment fragment-index=3}
+::: {.fragment fragment-index=2}
 $\ell_k$
 :::
 </td></tr>
@@ -617,17 +617,17 @@ $\ell_k$
 <table class="compact" style="z-index:0">
 <tr>
 <td style="text-align:left;width:850px">
-![](images/dp/log.webp){style="opacity:0.5;filter:alpha(opacity=40);min-width:90%;height:150px"}
+![](images/dp/log.webp){style="opacity:0.4;filter:alpha(opacity=40);min-width:90%;height:150px"}
 </td></tr></table>
 
 ::: {.fragment fragment-index=1}
 <table style="z-index:2">
 <tr><td style="font-size:xx-large;vertical-align:middle;color:magenta">
-::: {.fragment fragment-index=2}
+::: {.fragment fragment-index=3}
 best way to cut a log of length $n-\ell_k$
 :::
 </td><td style="border-left:5px solid blue;font-size:xx-large;height:100px;vertical-align:middle;color:blue">
-::: {.fragment fragment-index=3}
+::: {.fragment fragment-index=2}
 last cut
 :::
 </td>
@@ -797,25 +797,24 @@ $$\color{magenta}{Cut(4)} = \max
 
 ## Log Cutting Pseudocode
 
-&nbsp;
-
-<table><tr><td>
 ::: {.no-bullets}
-- Initialize Memory C
+- Initialize Memory *profit*
 - Cut(n):
-  - C[0] = 0
+  - profit[0] = 0
   - for i=1 to n:  <span class='grey'>// log size</span>
     - best = 0
     - for j = 1 to i: <span class='grey'>// last cut</span>
-      - best = max(best, <span class='magenta'>C[i-j]</span> + <span class='blue'>P[j]</span>)
-    - C[i] = best
-  - return C[n]
+      - best = max(best, <span class='magenta'>profit[i-j]</span> + <span class='blue'>P[j]</span>)
+    - profit[i] = best
+  - return profit[n]
 :::
-</td><td style="vertical-align:top">
+
+
 ::: {.fragment}
 <span class='red'>Run time: $O(n^2)$</span>
 :::
-</td></tr></table>
+
+
 
 ## How to find the cuts?
 
@@ -829,17 +828,17 @@ $$\color{magenta}{Cut(4)} = \max
 ## Remember the choice made
 
 ::: {.no-bullets}
-- Initialize Memory C, Choices
+- Initialize Memory *profit*, *choices*
 - Cut(n):
-  - C[0] = 0
+  - profit[0] = 0
   - for i=1 to n:  <span class='grey'>// log size</span>
     - best = 0
     - for j = 1 to i: <span class='grey'>// last cut</span>
-      - if best < <span class='magenta'>C[i-j]</span> + <span class='blue'>P[j]</span>:
-        - best = <span class='magenta'>C[i-j]</span> + <span class='blue'>P[j]</span>
-        - <span style="border:2px solid red; padding:5px">Choices[i] = j</span> <span class='red'>// gives the size of the last cut</span>
-      - C[i] = best
-  - return C[n]
+      - if best < <span class='magenta'>profit[i-j]</span> + <span class='blue'>P[j]</span>:
+        - best = <span class='magenta'>profit[i-j]</span> + <span class='blue'>P[j]</span>
+        - <span style="border:2px solid red; padding:5px">choices[i] = j</span> <span class='red'>// gives the size of the last cut</span>
+      - profit[i] = best
+  - return profit[n]
 :::
 
 
@@ -924,13 +923,15 @@ $$\color{magenta}{Cut(4)} = \max
 
 ## Backtracking Pseudocode
 
+This is similar to the back link in Dijkstra's shortest path algorithm
+
 &nbsp;
 
 ::: {.no-bullets}
 - i = n
 - while i > 0:
-  - print Choices[i]
-  - i = i - Choices[i]
+  - print choices[i]
+  - i = i - choices[i]
 :::
 
 
@@ -947,15 +948,15 @@ $$\color{magenta}{Cut(4)} = \max
 ::: {.blue-table}
 | i | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 |----|----|----|----|----|----|----|----|----|----|----|----|
-| C[i] | 0 | 1 | 5 | 8 | 10 | 13 | 17 | 18 | 22 | 25 | 30 |
-| Choice[i] | 0 | 1 | 2 | 3 | 2 | 2 | 6 | 1 | 2 | 3 | 10 |
+| profit[i] | 0 | 1 | 5 | 8 | 10 | 13 | 17 | 18 | 22 | 25 | 30 |
+| choice[i] | 0 | 1 | 2 | 3 | 2 | 2 | 6 | 1 | 2 | 3 | 10 |
 :::
 
 <div style="font-size:90%">
 
 - If $n$ were 5
   - Best score is 13
-  - Cut at Choice[n]=2, then cut at<br>Choice[n-Choice[n]]= Choice[5-2]= Choice[3]=3
+  - Cut at choice[n]=2, then cut at<br>choice[n-choice[n]]= choice[5-2]= choice[3]=3
 - If $n$ were 7
   - Best score is 18
   - Cut at 1, then cut at 6
@@ -1745,13 +1746,13 @@ $\scriptsize Best(i,i)=0$
 </td>
 <td style="width:50%">
 <table class="allcenter" style="font-size:90%">
-<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
-<tr><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td></tr>
-<tr><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td></tr>
-<tr><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td>3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td>4</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td>5</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td><td></td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td>3</td><td>$=i$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td>4</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td>5</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td><td></td></tr>
 </table>
 </td></tr></table>
 
@@ -1826,8 +1827,8 @@ $\scriptsize Best(i,i)=0$
 
 <table class="allcenter" style="margin-top:-20px">
 <tr><td style="width:50%;text-align:center;font-size:75%">
-$Best(1,2) = \min$<br>&nbsp;<br>
-$\begin{cases}
+$\small Best(1,2) = \min$<br>&nbsp;<br>
+$\small \begin{cases}
 \  \\
 \  \\
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,2)} + r_1r_2c_2 \\
@@ -1837,13 +1838,13 @@ $\begin{cases}
 </td>
 <td style="width:50%">
 <table class="allcenter" style="font-size:90%">
-<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
-<tr><td></td><td class="border">0</td><td class="border yellow" style="font-size:small">15750</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td></tr>
-<tr><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td></tr>
-<tr><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td>3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td>4</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td>5</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border yellow" style="font-size:small">15750</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td><td></td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td>3</td><td>$=i$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td>4</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td>5</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td><td></td></tr>
 </table>
 </td></tr></table>
 
@@ -1918,8 +1919,8 @@ $\scriptsize Best(i,i)=0$
 
 <table class="allcenter" style="margin-top:-20px">
 <tr><td style="width:50%;text-align:center;font-size:75%">
-$Best(2,3) = \min$<br>&nbsp;<br>
-$\begin{cases}
+$\small Best(2,3) = \min$<br>&nbsp;<br>
+$\small \begin{cases}
 \  \\
 \  \\
 {\color{green}Best(2,2)} + {\color{magenta}Best(3,3)} + r_2r_3c_3 \\
@@ -1929,13 +1930,13 @@ $\begin{cases}
 </td>
 <td style="width:50%">
 <table class="allcenter" style="font-size:90%">
-<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
-<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td></tr>
-<tr><td></td><td></td><td class="border">0</td><td class="border yellow" style="font-size:small">2625</td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td></tr>
-<tr><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td>3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td>4</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td>5</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td><td></td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border yellow" style="font-size:small">2625</td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td class="border"></td><td>3</td><td>$=i$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td class="border"></td><td>4</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border"></td><td>5</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td><td></td></tr>
 </table>
 </td></tr></table>
 
@@ -2014,13 +2015,13 @@ $\scriptsize Best(i,i)=0$
 </td>
 <td style="width:50%">
 <table class="allcenter" style="font-size:90%">
-<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
-<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td></tr>
-<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td></tr>
-<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border"></td><td class="border"></td><td>3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border"></td><td>4</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border"></td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td><td></td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border"></td><td class="border"></td><td>3</td><td>$=i$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border"></td><td>4</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td><td></td></tr>
 </table>
 </td></tr></table>
 
@@ -2105,28 +2106,28 @@ $r_1r_3c_3=30 \cdot 15 \cdot 5=2250$<br>
 
 &nbsp;
 
-$Best(1,3) = \min$<br>&nbsp;<br>
-$\begin{cases}
-\  \\
-\  (\text{below:}0+2625+5250=7875) \\
+$\small Best(1,3) = \min$<br>&nbsp;<br>
+$\small \begin{cases}
+\  (\text{below: }0+2625+5250=7875) \\
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,3)} + r_1r_2c_3 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,3)} + r_1r_3c_3 \\
-\  (\text{above:}15750+0+2250=18000) \\
+\  (\text{above: }15750+0+2250=18000) \\
+\ \\
 \end{cases}$
 </td>
 <td style="width:50%">
 <table class="allcenter" style="font-size:90%">
-<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td><td></td></tr>
 <tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border yellow" style="font-size:small">
 ::: {.fragment}
 7875
 :::
-</td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td></tr>
-<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td></tr>
-<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border"></td><td class="border"></td><td>3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border"></td><td>4</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+</td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td><td></td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border"></td><td class="border"></td><td class="border"></td><td>2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border"></td><td class="border"></td><td>3</td><td>$=i$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border"></td><td>4</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td><td></td></tr>
 </table>
 </td></tr></table>
 
@@ -2203,18 +2204,20 @@ $\scriptsize Best(i,i)=0$
 <tr><td style="width:50%;text-align:left;font-size:75%">
 To find $Best(i,j)$: need all preceeding terms of row $i$ and column $j$
 
+(In other words, everything below and to the left)
+
 Conclusion: solve in order of diagonal
 
 </td>
 <td style="width:50%">
 <table class="allcenter" style="font-size:90%">
-<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
-<tr><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">15750</td><td class="border yellow" style="font-size:small">7875</td><td class="border green"></td><td class="border blue"></td><td class="border purple"></td><td>1</td></tr>
-<tr><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">2625</td><td class="border yellow"></td><td class="border green"></td><td class="border blue"></td><td>2</td></tr>
-<tr><td></td><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">750</td><td class="border yellow"></td><td class="border green"></td><td>3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">1000</td><td class="border yellow"></td><td>4</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">5000</td><td>5</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border red">0</td><td>6</td></tr>
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td><td></td></tr>
+<tr><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">15750</td><td class="border yellow" style="font-size:small">7875</td><td class="border green"></td><td class="border blue"></td><td class="border purple"></td><td>1</td><td></td></tr>
+<tr><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">2625</td><td class="border yellow"></td><td class="border green"></td><td class="border blue"></td><td>2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">750</td><td class="border yellow"></td><td class="border green"></td><td>3</td><td>$=i$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">1000</td><td class="border yellow"></td><td>4</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border red">0</td><td class="border orange" style="font-size:small">5000</td><td>5</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border red">0</td><td>6</td><td></td></tr>
 </table>
 </td></tr></table>
 
@@ -2290,8 +2293,8 @@ $\scriptsize Best(i,i)=0$
 <table class="allcenter" style="margin-top:-20px">
 <tr><td style="width:50%;text-align:center;font-size:75%">
 ::: {.fragment}
-$Best(1,6) = \min$<br>&nbsp;<br>
-$\begin{cases}
+$\small Best(1,6) = \min$<br>&nbsp;<br>
+$\small \begin{cases}
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,6)} + r_1r_2c_6 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,6)} + r_1r_3c_6 \\
 {\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6 \\
@@ -2302,17 +2305,17 @@ $\begin{cases}
 </td>
 <td style="width:50%">
 <table class="allcenter" style="font-size:90%">
-<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td><td></td></tr>
 <tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border" style="font-size:small">7875</td><td class="border" style="font-size:small">9375</td><td class="border" style="font-size:small">11875</td><td class="border yellow" style="font-size:small">
 ::: {.fragment}
 15125
 :::
-</td><td>1</td></tr>
-<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border" style="font-size:small">4375</td><td class="border" style="font-size:small">7125</td><td class="border" style="font-size:small">10500</td><td>2</td></tr>
-<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border" style="font-size:small">2500</td><td class="border" style="font-size:small">5375</td><td>3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border" style="font-size:small">3500</td><td>4</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+</td><td>1</td><td></td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border" style="font-size:small">4375</td><td class="border" style="font-size:small">7125</td><td class="border" style="font-size:small">10500</td><td>2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border" style="font-size:small">2500</td><td class="border" style="font-size:small">5375</td><td>3</td><td>$=i$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border" style="font-size:small">3500</td><td>4</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td><td></td></tr>
 </table>
 </td></tr></table>
 
@@ -2333,19 +2336,19 @@ $\begin{cases}
 
 </td><td style="vertical-align:top;width:33%">
 
-::: {.fragment fragment-index=1}
+::: {.fragment fragment-index=2}
 <span class='red'>$\Theta(n^2)$ cells in the array</span>
 :::
 
 &nbsp;
 
-::: {.fragment fragment-index=2}
+::: {.fragment fragment-index=3}
 <span class='red'>$\Theta(n)$ options for each cell</span>
 :::
 
 </td></tr><tr><td>
 
-::: {.fragment fragment-index=3}
+::: {.fragment fragment-index=1}
 <table class="purplenote"><tr><td style="font-size:80%">Each "call" to $Best(i,j)$ is an<br>$O(1)$ memory lookup</td></tr></table>
 :::
 
@@ -2370,8 +2373,8 @@ $\scriptsize Best(i,i)=0$
 
 <table class="allcenter">
 <tr><td style="width:50%;text-align:center;font-size:75%">
-$Best(1,6) = \min$<br>&nbsp;<br>
-$\begin{cases}
+$\small Best(1,6) = \min$<br>&nbsp;<br>
+$\small \begin{cases}
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,6)} + r_1r_2c_6 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,6)} + r_1r_3c_6 \\
 \boxed{{\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6} \\
@@ -2381,13 +2384,13 @@ $\begin{cases}
 </td>
 <td style="width:50%">
 <table class="allcenter" style="font-size:90%">
-<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
-<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border" style="font-size:small">7875<br><span class='red'>1</span></td><td class="border" style="font-size:small">9375</td><td class="border" style="font-size:small">11875</td><td class="border yellow" style="font-size:small">15125<br><span class='red'>3</span></td><td>1</td></tr>
-<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border" style="font-size:small">4375</td><td class="border" style="font-size:small">7125</td><td class="border" style="font-size:small">10500</td><td>2</td></tr>
-<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border" style="font-size:small">2500</td><td class="border" style="font-size:small">5375</td><td>3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border" style="font-size:small">3500<br><span class='red'>5</span></td><td>4</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border" style="font-size:small">7875<br><span class='red'>1</span></td><td class="border" style="font-size:small">9375</td><td class="border" style="font-size:small">11875</td><td class="border yellow" style="font-size:small">15125<br><span class='red'>3</span></td><td>1</td><td></td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border" style="font-size:small">4375</td><td class="border" style="font-size:small">7125</td><td class="border" style="font-size:small">10500</td><td>2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border" style="font-size:small">2500</td><td class="border" style="font-size:small">5375</td><td>3</td><td>$=i$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border" style="font-size:small">3500<br><span class='red'>5</span></td><td>4</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td><td></td></tr>
 </table>
 </td></tr></table>
 
@@ -2472,8 +2475,8 @@ $\scriptsize Best(i,i)=0$
 
 <table class="allcenter">
 <tr><td style="width:50%;text-align:center;font-size:75%">
-$Best(1,6) = \min$<br>&nbsp;<br>
-$\begin{cases}
+$\small Best(1,6) = \min$<br>&nbsp;<br>
+$\small \begin{cases}
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,6)} + r_1r_2c_6 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,6)} + r_1r_3c_6 \\
 \boxed{{\color{green}Best(1,3)} + {\color{magenta}Best(4,6)} + r_1r_4c_6} \\
@@ -2483,13 +2486,13 @@ $\begin{cases}
 </td>
 <td style="width:50%">
 <table class="allcenter" style="font-size:90%">
-<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td></tr>
-<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border" style="font-size:small">7875<br><span class='red'>1</span></td><td class="border" style="font-size:small">9375</td><td class="border" style="font-size:small">11875</td><td class="border yellow" style="font-size:small">15125<br><span class='red'>3</span></td><td>1</td></tr>
-<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border" style="font-size:small">4375</td><td class="border" style="font-size:small">7125</td><td class="border" style="font-size:small">10500</td><td>2</td></tr>
-<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border" style="font-size:small">2500</td><td class="border" style="font-size:small">5375</td><td>3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border" style="font-size:small">3500<br><span class='red'>5</span></td><td>4</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td></tr>
+<tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td><td></td></tr>
+<tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border" style="font-size:small">7875<br><span class='red'>1</span></td><td class="border" style="font-size:small">9375</td><td class="border" style="font-size:small">11875</td><td class="border yellow" style="font-size:small">15125<br><span class='red'>3</span></td><td>1</td><td></td></tr>
+<tr><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">2625</td><td class="border" style="font-size:small">4375</td><td class="border" style="font-size:small">7125</td><td class="border" style="font-size:small">10500</td><td>2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">750</td><td class="border" style="font-size:small">2500</td><td class="border" style="font-size:small">5375</td><td>3</td><td>$=i$</td></tr>
+<tr><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">1000</td><td class="border" style="font-size:small">3500<br><span class='red'>5</span></td><td>4</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td class="border" style="font-size:small">5000</td><td>5</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td class="border">0</td><td>6</td><td></td></tr>
 </table>
 </td></tr></table>
 
@@ -2498,14 +2501,14 @@ $\begin{cases}
 
 ## [Storing and Recovering Optimal Solution]{.r-fit-text}
 
-- Maintain table <span class='blue'>Choice[i,j]</span> in addition to <span class='blue'>Best</span> table
-	- <span class='blue'>Choice[i,j] = k</span> means the best "split" was right after <span class='magenta'>$M_k$</span>
-	- Work backwards from value for whole problem, <span class='blue'>Choice[1,n]</span>
-	- Note: <span class='blue'>Choice[i,i+1] = i</span> because there are just 2 matrices 
+- Maintain table <span class='blue'>choice[i,j]</span> in addition to <span class='blue'>Best</span> table
+	- <span class='blue'>choice[i,j] = k</span> means the best "split" was right after <span class='magenta'>$M_k$</span>
+	- Work backwards from value for whole problem, <span class='blue'>choice[1,n]</span>
+	- Note: <span class='blue'>choice[i,i+1] = i</span> because there are just 2 matrices 
 - From our example:
-	- <span class='blue'>Choice[1,6] = 3</span>.   So <span class='magenta'>[$M_1$ $M_2$ $M_3$] [$M_4$ $M_5$ $M_6$]</span>
-	- We then need <span class='blue'>Choice[1,3] = 1.   So <span class='magenta'>[($M_1$) ($M_2$ $M_3$)]</span>
-	- Also need <span class='blue'>Choice[4,6] = 5</span>.  So <span class='magenta'>[($M_4$ $M_5$) $M_6$]</span>
+	- <span class='blue'>choice[1,6] = 3</span>.   So <span class='magenta'>[$M_1$ $M_2$ $M_3$] [$M_4$ $M_5$ $M_6$]</span>
+	- We then need <span class='blue'>choice[1,3] = 1.   So <span class='magenta'>[($M_1$) ($M_2$ $M_3$)]</span>
+	- Also need <span class='blue'>choice[4,6] = 5</span>.  So <span class='magenta'>[($M_4$ $M_5$) $M_6$]</span>
 	- Overall: <span class='magenta'>[($M_1$) ($M_2$ $M_3$)] [($M_4$ $M_5$) $M_6$]</span>
 
 
@@ -2555,7 +2558,7 @@ Given access to unlimited quantities of pennies, nickels, dimes, toms, and quart
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Thomas_Jefferson_Presidential_%241_Coin_obverse.png/1024px-Thomas_Jefferson_Presidential_%241_Coin_obverse.png){style="height:200px;z-index:0"}
 <table style="z-index:1">
 <tr>
-<td style="text-align:right;width:150px;font-size:small">
+<td style="text-align:right;width:160px;font-size:small">
 11&nbsp;&nbsp;<br>cents
 </td></tr></table>
 :::
@@ -2595,7 +2598,7 @@ Given access to unlimited quantities of pennies, nickels, dimes, toms, and quart
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Thomas_Jefferson_Presidential_%241_Coin_obverse.png/1024px-Thomas_Jefferson_Presidential_%241_Coin_obverse.png){style="height:225px;z-index:0"}
 <table style="z-index:1">
 <tr>
-<td style="text-align:right;width:170px;font-size:large">
+<td style="text-align:right;width:185px;font-size:large">
 11&nbsp;&nbsp;<br>cents
 </td></tr></table>
 :::
@@ -2611,7 +2614,7 @@ Given access to unlimited quantities of pennies, nickels, dimes, toms, and quart
 </td></tr></table>
 
 
-## Greedy Solution
+## Correct Solution
 
 90 cents
 
@@ -2628,15 +2631,15 @@ Given access to unlimited quantities of pennies, nickels, dimes, toms, and quart
 
 - If $x<5$, then pennies only
   - Else 5 pennies can be exchanged for a nickel
-  - <span class='red'>Only case Greedy uses pennies</span>
+  - <span class='red'>Only case where Greedy uses pennies</span>
 - If $x \le 5 < 10$, we must have a nickel
   - Else 2 nickels can be exchanged for a dime
-  - <span class='red'>Only case Greedy uses nickels</span>
+  - <span class='red'>Only case where Greedy uses nickels</span>
 - If $10 \le x < 25$, we must have at least 1 dime
   - Else 3 dimes can be exchanged for a quarter and a nickel
-  - <span class='red'>Only case Greedy uses dimes</span>
+  - <span class='red'>Only case where Greedy uses dimes</span>
 - If $x \ge 25$, we must have at least 1 quarter
-  - <span class='red'>Only case Greedy uses quarters</span>
+  - <span class='red'>Only case where Greedy uses quarters</span>
 
 ## Dynamic Programming
 
@@ -3729,49 +3732,4 @@ Readings in CLRS 4th edition: chapter 14
 :::
 
 
-## (blank)
-
-## (blank)
-
 ## Gerrymandering
-
-## [According to the Supreme Court]{.r-fit-text}
-
-## VA 5th district
-
-## VA 5th district
-
-## VA 5th district (today)
-
-## Gerrymandering Today
-
-## Gerrymandering Today
-
-## Gerrymandering Today
-
-## (blank)
-
-## How does it work?
-
-## How does it work?
-
-## [Gerrymandering Problem Statement]{.r-fit-text}
-
-## Dynamic Programming
-
-## Dynamic Programming
-
-## Consider the last precinct
-
-## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
-
-## Two ways to satisfy $S(j,k,x,y)$
-
-## Final Algorithm
-
-## Final Algorithm
-
-## Run Time
-
-## $\Theta(n^4m^2)$
-
