@@ -6,6 +6,9 @@
 .reveal ul {
 	display:block;
 }
+div.footer p {
+	text-align:center;
+}
 div.slides {
 	margin-top:-50px !important;
 }
@@ -294,13 +297,13 @@ td.purple { background-color:purple; color:white; }
 td.magenta { background-color:magenta; color:white; }
 td.clear {}
 
-td.redtext { color:red; }
-td.orangetext { color:orange; }
-td.yellowtext { color:yellow; }
-td.greentext { color:green; }
-td.bluetext { color:blue; }
-td.purpletext { color:purple; }
-td.magentatext { color:magenta; }
+.redtext { color:red; }
+.orangetext { color:orange; }
+.yellowtext { color:yellow; }
+.greentext { color:green; }
+.bluetext { color:blue; }
+.purpletext { color:purple; }
+.magentatext { color:magenta; }
 
 
 

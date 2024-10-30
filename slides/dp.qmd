@@ -3741,11 +3741,6 @@ Readings in CLRS 4th edition: chapter 14
 :::
 
 
-## Gerrymandering
-
-
-<!--
-
 ----
 
 ![](images/dp/gerrymander-1.webp){.stretch .center}
@@ -3804,85 +3799,144 @@ Readings in CLRS 4th edition: chapter 14
 
 :::
 
-## Virginia's 5th District (until 2023)
+## Virginia's 5th District in 2018
 
-![](https://upload.wikimedia.org/wikipedia/commons/d/d6/2020_Congressional_election_in_Virginia%27s_5th_congressional_district_colored_by_locality.svg){.center}
+<table><tr><td style="vertical-align:top">
 
-## End of VA gerrymandeinrg
+<table>
+<tr><td></td><td>Votes</td><td>Percent</td></tr>
+<tr><td class='red' style="min-width:100px"></td><td>165,339</td><td>53.3%</td></tr>
+<tr><td class='blue' style="min-width:100px"></td><td>145,040</td><td>46.7%</td></tr>
+</table>
+
+</td><td>
+
+![](https://upload.wikimedia.org/wikipedia/commons/4/4c/2018_general_election_in_Virginia%27s_5th_congressional_district_by_county.svg){.center}
+
+</td></tr></table>
+
+
+
+## End of VA gerrymandering
+
+- A 2020 [state constitutional amendment](https://www.elections.virginia.gov/proposed-constitutional-amendment-2020/) changed how the state sets districts
+  - [Wikipedia article](https://en.wikipedia.org/wiki/2020_Virginia_Question_1)
+- The redistricting committee:
+	- Four state senators, two from each party
+	- Four state house delegate members, two from each party
+	- Eight citizens
+- It's voted on, but not changeable by, the general assembly
+	- The governor is not involved at all
+- It passed with 65.69% of the vote
 
 
 ## Virginia's 5th District (today)
 
+&nbsp;
+
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Virginia%27s_5th_congressional_district_%28from_2023%29.png/1024px-Virginia%27s_5th_congressional_district_%28from_2023%29.png){.center}
 
 
-## slides created to here
+## [Virginia's congressional districts (today)]{.r-fit-text}
 
-- previous slide was slide 37 in day19.pptx
-- need to fill in two slides back, though
+![](https://upload.wikimedia.org/wikipedia/commons/9/90/Virginia_Congressional_Districts%2C_118th_Congress_%282%29.svg)
 
-
-
-## image
-
-
-## image
-
-
-## image
-
-[![](https://upload.wikimedia.org/wikipedia/commons/d/d6/2020_Congressional_election_in_Virginia%27s_5th_congressional_district_colored_by_locality.svg)](https://commons.wikimedia.org/wiki/File:2020_Congressional_election_in_Virginia%27s_5th_congressional_district_colored_by_locality.svg)
-
-## image
-
-[![](https://upload.wikimedia.org/wikipedia/commons/3/3d/Gerrymandering.jpg)](https://commons.wikimedia.org/wiki/File:Gerrymandering.jpg)
-
-## image
-
-[![](https://upload.wikimedia.org/wikipedia/commons/b/bf/Ugly_Gerry_font_sample.png)](https://commons.wikimedia.org/wiki/File:Ugly_Gerry_font_sample.png)
-
-## image
-
-[![](images/dp/md-3rd-district.webp)](https://www.reddit.com/r/MapPorn/comments/268ezy/marylands_3rd_congressional_district_what_60/)
-
-## image
-
-[![](images/dp/pa-7th-district.webp)](https://cis471.blogspot.com/2018/01/using-gerrymandering-technology-to.html)
-
-CC BY-NC-SA 3.0 license
-
-
-## (blank)
-
-## (blank)
-
-## Gerrymandering
-
-## [According to the Supreme Court]{.r-fit-text}
-
-## VA 5th district
-
-## VA 5th district
-
-## VA 5th district (today)
 
 ## Gerrymandering Today
 
-## Gerrymandering Today
+![](images/dp/md-3rd-district.webp){.center}
 
-## Gerrymandering Today
+## Pennsylvania 2018 controversy
 
-## (blank)
+<p style="font-size:70%">Math and CS professors have been asked to testify in court as to the difficulty in creating some of these districts</p>
+
+<table><tr><td style="width:60%;vertical-align:top">
+
+::: {.r-stack}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pennsylvania_Congressional_Districts_113th_Congress.png/1024px-Pennsylvania_Congressional_Districts_113th_Congress.png){style="float:left;width:100%"}
+
+<p style="font-size:40%;margin-top:0;margin-right:0">[https://www.usnews.com/news/national-news/articles/2018-02-20/what-<br>pennsylvanias-new-court-drawn-congressional-redistricting-looks-like](https://www.usnews.com/news/national-news/articles/2018-02-20/what-pennsylvanias-new-court-drawn-congressional-redistricting-looks-like)</p>
+:::
+
+</td><td style="width:40%;padding:0">
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Pennsylvania_US_Congressional_District_7_%28since_2013%29.tif/lossless-page1-1024px-Pennsylvania_US_Congressional_District_7_%28since_2013%29.tif.png){style="float:right;width:400px;height:300px;object-fit:cover;object-position:-25% 0"}
+
+<p style="font-size:30%;text-align:center">[https://www.heinz.cmu.edu/media/2018/<br>October/wes-pegden-gerrymandering](https://www.heinz.cmu.edu/media/2018/October/wes-pegden-gerrymandering)</p>
+
+</td></tr></table>
+
+<table class='border' style="font-size:50%"><tr><td style="text-align:justify">"Wesley Pegden, professor of mathematical sciences at Carnegie Mellon University, proved that Pennsylvania’s congressional map was a partisan gerrymander—in fact, he showed that if you made trillions of districtings by making small random perturbations to the map, 99.9999999% of them of them would be fairer than the existing map, a property which is mathematically impossible to be typical for a Congressional districting, regardless of the political geography of a state. His expert testimony during a lawsuit led to the Pennsylvania supreme court throwing out the old map." [https://www.heinz.cmu.edu/media/2018/October/wes-pegden-gerrymandering](https://www.heinz.cmu.edu/media/2018/October/wes-pegden-gerrymandering)</td></tr></table>
 
 ## How does it work?
 
-## How does it work?
+![](https://upload.wikimedia.org/wikipedia/commons/d/d3/DifferingApportionment.svg){style="float:right;min-height:600px"}
 
-## [Gerrymandering Problem Statement]{.r-fit-text}
+<div style="font-size:95%">
+
+- States are broken into precincts
+- All precincts have the same size
+- We know voting preferences of each precinct
+- Group precincts into districts to maximize the number of districts won by my party
+- Consider the district to the right; 5 different ways to split up the voters
+	- Upper left: 0 yellow, 5 blue
+	- Upper right: 3 yellow, 2 blue
+	- Both lower: 2 yellow, 3 blue
+
+</div>
+
+
+## Gerrymandering problem statement
+
+<table style="font-size:90%"><tr><td>
+
+- Given:
+  - A list of precincts: $p_1,p_2,\ldots,p_n$
+  - Each containing $m$ voters
+- Output:
+	- Districts ${\color{magenta}D_1}, {\color{green}D_2} \subset \{ p_1,p_2,\ldots,p_{n-1} \}$
+	- Where $|{\color{magenta}D_1}| = |{\color{green}D_2}|$
+	- $R({\color{magenta}D_1})>\frac{m \cdot n}{4}$ and $R({\color{green}D_2})>\frac{m \cdot n}{4}$
+		- $R(D_i)$ is the number of "regular party" voters in $D_i$
+		- $R(D_i)>\frac{m \cdot n}{4}$ means $D_i$ is majority "regular party"
+	- "Failure" if no such solution is possible
+
+</td><td style="vertical-align:bottom">
+
+::: {.fragment fragment-index=2}
+<table class='bluenote'><tr><td>Valid Gerrymandering!</td></tr></table>
+:::
+
+&nbsp;
+
+::: {.fragment fragment-index=1}
+<table class='purplenote'><tr><td>$\frac{m \cdot n}{4}=m \cdot \frac{n}{2} \cdot \frac{1}{2}$</td></tr></table>
+:::
+
+&nbsp;
+
+</td></tr></table>
+
+
 
 ## Dynamic Programming
 
-## Dynamic Programming
+- Requires <span class="magenta">Optimal Substructure</span>
+	- Solution to larger problem contains the (optimal) solutions to smaller ones
+- Idea:
+<ol>
+	<li class="purple">Identify recursive structure of the problem
+    	<ul><li>What is the "last thing" done?</li></ul></li>
+	<li>Save the solution to each subproblem in memory</li>
+	<li>Select a good order for solving subproblems
+		<ul>
+			<li>"Top Down": Solve each recursively</li>
+			<li>"Bottom Up": Iteratively solve smallest to largest</li>
+		</ul></li>
+</ol>
+
+
+
 
 ## Consider the last precinct
 
@@ -3902,20 +3956,28 @@ After&nbsp;assigning&nbsp;first<br>$n-1$ precincts<br>$p_1,p_2,\ldots,p_{n-1}$
 </td><td style="padding-left:0;padding-right:0">
 
 <table style='compact'><tr><td style="padding-left:0;padding-right:0">
+::: {.fragment fragment-index=1}
 If&nbsp;we<br>assign<br>$p_n \text{ to } D_1$
+:::
 </td></tr><tr><td style="padding-left:0;padding-right:0">
 <table class='greenbox' style="border-radius:15px;width:unset;margin:auto"><tr><td style="background-color:navy;border-radius:10px">$p_n$</td></tr></table>
 </td></tr><tr><td style="padding-left:0;padding-right:0">
+::: {.fragment fragment-index=2}
 If&nbsp;we<br>assign<br>$p_n \text{ to } D_2$
+:::
 </td></tr></table>
 
 </td><td style="padding:0">
 
 <table><tr><td>
+::: {.fragment fragment-index=1}
 ![](images/dp/up-arrow-magenta.svg)
+:::
 </td></tr><tr><td>
 </td></tr><tr><td>
+::: {.fragment fragment-index=2}
 ![](images/dp/down-arrow-green.svg)
+:::
 </td></tr></table>
 
 </td><td style="padding-left:0">
@@ -3924,19 +3986,29 @@ If&nbsp;we<br>assign<br>$p_n \text{ to } D_2$
 <tr><td style="padding:0">
 &nbsp;
 </td></tr><tr><td style="padding:0">
+::: {.fragment fragment-index=1}
 <table class="magentabox"><tr><td> $D_1$<br>$k+1$ precincts<br>$x+R(p_n)$ voters for $R$</td></tr></table>
+:::
 </td></tr><tr><td style="padding:0">
+::: {.fragment fragment-index=5}
 Valid&nbsp;gerrymandering<br>if: $k+1=\frac{n}{2}$, $x+R(p_n), y > \frac{mn}{4}$
+:::
 </td></tr><tr><td style="padding:0">
 &nbsp;
 </td></tr><tr><td style="padding:0">
+::: {.fragment fragment-index=2}
 <table class="greenbox"><tr><td> $D_2$<br>$n-k$ precincts<br>$y+R(p_n)$ voters for $R$</td></tr></table>
+:::
 </td></tr><tr><td style="padding:0">
-Valid&nbsp;gerrymandering<br>if: $n-k=\frac{n}{2}$, $x,y+R(p_n), y > \frac{mn}{4}$</td></tr><tr><td>
+::: {.fragment fragment-index=5}
+Valid&nbsp;gerrymandering<br>if: $n-k=\frac{n}{2}$, $x,y+R(p_n), y > \frac{mn}{4}$
+:::
+</td></tr><tr><td>
 </td></tr></table>
 
 </td><td style="padding-right:0">
 
+::: {.fragment fragment-index=3}
 <table style="border:0px solid blue;font-size:60%;background-color:lavender">
 <tr><td>
 <table class="magentabox" style="margin-top:10px"><tr><td> $D_1$<br>$k+1$ precincts<br>$x+R(p_n)$ voters for $R$</td></tr></table>
@@ -3944,29 +4016,60 @@ Valid&nbsp;gerrymandering<br>if: $n-k=\frac{n}{2}$, $x,y+R(p_n), y > \frac{mn}{4
 <table class="greenbox"><tr><td> $D_2$<br>$n-k-1$ precincts<br>$y$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
 Valid&nbsp;gerrymandering if: $n-k=\frac{n}{2}$,<br>$x,y+R(p_n), y > \frac{mn}{4}$</td></tr><tr><td>
-</td></tr><tr><td style="text-align:center">
+</td></tr><tr><td style="text-align:center;font-size:1.5em">
 World One
-</td></tr><tr><td>
-</td></tr><tr><td style="background-color:white">&nbsp;</td></tr><tr><td>
+</td></tr></table>
+:::
+
+::: {.fragment fragment-index=4}
+<table style="border:0px solid blue;font-size:60%;background-color:lavender;margin-top:20px">
+<tr><td>
 <table class="magentabox" style="margin-top:10px"><tr><td> $D_1$<br>$k$ precincts<br>$x$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
 <table class="greenbox"><tr><td> $D_2$<br>$n-k$ precincts<br>$y+R(p_n)$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
 Valid&nbsp;gerrymandering if: $n-k=\frac{n}{2}$,<br>$x,y+R(p_n), y > \frac{mn}{4}$</td></tr><tr><td>
-</td></tr><tr><td style="text-align:center">
+</td></tr><tr><td style="text-align:center;font-size:1.5em">
 World Two
 </td></tr></table>
-
-
-
-
+:::
 
 </td></tr></table>
 
 </div>
 
 
-## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+
+## Define Recursive Structure
+
+<table><tr><td>
+$S(i,j,x,y) = \text{True}$
+</td><td>
+if from among the first $j$ precincts:<br>
+$k$ are assigned to<br>
+exactly $x$ vote for R in $\color{magenta}D_1$<br>
+exactly $y$ vote for R in $\color{green}D_2$
+</td></tr><tr><td>
+::: {.fragment fragment-index=1}
+$\color{red}n \times n \times mn \times mn$
+:::
+</td><td></td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+
+<tr><td class='redtext'>
+::: {.fragment fragment-index=2}
+4D Dynamic programming!
+:::
+</td><td>
+
+::: {.fragment fragment-index=3}
+<table class='bluenote'><tr><td style="font-size:80%">True here means that this is a valid state of the world, not a valid gerrymander!</td></tr></table>
+:::
+
+</td></tr>
+
+</td></tr></table>
+
 
 ## Two ways to satisfy $S(j,k,x,y)$
 
@@ -3974,33 +4077,50 @@ World Two
 
 <table class='allcenter' style="width=100%"><tr><td style="padding-left:0;padding-right:0">
 
-<table style="border:0px solid blue;font-size:60%;background-color:lavender">
+::: {.fragment fragment-index=1}
+<table style="border:0px solid blue;font-size:80%;background-color:lavender;width:100%">
 <tr><td>
-<table class="magentabox" style="margin-top:10px"><tr><td>$\Theta(2n)$ time to update pixels<br>$\Theta(n+m)$ to find min+backtrack<br>&nbsp;</td></tr></table>
+<table class="magentabox" style="margin-top:10px"><tr><td>$D_1$<br>$k-1$ precincts<br>$x-R(P_j)$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
 <table class="greenbox"><tr><td> $D_2$<br>$j-k$ precincts<br>$y$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
-</td></tr><tr><td>
-</td></tr><tr><td style="background-color:white">&nbsp;</td></tr><tr><td>
+</td></tr></table>
+:::
+
+::: {.fragment fragment-index=3}
+<table style="border:0px solid blue;font-size:80%;background-color:lavender;width:100%;margin-top:50px">
+<tr><td></td></tr>
+<tr><td>
 <table class="magentabox" style="margin-top:10px"><tr><td> $D_1$<br>$k$ precincts<br>$x$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
-<table class="greenbox"><tr><td> $D_2$<br>??? precincts<br>??? voters for $R$</td></tr></table>
+<table class="greenbox"><tr><td> $D_2$<br>$j-1-k$ precincts<br>$y-R(p_j)$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
 </td></tr></table>
+:::
 
 </td><td style="width:10px">
 </td><td>
 
 <table style='compact'><tr><td style="padding-left:0;padding-right:0">
-<table class='greenbox' style="border-radius:15px;width:unset;margin:auto"><tr><td style="background-color:navy;border-radius:10px">$p_n$</td></tr></table>
+::: {.fragment fragment-index=1}
+<table class='greenbox' style="border-radius:15px;width:unset;margin:auto"><tr><td style="background-color:navy;border-radius:10px">$p_j$</td></tr></table>
+:::
 </td></tr><tr><td style="padding-left:0;padding-right:0">
+::: {.fragment fragment-index=1}
 Then&nbsp;assign<br>$p_j$ to $D_1$
+:::
 </td></tr><tr><td style="padding-left:0;padding-right:0">
+::: {.fragment fragment-index=2}
 <span style="font-size:3em">OR</span>
+:::
 </td></tr><tr><td style="padding-left:0;padding-right:0">
-<table class='greenbox' style="border-radius:15px;width:unset;margin:auto"><tr><td style="background-color:navy;border-radius:10px">$p_n$</td></tr></table>
+::: {.fragment fragment-index=3}
+<table class='greenbox' style="border-radius:15px;width:unset;margin:auto"><tr><td style="background-color:navy;border-radius:10px">$p_j$</td></tr></table>
+:::
 </td></tr><tr><td style="padding-left:0;padding-right:0">
+::: {.fragment fragment-index=3}
 Then&nbsp;assign<br>$p_j$ to $D_2$
+:::
 </td></tr><tr><td style="padding-left:0;padding-right:0">
 </td></tr></table>
 
@@ -4008,10 +4128,14 @@ Then&nbsp;assign<br>$p_j$ to $D_2$
 
 <table><tr><td style="height:40px">
 </td></tr><tr><td>
+::: {.fragment fragment-index=1}
 <img src="images/dp/up-arrow-magenta.svg" style="transform:rotate(70deg)">
+:::
 </td></tr><tr><td style="height:60px">
 </td></tr><tr><td>
+::: {.fragment fragment-index=3}
 <img src="images/dp/down-arrow-green.svg" style="transform:rotate(-20deg)">
+:::
 </td></tr></table>
 
 </td><td>
@@ -4025,28 +4149,105 @@ $S(j,k,x,y)$ true if:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;exactly $y$ vote for $R$ in $D_1$
 </td></tr></table>
 </td></tr><tr><td>
-<table class="magentabox" style="margin-top:10px"><tr><td>$D_1$<br>??? precincts<br>??? voters for $R$</td></tr></table>
+<table class="magentabox" style="margin-top:10px"><tr><td>$D_1$<br>$k$ precincts<br>$x$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
-<table class="greenbox" style="margin-top:10px"><tr><td>$D_1$<br>??? precincts<br>??? voters for $R$</td></tr></table>
+<table class="greenbox" style="margin-top:10px"><tr><td>$D_1$<br>$j-k$ precincts<br>$y$ voters for $R$</td></tr></table>
 </td></tr></table>
 
-
-
 </td></tr></table>
-
 
 $$S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}S(j-1,k,x,y-R(p_j))}$$
 
 </div>
 
 
-
 ## Final Algorithm
 
-## Final Algorithm
+$$\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}S(j-1,k,x,y-R(p_j))}$$
 
-## Run Time
+<table style="width:100%"><tr><td style="padding-bottom:0px">
 
-## $\Theta(n^4m^2)$
+:::{.no-bullets style="margin-left:-40px"}
+- Initialize $S(0,0,0,0) = \text{True}$
+- for $j=1,\ldots,n$:
+	- for $k=1,\ldots,\min(j,\frac{n}{2})$:
+		- for $x=1,\ldots,j \cdot m$:
+			- for $y=1,\ldots,j \cdot m$:
+:::
 
--->
+
+</td><td>
+
+<table class='border'><tr><td style="font-size:70%">
+$S(j,k,x,y)$ true if:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from among the first $j$ precincts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$k$ are assigned to $D_1$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exactly $x$ vote for $R$ in $D_1$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exactly $y$ vote for $R$ in $D_1$
+</td></tr></table>
+
+</td></tr><tr><td colspan='2' style="padding-top:0">
+
+<p style="margin-top:-40px;margin-left:20px">$$\begin{align} S(j,k,x,y) = & {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee \\ & {\color{green}S(j-1,k,x,y-R(p_j))} \end{align}$$</p>
+
+</td></tr><tr><td colspan='2' style="padding-top:0">
+
+Search for True entry at $S \left( n, \frac{n}{2}, >\frac{m \cdot n}{4}, >\frac{m \cdot n}{4} \right)$
+
+</td></tr></table>
+
+
+## Gerrymander Run Time
+
+$$\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}S(j-1,k,x,y-R(p_j))}$$
+
+<table style="width:100%"><tr><td style="padding-bottom:0px">
+
+:::{.no-bullets style="margin-left:-40px"}
+- Initialize $S(0,0,0,0) = \text{True}$
+- for $j=1,\ldots,n$:
+	- for $k=1,\ldots,\min(j,\frac{n}{2})$:
+		- for $x=1,\ldots,j \cdot m$:
+			- for $y=1,\ldots,j \cdot m$:
+:::
+
+
+</td><td>
+
+
+:::{.no-bullets style="margin-left:-40px"}
+- &nbsp;
+- [$\color{red}n$]{.fragment}
+- [$\color{red}n/2$]{.fragment}
+- [$\color{red}n \cdot m$]{.fragment}
+- [$\color{red}n \cdot m$]{.fragment}
+:::
+
+
+</td></tr><tr><td colspan='2' style="padding-top:0">
+
+<p style="margin-top:-40px;margin-left:20px">$$\begin{align} S(j,k,x,y) = & {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee \\ & {\color{green}S(j-1,k,x,y-R(p_j))} \end{align}$$</p>
+
+</td></tr><tr><td colspan='2' style="padding-top:0" class='redtext'>
+
+::: {.fragment}
+Total run time: $\Theta(n^4m^2)$
+:::
+
+</td></tr></table>
+
+
+## $\color{pink}\Theta(n^4m^2)$
+
+- Input: list of precincts (size $n$), number of voters (integer $m$)
+- Runtime depends on the <span class='purpletext'>value of $m$</span>, not <span class='redtext'>size of $m$</span>
+  - Run time is exponential in <span class='redtext'><i>size</i></span> of input
+	- Input size is $n+|m|=n+\log m$
+- Note: Gerrymandering is NP-Complete
+
+## Gerrymandering Font
+
+![](https://upload.wikimedia.org/wikipedia/commons/b/bf/Ugly_Gerry_font_sample.png){style="width:100%"}
+
+[source](https://commons.wikimedia.org/wiki/File:Ugly_Gerry_font_sample.png)
+
