@@ -715,7 +715,7 @@ Problem?
 <section id="recursion-tree" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Recursion Tree</h2>
 <div class="center">
-<p><img data-src="graphs/dp.dot.svg"></p>
+<p><img data-src="graphs/dp.dot.1.svg"></p>
 </div>
 </section>
 <section id="recursion-tree-1" class="slide level2" data-auto-animate="true">
@@ -3090,6 +3090,28 @@ Select a good order for solving subproblems
 <section id="identify-the-recursive-structure-of-the-problem" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
+<ul>
+<li>Let <span class="math inline">\(k\)</span> be the <em>last</em> multiplication that is made
+<ul>
+<li><span class="math inline">\(k\)</span> represents the <span class="math inline">\(\times\)</span> symbol after matrix <span class="math inline">\(M_k\)</span></li>
+</ul></li>
+<li>For <span class="math inline">\(Best(1,10)\)</span>, if <span class="math inline">\(k=5\)</span>, then:
+<ul>
+<li>We first multiply <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_5\)</span> together</li>
+<li>We then multiply <span class="math inline">\(M_6\)</span> through <span class="math inline">\(M_10\)</span> together</li>
+<li>Lastly, we multiply those two results together</li>
+</ul></li>
+<li>Formally, for <span class="math inline">\(Best(i,j)\)</span>:
+<ul>
+<li>We multiply <span class="math inline">\(M_i\)</span> through <span class="math inline">\(M_k\)</span></li>
+<li>We multiply <span class="math inline">\(M_{k+1}\)</span> through <span class="math inline">\(M_j\)</span></li>
+<li>We multiply those two results together</li>
+</ul></li>
+</ul>
+</section>
+<section id="identify-the-recursive-structure-of-the-problem-1" class="slide level2">
+<h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
+<p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
 <div style="font-size:80%;opacity:0">
 <span class="math display">\[\color{magenta}{Best(1,4)} = \min
 \begin{cases}
@@ -3208,7 +3230,7 @@ Select a good order for solving subproblems
 </tr>
 </tbody></table>
 </section>
-<section id="identify-the-recursive-structure-of-the-problem-1" class="slide level2">
+<section id="identify-the-recursive-structure-of-the-problem-2" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
 <div style="font-size:80%">
@@ -3329,7 +3351,7 @@ Select a good order for solving subproblems
 </tr>
 </tbody></table>
 </section>
-<section id="identify-the-recursive-structure-of-the-problem-2" class="slide level2">
+<section id="identify-the-recursive-structure-of-the-problem-3" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
 <div style="font-size:80%">
@@ -3467,7 +3489,7 @@ Select a good order for solving subproblems
 </tr>
 </tbody></table>
 </section>
-<section id="identify-the-recursive-structure-of-the-problem-3" class="slide level2">
+<section id="identify-the-recursive-structure-of-the-problem-4" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span class="math inline">\(Best(1,n)\)</span> = cheapest way to mult together <span class="math inline">\(M_1\)</span> through <span class="math inline">\(M_n\)</span></p>
 <div style="font-size:80%">
@@ -3588,7 +3610,7 @@ Select a good order for solving subproblems
 </tr>
 </tbody></table>
 </section>
-<section id="identify-the-recursive-structure-of-the-problem-4" class="slide level2">
+<section id="identify-the-recursive-structure-of-the-problem-5" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p>In general:</p>
 <p><span class="math inline">\(Best(i,j)\)</span> = cheapest way to multiply together <span class="math inline">\(M_i\)</span> through <span class="math inline">\(M_j\)</span></p>
@@ -5124,20 +5146,33 @@ Select a good order for solving subproblems
 <table class="allcenter" style="margin-top:-20px">
 <tbody><tr>
 <td style="width:50%;text-align:center;font-size:75%">
-<div class="fragment">
+<div class="fragment" data-fragment-index="1">
 <p><span class="math inline">\(r_1r_2c_3=30 \cdot 35 \cdot 5=5250\)</span><br></p>
 </div>
-<div class="fragment">
+<div class="fragment" data-fragment-index="2">
 <p><span class="math inline">\(r_1r_3c_3=30 \cdot 15 \cdot 5=2250\)</span><br></p>
 </div>
 <p>&nbsp;</p>
-<span class="math inline">\(\small Best(1,3) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\small \begin{cases}
+<div class="r-stack">
+<div class="fragment" data-fragment-index="3">
+<p><span class="math inline">\(\small Best(1,3) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\small \begin{cases}
 \  (\text{below: }0+2625+5250=7875) \\
 {\color{green}Best(1,1)} + {\color{magenta}Best(2,3)} + r_1r_2c_3 \\
 {\color{green}Best(1,2)} + {\color{magenta}Best(3,3)} + r_1r_3c_3 \\
 \  (\text{above: }15750+0+2250=18000) \\
 \ \\
-\end{cases}\)</span>
+\end{cases}\)</span></p>
+</div>
+<div class="fragment fade-out" data-fragment-index="3">
+<p><span class="math inline">\(\small Best(1,3) = \min\)</span><br>&nbsp;<br> <span class="math inline">\(\small \begin{cases}
+\ \\
+{\color{green}Best(1,1)} + {\color{magenta}Best(2,3)} + r_1r_2c_3 \\
+{\color{green}Best(1,2)} + {\color{magenta}Best(3,3)} + r_1r_3c_3 \\
+\ \\
+\ \\
+\end{cases}\)</span></p>
+</div>
+</div>
 </td>
 <td style="width:50%">
 <table class="allcenter" style="font-size:90%">
@@ -5178,7 +5213,7 @@ Select a good order for solving subproblems
 15750
 </td>
 <td class="border yellow" style="font-size:small">
-<div class="fragment">
+<div class="fragment" data-fragment-index="4">
 <p>7875</p>
 </div>
 </td>
@@ -5987,6 +6022,10 @@ Select a good order for solving subproblems
 <div class="fragment" data-fragment-index="3">
 <p><span class="red"><span class="math inline">\(\Theta(n)\)</span> options for each cell</span></p>
 </div>
+<p>&nbsp;</p>
+<div class="fragment" data-fragment-index="4">
+<p><span class="red">(<span class="math inline">\(n\)</span> is the number of matrices)</span></p>
+</div>
 </td>
 </tr>
 <tr>
@@ -6002,7 +6041,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </div>
 </td>
 <td>
-<div class="fragment" data-fragment-index="4">
+<div class="fragment" data-fragment-index="5">
 <p><span class="red"><span class="math inline">\(\Theta(n^3)\)</span> overall run time</span></p>
 </div>
 </td>
@@ -6571,10 +6610,10 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </ul></li>
 <li>From our example:
 <ul>
-<li><span class="blue">choice[1,6] = 3</span>. So <span class="magenta">[<span class="math inline">\(M_1\)</span> <span class="math inline">\(M_2\)</span> <span class="math inline">\(M_3\)</span>] [<span class="math inline">\(M_4\)</span> <span class="math inline">\(M_5\)</span> <span class="math inline">\(M_6\)</span>]</span></li>
-<li>We then need <span class="blue">choice[1,3] = 1. So <span class="magenta">[(<span class="math inline">\(M_1\)</span>) (<span class="math inline">\(M_2\)</span> <span class="math inline">\(M_3\)</span>)]</span></span></li>
-<li>Also need <span class="blue">choice[4,6] = 5</span>. So <span class="magenta">[(<span class="math inline">\(M_4\)</span> <span class="math inline">\(M_5\)</span>) <span class="math inline">\(M_6\)</span>]</span></li>
-<li>Overall: <span class="magenta">[(<span class="math inline">\(M_1\)</span>) (<span class="math inline">\(M_2\)</span> <span class="math inline">\(M_3\)</span>)] [(<span class="math inline">\(M_4\)</span> <span class="math inline">\(M_5\)</span>) <span class="math inline">\(M_6\)</span>]</span></li>
+<li><span class="blue">choice[1,6] = 3</span>. So <span class="magenta"><span class="math inline">\([M_1 \times M_2 \times M_3] \times [M_4 \times M_5 \times M_6]\)</span></span></li>
+<li>We then need <span class="blue">choice[1,3] = 1. So <span class="magenta"><span class="math inline">\([M_1 \times (M_2 \times M_3)]\)</span></span></span></li>
+<li>Also need <span class="blue">choice[4,6] = 5</span>. So <span class="magenta"><span class="math inline">\([(M_4 \times M_5) \times M_6]\)</span></span></li>
+<li>Overall: <span class="magenta"><span class="math inline">\([M_1 \times (M_2 \times M_3)] \times [(M_4 \times M_5) \times M_6]\)</span></span></li>
 </ul></li>
 </ul>
 </section>
@@ -6634,6 +6673,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </section>
 <section id="remember-greedy-change-making-algorithm" class="slide level2">
 <h2><span class="r-fit-text">Remember: Greedy Change Making Algorithm</span></h2>
+<div style="font-size:90%">
 <ul>
 <li>Given: target value <span class="math inline">\(x\)</span>, list of coins <span class="math inline">\(C=[c_1, \ldots, c_n]\)</span>
 <ul>
@@ -6646,11 +6686,13 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <ul>
 <li>while ( x &gt; 0 )
 <ul>
-<li>let <span class="math inline">\(c = \max(c_i \in {c_1,\ldots,c_n} | c_i \le x)\)</span></li>
+<li>let <span class="math inline">\(c = \max(c_i \in C | c_i \le x)\)</span></li>
 <li>print <span class="math inline">\(c\)</span></li>
 <li><span class="math inline">\(x=x-c\)</span></li>
 </ul></li>
 </ul>
+</div>
+<p><strong>Observation:</strong> We can rewrite this to take <span class="math inline">\(\lfloor n/c \rfloor\)</span> copies of the next largest coin at each step, and reduce <span class="math inline">\(x\)</span> by <span class="math inline">\(c \cdot \lfloor n/c \rfloor\)</span>. Also avoid call to max() by choosing next <span class="math inline">\(c_i\)</span> from largest to smallest, so <span class="math inline">\(C\)</span> must be sorted.</p>
 </div>
 </section>
 <section id="greedy-solution" class="slide level2">
@@ -6691,7 +6733,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 <h2>Correct Solution</h2>
 <p>90 cents</p>
 <div class="fragment">
-<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg" style="height:292px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg" style="height:292px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg" style="height:292px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/8/84/2005-Dime-Obv-Unc-P.png" style="height:214px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Jefferson-Nickel-Unc-Obv.jpg/780px-Jefferson-Nickel-Unc-Obv.jpg" style="height:264px"></p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg" style="height:219px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg" style="height:219px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg" style="height:219px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/8/84/2005-Dime-Obv-Unc-P.png" style="height:171px"> <img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Jefferson-Nickel-Unc-Obv.jpg/780px-Jefferson-Nickel-Unc-Obv.jpg" style="height:198px"></p>
 </div>
 </section>
 <section id="why-does-greedy-always-work-for-us-coins" class="slide level2">
@@ -6752,9 +6794,9 @@ Select a good order for solving subproblems
 </ol></li>
 </ul>
 </section>
-<section id="identify-the-recursive-structure-of-the-problem-5" class="slide level2">
+<section id="identify-the-recursive-structure-of-the-problem-6" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
-<p><span style="font-size:80%;text-align:center"><span class="math inline">\(Change(n)\)</span>: minimum number of coins needed to give change for cents</span></p>
+<p><span style="font-size:80%;text-align:center"><span class="math inline">\(Change(n)\)</span>: minimum number of coins needed to give change for <span class="math inline">\(n\)</span> cents</span></p>
 <div class="allcenter compact" style="font-size:75%">
 <table class="caption-top">
 <colgroup>
@@ -6766,7 +6808,7 @@ Select a good order for solving subproblems
 <tr class="header">
 <th>Possibilities<br>for last coin</th>
 <th>Coins needed</th>
-<th></th>
+<th>When to do</th>
 </tr>
 </thead>
 <tbody>
@@ -6799,7 +6841,7 @@ Select a good order for solving subproblems
 </table>
 </div>
 </section>
-<section id="identify-the-recursive-structure-of-the-problem-6" class="slide level2">
+<section id="identify-the-recursive-structure-of-the-problem-7" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <p><span style="font-size:80%;text-align:center"><span class="math inline">\(Change(n)\)</span>: minimum number of coins needed to give change for cents</span></p>
 <table>
@@ -6844,7 +6886,7 @@ Change(n-1)+1 \text{ if } n \ge 1 \\
 <tr>
 <td>
 <div class="fragment" data-fragment-index="4">
-<p><strong>Running time:</strong> <span class="math inline">\(O(kn)\)</span></p>
+<p><strong>Running time:</strong> <span class="math inline">\(O(k \cdot n)\)</span></p>
 </div>
 </td>
 <td>
@@ -7084,6 +7126,10 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 </section>
 <section id="seattle-skyline" class="slide level2">
 <h2>Seattle Skyline</h2>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Seattle_Skyline_-_2008.jpg/1280px-Seattle_Skyline_-_2008.jpg" class="center" style="width:50%"></p>
+<div class="fragment">
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/6/62/Seattle_skyline_from_West_Seattle_January_12%2C_2019_%28cropped%29.jpg"><img data-src="https://upload.wikimedia.org/wikipedia/commons/6/62/Seattle_skyline_from_West_Seattle_January_12%2C_2019_%28cropped%29.jpg" class="center"></a></p>
+</div>
 </section>
 <section id="energy-of-a-seam" class="slide level2">
 <h2>Energy of a Seam</h2>
@@ -7101,6 +7147,10 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 <li>E.g.: change of gradient (how much the color of this pixel differs from its neighbors)</li>
 <li>Particular choice doesn’t matter, we use it as a “black box”</li>
 </ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Restriction: seam pixels go up or diagonally up, not to the side</li>
 </ul>
 <p>&nbsp;</p>
 <ul>
@@ -7142,7 +7192,7 @@ Select a good order for solving subproblems
 </ol></li>
 </ul>
 </section>
-<section id="identify-the-recursive-structure-of-the-problem-7" class="slide level2">
+<section id="identify-the-recursive-structure-of-the-problem-8" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <table style="compact">
 <tbody><tr>
@@ -7166,7 +7216,7 @@ Let <span class="math inline">\({\color{red}S(i,j)}=\)</span> least energy seam 
 <span class="math inline">\(p_{i,j}\)</span><br> <img data-src="images/dp/seam-1.svg" style="transform:scale(1,1.3);margin-top:50px;margin-left:0px">
 </p>
 <p style="display:none;margin-left:280px;margin-top:-40px">
-<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px">
+<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.5,2.7);margin-top:115px;margin-left:-110px">
 </p>
 <table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px">
 <tbody><tr>
@@ -7207,8 +7257,8 @@ Assume we know the least energy seams for all of row <span class="math inline">\
 <td style="width:150px">
 <span style="">Known<br>through<br><span class="math inline">\(n-1\)</span></span>
 </td>
-<td style="width:20px">
-<span style=""> <img data-src="images/underbrace-red.svg" style="transform:rotate(90deg)scale(21,6);z-index:2"> </span>
+<td style="width:20px;padding-top:80px">
+<span style=""> <img data-src="images/underbrace-red.svg" style="transform:rotate(90deg)scale(19,6);z-index:2"> </span>
 </td>
 <td>
 <div class="r-stack">
@@ -7217,7 +7267,7 @@ Assume we know the least energy seams for all of row <span class="math inline">\
 <span class="math inline">\(p_{i,j}\)</span><br> <img data-src="images/dp/seam-1.svg" style="transform:scale(1,1.3);margin-top:50px;margin-left:0px">
 </p>
 <p style="margin-left:280px;margin-top:-40px">
-<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px">
+<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.5,2.7);margin-top:115px;margin-left:-110px">
 </p>
 <div class="fragment">
 <table style="border:3px solid orange;margin-top:-235px;margin-left:-147px">
@@ -7248,6 +7298,7 @@ Assume we know the least energy seams for all of row <span class="math inline">\
 </section>
 <section id="computing-colorpinksnk-1" class="slide level2">
 <h2>Computing <span class="math inline">\(\color{pink}S(n,k)\)</span></h2>
+<div style="font-size:90%">
 <p>Assume we know the least energy seams for all of row <span class="math inline">\(n-1\)</span> (i.e., we know <span class="math inline">\(S(n-1,\ell)\)</span> for all <span class="math inline">\(\ell\)</span>)</p>
 <table class="allcenter compact table-of-boxes">
 <tbody><tr>
@@ -7317,12 +7368,13 @@ Assume we know the least energy seams for all of row <span class="math inline">\
 </tr>
 </tbody></table>
 <div class="fragment">
-<p><span class="math display">\[{\color{red}S(n,k) = \min}
+<p><span class="math display">\[{\color{red}S(n,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{n,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{n,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{n,k}) \\
+{\color{blue}S(n-1,k-1)} &amp; + e(p_{n,k}) \\
+{\color{purple}S(n-1,k)} &amp; + e(p_{n,k}) \\
+{\color{magenta}S(n-1,k+1)} &amp; + e(p_{n,k}) \\
 \end{cases}\]</span></p>
+</div>
 </div>
 </section>
 <section id="finding-the-least-energy-seam" class="slide level2">
@@ -7349,7 +7401,7 @@ Want to delete the least energy seam going from bottom to top, so delete: <span 
 <span class="math inline">\(p_{i,j}\)</span><br> <img data-src="images/dp/seam-1.svg" style="transform:scale(1,1.3);margin-top:50px;margin-left:0px">
 </p>
 <p style="margin-left:280px;margin-top:-40px">
-<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px">
+<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.5,2.7);margin-top:115px;margin-left:-110px">
 </p>
 <table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px">
 <tbody><tr>
@@ -7412,6 +7464,7 @@ Select a good order for solving subproblems
 </section>
 <section id="computing-colorpinksnk-2" class="slide level2">
 <h2>Computing <span class="math inline">\(\color{pink}S(n,k)\)</span></h2>
+<div style="font-size:90%">
 <p>Assume we know the least energy seams for all of row <span class="math inline">\(n-1\)</span> (i.e., we know <span class="math inline">\(S(n-1,\ell)\)</span> for all <span class="math inline">\(\ell\)</span>)</p>
 <table class="allcenter compact table-of-boxes">
 <tbody><tr>
@@ -7480,12 +7533,13 @@ Select a good order for solving subproblems
 </td>
 </tr>
 </tbody></table>
-<p><span class="math display">\[{\color{red}S(n,k) = \min}
+<p><span class="math display">\[{\color{red}S(n,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{n,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{n,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{n,k}) \\
+{\color{blue}S(n-1,k-1)} &amp; + e(p_{n,k}) \\
+{\color{purple}S(n-1,k)} &amp; + e(p_{n,k}) \\
+{\color{magenta}S(n-1,k+1)} &amp; + e(p_{n,k}) \\
 \end{cases}\]</span></p>
+</div>
 </section>
 <section id="finding-the-least-energy-seam-1" class="slide level2">
 <h2>Finding the Least Energy Seam</h2>
@@ -7511,7 +7565,7 @@ Want to delete the least energy seam going from bottom to top, so delete: <span 
 <span class="math inline">\(p_{i,j}\)</span><br> <img data-src="images/dp/seam-1.svg" style="transform:scale(1,1.3);margin-top:50px;margin-left:0px">
 </p>
 <p style="margin-left:280px;margin-top:-40px">
-<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px">
+<span class="math inline">\(p_{n,k}\)</span><br> <img data-src="images/dp/seam-2.svg" style="transform:scale(2.5,2.7);margin-top:115px;margin-left:-110px">
 </p>
 <table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px">
 <tbody><tr>
@@ -7590,14 +7644,14 @@ Start from bottom of image (row 1), solve up to top
 <span style="display:none;"><span class="math inline">\(\color{green}\Theta(m)\)</span></span>
 </td>
 </tr>
-<tr style="height:240px">
+<tr style="height:180px">
 <td>
-<span style="display:none;font-size:90%"><span class="math display">\[{\color{red}\text{For }i&gt;2 \text{ find }} {\color{red}S(i,k) = \min}
+<span style="font-size:90%;display:none">For <span class="math inline">\(i \ge 2\)</span> find <span class="math inline">\({\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
-\end{cases}\]</span> </span>
+{\color{purple}S(n-1,k-1)} &amp; + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} &amp; + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} &amp; + e(p_{i,k}) \\
+\end{cases}\)</span> </span>
 </td>
 <td>
 <span style="display:none;"><span class="math inline">\(\color{red}\Theta(n \cdot m)\)</span></span>
@@ -7640,14 +7694,14 @@ Start from bottom of image (row 1), solve up to top
 <span style="display:none;"><span class="math inline">\(\color{green}\Theta(m)\)</span></span>
 </td>
 </tr>
-<tr style="height:240px">
+<tr style="height:180px">
 <td>
-<span style="font-size:90%"><span class="math display">\[{\color{red}\text{For }i&gt;2 \text{ find }} {\color{red}S(i,k) = \min}
+<span style="font-size:90%">For <span class="math inline">\(i \ge 2\)</span> find <span class="math inline">\({\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
-\end{cases}\]</span> </span>
+{\color{purple}S(n-1,k-1)} &amp; + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} &amp; + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} &amp; + e(p_{i,k}) \\
+\end{cases}\)</span> </span>
 </td>
 <td>
 <span style="display:none;"><span class="math inline">\(\color{red}\Theta(n \cdot m)\)</span></span>
@@ -7690,14 +7744,14 @@ Start from bottom of image (row 1), solve up to top
 <span style="display:none;"><span class="math inline">\(\color{green}\Theta(m)\)</span></span>
 </td>
 </tr>
-<tr style="height:240px">
+<tr style="height:180px">
 <td>
-<span style="font-size:90%"><span class="math display">\[{\color{red}\text{For }i&gt;2 \text{ find }} {\color{red}S(i,k) = \min}
+<span style="font-size:90%">For <span class="math inline">\(i \ge 2\)</span> find <span class="math inline">\({\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
-\end{cases}\]</span> </span>
+{\color{purple}S(n-1,k-1)} &amp; + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} &amp; + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} &amp; + e(p_{i,k}) \\
+\end{cases}\)</span> </span>
 </td>
 <td>
 <span style="display:none;"><span class="math inline">\(\color{red}\Theta(n \cdot m)\)</span></span>
@@ -7742,14 +7796,14 @@ Start from bottom of image (row 1), solve up to top
 </div>
 </td>
 </tr>
-<tr style="height:240px">
+<tr style="height:180px">
 <td>
-<span style="font-size:90%"><span class="math display">\[{\color{red}\text{For }i&gt;2 \text{ find }} {\color{red}S(i,k) = \min}
+<span style="font-size:90%">For <span class="math inline">\(i \ge 2\)</span> find <span class="math inline">\({\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
-\end{cases}\]</span> </span>
+{\color{purple}S(n-1,k-1)} &amp; + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} &amp; + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} &amp; + e(p_{i,k}) \\
+\end{cases}\)</span> </span>
 </td>
 <td>
 <div class="fragment">
@@ -7863,10 +7917,10 @@ Select a good order for solving subproblems
 </ol></li>
 </ul>
 </section>
-<section id="identify-the-recursive-structure-of-the-problem-8" class="slide level2">
+<section id="identify-the-recursive-structure-of-the-problem-9" class="slide level2">
 <h2><span class="r-fit-text">1. Identify the Recursive Structure of the Problem</span></h2>
 <div style="font-size:70% !important">
-<p>Let <span class="math inline">\(LCS(i.j)=\)</span> length of the LCS for the first <span class="math inline">\(i\)</span> characters of <span class="math inline">\(X\)</span>, first <span class="math inline">\(j\)</span> character of <span class="math inline">\(Y\)</span></p>
+<p>Let <span class="math inline">\(LCS(i.j)=\)</span> length of the LCS for the first <span class="math inline">\(i\)</span> characters of <span class="math inline">\(X\)</span>, first <span class="math inline">\(j\)</span> characters of <span class="math inline">\(Y\)</span></p>
 <p>Find <span class="math inline">\(\color{magenta}LCS(i,j)\)</span>:</p>
 <table>
 <tbody><tr>
@@ -7875,7 +7929,7 @@ Select a good order for solving subproblems
 </td>
 <td style="width:50%">
 <div class="fragment" data-fragment-index="1">
-<p>X = <span class="red">T</span>G<span class="red">C</span>A<span class="red">T</span>A<span class="magenta">T</span><br> Y = A<span class="red">TCT</span>GCG<span class="magenta">T</span></p>
+<p>X = A<span class="red">TCT</span>GCG<span class="magenta">T</span><br> Y = <span class="red">T</span>G<span class="red">C</span>A<span class="red">T</span>A<span class="magenta">T</span></p>
 </div>
 </td>
 </tr>
@@ -7898,12 +7952,12 @@ Select a good order for solving subproblems
 <tr>
 <td style="text-align:center">
 <div class="fragment" data-fragment-index="3">
-<p>X = <span class="red">T</span>G<span class="red">C</span>A<span class="red">T</span>A<span class="magenta">T</span><br> Y = A<span class="red">TCT</span>G<span class="magenta">C</span>GT</p>
+<p>X = A<span class="red">TCT</span>GCG<span class="magenta">A</span><br> Y = <span class="red">T</span>G<span class="red">C</span>A<span class="red">T</span><span class="magenta">A</span>T</p>
 </div>
 </td>
 <td style="text-align:center">
 <div class="fragment" data-fragment-index="5">
-<p>X = <span class="red">T</span>G<span class="red">C</span>A<span class="red">T</span><span class="magenta">A</span>T<br> Y = A<span class="red">TCT</span>GCG<span class="magenta">A</span></p>
+<p>X = A<span class="red">TCT</span>G<span class="magenta">C</span>GT<br> Y = <span class="red">T</span>G<span class="red">C</span>A<span class="red">T</span>A<span class="magenta">C</span></p>
 </div>
 </td>
 </tr>
@@ -7966,7 +8020,7 @@ Select a good order for solving subproblems
 </section>
 <section id="top-down-solution-with-memoization" class="slide level2">
 <h2><span class="r-fit-text">Top-Down Solution with Memoization</span></h2>
-<p>We need two functions; one will be recursive.</p>
+<p>We need two functions; one will be recursive</p>
 <div style="font-size:60% !important">
 <table>
 <tbody><tr>
@@ -8089,17 +8143,18 @@ Select a good order for solving subproblems
 </div>
 </div>
 </section>
-<section id="lcs-length-algorithm" class="slide level2">
-<h2>LCS Length Algorithm</h2>
+<section id="lcs-length-algorithm-bottom-up" class="slide level2">
+<h2>LCS Length Algorithm: Bottom-Up</h2>
 <div class="no-bullets" style="font-size:90%">
 <ul>
 <li>LCS-Length(X, Y) <span class="green">// Y for M’s rows, X for its columns</span>
 <ul>
-<li>n = length(X) <span class="green">// get the # of symbols in X</span></li>
-<li>m = length(Y) <span class="green">// get the # of symbols in Y</span></li>
+<li>n = length(X) <span class="green">// get the length of X</span></li>
+<li>m = length(Y) <span class="green">// get the length of Y</span></li>
 <li>for i = 1 to n: M[i,0] = 0 <span class="green">// special case: X0</span></li>
 <li>for j = 1 to m: M[0,j] = 0 <span class="green">// special case: Y0</span></li>
-<li>for i = 1 to n: <span class="green">// for all Xi</span></li>
+<li>for i = 1 to n: <span class="green">// for all Xi</span>
+<ul>
 <li>for j = 1 to m: <span class="green">// for all Yj</span>
 <ul>
 <li>if ( X[i] == Y[j] )
@@ -8109,6 +8164,7 @@ Select a good order for solving subproblems
 <li>else
 <ul>
 <li>M[i,j] = max( M[i-1,j], M[i,j-1] )</li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li>return M[n,m] <span class="green">// return LCS length for Y and X</span></li>
@@ -8200,16 +8256,16 @@ Select a good order for solving subproblems
 <p><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:343px"> <!-- y=5 --></p>
 <p><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:494px"> <!-- y=6 --></p>
 <p><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:640px"> <!-- y=7 --></p>
-<p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px" class="fragment"> <!-- x=5 --></p>
-<p><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-left:600px" class="fragment"></p>
-<p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-78px;margin-right:600px" class="fragment"> <!-- x=4 --></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:565px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-56px;margin-left:415px" class="fragment"></p>
-<p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px" class="fragment"> <!-- x=2 --></p>
-<p><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-12px;margin-left:300px" class="fragment"></p>
-<p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px" class="fragment"> <!-- x=1 --></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:55px;margin-left:265px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-left:115px" class="fragment"></p>
+<p><span class="fragment" data-fragment-index="2"><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-left:600px"></span></p>
+<p><span class="fragment" data-fragment-index="3"><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px"></span> <!-- x=5 --></p>
+<p><span class="fragment" data-fragment-index="4"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:565px"></span></p>
+<p><span class="fragment" data-fragment-index="5"><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-78px;margin-right:600px"></span> <!-- x=4 --></p>
+<p><span class="fragment" data-fragment-index="6"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-56px;margin-left:415px"></span></p>
+<p><span class="fragment" data-fragment-index="7"><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-12px;margin-left:300px"></span></p>
+<p><span class="fragment" data-fragment-index="8"><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px"></span> <!-- x=2 --></p>
+<p><span class="fragment" data-fragment-index="9"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:55px;margin-left:265px"></span></p>
+<p><span class="fragment" data-fragment-index="10"><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px"></span> <!-- x=1 --></p>
+<p><span class="fragment" data-fragment-index="11"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-left:115px"></span></p>
 </div>
 <div class="fragment" data-fragment-index="1">
 <p>Start from bottom right,<br> <span class="green">if symbols matched, print that symbol then go diagonally</span>, <br> <span class="blue">else go to largest adjacent</span></p>
@@ -8231,19 +8287,18 @@ Select a good order for solving subproblems
 <p><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:45px"> <!-- y=3 --></p>
 <p><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:494px"> <!-- y=6 --></p>
 <p><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:640px"> <!-- y=7 --></p>
-<p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px"> <!-- x=1 --></p>
-<p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px"> <!-- x=2 --></p>
-<p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-42px;margin-right:600px"> <!-- x=3 --></p>
-<p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-78px;margin-right:600px"> <!-- x=4 --></p>
-<p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px"> <!-- x=5 --></p>
-<p><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-left:600px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:565px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-56px;margin-left:415px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-30px;margin-left:265px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-30px;margin-left:110px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-10px;margin-right:43px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:62px;margin-right:155px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-right:195px" class="fragment"></p>
+<p><span class="fragment" data-fragment-index="11"><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px"></span> <!-- x=1 --></p>
+<p><span class="fragment" data-fragment-index="8"><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-42px;margin-right:600px"></span> <!-- x=3 --></p>
+<p><span class="fragment" data-fragment-index="4"><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-78px;margin-right:600px"></span> <!-- x=4 --></p>
+<p><span class="fragment" data-fragment-index="2"><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px"></span> <!-- x=5 --></p>
+<p><span class="fragment" data-fragment-index="1"><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-left:600px"></span></p>
+<p><span class="fragment" data-fragment-index="3"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:565px"></span></p>
+<p><span class="fragment" data-fragment-index="5"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-56px;margin-left:415px"></span></p>
+<p><span class="fragment" data-fragment-index="6"><img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-30px;margin-left:265px"></span></p>
+<p><span class="fragment" data-fragment-index="7"><img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-30px;margin-left:110px"></span></p>
+<p><span class="fragment" data-fragment-index="9"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-10px;margin-right:43px"></span></p>
+<p><span class="fragment" data-fragment-index="10"><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:62px;margin-right:155px"></span></p>
+<p><span class="fragment" data-fragment-index="12"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-right:195px"></span></p>
 </div>
 <p>Start from bottom right,<br> <span class="green">if symbols matched, print that symbol then go diagonally</span>, <br> <span class="blue">else go to largest adjacent</span></p>
 </div>
@@ -8262,19 +8317,19 @@ Select a good order for solving subproblems
 <p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-150px;margin-right:600px"> <!-- x=6 --></p>
 <p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px"> <!-- x=5 --></p>
 <p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-42px;margin-right:600px"> <!-- x=3 --></p>
-<p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px"> <!-- x=2 --></p>
-<p><img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-142px;margin-left:565px" class="fragment"></p>
-<p><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:494px" class="fragment"> <!-- y=6 --></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-130px;margin-left:415px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-104px;margin-left:260px" class="fragment"></p>
-<p><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:194px" class="fragment"> <!-- y=4 --></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:115px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-53px;margin-left:0px" class="fragment"></p>
-<p><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:45px" class="fragment"> <!-- y=3 --></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-10px;margin-right:43px" class="fragment"></p>
-<p><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:62px;margin-right:155px" class="fragment"></p>
-<p><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-right:100px" class="fragment"> <!-- y=2 --></p>
-<p><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-right:195px" class="fragment"></p>
+<p><img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px"> <!-- x=1 --></p>
+<p><span class="fragment" data-fragment-index="1"><img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-142px;margin-left:565px"></span></p>
+<p><span class="fragment" data-fragment-index="2"><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:494px"></span> <!-- y=6 --></p>
+<p><span class="fragment" data-fragment-index="3"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-130px;margin-left:415px"></span></p>
+<p><span class="fragment" data-fragment-index="4"><img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-104px;margin-left:260px"></span></p>
+<p><span class="fragment" data-fragment-index="5"><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:194px"></span> <!-- y=4 --></p>
+<p><span class="fragment" data-fragment-index="6"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:115px"></span></p>
+<p><span class="fragment" data-fragment-index="7"><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-53px;margin-left:0px"></span></p>
+<p><span class="fragment" data-fragment-index="8"><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:45px"></span> <!-- y=3 --></p>
+<p><span class="fragment" data-fragment-index="9"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-10px;margin-right:43px"></span></p>
+<p><span class="fragment" data-fragment-index="10"><img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:62px;margin-right:155px"></span></p>
+<p><span class="fragment" data-fragment-index="11"><img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-right:100px"></span> <!-- y=2 --></p>
+<p><span class="fragment" data-fragment-index="12"><img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-right:195px"></span></p>
 </div>
 <p>Start from bottom right,<br> <span class="green">if symbols matched, print that symbol then go diagonally</span>, <br> <span class="blue">else go to largest adjacent</span></p>
 </div>

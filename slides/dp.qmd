@@ -148,7 +148,7 @@ Tile(n):
 ## Recursion Tree  {auto-animate=true}
 
 ::: {.center}
-![](graphs/dp.dot.svg)
+![](graphs/dp.dot.1.svg)
 :::
 
 
@@ -1237,6 +1237,22 @@ Readings in CLRS 4th edition: chapter 14, specifically 14.2
 ## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
 $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 
+- Let $k$ be the *last* multiplication that is made
+	- $k$ represents the $\times$ symbol after matrix $M_k$
+- For $Best(1,10)$, if $k=5$, then:
+  - We first multiply $M_1$ through $M_5$ together
+  - We then multiply $M_6$ through $M_10$ together
+  - Lastly, we multiply those two results together
+- Formally, for $Best(i,j)$:
+	- We multiply $M_i$ through $M_k$
+	- We multiply $M_{k+1}$ through $M_j$
+	- We multiply those two results together
+
+
+
+## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
+$Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
+
 <div style="font-size:80%;opacity:0">$$\color{magenta}{Best(1,4)} = \min
 \begin{cases}
 \color{magenta}{Best(2,4)} + r_1r_2c_4 \\
@@ -2106,15 +2122,17 @@ $\scriptsize Best(i,i)=0$
 <table class="allcenter" style="margin-top:-20px">
 <tr><td style="width:50%;text-align:center;font-size:75%">
 
-::: {.fragment}
+::: {.fragment fragment-index=1}
 $r_1r_2c_3=30 \cdot 35 \cdot 5=5250$<br>
 :::
-::: {.fragment}
+::: {.fragment fragment-index=2}
 $r_1r_3c_3=30 \cdot 15 \cdot 5=2250$<br>
 :::
 
 &nbsp;
 
+::: {.r-stack}
+::: {.fragment fragment-index=3}
 $\small Best(1,3) = \min$<br>&nbsp;<br>
 $\small \begin{cases}
 \  (\text{below: }0+2625+5250=7875) \\
@@ -2123,12 +2141,26 @@ $\small \begin{cases}
 \  (\text{above: }15750+0+2250=18000) \\
 \ \\
 \end{cases}$
+:::
+
+::: {.fragment fragment-index=3 .fade-out}
+$\small Best(1,3) = \min$<br>&nbsp;<br>
+$\small \begin{cases}
+\ \\
+{\color{green}Best(1,1)} + {\color{magenta}Best(2,3)} + r_1r_2c_3 \\
+{\color{green}Best(1,2)} + {\color{magenta}Best(3,3)} + r_1r_3c_3 \\
+\ \\
+\ \\
+\end{cases}$
+:::
+:::
+
 </td>
 <td style="width:50%">
 <table class="allcenter" style="font-size:90%">
 <tr><td>$j=$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td></td><td></td></tr>
 <tr><td></td><td class="border">0</td><td class="border" style="font-size:small">15750</td><td class="border yellow" style="font-size:small">
-::: {.fragment}
+::: {.fragment fragment-index=4}
 7875
 :::
 </td><td class="border"></td><td class="border"></td><td class="border"></td><td>1</td><td></td></tr>
@@ -2355,6 +2387,13 @@ $\small \begin{cases}
 <span class='red'>$\Theta(n)$ options for each cell</span>
 :::
 
+&nbsp;
+
+::: {.fragment fragment-index=4}
+<span class='red'>($n$ is the number of matrices)</span>
+:::
+
+
 </td></tr><tr><td>
 
 ::: {.fragment fragment-index=1}
@@ -2363,7 +2402,7 @@ $\small \begin{cases}
 
 </td><td>
 
-::: {.fragment fragment-index=4}
+::: {.fragment fragment-index=5}
 <span class='red'>$\Theta(n^3)$ overall run time</span>
 :::
 
@@ -2515,10 +2554,10 @@ $\small \begin{cases}
 	- Work backwards from value for whole problem, <span class='blue'>choice[1,n]</span>
 	- Note: <span class='blue'>choice[i,i+1] = i</span> because there are just 2 matrices 
 - From our example:
-	- <span class='blue'>choice[1,6] = 3</span>.   So <span class='magenta'>[$M_1$ $M_2$ $M_3$] [$M_4$ $M_5$ $M_6$]</span>
-	- We then need <span class='blue'>choice[1,3] = 1.   So <span class='magenta'>[($M_1$) ($M_2$ $M_3$)]</span>
-	- Also need <span class='blue'>choice[4,6] = 5</span>.  So <span class='magenta'>[($M_4$ $M_5$) $M_6$]</span>
-	- Overall: <span class='magenta'>[($M_1$) ($M_2$ $M_3$)] [($M_4$ $M_5$) $M_6$]</span>
+	- <span class='blue'>choice[1,6] = 3</span>.   So <span class='magenta'>$[M_1 \times M_2 \times M_3] \times [M_4 \times M_5 \times M_6]$</span>
+	- We then need <span class='blue'>choice[1,3] = 1.   So <span class='magenta'>$[M_1 \times (M_2 \times M_3)]$</span>
+	- Also need <span class='blue'>choice[4,6] = 5</span>.  So <span class='magenta'>$[(M_4 \times M_5) \times M_6]$</span>
+	- Overall: <span class='magenta'>$[M_1 \times (M_2 \times M_3)] \times [(M_4 \times M_5) \times M_6]$</span>
 
 
 ## Dynamic Programming
@@ -2577,6 +2616,8 @@ Given access to unlimited quantities of pennies, nickels, dimes, toms, and quart
 
 ## [Remember: Greedy Change Making Algorithm]{.r-fit-text}
 
+<div style="font-size:90%">
+
 - Given: target value $x$, list of coins $C=[c_1, \ldots, c_n]$
 	- For the US, $C=[1,5,10,25]$
 - Repeatedly select the largest coin less than the remaining target value
@@ -2585,10 +2626,14 @@ Given access to unlimited quantities of pennies, nickels, dimes, toms, and quart
 
 ::: {.no-bullets}
 - while ( x > 0 )
-  - let $c = \max(c_i \in {c_1,\ldots,c_n} | c_i \le x)$
+  - let $c = \max(c_i \in C | c_i \le x)$
   - print $c$
   - $x=x-c$
 :::
+
+**Observation:** We can rewrite this to take $\lfloor n/c \rfloor$ copies of the next largest coin at each step, and reduce $x$ by $c \cdot \lfloor n/c \rfloor$.  Also avoid call to max() by choosing next $c_i$ from largest to smallest, so $C$ must be sorted.
+
+</div>
 
 
 ## Greedy Solution
@@ -2628,11 +2673,11 @@ Given access to unlimited quantities of pennies, nickels, dimes, toms, and quart
 90 cents
 
 ::: {.fragment}
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:292px"} 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:292px"} 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:292px"} 
-![](https://upload.wikimedia.org/wikipedia/commons/8/84/2005-Dime-Obv-Unc-P.png){style="height:214px"} 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Jefferson-Nickel-Unc-Obv.jpg/780px-Jefferson-Nickel-Unc-Obv.jpg){style="height:264px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:219px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:219px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:219px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/8/84/2005-Dime-Obv-Unc-P.png){style="height:171px"} 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Jefferson-Nickel-Unc-Obv.jpg/780px-Jefferson-Nickel-Unc-Obv.jpg){style="height:198px"} 
 :::
 
 ## [Why does greedy always work for US coins?]{.r-fit-text}
@@ -2669,10 +2714,10 @@ Given access to unlimited quantities of pennies, nickels, dimes, toms, and quart
 
 ## [1. Identify the Recursive Structure of the Problem]{.r-fit-text}
 
-<span style="font-size:80%;text-align:center">$Change(n)$: minimum number of coins needed to give change for cents</span>
+<span style="font-size:80%;text-align:center">$Change(n)$: minimum number of coins needed to give change for $n$ cents</span>
 
 ::: {.allcenter .compact style="font-size:75%"}
-| Possibilities<br>for last coin | Coins needed | |
+| Possibilities<br>for last coin | Coins needed | When to do |
 |----|----|----|
 | ![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/776px-United_States_quarter%2C_obverse%2C_2004.jpg){style="height:73px"} | $Change(n-25)+1$ | if $n \ge 25$
 |  ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Thomas_Jefferson_Presidential_%241_Coin_obverse.png/1024px-Thomas_Jefferson_Presidential_%241_Coin_obverse.png){style="height:75px;z-index:0"} | $Change(n-11)+1$ | if $n \ge 11$ |
@@ -2711,7 +2756,7 @@ Change(n-1)+1 \text{ if } n \ge 1 \\
 
 <tr><td>
 ::: {.fragment fragment-index=4}
-**Running time:** $O(kn)$
+**Running time:** $O(k \cdot n)$
 :::
 </td><td>
 ::: {.fragment fragment-index=5}
@@ -2876,6 +2921,12 @@ Method for image resizing that doesn’t scale/crop the image
 
 ## Seattle Skyline
 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Seattle_Skyline_-_2008.jpg/1280px-Seattle_Skyline_-_2008.jpg){.center style="width:50%"}
+
+::: {.fragment}
+[![](https://upload.wikimedia.org/wikipedia/commons/6/62/Seattle_skyline_from_West_Seattle_January_12%2C_2019_%28cropped%29.jpg){.center}](https://upload.wikimedia.org/wikipedia/commons/6/62/Seattle_skyline_from_West_Seattle_January_12%2C_2019_%28cropped%29.jpg)
+:::
+
 ## Energy of a Seam
 
 <div style="font-size:90%">
@@ -2888,6 +2939,10 @@ Method for image resizing that doesn’t scale/crop the image
 - Many choices for pixel energy
   - E.g.: change of gradient (how much the color of this pixel differs from its neighbors)
   - Particular choice doesn’t matter, we use it as a "black box"
+
+&nbsp;
+
+- Restriction: seam pixels go up or diagonally up, not to the side
 
 &nbsp;
 
@@ -2931,7 +2986,7 @@ Let ${\color{red}S(i,j)}=$ least energy seam from the bottom of the image up to 
 </p>
 
 <p style="display:none;margin-left:280px;margin-top:-40px">$p_{n,k}$<br>
-![](images/dp/seam-2.svg){style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px"}
+![](images/dp/seam-2.svg){style="transform:scale(2.5,2.7);margin-top:115px;margin-left:-110px"}
 </p>
 
 <table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px"><tr><td style="width:140px;height:130px">&nbsp;</td></tr></table>
@@ -2948,11 +3003,12 @@ Let ${\color{red}S(i,j)}=$ least energy seam from the bottom of the image up to 
 <table style="compact"><tr><td style="height:150px">
 Assume we know the least energy seams for all of row $n-1$ (i.e., we know $S(n-1,\ell)$ for all $\ell$)
 </td></tr></table>
+
 <table class="compact allcenter"><tr><td style="width:150px">
 <span style="">Known<br>through<br>$n-1$</span>
-</td><td style="width:20px">
+</td><td style="width:20px;padding-top:80px">
 <span style="">
-![](images/underbrace-red.svg){style="transform:rotate(90deg)scale(21,6);z-index:2"}
+![](images/underbrace-red.svg){style="transform:rotate(90deg)scale(19,6);z-index:2"}
 </span>
 </td><td>
 ::: {.r-stack}
@@ -2963,7 +3019,7 @@ Assume we know the least energy seams for all of row $n-1$ (i.e., we know $S(n-1
 </p>
 
 <p style="margin-left:280px;margin-top:-40px">$p_{n,k}$<br>
-![](images/dp/seam-2.svg){style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px"}
+![](images/dp/seam-2.svg){style="transform:scale(2.5,2.7);margin-top:115px;margin-left:-110px"}
 </p>
 
 ::: {.fragment}
@@ -2977,6 +3033,8 @@ Assume we know the least energy seams for all of row $n-1$ (i.e., we know $S(n-1
 
 
 ## Computing $\color{pink}S(n,k)$
+
+<div style="font-size:90%">
 
 Assume we know the least energy seams for all of row $n-1$ (i.e., we know $S(n-1,\ell)$ for all $\ell$)
 
@@ -2997,13 +3055,17 @@ Assume we know the least energy seams for all of row $n-1$ (i.e., we know $S(n-1
 </td></tr></table>
 
 ::: {.fragment}
-$${\color{red}S(n,k) = \min}
+$${\color{red}S(n,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{n,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{n,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{n,k}) \\
+{\color{blue}S(n-1,k-1)} & + e(p_{n,k}) \\
+{\color{purple}S(n-1,k)} & + e(p_{n,k}) \\
+{\color{magenta}S(n-1,k+1)} & + e(p_{n,k}) \\
 \end{cases}$$
 :::
+
+</div>
+
+
 
 ## Finding the Least Energy Seam
 
@@ -3025,7 +3087,7 @@ Want to delete the least energy seam going from bottom to top, so delete: $\min_
 </p>
 
 <p style="margin-left:280px;margin-top:-40px">$p_{n,k}$<br>
-![](images/dp/seam-2.svg){style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px"}
+![](images/dp/seam-2.svg){style="transform:scale(2.5,2.7);margin-top:115px;margin-left:-110px"}
 </p>
 
 <table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px"><tr><td style="width:140px;height:130px">&nbsp;</td></tr></table>
@@ -3056,6 +3118,8 @@ Want to delete the least energy seam going from bottom to top, so delete: $\min_
 
 ## Computing $\color{pink}S(n,k)$
 
+<div style="font-size:90%">
+
 Assume we know the least energy seams for all of row $n-1$ (i.e., we know $S(n-1,\ell)$ for all $\ell$)
 
 <table class='allcenter compact table-of-boxes'>
@@ -3074,12 +3138,14 @@ Assume we know the least energy seams for all of row $n-1$ (i.e., we know $S(n-1
 <table><tr><td style="background-color:magenta">$\color{white}S(n-1,k+1)$</td></tr></table>
 </td></tr></table>
 
-$${\color{red}S(n,k) = \min}
+$${\color{red}S(n,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{n,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{n,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{n,k}) \\
+{\color{blue}S(n-1,k-1)} & + e(p_{n,k}) \\
+{\color{purple}S(n-1,k)} & + e(p_{n,k}) \\
+{\color{magenta}S(n-1,k+1)} & + e(p_{n,k}) \\
 \end{cases}$$
+
+</div>
 
 
 ## Finding the Least Energy Seam
@@ -3102,7 +3168,7 @@ Want to delete the least energy seam going from bottom to top, so delete: $\min_
 </p>
 
 <p style="margin-left:280px;margin-top:-40px">$p_{n,k}$<br>
-![](images/dp/seam-2.svg){style="transform:scale(2.25,2.35);margin-top:115px;margin-left:-110px"}
+![](images/dp/seam-2.svg){style="transform:scale(2.5,2.7);margin-top:115px;margin-left:-110px"}
 </p>
 
 <table style="display:none;border:3px solid orange;margin-top:-35px;margin-left:255px"><tr><td style="width:140px;height:130px">&nbsp;</td></tr></table>
@@ -3136,13 +3202,13 @@ Want to delete the least energy seam going from bottom to top, so delete: $\min_
 <table style="font-size:80%;text-size:80%;width:100%">
 <tr style="height:70px"><td>Start from bottom of image (row 1), solve up to top</td><td style="width:170px"></td></tr>
 <tr style="height:80px"><td><span class='green'>Initialize $S(1,k)=e(p_{1,k})$ for each pixel in row 1</span></td><td><span style="display:none;">$\color{green}\Theta(m)$</span></td></tr>
-<tr style="height:240px"><td>
-<span style="display:none;font-size:90%">$${\color{red}\text{For }i>2 \text{ find }} {\color{red}S(i,k) = \min}
+<tr style="height:180px"><td>
+<span style="font-size:90%;display:none">For $i \ge 2$ find ${\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
-\end{cases}$$
+{\color{purple}S(n-1,k-1)} & + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} & + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} & + e(p_{i,k}) \\
+\end{cases}$
 </span></td><td><span style="display:none;">$\color{red}\Theta(n \cdot m)$</span></td></tr>
 <tr style="height:80px"><td><span style="display:none;">Pick smallest from top row, backtrack, removing those pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
 <tr style="height:300px"><td> ![](images/dp/seam-grid-2.svg) </td><td style="color:green;vertical-align:middle;font-size:75%"><span style="">Energy of the seam initialized to the energy of that pixel</span></td></tr>
@@ -3155,13 +3221,13 @@ Want to delete the least energy seam going from bottom to top, so delete: $\min_
 <table style="font-size:80%;text-size:80%;width:100%">
 <tr style="height:70px"><td>Start from bottom of image (row 1), solve up to top</td><td style="width:170px"></td></tr>
 <tr style="height:80px"><td><span class='green'>Initialize $S(1,k)=e(p_{1,k})$ for each pixel $p_{1,k}$</span></td><td><span style="display:none;">$\color{green}\Theta(m)$</span></td></tr>
-<tr style="height:240px"><td>
-<span style="font-size:90%">$${\color{red}\text{For }i>2 \text{ find }} {\color{red}S(i,k) = \min}
+<tr style="height:180px"><td>
+<span style="font-size:90%">For $i \ge 2$ find ${\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
-\end{cases}$$
+{\color{purple}S(n-1,k-1)} & + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} & + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} & + e(p_{i,k}) \\
+\end{cases}$
 </span></td><td><span style="display:none;">$\color{red}\Theta(n \cdot m)$</span></td></tr>
 <tr style="height:80px"><td><span style="display:none;">Pick smallest from top row, backtrack, removing those pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
 <tr style="height:300px"><td> ![](images/dp/seam-grid-3.svg) </td><td style="color:green;vertical-align:middle;font-size:75%"><span style="">Energy of the seam initialized to the energy of that pixel</span></td></tr>
@@ -3174,13 +3240,13 @@ Want to delete the least energy seam going from bottom to top, so delete: $\min_
 <table style="font-size:80%;text-size:80%;width:100%">
 <tr style="height:70px"><td>Start from bottom of image (row 1), solve up to top</td><td style="width:170px"></td></tr>
 <tr style="height:80px"><td><span class='green'>Initialize $S(1,k)=e(p_{1,k})$ for each pixel $p_{1,k}$</span></td><td><span style="display:none;">$\color{green}\Theta(m)$</span></td></tr>
-<tr style="height:240px"><td>
-<span style="font-size:90%">$${\color{red}\text{For }i>2 \text{ find }} {\color{red}S(i,k) = \min}
+<tr style="height:180px"><td>
+<span style="font-size:90%">For $i \ge 2$ find ${\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
-\end{cases}$$
+{\color{purple}S(n-1,k-1)} & + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} & + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} & + e(p_{i,k}) \\
+\end{cases}$
 </span></td><td><span style="display:none;">$\color{red}\Theta(n \cdot m)$</span></td></tr>
 <tr style="height:80px"><td><span style="">Pick smallest from top row, backtrack, removing those pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
 <tr style="height:300px"><td> ![](images/dp/seam-grid-3.svg) </td><td style="color:green;vertical-align:middle;font-size:75%"><span style="">Energy of the seam initialized to the energy of that pixel</span></td></tr>
@@ -3197,13 +3263,13 @@ Want to delete the least energy seam going from bottom to top, so delete: $\min_
 <span style="">$\color{green}\Theta(m)$</span>
 :::
 </td></tr>
-<tr style="height:240px"><td>
-<span style="font-size:90%">$${\color{red}\text{For }i>2 \text{ find }} {\color{red}S(i,k) = \min}
+<tr style="height:180px"><td>
+<span style="font-size:90%">For $i \ge 2$ find ${\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} \hspace{0.75in} + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} + e(p_{i,k}) \\
-\end{cases}$$
+{\color{purple}S(n-1,k-1)} & + e(p_{i,k}) \\
+{\color{blue}S(n-1,k)} & + e(p_{i,k}) \\
+{\color{magenta}S(n-1,k+1)} & + e(p_{i,k}) \\
+\end{cases}$
 </span></td><td>
 ::: {.fragment}
 <span style="">$\color{red}\Theta(n \cdot m)$</span>
@@ -3291,7 +3357,7 @@ Brute force: compare every subsequence of $X$ with $Y$: $\Omega(2^n)$
 
 <div style="font-size:70% !important">
 
-Let $LCS(i.j)=$ length of the LCS for the first $i$ characters of $X$, first $j$ character of $Y$
+Let $LCS(i.j)=$ length of the LCS for the first $i$ characters of $X$, first $j$ characters of $Y$
 
 Find $\color{magenta}LCS(i,j)$:
 
@@ -3301,8 +3367,8 @@ Find $\color{magenta}LCS(i,j)$:
 <td style="width:50%">
 
 ::: {.fragment fragment-index=1}
-X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span>A<span class='magenta'>T</span><br>
-Y = A<span class='red'>TCT</span>GCG<span class='magenta'>T</span>
+X = A<span class='red'>TCT</span>GCG<span class='magenta'>T</span><br>
+Y = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span>A<span class='magenta'>T</span>
 :::
 
 </td></tr>
@@ -3319,15 +3385,15 @@ $LCS(i,j)=LCS(i-1,j-1)+1$
 <tr><td style="text-align:center">
 
 ::: {.fragment fragment-index=3}
-X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span>A<span class='magenta'>T</span><br>
-Y = A<span class='red'>TCT</span>G<span class='magenta'>C</span>GT
+X = A<span class='red'>TCT</span>GCG<span class='magenta'>A</span><br>
+Y = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span><span class='magenta'>A</span>T
 :::
 
 </td><td style="text-align:center">
 
 ::: {.fragment fragment-index=5}
-X = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span><span class='magenta'>A</span>T<br>
-Y = A<span class='red'>TCT</span>GCG<span class='magenta'>A</span>
+X = A<span class='red'>TCT</span>G<span class='magenta'>C</span>GT<br>
+Y = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</span>A<span class='magenta'>C</span>
 :::
 
 </td></tr>
@@ -3380,7 +3446,7 @@ $$LCS(i,j) = \max
 
 ## [Top-Down Solution with Memoization]{.r-fit-text}
 
-We need two functions; one will be recursive.
+We need two functions; one will be recursive
 
 <div style="font-size:60% !important">
 
@@ -3474,20 +3540,20 @@ Fill from top &rarr; bottom, left &rarr; right (with any preference)
 
 
 
-## LCS Length Algorithm
+## LCS Length Algorithm: Bottom-Up
 
 ::: {.no-bullets style="font-size:90%"}
 - LCS-Length(X, Y) <span class='green'>// Y for M’s rows, X for its columns</span>
-  - n = length(X)  <span class='green'>// get the # of symbols in X</span>
-  - m  = length(Y) <span class='green'>// get the # of symbols in Y</span>
+  - n = length(X)  <span class='green'>// get the length of X</span>
+  - m  = length(Y) <span class='green'>// get the length of Y</span>
   - for i = 1 to n: M[i,0] = 0 <span class='green'>// special case: X0</span>
   - for j = 1 to m: M[0,j] = 0 <span class='green'>// special case: Y0</span>
   - for i = 1 to n: <span class='green'>// for all Xi</span>
-  - for j = 1 to m: <span class='green'>// for all Yj</span>
-    - if ( X[i] == Y[j] )
-      - M[i,j] = M[i-1,j-1] + 1
-    - else
-      - M[i,j] = max( M[i-1,j], M[i,j-1] )
+    - for j = 1 to m: <span class='green'>// for all Yj</span>
+      - if ( X[i] == Y[j] )
+        - M[i,j] = M[i-1,j-1] + 1
+      - else
+        - M[i,j] = max( M[i-1,j], M[i,j-1] )
   - return M[n,m]   <span class='green'>// return LCS length for Y and X</span>
 :::
 
@@ -3582,25 +3648,25 @@ $$\scriptstyle LCS(i,j) = \max
 
 <img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:640px"> <!-- y=7 -->
 
-<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px" class="fragment" > <!-- x=5 -->
+[<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-left:600px">]{.fragment fragment-index=2}
 
-<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-left:600px" class="fragment">
+[<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px">]{.fragment fragment-index=3} <!-- x=5 -->
 
-<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-78px;margin-right:600px" class="fragment"> <!-- x=4 -->
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:565px">]{.fragment fragment-index=4}
 
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:565px" class="fragment">
+[<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-78px;margin-right:600px">]{.fragment fragment-index=5} <!-- x=4 -->
 
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-56px;margin-left:415px" class="fragment">
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-56px;margin-left:415px">]{.fragment fragment-index=6}
 
-<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px" class="fragment"> <!-- x=2 -->
+[<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-12px;margin-left:300px">]{.fragment fragment-index=7}
 
-<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-12px;margin-left:300px" class="fragment">
+[<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px">]{.fragment fragment-index=8} <!-- x=2 -->
 
-<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px" class="fragment"> <!-- x=1 -->
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:55px;margin-left:265px">]{.fragment fragment-index=9}
 
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:55px;margin-left:265px" class="fragment">
+[<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px">]{.fragment fragment-index=10} <!-- x=1 -->
 
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-left:115px" class="fragment">
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-left:115px">]{.fragment fragment-index=11}
 
 :::
 
@@ -3637,31 +3703,29 @@ $$\scriptstyle LCS(i,j) = \max
 
 <img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:640px"> <!-- y=7 -->
 
-<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px"> <!-- x=1 -->
+[<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px">]{.fragment fragment-index=11} <!-- x=1 -->
 
-<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px"> <!-- x=2 -->
+[<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-42px;margin-right:600px">]{.fragment fragment-index=8} <!-- x=3 -->
 
-<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-42px;margin-right:600px"> <!-- x=3 -->
+[<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-78px;margin-right:600px">]{.fragment fragment-index=4} <!-- x=4 -->
 
-<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-78px;margin-right:600px" > <!-- x=4 -->
+[<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px">]{.fragment fragment-index=2} <!-- x=5 -->
 
-<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-114px;margin-right:600px" > <!-- x=5 -->
+[<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-left:600px">]{.fragment fragment-index=1}
 
-<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-127px;margin-left:600px" class="fragment">
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:565px">]{.fragment fragment-index=3}
 
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:565px" class="fragment">
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-56px;margin-left:415px">]{.fragment fragment-index=5}
 
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-56px;margin-left:415px" class="fragment">
+[<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-30px;margin-left:265px">]{.fragment fragment-index=6}
 
-<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-30px;margin-left:265px" class="fragment">
+[<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-30px;margin-left:110px">]{.fragment fragment-index=7}
 
-<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-30px;margin-left:110px" class="fragment">
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-10px;margin-right:43px">]{.fragment fragment-index=9}
 
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-10px;margin-right:43px" class="fragment">
+[<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:62px;margin-right:155px">]{.fragment fragment-index=10}
 
-<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:62px;margin-right:155px" class="fragment">
-
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-right:195px" class="fragment">
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-right:195px">]{.fragment fragment-index=12}
 
 :::
 
@@ -3693,31 +3757,31 @@ $$\scriptstyle LCS(i,j) = \max
 
 <img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:-42px;margin-right:600px"> <!-- x=3 -->
 
-<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:8px;margin-right:600px"> <!-- x=2 -->
+<img src="images/dp/lcs-box.svg" style="scale:90%;margin-bottom:81px;margin-right:600px"> <!-- x=1 -->
 
-<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-142px;margin-left:565px" class="fragment">
+[<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-142px;margin-left:565px">]{.fragment fragment-index=1}
 
-<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:494px" class="fragment"> <!-- y=6 -->
+[<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:494px">]{.fragment fragment-index=2} <!-- y=6 -->
 
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-130px;margin-left:415px" class="fragment">
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-130px;margin-left:415px">]{.fragment fragment-index=3}
 
-<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-104px;margin-left:260px" class="fragment">
+[<img src="images/dp/lcs-arrow-w.svg" style="margin-bottom:-104px;margin-left:260px">]{.fragment fragment-index=4}
 
-<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:194px" class="fragment"> <!-- y=4 -->
+[<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:194px">]{.fragment fragment-index=5} <!-- y=4 -->
 
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:115px" class="fragment">
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-93px;margin-left:115px">]{.fragment fragment-index=6}
 
-<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-53px;margin-left:0px" class="fragment">
+[<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:-53px;margin-left:0px">]{.fragment fragment-index=7}
 
-<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:45px" class="fragment"> <!-- y=3 -->
+[<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-left:45px">]{.fragment fragment-index=8} <!-- y=3 -->
 
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-10px;margin-right:43px" class="fragment">
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:-10px;margin-right:43px">]{.fragment fragment-index=9}
 
-<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:62px;margin-right:155px" class="fragment">
+[<img src="images/dp/lcs-arrow-n.svg" style="margin-bottom:62px;margin-right:155px">]{.fragment fragment-index=10}
 
-<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-right:100px" class="fragment"> <!-- y=2 -->
+[<img src="images/dp/lcs-box.svg" style="margin-bottom:283px;margin-right:100px">]{.fragment fragment-index=11} <!-- y=2 -->
 
-<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-right:195px" class="fragment">
+[<img src="images/dp/lcs-arrow-nw.svg" style="margin-bottom:125px;margin-right:195px">]{.fragment fragment-index=12}
 
 :::
 
