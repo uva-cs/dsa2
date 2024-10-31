@@ -3093,7 +3093,7 @@ Select a good order for solving subproblems
 <ul>
 <li>Let <span class="math inline">\(k\)</span> be the <em>last</em> multiplication that is made
 <ul>
-<li><span class="math inline">\(k\)</span> represents the <span class="math inline">\(\times\)</span> symbol after matrix <span class="math inline">\(M_k\)</span></li>
+<li><span class="math inline">\(k\)</span> represents the <span class="math inline">\(\times\)</span> symbol <em>after</em> matrix <span class="math inline">\(M_k\)</span></li>
 </ul></li>
 <li>For <span class="math inline">\(Best(1,10)\)</span>, if <span class="math inline">\(k=5\)</span>, then:
 <ul>
@@ -6692,7 +6692,7 @@ Each “call” to <span class="math inline">\(Best(i,j)\)</span> is an<br><span
 </ul></li>
 </ul>
 </div>
-<p><strong>Observation:</strong> We can rewrite this to take <span class="math inline">\(\lfloor n/c \rfloor\)</span> copies of the next largest coin at each step, and reduce <span class="math inline">\(x\)</span> by <span class="math inline">\(c \cdot \lfloor n/c \rfloor\)</span>. Also avoid call to max() by choosing next <span class="math inline">\(c_i\)</span> from largest to smallest, so <span class="math inline">\(C\)</span> must be sorted.</p>
+<p><strong>Observation:</strong> We can rewrite this to take <span class="math inline">\(\lfloor n/c \rfloor\)</span> copies of the next largest coin at each step, and reduce <span class="math inline">\(x\)</span> by <span class="math inline">\(c \cdot \lfloor n/c \rfloor\)</span>. Also avoid call to max() by choosing next <span class="math inline">\(c_i\)</span> from largest to smallest (sort <span class="math inline">\(C\)</span> first).</p>
 </div>
 </section>
 <section id="greedy-solution" class="slide level2">
@@ -7069,6 +7069,9 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 </td>
 </tr>
 </tbody></table>
+<div class="fragment" data-fragment-index="3">
+<p>(There are more visually pleasing ways to scale images)</p>
+</div>
 </section>
 <section id="seam-carving-2" class="slide level2">
 <h2>Seam Carving</h2>
@@ -7144,16 +7147,14 @@ Input size is <span class="math inline">\(O(k \log n)\)</span>
 <ul>
 <li>Many choices for pixel energy
 <ul>
-<li>E.g.: change of gradient (how much the color of this pixel differs from its neighbors)</li>
+<li>Change of gradient (how much the color of this pixel differs from its neighbors)</li>
+<li>Shortest path (more color change means more distance)</li>
 <li>Particular choice doesn’t matter, we use it as a “black box”</li>
 </ul></li>
 </ul>
 <p>&nbsp;</p>
 <ul>
 <li>Restriction: seam pixels go up or diagonally up, not to the side</li>
-</ul>
-<p>&nbsp;</p>
-<ul>
 <li>Goal: find least-energy seam to remove</li>
 </ul>
 </div>
@@ -7646,7 +7647,7 @@ Start from bottom of image (row 1), solve up to top
 </tr>
 <tr style="height:180px">
 <td>
-<span style="font-size:90%;display:none">For <span class="math inline">\(i \ge 2\)</span> find <span class="math inline">\({\color{red}S(i,k)} = \min
+<span style="font-size:90%;display:none">For <span class="math inline">\(i \ge 2\)</span> find <span class="math inline">\({\color{red}S(n,k)} = \min
 \begin{cases}
 {\color{purple}S(n-1,k-1)} &amp; + e(p_{i,k}) \\
 {\color{blue}S(n-1,k)} &amp; + e(p_{i,k}) \\
@@ -7659,7 +7660,7 @@ Start from bottom of image (row 1), solve up to top
 </tr>
 <tr style="height:80px">
 <td>
-<span style="display:none;">Pick smallest from top row, backtrack, removing those pixels
+<span style="display:none;">Pick min <span class="math inline">\(\color{red}S(n,k)\)</span> from top row, backtrack, deleting pixels
 </span></td>
 <td>
 <span style="display:none;"><span class="math inline">\(\Theta(n+m)\)</span></span>
@@ -7698,9 +7699,9 @@ Start from bottom of image (row 1), solve up to top
 <td>
 <span style="font-size:90%">For <span class="math inline">\(i \ge 2\)</span> find <span class="math inline">\({\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} &amp; + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} &amp; + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} &amp; + e(p_{i,k}) \\
+{\color{purple}S(i-1,k-1)} &amp; + e(p_{i,k}) \\
+{\color{blue}S(i-1,k)} &amp; + e(p_{i,k}) \\
+{\color{magenta}S(i-1,k+1)} &amp; + e(p_{i,k}) \\
 \end{cases}\)</span> </span>
 </td>
 <td>
@@ -7709,7 +7710,7 @@ Start from bottom of image (row 1), solve up to top
 </tr>
 <tr style="height:80px">
 <td>
-<span style="display:none;">Pick smallest from top row, backtrack, removing those pixels
+<span style="display:none;">Pick min <span class="math inline">\(\color{red}S(n,k)\)</span> from top row, backtrack, deleting pixels
 </span></td>
 <td>
 <span style="display:none;"><span class="math inline">\(\Theta(n+m)\)</span></span>
@@ -7748,9 +7749,9 @@ Start from bottom of image (row 1), solve up to top
 <td>
 <span style="font-size:90%">For <span class="math inline">\(i \ge 2\)</span> find <span class="math inline">\({\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} &amp; + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} &amp; + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} &amp; + e(p_{i,k}) \\
+{\color{purple}S(i-1,k-1)} &amp; + e(p_{i,k}) \\
+{\color{blue}S(i-1,k)} &amp; + e(p_{i,k}) \\
+{\color{magenta}S(i-1,k+1)} &amp; + e(p_{i,k}) \\
 \end{cases}\)</span> </span>
 </td>
 <td>
@@ -7759,7 +7760,7 @@ Start from bottom of image (row 1), solve up to top
 </tr>
 <tr style="height:80px">
 <td>
-<span style="">Pick smallest from top row, backtrack, removing those pixels
+<span style="">Pick min <span class="math inline">\(\color{red}S(n,k)\)</span> from top row, backtrack, deleting pixels
 </span></td>
 <td>
 <span style="display:none;"><span class="math inline">\(\Theta(n+m)\)</span></span>
@@ -7800,9 +7801,9 @@ Start from bottom of image (row 1), solve up to top
 <td>
 <span style="font-size:90%">For <span class="math inline">\(i \ge 2\)</span> find <span class="math inline">\({\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} &amp; + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} &amp; + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} &amp; + e(p_{i,k}) \\
+{\color{purple}S(i-1,k-1)} &amp; + e(p_{i,k}) \\
+{\color{blue}S(i-1,k)} &amp; + e(p_{i,k}) \\
+{\color{magenta}S(i-1,k+1)} &amp; + e(p_{i,k}) \\
 \end{cases}\)</span> </span>
 </td>
 <td>
@@ -7813,7 +7814,7 @@ Start from bottom of image (row 1), solve up to top
 </tr>
 <tr style="height:80px">
 <td>
-<span style="">Pick smallest from top row, backtrack, removing those pixels
+<span style="">Pick min <span class="math inline">\(\color{red}S(n,k)\)</span> from top row, backtrack, deleting pixels
 </span></td>
 <td>
 <div class="fragment">

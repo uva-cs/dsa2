@@ -1238,7 +1238,7 @@ Readings in CLRS 4th edition: chapter 14, specifically 14.2
 $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 
 - Let $k$ be the *last* multiplication that is made
-	- $k$ represents the $\times$ symbol after matrix $M_k$
+	- $k$ represents the $\times$ symbol *after* matrix $M_k$
 - For $Best(1,10)$, if $k=5$, then:
   - We first multiply $M_1$ through $M_5$ together
   - We then multiply $M_6$ through $M_10$ together
@@ -2631,7 +2631,7 @@ Given access to unlimited quantities of pennies, nickels, dimes, toms, and quart
   - $x=x-c$
 :::
 
-**Observation:** We can rewrite this to take $\lfloor n/c \rfloor$ copies of the next largest coin at each step, and reduce $x$ by $c \cdot \lfloor n/c \rfloor$.  Also avoid call to max() by choosing next $c_i$ from largest to smallest, so $C$ must be sorted.
+**Observation:** We can rewrite this to take $\lfloor n/c \rfloor$ copies of the next largest coin at each step, and reduce $x$ by $c \cdot \lfloor n/c \rfloor$.  Also avoid call to max() by choosing next $c_i$ from largest to smallest (sort $C$ first).
 
 </div>
 
@@ -2879,6 +2879,9 @@ Removes "stripes" of pixels
 :::
 </td></tr></table>
 
+::: {.fragment fragment-index=3}
+(There are more visually pleasing ways to scale images)
+:::
 
 ## Seam Carving
 
@@ -2937,15 +2940,13 @@ Method for image resizing that doesn’t scale/crop the image
 &nbsp;
 
 - Many choices for pixel energy
-  - E.g.: change of gradient (how much the color of this pixel differs from its neighbors)
-  - Particular choice doesn’t matter, we use it as a "black box"
+  - Change of gradient (how much the color of this pixel differs from its neighbors)
+  - Shortest path (more color change means more distance)
+  - Particular choice doesn't matter, we use it as a "black box"
 
 &nbsp;
 
 - Restriction: seam pixels go up or diagonally up, not to the side
-
-&nbsp;
-
 - Goal: find least-energy seam to remove
 </div>
 
@@ -3203,14 +3204,14 @@ Want to delete the least energy seam going from bottom to top, so delete: $\min_
 <tr style="height:70px"><td>Start from bottom of image (row 1), solve up to top</td><td style="width:170px"></td></tr>
 <tr style="height:80px"><td><span class='green'>Initialize $S(1,k)=e(p_{1,k})$ for each pixel in row 1</span></td><td><span style="display:none;">$\color{green}\Theta(m)$</span></td></tr>
 <tr style="height:180px"><td>
-<span style="font-size:90%;display:none">For $i \ge 2$ find ${\color{red}S(i,k)} = \min
+<span style="font-size:90%;display:none">For $i \ge 2$ find ${\color{red}S(n,k)} = \min
 \begin{cases}
 {\color{purple}S(n-1,k-1)} & + e(p_{i,k}) \\
 {\color{blue}S(n-1,k)} & + e(p_{i,k}) \\
 {\color{magenta}S(n-1,k+1)} & + e(p_{i,k}) \\
 \end{cases}$
 </span></td><td><span style="display:none;">$\color{red}\Theta(n \cdot m)$</span></td></tr>
-<tr style="height:80px"><td><span style="display:none;">Pick smallest from top row, backtrack, removing those pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
+<tr style="height:80px"><td><span style="display:none;">Pick min $\color{red}S(n,k)$ from top row, backtrack, deleting pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
 <tr style="height:300px"><td> ![](images/dp/seam-grid-2.svg) </td><td style="color:green;vertical-align:middle;font-size:75%"><span style="">Energy of the seam initialized to the energy of that pixel</span></td></tr>
 </table>
 </span>
@@ -3224,12 +3225,12 @@ Want to delete the least energy seam going from bottom to top, so delete: $\min_
 <tr style="height:180px"><td>
 <span style="font-size:90%">For $i \ge 2$ find ${\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} & + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} & + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} & + e(p_{i,k}) \\
+{\color{purple}S(i-1,k-1)} & + e(p_{i,k}) \\
+{\color{blue}S(i-1,k)} & + e(p_{i,k}) \\
+{\color{magenta}S(i-1,k+1)} & + e(p_{i,k}) \\
 \end{cases}$
 </span></td><td><span style="display:none;">$\color{red}\Theta(n \cdot m)$</span></td></tr>
-<tr style="height:80px"><td><span style="display:none;">Pick smallest from top row, backtrack, removing those pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
+<tr style="height:80px"><td><span style="display:none;">Pick min $\color{red}S(n,k)$ from top row, backtrack, deleting pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
 <tr style="height:300px"><td> ![](images/dp/seam-grid-3.svg) </td><td style="color:green;vertical-align:middle;font-size:75%"><span style="">Energy of the seam initialized to the energy of that pixel</span></td></tr>
 </table>
 </span>
@@ -3243,12 +3244,12 @@ Want to delete the least energy seam going from bottom to top, so delete: $\min_
 <tr style="height:180px"><td>
 <span style="font-size:90%">For $i \ge 2$ find ${\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} & + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} & + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} & + e(p_{i,k}) \\
+{\color{purple}S(i-1,k-1)} & + e(p_{i,k}) \\
+{\color{blue}S(i-1,k)} & + e(p_{i,k}) \\
+{\color{magenta}S(i-1,k+1)} & + e(p_{i,k}) \\
 \end{cases}$
 </span></td><td><span style="display:none;">$\color{red}\Theta(n \cdot m)$</span></td></tr>
-<tr style="height:80px"><td><span style="">Pick smallest from top row, backtrack, removing those pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
+<tr style="height:80px"><td><span style="">Pick min $\color{red}S(n,k)$ from top row, backtrack, deleting pixels</td><td><span style="display:none;">$\Theta(n+m)$</span></td></tr>
 <tr style="height:300px"><td> ![](images/dp/seam-grid-3.svg) </td><td style="color:green;vertical-align:middle;font-size:75%"><span style="">Energy of the seam initialized to the energy of that pixel</span></td></tr>
 </table>
 </span>
@@ -3266,16 +3267,16 @@ Want to delete the least energy seam going from bottom to top, so delete: $\min_
 <tr style="height:180px"><td>
 <span style="font-size:90%">For $i \ge 2$ find ${\color{red}S(i,k)} = \min
 \begin{cases}
-{\color{purple}S(n-1,k-1)} & + e(p_{i,k}) \\
-{\color{blue}S(n-1,k)} & + e(p_{i,k}) \\
-{\color{magenta}S(n-1,k+1)} & + e(p_{i,k}) \\
+{\color{purple}S(i-1,k-1)} & + e(p_{i,k}) \\
+{\color{blue}S(i-1,k)} & + e(p_{i,k}) \\
+{\color{magenta}S(i-1,k+1)} & + e(p_{i,k}) \\
 \end{cases}$
 </span></td><td>
 ::: {.fragment}
 <span style="">$\color{red}\Theta(n \cdot m)$</span>
 :::
 </td></tr>
-<tr style="height:80px"><td><span style="">Pick smallest from top row, backtrack, removing those pixels</td><td>
+<tr style="height:80px"><td><span style="">Pick min $\color{red}S(n,k)$ from top row, backtrack, deleting pixels</td><td>
 ::: {.fragment}
 <span style="">$\Theta(n+m)$</span>
 :::
