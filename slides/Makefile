@@ -1,4 +1,4 @@
-SLIDE_SETS: dp.html
+SLIDE_SETS: dp.html announcements.html
 .SUFFIXES: .qmd .html
 .PHONY: slides all clean
 

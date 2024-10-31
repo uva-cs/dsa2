@@ -1,6 +1,26 @@
 ---
-title: "DSA2 Announcements, Fall 2024"
+title: "Announcements, Fall 2024"
 ---
+
+::: {.announcements}
+# Halloween!!! Thursday, October 31st
+
+- PS6 due last night
+- PS7 out late this week, will be on DP, due next Wed
+- PA3 out, due this Fri, Nov 1st
+- No lecture (or office hours) next Tuesday, Nov 5th
+- Grading update
+	- PS0, PS3, and PS4 have been returned
+	- Regrades for the quizzes and PS3 & 4 will be opened until late this week
+		- Use this responsibly!
+	- Still to grade: regrades
+- Office hours (reminder)
+	- Prof Bloomfield Office Hours: Tue 1:00-2:30 and Thu 2:00-3:00 in Rice 402
+	- Prof Pettit Office Hours: Mon 2:30-4:00 and Wed 1:30-3:00 in Rice 212
+	- TA office hours: Sunday through Thursday from 5 pm to 9 pm
+	- Sun/Tue/Thu in Rice 032, Mon/Wed in Rice 540
+- Today's lecture: [Dynamic Programming](dp.html)
+:::
 
 ::: {.announcements}
 # Tuesday, October 29th
