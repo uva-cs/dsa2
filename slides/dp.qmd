@@ -145,31 +145,99 @@ Tile(n):
 :::
 
 
-## Recursion Tree  {auto-animate=true}
+## Recursion Tree
 
-::: {.center}
-![](graphs/dp.dot.1.svg)
-:::
+```{dot}
+digraph BST {
+		layout=dot;
+		node [fontname="Arial",shape=box,fillcolor=yellow,style="rounded,filled"];
+		five [label="Tile(5)"];
+		four [label="Tile(4)"];
+		threea [label="Tile(3)"];
+		threeb [label="Tile(3)"];
+		twoa [label="Tile(2)"];
+		twob [label="Tile(2)"];
+		twoc [label="Tile(2)"];
+		onea [label="Tile(1)"];
+		oneb [label="Tile(1)"];
+		onec [label="Tile(1)"];
+		oned [label="Tile(1)"];
+		onee [label="Tile(1)"];
+		zeroa [label="Tile(0)"];
+		zerob [label="Tile(0)"];
+		zeroc [label="Tile(0)"];
+
+		five -> four;
+		five -> threea;
+		four -> threeb;
+		four -> twoa;
+		threea -> twob;
+		threea -> onea;
+		threeb -> twoc;
+		threeb -> oneb;
+		twoa -> onec;
+		twoa -> zeroa;
+		twob -> oned;
+		twob -> zerob;
+		twoc -> onee;
+		twoc -> zeroc;
+}
+```
 
 
-## Recursion Tree {auto-animate=true}
+## Recursion Tree
 
-::: {.center}
-![](graphs/dp.dot.2.svg)
-:::
+```{dot}
+digraph BST2 {
+		layout=dot;
+		node [fontname="Arial",shape=box,fillcolor=red,style="rounded,filled"];
+		five [label="Tile(5)",fillcolor=yellow];
+		four [label="Tile(4)",fillcolor=yellow];
+		threea [label="Tile(3)"];
+		threeb [label="Tile(3)",fillcolor=yellow];
+		twoa [label="Tile(2)"];
+		twob [label="Tile(2)"];
+		twoc [label="Tile(2)",fillcolor=yellow];
+		onea [label="Tile(1)"];
+		oneb [label="Tile(1)"];
+		onec [label="Tile(1)"];
+		oned [label="Tile(1)"];
+		onee [label="Tile(1)",fillcolor=yellow];
+		zeroa [label="Tile(0)"];
+		zerob [label="Tile(0)"];
+		zeroc [label="Tile(0)",fillcolor=yellow];
 
+		five -> four;
+		five -> threea;
+		four -> threeb;
+		four -> twoa;
+		threea -> twob;
+		threea -> onea;
+		threeb -> twoc;
+		threeb -> oneb;
+		twoa -> onec;
+		twoa -> zeroa;
+		twob -> oned;
+		twob -> zerob;
+		twoc -> onee;
+		twoc -> zeroc;
+}
+```
+
+<table><tr><td>
 ::: {.fragment}
-<p class='red center'>Many redundant calls!</p>
+<p class='red center' style="margin:0">Many redundant calls!</p>
 :::
-
+</td><td>
 ::: {.fragment}
-<p class='red center'>Run time: $\Theta(1.6^n)$</p>
+<p class='red center' style="margin:0">Run time: $\Theta(1.6^n)$</p>
 :::
-
+</td></tr>
+<tr><td colspan='2'>
 ::: {.fragment}
-<p class='magenta'>Better way: Use Memory!</p>
+<p class='magenta' style="margin:0">Better way: Use Memory!</p>
 :::
-
+</td></tr></table>
 
 
 ## Computing $Tile(n)$ with memory

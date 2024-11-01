@@ -712,32 +712,418 @@ Problem?
 </div>
 </div>
 </section>
-<section id="recursion-tree" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Recursion Tree</h2>
-<div class="center">
-<p><img data-src="graphs/dp.dot.1.svg"></p>
+<section id="recursion-tree" class="slide level2">
+<h2>Recursion Tree</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 470.67 332.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 328)">
+<title>BST</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-328 466.67,-328 466.67,4 -4,4"></polygon>
+<!-- five -->
+<g id="node1" class="node">
+<title>five</title>
+<path fill="yellow" stroke="black" d="M339.5,-324C339.5,-324 308.16,-324 308.16,-324 302.16,-324 296.16,-318 296.16,-312 296.16,-312 296.16,-300 296.16,-300 296.16,-294 302.16,-288 308.16,-288 308.16,-288 339.5,-288 339.5,-288 345.5,-288 351.5,-294 351.5,-300 351.5,-300 351.5,-312 351.5,-312 351.5,-318 345.5,-324 339.5,-324"></path>
+<text text-anchor="middle" x="323.83" y="-301.8" font-family="Arial" font-size="14.00">Tile(5)</text>
+</g>
+<!-- four -->
+<g id="node2" class="node">
+<title>four</title>
+<path fill="yellow" stroke="black" d="M265.5,-252C265.5,-252 234.16,-252 234.16,-252 228.16,-252 222.16,-246 222.16,-240 222.16,-240 222.16,-228 222.16,-228 222.16,-222 228.16,-216 234.16,-216 234.16,-216 265.5,-216 265.5,-216 271.5,-216 277.5,-222 277.5,-228 277.5,-228 277.5,-240 277.5,-240 277.5,-246 271.5,-252 265.5,-252"></path>
+<text text-anchor="middle" x="249.83" y="-229.8" font-family="Arial" font-size="14.00">Tile(4)</text>
+</g>
+<!-- five&#45;&gt;four -->
+<g id="edge1" class="edge">
+<title>five-&gt;four</title>
+<path fill="none" stroke="black" d="M305.54,-287.7C296.4,-279.05 285.19,-268.45 275.23,-259.03"></path>
+<polygon fill="black" stroke="black" points="277.59,-256.43 267.92,-252.1 272.78,-261.52 277.59,-256.43"></polygon>
+</g>
+<!-- threea -->
+<g id="node3" class="node">
+<title>threea</title>
+<path fill="yellow" stroke="black" d="M376.5,-252C376.5,-252 345.16,-252 345.16,-252 339.16,-252 333.16,-246 333.16,-240 333.16,-240 333.16,-228 333.16,-228 333.16,-222 339.16,-216 345.16,-216 345.16,-216 376.5,-216 376.5,-216 382.5,-216 388.5,-222 388.5,-228 388.5,-228 388.5,-240 388.5,-240 388.5,-246 382.5,-252 376.5,-252"></path>
+<text text-anchor="middle" x="360.83" y="-229.8" font-family="Arial" font-size="14.00">Tile(3)</text>
+</g>
+<!-- five&#45;&gt;threea -->
+<g id="edge2" class="edge">
+<title>five-&gt;threea</title>
+<path fill="none" stroke="black" d="M332.98,-287.7C337.24,-279.64 342.39,-269.89 347.1,-260.98"></path>
+<polygon fill="black" stroke="black" points="350.21,-262.58 351.79,-252.1 344.03,-259.31 350.21,-262.58"></polygon>
+</g>
+<!-- threeb -->
+<g id="node4" class="node">
+<title>threeb</title>
+<path fill="yellow" stroke="black" d="M154.5,-180C154.5,-180 123.16,-180 123.16,-180 117.16,-180 111.16,-174 111.16,-168 111.16,-168 111.16,-156 111.16,-156 111.16,-150 117.16,-144 123.16,-144 123.16,-144 154.5,-144 154.5,-144 160.5,-144 166.5,-150 166.5,-156 166.5,-156 166.5,-168 166.5,-168 166.5,-174 160.5,-180 154.5,-180"></path>
+<text text-anchor="middle" x="138.83" y="-157.8" font-family="Arial" font-size="14.00">Tile(3)</text>
+</g>
+<!-- four&#45;&gt;threeb -->
+<g id="edge3" class="edge">
+<title>four-&gt;threeb</title>
+<path fill="none" stroke="black" d="M222.68,-215.88C208.3,-206.81 190.45,-195.55 174.92,-185.76"></path>
+<polygon fill="black" stroke="black" points="176.42,-182.56 166.09,-180.19 172.68,-188.48 176.42,-182.56"></polygon>
+</g>
+<!-- twoa -->
+<g id="node5" class="node">
+<title>twoa</title>
+<path fill="yellow" stroke="black" d="M265.5,-180C265.5,-180 234.16,-180 234.16,-180 228.16,-180 222.16,-174 222.16,-168 222.16,-168 222.16,-156 222.16,-156 222.16,-150 228.16,-144 234.16,-144 234.16,-144 265.5,-144 265.5,-144 271.5,-144 277.5,-150 277.5,-156 277.5,-156 277.5,-168 277.5,-168 277.5,-174 271.5,-180 265.5,-180"></path>
+<text text-anchor="middle" x="249.83" y="-157.8" font-family="Arial" font-size="14.00">Tile(2)</text>
+</g>
+<!-- four&#45;&gt;twoa -->
+<g id="edge4" class="edge">
+<title>four-&gt;twoa</title>
+<path fill="none" stroke="black" d="M249.83,-215.7C249.83,-207.98 249.83,-198.71 249.83,-190.11"></path>
+<polygon fill="black" stroke="black" points="253.33,-190.1 249.83,-180.1 246.33,-190.1 253.33,-190.1"></polygon>
+</g>
+<!-- twob -->
+<g id="node6" class="node">
+<title>twob</title>
+<path fill="yellow" stroke="black" d="M376.5,-180C376.5,-180 345.16,-180 345.16,-180 339.16,-180 333.16,-174 333.16,-168 333.16,-168 333.16,-156 333.16,-156 333.16,-150 339.16,-144 345.16,-144 345.16,-144 376.5,-144 376.5,-144 382.5,-144 388.5,-150 388.5,-156 388.5,-156 388.5,-168 388.5,-168 388.5,-174 382.5,-180 376.5,-180"></path>
+<text text-anchor="middle" x="360.83" y="-157.8" font-family="Arial" font-size="14.00">Tile(2)</text>
+</g>
+<!-- threea&#45;&gt;twob -->
+<g id="edge5" class="edge">
+<title>threea-&gt;twob</title>
+<path fill="none" stroke="black" d="M360.83,-215.7C360.83,-207.98 360.83,-198.71 360.83,-190.11"></path>
+<polygon fill="black" stroke="black" points="364.33,-190.1 360.83,-180.1 357.33,-190.1 364.33,-190.1"></polygon>
+</g>
+<!-- onea -->
+<g id="node8" class="node">
+<title>onea</title>
+<path fill="yellow" stroke="black" d="M450.5,-180C450.5,-180 419.16,-180 419.16,-180 413.16,-180 407.16,-174 407.16,-168 407.16,-168 407.16,-156 407.16,-156 407.16,-150 413.16,-144 419.16,-144 419.16,-144 450.5,-144 450.5,-144 456.5,-144 462.5,-150 462.5,-156 462.5,-156 462.5,-168 462.5,-168 462.5,-174 456.5,-180 450.5,-180"></path>
+<text text-anchor="middle" x="434.83" y="-157.8" font-family="Arial" font-size="14.00">Tile(1)</text>
+</g>
+<!-- threea&#45;&gt;onea -->
+<g id="edge6" class="edge">
+<title>threea-&gt;onea</title>
+<path fill="none" stroke="black" d="M379.13,-215.7C388.27,-207.05 399.47,-196.45 409.43,-187.03"></path>
+<polygon fill="black" stroke="black" points="411.89,-189.52 416.75,-180.1 407.08,-184.43 411.89,-189.52"></polygon>
+</g>
+<!-- twoc -->
+<g id="node7" class="node">
+<title>twoc</title>
+<path fill="yellow" stroke="black" d="M80.5,-108C80.5,-108 49.16,-108 49.16,-108 43.16,-108 37.16,-102 37.16,-96 37.16,-96 37.16,-84 37.16,-84 37.16,-78 43.16,-72 49.16,-72 49.16,-72 80.5,-72 80.5,-72 86.5,-72 92.5,-78 92.5,-84 92.5,-84 92.5,-96 92.5,-96 92.5,-102 86.5,-108 80.5,-108"></path>
+<text text-anchor="middle" x="64.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(2)</text>
+</g>
+<!-- threeb&#45;&gt;twoc -->
+<g id="edge7" class="edge">
+<title>threeb-&gt;twoc</title>
+<path fill="none" stroke="black" d="M120.54,-143.7C111.4,-135.05 100.19,-124.45 90.23,-115.03"></path>
+<polygon fill="black" stroke="black" points="92.59,-112.43 82.92,-108.1 87.78,-117.52 92.59,-112.43"></polygon>
+</g>
+<!-- oneb -->
+<g id="node9" class="node">
+<title>oneb</title>
+<path fill="yellow" stroke="black" d="M154.5,-108C154.5,-108 123.16,-108 123.16,-108 117.16,-108 111.16,-102 111.16,-96 111.16,-96 111.16,-84 111.16,-84 111.16,-78 117.16,-72 123.16,-72 123.16,-72 154.5,-72 154.5,-72 160.5,-72 166.5,-78 166.5,-84 166.5,-84 166.5,-96 166.5,-96 166.5,-102 160.5,-108 154.5,-108"></path>
+<text text-anchor="middle" x="138.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(1)</text>
+</g>
+<!-- threeb&#45;&gt;oneb -->
+<g id="edge8" class="edge">
+<title>threeb-&gt;oneb</title>
+<path fill="none" stroke="black" d="M138.83,-143.7C138.83,-135.98 138.83,-126.71 138.83,-118.11"></path>
+<polygon fill="black" stroke="black" points="142.33,-118.1 138.83,-108.1 135.33,-118.1 142.33,-118.1"></polygon>
+</g>
+<!-- onec -->
+<g id="node10" class="node">
+<title>onec</title>
+<path fill="yellow" stroke="black" d="M228.5,-108C228.5,-108 197.16,-108 197.16,-108 191.16,-108 185.16,-102 185.16,-96 185.16,-96 185.16,-84 185.16,-84 185.16,-78 191.16,-72 197.16,-72 197.16,-72 228.5,-72 228.5,-72 234.5,-72 240.5,-78 240.5,-84 240.5,-84 240.5,-96 240.5,-96 240.5,-102 234.5,-108 228.5,-108"></path>
+<text text-anchor="middle" x="212.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(1)</text>
+</g>
+<!-- twoa&#45;&gt;onec -->
+<g id="edge9" class="edge">
+<title>twoa-&gt;onec</title>
+<path fill="none" stroke="black" d="M240.69,-143.7C236.43,-135.64 231.28,-125.89 226.57,-116.98"></path>
+<polygon fill="black" stroke="black" points="229.64,-115.31 221.88,-108.1 223.45,-118.58 229.64,-115.31"></polygon>
+</g>
+<!-- zeroa -->
+<g id="node13" class="node">
+<title>zeroa</title>
+<path fill="yellow" stroke="black" d="M302.5,-108C302.5,-108 271.16,-108 271.16,-108 265.16,-108 259.16,-102 259.16,-96 259.16,-96 259.16,-84 259.16,-84 259.16,-78 265.16,-72 271.16,-72 271.16,-72 302.5,-72 302.5,-72 308.5,-72 314.5,-78 314.5,-84 314.5,-84 314.5,-96 314.5,-96 314.5,-102 308.5,-108 302.5,-108"></path>
+<text text-anchor="middle" x="286.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(0)</text>
+</g>
+<!-- twoa&#45;&gt;zeroa -->
+<g id="edge10" class="edge">
+<title>twoa-&gt;zeroa</title>
+<path fill="none" stroke="black" d="M258.98,-143.7C263.24,-135.64 268.39,-125.89 273.1,-116.98"></path>
+<polygon fill="black" stroke="black" points="276.21,-118.58 277.79,-108.1 270.03,-115.31 276.21,-118.58"></polygon>
+</g>
+<!-- oned -->
+<g id="node11" class="node">
+<title>oned</title>
+<path fill="yellow" stroke="black" d="M376.5,-108C376.5,-108 345.16,-108 345.16,-108 339.16,-108 333.16,-102 333.16,-96 333.16,-96 333.16,-84 333.16,-84 333.16,-78 339.16,-72 345.16,-72 345.16,-72 376.5,-72 376.5,-72 382.5,-72 388.5,-78 388.5,-84 388.5,-84 388.5,-96 388.5,-96 388.5,-102 382.5,-108 376.5,-108"></path>
+<text text-anchor="middle" x="360.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(1)</text>
+</g>
+<!-- twob&#45;&gt;oned -->
+<g id="edge11" class="edge">
+<title>twob-&gt;oned</title>
+<path fill="none" stroke="black" d="M360.83,-143.7C360.83,-135.98 360.83,-126.71 360.83,-118.11"></path>
+<polygon fill="black" stroke="black" points="364.33,-118.1 360.83,-108.1 357.33,-118.1 364.33,-118.1"></polygon>
+</g>
+<!-- zerob -->
+<g id="node14" class="node">
+<title>zerob</title>
+<path fill="yellow" stroke="black" d="M450.5,-108C450.5,-108 419.16,-108 419.16,-108 413.16,-108 407.16,-102 407.16,-96 407.16,-96 407.16,-84 407.16,-84 407.16,-78 413.16,-72 419.16,-72 419.16,-72 450.5,-72 450.5,-72 456.5,-72 462.5,-78 462.5,-84 462.5,-84 462.5,-96 462.5,-96 462.5,-102 456.5,-108 450.5,-108"></path>
+<text text-anchor="middle" x="434.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(0)</text>
+</g>
+<!-- twob&#45;&gt;zerob -->
+<g id="edge12" class="edge">
+<title>twob-&gt;zerob</title>
+<path fill="none" stroke="black" d="M379.13,-143.7C388.27,-135.05 399.47,-124.45 409.43,-115.03"></path>
+<polygon fill="black" stroke="black" points="411.89,-117.52 416.75,-108.1 407.08,-112.43 411.89,-117.52"></polygon>
+</g>
+<!-- onee -->
+<g id="node12" class="node">
+<title>onee</title>
+<path fill="yellow" stroke="black" d="M43.5,-36C43.5,-36 12.16,-36 12.16,-36 6.16,-36 0.16,-30 0.16,-24 0.16,-24 0.16,-12 0.16,-12 0.16,-6 6.16,0 12.16,0 12.16,0 43.5,0 43.5,0 49.5,0 55.5,-6 55.5,-12 55.5,-12 55.5,-24 55.5,-24 55.5,-30 49.5,-36 43.5,-36"></path>
+<text text-anchor="middle" x="27.83" y="-13.8" font-family="Arial" font-size="14.00">Tile(1)</text>
+</g>
+<!-- twoc&#45;&gt;onee -->
+<g id="edge13" class="edge">
+<title>twoc-&gt;onee</title>
+<path fill="none" stroke="black" d="M55.69,-71.7C51.43,-63.64 46.28,-53.89 41.57,-44.98"></path>
+<polygon fill="black" stroke="black" points="44.64,-43.31 36.88,-36.1 38.45,-46.58 44.64,-43.31"></polygon>
+</g>
+<!-- zeroc -->
+<g id="node15" class="node">
+<title>zeroc</title>
+<path fill="yellow" stroke="black" d="M117.5,-36C117.5,-36 86.16,-36 86.16,-36 80.16,-36 74.16,-30 74.16,-24 74.16,-24 74.16,-12 74.16,-12 74.16,-6 80.16,0 86.16,0 86.16,0 117.5,0 117.5,0 123.5,0 129.5,-6 129.5,-12 129.5,-12 129.5,-24 129.5,-24 129.5,-30 123.5,-36 117.5,-36"></path>
+<text text-anchor="middle" x="101.83" y="-13.8" font-family="Arial" font-size="14.00">Tile(0)</text>
+</g>
+<!-- twoc&#45;&gt;zeroc -->
+<g id="edge14" class="edge">
+<title>twoc-&gt;zeroc</title>
+<path fill="none" stroke="black" d="M73.98,-71.7C78.24,-63.64 83.39,-53.89 88.1,-44.98"></path>
+<polygon fill="black" stroke="black" points="91.21,-46.58 92.79,-36.1 85.03,-43.31 91.21,-46.58"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
 </div>
 </section>
-<section id="recursion-tree-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Recursion Tree</h2>
-<div class="center">
-<p><img data-src="graphs/dp.dot.2.svg"></p>
+<section id="recursion-tree-1" class="slide level2">
+<h2>Recursion Tree</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 470.67 332.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 328)">
+<title>BST2</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-328 466.67,-328 466.67,4 -4,4"></polygon>
+<!-- five -->
+<g id="node1" class="node">
+<title>five</title>
+<path fill="yellow" stroke="black" d="M339.5,-324C339.5,-324 308.16,-324 308.16,-324 302.16,-324 296.16,-318 296.16,-312 296.16,-312 296.16,-300 296.16,-300 296.16,-294 302.16,-288 308.16,-288 308.16,-288 339.5,-288 339.5,-288 345.5,-288 351.5,-294 351.5,-300 351.5,-300 351.5,-312 351.5,-312 351.5,-318 345.5,-324 339.5,-324"></path>
+<text text-anchor="middle" x="323.83" y="-301.8" font-family="Arial" font-size="14.00">Tile(5)</text>
+</g>
+<!-- four -->
+<g id="node2" class="node">
+<title>four</title>
+<path fill="yellow" stroke="black" d="M265.5,-252C265.5,-252 234.16,-252 234.16,-252 228.16,-252 222.16,-246 222.16,-240 222.16,-240 222.16,-228 222.16,-228 222.16,-222 228.16,-216 234.16,-216 234.16,-216 265.5,-216 265.5,-216 271.5,-216 277.5,-222 277.5,-228 277.5,-228 277.5,-240 277.5,-240 277.5,-246 271.5,-252 265.5,-252"></path>
+<text text-anchor="middle" x="249.83" y="-229.8" font-family="Arial" font-size="14.00">Tile(4)</text>
+</g>
+<!-- five&#45;&gt;four -->
+<g id="edge1" class="edge">
+<title>five-&gt;four</title>
+<path fill="none" stroke="black" d="M305.54,-287.7C296.4,-279.05 285.19,-268.45 275.23,-259.03"></path>
+<polygon fill="black" stroke="black" points="277.59,-256.43 267.92,-252.1 272.78,-261.52 277.59,-256.43"></polygon>
+</g>
+<!-- threea -->
+<g id="node3" class="node">
+<title>threea</title>
+<path fill="red" stroke="black" d="M376.5,-252C376.5,-252 345.16,-252 345.16,-252 339.16,-252 333.16,-246 333.16,-240 333.16,-240 333.16,-228 333.16,-228 333.16,-222 339.16,-216 345.16,-216 345.16,-216 376.5,-216 376.5,-216 382.5,-216 388.5,-222 388.5,-228 388.5,-228 388.5,-240 388.5,-240 388.5,-246 382.5,-252 376.5,-252"></path>
+<text text-anchor="middle" x="360.83" y="-229.8" font-family="Arial" font-size="14.00">Tile(3)</text>
+</g>
+<!-- five&#45;&gt;threea -->
+<g id="edge2" class="edge">
+<title>five-&gt;threea</title>
+<path fill="none" stroke="black" d="M332.98,-287.7C337.24,-279.64 342.39,-269.89 347.1,-260.98"></path>
+<polygon fill="black" stroke="black" points="350.21,-262.58 351.79,-252.1 344.03,-259.31 350.21,-262.58"></polygon>
+</g>
+<!-- threeb -->
+<g id="node4" class="node">
+<title>threeb</title>
+<path fill="yellow" stroke="black" d="M154.5,-180C154.5,-180 123.16,-180 123.16,-180 117.16,-180 111.16,-174 111.16,-168 111.16,-168 111.16,-156 111.16,-156 111.16,-150 117.16,-144 123.16,-144 123.16,-144 154.5,-144 154.5,-144 160.5,-144 166.5,-150 166.5,-156 166.5,-156 166.5,-168 166.5,-168 166.5,-174 160.5,-180 154.5,-180"></path>
+<text text-anchor="middle" x="138.83" y="-157.8" font-family="Arial" font-size="14.00">Tile(3)</text>
+</g>
+<!-- four&#45;&gt;threeb -->
+<g id="edge3" class="edge">
+<title>four-&gt;threeb</title>
+<path fill="none" stroke="black" d="M222.68,-215.88C208.3,-206.81 190.45,-195.55 174.92,-185.76"></path>
+<polygon fill="black" stroke="black" points="176.42,-182.56 166.09,-180.19 172.68,-188.48 176.42,-182.56"></polygon>
+</g>
+<!-- twoa -->
+<g id="node5" class="node">
+<title>twoa</title>
+<path fill="red" stroke="black" d="M265.5,-180C265.5,-180 234.16,-180 234.16,-180 228.16,-180 222.16,-174 222.16,-168 222.16,-168 222.16,-156 222.16,-156 222.16,-150 228.16,-144 234.16,-144 234.16,-144 265.5,-144 265.5,-144 271.5,-144 277.5,-150 277.5,-156 277.5,-156 277.5,-168 277.5,-168 277.5,-174 271.5,-180 265.5,-180"></path>
+<text text-anchor="middle" x="249.83" y="-157.8" font-family="Arial" font-size="14.00">Tile(2)</text>
+</g>
+<!-- four&#45;&gt;twoa -->
+<g id="edge4" class="edge">
+<title>four-&gt;twoa</title>
+<path fill="none" stroke="black" d="M249.83,-215.7C249.83,-207.98 249.83,-198.71 249.83,-190.11"></path>
+<polygon fill="black" stroke="black" points="253.33,-190.1 249.83,-180.1 246.33,-190.1 253.33,-190.1"></polygon>
+</g>
+<!-- twob -->
+<g id="node6" class="node">
+<title>twob</title>
+<path fill="red" stroke="black" d="M376.5,-180C376.5,-180 345.16,-180 345.16,-180 339.16,-180 333.16,-174 333.16,-168 333.16,-168 333.16,-156 333.16,-156 333.16,-150 339.16,-144 345.16,-144 345.16,-144 376.5,-144 376.5,-144 382.5,-144 388.5,-150 388.5,-156 388.5,-156 388.5,-168 388.5,-168 388.5,-174 382.5,-180 376.5,-180"></path>
+<text text-anchor="middle" x="360.83" y="-157.8" font-family="Arial" font-size="14.00">Tile(2)</text>
+</g>
+<!-- threea&#45;&gt;twob -->
+<g id="edge5" class="edge">
+<title>threea-&gt;twob</title>
+<path fill="none" stroke="black" d="M360.83,-215.7C360.83,-207.98 360.83,-198.71 360.83,-190.11"></path>
+<polygon fill="black" stroke="black" points="364.33,-190.1 360.83,-180.1 357.33,-190.1 364.33,-190.1"></polygon>
+</g>
+<!-- onea -->
+<g id="node8" class="node">
+<title>onea</title>
+<path fill="red" stroke="black" d="M450.5,-180C450.5,-180 419.16,-180 419.16,-180 413.16,-180 407.16,-174 407.16,-168 407.16,-168 407.16,-156 407.16,-156 407.16,-150 413.16,-144 419.16,-144 419.16,-144 450.5,-144 450.5,-144 456.5,-144 462.5,-150 462.5,-156 462.5,-156 462.5,-168 462.5,-168 462.5,-174 456.5,-180 450.5,-180"></path>
+<text text-anchor="middle" x="434.83" y="-157.8" font-family="Arial" font-size="14.00">Tile(1)</text>
+</g>
+<!-- threea&#45;&gt;onea -->
+<g id="edge6" class="edge">
+<title>threea-&gt;onea</title>
+<path fill="none" stroke="black" d="M379.13,-215.7C388.27,-207.05 399.47,-196.45 409.43,-187.03"></path>
+<polygon fill="black" stroke="black" points="411.89,-189.52 416.75,-180.1 407.08,-184.43 411.89,-189.52"></polygon>
+</g>
+<!-- twoc -->
+<g id="node7" class="node">
+<title>twoc</title>
+<path fill="yellow" stroke="black" d="M80.5,-108C80.5,-108 49.16,-108 49.16,-108 43.16,-108 37.16,-102 37.16,-96 37.16,-96 37.16,-84 37.16,-84 37.16,-78 43.16,-72 49.16,-72 49.16,-72 80.5,-72 80.5,-72 86.5,-72 92.5,-78 92.5,-84 92.5,-84 92.5,-96 92.5,-96 92.5,-102 86.5,-108 80.5,-108"></path>
+<text text-anchor="middle" x="64.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(2)</text>
+</g>
+<!-- threeb&#45;&gt;twoc -->
+<g id="edge7" class="edge">
+<title>threeb-&gt;twoc</title>
+<path fill="none" stroke="black" d="M120.54,-143.7C111.4,-135.05 100.19,-124.45 90.23,-115.03"></path>
+<polygon fill="black" stroke="black" points="92.59,-112.43 82.92,-108.1 87.78,-117.52 92.59,-112.43"></polygon>
+</g>
+<!-- oneb -->
+<g id="node9" class="node">
+<title>oneb</title>
+<path fill="red" stroke="black" d="M154.5,-108C154.5,-108 123.16,-108 123.16,-108 117.16,-108 111.16,-102 111.16,-96 111.16,-96 111.16,-84 111.16,-84 111.16,-78 117.16,-72 123.16,-72 123.16,-72 154.5,-72 154.5,-72 160.5,-72 166.5,-78 166.5,-84 166.5,-84 166.5,-96 166.5,-96 166.5,-102 160.5,-108 154.5,-108"></path>
+<text text-anchor="middle" x="138.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(1)</text>
+</g>
+<!-- threeb&#45;&gt;oneb -->
+<g id="edge8" class="edge">
+<title>threeb-&gt;oneb</title>
+<path fill="none" stroke="black" d="M138.83,-143.7C138.83,-135.98 138.83,-126.71 138.83,-118.11"></path>
+<polygon fill="black" stroke="black" points="142.33,-118.1 138.83,-108.1 135.33,-118.1 142.33,-118.1"></polygon>
+</g>
+<!-- onec -->
+<g id="node10" class="node">
+<title>onec</title>
+<path fill="red" stroke="black" d="M228.5,-108C228.5,-108 197.16,-108 197.16,-108 191.16,-108 185.16,-102 185.16,-96 185.16,-96 185.16,-84 185.16,-84 185.16,-78 191.16,-72 197.16,-72 197.16,-72 228.5,-72 228.5,-72 234.5,-72 240.5,-78 240.5,-84 240.5,-84 240.5,-96 240.5,-96 240.5,-102 234.5,-108 228.5,-108"></path>
+<text text-anchor="middle" x="212.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(1)</text>
+</g>
+<!-- twoa&#45;&gt;onec -->
+<g id="edge9" class="edge">
+<title>twoa-&gt;onec</title>
+<path fill="none" stroke="black" d="M240.69,-143.7C236.43,-135.64 231.28,-125.89 226.57,-116.98"></path>
+<polygon fill="black" stroke="black" points="229.64,-115.31 221.88,-108.1 223.45,-118.58 229.64,-115.31"></polygon>
+</g>
+<!-- zeroa -->
+<g id="node13" class="node">
+<title>zeroa</title>
+<path fill="red" stroke="black" d="M302.5,-108C302.5,-108 271.16,-108 271.16,-108 265.16,-108 259.16,-102 259.16,-96 259.16,-96 259.16,-84 259.16,-84 259.16,-78 265.16,-72 271.16,-72 271.16,-72 302.5,-72 302.5,-72 308.5,-72 314.5,-78 314.5,-84 314.5,-84 314.5,-96 314.5,-96 314.5,-102 308.5,-108 302.5,-108"></path>
+<text text-anchor="middle" x="286.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(0)</text>
+</g>
+<!-- twoa&#45;&gt;zeroa -->
+<g id="edge10" class="edge">
+<title>twoa-&gt;zeroa</title>
+<path fill="none" stroke="black" d="M258.98,-143.7C263.24,-135.64 268.39,-125.89 273.1,-116.98"></path>
+<polygon fill="black" stroke="black" points="276.21,-118.58 277.79,-108.1 270.03,-115.31 276.21,-118.58"></polygon>
+</g>
+<!-- oned -->
+<g id="node11" class="node">
+<title>oned</title>
+<path fill="red" stroke="black" d="M376.5,-108C376.5,-108 345.16,-108 345.16,-108 339.16,-108 333.16,-102 333.16,-96 333.16,-96 333.16,-84 333.16,-84 333.16,-78 339.16,-72 345.16,-72 345.16,-72 376.5,-72 376.5,-72 382.5,-72 388.5,-78 388.5,-84 388.5,-84 388.5,-96 388.5,-96 388.5,-102 382.5,-108 376.5,-108"></path>
+<text text-anchor="middle" x="360.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(1)</text>
+</g>
+<!-- twob&#45;&gt;oned -->
+<g id="edge11" class="edge">
+<title>twob-&gt;oned</title>
+<path fill="none" stroke="black" d="M360.83,-143.7C360.83,-135.98 360.83,-126.71 360.83,-118.11"></path>
+<polygon fill="black" stroke="black" points="364.33,-118.1 360.83,-108.1 357.33,-118.1 364.33,-118.1"></polygon>
+</g>
+<!-- zerob -->
+<g id="node14" class="node">
+<title>zerob</title>
+<path fill="red" stroke="black" d="M450.5,-108C450.5,-108 419.16,-108 419.16,-108 413.16,-108 407.16,-102 407.16,-96 407.16,-96 407.16,-84 407.16,-84 407.16,-78 413.16,-72 419.16,-72 419.16,-72 450.5,-72 450.5,-72 456.5,-72 462.5,-78 462.5,-84 462.5,-84 462.5,-96 462.5,-96 462.5,-102 456.5,-108 450.5,-108"></path>
+<text text-anchor="middle" x="434.83" y="-85.8" font-family="Arial" font-size="14.00">Tile(0)</text>
+</g>
+<!-- twob&#45;&gt;zerob -->
+<g id="edge12" class="edge">
+<title>twob-&gt;zerob</title>
+<path fill="none" stroke="black" d="M379.13,-143.7C388.27,-135.05 399.47,-124.45 409.43,-115.03"></path>
+<polygon fill="black" stroke="black" points="411.89,-117.52 416.75,-108.1 407.08,-112.43 411.89,-117.52"></polygon>
+</g>
+<!-- onee -->
+<g id="node12" class="node">
+<title>onee</title>
+<path fill="yellow" stroke="black" d="M43.5,-36C43.5,-36 12.16,-36 12.16,-36 6.16,-36 0.16,-30 0.16,-24 0.16,-24 0.16,-12 0.16,-12 0.16,-6 6.16,0 12.16,0 12.16,0 43.5,0 43.5,0 49.5,0 55.5,-6 55.5,-12 55.5,-12 55.5,-24 55.5,-24 55.5,-30 49.5,-36 43.5,-36"></path>
+<text text-anchor="middle" x="27.83" y="-13.8" font-family="Arial" font-size="14.00">Tile(1)</text>
+</g>
+<!-- twoc&#45;&gt;onee -->
+<g id="edge13" class="edge">
+<title>twoc-&gt;onee</title>
+<path fill="none" stroke="black" d="M55.69,-71.7C51.43,-63.64 46.28,-53.89 41.57,-44.98"></path>
+<polygon fill="black" stroke="black" points="44.64,-43.31 36.88,-36.1 38.45,-46.58 44.64,-43.31"></polygon>
+</g>
+<!-- zeroc -->
+<g id="node15" class="node">
+<title>zeroc</title>
+<path fill="yellow" stroke="black" d="M117.5,-36C117.5,-36 86.16,-36 86.16,-36 80.16,-36 74.16,-30 74.16,-24 74.16,-24 74.16,-12 74.16,-12 74.16,-6 80.16,0 86.16,0 86.16,0 117.5,0 117.5,0 123.5,0 129.5,-6 129.5,-12 129.5,-12 129.5,-24 129.5,-24 129.5,-30 123.5,-36 117.5,-36"></path>
+<text text-anchor="middle" x="101.83" y="-13.8" font-family="Arial" font-size="14.00">Tile(0)</text>
+</g>
+<!-- twoc&#45;&gt;zeroc -->
+<g id="edge14" class="edge">
+<title>twoc-&gt;zeroc</title>
+<path fill="none" stroke="black" d="M73.98,-71.7C78.24,-63.64 83.39,-53.89 88.1,-44.98"></path>
+<polygon fill="black" stroke="black" points="91.21,-46.58 92.79,-36.1 85.03,-43.31 91.21,-46.58"></polygon>
+</g>
+</g>
+</svg>
 </div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<table>
+<tbody><tr>
+<td>
 <div class="fragment">
-<p class="red center">
+<p class="red center" style="margin:0">
 Many redundant calls!
 </p>
 </div>
+</td>
+<td>
 <div class="fragment">
-<p class="red center">
+<p class="red center" style="margin:0">
 Run time: <span class="math inline">\(\Theta(1.6^n)\)</span>
 </p>
 </div>
+</td>
+</tr>
+<tr>
+<td colspan="2">
 <div class="fragment">
-<p class="magenta">
+<p class="magenta" style="margin:0">
 Better way: Use Memory!
 </p>
 </div>
+</td>
+</tr>
+</tbody></table>
 </section>
 <section id="computing-tilen-with-memory" class="slide level2">
 <h2>Computing <span class="math inline">\(Tile(n)\)</span> with memory</h2>
