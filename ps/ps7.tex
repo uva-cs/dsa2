@@ -1,0 +1,84 @@
+%---------change this every homework
+\def\yourid{your name here}
+\def\collabs{list your collaborators}
+\def\sources{list your sources}
+% -----------------------------------------------------
+\def\duedate{November 6, 2024 at 11:59p}
+\def\pnumber{7}
+%-------------------------------------
+\RequirePackage[2020-02-02]{latexrelease}
+
+\documentclass[10pt]{article}
+\usepackage{dsa2}
+
+\usepackage{tikz-cd}
+
+\begin{document}
+\thispagestyle{empty}
+\handout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}Thinking About Dynamic Programming\end{problem}
+
+\begin{enumerate}
+    \item In Unit 2 we discussed divide and conquer algorithms. In Unit 4 we are discussing dynamic programming algorithms. For each of the following statements, explain if that statement is true for either (or both) of those algorithm styles. 
+    \begin{enumerate}
+    
+    \item A problem needs to be able to be defined recursively.
+
+    \solution{
+% your solution here
+    }
+    
+    \item It's contains subproblems that overlap and are repeated.
+    
+    \solution{
+% your solution here
+    }
+    
+    \item A solution is created by combining solutions to independent, non-overlapping subproblems.
+    
+    \solution{
+% your solution here
+    }
+    
+    \end{enumerate}
+        
+    
+    \item As part of our process for creating a dynamic programming solution, we search for a good order for solving the subproblems. Briefly (and intuitively) describe the difference between a top-down approach and a bottom-up approach.  
+    
+    \solution{
+% your solution here
+    }
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{problem}Nesting Boxes\end{problem}
+
+The "Nesting Boxes Prank" has become popular in recent years. Someone is given a box to open, and inside that box is a smaller box. Opening that box, reveals a smaller box, and so on. Eventually the smallest box contains something of value. You have access to a large assortment of boxes of different sizes and styles. Given this set of $n$ boxes, you need to find the deepest nesting possible. Describe a \textbf{dynamic programming} algorithm which, given a $fits(b_i,b_j)$ function that determines if box $b_i$ fits inside box $b_j$, returns the maximum number of boxes that can be nested (i.e. gives the count of the maximum number of boxes that must be opened). You do not need to determine the specific boxes used for the maximum nesting depth, just calculate the maximum nesting depth that can be achieved.
+
+Note: Boxes can be any shape. There could be a set of 4 boxes $b_1,b_2,b_3,b_4$ such that $b_1$ can fit in $b_2$ and $b_2$ can fit in $b_3$, but $b_4$ can not fit in any other box, and no other box can fit in $b_4$. Given the possible variety of shapes, the boxes can not be sorted in any way.
+
+\begin{enumerate}
+    
+\item Describe the top-down approach to solving this problem. 
+
+\solution{
+% your solution here
+}
+
+\item Describe the bottom-up approach to solving this problem.
+
+\solution{
+% your solution here
+}
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
