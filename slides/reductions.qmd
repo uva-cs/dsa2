@@ -1,0 +1,2932 @@
+---
+title: "Reductions"
+---
+
+# Network Flow <!-- from day20.pptx -->
+
+
+## Network Flow
+
+![](https://upload.wikimedia.org/wikipedia/commons/c/cc/OpenRailwayMap_of_Northeastern_US_and_Southeastern_Canada.png)
+
+**Question:** What is the maximum throughput of the railroad network?
+
+
+## Flow Networks
+<!-- day20 slide 13 -->
+
+<table><tr><td style="vertical-align:top;width:50%">
+
+::: {.no-bullets}
+- Graph $G=(V,E)$
+- <span class='purple'>Start node</span> ${\color{purple}s}\in V$
+- <span class='navy'>Sink node</span> ${\color{navy}t}\in V$
+- <span class='green'>Edge capacities</span> ${\color{green}c(e)} \in R$
+:::
+
+</td><td class="svg-table-right">
+
+```{dot}
+digraph graph1 {
+    // the layout when the edge labels are a single character or digit
+    // capacities only; the graph on day20 slides 13&15 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="3"];
+    a -> b [label="2"];
+    b -> t [label=<<br/>3>];
+    s -> c [label="2"];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+}
+```
+
+</td></tr></table>
+
+**Max flow intuition:** If $\color{purple}s$ is a faucet, $\color{navy}t$ is a drain, and $\color{purple}s$ connects to $\color{navy}t$ through a network of pipes $E$ with capacities $\color{green}c(e)$, what is the *maximum* amount of water which can flow from the faucet to the drain?
+
+
+## Network Flow
+<!-- day20 slide 14 -->
+
+::: {.svg-50-right-flow-graph}
+```{dot}
+digraph graph2 {
+    // the layout when the edge labels are of the form "x/y"
+    // example flow graph; this one is on slides 14&20&21&23 of day20.pptx, also slides: 20, 21
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+
+<div style="font-size:80%">
+
+- Assignment of values $\color{red}f(e)$ to edges
+	- "Amount of water going through that pipe"
+- Capacity constraint
+	- ${\color{red}f(e)} \le {\color{green}c(e)}$
+	- "Flow cannot exceed capacity"
+- Flow constraint
+	- $\forall v \in V - \{s,t\}$, $\text{inflow}(v)=\text{outflow}(v)$
+	- $\text{inflow}(v)=\sum_{v \in V}f(x,v)$
+	- $\text{outflow}(v)=\sum_{v \in V}f(v,x)$
+	- Water going in must match water coming out
+- Flow of $|G|$: $\text{outflow}(s)-\text{inflow}(s)$
+- Net outflow of $\color{purple}s$
+	- <span class='red'>3 in this example</span>
+
+</div>
+
+
+## Maximum Flow Problem
+<!-- day20 slide 15 -->
+
+Of all valid flows through the graph, find the one that maximizes:
+
+$$|f|=\text{outflow}(s)-\text{inflow}(s)$$
+
+<table><tr><td>
+::: {.svg-100}
+```{dot}
+digraph graph1 {
+    // the layout when the edge labels are a single character or digit
+    // capacities only; the graph on day20 slides 13&15 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="3"];
+    a -> b [label="2"];
+    b -> t [label=<<br/>3>];
+    s -> c [label="2"];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+}
+```
+:::
+</td><td>
+::: {.svg-100}
+```{dot}
+digraph graph3 {
+    // the layout when the edge labels are of the form "x/y"
+    // another flow graph; this one is on slide 15 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td></tr></table>
+
+
+
+
+## Greedy Approach
+<!-- day20 slide 16 -->
+
+**Greedy choice:** saturate *highest* capacity path first
+
+
+::: {.svg-50}
+```{dot}
+digraph diamond_graph1 {
+    // capacity only; slide 16 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [taillabel="         10"];
+    a -> s [dir=back;label="20"];
+    t -> b [dir=back;label="20"];
+    s -> b [xlabel="   10",label=" "];
+    a -> b [label="30 "];
+    {rank=same s t}
+}
+```
+:::
+
+
+
+## Greedy Approach
+<!-- day20 slide 17 -->
+
+**Greedy choice:** saturate *highest* capacity path first
+
+::: {.svg-50}
+```{dot}
+digraph diamond_graph2 {
+    // capacity only with red edges; slide 17 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [taillabel="         10"];
+    a -> s [dir=back;label="20";color=red];
+    t -> b [dir=back;label="20";color=red];
+    s -> b [xlabel="   10",label=" "];
+    a -> b [label="30 ";color=red];
+    {rank=same s t}
+}
+```
+:::
+
+
+
+## Greedy Approach
+<!-- day20 slide 18 -->
+
+**Greedy choice:** saturate *highest* capacity path first
+
+::: {.svg-50}
+```{dot}
+digraph diamond_graph3 {
+    // flow selected; slide 18 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [taillabel="         10"];
+    a -> s [dir=back;label=<<font color='red'>20</font><font color='black'>/</font>20>;color=red];
+    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>20</font><font color='black'>/</font>20>;color=red];
+    s -> b [xlabel="   10",label=" "];
+    a -> b [label=<<font color='red'>20</font><font color='black'>/</font>30&nbsp;>;color=red];
+    {rank=same s t}
+}
+```
+:::
+
+<p class='red'>Flow: 20</p>
+
+
+## Greedy Approach
+<!-- day20 slide 19 -->
+
+**Greedy choice:** saturate *highest* capacity path first
+
+::: {.svg-50}
+```{dot}
+digraph diamond_graph4 {
+    // full flow; slide 19&22 of day20.pptx
+    layout=sfdp;
+    start=144;
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [label=<   <font color='red'>10</font><font color='black'>/</font>10>;color=red];
+    a -> s [dir=back;label=<<font color='red'>20</font><font color='black'>/</font>20>;color=red];
+    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>20</font><font color='black'>/</font>20>;color=red];
+    s -> b [xlabel=<<font color='red'>10</font><font color='black'>/</font>10>,label=" ";color=red];
+    a -> b [label=<<font color='red'>10</font><font color='black'>/</font>30&nbsp;>;color=red];
+    {rank=same s t}
+}
+```
+:::
+
+<p class='red'>Maximum flow: 30</p>
+
+**Observe:** highest capacity path is *not saturated* in optimal solution
+
+
+
+## Residual Graphs
+<!-- day20 slide 20 -->
+
+<table><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+
+Given a flow $f$ in graph $G$, the residual graph $G_f$ models <span class='und'>additional</span> flow that is possible
+
+- <span class='orange und'>Forward edge</span> for each edge in $G$ with weight set to remaining capacity ${\color{green}c(e)}-{\color{red}f(e)}$
+  - Models <span class='und'>additional</span> flow that can be sent along the edge: <span class='purple'>flow to add</span>
+
+</td></tr><tr><td colspan='2' style="font-size:75%;opacity:0" class="zero-bottom">
+
+- <span class='magenta und'>Backward edge</span> by flipping each edge $e$ in $G$ with weight set to flow ${\color{red}f(e)}$
+  - Models amount of flow that can be <span class='und'>removed</span> from the edge: <span class='purple'>flow to remove</span>
+
+</td></tr><tr><td>
+
+::: {.svg-90}
+```{dot}
+digraph graph2 {
+    // the layout when the edge labels are of the form "x/y"
+    // example flow graph; this one is on slides 14&20&21&23 of day20.pptx, also slides: 20, 21
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+
+<p class='svgcaption'>Flow $\color{red}f$ in $G$</p>
+
+</td><td>
+::: {.svg-90}
+```{dot}
+digraph graph4 {
+    // the layout when the edge labels are a single character or digit
+    // residual graph: on slide 20 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="2"];
+    a -> b [label="";style=invis];
+    b -> t [label=<<br/>1>];
+    s -> c [label="";style=invis];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
+    b -> c [label="1";style=invis];
+    d -> b [label="1 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>1</td></tr></table>>];
+}
+```
+:::
+
+<p class='svgcaption'>Residual graph $G_{\color{red}f}$</p>
+
+</td></tr></table>
+
+
+
+## Residual Graphs
+<!-- day20 slide 21 -->
+
+<table><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+
+Given a flow $f$ in graph $G$, the residual graph $G_f$ models <span class='und'>additional</span> flow that is possible
+
+- <span class='orange und'>Forward edge</span> for each edge in $G$ with weight set to remaining capacity ${\color{green}c(e)}-{\color{red}f(e)}$
+  - Models <span class='und'>additional</span> flow that can be sent along the edge: <span class='purple'>flow to add</span>
+
+</td></tr><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+
+- <span class='magenta und'>Backward edge</span> by flipping each edge $e$ in $G$ with weight set to flow ${\color{red}f(e)}$
+  - Models amount of flow that can be <span class='und'>removed</span> from the edge: <span class='purple'>flow to remove</span>
+
+</td></tr><tr><td>
+
+::: {.svg-90}
+```{dot}
+digraph graph2 {
+    // the layout when the edge labels are of the form "x/y"
+    // example flow graph; this one is on slides 14&20&21&23 of day20.pptx, also slides: 20, 21
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+
+<p class='svgcaption'>Flow $\color{red}f$ in $G$</p>
+
+</td><td>
+::: {.svg-90}
+```{dot}
+digraph graph5 {
+    // the layout when the edge labels are a single character or digit
+    // residual flow graph: on slide 21 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="2"];
+    a -> b [label="";style=invis];
+    b -> t [label=<<br/>1>];
+    s -> c [label="";style=invis];
+    c -> d [label="1"];
+    d -> t [label="1"];
+    c -> s [xlabel="1",label=" "];
+    c -> a [label="2"];
+    b -> c [label="1";style=invis];
+    d -> b [label="1 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>1</td></tr></table>>];
+    a -> s [color=magenta;label="  1";fontcolor="magenta"];
+    b -> a [color=magenta;label="2";fontcolor="magenta"];
+    t -> b [color=magenta;xlabel="2";fontcolor="magenta";label=" "];
+    c -> s [color=magenta;label="2";fontcolor="magenta"];
+    d -> c [color=magenta;label="2";fontcolor="magenta"];
+    t -> d [color=magenta;label="  1";fontcolor="magenta"];
+    a -> c [color=magenta;xlabel="  1";fontcolor="magenta",label=" "];
+    c -> b [color=magenta;label="1";fontcolor="magenta"];
+    b -> d [color=magenta;label="2";fontcolor="magenta"];
+    d -> b [color=magenta;label="1";fontcolor="magenta"];
+}
+```
+:::
+
+<p class='svgcaption'>Residual graph $G_{\color{red}f}$</p>
+
+</td></tr></table>
+
+
+
+## Residual Graphs Example
+<!-- day20 slide 22 -->
+
+<table><tr><td class="und bold" style="text-align:center">Flow Graph</td><td class="und bold" style="text-align:center">Residual Graph</td></tr>
+<tr><td>
+
+::: {.svg-90}
+```{dot}
+digraph diamond_graph5 {
+    // partial flow; slide 22 (top) of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4;color=black];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [label=" ";xlabel=<<font color='red'> 0</font><font color='black'>/</font>10>];
+    a -> s [dir=back;label=<<font color='red'>20</font><font color='black'>/</font>20>];
+    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>20</font><font color='black'>/</font>20>];
+    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>10>,label=" "];
+    a -> b [label=<<font color='red'>20</font><font color='black'>/</font>30&nbsp;>];
+    {rank=same s t}
+}
+```
+:::
+
+</td><td>
+
+::: {.r-stack}
+
+::: {.fragment fragment-index=1 .fade-out}
+::: {.svg-90}
+```{dot}
+digraph diamond_graph6 {
+    // residual graph for graph5; slide 22 (top) of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [taillabel=<    10<br/>>];
+    a -> s [dir=back;headlabel=< <br/>            0>];
+    t -> b [dir=back;label=<<br/>0>];
+    s -> b [xlabel=" 10",label=" "];
+    a -> b [xlabel=" 10";label="   "];
+    a -> s [color=magenta;label=<20<br/> >;fontcolor=magenta];
+    b -> s [color=magenta;label="0";fontcolor=magenta];
+    b -> a [color=magenta;label="20 ";fontcolor=magenta];
+    t -> a [color=magenta;label=<&nbsp;>;xlabel="0";fontcolor=magenta];
+    t -> b [color=magenta;label=<20>;fontcolor=magenta];
+    {rank=same s t}
+}
+```
+:::
+:::
+
+::: {.fragment fragment-index=1}
+::: {.svg-90}
+```{dot}
+digraph diamond_graph7 {
+    // residual graph for graph5; slide 22 (top) of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [taillabel=<    10<br/>>;style=dashed];
+    a -> s [dir=back;headlabel=< <br/>            0>];
+    t -> b [dir=back;label=<<br/>0>];
+    s -> b [xlabel=" 10",label=" ";style=dashed];
+    a -> b [xlabel=" 10";label="   "];
+    a -> s [color=magenta;label=<20<br/> >;fontcolor=magenta];
+    b -> s [color=magenta;label="0";fontcolor=magenta];
+    b -> a [color=magenta;label="20 ";fontcolor=magenta;style=dashed];
+    t -> a [color=magenta;label=<&nbsp;>;xlabel="0";fontcolor=magenta];
+    t -> b [color=magenta;label=<20>;fontcolor=magenta];
+    {rank=same s t}
+}
+```
+:::
+:::
+
+:::
+
+</td></tr>
+<tr><td>
+
+::: {.fragment fragment-index=2}
+::: {.svg-90}
+```{dot}
+digraph diamond_graph5a {
+    // partial flow; slide 22 (top) of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4;color=black];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [label=" ";xlabel=<<font color='red'>10</font><font color='black'>/</font>10>];
+    a -> s [dir=back;label=<<font color='red'>20</font><font color='black'>/</font>20>];
+    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>20</font><font color='black'>/</font>20>];
+    s -> b [xlabel=<<font color='red'>10</font><font color='black'>/</font>10>,label=" "];
+    a -> b [label=<<font color='red'>10</font><font color='black'>/</font>30&nbsp;>];
+    {rank=same s t}
+}
+```
+:::
+:::
+
+</td><td>
+
+::: {.fragment fragment-index=3}
+::: {.svg-90}
+ ```{dot}
+digraph diamond_graph8 {
+    // residual graph for graph5; slide 22 (top) of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [taillabel=<    0<br/>>;fontcolor=forestgreen];
+    a -> s [dir=back;headlabel=< <br/>            0>];
+    t -> b [dir=back;label=<<br/>0>];
+    s -> b [xlabel=" 0",label=" ";fontcolor=forestgreen];
+    a -> b [xlabel=" 20";label="   ";fontcolor=forestgreen];
+    a -> s [color=magenta;label=<20<br/> >;fontcolor=magenta];
+    b -> s [color=magenta;label="10";fontcolor=forestgreen];
+    b -> a [color=magenta;label="10 ";fontcolor=forestgreen];
+    t -> a [color=magenta;label=<&nbsp;>;xlabel="10";fontcolor=forestgreen];
+    t -> b [color=magenta;label=<20>;fontcolor=magenta];
+    {rank=same s t}
+}
+```
+:::
+:::
+
+</td></tr>
+</table>
+
+
+## Residual Graphs
+<!-- day20 slide 23 -->
+
+<table><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+
+Consider a path from $s \rightarrow t$ in $G_f$ using only edges with positive (non-zero) weight
+Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
+
+</td></tr><tr><td colspan='2' style="font-size:75%;opacity:0" class="zero-bottom">
+
+- Send $w(e)$ flow along all <span class='orange'>forward</span> edges (these have at least $w(e)$ capacity)
+- Remove $w(e)$ flow along all <span class='magenta'>backward</span> edges (these contain at least $w(e)$ units of flow)
+
+</td></tr><tr><td colspan='2' style="font-size:75%;opacity:0" class="zero-bottom">
+
+<span class="bold">Observe:</span> Flow has <span class='und'>increased</span> by $w(e)$
+
+</td></tr><tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph2 {
+    // the layout when the edge labels are of the form "x/y"
+    // example flow graph; this one is on slides 14&20&21&23 of day20.pptx, also slides: 20, 21
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph6 {
+    // the layout when the edge labels are a single character or digit
+    // residual flow graph with some dashed edges: on slide 23&24&25&26 of day20.pptx; also slide(s) 25, 26, 27
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="2";style=dashed];
+    a -> b [label="";style=invis];
+    b -> t [label=<<br/>1>;style=dashed];
+    s -> c [label="";style=invis];
+    c -> d [label="1"];
+    d -> t [label="1"];
+    c -> s [xlabel="1",label=" "];
+    c -> a [label="2"];
+    b -> c [label="1";style=invis];
+    d -> b [label="1 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>1</td></tr></table>>];
+    a -> s [color=magenta;label="  1";fontcolor="magenta"];
+    b -> a [color=magenta;label="2";fontcolor="magenta"];
+    t -> b [color=magenta;xlabel="2";fontcolor="magenta";label=" "];
+    c -> s [color=magenta;label="2";fontcolor="magenta"];
+    d -> c [color=magenta;label="2";fontcolor="magenta"];
+    t -> d [color=magenta;label="  1";fontcolor="magenta"];
+    a -> c [color=magenta;xlabel="  1";fontcolor="magenta",label=" ";style=dashed];
+    c -> b [color=magenta;label="1";fontcolor="magenta";style=dashed];
+    b -> d [color=magenta;label="2";fontcolor="magenta"];
+    d -> b [color=magenta;label="1";fontcolor="magenta"];
+}
+```
+:::
+</td></tr></table>
+
+
+
+## Residual Graphs
+<!-- day20 slide 24 -->
+
+<table><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+
+Consider a path from $s \rightarrow t$ in $G_f$ using only edges with positive (non-zero) weight
+Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
+
+</td></tr><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+
+- Send $w(e)$ flow along all <span class='orange'>forward</span> edges (these have at least $w(e)$ capacity)
+- Remove $w(e)$ flow along all <span class='magenta'>backward</span> edges (these contain at least $w(e)$ units of flow)
+
+</td></tr><tr><td colspan='2' style="font-size:75%;opacity:0" class="zero-bottom">
+
+<span class="bold">Observe:</span> Flow has <span class='und'>increased</span> by $w(e)$
+
+</td></tr><tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph7 {
+    // the layout when the edge labels are of the form "x/y"
+    // residual flow graph; on slide 24 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>;color=magenta;style=dashed];
+    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>;color=magenta;style=dashed];
+    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph6 {
+    // the layout when the edge labels are a single character or digit
+    // residual flow graph with some dashed edges: on slide 23&24&25 of day20.pptx; also slide(s) 25, 26, 27
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="2";style=dashed];
+    a -> b [label="";style=invis];
+    b -> t [label=<<br/>1>;style=dashed];
+    s -> c [label="";style=invis];
+    c -> d [label="1"];
+    d -> t [label="1"];
+    c -> s [xlabel="1",label=" "];
+    c -> a [label="2"];
+    b -> c [label="1";style=invis];
+    d -> b [label="1 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>1</td></tr></table>>];
+    a -> s [color=magenta;label="  1";fontcolor="magenta"];
+    b -> a [color=magenta;label="2";fontcolor="magenta"];
+    t -> b [color=magenta;xlabel="2";fontcolor="magenta";label=" "];
+    c -> s [color=magenta;label="2";fontcolor="magenta"];
+    d -> c [color=magenta;label="2";fontcolor="magenta"];
+    t -> d [color=magenta;label="  1";fontcolor="magenta"];
+    a -> c [color=magenta;xlabel="  1";fontcolor="magenta",label=" ";style=dashed];
+    c -> b [color=magenta;label="1";fontcolor="magenta";style=dashed];
+    b -> d [color=magenta;label="2";fontcolor="magenta"];
+    d -> b [color=magenta;label="1";fontcolor="magenta"];
+}
+```
+:::
+</td></tr></table>
+
+
+## Residual Graphs
+<!-- day20 slide 25 -->
+
+<table><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+
+Consider a path from $s \rightarrow t$ in $G_f$ using only edges with positive (non-zero) weight
+Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
+
+</td></tr><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+
+- Send $w(e)$ flow along all <span class='orange'>forward</span> edges (these have at least $w(e)$ capacity)
+- Remove $w(e)$ flow along all <span class='magenta'>backward</span> edges (these contain at least $w(e)$ units of flow)
+
+</td></tr><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+
+<span class="bold">Observe:</span> Flow has <span class='und'>increased</span> by $w(e)$
+
+</td></tr><tr><td class="compact">
+
+::: {.svg-100}
+```{dot}
+digraph graph8 {
+    // the layout when the edge labels are of the form "x/y"
+    // updated residual flow graph; on slide 25 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">3</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>;color=magenta;style=dashed];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>;color=magenta;style=dashed];
+    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph6 {
+    // the layout when the edge labels are a single character or digit
+    // residual flow graph with some dashed edges: on slide 23&24&25 of day20.pptx; also slide(s) 25, 26, 27
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="2";style=dashed];
+    a -> b [label="";style=invis];
+    b -> t [label=<<br/>1>;style=dashed];
+    s -> c [label="";style=invis];
+    c -> d [label="1"];
+    d -> t [label="1"];
+    c -> s [xlabel="1",label=" "];
+    c -> a [label="2"];
+    b -> c [label="1";style=invis];
+    d -> b [label="1 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>1</td></tr></table>>];
+    a -> s [color=magenta;label="  1";fontcolor="magenta"];
+    b -> a [color=magenta;label="2";fontcolor="magenta"];
+    t -> b [color=magenta;xlabel="2";fontcolor="magenta";label=" "];
+    c -> s [color=magenta;label="2";fontcolor="magenta"];
+    d -> c [color=magenta;label="2";fontcolor="magenta"];
+    t -> d [color=magenta;label="  1";fontcolor="magenta"];
+    a -> c [color=magenta;xlabel="  1";fontcolor="magenta",label=" ";style=dashed];
+    c -> b [color=magenta;label="1";fontcolor="magenta";style=dashed];
+    b -> d [color=magenta;label="2";fontcolor="magenta"];
+    d -> b [color=magenta;label="1";fontcolor="magenta"];
+}
+```
+:::
+</td></tr></table>
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 29 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph9 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: on slide 29&30 of day20.pptx; also slide(s): 30
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">0</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">0</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph10 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson residual graph: on slide 29 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="3"];
+    a -> b [label="2"];
+    b -> t [label=<<br/>3>];
+    s -> c [label="2"];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+}
+```
+:::
+</td></tr>
+<tr><td style="font-size:90%">
+<span class="bold">Initially:</span> ${\color{red}f(e)}=0$ for all $e \in E$
+</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 30 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph9 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: on slide 29&30 of day20.pptx; also slide(s): 30
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">0</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">0</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph11 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson residual graph with dashed lines: on slide 30&31 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="3";style=dashed];
+    a -> b [label="2";style=dashed];
+    b -> t [label=<<br/>3>];
+    s -> c [label="2"];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>;style=dashed];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>;style=dashed];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1";style=dashed];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+}
+```
+:::
+</td></tr>
+<tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 31 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph12 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: on slide 31 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
+    a -> b [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>;color=orange;style=dashed];
+    b -> t [label=<<br/><font color="red">0</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>;color=orange;style=dashed];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>;color=orange;style=dashed];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>;color=orange;style=dashed];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph11 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson residual graph with dashed lines: on slide 30&31 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="3";style=dashed];
+    a -> b [label="2";style=dashed];
+    b -> t [label=<<br/>3>];
+    s -> c [label="2"];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>;style=dashed];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>;style=dashed];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1";style=dashed];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+}
+```
+:::
+</td></tr>
+<tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 32 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph13 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: updated after flow; on slide 32&33 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">0</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph14 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson residual graph with magenta back-flows: on slide 32 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="2"];
+    a -> b [label="1"];
+    b -> t [label=<<br/>3>];
+    s -> c [label="2"];
+    c -> d [label="2"];
+    d -> t [headlabel=<1   >];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="";style=invis];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  1";fontcolor=magenta];
+    b -> a [color=magenta;label="1";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta];
+    d -> c [color=magenta;label="1";fontcolor=magenta];
+    t -> d [color=magenta;label="    1";fontcolor=magenta];
+}
+```
+:::
+</td></tr>
+<tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 33 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph13 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: updated after flow; on slide 32&33 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">0</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph15 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson residual graph with magenta back-flows: on slide 33&34 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="2";style=dashed];
+    a -> b [label="1";style=dashed];
+    b -> t [label=<<br/>3>;style=dashed];
+    s -> c [label="2"];
+    c -> d [label="2"];
+    d -> t [headlabel=<1   >];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="";style=invis];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  1";fontcolor=magenta];
+    b -> a [color=magenta;label="1";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta];
+    d -> c [color=magenta;label="1";fontcolor=magenta];
+    t -> d [color=magenta;label="    1";fontcolor=magenta];
+}
+```
+:::
+</td></tr>
+<tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 34 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph16 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: updated after flow; on slide 32 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>;color=orange;style=dashed];
+    b -> t [label=<<br/><font color="red">1</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
+    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph15 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson residual graph with magenta back-flows: on slide 33&34 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="2";style=dashed];
+    a -> b [label="1";style=dashed];
+    b -> t [label=<<br/>3>;style=dashed];
+    s -> c [label="2"];
+    c -> d [label="2"];
+    d -> t [headlabel=<1   >];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="";style=invis];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  1";fontcolor=magenta];
+    b -> a [color=magenta;label="1";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta];
+    d -> c [color=magenta;label="1";fontcolor=magenta];
+    t -> d [color=magenta;label="    1";fontcolor=magenta];
+}
+```
+:::
+</td></tr>
+<tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 35 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph17 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: updated after second flow; on slides 35&36 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">1</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph18 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson second residual graph with magenta back-flows: on slide 35 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="1"];
+    a -> b [label="1";style=invis];
+    b -> t [label=<<br/>2>];
+    s -> c [label="2"];
+    c -> d [label="2"];
+    d -> t [headlabel=<1   >];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="";style=invis];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  2";fontcolor=magenta];
+    b -> a [color=magenta;label="2";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta];
+    d -> c [color=magenta;label="1";fontcolor=magenta];
+    t -> d [color=magenta;label="    1";fontcolor=magenta];
+    t -> b [color=magenta;label="1";fontcolor=magenta];
+}
+```
+:::
+</td></tr>
+<tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 36 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph17 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: updated after second flow; on slides 35&36 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">1</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph20 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson second residual graph with magenta back-flows: on slide 36&37 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="1"];
+    a -> b [label="1";style=invis];
+    b -> t [label=<<br/>2>;style=dashed];
+    s -> c [label="2";style=dashed];
+    c -> d [label="2"];
+    d -> t [label=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="";style=invis];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  2";fontcolor=magenta];
+    b -> a [color=magenta;label="2";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta;style=dashed];
+    d -> c [color=magenta;label="1";fontcolor=magenta];
+    t -> d [color=magenta;label="  1";fontcolor=magenta];
+    t -> b [color=magenta;label="1";fontcolor=magenta];
+}
+```
+:::
+</td></tr>
+<tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 37 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph19 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: third flow; on slides 36&37 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
+    s -> c [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>;color=orange;style=dashed];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>;color=magenta;style=dashed];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph20 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson second residual graph with magenta back-flows: on slide 36&37 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="1"];
+    a -> b [label="1";style=invis];
+    b -> t [label=<<br/>2>;style=dashed];
+    s -> c [label="2";style=dashed];
+    c -> d [label="2"];
+    d -> t [label=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="";style=invis];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  2";fontcolor=magenta];
+    b -> a [color=magenta;label="2";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta;style=dashed];
+    d -> c [color=magenta;label="1";fontcolor=magenta];
+    t -> d [color=magenta;label="  1";fontcolor=magenta];
+    t -> b [color=magenta;label="1";fontcolor=magenta];
+}
+```
+:::
+</td></tr>
+<tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 38 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph21 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: after third flow; on slides 38&39 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph22 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson third residual graph with magenta back-flows: on slide 38 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="1"];
+    a -> b [label="1";style=invis];
+    b -> t [label=<<br/>1>];
+    s -> c [label="1"];
+    c -> d [label="2"];
+    d -> t [label=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  2";fontcolor=magenta];
+    b -> a [color=magenta;label="2";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
+    d -> c [color=magenta;label="1";fontcolor=magenta];
+    t -> d [color=magenta;label="  1";fontcolor=magenta];
+    t -> b [color=magenta;label="2";fontcolor=magenta];
+    c -> s [color=magenta;label="1";fontcolor=magenta];
+}
+```
+:::
+</td></tr>
+<tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 39 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph21 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: after third flow; on slides 38&39 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph23 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson third residual graph with magenta back-flows: on slides 39&40 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="1"];
+    a -> b [label="1";style=invis];
+    b -> t [label=<<br/>1>];
+    s -> c [label="1";style=dashed];
+    c -> d [label="2";style=dashed];
+    d -> t [label=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>;style=dashed];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  2";fontcolor=magenta];
+    b -> a [color=magenta;label="2";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
+    d -> c [color=magenta;label="1";fontcolor=magenta];
+    t -> d [color=magenta;label="  1";fontcolor=magenta];
+    t -> b [color=magenta;label="2";fontcolor=magenta];
+    c -> s [color=magenta;label="1";fontcolor=magenta];
+}
+```
+:::
+</td></tr>
+<tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 40 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph24 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: after third flow; on slides 40 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>;color=orange;style=dashed];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>;color=orange;style=dashed];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>;color=orange;style=dashed];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph23 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson third residual graph with magenta back-flows: on slides 39&40 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="1"];
+    a -> b [label="1";style=invis];
+    b -> t [label=<<br/>1>];
+    s -> c [label="1";style=dashed];
+    c -> d [label="2";style=dashed];
+    d -> t [label=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>;style=dashed];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  2";fontcolor=magenta];
+    b -> a [color=magenta;label="2";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
+    d -> c [color=magenta;label="1";fontcolor=magenta];
+    t -> d [color=magenta;label="  1";fontcolor=magenta];
+    t -> b [color=magenta;label="2";fontcolor=magenta];
+    c -> s [color=magenta;label="1";fontcolor=magenta];
+}
+```
+:::
+</td></tr>
+<tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+
+
+## Ford-Fulkerson Example
+<!-- day20 slide 41 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">No more augmenting paths</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph25 {
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph23 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="1"];
+    a -> b [label="1";style=invis];
+    b -> t [label=<<br/>1>];
+    s -> c [label="1"];
+    c -> d [label="1"];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  2";fontcolor=magenta];
+    b -> a [color=magenta;label="2";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
+    d -> c [color=magenta;label="2";fontcolor=magenta];
+    t -> d [color=magenta;label="  2";fontcolor=magenta];
+    t -> b [color=magenta;label="2";fontcolor=magenta];
+    c -> s [color=magenta;label="2";fontcolor=magenta];
+}
+```
+:::
+</td></tr>
+<tr><td>
+</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+</td></tr></table>
+
+<span class="bold">Maximum flow:</span> 4
+
+
+
+## Ford-Fulkerson Running Time
+
+<p style="font-size:75%">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+
+<table style="width:100%;font-size:75%"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+
+::: {.r-stack}
+<div style="opacity:1">
+<p>Ford-Fulkerson max-flow algorithm:</p>
+<ul>
+<li class='purple'>Initialize ${\color{red}f(e)}=0$ for all all $e \in E$</li>
+<li class=''>Construct the residual network $G_{\color{red}f}$</li>
+<li class=''>While there is an augmenting path $p$ in $G_{\color{red}f}$:<ul>
+ <li>Let $c=\min_{e \in E}c_f(e)$ where $c_f(e)$ is the weight of edge $e$ in the residual network $G_{\color{red}f}$</li>
+ <li>Add $c$ units of flow to $G$ based on the augmenting path $p$</li>
+ <li>Update the residual network $G_{\color{red}f}$ for the updated flow</li></ul></li>
+</ul>
+</div>
+
+<table class="navynote" style="height:325px;opacity:0"><tr><td>
+<p>&nbsp;</p>
+<p>How many iterations are needed?</p>
+- For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
+- For rational-valued capacities, can scale to make capacities integer
+- For irrational-valued capacities, algorithm may never terminate!
+</td></tr></table>
+
+<table class="navynote" style="height:325px;opacity:0"><tr><td>
+<p>&nbsp;</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is $O(|f^*| \cdot |E|)$</p>
+<p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
+<p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
+</td></tr></table>
+
+:::
+
+</td></tr>
+
+<tr><td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
+
+<span class="bold">Initialization:</span> $O(|E|)$
+
+<span style="opacity:0"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+
+</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td style="font-size:70%">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
+
+<tr><td colspan='2' style="padding-left:0;padding-top:8px">
+<span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+
+</td></tr>
+</table>
+
+
+
+
+## Ford-Fulkerson Running Time
+
+<p style="font-size:75%">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+
+<table style="width:100%;font-size:75%"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+
+::: {.r-stack}
+<div style="opacity:1">
+<p>Ford-Fulkerson max-flow algorithm:</p>
+<ul>
+<li class=''>Initialize ${\color{red}f(e)}=0$ for all all $e \in E$</li>
+<li class='purple'>Construct the residual network $G_{\color{red}f}$</li>
+<li class=''>While there is an augmenting path $p$ in $G_{\color{red}f}$:<ul>
+ <li>Let $c=\min_{e \in E}c_f(e)$ where $c_f(e)$ is the weight of edge $e$ in the residual network $G_{\color{red}f}$</li>
+ <li>Add $c$ units of flow to $G$ based on the augmenting path $p$</li>
+ <li>Update the residual network $G_{\color{red}f}$ for the updated flow</li></ul></li>
+</ul>
+</div>
+
+<table class="navynote" style="height:325px;opacity:0"><tr><td>
+<p>&nbsp;</p>
+<p>How many iterations are needed?</p>
+- For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
+- For rational-valued capacities, can scale to make capacities integer
+- For irrational-valued capacities, algorithm may never terminate!
+</td></tr></table>
+
+<table class="navynote" style="height:325px;opacity:0"><tr><td>
+<p>&nbsp;</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is $O(|f^*| \cdot |E|)$</p>
+<p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
+<p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
+</td></tr></table>
+
+:::
+
+</td></tr>
+
+<tr><td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
+
+<span class="bold">Initialization:</span> $O(|E|)$
+
+<span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+
+</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td style="font-size:70%">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
+
+<tr><td colspan='2' style="padding-left:0;padding-top:8px">
+<span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+
+</td></tr>
+</table>
+
+
+
+
+## Ford-Fulkerson Running Time
+
+<p style="font-size:75%">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+
+<table style="width:100%;font-size:75%"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+
+::: {.r-stack}
+<div style="opacity:1">
+<p>Ford-Fulkerson max-flow algorithm:</p>
+<ul>
+<li class=''>Initialize ${\color{red}f(e)}=0$ for all all $e \in E$</li>
+<li class=''>Construct the residual network $G_{\color{red}f}$</li>
+<li class='purple'>While there is an augmenting path $p$ in $G_{\color{red}f}$:<ul>
+ <li>Let $c=\min_{e \in E}c_f(e)$ where $c_f(e)$ is the weight of edge $e$ in the residual network $G_{\color{red}f}$</li>
+ <li>Add $c$ units of flow to $G$ based on the augmenting path $p$</li>
+ <li>Update the residual network $G_{\color{red}f}$ for the updated flow</li></ul></li>
+</ul>
+</div>
+
+<table class="navynote" style="height:325px;opacity:0"><tr><td>
+<p>&nbsp;</p>
+<p>How many iterations are needed?</p>
+- For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
+- For rational-valued capacities, can scale to make capacities integer
+- For irrational-valued capacities, algorithm may never terminate!
+</td></tr></table>
+
+<table class="navynote" style="height:325px;opacity:0"><tr><td>
+<p>&nbsp;</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is $O(|f^*| \cdot |E|)$</p>
+<p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
+<p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
+</td></tr></table>
+
+:::
+
+</td></tr>
+
+<tr><td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
+
+<span class="bold">Initialization:</span> $O(|E|)$
+
+<span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+
+</td><td class="zero-bottom"> 
+
+::: {.fragment}
+<table class="navynote" style="opacity:1"><tr><td style="font-size:70%">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> 
+:::
+
+</td></tr>
+
+<tr><td colspan='2' style="padding-left:0;padding-top:8px">
+<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+
+</td></tr>
+</table>
+
+
+
+
+## Worst Case Ford-Fulkerson
+<!-- day20 slide 46 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph9 {
+    // worst case ford fulkerson; slide 46&47 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [xlabel=<   <font color='red'>0</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
+    a -> s [dir=back;label=<<font color='red'>0</font><font color='black'>/</font>100>];
+    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>0</font><font color='black'>/</font>100>];
+    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>100>,label=" "];
+    a -> b [label=<<font color='red'>0</font><font color='black'>/</font>1&nbsp;>];
+    {rank=same s t}
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph10 {
+    // worst case ford fulkerson; slide 46 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [taillabel="         100"];
+    a -> s [dir=back;label="100"];
+    t -> b [dir=back;label="100"];
+    s -> b [xlabel="   100",label=" "];
+    a -> b [label="1 "];
+    {rank=same s t}
+}
+```
+:::
+</td></tr></table>
+
+
+
+## Worst Case Ford-Fulkerson
+<!-- day20 slide 47 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph9 {
+    // worst case ford fulkerson; slide 46&47 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [xlabel=<   <font color='red'>0</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
+    a -> s [dir=back;label=<<font color='red'>0</font><font color='black'>/</font>100>];
+    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>0</font><font color='black'>/</font>100>];
+    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>100>,label=" "];
+    a -> b [label=<<font color='red'>0</font><font color='black'>/</font>1&nbsp;>];
+    {rank=same s t}
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph11 {
+    // worst case ford fulkerson; slide 47&48 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [taillabel="         100"];
+    a -> s [dir=back;label="100";style=dashed];
+    t -> b [dir=back;label="100";style=dashed];
+    s -> b [xlabel="   100",label=" "];
+    a -> b [label="1 ";style=dashed];
+    {rank=same s t}
+}
+```
+:::
+</td></tr></table>
+
+
+## Worst Case Ford-Fulkerson
+<!-- day20 slide 48 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph12 {
+    // worst case ford fulkerson; slide 48 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [xlabel=<   <font color='red'>0</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
+    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>;color=orange;style=dashed];
+    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>1</font><font color='black'>/</font>100>;color=orange;style=dashed];
+    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>100>,label=" "];
+    a -> b [label=<<font color='red'>1</font><font color='black'>/</font>1&nbsp;>;color=orange;style=dashed];
+    {rank=same s t}
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph11 {
+    // worst case ford fulkerson; slide 47&48 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [taillabel="         100"];
+    a -> s [dir=back;label="100";style=dashed];
+    t -> b [dir=back;label="100";style=dashed];
+    s -> b [xlabel="   100",label=" "];
+    a -> b [label="1 ";style=dashed];
+    {rank=same s t}
+}
+```
+:::
+</td></tr></table>
+
+
+## Worst Case Ford-Fulkerson
+<!-- day20 slide 49 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph13 {
+    // worst case ford fulkerson; slide 49&50 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [xlabel=<   <font color='red'>0</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
+    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>];
+    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>1</font><font color='black'>/</font>100>];
+    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>100>,label=" "];
+    a -> b [label=<<font color='red'>1</font><font color='black'>/</font>1&nbsp;>];
+    {rank=same s t}
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph14 {
+    // worst case ford fulkerson; slide 49 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [label="     100"];
+    a -> s [dir=back;headlabel=< <br/>         <font color='orange'>99</font>>];
+    t -> b [dir=back;taillabel=<<br/> 99>];
+    s -> b [xlabel=" 100",label=" "];
+    a -> s [color=magenta;label=<<font color='transparent'>1</font><br/>>;xlabel="1";fontcolor=magenta];
+    b -> a [color=magenta;label="1 ";fontcolor=magenta];
+    t -> b [color=magenta;label=<1>;fontcolor=magenta];
+    {rank=same s t}
+}
+```
+:::
+</td></tr></table>
+
+
+## Worst Case Ford-Fulkerson
+<!-- day20 slide 50 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph13 {
+    // worst case ford fulkerson; slide 49&50 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [xlabel=<   <font color='red'>0</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
+    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>];
+    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>1</font><font color='black'>/</font>100>];
+    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>100>,label=" "];
+    a -> b [label=<<font color='red'>1</font><font color='black'>/</font>1&nbsp;>];
+    {rank=same s t}
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph15 {
+    // worst case ford fulkerson; slide 49 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [label="     100";style=dashed];
+    a -> s [dir=back;headlabel=< <br/>         <font color='orange'>99</font>>];
+    t -> b [dir=back;taillabel=<<br/> 99>];
+    s -> b [xlabel=" 100",label=" ";style=dashed];
+    a -> s [color=magenta;label=<<font color='transparent'>1</font><br/>>;xlabel="1";fontcolor=magenta];
+    b -> a [color=magenta;label="1 ";fontcolor=magenta;style=dashed];
+    t -> b [color=magenta;label=<1>;fontcolor=magenta];
+    {rank=same s t}
+}
+```
+:::
+</td></tr></table>
+
+
+## Worst Case Ford-Fulkerson
+<!-- day20 slide 51 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph16 {
+    // worst case ford fulkerson; slide 51 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [xlabel=<   <font color='red'>1</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>;style=dashed;color=orange];
+    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>];
+    t -> b [dir=back;taillabel=<<br/> <font color='red'>1</font><font color='black'>/</font>100>];
+    s -> b [xlabel=<<font color='red'>1</font><font color='black'>/</font>100>,label=" ";style=dashed;color=orange];
+    a -> b [label=<<font color='red'>0</font><font color='black'>/</font>1&nbsp;>;style=dashed;color=magenta];
+    {rank=same s t}
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph15 {
+    // worst case ford fulkerson; slide 49 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [label="     100";style=dashed];
+    a -> s [dir=back;headlabel=< <br/>         <font color='orange'>99</font>>];
+    t -> b [dir=back;taillabel=<<br/> 99>];
+    s -> b [xlabel=" 100",label=" ";style=dashed];
+    a -> s [color=magenta;label=<<font color='transparent'>1</font><br/>>;xlabel="1";fontcolor=magenta];
+    b -> a [color=magenta;label="1 ";fontcolor=magenta;style=dashed];
+    t -> b [color=magenta;label=<1>;fontcolor=magenta];
+    {rank=same s t}
+}
+```
+:::
+</td></tr></table>
+
+
+## Worst Case Ford-Fulkerson
+<!-- day20 slide 52 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+
+```{dot}
+digraph diamond_graph17 {
+    // worst case ford fulkerson; slide 52&53 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [xlabel=<   <font color='red'>1</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
+    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>];
+    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>1</font><font color='black'>/</font>100>];
+    s -> b [xlabel=<<font color='red'>1</font><font color='black'>/</font>100>,label=" "];
+    a -> b [label=<<font color='red'>0</font><font color='black'>/</font>1&nbsp;>];
+    {rank=same s t}
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph18 {
+    // worst case ford fulkerson; slide 52 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [label=<99>];
+    a -> s [dir=back;headlabel=< <br/>         <font color='orange'>99</font>>];
+    t -> b [dir=back;taillabel=<<br/> 99>];
+    s -> b [xlabel=" 99",label=" "];
+    a -> b [xlabel=" 1";label="   "];
+    a -> s [color=magenta;label=<<font color='transparent'>1</font><br/>>;xlabel="1";fontcolor=magenta];
+    b -> s [color=magenta;label="1";fontcolor=magenta];
+    t -> a [color=magenta;headlabel=< <br/>      1>;fontcolor=magenta];
+    t -> b [color=magenta;label=<1>;fontcolor=magenta];
+    {rank=same s t}
+}
+```
+:::
+</td></tr></table>
+
+
+
+## Worst Case Ford-Fulkerson
+<!-- day20 slide 53 -->
+
+&nbsp;
+
+<table>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph17 {
+    // worst case ford fulkerson; slide 52&53 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [xlabel=<   <font color='red'>1</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
+    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>];
+    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>1</font><font color='black'>/</font>100>];
+    s -> b [xlabel=<<font color='red'>1</font><font color='black'>/</font>100>,label=" "];
+    a -> b [label=<<font color='red'>0</font><font color='black'>/</font>1&nbsp;>];
+    {rank=same s t}
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph diamond_graph19 {
+    // worst case ford fulkerson; slide 52 of day20.pptx
+    layout=sfdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
+    t [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    s [style=filled;fillcolor=navy;fontcolor=white];
+    a -> t [label=<99>];
+    a -> s [dir=back;headlabel=< <br/>         <font color='orange'>99</font>>;style=dashed];
+    t -> b [dir=back;taillabel=<<br/> 99>;style=dashed];
+    s -> b [xlabel=" 99",label=" "];
+    a -> b [xlabel=" 1";label="   ";style=dashed];
+    a -> s [color=magenta;label=<<font color='transparent'>1</font><br/>>;xlabel="1";fontcolor=magenta];
+    b -> s [color=magenta;label="1";fontcolor=magenta];
+    t -> a [color=magenta;headlabel=< <br/>      1>;fontcolor=magenta];
+    t -> b [color=magenta;label=<1>;fontcolor=magenta];
+    {rank=same s t}
+}
+```
+:::
+</td></tr></table>
+
+<span class='bold'>Observation:</span> each iteration increases flow by 1 unit
+
+<span class='bold'>Total number of iterations:</span> $|f^*|=200$
+
+
+
+
+
+## Ford-Fulkerson Running Time
+
+<p style="font-size:75%">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+
+<table style="width:100%;font-size:75%"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+
+::: {.r-stack}
+<div style="opacity:0">
+<p>Ford-Fulkerson max-flow algorithm:</p>
+<ul>
+<li class='purple'>Initialize ${\color{red}f(e)}=0$ for all all $e \in E$</li>
+<li class=''>Construct the residual network $G_{\color{red}f}$</li>
+<li class=''>While there is an augmenting path $p$ in $G_{\color{red}f}$:<ul>
+ <li>Let $c=\min_{e \in E}c_f(e)$ where $c_f(e)$ is the weight of edge $e$ in the residual network $G_{\color{red}f}$</li>
+ <li>Add $c$ units of flow to $G$ based on the augmenting path $p$</li>
+ <li>Update the residual network $G_{\color{red}f}$ for the updated flow</li></ul></li>
+</ul>
+</div>
+
+<table class="navynote" style="height:325px;opacity:1"><tr><td>
+<p>&nbsp;</p>
+<p>How many iterations are needed?</p>
+- For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
+- For rational-valued capacities, can scale to make capacities integer
+- For irrational-valued capacities, algorithm may never terminate!
+</td></tr></table>
+
+<table class="navynote" style="height:325px;opacity:0"><tr><td>
+<p>&nbsp;</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is $O(|f^*| \cdot |E|)$</p>
+<p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
+<p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
+</td></tr></table>
+
+:::
+
+</td></tr>
+
+<tr><td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
+
+<span class="bold">Initialization:</span> $O(|E|)$
+
+<span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+
+</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td style="font-size:70%">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
+
+<tr><td colspan='2' style="padding-left:0;padding-top:8px">
+<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+
+</td></tr>
+</table>
+
+
+
+## Ford-Fulkerson Running Time
+
+<p style="font-size:75%">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+
+<table style="width:100%;font-size:75%"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+
+::: {.r-stack}
+<div style="opacity:0">
+<p>Ford-Fulkerson max-flow algorithm:</p>
+<ul>
+<li class='purple'>Initialize ${\color{red}f(e)}=0$ for all all $e \in E$</li>
+<li class=''>Construct the residual network $G_{\color{red}f}$</li>
+<li class=''>While there is an augmenting path $p$ in $G_{\color{red}f}$:<ul>
+ <li>Let $c=\min_{e \in E}c_f(e)$ where $c_f(e)$ is the weight of edge $e$ in the residual network $G_{\color{red}f}$</li>
+ <li>Add $c$ units of flow to $G$ based on the augmenting path $p$</li>
+ <li>Update the residual network $G_{\color{red}f}$ for the updated flow</li></ul></li>
+</ul>
+</div>
+
+<table class="navynote" style="height:325px;opacity:0"><tr><td>
+<p>&nbsp;</p>
+<p>How many iterations are needed?</p>
+- For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
+- For rational-valued capacities, can scale to make capacities integer
+- For irrational-valued capacities, algorithm may never terminate!
+</td></tr></table>
+
+<table class="navynote" style="height:325px;opacity:1"><tr><td>
+<p>&nbsp;</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is $O(|f^*| \cdot |E|)$</p>
+<p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
+<p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
+</td></tr></table>
+
+:::
+
+</td></tr>
+
+<tr><td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
+
+<span class="bold">Initialization:</span> $O(|E|)$
+
+<span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+
+</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td style="font-size:70%">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
+
+<tr><td colspan='2' style="padding-left:0;padding-top:8px">
+<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+
+</td></tr>
+</table>
+
+
+
+## Can We Avoid This?
+
+<div style="font-size:80%">
+
+<span class='bold'>Edmonds-Karp Algorithm:</span> <span class='green'>choose augmenting path with fewest hops</span>
+
+<span class='bold'>Running time:</span> $\Theta\left(|E| \cdot |f^*|,|V| \cdot |E|^2 \right) = O\left(|V| \cdot |E|^2 \right)$
+
+<table style="width:100%"><tr><td style="padding:0">
+
+Ford-Fulkerson max-flow algorithm:
+
+- Initialize ${\color{red}f(e)}=0$ for all $e \in E$
+- Construct the residual network $G_{\color{red}f}$
+
+</td><td>
+
+<table class="navynote"><tr><td class="center" style="font-size:80%">
+
+How to find this? With BFS!
+
+Edmonds-Karp = Ford-Fulkerson<br>using BFS to find augmenting path
+
+</td></tr></table>
+
+</td></tr><tr><td style="padding:0" colspan='2'>
+
+- While there is an augmenting path in $G_{\color{red}f}$, <span class='green'>let $p$ be the path with fewest hops:</span>
+	- Let $c=\min_{e \in E}c_f(e)$ where $c_f(e)$ is the weight of edge $e$ in the residual network $G_{\color{red}f}$</li>
+	- Add $c$ units of flow to $G$ based on the augmenting path $p$
+	- Update the residual network $G_{\color{red}f}$ for the updated flow
+</td></tr></table>
+
+See CLRS, chapter 24
+
+</div>
+
+
+# Max flow / Min cut <!-- from day21.pptx -->
+
+# Bipartite Matching <!-- from day21.pptx -->
+
+# Reductions <!-- from day22.pptx and day23.pptx -->
+
+# NP-Complete <!-- from day23.pptx -->

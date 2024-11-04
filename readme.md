@@ -31,6 +31,7 @@ Repository Contents
 - Slide sets:
 	- [Daily announcement slides](slides/announcements.html#/)
     - [Dynamic Programming](slides/dp.html#/)
+    - [Reductions](slides/reductions.html#/)
 
 License
 -------

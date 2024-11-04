@@ -3,6 +3,9 @@
 	font-size:75%;
 }
 /* slide formatting */
+.reveal p, .reveal ul li, .reveal ol li, .reveal table th td, .reveal table tr td {
+	text-align:justify;
+}
 .reveal ul {
 	display:block;
 }
@@ -16,6 +19,9 @@ img.center, .center img {
 	margin:auto;
 	text-align:center;
 	display:block;
+}
+div.titlesmall p {
+	text-align:center;
 }
 table.center {
 	margin-left:auto;
@@ -107,9 +113,10 @@ div.orangetitle:before {
 /* different table styles */
 
 table.compact th, table.compact th td, table.compact td, table.compact td td,
-div.compact table th, div.compact table th td, div.compact table td, div.compact table td td {
+div.compact table th, div.compact table th td, div.compact table td, div.compact table td td,
+td.compact {
 	margin:0;
-	padding:0;
+	padding:0 !important;
 }
 div.allcenter table thead tr th, div.allcenter table th td, div.allcenter table tr td, table.allcenter thead th td, table.allcenter tbody tr td {
 	vertical-align:middle;
@@ -229,17 +236,25 @@ table.dominogrid tr td {
 
 /* purple note class */
 table.purplenote {
-  background-image: linear-gradient(to bottom, #eee6f9, #c9b4e9);
+	background-image: linear-gradient(to bottom, #eee6f9, #c9b4e9);
 	border: 2px solid #8c74ab;
 	border-radius:25px;
 	border-collapse:separate;
 }
 /* blue note class */
 table.bluenote {
-  background-image: linear-gradient(to bottom, #e1fbff, #9ce9ff);
+	background-image: linear-gradient(to bottom, #e1fbff, #9ce9ff);
 	border: 2px solid #4529c4;
 	border-radius:25px;
 	border-collapse:separate;
+}
+/* navy note class */
+table.navynote {
+	background-image: linear-gradient(to bottom, mediumblue, navy);
+	border: 2px solid midnightblue;
+	border-radius:25px;
+	border-collapse:separate;
+	color:white;
 }
 
 
@@ -286,6 +301,7 @@ table.table-of-boxes tbody tr td table tbody tr td{
 .purple { color:purple; }
 .blue { color:blue; }
 .magenta { color:magenta; }
+.orange { color:orange; }
 .grey { color:grey; }
 
 td.red { background-color:red; color:black; }
@@ -331,6 +347,7 @@ td.clear {}
 }
 
 
+
 /* pseudocode */
 div.medium-pseudocode pre code {
 	font-size:1.5em;
@@ -344,8 +361,8 @@ div.large-pseudocode pre code {
 }
 
 /* unfiled */
-p.center {
-	text-align:center;
+p.center, td.center p {
+	text-align:center !important;
 }
 div.underbrace {
 	text-align:left !important;
@@ -426,4 +443,65 @@ table.greenbox tr td {
 	background-color:green;
 	color:white;
 	border-radius:20px;
+}
+
+/* graphs */
+div.svg-40 svg {
+	width:40%;
+	height:auto;
+}
+div.svg-50 svg {
+	width:50%;
+	height:auto;
+}
+div.svg-50-right-flow-graph svg {
+	/* this is for the network flow graphs that are not diamond-shaped (1/2) */
+	width:100%;
+	height:auto;
+}
+div.svg-50-right-flow-graph {
+	/* this is for the network flow graphs that are not diamond-shaped (2/2) */
+	width:50%;
+	float:right;
+}
+td.svg-table-right {
+	vertical-align:top !important;
+}
+td.svg-table-right svg {
+	width:100%;
+	margin:0;
+	height:auto;
+}
+
+
+div.svg-40-right svg {
+	width:40%;
+	float:right;
+}
+div.svg-90 svg {
+	width:90%;
+	height:auto;
+}
+div.svg-100 svg {
+	width:100%;
+	height:auto;
+}
+
+
+/* to file */
+
+td.zero-bottom, td.zero-bottom ul, td.zero-bottom ul li, td.zero-bottom ol, td.zero-bottom ol li, td.zero-bottom p{
+	padding-bottom:0 !important;
+	margin-bottom:0 !important;
+}
+.und {
+	text-decoration:underline;
+}
+.bold {
+	font-weight:bold;
+}
+.svgcaption {
+	text-align:center;
+	font-size:70%;
+	margin-top:0;
 }
