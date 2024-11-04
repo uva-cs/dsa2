@@ -38,6 +38,11 @@ div.no-bullets ul, div.no-bullets ul ul {
 	/* from https://www.w3schools.com/howto/howto_css_list_without_bullets.asp */
   list-style-type: none; /* Remove bullets */
 }
+div.no-bullets-left ul, div.no-bullets-left ul ul {
+  list-style-type: none; /* Remove bullets */
+  margin-left:0;
+  padding-left:0;
+}
 .titlereading {
 	font-size:x-large;
 	position:fixed;
@@ -504,4 +509,28 @@ td.zero-bottom, td.zero-bottom ul, td.zero-bottom ul li, td.zero-bottom ol, td.z
 	text-align:center;
 	font-size:70%;
 	margin-top:0;
+}
+.font-95, .text-95 {
+	font-size:95%;
+}
+.font-90, .text-90 {
+	font-size:90%;
+}
+.font-85, .text-85 {
+	font-size:85%;
+}
+.font-80, .text-80 {
+	font-size:80%;
+}
+.font-75, .text-75 {
+	font-size:75%;
+}
+.font-70, .text-70 {
+	font-size:70%;
+}
+.opacity-0 {
+	opacity:0;
+}
+.width-100 {
+	width:100%;
 }

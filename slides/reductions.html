@@ -364,25 +364,26 @@
 </section>
 <section id="network-flow-1" class="slide level2">
 <h2>Network Flow</h2>
-
-<img data-src="https://upload.wikimedia.org/wikipedia/commons/c/cc/OpenRailwayMap_of_Northeastern_US_and_Southeastern_Canada.png" class="r-stretch"><p><strong>Question:</strong> What is the maximum throughput of the railroad network?</p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/OpenRailwayMap_of_Northeastern_US_and_Southeastern_Canada.png/1024px-OpenRailwayMap_of_Northeastern_US_and_Southeastern_Canada.png" class="center" style="object-fit:none;object-position:right;height:513px;width:864px"></p>
+<p><span class="font-90"><strong>Question:</strong> What is the maximum throughput of the railroad network?</span></p>
 </section>
 <section id="flow-networks" class="slide level2">
 <h2>Flow Networks</h2>
 <!-- day20 slide 13 -->
-<table>
+<table style="width:100%">
 <tbody><tr>
-<td style="vertical-align:top;width:50%">
-<div class="no-bullets">
+<td class="font-90" style="vertical-align:top;padding-left:0;width:40%">
+<p>&nbsp;</p>
+<div class="no-bullets-left">
 <ul>
 <li>Graph <span class="math inline">\(G=(V,E)\)</span></li>
 <li><span class="purple">Start node</span> <span class="math inline">\({\color{purple}s}\in V\)</span></li>
 <li><span class="navy">Sink node</span> <span class="math inline">\({\color{navy}t}\in V\)</span></li>
-<li><span class="green">Edge capacities</span> <span class="math inline">\({\color{green}c(e)} \in R\)</span></li>
+<li><span class="green">Edge capacities</span> <span class="math inline">\({\color{green}c(e)} \in \mathbb{R}^+\)</span></li>
 </ul>
 </div>
 </td>
-<td class="svg-table-right">
+<td class="svg-table-right compact">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -522,7 +523,7 @@
 </td>
 </tr>
 </tbody></table>
-<p><strong>Max flow intuition:</strong> If <span class="math inline">\(\color{purple}s\)</span> is a faucet, <span class="math inline">\(\color{navy}t\)</span> is a drain, and <span class="math inline">\(\color{purple}s\)</span> connects to <span class="math inline">\(\color{navy}t\)</span> through a network of pipes <span class="math inline">\(E\)</span> with capacities <span class="math inline">\(\color{green}c(e)\)</span>, what is the <em>maximum</em> amount of water which can flow from the faucet to the drain?</p>
+<p><strong>Max flow intuition:</strong> If <span class="math inline">\(\color{purple}s\)</span> is a faucet, <span class="math inline">\(\color{navy}t\)</span> is a drain, and <span class="math inline">\(\color{purple}s\)</span> connects to <span class="math inline">\(\color{navy}t\)</span> through a network of pipes <span class="math inline">\(E\)</span> with capacities <span class="math inline">\(\color{green}c(e)\)</span>, what is the <span class="und">maximum</span> amount of water which can flow from the faucet to the drain?</p>
 </section>
 <section id="network-flow-2" class="slide level2">
 <h2>Network Flow</h2>
@@ -689,8 +690,11 @@
 </div>
 </div>
 </div>
+<p class="font-75 center">
+<span class="red">flow</span> / <span class="green">capacity</span>
+</p>
 </div>
-<div style="font-size:80%">
+<div class="font-75">
 <ul>
 <li>Assignment of values <span class="math inline">\(\color{red}f(e)\)</span> to edges
 <ul>
@@ -704,11 +708,11 @@
 <li>Flow constraint
 <ul>
 <li><span class="math inline">\(\forall v \in V - \{s,t\}\)</span>, <span class="math inline">\(\text{inflow}(v)=\text{outflow}(v)\)</span></li>
-<li><span class="math inline">\(\text{inflow}(v)=\sum_{v \in V}f(x,v)\)</span></li>
-<li><span class="math inline">\(\text{outflow}(v)=\sum_{v \in V}f(v,x)\)</span></li>
+<li><span class="math inline">\(\text{inflow}(v)=\sum_{x \in V}f(x,v)\)</span></li>
+<li><span class="math inline">\(\text{outflow}(v)=\sum_{x \in V}f(v,x)\)</span></li>
 <li>Water going in must match water coming out</li>
 </ul></li>
-<li>Flow of <span class="math inline">\(|G|\)</span>: <span class="math inline">\(\text{outflow}(s)-\text{inflow}(s)\)</span></li>
+<li>Flow of <span class="math inline">\(G\)</span>: <span class="math inline">\(|f|=\text{outflow}(s)-\text{inflow}(s)\)</span></li>
 <li>Net outflow of <span class="math inline">\(\color{purple}s\)</span>
 <ul>
 <li><span class="red">3 in this example</span></li>
@@ -719,11 +723,13 @@
 <section id="maximum-flow-problem" class="slide level2">
 <h2>Maximum Flow Problem</h2>
 <!-- day20 slide 15 -->
-<p>Of all valid flows through the graph, find the one that maximizes:</p>
+<p class="font-90 center">
+Of all valid flows through the graph, find the one that maximizes:
+</p>
 <p><span class="math display">\[|f|=\text{outflow}(s)-\text{inflow}(s)\]</span></p>
-<table>
+<table class="width-100">
 <tbody><tr>
-<td>
+<td class="compact">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -863,7 +869,8 @@
 </div>
 </div>
 </td>
-<td>
+<td class="compact">
+<div class="fragment">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -1027,6 +1034,7 @@
 </div>
 </div>
 </div>
+</div>
 </td>
 </tr>
 </tbody></table>
@@ -1034,6 +1042,7 @@
 <section id="greedy-approach" class="slide level2">
 <h2>Greedy Approach</h2>
 <!-- day20 slide 16 -->
+<p>&nbsp;</p>
 <p><strong>Greedy choice:</strong> saturate <em>highest</em> capacity path first</p>
 <div class="svg-50">
 <div class="cell" data-layout-align="default">
@@ -1117,6 +1126,7 @@
 <section id="greedy-approach-1" class="slide level2">
 <h2>Greedy Approach</h2>
 <!-- day20 slide 17 -->
+<p>&nbsp;</p>
 <p><strong>Greedy choice:</strong> saturate <em>highest</em> capacity path first</p>
 <div class="svg-50">
 <div class="cell" data-layout-align="default">
@@ -1200,6 +1210,7 @@
 <section id="greedy-approach-2" class="slide level2">
 <h2>Greedy Approach</h2>
 <!-- day20 slide 18 -->
+<p>&nbsp;</p>
 <p><strong>Greedy choice:</strong> saturate <em>highest</em> capacity path first</p>
 <div class="svg-50">
 <div class="cell" data-layout-align="default">
@@ -1293,6 +1304,7 @@ Flow: 20
 <section id="greedy-approach-3" class="slide level2">
 <h2>Greedy Approach</h2>
 <!-- day20 slide 19 -->
+<p>&nbsp;</p>
 <p><strong>Greedy choice:</strong> saturate <em>highest</em> capacity path first</p>
 <div class="svg-50">
 <div class="cell" data-layout-align="default">
@@ -1387,14 +1399,14 @@ Flow: 20
 <p class="red">
 Maximum flow: 30
 </p>
-<p><strong>Observe:</strong> highest capacity path is <em>not saturated</em> in optimal solution</p>
+<p><span class="font-90"><strong>Observe:</strong> highest capacity path is not <span class="und">saturated</span> in optimal solution</span></p>
 </section>
 <section id="residual-graphs" class="slide level2">
 <h2>Residual Graphs</h2>
 <!-- day20 slide 20 -->
-<table>
+<table class="width-100">
 <tbody><tr>
-<td colspan="2" style="font-size:75%" class="zero-bottom">
+<td colspan="2" class="font-70 zero-bottom">
 <p>Given a flow <span class="math inline">\(f\)</span> in graph <span class="math inline">\(G\)</span>, the residual graph <span class="math inline">\(G_f\)</span> models <span class="und">additional</span> flow that is possible</p>
 <ul>
 <li><span class="orange und">Forward edge</span> for each edge in <span class="math inline">\(G\)</span> with weight set to remaining capacity <span class="math inline">\({\color{green}c(e)}-{\color{red}f(e)}\)</span>
@@ -1405,7 +1417,7 @@ Maximum flow: 30
 </td>
 </tr>
 <tr>
-<td colspan="2" style="font-size:75%;opacity:0" class="zero-bottom">
+<td colspan="2" class="font-75 opacity-0 zero-bottom">
 <ul>
 <li><span class="magenta und">Backward edge</span> by flipping each edge <span class="math inline">\(e\)</span> in <span class="math inline">\(G\)</span> with weight set to flow <span class="math inline">\({\color{red}f(e)}\)</span>
 <ul>
@@ -1415,8 +1427,8 @@ Maximum flow: 30
 </td>
 </tr>
 <tr>
-<td>
-<div class="svg-90">
+<td class="compact">
+<div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -1579,12 +1591,13 @@ Maximum flow: 30
 </div>
 </div>
 </div>
-<p class="svgcaption">
+<p class="svgcaption center">
 Flow <span class="math inline">\(\color{red}f\)</span> in <span class="math inline">\(G\)</span>
 </p>
 </td>
-<td>
-<div class="svg-90">
+<td class="compact">
+<div class="fragment">
+<div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -1704,9 +1717,10 @@ Flow <span class="math inline">\(\color{red}f\)</span> in <span class="math inli
 </div>
 </div>
 </div>
-<p class="svgcaption">
+<p class="svgcaption center">
 Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 </p>
+</div>
 </td>
 </tr>
 </tbody></table>
@@ -1714,9 +1728,9 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <section id="residual-graphs-1" class="slide level2">
 <h2>Residual Graphs</h2>
 <!-- day20 slide 21 -->
-<table>
+<table class="width-100">
 <tbody><tr>
-<td colspan="2" style="font-size:75%" class="zero-bottom">
+<td colspan="2" class="font-70 zero-bottom">
 <p>Given a flow <span class="math inline">\(f\)</span> in graph <span class="math inline">\(G\)</span>, the residual graph <span class="math inline">\(G_f\)</span> models <span class="und">additional</span> flow that is possible</p>
 <ul>
 <li><span class="orange und">Forward edge</span> for each edge in <span class="math inline">\(G\)</span> with weight set to remaining capacity <span class="math inline">\({\color{green}c(e)}-{\color{red}f(e)}\)</span>
@@ -1727,7 +1741,7 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 </td>
 </tr>
 <tr>
-<td colspan="2" style="font-size:75%" class="zero-bottom">
+<td colspan="2" class="font-75 zero-bottom">
 <ul>
 <li><span class="magenta und">Backward edge</span> by flipping each edge <span class="math inline">\(e\)</span> in <span class="math inline">\(G\)</span> with weight set to flow <span class="math inline">\({\color{red}f(e)}\)</span>
 <ul>
@@ -1737,8 +1751,8 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 </td>
 </tr>
 <tr>
-<td>
-<div class="svg-90">
+<td class="compact">
+<div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -1901,12 +1915,12 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 </div>
 </div>
 </div>
-<p class="svgcaption">
+<p class="svgcaption center">
 Flow <span class="math inline">\(\color{red}f\)</span> in <span class="math inline">\(G\)</span>
 </p>
 </td>
-<td>
-<div class="svg-90">
+<td class="compact">
+<div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -2096,7 +2110,7 @@ Flow <span class="math inline">\(\color{red}f\)</span> in <span class="math inli
 </div>
 </div>
 </div>
-<p class="svgcaption">
+<p class="svgcaption center">
 Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 </p>
 </td>
@@ -2675,12 +2689,12 @@ Residual Graph
 <!-- day20 slide 23 -->
 <table>
 <tbody><tr>
-<td colspan="2" style="font-size:75%" class="zero-bottom">
+<td colspan="2" class="font-75 zero-bottom">
 <p>Consider a path from <span class="math inline">\(s \rightarrow t\)</span> in <span class="math inline">\(G_f\)</span> using only edges with positive (non-zero) weight Consider the minimum-weight edge along the path: we can increase the flow by <span class="math inline">\(w(e)\)</span></p>
 </td>
 </tr>
 <tr>
-<td colspan="2" style="font-size:75%;opacity:0" class="zero-bottom">
+<td colspan="2" class="font-75 opacity-0 zero-bottom">
 <ul>
 <li>Send <span class="math inline">\(w(e)\)</span> flow along all <span class="orange">forward</span> edges (these have at least <span class="math inline">\(w(e)\)</span> capacity)</li>
 <li>Remove <span class="math inline">\(w(e)\)</span> flow along all <span class="magenta">backward</span> edges (these contain at least <span class="math inline">\(w(e)\)</span> units of flow)</li>
@@ -2688,7 +2702,7 @@ Residual Graph
 </td>
 </tr>
 <tr>
-<td colspan="2" style="font-size:75%;opacity:0" class="zero-bottom">
+<td colspan="2" class="font-75 opacity-0 zero-bottom">
 <p><span class="bold">Observe:</span> Flow has <span class="und">increased</span> by <span class="math inline">\(w(e)\)</span></p>
 </td>
 </tr>
@@ -3058,12 +3072,12 @@ Residual Graph
 <!-- day20 slide 24 -->
 <table>
 <tbody><tr>
-<td colspan="2" style="font-size:75%" class="zero-bottom">
+<td colspan="2" class="font-75 zero-bottom">
 <p>Consider a path from <span class="math inline">\(s \rightarrow t\)</span> in <span class="math inline">\(G_f\)</span> using only edges with positive (non-zero) weight Consider the minimum-weight edge along the path: we can increase the flow by <span class="math inline">\(w(e)\)</span></p>
 </td>
 </tr>
 <tr>
-<td colspan="2" style="font-size:75%" class="zero-bottom">
+<td colspan="2" class="font-75 zero-bottom">
 <ul>
 <li>Send <span class="math inline">\(w(e)\)</span> flow along all <span class="orange">forward</span> edges (these have at least <span class="math inline">\(w(e)\)</span> capacity)</li>
 <li>Remove <span class="math inline">\(w(e)\)</span> flow along all <span class="magenta">backward</span> edges (these contain at least <span class="math inline">\(w(e)\)</span> units of flow)</li>
@@ -3071,7 +3085,7 @@ Residual Graph
 </td>
 </tr>
 <tr>
-<td colspan="2" style="font-size:75%;opacity:0" class="zero-bottom">
+<td colspan="2" class="font-75 opacity-0 zero-bottom">
 <p><span class="bold">Observe:</span> Flow has <span class="und">increased</span> by <span class="math inline">\(w(e)\)</span></p>
 </td>
 </tr>
@@ -3441,12 +3455,12 @@ Residual Graph
 <!-- day20 slide 25 -->
 <table>
 <tbody><tr>
-<td colspan="2" style="font-size:75%" class="zero-bottom">
+<td colspan="2" class="font-75 zero-bottom">
 <p>Consider a path from <span class="math inline">\(s \rightarrow t\)</span> in <span class="math inline">\(G_f\)</span> using only edges with positive (non-zero) weight Consider the minimum-weight edge along the path: we can increase the flow by <span class="math inline">\(w(e)\)</span></p>
 </td>
 </tr>
 <tr>
-<td colspan="2" style="font-size:75%" class="zero-bottom">
+<td colspan="2" class="font-75 zero-bottom">
 <ul>
 <li>Send <span class="math inline">\(w(e)\)</span> flow along all <span class="orange">forward</span> edges (these have at least <span class="math inline">\(w(e)\)</span> capacity)</li>
 <li>Remove <span class="math inline">\(w(e)\)</span> flow along all <span class="magenta">backward</span> edges (these contain at least <span class="math inline">\(w(e)\)</span> units of flow)</li>
@@ -3454,7 +3468,7 @@ Residual Graph
 </td>
 </tr>
 <tr>
-<td colspan="2" style="font-size:75%" class="zero-bottom">
+<td colspan="2" class="font-75 zero-bottom">
 <p><span class="bold">Observe:</span> Flow has <span class="und">increased</span> by <span class="math inline">\(w(e)\)</span></p>
 </td>
 </tr>
@@ -3819,20 +3833,69 @@ Residual Graph
 </tr>
 </tbody></table>
 </section>
+<section id="ford-fulkerson-algorithm" class="slide level2">
+<h2>Ford-Fulkerson Algorithm</h2>
+<p class="font-75">
+Define an augmenting path to be an <span class="math inline">\(s \rightarrow t\)</span> path in the residual graph <span class="math inline">\(G_f\)</span> (using edges of non-zero weight)
+</p>
+<table class="width-100 font-75">
+<tbody><tr>
+<td style="padding-left:0;padding-top:0" colspan="2">
+<p>
+Ford-Fulkerson max-flow algorithm:
+</p>
+<ul>
+<li class="">
+Initialize <span class="math inline">\({\color{red}f(e)}=0\)</span> for all all <span class="math inline">\(e \in E\)</span>
+</li>
+<li class="">
+Construct the residual network <span class="math inline">\(G_{\color{red}f}\)</span>
+</li>
+<li class="">
+While there is an augmenting path <span class="math inline">\(p\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span>:
+<ul>
+<li>
+Let <span class="math inline">\(c=\min_{e \in E}c_f(e)\)</span> where <span class="math inline">\(c_f(e)\)</span> is the weight of edge <span class="math inline">\(e\)</span> in the residual network <span class="math inline">\(G_{\color{red}f}\)</span>
+</li>
+<li>
+Add <span class="math inline">\(c\)</span> units of flow to <span class="math inline">\(G\)</span> based on the augmenting path <span class="math inline">\(p\)</span>
+</li>
+<li>
+Update the residual network <span class="math inline">\(G_{\color{red}f}\)</span> for the updated flow
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<div class="fragment">
+<table class="navynote font-75">
+<tbody><tr>
+<td>
+<span class="bold">Ford-Fulkerson approach:</span> take <span class="und">any</span> augmenting path (will revisit this later)
+</td>
+</tr>
+</tbody></table>
+</div>
+</section>
 <section id="ford-fulkerson-example" class="slide level2">
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 29 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:0;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -4139,7 +4202,7 @@ Increase flow by 1 unit
 </td>
 </tr>
 <tr>
-<td style="font-size:90%">
+<td class="font-90">
 <span class="bold">Initially:</span> <span class="math inline">\({\color{red}f(e)}=0\)</span> for all <span class="math inline">\(e \in E\)</span>
 </td>
 <td style="text-align:center">
@@ -4154,16 +4217,20 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 30 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<div class="fragment">
+<p class="center">
 Increase flow by 1 unit
+</p>
+</div>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -4484,16 +4551,18 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 31 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -4814,16 +4883,18 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 32 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:0;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -5171,16 +5242,20 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 33 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<div class="fragment">
+<p class="center">
 Increase flow by 1 unit
+</p>
+</div>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -5528,16 +5603,18 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 34 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -5885,16 +5962,18 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 35 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:0;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -6243,16 +6322,20 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 36 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<div class="fragment">
+<p class="center">
 Increase flow by 1 unit
+</p>
+</div>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -6602,16 +6685,18 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 37 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -6961,16 +7046,18 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 38 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:0;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -7327,16 +7414,20 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 39 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<div class="fragment">
+<p class="center">
 Increase flow by 1 unit
+</p>
+</div>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -7693,16 +7784,18 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 40 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -8059,16 +8152,18 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <h2>Ford-Fulkerson Example</h2>
 <!-- day20 slide 41 -->
 <p>&nbsp;</p>
-<table>
+<table class="width-100">
 <tbody><tr>
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
-No more augmenting paths
+<div class="fragment">
+<p>No more augmenting paths</p>
+</div>
 </td>
 </tr>
 <tr>
-<td class="compact">
+<td class="compact" style="width:50%">
 <div class="svg-100">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -8405,14 +8500,16 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 
 
 </tbody></table>
+<div class="fragment">
 <p><span class="bold">Maximum flow:</span> 4</p>
+</div>
 </section>
 <section id="ford-fulkerson-running-time" class="slide level2">
 <h2>Ford-Fulkerson Running Time</h2>
-<p style="font-size:75%">
+<p class="font-75">
 Define an augmenting path to be an <span class="math inline">\(s \rightarrow t\)</span> path in the residual graph <span class="math inline">\(G_f\)</span> (using edges of non-zero weight)
 </p>
-<table style="width:100%;font-size:75%">
+<table class="width-100 font-75">
 <tbody><tr>
 <td style="padding-left:0;padding-top:0" colspan="2">
 <div class="r-stack">
@@ -8421,7 +8518,7 @@ Define an augmenting path to be an <span class="math inline">\(s \rightarrow t\)
 Ford-Fulkerson max-flow algorithm:
 </p>
 <ul>
-<li class="purple">
+<li class="">
 Initialize <span class="math inline">\({\color{red}f(e)}=0\)</span> for all all <span class="math inline">\(e \in E\)</span>
 </li>
 <li class="">
@@ -8467,7 +8564,10 @@ How many iterations are needed?
 &nbsp;
 </p>
 <p>
-For graphs with integer capacities, running time of Ford-Fulkerson is <span class="math inline">\(O(|f^*| \cdot |E|)\)</span>
+For graphs with integer capacities, running time of Ford-Fulkerson is
+</p>
+<p>
+<span class="math display">\[O(|f^*| \cdot |E|)\]</span>
 </p>
 <p>
 Highly undesirable if <span class="math inline">\(|f^*| &gt;&gt; |E|\)</span> (e.g., graph is small, but capacities are <span class="math inline">\(\approx 2^{32}\)</span>)
@@ -8483,13 +8583,13 @@ As described, algorithm is <span class="und">not</span> polynomial-time!
 </tr>
 <tr>
 <td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
-<p><span class="bold">Initialization:</span> <span class="math inline">\(O(|E|)\)</span></p>
+<p><span style="opacity:0"><span class="bold">Initialization:</span> <span class="math inline">\(O(|E|)\)</span></span></p>
 <p><span style="opacity:0"><span class="bold">Construct residual network:</span> <span class="math inline">\(O(|E|)\)</span></span></p>
 </td>
 <td class="zero-bottom">
 <table class="navynote" style="opacity:0">
 <tbody><tr>
-<td style="font-size:70%">
+<td class="font-70">
 We only care about nodes reachable from the source <span class="math inline">\(s\)</span>, so the number of nodes that are “relevant” is at most <span class="math inline">\(|E|\)</span>
 </td>
 </tr>
@@ -8497,7 +8597,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 </td>
 </tr>
 <tr>
-<td colspan="2" style="padding-left:0;padding-top:8px">
+<td colspan="2" style="padding-left:0;padding-top:0px">
 <p><span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span></p>
 </td>
 </tr>
@@ -8505,10 +8605,111 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 </section>
 <section id="ford-fulkerson-running-time-1" class="slide level2">
 <h2>Ford-Fulkerson Running Time</h2>
-<p style="font-size:75%">
+<p class="font-75">
 Define an augmenting path to be an <span class="math inline">\(s \rightarrow t\)</span> path in the residual graph <span class="math inline">\(G_f\)</span> (using edges of non-zero weight)
 </p>
-<table style="width:100%;font-size:75%">
+<table class="width-100 font-75">
+<tbody><tr>
+<td style="padding-left:0;padding-top:0" colspan="2">
+<div class="r-stack">
+<div style="opacity:1">
+<p>
+Ford-Fulkerson max-flow algorithm:
+</p>
+<ul>
+<li class="purple">
+Initialize <span class="math inline">\({\color{red}f(e)}=0\)</span> for all all <span class="math inline">\(e \in E\)</span>
+</li>
+<li class="">
+Construct the residual network <span class="math inline">\(G_{\color{red}f}\)</span>
+</li>
+<li class="">
+While there is an augmenting path <span class="math inline">\(p\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span>:
+<ul>
+<li>
+Let <span class="math inline">\(c=\min_{e \in E}c_f(e)\)</span> where <span class="math inline">\(c_f(e)\)</span> is the weight of edge <span class="math inline">\(e\)</span> in the residual network <span class="math inline">\(G_{\color{red}f}\)</span>
+</li>
+<li>
+Add <span class="math inline">\(c\)</span> units of flow to <span class="math inline">\(G\)</span> based on the augmenting path <span class="math inline">\(p\)</span>
+</li>
+<li>
+Update the residual network <span class="math inline">\(G_{\color{red}f}\)</span> for the updated flow
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<table class="navynote" style="height:325px;opacity:0">
+<tbody><tr>
+<td>
+<p>
+&nbsp;
+</p>
+<p>
+How many iterations are needed?
+</p>
+<ul>
+<li>For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by <span class="math inline">\(|f^*|\)</span>, where <span class="math inline">\(|f^*|\)</span> is max-flow in <span class="math inline">\(G\)</span></li>
+<li>For rational-valued capacities, can scale to make capacities integer</li>
+<li>For irrational-valued capacities, algorithm may never terminate!</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<table class="navynote" style="height:325px;opacity:0">
+<tbody><tr>
+<td>
+<p>
+&nbsp;
+</p>
+<p>
+For graphs with integer capacities, running time of Ford-Fulkerson is
+</p>
+<p>
+<span class="math display">\[O(|f^*| \cdot |E|)\]</span>
+</p>
+<p>
+Highly undesirable if <span class="math inline">\(|f^*| &gt;&gt; |E|\)</span> (e.g., graph is small, but capacities are <span class="math inline">\(\approx 2^{32}\)</span>)
+</p>
+<p>
+As described, algorithm is <span class="und">not</span> polynomial-time!
+</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
+<div class="fragment">
+<p><span class="bold">Initialization:</span> <span class="math inline">\(O(|E|)\)</span></p>
+</div>
+<p><span style="opacity:0"><span class="bold">Construct residual network:</span> <span class="math inline">\(O(|E|)\)</span></span></p>
+</td>
+<td class="zero-bottom">
+<table class="navynote" style="opacity:0">
+<tbody><tr>
+<td class="font-70">
+We only care about nodes reachable from the source <span class="math inline">\(s\)</span>, so the number of nodes that are “relevant” is at most <span class="math inline">\(|E|\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="padding-left:0;padding-top:0px">
+<p><span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span></p>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="ford-fulkerson-running-time-2" class="slide level2">
+<h2>Ford-Fulkerson Running Time</h2>
+<p class="font-75">
+Define an augmenting path to be an <span class="math inline">\(s \rightarrow t\)</span> path in the residual graph <span class="math inline">\(G_f\)</span> (using edges of non-zero weight)
+</p>
+<table class="width-100 font-75">
 <tbody><tr>
 <td style="padding-left:0;padding-top:0" colspan="2">
 <div class="r-stack">
@@ -8563,7 +8764,212 @@ How many iterations are needed?
 &nbsp;
 </p>
 <p>
-For graphs with integer capacities, running time of Ford-Fulkerson is <span class="math inline">\(O(|f^*| \cdot |E|)\)</span>
+For graphs with integer capacities, running time of Ford-Fulkerson is
+</p>
+<p>
+<span class="math display">\[O(|f^*| \cdot |E|)\]</span>
+</p>
+<p>
+Highly undesirable if <span class="math inline">\(|f^*| &gt;&gt; |E|\)</span> (e.g., graph is small, but capacities are <span class="math inline">\(\approx 2^{32}\)</span>)
+</p>
+<p>
+As described, algorithm is <span class="und">not</span> polynomial-time!
+</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
+<p><span class="bold">Initialization:</span> <span class="math inline">\(O(|E|)\)</span></p>
+<div class="fragment">
+<p><span style="opacity:1"><span class="bold">Construct residual network:</span> <span class="math inline">\(O(|E|)\)</span></span></p>
+</div>
+</td>
+<td class="zero-bottom">
+<table class="navynote" style="opacity:0">
+<tbody><tr>
+<td class="font-70">
+We only care about nodes reachable from the source <span class="math inline">\(s\)</span>, so the number of nodes that are “relevant” is at most <span class="math inline">\(|E|\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="padding-left:0;padding-top:0px">
+<p><span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span></p>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="ford-fulkerson-running-time-3" class="slide level2">
+<h2>Ford-Fulkerson Running Time</h2>
+<p class="font-75">
+Define an augmenting path to be an <span class="math inline">\(s \rightarrow t\)</span> path in the residual graph <span class="math inline">\(G_f\)</span> (using edges of non-zero weight)
+</p>
+<table class="width-100 font-75">
+<tbody><tr>
+<td style="padding-left:0;padding-top:0" colspan="2">
+<div class="r-stack">
+<div style="opacity:1">
+<p>
+Ford-Fulkerson max-flow algorithm:
+</p>
+<ul>
+<li class="">
+Initialize <span class="math inline">\({\color{red}f(e)}=0\)</span> for all all <span class="math inline">\(e \in E\)</span>
+</li>
+<li class="">
+Construct the residual network <span class="math inline">\(G_{\color{red}f}\)</span>
+</li>
+<li class="purple">
+While there is an augmenting path <span class="math inline">\(p\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span>:
+<ul>
+<li>
+Let <span class="math inline">\(c=\min_{e \in E}c_f(e)\)</span> where <span class="math inline">\(c_f(e)\)</span> is the weight of edge <span class="math inline">\(e\)</span> in the residual network <span class="math inline">\(G_{\color{red}f}\)</span>
+</li>
+<li>
+Add <span class="math inline">\(c\)</span> units of flow to <span class="math inline">\(G\)</span> based on the augmenting path <span class="math inline">\(p\)</span>
+</li>
+<li>
+Update the residual network <span class="math inline">\(G_{\color{red}f}\)</span> for the updated flow
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<table class="navynote" style="height:325px;opacity:0">
+<tbody><tr>
+<td>
+<p>
+&nbsp;
+</p>
+<p>
+How many iterations are needed?
+</p>
+<ul>
+<li>For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by <span class="math inline">\(|f^*|\)</span>, where <span class="math inline">\(|f^*|\)</span> is max-flow in <span class="math inline">\(G\)</span></li>
+<li>For rational-valued capacities, can scale to make capacities integer</li>
+<li>For irrational-valued capacities, algorithm may never terminate!</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<table class="navynote" style="height:325px;opacity:0">
+<tbody><tr>
+<td>
+<p>
+&nbsp;
+</p>
+<p>
+For graphs with integer capacities, running time of Ford-Fulkerson is
+</p>
+<p>
+<span class="math display">\[O(|f^*| \cdot |E|)\]</span>
+</p>
+<p>
+Highly undesirable if <span class="math inline">\(|f^*| &gt;&gt; |E|\)</span> (e.g., graph is small, but capacities are <span class="math inline">\(\approx 2^{32}\)</span>)
+</p>
+<p>
+As described, algorithm is <span class="und">not</span> polynomial-time!
+</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
+<p><span class="bold">Initialization:</span> <span class="math inline">\(O(|E|)\)</span></p>
+<p><span style="opacity:1"><span class="bold">Construct residual network:</span> <span class="math inline">\(O(|E|)\)</span></span></p>
+</td>
+<td class="zero-bottom">
+<div class="fragment" data-fragment-index="2">
+<table class="navynote" style="opacity:1">
+<tbody><tr>
+<td class="font-70">
+We only care about nodes reachable from the source <span class="math inline">\(s\)</span>, so the number of nodes that are “relevant” is at most <span class="math inline">\(|E|\)</span>
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="padding-left:0;padding-top:0px">
+<div class="fragment" data-fragment-index="1">
+<p><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="ford-fulkerson-running-time-4" class="slide level2">
+<h2>Ford-Fulkerson Running Time</h2>
+<p class="font-75">
+Define an augmenting path to be an <span class="math inline">\(s \rightarrow t\)</span> path in the residual graph <span class="math inline">\(G_f\)</span> (using edges of non-zero weight)
+</p>
+<table class="width-100 font-75">
+<tbody><tr>
+<td style="padding-left:0;padding-top:0" colspan="2">
+<div class="r-stack">
+<div style="opacity:0">
+<p>
+Ford-Fulkerson max-flow algorithm:
+</p>
+<ul>
+<li class="purple">
+Initialize <span class="math inline">\({\color{red}f(e)}=0\)</span> for all all <span class="math inline">\(e \in E\)</span>
+</li>
+<li class="">
+Construct the residual network <span class="math inline">\(G_{\color{red}f}\)</span>
+</li>
+<li class="">
+While there is an augmenting path <span class="math inline">\(p\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span>:
+<ul>
+<li>
+Let <span class="math inline">\(c=\min_{e \in E}c_f(e)\)</span> where <span class="math inline">\(c_f(e)\)</span> is the weight of edge <span class="math inline">\(e\)</span> in the residual network <span class="math inline">\(G_{\color{red}f}\)</span>
+</li>
+<li>
+Add <span class="math inline">\(c\)</span> units of flow to <span class="math inline">\(G\)</span> based on the augmenting path <span class="math inline">\(p\)</span>
+</li>
+<li>
+Update the residual network <span class="math inline">\(G_{\color{red}f}\)</span> for the updated flow
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<table class="navynote" style="height:325px;opacity:1">
+<tbody><tr>
+<td>
+<p>
+&nbsp;
+</p>
+<p>
+How many iterations are needed?
+</p>
+<ul>
+<li>For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by <span class="math inline">\(|f^*|\)</span>, where <span class="math inline">\(|f^*|\)</span> is max-flow in <span class="math inline">\(G\)</span></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<table class="navynote" style="height:325px;opacity:0">
+<tbody><tr>
+<td>
+<p>
+&nbsp;
+</p>
+<p>
+For graphs with integer capacities, running time of Ford-Fulkerson is
+</p>
+<p>
+<span class="math display">\[O(|f^*| \cdot |E|)\]</span>
 </p>
 <p>
 Highly undesirable if <span class="math inline">\(|f^*| &gt;&gt; |E|\)</span> (e.g., graph is small, but capacities are <span class="math inline">\(\approx 2^{32}\)</span>)
@@ -8585,7 +8991,7 @@ As described, algorithm is <span class="und">not</span> polynomial-time!
 <td class="zero-bottom">
 <table class="navynote" style="opacity:0">
 <tbody><tr>
-<td style="font-size:70%">
+<td class="font-70">
 We only care about nodes reachable from the source <span class="math inline">\(s\)</span>, so the number of nodes that are “relevant” is at most <span class="math inline">\(|E|\)</span>
 </td>
 </tr>
@@ -8593,105 +8999,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 </td>
 </tr>
 <tr>
-<td colspan="2" style="padding-left:0;padding-top:8px">
-<p><span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span></p>
-</td>
-</tr>
-</tbody></table>
-</section>
-<section id="ford-fulkerson-running-time-2" class="slide level2">
-<h2>Ford-Fulkerson Running Time</h2>
-<p style="font-size:75%">
-Define an augmenting path to be an <span class="math inline">\(s \rightarrow t\)</span> path in the residual graph <span class="math inline">\(G_f\)</span> (using edges of non-zero weight)
-</p>
-<table style="width:100%;font-size:75%">
-<tbody><tr>
-<td style="padding-left:0;padding-top:0" colspan="2">
-<div class="r-stack">
-<div style="opacity:1">
-<p>
-Ford-Fulkerson max-flow algorithm:
-</p>
-<ul>
-<li class="">
-Initialize <span class="math inline">\({\color{red}f(e)}=0\)</span> for all all <span class="math inline">\(e \in E\)</span>
-</li>
-<li class="">
-Construct the residual network <span class="math inline">\(G_{\color{red}f}\)</span>
-</li>
-<li class="purple">
-While there is an augmenting path <span class="math inline">\(p\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span>:
-<ul>
-<li>
-Let <span class="math inline">\(c=\min_{e \in E}c_f(e)\)</span> where <span class="math inline">\(c_f(e)\)</span> is the weight of edge <span class="math inline">\(e\)</span> in the residual network <span class="math inline">\(G_{\color{red}f}\)</span>
-</li>
-<li>
-Add <span class="math inline">\(c\)</span> units of flow to <span class="math inline">\(G\)</span> based on the augmenting path <span class="math inline">\(p\)</span>
-</li>
-<li>
-Update the residual network <span class="math inline">\(G_{\color{red}f}\)</span> for the updated flow
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<table class="navynote" style="height:325px;opacity:0">
-<tbody><tr>
-<td>
-<p>
-&nbsp;
-</p>
-<p>
-How many iterations are needed?
-</p>
-<ul>
-<li>For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by <span class="math inline">\(|f^*|\)</span>, where <span class="math inline">\(|f^*|\)</span> is max-flow in <span class="math inline">\(G\)</span></li>
-<li>For rational-valued capacities, can scale to make capacities integer</li>
-<li>For irrational-valued capacities, algorithm may never terminate!</li>
-</ul>
-</td>
-</tr>
-</tbody></table>
-<table class="navynote" style="height:325px;opacity:0">
-<tbody><tr>
-<td>
-<p>
-&nbsp;
-</p>
-<p>
-For graphs with integer capacities, running time of Ford-Fulkerson is <span class="math inline">\(O(|f^*| \cdot |E|)\)</span>
-</p>
-<p>
-Highly undesirable if <span class="math inline">\(|f^*| &gt;&gt; |E|\)</span> (e.g., graph is small, but capacities are <span class="math inline">\(\approx 2^{32}\)</span>)
-</p>
-<p>
-As described, algorithm is <span class="und">not</span> polynomial-time!
-</p>
-</td>
-</tr>
-</tbody></table>
-</div>
-</td>
-</tr>
-<tr>
-<td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
-<p><span class="bold">Initialization:</span> <span class="math inline">\(O(|E|)\)</span></p>
-<p><span style="opacity:1"><span class="bold">Construct residual network:</span> <span class="math inline">\(O(|E|)\)</span></span></p>
-</td>
-<td class="zero-bottom">
-<div class="fragment">
-<table class="navynote" style="opacity:1">
-<tbody><tr>
-<td style="font-size:70%">
-We only care about nodes reachable from the source <span class="math inline">\(s\)</span>, so the number of nodes that are “relevant” is at most <span class="math inline">\(|E|\)</span>
-</td>
-</tr>
-</tbody></table>
-</div>
-</td>
-</tr>
-<tr>
-<td colspan="2" style="padding-left:0;padding-top:8px">
+<td colspan="2" style="padding-left:0;padding-top:0px">
 <p><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span></p>
 </td>
 </tr>
@@ -8706,7 +9014,9 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <td>
 </td>
 <td style="opacity:0;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
@@ -8895,7 +9205,11 @@ Increase flow by 1 unit
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<div class="fragment">
+<p class="center">
 Increase flow by 1 unit
+</p>
+</div>
 </td>
 </tr>
 <tr>
@@ -9084,7 +9398,9 @@ Increase flow by 1 unit
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
@@ -9273,7 +9589,9 @@ Increase flow by 1 unit
 <td>
 </td>
 <td style="opacity:0;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
@@ -9479,7 +9797,11 @@ Increase flow by 1 unit
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<div class="fragment">
+<p class="center">
 Increase flow by 1 unit
+</p>
+</div>
 </td>
 </tr>
 <tr>
@@ -9685,7 +10007,9 @@ Increase flow by 1 unit
 <td>
 </td>
 <td style="opacity:1;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
@@ -9891,7 +10215,9 @@ Increase flow by 1 unit
 <td>
 </td>
 <td style="opacity:0;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
@@ -10113,7 +10439,9 @@ Increase flow by 1 unit
 <td>
 </td>
 <td style="opacity:0;text-align:center" class="zero-bottom">
+<p class="center">
 Increase flow by 1 unit
+</p>
 </td>
 </tr>
 <tr>
@@ -10328,12 +10656,12 @@ Increase flow by 1 unit
 <p><span class="bold">Observation:</span> each iteration increases flow by 1 unit</p>
 <p><span class="bold">Total number of iterations:</span> <span class="math inline">\(|f^*|=200\)</span></p>
 </section>
-<section id="ford-fulkerson-running-time-3" class="slide level2">
+<section id="ford-fulkerson-running-time-5" class="slide level2">
 <h2>Ford-Fulkerson Running Time</h2>
-<p style="font-size:75%">
+<p class="font-75">
 Define an augmenting path to be an <span class="math inline">\(s \rightarrow t\)</span> path in the residual graph <span class="math inline">\(G_f\)</span> (using edges of non-zero weight)
 </p>
-<table style="width:100%;font-size:75%">
+<table class="width-100 font-75">
 <tbody><tr>
 <td style="padding-left:0;padding-top:0" colspan="2">
 <div class="r-stack">
@@ -10388,7 +10716,10 @@ How many iterations are needed?
 &nbsp;
 </p>
 <p>
-For graphs with integer capacities, running time of Ford-Fulkerson is <span class="math inline">\(O(|f^*| \cdot |E|)\)</span>
+For graphs with integer capacities, running time of Ford-Fulkerson is
+</p>
+<p>
+<span class="math display">\[O(|f^*| \cdot |E|)\]</span>
 </p>
 <p>
 Highly undesirable if <span class="math inline">\(|f^*| &gt;&gt; |E|\)</span> (e.g., graph is small, but capacities are <span class="math inline">\(\approx 2^{32}\)</span>)
@@ -10410,7 +10741,7 @@ As described, algorithm is <span class="und">not</span> polynomial-time!
 <td class="zero-bottom">
 <table class="navynote" style="opacity:0">
 <tbody><tr>
-<td style="font-size:70%">
+<td class="font-70">
 We only care about nodes reachable from the source <span class="math inline">\(s\)</span>, so the number of nodes that are “relevant” is at most <span class="math inline">\(|E|\)</span>
 </td>
 </tr>
@@ -10418,18 +10749,18 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 </td>
 </tr>
 <tr>
-<td colspan="2" style="padding-left:0;padding-top:8px">
+<td colspan="2" style="padding-left:0;padding-top:0px">
 <p><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span></p>
 </td>
 </tr>
 </tbody></table>
 </section>
-<section id="ford-fulkerson-running-time-4" class="slide level2">
+<section id="ford-fulkerson-running-time-6" class="slide level2">
 <h2>Ford-Fulkerson Running Time</h2>
-<p style="font-size:75%">
+<p class="font-75">
 Define an augmenting path to be an <span class="math inline">\(s \rightarrow t\)</span> path in the residual graph <span class="math inline">\(G_f\)</span> (using edges of non-zero weight)
 </p>
-<table style="width:100%;font-size:75%">
+<table class="width-100 font-75">
 <tbody><tr>
 <td style="padding-left:0;padding-top:0" colspan="2">
 <div class="r-stack">
@@ -10484,7 +10815,10 @@ How many iterations are needed?
 &nbsp;
 </p>
 <p>
-For graphs with integer capacities, running time of Ford-Fulkerson is <span class="math inline">\(O(|f^*| \cdot |E|)\)</span>
+For graphs with integer capacities, running time of Ford-Fulkerson is
+</p>
+<p>
+<span class="math display">\[O(|f^*| \cdot |E|)\]</span>
 </p>
 <p>
 Highly undesirable if <span class="math inline">\(|f^*| &gt;&gt; |E|\)</span> (e.g., graph is small, but capacities are <span class="math inline">\(\approx 2^{32}\)</span>)
@@ -10506,7 +10840,7 @@ As described, algorithm is <span class="und">not</span> polynomial-time!
 <td class="zero-bottom">
 <table class="navynote" style="opacity:0">
 <tbody><tr>
-<td style="font-size:70%">
+<td class="font-70">
 We only care about nodes reachable from the source <span class="math inline">\(s\)</span>, so the number of nodes that are “relevant” is at most <span class="math inline">\(|E|\)</span>
 </td>
 </tr>
@@ -10514,7 +10848,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 </td>
 </tr>
 <tr>
-<td colspan="2" style="padding-left:0;padding-top:8px">
+<td colspan="2" style="padding-left:0;padding-top:0px">
 <p><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span></p>
 </td>
 </tr>
@@ -10522,7 +10856,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 </section>
 <section id="can-we-avoid-this" class="slide level2">
 <h2>Can We Avoid This?</h2>
-<div style="font-size:80%">
+<div class="font-80">
 <p><span class="bold">Edmonds-Karp Algorithm:</span> <span class="green">choose augmenting path with fewest hops</span></p>
 <p><span class="bold">Running time:</span> <span class="math inline">\(\Theta\left(|E| \cdot |f^*|,|V| \cdot |E|^2 \right) = O\left(|V| \cdot |E|^2 \right)\)</span></p>
 <table style="width:100%">
@@ -10537,7 +10871,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <td>
 <table class="navynote">
 <tbody><tr>
-<td class="center" style="font-size:80%">
+<td class="center font-80">
 <p>How to find this? With BFS!</p>
 <p>Edmonds-Karp = Ford-Fulkerson<br>using BFS to find augmenting path</p>
 </td>
@@ -10562,11 +10896,170 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <p>See CLRS, chapter 24</p>
 </div>
 </section></section>
+<section>
 <section id="max-flow-min-cut" class="title-slide slide level1 center">
 <h1>Max flow / Min cut <!-- from day21.pptx --></h1>
 
 </section>
-
+<section id="day21-slide-7" class="slide level2">
+<h2>day21 slide 7</h2>
+<div class="svg-50-right">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 332.00 448.36" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 444.36)">
+<title>graph1</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-444.36 328,-444.36 328,4 -4,4"></polygon>
+<!-- B -->
+<g id="node1" class="node">
+<title>B</title>
+<ellipse fill="cornflowerblue" stroke="black" cx="101" cy="-422.36" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="101" y="-418.16" font-family="Arial" font-size="14.00">B</text>
+</g>
+<!-- E -->
+<g id="node2" class="node">
+<title>E</title>
+<ellipse fill="cornflowerblue" stroke="black" cx="188" cy="-422.36" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="188" y="-418.16" font-family="Arial" font-size="14.00">E</text>
+</g>
+<!-- B&#45;&#45;E -->
+<g id="edge4" class="edge">
+<title>B--E</title>
+<path fill="none" stroke="purple" stroke-width="4" d="M119.03,-422.36C133.96,-422.36 155.07,-422.36 170,-422.36"></path>
+<text text-anchor="middle" x="144.5" y="-432.56" font-family="Arial" font-size="24.00">8</text>
+</g>
+<!-- C -->
+<g id="node7" class="node">
+<title>C</title>
+<ellipse fill="cornflowerblue" stroke="black" cx="101" cy="-321.55" rx="18.02" ry="18.02"></ellipse>
+<text text-anchor="middle" x="101" y="-317.35" font-family="Arial" font-size="14.00">C</text>
+</g>
+<!-- B&#45;&#45;C -->
+<g id="edge3" class="edge">
+<title>B--C</title>
+<path fill="none" stroke="purple" stroke-width="4" d="M101,-404.15C101,-386.01 101,-357.62 101,-339.56"></path>
+<text text-anchor="middle" x="107.67" y="-364.76" font-family="Arial" font-size="24.00">9</text>
+</g>
+<!-- H -->
+<g id="node4" class="node">
+<title>H</title>
+<ellipse fill="cornflowerblue" stroke="black" cx="258" cy="-18.01" rx="18.02" ry="18.02"></ellipse>
+<text text-anchor="middle" x="258" y="-13.81" font-family="Arial" font-size="14.00">H</text>
+</g>
+<!-- E&#45;&#45;H -->
+<g id="edge9" class="edge">
+<title>E--H</title>
+<path fill="none" stroke="purple" stroke-width="4" d="M192.37,-404.71C197.11,-385.17 204,-351.74 204,-322.55 204,-322.55 204,-322.55 204,-118.37 204,-83.62 229.81,-49.42 245.75,-31.63"></path>
+<text text-anchor="middle" x="210.67" y="-213.53" font-family="Arial" font-size="24.00">8</text>
+</g>
+<!-- G -->
+<g id="node9" class="node">
+<title>G</title>
+<ellipse fill="cornflowerblue" stroke="black" cx="258" cy="-119.37" rx="18.6" ry="18.6"></ellipse>
+<text text-anchor="middle" x="258" y="-115.17" font-family="Arial" font-size="14.00">G</text>
+</g>
+<!-- E&#45;&#45;G -->
+<g id="edge10" class="edge">
+<title>E--G</title>
+<path fill="none" stroke="green" stroke-width="4" d="M201.02,-409.61C207.16,-403.33 214.01,-395.09 218,-386.36 257.62,-299.73 259.5,-182.26 258.62,-138.11"></path>
+<text text-anchor="middle" x="258.67" y="-263.94" font-family="Arial" font-size="24.00">5</text>
+</g>
+<!-- A -->
+<g id="node3" class="node">
+<title>A</title>
+<ellipse fill="cornflowerblue" stroke="black" cx="28" cy="-18.01" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="28" y="-13.81" font-family="Arial" font-size="14.00">A</text>
+</g>
+<!-- A&#45;&#45;B -->
+<g id="edge1" class="edge">
+<title>A--B</title>
+<path fill="none" stroke="green" stroke-width="4" d="M20.64,-34.8C12.35,-54.08 0,-87.9 0,-118.37 0,-322.55 0,-322.55 0,-322.55 0,-369.4 56.22,-401.34 84.77,-414.54"></path>
+<text text-anchor="middle" x="13.35" y="-213.53" font-family="Arial" font-size="24.00">10</text>
+</g>
+<!-- A&#45;&#45;C -->
+<g id="edge2" class="edge">
+<title>A--C</title>
+<path fill="none" stroke="purple" stroke-width="4" d="M32.02,-35.6C44.76,-88.25 84.21,-251.19 96.97,-303.91"></path>
+<text text-anchor="middle" x="81.35" y="-163.12" font-family="Arial" font-size="24.00">12</text>
+</g>
+<!-- I -->
+<g id="node6" class="node">
+<title>I</title>
+<ellipse fill="cornflowerblue" stroke="black" cx="306" cy="-220.73" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="306" y="-216.53" font-family="Arial" font-size="14.00">I</text>
+</g>
+<!-- H&#45;&#45;I -->
+<g id="edge14" class="edge">
+<title>H--I</title>
+<path fill="none" stroke="green" stroke-width="4" d="M266.15,-34.46C269.15,-40.47 272.43,-47.48 275,-54.02 292.28,-98.09 299.04,-109.1 306,-155.92 308.33,-171.59 308.06,-189.66 307.36,-202.56"></path>
+<text text-anchor="middle" x="308.67" y="-112.17" font-family="Arial" font-size="24.00">2</text>
+</g>
+<!-- D -->
+<g id="node5" class="node">
+<title>D</title>
+<ellipse fill="cornflowerblue" stroke="black" cx="150" cy="-220.73" rx="18.02" ry="18.02"></ellipse>
+<text text-anchor="middle" x="150" y="-216.53" font-family="Arial" font-size="14.00">D</text>
+</g>
+<!-- D&#45;&#45;E -->
+<g id="edge7" class="edge">
+<title>D--E</title>
+<path fill="none" stroke="purple" stroke-width="4" d="M153.23,-238.7C160.4,-276.38 177.58,-366.62 184.76,-404.34"></path>
+<text text-anchor="middle" x="179.67" y="-314.35" font-family="Arial" font-size="24.00">7</text>
+</g>
+<!-- F -->
+<g id="node8" class="node">
+<title>F</title>
+<ellipse fill="cornflowerblue" stroke="black" cx="122" cy="-119.37" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="122" y="-115.17" font-family="Arial" font-size="14.00">F</text>
+</g>
+<!-- D&#45;&#45;F -->
+<g id="edge8" class="edge">
+<title>D--F</title>
+<path fill="none" stroke="purple" stroke-width="4" d="M145.38,-203.32C140.19,-184.91 131.82,-155.22 126.63,-136.8"></path>
+<text text-anchor="middle" x="146.67" y="-163.12" font-family="Arial" font-size="24.00">3</text>
+</g>
+<!-- C&#45;&#45;D -->
+<g id="edge5" class="edge">
+<title>C--D</title>
+<path fill="none" stroke="purple" stroke-width="4" d="M108.66,-305.11C117.86,-286.54 133.22,-255.58 142.4,-237.06"></path>
+<text text-anchor="middle" x="138.67" y="-263.94" font-family="Arial" font-size="24.00">3</text>
+</g>
+<!-- C&#45;&#45;F -->
+<g id="edge6" class="edge">
+<title>C--F</title>
+<path fill="none" stroke="green" stroke-width="4" d="M101.86,-303.34C103.09,-280.35 105.67,-238.39 109.65,-202.72 112.18,-180.02 116.29,-153.97 119.07,-137.35"></path>
+<text text-anchor="middle" x="116.67" y="-213.53" font-family="Arial" font-size="24.00">1</text>
+</g>
+<!-- F&#45;&#45;G -->
+<g id="edge11" class="edge">
+<title>F--G</title>
+<path fill="none" stroke="green" stroke-width="4" d="M140.06,-119.37C165.93,-119.37 213.28,-119.37 239.43,-119.37"></path>
+<text text-anchor="middle" x="189.73" y="-129.57" font-family="Arial" font-size="24.00">6</text>
+</g>
+<!-- G&#45;&#45;H -->
+<g id="edge12" class="edge">
+<title>G--H</title>
+<path fill="none" stroke="purple" stroke-width="4" d="M258,-100.61C258,-82.41 258,-54.3 258,-36.29"></path>
+<text text-anchor="middle" x="264.67" y="-61.22" font-family="Arial" font-size="24.00">9</text>
+</g>
+<!-- G&#45;&#45;I -->
+<g id="edge13" class="edge">
+<title>G--I</title>
+<path fill="none" stroke="purple" stroke-width="4" d="M262.05,-137.66C265.56,-150.99 271.34,-169.63 279.3,-184.72 283.44,-192.56 289.31,-200.48 294.49,-206.8"></path>
+<text text-anchor="middle" x="292.35" y="-163.12" font-family="Arial" font-size="24.00">11</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
 <section id="bipartite-matching" class="title-slide slide level1 center">
 <h1>Bipartite Matching <!-- from day21.pptx --></h1>
 

@@ -7,24 +7,26 @@ title: "Reductions"
 
 ## Network Flow
 
-![](https://upload.wikimedia.org/wikipedia/commons/c/cc/OpenRailwayMap_of_Northeastern_US_and_Southeastern_Canada.png)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/OpenRailwayMap_of_Northeastern_US_and_Southeastern_Canada.png/1024px-OpenRailwayMap_of_Northeastern_US_and_Southeastern_Canada.png){.center style="object-fit:none;object-position:right;height:513px;width:864px"}
 
-**Question:** What is the maximum throughput of the railroad network?
+<span class="font-90">**Question:** What is the maximum throughput of the railroad network?</span>
 
 
 ## Flow Networks
 <!-- day20 slide 13 -->
 
-<table><tr><td style="vertical-align:top;width:50%">
+<table style="width:100%"><tr><td class="font-90" style="vertical-align:top;padding-left:0;width:40%">
 
-::: {.no-bullets}
+&nbsp;
+
+::: {.no-bullets-left}
 - Graph $G=(V,E)$
 - <span class='purple'>Start node</span> ${\color{purple}s}\in V$
 - <span class='navy'>Sink node</span> ${\color{navy}t}\in V$
-- <span class='green'>Edge capacities</span> ${\color{green}c(e)} \in R$
+- <span class='green'>Edge capacities</span> ${\color{green}c(e)} \in \mathbb{R}^+$
 :::
 
-</td><td class="svg-table-right">
+</td><td class="svg-table-right compact">
 
 ```{dot}
 digraph graph1 {
@@ -61,7 +63,7 @@ digraph graph1 {
 
 </td></tr></table>
 
-**Max flow intuition:** If $\color{purple}s$ is a faucet, $\color{navy}t$ is a drain, and $\color{purple}s$ connects to $\color{navy}t$ through a network of pipes $E$ with capacities $\color{green}c(e)$, what is the *maximum* amount of water which can flow from the faucet to the drain?
+**Max flow intuition:** If $\color{purple}s$ is a faucet, $\color{navy}t$ is a drain, and $\color{purple}s$ connects to $\color{navy}t$ through a network of pipes $E$ with capacities $\color{green}c(e)$, what is the <span class='und'>maximum</span> amount of water which can flow from the faucet to the drain?
 
 
 ## Network Flow
@@ -100,9 +102,10 @@ digraph graph2 {
     b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
 }
 ```
+<p class="font-75 center"><span class='red'>flow</span> / <span class='green'>capacity</span></p>
 :::
 
-<div style="font-size:80%">
+<div class="font-75">
 
 - Assignment of values $\color{red}f(e)$ to edges
 	- "Amount of water going through that pipe"
@@ -111,10 +114,10 @@ digraph graph2 {
 	- "Flow cannot exceed capacity"
 - Flow constraint
 	- $\forall v \in V - \{s,t\}$, $\text{inflow}(v)=\text{outflow}(v)$
-	- $\text{inflow}(v)=\sum_{v \in V}f(x,v)$
-	- $\text{outflow}(v)=\sum_{v \in V}f(v,x)$
+	- $\text{inflow}(v)=\sum_{x \in V}f(x,v)$
+	- $\text{outflow}(v)=\sum_{x \in V}f(v,x)$
 	- Water going in must match water coming out
-- Flow of $|G|$: $\text{outflow}(s)-\text{inflow}(s)$
+- Flow of $G$: $|f|=\text{outflow}(s)-\text{inflow}(s)$
 - Net outflow of $\color{purple}s$
 	- <span class='red'>3 in this example</span>
 
@@ -124,11 +127,11 @@ digraph graph2 {
 ## Maximum Flow Problem
 <!-- day20 slide 15 -->
 
-Of all valid flows through the graph, find the one that maximizes:
+<p class="font-90 center">Of all valid flows through the graph, find the one that maximizes:</p>
 
 $$|f|=\text{outflow}(s)-\text{inflow}(s)$$
 
-<table><tr><td>
+<table class="width-100"><tr><td class="compact">
 ::: {.svg-100}
 ```{dot}
 digraph graph1 {
@@ -163,7 +166,8 @@ digraph graph1 {
 }
 ```
 :::
-</td><td>
+</td><td class="compact">
+::: {.fragment}
 ::: {.svg-100}
 ```{dot}
 digraph graph3 {
@@ -198,6 +202,7 @@ digraph graph3 {
 }
 ```
 :::
+:::
 </td></tr></table>
 
 
@@ -205,6 +210,8 @@ digraph graph3 {
 
 ## Greedy Approach
 <!-- day20 slide 16 -->
+
+&nbsp;
 
 **Greedy choice:** saturate *highest* capacity path first
 
@@ -237,6 +244,8 @@ digraph diamond_graph1 {
 ## Greedy Approach
 <!-- day20 slide 17 -->
 
+&nbsp;
+
 **Greedy choice:** saturate *highest* capacity path first
 
 ::: {.svg-50}
@@ -266,6 +275,8 @@ digraph diamond_graph2 {
 
 ## Greedy Approach
 <!-- day20 slide 18 -->
+
+&nbsp;
 
 **Greedy choice:** saturate *highest* capacity path first
 
@@ -298,6 +309,8 @@ digraph diamond_graph3 {
 ## Greedy Approach
 <!-- day20 slide 19 -->
 
+&nbsp;
+
 **Greedy choice:** saturate *highest* capacity path first
 
 ::: {.svg-50}
@@ -325,28 +338,28 @@ digraph diamond_graph4 {
 
 <p class='red'>Maximum flow: 30</p>
 
-**Observe:** highest capacity path is *not saturated* in optimal solution
+<span class="font-90">**Observe:** highest capacity path is not <span class='und'>saturated</span> in optimal solution</span>
 
 
 
 ## Residual Graphs
 <!-- day20 slide 20 -->
 
-<table><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+<table class="width-100"><tr><td colspan='2' class="font-70 zero-bottom">
 
 Given a flow $f$ in graph $G$, the residual graph $G_f$ models <span class='und'>additional</span> flow that is possible
 
 - <span class='orange und'>Forward edge</span> for each edge in $G$ with weight set to remaining capacity ${\color{green}c(e)}-{\color{red}f(e)}$
   - Models <span class='und'>additional</span> flow that can be sent along the edge: <span class='purple'>flow to add</span>
 
-</td></tr><tr><td colspan='2' style="font-size:75%;opacity:0" class="zero-bottom">
+</td></tr><tr><td colspan='2' class="font-75 opacity-0 zero-bottom">
 
 - <span class='magenta und'>Backward edge</span> by flipping each edge $e$ in $G$ with weight set to flow ${\color{red}f(e)}$
   - Models amount of flow that can be <span class='und'>removed</span> from the edge: <span class='purple'>flow to remove</span>
 
-</td></tr><tr><td>
+</td></tr><tr><td class="compact">
 
-::: {.svg-90}
+::: {.svg-100}
 ```{dot}
 digraph graph2 {
     // the layout when the edge labels are of the form "x/y"
@@ -381,10 +394,11 @@ digraph graph2 {
 ```
 :::
 
-<p class='svgcaption'>Flow $\color{red}f$ in $G$</p>
+<p class='svgcaption center'>Flow $\color{red}f$ in $G$</p>
 
-</td><td>
-::: {.svg-90}
+</td><td class="compact">
+::: {.fragment}
+::: {.svg-100}
 ```{dot}
 digraph graph4 {
     // the layout when the edge labels are a single character or digit
@@ -419,7 +433,8 @@ digraph graph4 {
 ```
 :::
 
-<p class='svgcaption'>Residual graph $G_{\color{red}f}$</p>
+<p class='svgcaption center'>Residual graph $G_{\color{red}f}$</p>
+:::
 
 </td></tr></table>
 
@@ -428,21 +443,21 @@ digraph graph4 {
 ## Residual Graphs
 <!-- day20 slide 21 -->
 
-<table><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+<table class="width-100"><tr><td colspan='2' class="font-70 zero-bottom">
 
 Given a flow $f$ in graph $G$, the residual graph $G_f$ models <span class='und'>additional</span> flow that is possible
 
 - <span class='orange und'>Forward edge</span> for each edge in $G$ with weight set to remaining capacity ${\color{green}c(e)}-{\color{red}f(e)}$
   - Models <span class='und'>additional</span> flow that can be sent along the edge: <span class='purple'>flow to add</span>
 
-</td></tr><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+</td></tr><tr><td colspan='2' class="font-75 zero-bottom">
 
 - <span class='magenta und'>Backward edge</span> by flipping each edge $e$ in $G$ with weight set to flow ${\color{red}f(e)}$
   - Models amount of flow that can be <span class='und'>removed</span> from the edge: <span class='purple'>flow to remove</span>
 
-</td></tr><tr><td>
+</td></tr><tr><td class="compact">
 
-::: {.svg-90}
+::: {.svg-100}
 ```{dot}
 digraph graph2 {
     // the layout when the edge labels are of the form "x/y"
@@ -477,10 +492,10 @@ digraph graph2 {
 ```
 :::
 
-<p class='svgcaption'>Flow $\color{red}f$ in $G$</p>
+<p class='svgcaption center'>Flow $\color{red}f$ in $G$</p>
 
-</td><td>
-::: {.svg-90}
+</td><td class="compact">
+::: {.svg-100}
 ```{dot}
 digraph graph5 {
     // the layout when the edge labels are a single character or digit
@@ -525,7 +540,7 @@ digraph graph5 {
 ```
 :::
 
-<p class='svgcaption'>Residual graph $G_{\color{red}f}$</p>
+<p class='svgcaption center'>Residual graph $G_{\color{red}f}$</p>
 
 </td></tr></table>
 
@@ -693,17 +708,17 @@ digraph diamond_graph8 {
 ## Residual Graphs
 <!-- day20 slide 23 -->
 
-<table><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+<table><tr><td colspan='2' class="font-75 zero-bottom">
 
 Consider a path from $s \rightarrow t$ in $G_f$ using only edges with positive (non-zero) weight
 Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
 
-</td></tr><tr><td colspan='2' style="font-size:75%;opacity:0" class="zero-bottom">
+</td></tr><tr><td colspan='2' class="font-75 opacity-0 zero-bottom">
 
 - Send $w(e)$ flow along all <span class='orange'>forward</span> edges (these have at least $w(e)$ capacity)
 - Remove $w(e)$ flow along all <span class='magenta'>backward</span> edges (these contain at least $w(e)$ units of flow)
 
-</td></tr><tr><td colspan='2' style="font-size:75%;opacity:0" class="zero-bottom">
+</td></tr><tr><td colspan='2' class="font-75 opacity-0 zero-bottom">
 
 <span class="bold">Observe:</span> Flow has <span class='und'>increased</span> by $w(e)$
 
@@ -794,17 +809,17 @@ digraph graph6 {
 ## Residual Graphs
 <!-- day20 slide 24 -->
 
-<table><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+<table><tr><td colspan='2' class="font-75 zero-bottom">
 
 Consider a path from $s \rightarrow t$ in $G_f$ using only edges with positive (non-zero) weight
 Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
 
-</td></tr><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+</td></tr><tr><td colspan='2' class="font-75 zero-bottom">
 
 - Send $w(e)$ flow along all <span class='orange'>forward</span> edges (these have at least $w(e)$ capacity)
 - Remove $w(e)$ flow along all <span class='magenta'>backward</span> edges (these contain at least $w(e)$ units of flow)
 
-</td></tr><tr><td colspan='2' style="font-size:75%;opacity:0" class="zero-bottom">
+</td></tr><tr><td colspan='2' class="font-75 opacity-0 zero-bottom">
 
 <span class="bold">Observe:</span> Flow has <span class='und'>increased</span> by $w(e)$
 
@@ -894,17 +909,17 @@ digraph graph6 {
 ## Residual Graphs
 <!-- day20 slide 25 -->
 
-<table><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+<table><tr><td colspan='2' class="font-75 zero-bottom">
 
 Consider a path from $s \rightarrow t$ in $G_f$ using only edges with positive (non-zero) weight
 Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
 
-</td></tr><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+</td></tr><tr><td colspan='2' class="font-75 zero-bottom">
 
 - Send $w(e)$ flow along all <span class='orange'>forward</span> edges (these have at least $w(e)$ capacity)
 - Remove $w(e)$ flow along all <span class='magenta'>backward</span> edges (these contain at least $w(e)$ units of flow)
 
-</td></tr><tr><td colspan='2' style="font-size:75%" class="zero-bottom">
+</td></tr><tr><td colspan='2' class="font-75 zero-bottom">
 
 <span class="bold">Observe:</span> Flow has <span class='und'>increased</span> by $w(e)$
 
@@ -992,14 +1007,42 @@ digraph graph6 {
 </td></tr></table>
 
 
+## Ford-Fulkerson Algorithm
+
+<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+
+<table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+
+<p>Ford-Fulkerson max-flow algorithm:</p>
+<ul>
+<li class=''>Initialize ${\color{red}f(e)}=0$ for all all $e \in E$</li>
+<li class=''>Construct the residual network $G_{\color{red}f}$</li>
+<li class=''>While there is an augmenting path $p$ in $G_{\color{red}f}$:<ul>
+ <li>Let $c=\min_{e \in E}c_f(e)$ where $c_f(e)$ is the weight of edge $e$ in the residual network $G_{\color{red}f}$</li>
+ <li>Add $c$ units of flow to $G$ based on the augmenting path $p$</li>
+ <li>Update the residual network $G_{\color{red}f}$ for the updated flow</li></ul></li>
+</ul>
+
+</td></tr></table>
+
+&nbsp;
+
+::: {.fragment}
+<table class='navynote font-75'><tr><td><span class='bold'>Ford-Fulkerson approach:</span> take <span class='und'>any</span> augmenting path (will revisit this later)</td></tr></table>
+:::
+
+
+
 ## Ford-Fulkerson Example
 <!-- day20 slide 29 -->
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph9 {
@@ -1070,7 +1113,7 @@ digraph graph10 {
 ```
 :::
 </td></tr>
-<tr><td style="font-size:90%">
+<tr><td class="font-90">
 <span class="bold">Initially:</span> ${\color{red}f(e)}=0$ for all $e \in E$
 </td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 </td></tr></table>
@@ -1081,9 +1124,13 @@ digraph graph10 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+::: {.fragment}
+<p class='center'>Increase flow by 1 unit</p>
+:::
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph9 {
@@ -1164,9 +1211,11 @@ digraph graph11 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph12 {
@@ -1247,9 +1296,11 @@ digraph graph11 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph13 {
@@ -1335,9 +1386,13 @@ digraph graph14 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+::: {.fragment}
+<p class='center'>Increase flow by 1 unit</p>
+:::
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph13 {
@@ -1423,9 +1478,11 @@ digraph graph15 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph16 {
@@ -1511,9 +1568,11 @@ digraph graph15 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph17 {
@@ -1600,9 +1659,13 @@ digraph graph18 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+::: {.fragment}
+<p class='center'>Increase flow by 1 unit</p>
+:::
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph17 {
@@ -1689,9 +1752,11 @@ digraph graph20 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph19 {
@@ -1778,9 +1843,11 @@ digraph graph20 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph21 {
@@ -1868,9 +1935,13 @@ digraph graph22 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+::: {.fragment}
+<p class='center'>Increase flow by 1 unit</p>
+:::
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph21 {
@@ -1958,9 +2029,11 @@ digraph graph23 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph24 {
@@ -2048,9 +2121,13 @@ digraph graph23 {
 
 &nbsp;
 
-<table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">No more augmenting paths</td></tr>
-<tr><td class="compact">
+<table class="width-100">
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+::: {.fragment}
+No more augmenting paths
+:::
+</td></tr>
+<tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
 digraph graph25 {
@@ -2130,15 +2207,70 @@ digraph graph23 {
 </td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 </td></tr></table>
 
+::: {.fragment}
 <span class="bold">Maximum flow:</span> 4
+:::
+
+
+## Ford-Fulkerson Running Time
+
+<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+
+<table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+
+::: {.r-stack}
+<div style="opacity:1">
+<p>Ford-Fulkerson max-flow algorithm:</p>
+<ul>
+<li class=''>Initialize ${\color{red}f(e)}=0$ for all all $e \in E$</li>
+<li class=''>Construct the residual network $G_{\color{red}f}$</li>
+<li class=''>While there is an augmenting path $p$ in $G_{\color{red}f}$:<ul>
+ <li>Let $c=\min_{e \in E}c_f(e)$ where $c_f(e)$ is the weight of edge $e$ in the residual network $G_{\color{red}f}$</li>
+ <li>Add $c$ units of flow to $G$ based on the augmenting path $p$</li>
+ <li>Update the residual network $G_{\color{red}f}$ for the updated flow</li></ul></li>
+</ul>
+</div>
+
+<table class="navynote" style="height:325px;opacity:0"><tr><td>
+<p>&nbsp;</p>
+<p>How many iterations are needed?</p>
+- For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
+- For rational-valued capacities, can scale to make capacities integer
+- For irrational-valued capacities, algorithm may never terminate!
+</td></tr></table>
+
+<table class="navynote" style="height:325px;opacity:0"><tr><td>
+<p>&nbsp;</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
+<p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
+<p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
+</td></tr></table>
+
+:::
+
+</td></tr>
+
+<tr><td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
+
+<span style="opacity:0"><span class="bold">Initialization:</span> $O(|E|)$</span>
+
+<span style="opacity:0"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+
+</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
+
+<tr><td colspan='2' style="padding-left:0;padding-top:0px">
+<span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+
+</td></tr>
+</table>
 
 
 
 ## Ford-Fulkerson Running Time
 
-<p style="font-size:75%">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
-<table style="width:100%;font-size:75%"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+<table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
 ::: {.r-stack}
 <div style="opacity:1">
@@ -2163,7 +2295,7 @@ digraph graph23 {
 
 <table class="navynote" style="height:325px;opacity:0"><tr><td>
 <p>&nbsp;</p>
-<p>For graphs with integer capacities, running time of Ford-Fulkerson is $O(|f^*| \cdot |E|)$</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
 </td></tr></table>
@@ -2174,13 +2306,15 @@ digraph graph23 {
 
 <tr><td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
 
+::: {.fragment}
 <span class="bold">Initialization:</span> $O(|E|)$
+:::
 
 <span style="opacity:0"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
 
-</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td style="font-size:70%">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
+</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
-<tr><td colspan='2' style="padding-left:0;padding-top:8px">
+<tr><td colspan='2' style="padding-left:0;padding-top:0px">
 <span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
 
 </td></tr>
@@ -2191,9 +2325,9 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p style="font-size:75%">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
-<table style="width:100%;font-size:75%"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+<table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
 ::: {.r-stack}
 <div style="opacity:1">
@@ -2218,7 +2352,7 @@ digraph graph23 {
 
 <table class="navynote" style="height:325px;opacity:0"><tr><td>
 <p>&nbsp;</p>
-<p>For graphs with integer capacities, running time of Ford-Fulkerson is $O(|f^*| \cdot |E|)$</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
 </td></tr></table>
@@ -2231,11 +2365,13 @@ digraph graph23 {
 
 <span class="bold">Initialization:</span> $O(|E|)$
 
+::: {.fragment}
 <span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+:::
 
-</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td style="font-size:70%">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
+</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
-<tr><td colspan='2' style="padding-left:0;padding-top:8px">
+<tr><td colspan='2' style="padding-left:0;padding-top:0px">
 <span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
 
 </td></tr>
@@ -2246,9 +2382,9 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p style="font-size:75%">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
-<table style="width:100%;font-size:75%"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+<table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
 ::: {.r-stack}
 <div style="opacity:1">
@@ -2273,7 +2409,7 @@ digraph graph23 {
 
 <table class="navynote" style="height:325px;opacity:0"><tr><td>
 <p>&nbsp;</p>
-<p>For graphs with integer capacities, running time of Ford-Fulkerson is $O(|f^*| \cdot |E|)$</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
 </td></tr></table>
@@ -2290,18 +2426,73 @@ digraph graph23 {
 
 </td><td class="zero-bottom"> 
 
-::: {.fragment}
-<table class="navynote" style="opacity:1"><tr><td style="font-size:70%">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> 
+::: {.fragment fragment-index=2}
+<table class="navynote" style="opacity:1"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> 
 :::
 
 </td></tr>
 
-<tr><td colspan='2' style="padding-left:0;padding-top:8px">
+<tr><td colspan='2' style="padding-left:0;padding-top:0px">
+::: {.fragment fragment-index=1}
 <span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+:::
 
 </td></tr>
 </table>
 
+
+
+
+
+## Ford-Fulkerson Running Time
+
+<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+
+<table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+
+::: {.r-stack}
+<div style="opacity:0">
+<p>Ford-Fulkerson max-flow algorithm:</p>
+<ul>
+<li class='purple'>Initialize ${\color{red}f(e)}=0$ for all all $e \in E$</li>
+<li class=''>Construct the residual network $G_{\color{red}f}$</li>
+<li class=''>While there is an augmenting path $p$ in $G_{\color{red}f}$:<ul>
+ <li>Let $c=\min_{e \in E}c_f(e)$ where $c_f(e)$ is the weight of edge $e$ in the residual network $G_{\color{red}f}$</li>
+ <li>Add $c$ units of flow to $G$ based on the augmenting path $p$</li>
+ <li>Update the residual network $G_{\color{red}f}$ for the updated flow</li></ul></li>
+</ul>
+</div>
+
+<table class="navynote" style="height:325px;opacity:1"><tr><td>
+<p>&nbsp;</p>
+<p>How many iterations are needed?</p>
+- For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
+</td></tr></table>
+
+<table class="navynote" style="height:325px;opacity:0"><tr><td>
+<p>&nbsp;</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
+<p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
+<p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
+</td></tr></table>
+
+:::
+
+</td></tr>
+
+<tr><td class="zero-bottom" style="width:45%;padding-left:0;padding-top:0">
+
+<span class="bold">Initialization:</span> $O(|E|)$
+
+<span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+
+</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
+
+<tr><td colspan='2' style="padding-left:0;padding-top:0px">
+<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+
+</td></tr>
+</table>
 
 
 
@@ -2311,7 +2502,9 @@ digraph graph23 {
 &nbsp;
 
 <table>
-<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
 <tr><td class="compact">
 ::: {.svg-100}
 ```{dot}
@@ -2368,7 +2561,11 @@ digraph diamond_graph10 {
 &nbsp;
 
 <table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+::: {.fragment}
+<p class='center'>Increase flow by 1 unit</p>
+:::
+</td></tr>
 <tr><td class="compact">
 ::: {.svg-100}
 ```{dot}
@@ -2424,7 +2621,9 @@ digraph diamond_graph11 {
 &nbsp;
 
 <table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
 <tr><td class="compact">
 ::: {.svg-100}
 ```{dot}
@@ -2480,7 +2679,9 @@ digraph diamond_graph11 {
 &nbsp;
 
 <table>
-<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
 <tr><td class="compact">
 ::: {.svg-100}
 ```{dot}
@@ -2538,7 +2739,11 @@ digraph diamond_graph14 {
 &nbsp;
 
 <table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+::: {.fragment}
+<p class='center'>Increase flow by 1 unit</p>
+:::
+</td></tr>
 <tr><td class="compact">
 ::: {.svg-100}
 ```{dot}
@@ -2596,7 +2801,9 @@ digraph diamond_graph15 {
 &nbsp;
 
 <table>
-<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
 <tr><td class="compact">
 ::: {.svg-100}
 ```{dot}
@@ -2654,7 +2861,9 @@ digraph diamond_graph15 {
 &nbsp;
 
 <table>
-<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
 <tr><td class="compact">
 ::: {.svg-100}
 
@@ -2716,7 +2925,9 @@ digraph diamond_graph18 {
 &nbsp;
 
 <table>
-<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">Increase flow by 1 unit</td></tr>
+<tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
+<p class='center'>Increase flow by 1 unit</p>
+</td></tr>
 <tr><td class="compact">
 ::: {.svg-100}
 ```{dot}
@@ -2779,9 +2990,9 @@ digraph diamond_graph19 {
 
 ## Ford-Fulkerson Running Time
 
-<p style="font-size:75%">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
-<table style="width:100%;font-size:75%"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+<table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
 ::: {.r-stack}
 <div style="opacity:0">
@@ -2806,7 +3017,7 @@ digraph diamond_graph19 {
 
 <table class="navynote" style="height:325px;opacity:0"><tr><td>
 <p>&nbsp;</p>
-<p>For graphs with integer capacities, running time of Ford-Fulkerson is $O(|f^*| \cdot |E|)$</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
 </td></tr></table>
@@ -2821,9 +3032,9 @@ digraph diamond_graph19 {
 
 <span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
 
-</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td style="font-size:70%">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
+</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
-<tr><td colspan='2' style="padding-left:0;padding-top:8px">
+<tr><td colspan='2' style="padding-left:0;padding-top:0px">
 <span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
 
 </td></tr>
@@ -2833,9 +3044,9 @@ digraph diamond_graph19 {
 
 ## Ford-Fulkerson Running Time
 
-<p style="font-size:75%">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
-<table style="width:100%;font-size:75%"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
+<table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
 ::: {.r-stack}
 <div style="opacity:0">
@@ -2860,7 +3071,7 @@ digraph diamond_graph19 {
 
 <table class="navynote" style="height:325px;opacity:1"><tr><td>
 <p>&nbsp;</p>
-<p>For graphs with integer capacities, running time of Ford-Fulkerson is $O(|f^*| \cdot |E|)$</p>
+<p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
 </td></tr></table>
@@ -2875,9 +3086,9 @@ digraph diamond_graph19 {
 
 <span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
 
-</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td style="font-size:70%">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
+</td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
-<tr><td colspan='2' style="padding-left:0;padding-top:8px">
+<tr><td colspan='2' style="padding-left:0;padding-top:0px">
 <span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
 
 </td></tr>
@@ -2887,7 +3098,7 @@ digraph diamond_graph19 {
 
 ## Can We Avoid This?
 
-<div style="font-size:80%">
+<div class="font-80">
 
 <span class='bold'>Edmonds-Karp Algorithm:</span> <span class='green'>choose augmenting path with fewest hops</span>
 
@@ -2902,7 +3113,7 @@ Ford-Fulkerson max-flow algorithm:
 
 </td><td>
 
-<table class="navynote"><tr><td class="center" style="font-size:80%">
+<table class="navynote"><tr><td class="center font-80">
 
 How to find this? With BFS!
 
@@ -2924,6 +3135,43 @@ See CLRS, chapter 24
 
 
 # Max flow / Min cut <!-- from day21.pptx -->
+
+## day21 slide 7
+
+::: {.svg-50-right}
+```{dot}
+graph graph1 {
+    // the layout when the edge labels are a single character or digit
+    // capacities only; the graph on day20 slides 13&15 of day20.pptx
+    layout=dot;
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;color=green];
+    
+    {rank=same B E};
+    {rank=same A H};
+    {rank=same D I};
+    C;
+    {rank=same F G};
+
+    A -- B [label="10";color=green];
+    A -- C [label="12";color=purple];
+    B -- C [label="9";color=purple];
+    B -- E [label="8";color=purple];
+    C -- D [label="3";color=purple];
+    C -- F [label="1";color=green];
+    D -- E [label="7";color=purple];
+    D -- F [label="3";color=purple];
+    E -- H [label="8";color=purple];
+    E -- G [label="5";color=green];
+    F -- G [label="6";color=green];
+    G -- H [label="9";color=purple];
+    G -- I [label="11";color=purple];
+    H -- I [label="2";color=green];
+}
+```
+:::
+
 
 # Bipartite Matching <!-- from day21.pptx -->
 
