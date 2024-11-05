@@ -459,6 +459,18 @@ div.svg-50 svg {
 	width:50%;
 	height:auto;
 }
+div.svg-60 svg {
+	width:60%;
+	height:auto;
+}
+div.svg-70 svg {
+	width:70%;
+	height:auto;
+}
+div.svg-80 svg {
+	width:80%;
+	height:auto;
+}
 div.svg-50-right-flow-graph svg {
 	/* this is for the network flow graphs that are not diamond-shaped (1/2) */
 	width:100%;

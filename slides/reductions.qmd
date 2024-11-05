@@ -3134,43 +3134,522 @@ See CLRS, chapter 24
 </div>
 
 
+
+
 # Max flow / Min cut <!-- from day21.pptx -->
 
-## day21 slide 7
+## Reminder: Graph Cuts
+<!-- day21 slide 7 -->
 
-::: {.svg-50-right}
+<div class="font-85">
+
+<p class='center'>A <span class='bold'>cut</span> of a graph $G=(V,E)$ is a partition<br>of the nodes into two sets, $\color{brown}S$ and $\color{cornflowerblue}V-S$</p>
+
+::: {.r-stack}
+
+::: {.svg-70}
 ```{dot}
 graph graph1 {
-    // the layout when the edge labels are a single character or digit
-    // capacities only; the graph on day20 slides 13&15 of day20.pptx
-    layout=dot;
+    // points start at the lower-left and rotate counter-clockwise
+    _background="c 7 -#000080  C 7 -#ADD8E6  P 18  -9 100  20 75  50 75  100 140  150 140  250 110  420 110  490 90  515 90  530 110  530 260  480 300  370 300  240 220  220 220  150 288  70 288  -9 220";
+    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
+    layout=sfdp;
     graph[K=1.5];
     node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
     edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;color=green];
-    
-    {rank=same B E};
-    {rank=same A H};
-    {rank=same D I};
-    C;
-    {rank=same F G};
 
-    A -- B [label="10";color=green];
-    A -- C [label="12";color=purple];
-    B -- C [label="9";color=purple];
+    E [];
+    A [fillcolor=brown];
+    D [fillcolor=brown];
+    B [fillcolor=brown];
+    H [fillcolor=brown];
+    I [fillcolor=brown];
+    C [];
+    F [];
+    G [];
+
     B -- E [label="8";color=purple];
+    B -- A [label="10";color=green];
+    E -- H [label="8";color=purple];
+    E -- D [label="7";color=purple];
+    A -- C [label="12    ";color=purple];
+    B -- C [label="9 ";color=purple];
     C -- D [label="3";color=purple];
     C -- F [label="1";color=green];
-    D -- E [label="7";color=purple];
-    D -- F [label="3";color=purple];
-    E -- H [label="8";color=purple];
-    E -- G [label="5";color=green];
+    D -- F [label="3  ";color=purple];
+    E -- G [label="5   ";color=green];
     F -- G [label="6";color=green];
     G -- H [label="9";color=purple];
-    G -- I [label="11";color=purple];
-    H -- I [label="2";color=green];
+    G -- I [xlabel="    11";label=" ";color=purple];
+    H -- I [label="2 ";color=green];
 }
 ```
 :::
+
+<table class="compact" style="margin-right:0;margin-bottom:0"><tr><td>
+::: {.fragment fragment-index=3}
+<table class="navynote"><tr><td class="font-90" style="text-align:center"><p style="margin:0 12px 0 12px">Notion extends naturally<br>to a set of edges</p></td></tr></table>
+:::
+</td></tr></table>
+
+:::
+
+<table style="width:100%"><tr><td style="width:50%;margin:0">
+::: {.fragment fragment-index=1}
+<p class="center">An edge $\color{purple}(v_1,v_2) \in E$ <span class="purple und">crosses</span> a<br>cut if $v_1 \in S$ and $v_2 \in V-S$</p>
+:::
+</td><td style="margin:0">
+::: {.fragment fragment-index=2}
+<p class="center">An edge $\color{green}(v_1,v_2) \in E$ <span class="green und">respects</span> a<br>cut if $v_1,v_2 \in S$ or $_1,v_2 \in V-S$</p>
+:::
+</td></tr></table>
+
+</div>
+
+
+
+## [Showing Correctness of Ford-Fulkerson]{.r-fit-text}
+<!-- day 21 slide 8 -->
+
+<div class="font-80">
+
+- Consider cuts which separate nodes $\color{purple}s$ and $\color{navy}t$
+  - Let ${\color{purple}s} \in {\color{magenta}S}, {\color{navy}t} \in {\color{skyblue}T}$ such that $V={\color{magenta}S} \bigcup {\color{skyblue}T}$
+- Cost of cut $({\color{magenta}S}, {\color{skyblue}T}) = ||{\color{magenta}S}, {\color{skyblue}T} ||$
+  - Sum <span class='bold'>capacities</span> of <span class='green'>edges</span> which go from ${\color{magenta}S}$ to ${\color{skyblue}T}$
+  - This example: 5
+</ul></li><li style="list-style-type: none">&nbsp;</li>
+
+</div>
+
+::: {.svg-60 .center}
+```{dot}
+digraph graph2 {
+    // the layout when the edge labels are a single character or digit
+    // capacities only; the graph on day20 slides 13&15 of day20.pptx
+    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 6  10 -15  -10 10  -10 190  30 220  100 220  240 -15 c 7 -#000080  C 7 -#ADD8E6  P 6  390 -15  450 140  450 180  420 220  170 220  310 -15 ";
+    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
+
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [xlabel=<<font color='magenta' point-size="36" face="times">S</font>>];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white;xlabel=<<font color='blue' point-size="36" face="times">T</font>>];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="3"];
+    a -> b [label="2";color=forestgreen;fontcolor=forestgreen];
+    b -> t [label=<<br/>3>];
+    s -> c [label="2"];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>;color=forestgreen;fontcolor=forestgreen];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+}
+```
+:::
+
+
+
+## Maxflow $\le$ MinCut
+
+<!-- day 21 slide 9 -->
+
+<div class="font-80">
+
+- Max flow upper bounded by any cut separating $\color{purple}s$ and $\color{navy}t$
+- Why? "Conservation of flow"
+  - All flow exiting $\color{purple}s$ must eventually get to $\color{navy}t$
+  - To get from $\color{purple}s$ to $\color{navy}t$, all "tanks" must cross the cut
+- Conclusion: if we find the minimum-cost cut, we've found the max flow
+  - $\max_f|f| \le \min_{{\color{magenta}S}, {\color{skyblue}T}}||{\color{magenta}S}, {\color{skyblue}T}||$
+
+</div>
+
+::: {.svg-60 .center}
+```{dot}
+digraph graph1 {
+    // the layout when the edge labels are a single character or digit
+    // capacities only; the graph on day20 slides 13&15 of day20.pptx
+    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 6  10 -15  -10 10  -10 190  30 220  100 220  240 -15 c 7 -#000080  C 7 -#ADD8E6  P 6  390 -15  450 140  450 180  420 220  170 220  310 -15 ";
+    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
+
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [xlabel=<<font color='magenta' point-size="36" face="times">S</font>>];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white;xlabel=<<font color='blue' point-size="36" face="times">T</font>>];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="3"];
+    a -> b [label="2";color=forestgreen;fontcolor=forestgreen];
+    b -> t [label=<<br/>3>];
+    s -> c [label="2"];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>;color=forestgreen;fontcolor=forestgreen];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+}
+```
+:::
+
+
+
+## Maxflow/Mincut Theorem
+
+- To show Ford-Fulkerson is correct:
+    - Show that when there are no more augmenting paths, there is a cut with cost equal to the flow
+- Conclusion: the maximum flow through a network matches the minimum-cost cut
+  - $\max_f|f| \le \min_{{\color{magenta}S}, {\color{skyblue}T}}||{\color{magenta}S}, {\color{skyblue}T}||$
+- Duality
+    - When we've maximized max flow, we've minimized min cut (and vice-versa), so we can check when we've found one by finding the other
+
+
+
+## Example: Maxflow/Mincut
+
+<table class="width-100">
+<tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+<tr><td class="compact" style="width:50%">
+::: {.svg-100}
+```{dot}
+digraph graph25 {
+    // _background: pink first, then blue
+    _background="
+c 7 -#ff00ff  C 7 -#DDA0DD  P 8  
+10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15
+c 7 -#000080  C 7 -#ADD8E6  P 7  
+390 -15  450 140  450 180  420 210  250 210  120 30  120 -15
+";
+    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>;color=forestgreen];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>;color=forestgreen];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph23 {
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="1"];
+    a -> b [label="1";style=invis];
+    b -> t [label=<<br/>1>];
+    s -> c [label="1"];
+    c -> d [label="1"];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  2";fontcolor=magenta];
+    b -> a [color=magenta;label="2";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
+    d -> c [color=magenta;label="2";fontcolor=magenta];
+    t -> d [color=magenta;label="  2";fontcolor=magenta];
+    t -> b [color=magenta;label="2";fontcolor=magenta];
+    c -> s [color=magenta;label="2";fontcolor=magenta];
+
+    d -> t [color=orange;label="0"];
+    a -> b [color=orange;label="0"];
+    c -> b [color=magenta;label="0";fontcolor=magenta];
+    d -> b [color=magenta;label="0";fontcolor=magenta];
+    b -> d [color=magenta;label="0";fontcolor=magenta];
+    a -> c [color=magenta;label="0";fontcolor=magenta];
+}
+```
+:::
+</td></tr>
+
+<tr><td style="text-align:center">$|f|=4$</td><td style="text-align:center">No more augmenting paths</td></tr>
+<tr><td style="text-align:center">$||{\color{magenta}S}, {\color{skyblue}T} ||=4$</td><td style="text-align:center"></td></tr>
+
+</td></tr></table>
+
+::: {.fragment}
+<p class="center">Idea: When there are no more augmenting paths, there<br>exists a cut in the graph with cost matching the flow</p>
+:::
+
+
+
+## Proof: Maxflow/Mincut Theorem
+
+<div class="font-90">
+
+- If $|f|$ is a max flow, then $G_f$ has no augmenting path
+    - Otherwise, use that augmenting path to "push" more flow
+- Define ${\color{magenta}S}=$ nodes reachable from source node $\color{purple}s$ by positive-weight edges in the residual graph
+    - ${\color{skyblue}T}=V-{\color{magenta}S}$
+    - ${\color{magenta}S}$ separates ${\color{purple}s},{\color{navy}t}$ (otherwise there's an augmenting path)
+
+<table class="width-100">
+<tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+<tr><td class="compact" style="width:50%">
+::: {.svg-100}
+```{dot}
+digraph graph25 {
+    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
+    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph23 {
+    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="1"];
+    a -> b [label="1";style=invis];
+    b -> t [label=<<br/>1>];
+    s -> c [label="1"];
+    c -> d [label="1"];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  2";fontcolor=magenta];
+    b -> a [color=magenta;label="2";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
+    d -> c [color=magenta;label="2";fontcolor=magenta];
+    t -> d [color=magenta;label="  2";fontcolor=magenta];
+    t -> b [color=magenta;label="2";fontcolor=magenta];
+    c -> s [color=magenta;label="2";fontcolor=magenta];
+
+    d -> t [color=orange;label="0"];
+    a -> b [color=orange;label="0"];
+    c -> b [color=magenta;label="0";fontcolor=magenta];
+    d -> b [color=magenta;label="0";fontcolor=magenta];
+    b -> d [color=magenta;label="0";fontcolor=magenta];
+    a -> c [color=magenta;label="0";fontcolor=magenta];
+}
+```
+:::
+</td></tr></table>
+
+</div>
+
+
+
+
+## Proof: Maxflow/Mincut Theorem
+
+<div class="font-70">
+
+- To show: $||{\color{magenta}S},{\color{skyblue}T}||=|f|$
+    - Weight of the cut matches the flow across the cut
+- Consider edge $\color{forestgreen}(u,v)$ with $u \in {\color{magenta}S},v \in {\color{skyblue}T}$
+    - ${\color{red}f(u,v)}={\color{forestgreen}c(u,v)}$ because otherwise ${\color{forestgreen}w(u,v)}>0$ in $G_f$, which would mean $v \in {\color{magenta}S}$
+- Consider edge $\color{brown}(y,x)$ with $y \in {\color{skyblue}T}, x \in {\color{magenta}S}$
+    - ${\color{red}f(y,x)}={\color{forestgreen}c(u,v)}$ because otherwise the back edge ${\color{brown}w(y,x)}>0$ in $G_f$, which would mean $y \in {\color{magenta}S}$
+
+<table class="width-100">
+<tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
+<tr><td class="compact" style="width:50%">
+::: {.svg-100}
+```{dot}
+digraph graph25 {
+    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
+    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>;color=forestgreen];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>;color=brown];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+</td><td class="compact">
+::: {.svg-100}
+```{dot}
+digraph graph23 {
+    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="1"];
+    //a -> b [label="1";style=invis];
+    b -> t [label=<<br/>1>];
+    s -> c [label="1"];
+    c -> d [label="1"];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>;color=brown];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  2";fontcolor=magenta];
+    b -> a [color=magenta;label="2";fontcolor=magenta];
+    //c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
+    d -> c [color=magenta;label="2";fontcolor=magenta];
+    t -> d [color=magenta;label="  2";fontcolor=magenta];
+    t -> b [color=magenta;label="2";fontcolor=magenta];
+    c -> s [color=magenta;label="2";fontcolor=magenta];
+
+    d -> t [color=orange;label="0"];
+    a -> b [color=orange;label="0";color=forestgreen];
+    c -> b [color=magenta;label="0";fontcolor=magenta];
+    d -> b [color=magenta;label="0";fontcolor=magenta];
+    b -> d [color=magenta;label="0";fontcolor=magenta];
+    a -> c [color=magenta;label="0";fontcolor=magenta];
+}
+```
+:::
+</td></tr></table>
+
+</div>
+
+
+
+## Proof Summary
+
+1. The flow $|f|$ of $G$ is upper-bounded by the sum of capacities of edges crossing any cut separating source ${\color{purple}s}$ and sink ${\color{navy}t}$
+2. When Ford-Fulkerson terminates, there are no more augmenting paths in $G_f$
+3. When there are no more augmenting paths in $G_f$ then we can define a cut ${\color{magenta}S}=$ nodes reachable from source node ${\color{purple}s}$ by positive-weight edges in the residual graph
+4. The sum of edge capacities crossing this cut must match the flow of the graph
+5. Therefore this flow is maximal
 
 
 # Bipartite Matching <!-- from day21.pptx -->
