@@ -3218,10 +3218,10 @@ graph graph1 {
 - Cost of cut $({\color{magenta}S}, {\color{skyblue}T}) = ||{\color{magenta}S}, {\color{skyblue}T} ||$
   - Sum <span class='bold'>capacities</span> of <span class='green'>edges</span> which go from ${\color{magenta}S}$ to ${\color{skyblue}T}$
   - This example: 5
-</ul></li><li style="list-style-type: none">&nbsp;</li>
 
 </div>
 
+<table class="compact bottom width-100"><tr><td>
 ::: {.svg-60 .center}
 ```{dot}
 digraph graph2 {
@@ -3259,7 +3259,7 @@ digraph graph2 {
 }
 ```
 :::
-
+</td></tr></table>
 
 
 ## Maxflow $\le$ MinCut
@@ -3277,6 +3277,7 @@ digraph graph2 {
 
 </div>
 
+<table class="compact bottom width-100"><tr><td>
 ::: {.svg-60 .center}
 ```{dot}
 digraph graph1 {
@@ -3314,7 +3315,7 @@ digraph graph1 {
 }
 ```
 :::
-
+</td></tr></table>
 
 
 ## Maxflow/Mincut Theorem
@@ -3445,7 +3446,10 @@ digraph graph23 {
     - ${\color{skyblue}T}=V-{\color{magenta}S}$
     - ${\color{magenta}S}$ separates ${\color{purple}s},{\color{navy}t}$ (otherwise there's an augmenting path)
 
-<table class="width-100">
+</div>
+
+
+<table class="bottom width-100 font-90">
 <tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
@@ -3534,9 +3538,6 @@ digraph graph23 {
 :::
 </td></tr></table>
 
-</div>
-
-
 
 
 ## Proof: Maxflow/Mincut Theorem
@@ -3550,7 +3551,9 @@ digraph graph23 {
 - Consider edge $\color{brown}(y,x)$ with $y \in {\color{skyblue}T}, x \in {\color{magenta}S}$
     - ${\color{red}f(y,x)}={\color{forestgreen}c(u,v)}$ because otherwise the back edge ${\color{brown}w(y,x)}>0$ in $G_f$, which would mean $y \in {\color{magenta}S}$
 
-<table class="width-100">
+</div>
+
+<table class="bottom width-100 font-90">
 <tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
@@ -3639,8 +3642,6 @@ digraph graph23 {
 :::
 </td></tr></table>
 
-</div>
-
 
 
 ## Proof Summary
@@ -3653,6 +3654,893 @@ digraph graph23 {
 
 
 # Bipartite Matching <!-- from day21.pptx -->
+
+
+## Edge-Disjoint Paths
+
+Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{navy}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{navy}t}$ which share no edges
+
+::: {.svg-80 .bottom}
+```{dot}
+digraph graph25 {
+    layout=dot;
+    rankdir="LR";
+    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    s -> g;
+    s -> h;
+    s -> b;
+    s -> e;
+    h -> g;
+    h -> f;
+    f -> e;
+    e -> c;
+    b -> c;
+    b -> a;
+    a -> c;
+    g -> t;
+    f -> t;
+    e -> t;
+    c -> t;
+}
+```
+:::
+
+
+
+## Edge-Disjoint Paths
+
+Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{navy}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{navy}t}$ which share no edges
+
+::: {.r-stack}
+::: {.width-100}
+- Set of edge-disjoint paths of size 3:
+:::
+:::
+
+::: {.svg-80 .bottom}
+```{dot}
+digraph graph25 {
+    layout=dot;
+    rankdir="LR";
+    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    s -> g [color=teal];
+    s -> h [color=blue];
+    s -> b;
+    s -> e [color=magenta];
+    h -> g;
+    h -> f [color=blue];
+    f -> e [color=blue];
+    e -> c [color=magenta];
+    b -> c;
+    b -> a;
+    a -> c;
+    g -> t [color=teal];
+    f -> t;
+    e -> t [color=blue];
+    c -> t [color=magenta];
+}
+```
+:::
+
+
+
+## Edge-Disjoint Paths
+
+Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{navy}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{navy}t}$ which share no edges
+
+<div class="width-100 left" style="text-align:left !important">
+::: {.r-stack}
+
+::: {.fragment .fade-out fragment-index=1 .width-100}
+- Set of edge-disjoint paths of size 4:
+:::
+
+::: {.fragment fragment-index=1 .width-100}
+- How could we solve this?
+:::
+
+:::
+</div>
+
+::: {.svg-80 .bottom}
+```{dot}
+digraph graph25 {
+    layout=dot;
+    rankdir="LR";
+    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    s -> g [color=teal];
+    s -> h [color=blue];
+    s -> b [color=forestgreen];
+    s -> e [color=magenta];
+    h -> g;
+    h -> f [color=blue];
+    f -> e;
+    e -> c;
+    b -> c [color=forestgreen];
+    b -> a;
+    a -> c;
+    g -> t [color=teal];
+    f -> t [color=blue];
+    e -> t [color=magenta];
+    c -> t [color=forestgreen];
+}
+```
+:::
+
+
+
+## Edge-Disjoint Paths
+
+Make ${\color{purple}s}$ and ${\color{navy}t}$ the source and sink, give each edge capacity 1, find the max flow.
+
+::: {.fragment}
+- Set of edge-disjoint paths of size 4
+- Max flow = 4
+:::
+
+::: {.svg-80 .bottom}
+```{dot}
+digraph graph25 {
+    layout=dot;
+    rankdir="LR";
+    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1"];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    s -> g [color=teal];
+    s -> h [color=blue];
+    s -> b [color=forestgreen];
+    s -> e [color=magenta];
+    h -> g [label="0/1"];
+    h -> f [color=blue];
+    f -> e [label="0/1"];
+    e -> c [label="0/1"];
+    b -> c [color=forestgreen];
+    b -> a [label="0/1"];
+    a -> c [label="0/1"];
+    g -> t [color=teal];
+    f -> t [color=blue];
+    e -> t [color=magenta];
+    c -> t [color=forestgreen];
+}
+```
+:::
+
+
+
+## Vertex-Disjoint Paths
+
+Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{navy}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{navy}t}$ which share no vertices
+
+::: {.svg-80 .bottom}
+```{dot}
+digraph graph25 {
+    layout=dot;
+    rankdir="LR";
+    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    s -> g;
+    s -> h;
+    s -> b;
+    s -> e;
+    h -> g;
+    h -> f;
+    f -> e;
+    e -> c;
+    b -> c;
+    b -> a;
+    a -> c;
+    g -> t;
+    f -> t;
+    e -> t;
+    c -> t;
+}
+```
+:::
+
+
+## Vertex-Disjoint Paths
+
+Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{navy}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{navy}t}$ which share no vertices
+
+::: {.r-stack}
+::: {.width-100}
+- Not a vertex-disjoint path!
+:::
+:::
+
+::: {.svg-80 .bottom}
+```{dot}
+digraph graph25 {
+    layout=dot;
+    rankdir="LR";
+    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    s -> g [color=teal];
+    s -> h [color=blue];
+    s -> b;
+    s -> e [color=magenta];
+    h -> g;
+    h -> f [color=blue];
+    f -> e [color=blue];
+    e -> c [color=magenta];
+    b -> c;
+    b -> a;
+    a -> c;
+    g -> t [color=teal];
+    f -> t;
+    e -> t [color=blue];
+    c -> t [color=magenta];
+}
+```
+:::
+
+
+## Vertex-Disjoint Paths
+
+Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{navy}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{navy}t}$ which share no vertices
+
+<div class="width-100 left" style="text-align:left !important">
+::: {.r-stack}
+
+::: {.fragment .fade-out fragment-index=1 .width-100}
+- Not a vertex-disjoint path!
+:::
+
+::: {.fragment fragment-index=1 .width-100}
+- How could we solve this?
+:::
+
+:::
+</div>
+
+::: {.svg-80 .bottom}
+```{dot}
+digraph graph25 {
+    layout=dot;
+    rankdir="LR";
+    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    s -> g [color=teal];
+    s -> h [color=blue];
+    s -> b;
+    s -> e [color=magenta];
+    h -> g;
+    h -> f [color=blue];
+    f -> e [color=blue];
+    e [fillcolor=red];
+    e -> c [color=magenta];
+    b -> c;
+    b -> a;
+    a -> c;
+    g -> t [color=teal];
+    f -> t;
+    e -> t [color=blue];
+    c -> t [color=magenta];
+}
+```
+:::
+
+
+
+## Vertex-Disjoint Paths
+
+<div class="font-80">
+
+Idea: Convert an instance of the vertex-disjoint paths problem into an instance of edge-disjoint paths
+
+::: {.fragment fragment-index=1}
+Make two copies of each node, one connected to incoming edges, the other to outgoing edges
+:::
+
+::: {.fragment fragment-index=3}
+Compute <span class='bold'>Edge-Disjoint Paths</span> on new graph
+:::
+
+</div>
+
+::: {.svg-80 .bottom}
+```{dot}
+digraph graph25 {
+    layout=dot;
+    rankdir="LR";
+    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    s -> g [color=teal];
+    s -> h [color=blue];
+    s -> b;
+    s -> e [color=magenta];
+    h -> g;
+    h -> f [color=blue];
+    f -> e [color=blue];
+    e -> c [color=magenta];
+    b -> c;
+    b -> a;
+    a -> c;
+    g -> t [color=teal];
+    f -> t;
+    e -> t [color=blue];
+    c -> t [color=magenta];
+}
+```
+:::
+
+
+::: {.fragment fragment-index=2}
+::: {.svg-50 .bottom style="position:fixed;right:-300px;bottom:175px"}
+```{dot}
+digraph graph25 {
+    layout=dot;
+    rankdir="BT";
+    graph [bgcolor=transparent];
+    node [fontname="Arial",shape=oval,fillcolor=orange,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;color=teal];
+    empty1 [label="",style=invis];
+    g1 [label="g in"];
+    g2 [label="g out"];
+    empty2 [label="",style=invis];
+    empty1 -> g1;
+    g1 -> g2 [xlabel=<restricts to<br/>1 edge>;label="           ";fontsize=12];
+    g2 -> empty2;
+    empty3 [label="";style=invis];
+    empty3 -> g1 [color=black];
+    empty4 [label="";style=invis];
+    empty4 -> g1 [color=invis];
+    {rank=same empty1 g1 g2 empty2};
+}
+```
+:::
+:::
+
+
+
+## Maximum Bipartite Matching
+<table class="bipartite"><tr><td style="max-width:500px !important">
+::: {.r-stack style="height:100%"}
+
+```{dot}
+//| fig-width: 8.53
+//| fig-height: 9.64
+graph G2 {
+    // bipartite graph with all edges red
+    rankdir = "LR";
+    graph [start=144;fontsize=36;newrank=true;splines=false;];
+    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
+    subgraph cluster_profs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
+        node [width="2in",height="2in"];
+        l1; l2; l3; l4;
+    }
+    subgraph cluster_dogs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
+        node [width="2in",height="2in"];
+        r2; r3; r1; r4;
+    }
+    // to keep the two sides spaced apart
+    spacer [width="3in",shape=none,label=""];
+    l4 -- spacer -- r4 [style=invis];
+    // the bipartite edges
+    edge [style=solid,color=red];
+    l1 -- r1;
+    l1 -- r2 [style=invis];
+    l1 -- r3 [style=invis];
+    l1 -- r4;
+    l2 -- r1;
+    l2 -- r2;
+    l2 -- r3;
+    l2 -- r4 [style=invis];
+    l3 -- r1;
+    l3 -- r2 [style=invis];
+    l3 -- r3;
+    l3 -- r4 [style=invis];
+    l4 -- r1;
+    l4 -- r2;
+    l4 -- r3 [style=invis];
+    l4 -- r4 [style=invis];
+    // to keep the bottom nodes on the bottom
+    l4 -- end [style=invis];
+    r4 -- end [style=invis];
+    end [shape=none,label="",width="0in"];
+}
+```
+
+<table>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
+
+:::
+</td></tr></table>
+
+
+
+
+## Maximum Bipartite Matching
+<table class="bipartite"><tr><td style="max-width:500px !important">
+::: {.r-stack style="height:100%"}
+
+::: {.svg-100 .bipartite-svg style="z-index:0"}
+```{dot}
+//| fig-width: 8.53
+//| fig-height: 9.64
+graph G2 {
+    // bipartite graph with all edges red
+    rankdir = "LR";
+    graph [start=144;fontsize=36;newrank=true;splines=false;];
+    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
+    subgraph cluster_profs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
+        node [width="2in",height="2in"];
+        l1; l2; l3; l4;
+    }
+    subgraph cluster_dogs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
+        node [width="2in",height="2in"];
+        r2; r3; r1; r4;
+    }
+    // to keep the two sides spaced apart
+    spacer [width="3in",shape=none,label=""];
+    l4 -- spacer -- r4 [style=invis];
+    // the bipartite edges
+    edge [style=solid,color=red];
+    l1 -- r1 [color=blue];
+    l1 -- r2 [style=invis];
+    l1 -- r3 [style=invis];
+    l1 -- r4;
+    l2 -- r1;
+    l2 -- r2 [color=blue];
+    l2 -- r3;
+    l2 -- r4 [style=invis];
+    l3 -- r1;
+    l3 -- r2 [style=invis];
+    l3 -- r3 [color=blue];
+    l3 -- r4 [style=invis];
+    l4 -- r1;
+    l4 -- r2;
+    l4 -- r3 [style=invis];
+    l4 -- r4 [style=invis];
+    // to keep the bottom nodes on the bottom
+    l4 -- end [style=invis];
+    r4 -- end [style=invis];
+    end [shape=none,label="",width="0in"];
+}
+```
+:::
+
+<table>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
+
+:::
+</td></tr></table>
+
+
+
+
+## Maximum Bipartite Matching
+<table class="bipartite"><tr><td style="max-width:500px !important">
+::: {.r-stack style="height:100%"}
+
+::: {.svg-100 .bipartite-svg style="z-index:0"}
+```{dot}
+//| fig-width: 8.53
+//| fig-height: 9.64
+graph G2 {
+    // bipartite graph with all edges red
+    rankdir = "LR";
+    graph [start=144;fontsize=36;newrank=true;splines=false;];
+    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
+    subgraph cluster_profs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
+        node [width="2in",height="2in"];
+        l1; l2; l3; l4;
+    }
+    subgraph cluster_dogs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
+        node [width="2in",height="2in"];
+        r2; r3; r1; r4;
+    }
+    // to keep the two sides spaced apart
+    spacer [width="3in",shape=none,label=""];
+    l4 -- spacer -- r4 [style=invis];
+    // the bipartite edges
+    edge [style=solid,color=red];
+    l1 -- r1;
+    l1 -- r2 [style=invis];
+    l1 -- r3 [style=invis];
+    l1 -- r4 [color=blue];
+    l2 -- r1;
+    l2 -- r2;
+    l2 -- r3 [color=blue];
+    l2 -- r4 [style=invis];
+    l3 -- r1 [color=blue];
+    l3 -- r2 [style=invis];
+    l3 -- r3;
+    l3 -- r4 [style=invis];
+    l4 -- r1;
+    l4 -- r2 [color=blue];
+    l4 -- r3 [style=invis];
+    l4 -- r4 [style=invis];
+    // to keep the bottom nodes on the bottom
+    l4 -- end [style=invis];
+    r4 -- end [style=invis];
+    end [shape=none,label="",width="0in"];
+}
+```
+:::
+
+<table>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
+
+:::
+</td></tr></table>
+
+
+
+
+## Maximum Bipartite Matching
+<table class="bipartite"><tr><td style="max-width:500px !important">
+::: {.r-stack style="height:100%"}
+
+::: {.svg-100 .bipartite-svg style="z-index:0"}
+```{dot}
+//| fig-width: 8.53
+//| fig-height: 9.64
+graph G2 {
+    // bipartite graph with all edges red
+    rankdir = "LR";
+    graph [start=144;fontsize=36;newrank=true;splines=false;];
+    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
+    subgraph cluster_profs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
+        node [width="2in",height="2in"];
+        l1; l2; l3; l4;
+    }
+    subgraph cluster_dogs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
+        node [width="2in",height="2in"];
+        r2; r3; r1; r4;
+    }
+    // to keep the two sides spaced apart
+    spacer [width="3in",shape=none,label=""];
+    l4 -- spacer -- r4 [style=invis];
+    // the bipartite edges
+    edge [style=solid,color=red];
+    l1 -- r1;
+    l1 -- r2 [style=invis];
+    l1 -- r3 [style=invis];
+    l1 -- r4 [color=blue];
+    l2 -- r1;
+    l2 -- r2 [color=blue];
+    l2 -- r3;
+    l2 -- r4 [style=invis];
+    l3 -- r1;
+    l3 -- r2 [style=invis];
+    l3 -- r3 [color=blue];
+    l3 -- r4 [style=invis];
+    l4 -- r1 [color=blue];
+    l4 -- r2;
+    l4 -- r3 [style=invis];
+    l4 -- r4 [style=invis];
+    // to keep the bottom nodes on the bottom
+    l4 -- end [style=invis];
+    r4 -- end [style=invis];
+    end [shape=none,label="",width="0in"];
+}
+```
+:::
+
+<table>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
+
+:::
+</td></tr></table>
+
+
+
+## Maximum Bipartite Matching
+
+&nbsp;
+
+- Given a graph $G=(L,R,E)$
+    - a set of left nodes, right nodes, and edges between left and right
+- Find the largest set of edges $M \subseteq E$ such that each node $u \in L$ or $v \in R$ is incident to at most one edge
+
+
+
+## Maximum Bipartite Matching
+<table class="bipartite"><tr><td style="max-width:500px !important">
+::: {.r-stack style="height:100%"}
+
+::: {.svg-100 .bipartite-svg style="z-index:0"}
+```{dot}
+//| fig-width: 8.53
+//| fig-height: 9.64
+graph G2 {
+    // bipartite graph with all edges red
+    rankdir = "LR";
+    graph [start=144;fontsize=36;newrank=true;splines=false;];
+    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
+    subgraph cluster_profs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
+        node [width="2in",height="2in"];
+        l1; l2; l3; l4;
+    }
+    subgraph cluster_dogs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
+        node [width="2in",height="2in"];
+        r2; r3; r1; r4;
+    }
+    // to keep the two sides spaced apart
+    spacer [width="3in",shape=none,label=""];
+    l4 -- spacer -- r4 [style=invis];
+    // the bipartite edges
+    edge [style=solid,color=red];
+    l1 -- r1;
+    l1 -- r2 [style=invis];
+    l1 -- r3 [style=invis];
+    l1 -- r4;
+    l2 -- r1;
+    l2 -- r2;
+    l2 -- r3;
+    l2 -- r4 [style=invis];
+    l3 -- r1;
+    l3 -- r2 [style=invis];
+    l3 -- r3;
+    l3 -- r4 [style=invis];
+    l4 -- r1;
+    l4 -- r2;
+    l4 -- r3 [style=invis];
+    l4 -- r4 [style=invis];
+    // to keep the bottom nodes on the bottom
+    l4 -- end [style=invis];
+    r4 -- end [style=invis];
+    end [shape=none,label="",width="0in"];
+}
+```
+:::
+
+<table>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
+
+:::
+</td>
+
+<td style="vertical-align:middle">How could we solve this?</td></tr></table>
+
+
+
+## [Maximum Bipartite Matching Using Max Flow]{.r-fit-text}
+
+Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
+
+<table><tr><td style="width:50%">
+
+<table class="bipartite"><tr><td style="vertical-align:middle">
+::: {.r-stack style="height:100%"}
+
+```{dot}
+//| fig-width: 13.69
+//| fig-height: 9.69
+graph G2 {
+    // bipartite graph with all edges red
+    rankdir = "LR";
+    graph [start=144;fontsize=36;newrank=true;splines=false;];
+    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
+    subgraph cluster_profs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
+        node [width="2in",height="2in"];
+        l1; l2; l3; l4;
+    }
+    subgraph cluster_dogs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
+        node [width="2in",height="2in"];
+        r2; r3; r1; r4;
+    }
+    // to keep the two sides spaced apart
+    spacer [width="3in",shape=none,label=""];
+    l4 -- spacer -- r4 [style=invis];
+    edge [style=solid,color=red];
+    // start and terminus nodes
+    s [shape=circle,style=filled,color=purple,width="1in",fontsize=36];
+    t [shape=circle,style=filled,color=navy,width="1in";fontcolor=white;fontsize=36];
+    edge [minlen=4,xlabel="1"];
+    s -- l1;
+    s -- l2;
+    s -- l3;
+    s -- l4;
+    r1 -- t;
+    r2 -- t;
+    r3 -- t;
+    r4 -- t;
+    edge [minlen=1];
+    // the bipartite edges
+    edge [style=solid,color=red];
+    l1 -- r1;
+    l1 -- r2 [style=invis];
+    l1 -- r3 [style=invis];
+    l1 -- r4;
+    l2 -- r1;
+    l2 -- r2;
+    l2 -- r3;
+    l2 -- r4 [style=invis];
+    l3 -- r1;
+    l3 -- r2 [style=invis];
+    l3 -- r3;
+    l3 -- r4 [style=invis];
+    l4 -- r1;
+    l4 -- r2;
+    l4 -- r3 [style=invis];
+    l4 -- r4 [style=invis];
+    // to keep the bottom nodes on the bottom
+    l4 -- end [style=invis];
+    r4 -- end [style=invis];
+    end [shape=none,label="",width="0in"];
+}
+```
+
+<table style="width:57% !important;margin-bottom:5px !important;margin-left:110px">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
+
+:::
+</td></tr></table>
+
+</td><td style="vertical-align:top">
+
+- Adding in a <span class='purple'>source</span> and <span class='navy'>sink</span> to the set of nodes: 
+  - $V'=L \bigcup R \bigcup \{{\color{purple}s},{\color{navy}t}\}$
+- Adding an edge from <span class='purple'>source</span> to $L$ and from $R$ to <span class='navy'>sink</span>:
+   - $E'=E \bigcup \{u \in L | ({\color{purple}s},u)\}$ $\bigcup \{v \in R | (v,{\color{navy}t})\}$
+- Make each edge cap 1:
+    - $\forall e \in E', c(e)=1$
+
+</td></tr></table>
+
+
+
+
+## [Maximum Bipartite Matching Using Max Flow]{.r-fit-text}
+
+Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
+
+<table><tr><td style="width:50%">
+
+<table class="bipartite"><tr><td style="vertical-align:middle">
+::: {.r-stack style="height:100%"}
+
+```{dot}
+//| fig-width: 13.69
+//| fig-height: 9.69
+graph G2 {
+    // bipartite graph with all edges red
+    rankdir = "LR";
+    graph [start=144;fontsize=36;newrank=true;splines=false;];
+    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
+    subgraph cluster_profs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
+        node [width="2in",height="2in"];
+        l1; l2; l3; l4;
+    }
+    subgraph cluster_dogs {
+        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
+        node [width="2in",height="2in"];
+        r2; r3; r1; r4;
+    }
+    // to keep the two sides spaced apart
+    spacer [width="3in",shape=none,label=""];
+    l4 -- spacer -- r4 [style=invis];
+    edge [style=solid,color=red];
+    // start and terminus nodes
+    s [shape=circle,style=filled,color=purple,width="1in",fontsize=36];
+    t [shape=circle,style=filled,color=navy,width="1in";fontcolor=white;fontsize=36];
+    edge [minlen=4,xlabel="1/1",color=blue];
+    s -- l1;
+    s -- l2;
+    s -- l3;
+    s -- l4;
+    r1 -- t;
+    r2 -- t;
+    r3 -- t;
+    r4 -- t;
+    edge [minlen=1];
+    // the bipartite edges
+    edge [style=solid,color=blue];
+    l1 -- r1 [xlabel="0/1",color=red];
+    l1 -- r2 [style=invis];
+    l1 -- r3 [style=invis];
+    l1 -- r4;
+    l2 -- r1 [xlabel="0/1",color=red];
+    l2 -- r2;
+    l2 -- r3 [xlabel="0/1",color=red];
+    l2 -- r4 [style=invis];
+    l3 -- r1 [xlabel="0/1",color=red];
+    l3 -- r2 [style=invis];
+    l3 -- r3;
+    l3 -- r4 [style=invis];
+    l4 -- r1;
+    l4 -- r2 [xlabel="0/1",color=red];
+    l4 -- r3 [style=invis];
+    l4 -- r4 [style=invis];
+    // to keep the bottom nodes on the bottom
+    l4 -- end [style=invis];
+    r4 -- end [style=invis];
+    end [shape=none,label="",width="0in"];
+}
+```
+
+<table style="width:57% !important;margin-bottom:5px !important;margin-left:110px">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
+
+:::
+</td></tr></table>
+
+</td><td style="vertical-align:top">
+
+::: {.no-second-bullets}
+- Make $G$ into $G'$
+  - [$\color{red}\Theta(L+R)$]{.fragment}
+- Compute Max Flow on $G'$
+  - [$\color{red}\Theta(E \cdot V)\text{ since }|f| \le L$]{.fragment}
+- Return $M$ as "middle" edges with flow 1
+  - [$\color{red}\Theta(L+R)$]{.fragment}
+:::
+
+<span class='red fragment'>Total: $\Theta(E \cdot V)$</span>
+
+</td></tr></table>
+
+
+
+
 
 # Reductions <!-- from day22.pptx and day23.pptx -->
 

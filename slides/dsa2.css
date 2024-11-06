@@ -38,6 +38,10 @@ div.no-bullets ul, div.no-bullets ul ul {
 	/* from https://www.w3schools.com/howto/howto_css_list_without_bullets.asp */
   list-style-type: none; /* Remove bullets */
 }
+div.no-second-bullets ul ul {
+	/* from https://www.w3schools.com/howto/howto_css_list_without_bullets.asp */
+  list-style-type: none; /* Remove bullets */
+}
 div.no-bullets-left ul, div.no-bullets-left ul ul {
   list-style-type: none; /* Remove bullets */
   margin-left:0;
@@ -58,12 +62,69 @@ table.border th td, table.border tr td, td.border, tr.border td {
 	border-bottom:1px solid black !important;
 	border-collapse:collapse;
 }
+table.borderblue th td, table.borderblue tr td, td.borderblue, tr.borderblue td {
+	border:1px solid blue;
+	border-bottom:1px solid blue !important;
+	border-collapse:collapse;
+}
 
 table.border2px th td, table.border2px tr td, td.border2px, tr.border2px td {
 	border:2px solid black;
 	border-bottom:2px solid black !important;
 	border-bottom:2px solid black !important;
 	border-collapse:collapse;
+}
+
+/* table at bottom of page */
+table.bottom, div.bottom {
+	position:fixed;
+	bottom:-50px;
+}
+
+/* bipartite table of images */
+table.bipartite {
+}
+table.bipartite tbody tr td {
+	vertical-align:bottom;
+	padding:0;
+}
+table.bipartite tbody tr td div,
+table.bipartite tbody tr td div div {
+	width:100%;
+	height:auto;
+}
+table.bipartite tbody tr td div table {
+	/* padding:0 10% 0 10% !important; */
+	z-index:1;
+	width:90%;
+	height:0;
+	margin-bottom: 30px !important;
+	margin-top: auto !important;
+}
+table.bipartite tbody tr td div table tbody tr td {
+	padding:0;
+	vertical-align:middle;
+}
+/* table.bipartite tbody tr td div table tbody tr:nth-child(1) { height:20%; }*/
+table.bipartite tbody tr td div table tbody tr td:nth-child(1) { width:25%; }
+table.bipartite tbody tr td div table tbody tr td:nth-child(2) { width:48%; }
+table.bipartite tbody tr td div table tbody tr td:nth-child(3) { /* the remainder */ }
+table.bipartite tbody tr td div table tbody tr td img {
+	width:auto;
+	margin:0;
+}
+table.bipartite tbody tr td div div div div div figure div svg {
+	z-index:0;
+}
+table.bipartite tbody tr td div div, 
+table.bipartite tbody tr td div div div, 
+table.bipartite tbody tr td div div div div, 
+table.bipartite tbody tr td div div div div, 
+table.bipartite tbody tr td div div div div figure, 
+table.bipartite tbody tr td div div div div figure div, 
+table.bipartite tbody tr td div div div div figure div svg {
+	width:100% !important;
+	height:auto !important;
 }
 
 /* centering an image */
@@ -504,7 +565,7 @@ div.svg-100 svg {
 	height:auto;
 }
 
-
+\
 /* to file */
 
 td.zero-bottom, td.zero-bottom ul, td.zero-bottom ul li, td.zero-bottom ol, td.zero-bottom ol li, td.zero-bottom p{
