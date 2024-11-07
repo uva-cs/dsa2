@@ -3273,7 +3273,7 @@ digraph graph2 {
   - All flow exiting $\color{purple}s$ must eventually get to $\color{navy}t$
   - To get from $\color{purple}s$ to $\color{navy}t$, all "tanks" must cross the cut
 - Conclusion: if we find the minimum-cost cut, we've found the max flow
-  - $\max_f|f| \le \min_{{\color{magenta}S}, {\color{skyblue}T}}||{\color{magenta}S}, {\color{skyblue}T}||$
+  - $\max_f|f| \le \min_{ {\color{magenta}S}, {\color{skyblue}T}}||{\color{magenta}S}, {\color{skyblue}T}||$
 
 </div>
 
@@ -3323,7 +3323,7 @@ digraph graph1 {
 - To show Ford-Fulkerson is correct:
     - Show that when there are no more augmenting paths, there is a cut with cost equal to the flow
 - Conclusion: the maximum flow through a network matches the minimum-cost cut
-  - $\max_f|f| \le \min_{{\color{magenta}S}, {\color{skyblue}T}}||{\color{magenta}S}, {\color{skyblue}T}||$
+  - $\max_f|f| \le \min_{ {\color{magenta}S}, {\color{skyblue}T}}||{\color{magenta}S}, {\color{skyblue}T}||$
 - Duality
     - When we've maximized max flow, we've minimized min cut (and vice-versa), so we can check when we've found one by finding the other
 
@@ -4432,7 +4432,7 @@ graph G2 {
 </td><td style="vertical-align:top">
 
 - Adding in a <span class='purple'>source</span> and <span class='navy'>sink</span> to the set of nodes: 
-  - $V'=L \bigcup R \bigcup \{{\color{purple}s},{\color{navy}t}\}$
+  - $V'=L \bigcup R \bigcup \{ {\color{purple}s},{\color{navy}t}\}$
 - Adding an edge from <span class='purple'>source</span> to $L$ and from $R$ to <span class='navy'>sink</span>:
    - $E'=E \bigcup \{u \in L | ({\color{purple}s},u)\}$ $\bigcup \{v \in R | (v,{\color{navy}t})\}$
 - Make each edge cap 1:

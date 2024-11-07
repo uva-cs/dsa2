@@ -11283,7 +11283,7 @@ An edge <span class="math inline">\(\color{green}(v_1,v_2) \in E\)</span> <span 
 </ul></li>
 <li>Conclusion: if we find the minimum-cost cut, we’ve found the max flow
 <ul>
-<li><span class="math inline">\(\max_f|f| \le \min_{{\color{magenta}S}, {\color{skyblue}T}}||{\color{magenta}S}, {\color{skyblue}T}||\)</span></li>
+<li><span class="math inline">\(\max_f|f| \le \min_{ {\color{magenta}S}, {\color{skyblue}T}}||{\color{magenta}S}, {\color{skyblue}T}||\)</span></li>
 </ul></li>
 </ul>
 </div>
@@ -11445,7 +11445,7 @@ An edge <span class="math inline">\(\color{green}(v_1,v_2) \in E\)</span> <span 
 </ul></li>
 <li>Conclusion: the maximum flow through a network matches the minimum-cost cut
 <ul>
-<li><span class="math inline">\(\max_f|f| \le \min_{{\color{magenta}S}, {\color{skyblue}T}}||{\color{magenta}S}, {\color{skyblue}T}||\)</span></li>
+<li><span class="math inline">\(\max_f|f| \le \min_{ {\color{magenta}S}, {\color{skyblue}T}}||{\color{magenta}S}, {\color{skyblue}T}||\)</span></li>
 </ul></li>
 <li>Duality
 <ul>
@@ -14259,15 +14259,15 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 721)">
 <title>G2</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-721 635,-721 635,4 -4,4"></polygon>
-<g id="clust2" class="cluster">
-<title>cluster_dogs</title>
-<polygon fill="lightgrey" stroke="lightgrey" points="442,-12 442,-709 602,-709 602,-12 442,-12"></polygon>
-<text text-anchor="middle" x="522" y="-672.6" font-family="Times,serif" font-size="36.00">dogs</text>
-</g>
 <g id="clust1" class="cluster">
 <title>cluster_profs</title>
 <polygon fill="lightgrey" stroke="lightgrey" points="7,-8 7,-705 170,-705 170,-8 7,-8"></polygon>
 <text text-anchor="middle" x="88.5" y="-668.6" font-family="Times,serif" font-size="36.00">professors</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_dogs</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="442,-12 442,-709 602,-709 602,-12 442,-12"></polygon>
+<text text-anchor="middle" x="522" y="-672.6" font-family="Times,serif" font-size="36.00">dogs</text>
 </g>
 <!-- l1 -->
 <g id="node1" class="node">
@@ -14451,15 +14451,15 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 721)">
 <title>G2</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-721 635,-721 635,4 -4,4"></polygon>
-<g id="clust1" class="cluster">
-<title>cluster_profs</title>
-<polygon fill="lightgrey" stroke="lightgrey" points="7,-8 7,-705 170,-705 170,-8 7,-8"></polygon>
-<text text-anchor="middle" x="88.5" y="-668.6" font-family="Times,serif" font-size="36.00">professors</text>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_dogs</title>
 <polygon fill="lightgrey" stroke="lightgrey" points="442,-12 442,-709 602,-709 602,-12 442,-12"></polygon>
 <text text-anchor="middle" x="522" y="-672.6" font-family="Times,serif" font-size="36.00">dogs</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_profs</title>
+<polygon fill="lightgrey" stroke="lightgrey" points="7,-8 7,-705 170,-705 170,-8 7,-8"></polygon>
+<text text-anchor="middle" x="88.5" y="-668.6" font-family="Times,serif" font-size="36.00">professors</text>
 </g>
 <!-- l1 -->
 <g id="node1" class="node">
@@ -15489,7 +15489,7 @@ How could we solve this?
 <ul>
 <li>Adding in a <span class="purple">source</span> and <span class="navy">sink</span> to the set of nodes:
 <ul>
-<li><span class="math inline">\(V'=L \bigcup R \bigcup \{{\color{purple}s},{\color{navy}t}\}\)</span></li>
+<li><span class="math inline">\(V'=L \bigcup R \bigcup \{ {\color{purple}s},{\color{navy}t}\}\)</span></li>
 </ul></li>
 <li>Adding an edge from <span class="purple">source</span> to <span class="math inline">\(L\)</span> and from <span class="math inline">\(R\)</span> to <span class="navy">sink</span>:
 <ul>
