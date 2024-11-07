@@ -607,3 +607,6 @@ td.zero-bottom, td.zero-bottom ul, td.zero-bottom ul li, td.zero-bottom ol, td.z
 .width-100 {
 	width:100%;
 }
+td.left-align, td.left-align p {
+	text-align:left !important;
+}

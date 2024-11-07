@@ -8690,8 +8690,8 @@ Select a good order for solving subproblems
 <p>Start from bottom right,<br> <span class="green">if symbols matched, print that symbol then go diagonally</span>, <br> <span class="blue">else go to largest adjacent</span></p>
 </div>
 </section>
-<section id="reconstructing-the-lcs-page-3" class="slide level2">
-<h2>Reconstructing the LCS page 3</h2>
+<section id="reconstructing-the-lcs-example-3" class="slide level2">
+<h2>Reconstructing the LCS example 3</h2>
 <div style="font-size:90%">
 <p><span class="math display">\[\scriptstyle LCS(i,j) = \max
 \begin{cases}
@@ -8913,7 +8913,7 @@ Math and CS professors have been asked to testify in court as to the difficulty 
 <ul>
 <li>Given:
 <ul>
-<li>A list of precincts: <span class="math inline">\(p_1,p_2,\ldots,p_n\)</span></li>
+<li>A list of <span class="math inline">\(n\)</span> precincts: <span class="math inline">\(p_1,p_2,\ldots,p_n\)</span></li>
 <li>Each containing <span class="math inline">\(m\)</span> voters</li>
 </ul></li>
 <li>Output:
@@ -9096,7 +9096,7 @@ After&nbsp;assigning&nbsp;first<br><span class="math inline">\(n-1\)</span> prec
 </td>
 </tr>
 <tr>
-<td style="padding:0">
+<td style="padding:0" class="left-align">
 <div class="fragment" data-fragment-index="5">
 <p>Valid&nbsp;gerrymandering<br>if: <span class="math inline">\(k+1=\frac{n}{2}\)</span>, <span class="math inline">\(x+R(p_n), y &gt; \frac{mn}{4}\)</span></p>
 </div>
@@ -9121,9 +9121,9 @@ After&nbsp;assigning&nbsp;first<br><span class="math inline">\(n-1\)</span> prec
 </td>
 </tr>
 <tr>
-<td style="padding:0">
+<td style="padding:0" class="left-align">
 <div class="fragment" data-fragment-index="5">
-<p>Valid&nbsp;gerrymandering<br>if: <span class="math inline">\(n-k=\frac{n}{2}\)</span>, <span class="math inline">\(x,y+R(p_n), y &gt; \frac{mn}{4}\)</span></p>
+<p>Valid&nbsp;gerrymandering<br>if: <span class="math inline">\(n-k=\frac{n}{2}\)</span>, <span class="math inline">\(x,y+R(p_n) &gt; \frac{mn}{4}\)</span></p>
 </div>
 </td>
 </tr>
@@ -9159,8 +9159,8 @@ After&nbsp;assigning&nbsp;first<br><span class="math inline">\(n-1\)</span> prec
 </td>
 </tr>
 <tr>
-<td>
-Valid&nbsp;gerrymandering if: <span class="math inline">\(n-k=\frac{n}{2}\)</span>,<br><span class="math inline">\(x,y+R(p_n), y &gt; \frac{mn}{4}\)</span>
+<td class="left-align">
+Valid&nbsp;gerrymandering if: <span class="math inline">\(k+1=\frac{n}{2}\)</span>,<br><span class="math inline">\(x+R(p_n), y &gt; \frac{mn}{4}\)</span>
 </td>
 </tr>
 <tr>
@@ -9199,8 +9199,8 @@ World One
 </td>
 </tr>
 <tr>
-<td>
-Valid&nbsp;gerrymandering if: <span class="math inline">\(n-k=\frac{n}{2}\)</span>,<br><span class="math inline">\(x,y+R(p_n), y &gt; \frac{mn}{4}\)</span>
+<td class="left-align">
+Valid&nbsp;gerrymandering if: <span class="math inline">\(n-k=\frac{n}{2}\)</span>,<br><span class="math inline">\(x,y+R(p_n) &gt; \frac{mn}{4}\)</span>
 </td>
 </tr>
 <tr>
@@ -9227,7 +9227,7 @@ World Two
 <span class="math inline">\(S(i,j,x,y) = \text{True}\)</span>
 </td>
 <td>
-if from among the first <span class="math inline">\(j\)</span> precincts:<br> <span class="math inline">\(k\)</span> are assigned to<br> exactly <span class="math inline">\(x\)</span> vote for R in <span class="math inline">\(\color{magenta}D_1\)</span><br> exactly <span class="math inline">\(y\)</span> vote for R in <span class="math inline">\(\color{green}D_2\)</span>
+if from among the first <span class="math inline">\(j\)</span> precincts:<br> <span class="math inline">\(k\)</span> are assigned to <span class="math inline">\(\color{magenta}D_1\)</span><br> exactly <span class="math inline">\(x\)</span> vote for R in <span class="math inline">\(\color{magenta}D_1\)</span><br> exactly <span class="math inline">\(y\)</span> vote for R in <span class="math inline">\(\color{green}D_2\)</span>
 </td>
 </tr>
 <tr>
@@ -9248,7 +9248,7 @@ if from among the first <span class="math inline">\(j\)</span> precincts:<br> <s
 </td>
 </tr>
 <tr>
-<td class="redtext">
+<td class="redtext left-align">
 <div class="fragment" data-fragment-index="2">
 <p>4D Dynamic programming!</p>
 </div>
@@ -9430,7 +9430,7 @@ True here means that this is a valid state of the world, not a valid gerrymander
 <table class="border">
 <tbody><tr>
 <td style="font-size:70%">
-<span class="math inline">\(S(j,k,x,y)\)</span> true if:<br> &nbsp;&nbsp;&nbsp;&nbsp;from among the first <span class="math inline">\(j\)</span> precincts<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(k\)</span> are assigned to <span class="math inline">\(D_1\)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;exactly <span class="math inline">\(x\)</span> vote for <span class="math inline">\(R\)</span> in <span class="math inline">\(D_1\)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;exactly <span class="math inline">\(y\)</span> vote for <span class="math inline">\(R\)</span> in <span class="math inline">\(D_1\)</span>
+<span class="math inline">\(S(j,k,x,y)\)</span> true if:<br> &nbsp;&nbsp;&nbsp;&nbsp;from among the first <span class="math inline">\(j\)</span> precincts<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(k\)</span> are assigned to <span class="math inline">\(\color{magenta}D_1\)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;exactly <span class="math inline">\(x\)</span> vote for <span class="math inline">\(R\)</span> in <span class="math inline">\(\color{magenta}D_1\)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;exactly <span class="math inline">\(y\)</span> vote for <span class="math inline">\(R\)</span> in <span class="math inline">\(\color{green}D_2\)</span>
 </td>
 </tr>
 </tbody></table>
@@ -9491,7 +9491,7 @@ True here means that this is a valid state of the world, not a valid gerrymander
 <table class="border">
 <tbody><tr>
 <td style="font-size:70%">
-<span class="math inline">\(S(j,k,x,y)\)</span> true if:<br> &nbsp;&nbsp;&nbsp;&nbsp;from among the first <span class="math inline">\(j\)</span> precincts<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(k\)</span> are assigned to <span class="math inline">\(D_1\)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;exactly <span class="math inline">\(x\)</span> vote for <span class="math inline">\(R\)</span> in <span class="math inline">\(D_1\)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;exactly <span class="math inline">\(y\)</span> vote for <span class="math inline">\(R\)</span> in <span class="math inline">\(D_1\)</span>
+<span class="math inline">\(S(j,k,x,y)\)</span> true if:<br> &nbsp;&nbsp;&nbsp;&nbsp;from among the first <span class="math inline">\(j\)</span> precincts<br> &nbsp;&nbsp;&nbsp;&nbsp;<span class="math inline">\(k\)</span> are assigned to <span class="math inline">\(\color{magenta}D_1\)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;exactly <span class="math inline">\(x\)</span> vote for <span class="math inline">\(R\)</span> in <span class="math inline">\(\color{magenta}D_1\)</span><br> &nbsp;&nbsp;&nbsp;&nbsp;exactly <span class="math inline">\(y\)</span> vote for <span class="math inline">\(R\)</span> in <span class="math inline">\(\color{green}D_2\)</span>
 </td>
 </tr>
 </tbody></table>

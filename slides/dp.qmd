@@ -3808,7 +3808,7 @@ Start from bottom right,<br>
 
 
 
-## Reconstructing the LCS page 3
+## Reconstructing the LCS example 3
 <div style="font-size:90%">
 $$\scriptstyle LCS(i,j) = \max
 \begin{cases}
@@ -4024,7 +4024,7 @@ Readings in CLRS 4th edition: chapter 14
 <table style="font-size:90%"><tr><td>
 
 - Given:
-  - A list of precincts: $p_1,p_2,\ldots,p_n$
+  - A list of $n$ precincts: $p_1,p_2,\ldots,p_n$
   - Each containing $m$ voters
 - Output:
 	- Districts ${\color{magenta}D_1}, {\color{green}D_2} \subset \{ p_1,p_2,\ldots,p_{n-1} \}$
@@ -4122,7 +4122,7 @@ If&nbsp;we<br>assign<br>$p_n \text{ to } D_2$
 ::: {.fragment fragment-index=1}
 <table class="magentabox"><tr><td> $D_1$<br>$k+1$ precincts<br>$x+R(p_n)$ voters for $R$</td></tr></table>
 :::
-</td></tr><tr><td style="padding:0">
+</td></tr><tr><td style="padding:0" class="left-align">
 ::: {.fragment fragment-index=5}
 Valid&nbsp;gerrymandering<br>if: $k+1=\frac{n}{2}$, $x+R(p_n), y > \frac{mn}{4}$
 :::
@@ -4132,9 +4132,9 @@ Valid&nbsp;gerrymandering<br>if: $k+1=\frac{n}{2}$, $x+R(p_n), y > \frac{mn}{4}$
 ::: {.fragment fragment-index=2}
 <table class="greenbox"><tr><td> $D_2$<br>$n-k$ precincts<br>$y+R(p_n)$ voters for $R$</td></tr></table>
 :::
-</td></tr><tr><td style="padding:0">
+</td></tr><tr><td style="padding:0" class="left-align">
 ::: {.fragment fragment-index=5}
-Valid&nbsp;gerrymandering<br>if: $n-k=\frac{n}{2}$, $x,y+R(p_n), y > \frac{mn}{4}$
+Valid&nbsp;gerrymandering<br>if: $n-k=\frac{n}{2}$, $x,y+R(p_n) > \frac{mn}{4}$
 :::
 </td></tr><tr><td>
 </td></tr></table>
@@ -4147,8 +4147,8 @@ Valid&nbsp;gerrymandering<br>if: $n-k=\frac{n}{2}$, $x,y+R(p_n), y > \frac{mn}{4
 <table class="magentabox" style="margin-top:10px"><tr><td> $D_1$<br>$k+1$ precincts<br>$x+R(p_n)$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
 <table class="greenbox"><tr><td> $D_2$<br>$n-k-1$ precincts<br>$y$ voters for $R$</td></tr></table>
-</td></tr><tr><td>
-Valid&nbsp;gerrymandering if: $n-k=\frac{n}{2}$,<br>$x,y+R(p_n), y > \frac{mn}{4}$</td></tr><tr><td>
+</td></tr><tr><td class="left-align">
+Valid&nbsp;gerrymandering if: $k+1=\frac{n}{2}$,<br>$x+R(p_n), y > \frac{mn}{4}$</td></tr><tr><td>
 </td></tr><tr><td style="text-align:center;font-size:1.5em">
 World One
 </td></tr></table>
@@ -4160,8 +4160,8 @@ World One
 <table class="magentabox" style="margin-top:10px"><tr><td> $D_1$<br>$k$ precincts<br>$x$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
 <table class="greenbox"><tr><td> $D_2$<br>$n-k$ precincts<br>$y+R(p_n)$ voters for $R$</td></tr></table>
-</td></tr><tr><td>
-Valid&nbsp;gerrymandering if: $n-k=\frac{n}{2}$,<br>$x,y+R(p_n), y > \frac{mn}{4}$</td></tr><tr><td>
+</td></tr><tr><td class="left-align">
+Valid&nbsp;gerrymandering if: $n-k=\frac{n}{2}$,<br>$x,y+R(p_n) > \frac{mn}{4}$</td></tr><tr><td>
 </td></tr><tr><td style="text-align:center;font-size:1.5em">
 World Two
 </td></tr></table>
@@ -4179,7 +4179,7 @@ World Two
 $S(i,j,x,y) = \text{True}$
 </td><td>
 if from among the first $j$ precincts:<br>
-$k$ are assigned to<br>
+$k$ are assigned to $\color{magenta}D_1$<br>
 exactly $x$ vote for R in $\color{magenta}D_1$<br>
 exactly $y$ vote for R in $\color{green}D_2$
 </td></tr><tr><td>
@@ -4189,7 +4189,7 @@ $\color{red}n \times n \times mn \times mn$
 </td><td></td></tr>
 <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 
-<tr><td class='redtext'>
+<tr><td class='redtext left-align'>
 ::: {.fragment fragment-index=2}
 4D Dynamic programming!
 :::
@@ -4277,9 +4277,9 @@ Then&nbsp;assign<br>$p_j$ to $D_2$
 <table class='border'><tr><td style="font-size:70%">
 $S(j,k,x,y)$ true if:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;from among the first $j$ precincts<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$k$ are assigned to $D_1$<br>
-&nbsp;&nbsp;&nbsp;&nbsp;exactly $x$ vote for $R$ in $D_1$<br>
-&nbsp;&nbsp;&nbsp;&nbsp;exactly $y$ vote for $R$ in $D_1$
+&nbsp;&nbsp;&nbsp;&nbsp;$k$ are assigned to $\color{magenta}D_1$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exactly $x$ vote for $R$ in $\color{magenta}D_1$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exactly $y$ vote for $R$ in $\color{green}D_2$
 </td></tr></table>
 </td></tr><tr><td>
 <table class="magentabox" style="margin-top:10px"><tr><td>$D_1$<br>$k$ precincts<br>$x$ voters for $R$</td></tr></table>
@@ -4314,9 +4314,9 @@ $$\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}
 <table class='border'><tr><td style="font-size:70%">
 $S(j,k,x,y)$ true if:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;from among the first $j$ precincts<br>
-&nbsp;&nbsp;&nbsp;&nbsp;$k$ are assigned to $D_1$<br>
-&nbsp;&nbsp;&nbsp;&nbsp;exactly $x$ vote for $R$ in $D_1$<br>
-&nbsp;&nbsp;&nbsp;&nbsp;exactly $y$ vote for $R$ in $D_1$
+&nbsp;&nbsp;&nbsp;&nbsp;$k$ are assigned to $\color{magenta}D_1$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exactly $x$ vote for $R$ in $\color{magenta}D_1$<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exactly $y$ vote for $R$ in $\color{green}D_2$
 </td></tr></table>
 
 </td></tr><tr><td colspan='2' style="padding-top:0">
