@@ -2879,7 +2879,7 @@ Removes a "block" of pixels
 </td><td>
 
 ::: {.r-stack}
-![](images/dp/ducks-small.webp){.ducks-right style="z-"}
+![](images/dp/ducks-small.webp){.ducks-right}
 
 ::: {.fragment fragment-index=1 .fade-in}
 ![](images/spacer.png){.ducks-right-red-box}
