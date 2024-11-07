@@ -3432,7 +3432,7 @@ Find $\color{magenta}LCS(i,j)$:
 
 <table>
 
-<tr><td style="vertical-align:middle;width:50%"><span class='green'>Case 1</span>: $\color{magenta}X[i]=Y[i]$</td>
+<tr><td style="vertical-align:middle;width:50%"><span class='green'>Case 1</span>: $\color{magenta}X[i]=Y[j]$</td>
 <td style="width:50%">
 
 ::: {.fragment fragment-index=1}
@@ -3448,7 +3448,7 @@ Y = <span class='red'>T</span>G<span class='red'>C</span>A<span class='red'>T</s
 $LCS(i,j)=LCS(i-1,j-1)+1$
 :::
 
-</td></tr><tr><td style="vertical-align:middle"><span class='blue'>Case 2</span>: $\color{magenta}X[i]\ne Y[i]$</td>
+</td></tr><tr><td style="vertical-align:middle"><span class='blue'>Case 2</span>: $\color{magenta}X[i]\ne Y[j]$</td>
 <td></td></tr>
 
 <tr><td style="text-align:center">
@@ -3484,10 +3484,10 @@ $LCS(i,j)=LCS(i-1,j)$
 </table>
 
 ::: {.fragment fragment-index=7}
-$$LCS(i,j) = \max
+$$LCS(i,j) = 
 \begin{cases}
 0 & \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
 \end{cases}$$
 :::
@@ -3541,7 +3541,7 @@ $\color{green}LCS(i-1,j-1)+1$<br>
 $\color{blue}\max(LCS(i,j-1),LCS(i-1,j))$
 </td><td style="font-size:70%">
 if $i=0$ or $j=0$<br>
-if $X[i]=Y[i]$<br>
+if $X[i]=Y[j]$<br>
 otherwise
 </td></tr></table>
 
@@ -3587,10 +3587,10 @@ otherwise
 
 ## Solve in a Good Order
 <div style="font-size:90%">
-$$\scriptstyle LCS(i,j) = \max
+$$\scriptstyle LCS(i,j) =
 \begin{cases}
 0 & \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
 \end{cases}$$
 
@@ -3630,10 +3630,10 @@ Fill from top &rarr; bottom, left &rarr; right (with any preference)
 
 ## Run Time?
 <div style="font-size:90%">
-$$\scriptstyle LCS(i,j) = \max
+$$\scriptstyle LCS(i,j) =
 \begin{cases}
 0 & \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
 \end{cases}$$
 
@@ -3699,10 +3699,10 @@ $$\scriptstyle LCS(i,j) = \max
 
 ## Reconstructing the LCS example 1
 <div style="font-size:90%">
-$$\scriptstyle LCS(i,j) = \max
+$$\scriptstyle LCS(i,j) =
 \begin{cases}
 0 & \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
 \end{cases}$$
 
@@ -3754,10 +3754,10 @@ Start from bottom right,<br>
 
 ## Reconstructing the LCS example 2
 <div style="font-size:90%">
-$$\scriptstyle LCS(i,j) = \max
+$$\scriptstyle LCS(i,j) =
 \begin{cases}
 0 & \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
 \end{cases}$$
 
@@ -3810,10 +3810,10 @@ Start from bottom right,<br>
 
 ## Reconstructing the LCS example 3
 <div style="font-size:90%">
-$$\scriptstyle LCS(i,j) = \max
+$$\scriptstyle LCS(i,j) =
 \begin{cases}
 0 & \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} & \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} & \text{otherwise} \\
 \end{cases}$$
 
@@ -4003,7 +4003,7 @@ Readings in CLRS 4th edition: chapter 14
 
 ## How does it work?
 
-![](https://upload.wikimedia.org/wikipedia/commons/d/d3/DifferingApportionment.svg){style="float:right;min-height:600px"}
+![](https://upload.wikimedia.org/wikipedia/commons/d/d3/DifferingApportionment.svg){style="float:right;width:33%;height:auto;margin-top:0;margin-left:30px"}
 
 <div style="font-size:95%">
 

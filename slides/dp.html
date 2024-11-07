@@ -8312,7 +8312,7 @@ Select a good order for solving subproblems
 <table>
 <tbody><tr>
 <td style="vertical-align:middle;width:50%">
-<span class="green">Case 1</span>: <span class="math inline">\(\color{magenta}X[i]=Y[i]\)</span>
+<span class="green">Case 1</span>: <span class="math inline">\(\color{magenta}X[i]=Y[j]\)</span>
 </td>
 <td style="width:50%">
 <div class="fragment" data-fragment-index="1">
@@ -8331,7 +8331,7 @@ Select a good order for solving subproblems
 </tr>
 <tr>
 <td style="vertical-align:middle">
-<span class="blue">Case 2</span>: <span class="math inline">\(\color{magenta}X[i]\ne Y[i]\)</span>
+<span class="blue">Case 2</span>: <span class="math inline">\(\color{magenta}X[i]\ne Y[j]\)</span>
 </td>
 <td>
 </td>
@@ -8362,10 +8362,10 @@ Select a good order for solving subproblems
 </tr>
 </tbody></table>
 <div class="fragment" data-fragment-index="7">
-<p><span class="math display">\[LCS(i,j) = \max
+<p><span class="math display">\[LCS(i,j) =
 \begin{cases}
 0 &amp; \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} &amp; \text{otherwise} \\
 \end{cases}\]</span></p>
 </div>
@@ -8438,7 +8438,7 @@ Select a good order for solving subproblems
 0<br> <span class="math inline">\(\color{green}LCS(i-1,j-1)+1\)</span><br> <span class="math inline">\(\color{blue}\max(LCS(i,j-1),LCS(i-1,j))\)</span>
 </td>
 <td style="font-size:70%">
-if <span class="math inline">\(i=0\)</span> or <span class="math inline">\(j=0\)</span><br> if <span class="math inline">\(X[i]=Y[i]\)</span><br> otherwise
+if <span class="math inline">\(i=0\)</span> or <span class="math inline">\(j=0\)</span><br> if <span class="math inline">\(X[i]=Y[j]\)</span><br> otherwise
 </td>
 </tr>
 </tbody></table>
@@ -8515,10 +8515,10 @@ Select a good order for solving subproblems
 <section id="solve-in-a-good-order" class="slide level2">
 <h2>Solve in a Good Order</h2>
 <div style="font-size:90%">
-<p><span class="math display">\[\scriptstyle LCS(i,j) = \max
+<p><span class="math display">\[\scriptstyle LCS(i,j) =
 \begin{cases}
 0 &amp; \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} &amp; \text{otherwise} \\
 \end{cases}\]</span></p>
 <div class="r-stack">
@@ -8562,10 +8562,10 @@ Select a good order for solving subproblems
 <section id="run-time-2" class="slide level2">
 <h2>Run Time?</h2>
 <div style="font-size:90%">
-<p><span class="math display">\[\scriptstyle LCS(i,j) = \max
+<p><span class="math display">\[\scriptstyle LCS(i,j) =
 \begin{cases}
 0 &amp; \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} &amp; \text{otherwise} \\
 \end{cases}\]</span></p>
 <div class="r-stack">
@@ -8631,10 +8631,10 @@ Select a good order for solving subproblems
 <section id="reconstructing-the-lcs-example-1" class="slide level2">
 <h2>Reconstructing the LCS example 1</h2>
 <div style="font-size:90%">
-<p><span class="math display">\[\scriptstyle LCS(i,j) = \max
+<p><span class="math display">\[\scriptstyle LCS(i,j) =
 \begin{cases}
 0 &amp; \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} &amp; \text{otherwise} \\
 \end{cases}\]</span></p>
 <div class="r-stack">
@@ -8662,10 +8662,10 @@ Select a good order for solving subproblems
 <section id="reconstructing-the-lcs-example-2" class="slide level2">
 <h2>Reconstructing the LCS example 2</h2>
 <div style="font-size:90%">
-<p><span class="math display">\[\scriptstyle LCS(i,j) = \max
+<p><span class="math display">\[\scriptstyle LCS(i,j) =
 \begin{cases}
 0 &amp; \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} &amp; \text{otherwise} \\
 \end{cases}\]</span></p>
 <div class="r-stack">
@@ -8693,10 +8693,10 @@ Select a good order for solving subproblems
 <section id="reconstructing-the-lcs-example-3" class="slide level2">
 <h2>Reconstructing the LCS example 3</h2>
 <div style="font-size:90%">
-<p><span class="math display">\[\scriptstyle LCS(i,j) = \max
+<p><span class="math display">\[\scriptstyle LCS(i,j) =
 \begin{cases}
 0 &amp; \text{if } i=0 \text{ or } j=0 \\
-{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[i] \\
+{\color{green}LCS(i-1,j-1)+1} &amp; \text{if } X[i]=Y[j] \\
 {\color{blue}\max(LCS(i,j-1),LCS(i-1,j))} &amp; \text{otherwise} \\
 \end{cases}\]</span></p>
 <div class="r-stack">
@@ -8889,7 +8889,7 @@ Math and CS professors have been asked to testify in court as to the difficulty 
 </section>
 <section id="how-does-it-work" class="slide level2">
 <h2>How does it work?</h2>
-<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/d/d3/DifferingApportionment.svg" style="float:right;min-height:600px"></p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/d/d3/DifferingApportionment.svg" style="float:right;width:33%;height:auto;margin-top:0;margin-left:30px"></p>
 <div style="font-size:95%">
 <ul>
 <li>States are broken into precincts</li>
