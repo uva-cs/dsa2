@@ -28,6 +28,7 @@ Repository Contents
 	- [PA1](pa/pa1/index.html) ([md](pa/pa1/index.md))
 	- [PA2](pa/pa2/index.html) ([md](pa/pa2/index.md))
 	- [PA3](pa/pa3/index.html) ([md](pa/pa3/index.md))
+	- [PA4](pa/pa4/index.html) ([md](pa/pa4/index.md))
 - Slide sets:
 	- [Daily announcement slides](slides/announcements.html#/)
     - [Dynamic Programming](slides/dp.html#/)

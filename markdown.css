@@ -33,6 +33,7 @@ code {
 
 pre code {
     border: 0px solid;
+    padding-left:0;
 }
 
 pre {

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>DSA2: PA4: Mixing Magical Reagents</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">DSA2: PA4: Mixing Magical Reagents</h1>
+</header>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Arthur-Pyle_The_Enchanter_Merlin.JPG/892px-Arthur-Pyle_The_Enchanter_Merlin.JPG" style="width:25%;float:right;margin-left:20px;border-radius:10px" /></p>
+<p>It’s course registration time! While choosing electives, you came across a rather interesting one – <em>Mixing Magical Reagents (and Computing)</em>, taught by “Staff” – meaning someone yet to be hired. Somehow this course counts as a computing elective. Curious to learn more, you sign up for the course. Like all CS electives, the wait list size is already larger than the number of people enrolled – many times larger, in fact. But somehow you end up in the course, and quickly find out that it is more similar to a chemistry mixing free-for-all than an actual computing elective. The first assignment in that class is how to optimize the mixing of magical reagents – the physical components needed to cast spells.</p>
+<p>You find that you have <span class="math inline"><em>r</em></span> unique reagents that are available to be used for the mixings, where <span class="math inline">2 ≤ <em>r</em> ≤ 26</span>. We will represent these reagents here as lower-case letters ‘a’ through ‘z’. You will be given a <em>reagent string</em> such as <code>abc</code>, which might mean to mix <strong>A</strong>shes of mistletoe with <strong>B</strong>one dust with a caterpillar <strong>C</strong>ocoon. Reagent strings can be as long as <span class="math inline">10<sup>3</sup></span> characters, but will only use the <span class="math inline"><em>r</em></span> unique reagents (letters) available. You can mix only two reagents together at a time, so you can either mix the first two and add the third, or mix the second two, and then add that to the first. Effectively, you can choose to perform either <span class="math inline">(<em>a</em> + <em>b</em>) + <em>c</em></span> or <span class="math inline"><em>a</em> + (<em>b</em> + <em>c</em>)</span>.</p>
+<p>Mixing reagents uses some magical energy – a cost, if you will. Each pair of reagents has a separate cost, and that cost varies depending on the order that you mix them together. So the cost adding <span class="math inline"><em>b</em></span> to <span class="math inline"><em>a</em></span> (i.e., <span class="math inline"><em>a</em> + <em>b</em></span>) can have a different cost than the cost of adding <span class="math inline"><em>a</em></span> to <span class="math inline"><em>b</em></span> (i.e., <span class="math inline"><em>b</em> + <em>a</em></span>). Furthermore, mixing two reagents yields a third reagent – this is magic, after all. That third reagent will always be one of the <span class="math inline"><em>r</em></span> unique reagents available. Like with the energy cost, the resulting reagent will vary depending on the order. So <span class="math inline"><em>a</em> + <em>b</em> = <em>a</em></span>, but <span class="math inline"><em>b</em> + <em>a</em> = <em>c</em></span>, for example.</p>
+<p>You will be provided with a table that lists both the cost of mixing two reagents, as well as the resulting reagent:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>c:10</td>
+<td>a:4</td>
+<td>a:4</td>
+</tr>
+<tr>
+<td>b</td>
+<td>c:3</td>
+<td>a:4</td>
+<td>a:2</td>
+</tr>
+<tr>
+<td>c</td>
+<td>b:4</td>
+<td>b:1</td>
+<td>b:8</td>
+</tr>
+</tbody>
+</table>
+<p>This means that mixing b+c will yield reagent a, and cost 2 energy. Mixing c+b will yield reagent b, and cost 1 energy. Thus, the mixing of reagents is not commutative: <span class="math inline"><em>c</em> + <em>b</em> ≠ <em>b</em> + <em>c</em></span>. In that table, the letter in the left-hand column is the left hand side of the ‘+’ operation, and the letter in the top top row is the right-hand side of the operation. Thus, <span class="math inline"><em>a</em> + <em>b</em> = <em>a</em></span> and <span class="math inline"><em>b</em> + <em>a</em> = <em>c</em></span>.</p>
+<p>Given a table in a format similar to what is above, and a list of reagents to mix, you have to determine the mixing order that minimizes the cost, as well as the resulting reagent. You cannot change the order of the reagents in the reagent string, only change the order of which ones you mix first. In other words, given the reagent string <code>abc</code> as your mixing string, you have to determine which is the minimum cost between <span class="math inline">(<em>a</em> + <em>b</em>) + <em>c</em></span> and <span class="math inline"><em>a</em> + (<em>b</em> + <em>c</em>)</span>, but you cannot choose <span class="math inline"><em>c</em> + (<em>b</em> + <em>a</em>)</span>, as that changes the order of the reagent string.</p>
+<h3 id="input">Input</h3>
+<p>The first line of the input contains an integer <span class="math inline">1 ≤ <em>t</em> ≤ 10<sup>3</sup></span>, the number of test cases.</p>
+<p>The first line of each test case contains an integer <span class="math inline">2 ≤ <em>r</em> ≤ 26</span>, the number of reagents in this test case. The reagents always start at lower-case ‘a’ and proceed sequentially through the alphabet (in order).</p>
+<p>The next <span class="math inline"><em>r</em></span> lines will contain the table. Each line will contain <span class="math inline"><em>r</em></span> pairs; each pair contains the resulting reagent and the cost. The values in a pair are colon-separated, and the pairs themselves are space separated. If <span class="math inline"><em>r</em> = 3</span>, an example line would be <code>c:3 a:4 a:2</code> (the middle row in the table above). All costs are integers <span class="math inline">1 ≤ <em>c</em> ≤ 10</span>. The resulting reagents will always be one of the <span class="math inline"><em>r</em></span> reagents in this test case – meaning if there are only 5 reagents in a test case, which would be ‘a’ through ‘e’, you will not get a mixing that yields any reagents ‘f’ through ‘z’.</p>
+<p>After the table is an integer <span class="math inline">1 ≤ <em>m</em> ≤ 10<sup>3</sup></span>, the number of mixings of reagents to determine the minimum cost for. Each such mixing will use the same table, as it is in the same test case. The next <span class="math inline"><em>m</em></span> lines will contain one reagent string per line; each string will be up to <span class="math inline">10<sup>3</sup></span> reagent letters, and will only contain the letters corresponding to the <span class="math inline"><em>r</em></span> reagents available in this test case.</p>
+<p>All input is to be read from standard input.</p>
+<h3 id="output">Output</h3>
+<p>For each mixing in each test case, there should be two values output on a single line (space separated): the resulting reagent and the minimal cost. If there are multiple paths that lead to the same minimum cost, you may print out the resulting reagent from any of them. These minimal costs – and all partial costs computed in the process – are guaranteed to fit into a 32-bit singed integer.</p>
+<p>All input is to be written to standard output.</p>
+<h3 id="sample-input">Sample input</h3>
+<p>This input below is available in the <a href="sample.in">sample.in</a> file. The first test case therein corresponds to the example above.</p>
+<pre><code>2
+3
+c:10 a:4 a:4
+c:3 a:4 c:2
+b:4 b:1 b:8
+3
+abc
+cab
+abcabcabcabc
+2
+b:3 b:5
+a:6 b:2
+1
+abba</code></pre>
+<p>Your program will be run as follows, if in Python:</p>
+<pre><code>$ python pa4.py &lt; sample.in</code></pre>
+<p>Or, if in Java:</p>
+<pre><code>$ java PA4 &lt; sample.in</code></pre>
+<p>The <code>&lt;</code> will provide the contents of the <a href="sample.in">sample.in</a> file as standard input to your program.</p>
+<h3 id="sample-output">Sample output</h3>
+<pre><code>a 6
+a 8
+a 30
+b 11</code></pre>
+<h3 id="requirements">Requirements</h3>
+<p>This needs to be a dynamic programming solution. Brute force solutions will time out with the test cases we are going to provide.</p>
+<p>There is no skeleton code being provided for this programming assignment. You can look at <a href="../pa2/index.html">PA2</a> for how to read in the input from standard input (but note that the input for this assignment is quite different than that for PA2).</p>
+<p>Your source code file must be named either <code>pa4.py</code> or <code>PA4.java</code>.</p>
+</body>
+</html>
