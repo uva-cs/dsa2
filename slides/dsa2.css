@@ -610,3 +610,8 @@ td.zero-bottom, td.zero-bottom ul, td.zero-bottom ul li, td.zero-bottom ol, td.z
 td.left-align, td.left-align p {
 	text-align:left !important;
 }
+div.no-svg-margins > div > div > div > figure > div > svg {
+	width:100%;
+	margin:0 !important;
+}
+}
