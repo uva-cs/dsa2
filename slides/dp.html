@@ -8920,10 +8920,10 @@ Math and CS professors have been asked to testify in court as to the difficulty 
 <ul>
 <li>Districts <span class="math inline">\({\color{magenta}D_1}, {\color{green}D_2} \subset \{ p_1,p_2,\ldots,p_{n-1} \}\)</span></li>
 <li>Where <span class="math inline">\(|{\color{magenta}D_1}| = |{\color{green}D_2}|\)</span></li>
-<li><span class="math inline">\(R({\color{magenta}D_1})&gt;\frac{m \cdot n}{4}\)</span> and <span class="math inline">\(R({\color{green}D_2})&gt;\frac{m \cdot n}{4}\)</span>
+<li><span class="math inline">\(S({\color{magenta}D_1})&gt;\frac{m \cdot n}{4}\)</span> and <span class="math inline">\(S({\color{green}D_2})&gt;\frac{m \cdot n}{4}\)</span>
 <ul>
-<li><span class="math inline">\(R(D_i)\)</span> is the number of “regular party” voters in <span class="math inline">\(D_i\)</span></li>
-<li><span class="math inline">\(R(D_i)&gt;\frac{m \cdot n}{4}\)</span> means <span class="math inline">\(D_i\)</span> is majority “regular party”</li>
+<li><span class="math inline">\(S(D_i)\)</span> is the number (size) of voters of your party in <span class="math inline">\(D_i\)</span></li>
+<li><span class="math inline">\(S(D_i)&gt;\frac{m \cdot n}{4}\)</span> means <span class="math inline">\(D_i\)</span> is majority your party</li>
 </ul></li>
 <li>“Failure” if no such solution is possible</li>
 </ul></li>
@@ -9088,7 +9088,7 @@ After&nbsp;assigning&nbsp;first<br><span class="math inline">\(n-1\)</span> prec
 <table class="magentabox">
 <tbody><tr>
 <td>
-<span class="math inline">\(D_1\)</span><br><span class="math inline">\(k+1\)</span> precincts<br><span class="math inline">\(x+R(p_n)\)</span> voters for <span class="math inline">\(R\)</span>
+<span class="math inline">\(D_1\)</span><br><span class="math inline">\(k+1\)</span> precincts<br><span class="math inline">\(x+S(p_n)\)</span> voters for <span class="math inline">\(R\)</span>
 </td>
 </tr>
 </tbody></table>
@@ -9098,7 +9098,7 @@ After&nbsp;assigning&nbsp;first<br><span class="math inline">\(n-1\)</span> prec
 <tr>
 <td style="padding:0" class="left-align">
 <div class="fragment" data-fragment-index="5">
-<p>Valid&nbsp;gerrymandering<br>if: <span class="math inline">\(k+1=\frac{n}{2}\)</span>, <span class="math inline">\(x+R(p_n), y &gt; \frac{mn}{4}\)</span></p>
+<p>Valid&nbsp;gerrymandering<br>if: <span class="math inline">\(k+1=\frac{n}{2}\)</span> (or <span class="math inline">\(\frac{n}{2}+1\)</span>), <span class="math inline">\(x+S(p_n), y &gt; \frac{mn}{4}\)</span></p>
 </div>
 </td>
 </tr>
@@ -9113,7 +9113,7 @@ After&nbsp;assigning&nbsp;first<br><span class="math inline">\(n-1\)</span> prec
 <table class="greenbox">
 <tbody><tr>
 <td>
-<span class="math inline">\(D_2\)</span><br><span class="math inline">\(n-k\)</span> precincts<br><span class="math inline">\(y+R(p_n)\)</span> voters for <span class="math inline">\(R\)</span>
+<span class="math inline">\(D_2\)</span><br><span class="math inline">\(n-k\)</span> precincts<br><span class="math inline">\(y+S(p_n)\)</span> voters for <span class="math inline">\(R\)</span>
 </td>
 </tr>
 </tbody></table>
@@ -9123,7 +9123,7 @@ After&nbsp;assigning&nbsp;first<br><span class="math inline">\(n-1\)</span> prec
 <tr>
 <td style="padding:0" class="left-align">
 <div class="fragment" data-fragment-index="5">
-<p>Valid&nbsp;gerrymandering<br>if: <span class="math inline">\(n-k=\frac{n}{2}\)</span>, <span class="math inline">\(x,y+R(p_n) &gt; \frac{mn}{4}\)</span></p>
+<p>Valid&nbsp;gerrymandering<br>if: <span class="math inline">\(n-k=\frac{n}{2}\)</span> (or <span class="math inline">\(\frac{n}{2}+1\)</span>), <span class="math inline">\(x,y+S(p_n) &gt; \frac{mn}{4}\)</span></p>
 </div>
 </td>
 </tr>
@@ -9141,7 +9141,7 @@ After&nbsp;assigning&nbsp;first<br><span class="math inline">\(n-1\)</span> prec
 <table class="magentabox" style="margin-top:10px">
 <tbody><tr>
 <td>
-<span class="math inline">\(D_1\)</span><br><span class="math inline">\(k+1\)</span> precincts<br><span class="math inline">\(x+R(p_n)\)</span> voters for <span class="math inline">\(R\)</span>
+<span class="math inline">\(D_1\)</span><br><span class="math inline">\(k+1\)</span> precincts<br><span class="math inline">\(x+S(p_n)\)</span> voters for <span class="math inline">\(R\)</span>
 </td>
 </tr>
 </tbody></table>
@@ -9160,7 +9160,7 @@ After&nbsp;assigning&nbsp;first<br><span class="math inline">\(n-1\)</span> prec
 </tr>
 <tr>
 <td class="left-align">
-Valid&nbsp;gerrymandering if: <span class="math inline">\(k+1=\frac{n}{2}\)</span>,<br><span class="math inline">\(x+R(p_n), y &gt; \frac{mn}{4}\)</span>
+Valid&nbsp;gerrymandering if: <span class="math inline">\(k+1=\frac{n}{2}\)</span> (or <span class="math inline">\(\frac{n}{2}+1\)</span>),<br><span class="math inline">\(x+S(p_n), y &gt; \frac{mn}{4}\)</span>
 </td>
 </tr>
 <tr>
@@ -9192,7 +9192,7 @@ World One
 <table class="greenbox">
 <tbody><tr>
 <td>
-<span class="math inline">\(D_2\)</span><br><span class="math inline">\(n-k\)</span> precincts<br><span class="math inline">\(y+R(p_n)\)</span> voters for <span class="math inline">\(R\)</span>
+<span class="math inline">\(D_2\)</span><br><span class="math inline">\(n-k\)</span> precincts<br><span class="math inline">\(y+S(p_n)\)</span> voters for <span class="math inline">\(R\)</span>
 </td>
 </tr>
 </tbody></table>
@@ -9200,7 +9200,7 @@ World One
 </tr>
 <tr>
 <td class="left-align">
-Valid&nbsp;gerrymandering if: <span class="math inline">\(n-k=\frac{n}{2}\)</span>,<br><span class="math inline">\(x,y+R(p_n) &gt; \frac{mn}{4}\)</span>
+Valid&nbsp;gerrymandering if: <span class="math inline">\(n-k=\frac{n}{2}\)</span> (or <span class="math inline">\(\frac{n}{2}+1\)</span>),<br><span class="math inline">\(x,y+S(p_n) &gt; \frac{mn}{4}\)</span>
 </td>
 </tr>
 <tr>
@@ -9282,7 +9282,7 @@ True here means that this is a valid state of the world, not a valid gerrymander
 <table class="magentabox" style="margin-top:10px">
 <tbody><tr>
 <td>
-<span class="math inline">\(D_1\)</span><br><span class="math inline">\(k-1\)</span> precincts<br><span class="math inline">\(x-R(P_j)\)</span> voters for <span class="math inline">\(R\)</span>
+<span class="math inline">\(D_1\)</span><br><span class="math inline">\(k-1\)</span> precincts<br><span class="math inline">\(x-S(P_j)\)</span> voters for <span class="math inline">\(R\)</span>
 </td>
 </tr>
 </tbody></table>
@@ -9327,7 +9327,7 @@ True here means that this is a valid state of the world, not a valid gerrymander
 <table class="greenbox">
 <tbody><tr>
 <td>
-<span class="math inline">\(D_2\)</span><br><span class="math inline">\(j-1-k\)</span> precincts<br><span class="math inline">\(y-R(p_j)\)</span> voters for <span class="math inline">\(R\)</span>
+<span class="math inline">\(D_2\)</span><br><span class="math inline">\(j-1-k\)</span> precincts<br><span class="math inline">\(y-S(p_j)\)</span> voters for <span class="math inline">\(R\)</span>
 </td>
 </tr>
 </tbody></table>
@@ -9462,12 +9462,12 @@ True here means that this is a valid state of the world, not a valid gerrymander
 </td>
 </tr>
 </tbody></table>
-<p><span class="math display">\[S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}S(j-1,k,x,y-R(p_j))}\]</span></p>
+<p><span class="math display">\[S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-S(p_j),y)} \vee {\color{green}S(j-1,k,x,y-S(p_j))}\]</span></p>
 </div>
 </section>
 <section id="final-algorithm" class="slide level2">
 <h2>Final Algorithm</h2>
-<p><span class="math display">\[\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}S(j-1,k,x,y-R(p_j))}\]</span></p>
+<p><span class="math display">\[\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-S(p_j),y)} \vee {\color{green}S(j-1,k,x,y-S(p_j))}\]</span></p>
 <table style="width:100%">
 <tbody><tr>
 <td style="padding-bottom:0px">
@@ -9500,7 +9500,7 @@ True here means that this is a valid state of the world, not a valid gerrymander
 <tr>
 <td colspan="2" style="padding-top:0">
 <p style="margin-top:-40px;margin-left:20px">
-<span class="math display">\[\begin{align} S(j,k,x,y) = &amp; {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee \\ &amp; {\color{green}S(j-1,k,x,y-R(p_j))} \end{align}\]</span>
+<span class="math display">\[\begin{align} S(j,k,x,y) = &amp; {\color{magenta}S(j-1,k-1,x-S(p_j),y)} \vee \\ &amp; {\color{green}S(j-1,k,x,y-S(p_j))} \end{align}\]</span>
 </p>
 </td>
 </tr>
@@ -9513,7 +9513,7 @@ True here means that this is a valid state of the world, not a valid gerrymander
 </section>
 <section id="gerrymander-run-time" class="slide level2">
 <h2>Gerrymander Run Time</h2>
-<p><span class="math display">\[\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}S(j-1,k,x,y-R(p_j))}\]</span></p>
+<p><span class="math display">\[\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-S(p_j),y)} \vee {\color{green}S(j-1,k,x,y-S(p_j))}\]</span></p>
 <table style="width:100%">
 <tbody><tr>
 <td style="padding-bottom:0px">
@@ -9548,7 +9548,7 @@ True here means that this is a valid state of the world, not a valid gerrymander
 <tr>
 <td colspan="2" style="padding-top:0">
 <p style="margin-top:-40px;margin-left:20px">
-<span class="math display">\[\begin{align} S(j,k,x,y) = &amp; {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee \\ &amp; {\color{green}S(j-1,k,x,y-R(p_j))} \end{align}\]</span>
+<span class="math display">\[\begin{align} S(j,k,x,y) = &amp; {\color{magenta}S(j-1,k-1,x-S(p_j),y)} \vee \\ &amp; {\color{green}S(j-1,k,x,y-S(p_j))} \end{align}\]</span>
 </p>
 </td>
 </tr>

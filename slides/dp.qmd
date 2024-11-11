@@ -4029,9 +4029,9 @@ Readings in CLRS 4th edition: chapter 14
 - Output:
 	- Districts ${\color{magenta}D_1}, {\color{green}D_2} \subset \{ p_1,p_2,\ldots,p_{n-1} \}$
 	- Where $|{\color{magenta}D_1}| = |{\color{green}D_2}|$
-	- $R({\color{magenta}D_1})>\frac{m \cdot n}{4}$ and $R({\color{green}D_2})>\frac{m \cdot n}{4}$
-		- $R(D_i)$ is the number of "regular party" voters in $D_i$
-		- $R(D_i)>\frac{m \cdot n}{4}$ means $D_i$ is majority "regular party"
+	- $S({\color{magenta}D_1})>\frac{m \cdot n}{4}$ and $S({\color{green}D_2})>\frac{m \cdot n}{4}$
+		- $S(D_i)$ is the number (size) of voters of your party in $D_i$
+		- $S(D_i)>\frac{m \cdot n}{4}$ means $D_i$ is majority your party
 	- "Failure" if no such solution is possible
 
 </td><td style="vertical-align:bottom">
@@ -4120,21 +4120,21 @@ If&nbsp;we<br>assign<br>$p_n \text{ to } D_2$
 &nbsp;
 </td></tr><tr><td style="padding:0">
 ::: {.fragment fragment-index=1}
-<table class="magentabox"><tr><td> $D_1$<br>$k+1$ precincts<br>$x+R(p_n)$ voters for $R$</td></tr></table>
+<table class="magentabox"><tr><td> $D_1$<br>$k+1$ precincts<br>$x+S(p_n)$ voters for $R$</td></tr></table>
 :::
 </td></tr><tr><td style="padding:0" class="left-align">
 ::: {.fragment fragment-index=5}
-Valid&nbsp;gerrymandering<br>if: $k+1=\frac{n}{2}$, $x+R(p_n), y > \frac{mn}{4}$
+Valid&nbsp;gerrymandering<br>if: $k+1=\frac{n}{2}$ (or $\frac{n}{2}+1$), $x+S(p_n), y > \frac{mn}{4}$
 :::
 </td></tr><tr><td style="padding:0">
 &nbsp;
 </td></tr><tr><td style="padding:0">
 ::: {.fragment fragment-index=2}
-<table class="greenbox"><tr><td> $D_2$<br>$n-k$ precincts<br>$y+R(p_n)$ voters for $R$</td></tr></table>
+<table class="greenbox"><tr><td> $D_2$<br>$n-k$ precincts<br>$y+S(p_n)$ voters for $R$</td></tr></table>
 :::
 </td></tr><tr><td style="padding:0" class="left-align">
 ::: {.fragment fragment-index=5}
-Valid&nbsp;gerrymandering<br>if: $n-k=\frac{n}{2}$, $x,y+R(p_n) > \frac{mn}{4}$
+Valid&nbsp;gerrymandering<br>if: $n-k=\frac{n}{2}$ (or $\frac{n}{2}+1$), $x,y+S(p_n) > \frac{mn}{4}$
 :::
 </td></tr><tr><td>
 </td></tr></table>
@@ -4144,11 +4144,11 @@ Valid&nbsp;gerrymandering<br>if: $n-k=\frac{n}{2}$, $x,y+R(p_n) > \frac{mn}{4}$
 ::: {.fragment fragment-index=3}
 <table style="border:0px solid blue;font-size:60%;background-color:lavender">
 <tr><td>
-<table class="magentabox" style="margin-top:10px"><tr><td> $D_1$<br>$k+1$ precincts<br>$x+R(p_n)$ voters for $R$</td></tr></table>
+<table class="magentabox" style="margin-top:10px"><tr><td> $D_1$<br>$k+1$ precincts<br>$x+S(p_n)$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
 <table class="greenbox"><tr><td> $D_2$<br>$n-k-1$ precincts<br>$y$ voters for $R$</td></tr></table>
 </td></tr><tr><td class="left-align">
-Valid&nbsp;gerrymandering if: $k+1=\frac{n}{2}$,<br>$x+R(p_n), y > \frac{mn}{4}$</td></tr><tr><td>
+Valid&nbsp;gerrymandering if: $k+1=\frac{n}{2}$ (or $\frac{n}{2}+1$),<br>$x+S(p_n), y > \frac{mn}{4}$</td></tr><tr><td>
 </td></tr><tr><td style="text-align:center;font-size:1.5em">
 World One
 </td></tr></table>
@@ -4159,9 +4159,9 @@ World One
 <tr><td>
 <table class="magentabox" style="margin-top:10px"><tr><td> $D_1$<br>$k$ precincts<br>$x$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
-<table class="greenbox"><tr><td> $D_2$<br>$n-k$ precincts<br>$y+R(p_n)$ voters for $R$</td></tr></table>
+<table class="greenbox"><tr><td> $D_2$<br>$n-k$ precincts<br>$y+S(p_n)$ voters for $R$</td></tr></table>
 </td></tr><tr><td class="left-align">
-Valid&nbsp;gerrymandering if: $n-k=\frac{n}{2}$,<br>$x,y+R(p_n) > \frac{mn}{4}$</td></tr><tr><td>
+Valid&nbsp;gerrymandering if: $n-k=\frac{n}{2}$ (or $\frac{n}{2}+1$),<br>$x,y+S(p_n) > \frac{mn}{4}$</td></tr><tr><td>
 </td></tr><tr><td style="text-align:center;font-size:1.5em">
 World Two
 </td></tr></table>
@@ -4213,7 +4213,7 @@ $\color{red}n \times n \times mn \times mn$
 ::: {.fragment fragment-index=1}
 <table style="border:0px solid blue;font-size:80%;background-color:lavender;width:100%">
 <tr><td>
-<table class="magentabox" style="margin-top:10px"><tr><td>$D_1$<br>$k-1$ precincts<br>$x-R(P_j)$ voters for $R$</td></tr></table>
+<table class="magentabox" style="margin-top:10px"><tr><td>$D_1$<br>$k-1$ precincts<br>$x-S(P_j)$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
 <table class="greenbox"><tr><td> $D_2$<br>$j-k$ precincts<br>$y$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
@@ -4226,7 +4226,7 @@ $\color{red}n \times n \times mn \times mn$
 <tr><td>
 <table class="magentabox" style="margin-top:10px"><tr><td> $D_1$<br>$k$ precincts<br>$x$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
-<table class="greenbox"><tr><td> $D_2$<br>$j-1-k$ precincts<br>$y-R(p_j)$ voters for $R$</td></tr></table>
+<table class="greenbox"><tr><td> $D_2$<br>$j-1-k$ precincts<br>$y-S(p_j)$ voters for $R$</td></tr></table>
 </td></tr><tr><td>
 </td></tr></table>
 :::
@@ -4289,14 +4289,14 @@ $S(j,k,x,y)$ true if:<br>
 
 </td></tr></table>
 
-$$S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}S(j-1,k,x,y-R(p_j))}$$
+$$S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-S(p_j),y)} \vee {\color{green}S(j-1,k,x,y-S(p_j))}$$
 
 </div>
 
 
 ## Final Algorithm
 
-$$\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}S(j-1,k,x,y-R(p_j))}$$
+$$\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-S(p_j),y)} \vee {\color{green}S(j-1,k,x,y-S(p_j))}$$
 
 <table style="width:100%"><tr><td style="padding-bottom:0px">
 
@@ -4321,7 +4321,7 @@ $S(j,k,x,y)$ true if:<br>
 
 </td></tr><tr><td colspan='2' style="padding-top:0">
 
-<p style="margin-top:-40px;margin-left:20px">$$\begin{align} S(j,k,x,y) = & {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee \\ & {\color{green}S(j-1,k,x,y-R(p_j))} \end{align}$$</p>
+<p style="margin-top:-40px;margin-left:20px">$$\begin{align} S(j,k,x,y) = & {\color{magenta}S(j-1,k-1,x-S(p_j),y)} \vee \\ & {\color{green}S(j-1,k,x,y-S(p_j))} \end{align}$$</p>
 
 </td></tr><tr><td colspan='2' style="padding-top:0">
 
@@ -4332,7 +4332,7 @@ Search for True entry at $S \left( n, \frac{n}{2}, >\frac{m \cdot n}{4}, >\frac{
 
 ## Gerrymander Run Time
 
-$$\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}S(j-1,k,x,y-R(p_j))}$$
+$$\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-S(p_j),y)} \vee {\color{green}S(j-1,k,x,y-S(p_j))}$$
 
 <table style="width:100%"><tr><td style="padding-bottom:0px">
 
@@ -4359,7 +4359,7 @@ $$\small S(j,k,x,y) = {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee {\color{green}
 
 </td></tr><tr><td colspan='2' style="padding-top:0">
 
-<p style="margin-top:-40px;margin-left:20px">$$\begin{align} S(j,k,x,y) = & {\color{magenta}S(j-1,k-1,x-R(p_j),y)} \vee \\ & {\color{green}S(j-1,k,x,y-R(p_j))} \end{align}$$</p>
+<p style="margin-top:-40px;margin-left:20px">$$\begin{align} S(j,k,x,y) = & {\color{magenta}S(j-1,k-1,x-S(p_j),y)} \vee \\ & {\color{green}S(j-1,k,x,y-S(p_j))} \end{align}$$</p>
 
 </td></tr><tr><td colspan='2' style="padding-top:0" class='redtext'>
 

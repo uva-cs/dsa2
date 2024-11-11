@@ -96,7 +96,7 @@ table.bipartite tbody tr td div div {
 table.bipartite tbody tr td div table {
 	/* padding:0 10% 0 10% !important; */
 	z-index:1;
-	width:90%;
+	width:88%;
 	height:0;
 	margin-bottom: 30px !important;
 	margin-top: auto !important;
@@ -369,6 +369,7 @@ table.table-of-boxes tbody tr td table tbody tr td{
 .magenta { color:magenta; }
 .orange { color:orange; }
 .grey { color:grey; }
+.navy { color:navy; }
 
 td.red { background-color:red; color:black; }
 td.orange { background-color:orange; color:black; }
@@ -485,7 +486,7 @@ img.ducks-scaled {
 
 /* for the DP gerrymandering slides */
 table.magentabox {
-	border:2px solid black;
+	border:3px solid black;
 	border-radius:25px;
 	border-collapse:separate;
 	margin-left:0;
@@ -498,7 +499,7 @@ table.magentabox tr td {
 	border-radius:20px;
 }
 table.greenbox {
-	border:2px solid black;
+	border:3px solid black;
 	border-radius:25px;
 	border-collapse:separate;
 	margin-left:0;

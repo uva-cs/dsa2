@@ -9,7 +9,7 @@ title: "Reductions"
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/OpenRailwayMap_of_Northeastern_US_and_Southeastern_Canada.png/1024px-OpenRailwayMap_of_Northeastern_US_and_Southeastern_Canada.png){.center style="object-fit:none;object-position:right;height:513px;width:864px"}
 
-<span class="font-90">**Question:** What is the maximum throughput of the railroad network?</span>
+<span class="font-90">**Question:** What is the maximum throughput of the railroad network from Omaha (OMA, far left) to Boston (BBY, far right)?</span>
 
 
 ## Flow Networks
@@ -113,11 +113,11 @@ digraph graph2 {
 	- ${\color{red}f(e)} \le {\color{green}c(e)}$
 	- "Flow cannot exceed capacity"
 - Flow constraint
-	- $\forall v \in V - \{s,t\}$, $\text{inflow}(v)=\text{outflow}(v)$
+	- $\forall v \in V - \{{\color{purple}s},{\color{navy}t}\}$, $\text{inflow}(v)=\text{outflow}(v)$
 	- $\text{inflow}(v)=\sum_{x \in V}f(x,v)$
 	- $\text{outflow}(v)=\sum_{x \in V}f(v,x)$
 	- Water going in must match water coming out
-- Flow of $G$: $|f|=\text{outflow}(s)-\text{inflow}(s)$
+- Flow of $G$: $|f|=\text{outflow}({\color{purple}s})-\text{inflow}({\color{purple}s})$
 - Net outflow of $\color{purple}s$
 	- <span class='red'>3 in this example</span>
 
@@ -129,7 +129,7 @@ digraph graph2 {
 
 <p class="font-90 center">Of all valid flows through the graph, find the one that maximizes:</p>
 
-$$|f|=\text{outflow}(s)-\text{inflow}(s)$$
+$$|f|=\text{outflow}({\color{purple}s})-\text{inflow}({\color{purple}s})$$
 
 <table class="width-100"><tr><td class="compact">
 ::: {.svg-100}
@@ -2214,7 +2214,7 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -2254,12 +2254,12 @@ digraph graph23 {
 
 <span style="opacity:0"><span class="bold">Initialization:</span> $O(|E|)$</span>
 
-<span style="opacity:0"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+<p style="margin-bottom:6px"><span style="opacity:0"><span class="bold">Construct residual network:</span> $O(|E|)$</span></span></p>
 
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+<p style="margin-top:0"><span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -2268,7 +2268,7 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -2310,12 +2310,12 @@ digraph graph23 {
 <span class="bold">Initialization:</span> $O(|E|)$
 :::
 
-<span style="opacity:0"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+<p style="margin-bottom:6px"><span style="opacity:0"><span class="bold">Construct residual network:</span> $O(|E|)$</span></span></p>
 
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+<p style="margin-top:0"><span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -2325,7 +2325,7 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -2366,13 +2366,13 @@ digraph graph23 {
 <span class="bold">Initialization:</span> $O(|E|)$
 
 ::: {.fragment}
-<span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+<p style="margin-bottom:6px"><span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span></span></p>
 :::
 
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+<p style="margin-top:0"><span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -2382,7 +2382,7 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -2422,7 +2422,7 @@ digraph graph23 {
 
 <span class="bold">Initialization:</span> $O(|E|)$
 
-<span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+<p style="margin-bottom:6px"><span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span></span></p>
 
 </td><td class="zero-bottom"> 
 
@@ -2434,7 +2434,7 @@ digraph graph23 {
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
 ::: {.fragment fragment-index=1}
-<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 :::
 
 </td></tr>
@@ -2446,7 +2446,7 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -2484,12 +2484,12 @@ digraph graph23 {
 
 <span class="bold">Initialization:</span> $O(|E|)$
 
-<span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+<p style="margin-bottom:6px"><span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span></span></p>
 
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -2990,7 +2990,7 @@ digraph diamond_graph19 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -3030,12 +3030,12 @@ digraph diamond_graph19 {
 
 <span class="bold">Initialization:</span> $O(|E|)$
 
-<span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+<p style="margin-bottom:6px"><span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span></span></p>
 
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -3044,7 +3044,7 @@ digraph diamond_graph19 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -3084,12 +3084,12 @@ digraph diamond_graph19 {
 
 <span class="bold">Initialization:</span> $O(|E|)$
 
-<span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span>
+<p style="margin-bottom:6px"><span style="opacity:1"><span class="bold">Construct residual network:</span> $O(|E|)$</span></span></p>
 
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span>
+<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -3438,7 +3438,7 @@ digraph graph23 {
 
 ## Proof: Maxflow/Mincut Theorem
 
-<div class="font-90">
+<div class="font-80">
 
 - If $|f|$ is a max flow, then $G_f$ has no augmenting path
     - Otherwise, use that augmenting path to "push" more flow
@@ -4026,12 +4026,14 @@ graph G2 {
     edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
     subgraph cluster_profs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         l1; l2; l3; l4;
     }
     subgraph cluster_dogs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         r2; r3; r1; r4;
     }
     // to keep the two sides spaced apart
@@ -4091,12 +4093,14 @@ graph G2 {
     edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
     subgraph cluster_profs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         l1; l2; l3; l4;
     }
     subgraph cluster_dogs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         r2; r3; r1; r4;
     }
     // to keep the two sides spaced apart
@@ -4157,12 +4161,14 @@ graph G2 {
     edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
     subgraph cluster_profs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         l1; l2; l3; l4;
     }
     subgraph cluster_dogs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         r2; r3; r1; r4;
     }
     // to keep the two sides spaced apart
@@ -4223,12 +4229,14 @@ graph G2 {
     edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
     subgraph cluster_profs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         l1; l2; l3; l4;
     }
     subgraph cluster_dogs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         r2; r3; r1; r4;
     }
     // to keep the two sides spaced apart
@@ -4298,12 +4306,14 @@ graph G2 {
     edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
     subgraph cluster_profs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         l1; l2; l3; l4;
     }
     subgraph cluster_dogs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         r2; r3; r1; r4;
     }
     // to keep the two sides spaced apart
@@ -4369,12 +4379,14 @@ graph G2 {
     edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
     subgraph cluster_profs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         l1; l2; l3; l4;
     }
     subgraph cluster_dogs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         r2; r3; r1; r4;
     }
     // to keep the two sides spaced apart
@@ -4419,7 +4431,7 @@ graph G2 {
 }
 ```
 
-<table style="width:57% !important;margin-bottom:5px !important;margin-left:110px">
+<table style="width:72% !important;margin-bottom:5px !important;margin-left:110px">
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -4463,12 +4475,14 @@ graph G2 {
     edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
     subgraph cluster_profs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         l1; l2; l3; l4;
     }
     subgraph cluster_dogs {
         graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [width="2in",height="2in"];
+        node [shape=rect,width="0.5in",height="2in"];
+        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
         r2; r3; r1; r4;
     }
     // to keep the two sides spaced apart
@@ -4513,7 +4527,7 @@ graph G2 {
 }
 ```
 
-<table style="width:57% !important;margin-bottom:5px !important;margin-left:110px">
+<table style="width:72% !important;margin-bottom:5px !important;margin-left:110px">
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
