@@ -710,7 +710,7 @@ digraph diamond_graph8 {
 
 <table><tr><td colspan='2' class="font-75 zero-bottom">
 
-Consider a path from $s \rightarrow t$ in $G_f$ using only edges with positive (non-zero) weight
+Consider a path from ${\color{purple}s} \rightarrow {\color{navy}t}$ in $G_f$ using only edges with positive (non-zero) weight
 Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
 
 </td></tr><tr><td colspan='2' class="font-75 opacity-0 zero-bottom">
@@ -811,7 +811,7 @@ digraph graph6 {
 
 <table><tr><td colspan='2' class="font-75 zero-bottom">
 
-Consider a path from $s \rightarrow t$ in $G_f$ using only edges with positive (non-zero) weight
+Consider a path from ${\color{purple}s} \rightarrow {\color{navy}t}$ in $G_f$ using only edges with positive (non-zero) weight
 Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
 
 </td></tr><tr><td colspan='2' class="font-75 zero-bottom">
@@ -911,7 +911,7 @@ digraph graph6 {
 
 <table><tr><td colspan='2' class="font-75 zero-bottom">
 
-Consider a path from $s \rightarrow t$ in $G_f$ using only edges with positive (non-zero) weight
+Consider a path from ${\color{purple}s} \rightarrow {\color{navy}t}$ in $G_f$ using only edges with positive (non-zero) weight
 Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
 
 </td></tr><tr><td colspan='2' class="font-75 zero-bottom">
@@ -1009,7 +1009,7 @@ digraph graph6 {
 
 ## Ford-Fulkerson Algorithm
 
-<p class="font-75">Define an augmenting path to be an $s \rightarrow t$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -4558,4 +4558,149 @@ graph G2 {
 
 # Reductions <!-- from day22.pptx and day23.pptx -->
 
+## Reductions
+
+&nbsp;
+
+- Algorithm technique of supreme ultimate power
+- Convert instance of problem A to an instance of Problem B
+- Convert solution of problem B back to a solution of problem A
+
+
+## Reductions
+
+<p style="text-align:center">Shows how two different problems relate to each other</p>
+
+<table class='allcenter'>
+<tr>
+<td style="width:50%"><div class='red bold' style="transform:rotate(-10deg);width:0;margin:50px auto 0 20px;font-size:150%">MOVIE&nbsp;TIME!</div></td>
+<td style="width:50%">![](https://upload.wikimedia.org/wikipedia/commons/5/52/MacGyver_Logo.svg){style="margin-top:-75px;margin-bottom:-75px"}</td>
+</tr><tr>
+<td>![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Popcorn_in_bucket.jpg/692px-Popcorn_in_bucket.jpg){style="width:60%"}</td>
+<td>![](https://upload.wikimedia.org/wikipedia/en/2/27/Macgyver.jpg)</td>
+</tr></table>
+
+
+
+## MacGyver's <span class='magenta'>Reduction</span>
+
+<table class='font-70 allcenter compact' style="vertical-align:top">
+
+<tr class='font-70'><td colspan=2 class="und"><span class='fragment' fragment-index=1>Problem we don't know how to solve</span></td><td></td><td></td><td colspan=2 class="und"><span class='fragment' fragment-index=2>Problem we do know how to solve</span></td></tr>
+
+<tr><td style="vertical-align:top;width:10%">
+::: {.svg-100 .no-svg-margins .fragment fragment-index=1}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td>
+
+<td style="vertical-align:top;width:25%;padding-right:10px !important">
+<table class='blueborder compact allcenter'>
+<tr><td><span class="fragment" fragment-index=1>Opening a door</span></td></tr>
+<tr><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f6/Door-liftarn-Door-white-stroke.svg){.fragment fragment-index=1 style="width:30%"} </td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><span class='fragment' fragment-index=7>Solution for $A$:</span></td></tr>
+<tr><td style="padding-bottom:10px !important"><span class='fragment' fragment-index=7>Keg cannon<br>battering ram</span></td></tr>
+<td style="vertical-align:top;text-align:center">
+::: {.r-stack .fragment fragment-index=7}
+<p style="margin:0;z-index:0"> ![](https://webstockreview.net/images/clipart-flames-svg-3.png){.center style="padding-bottom:80px;transform:rotate(180deg);width:30%;"} </p>
+<p style="margin:0;z-index:1"> ![](https://clipground.com/images/beer-keg-clipart-20.jpg){.center style="width:30%"} </p>
+:::
+</td></tr></table>
+
+
+</td>
+
+<td colspan=2 style="vertical-align:top">
+
+::: {.r-stack}
+
+<table class="compact fragment" style="width:100%;height:100%"><tr><td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">Reduction</td></tr></table>
+
+<div>
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment fragment-index=3}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<Aim duct at door,<br/>insert keg>,fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment fragment-index=6}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label=<Put fire under the keg>,fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+</div>
+:::
+
+</td>
+
+
+<td style="vertical-align:top;width:10%;padding-left:10px !important">
+::: {.svg-100 .no-svg-margins .fragment fragment-index=2}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+</td>
+
+<td style="vertical-align:top;width:25%">
+
+<table class='compact'>
+<tr><td><span class="fragment" fragment-index=2>Lighting a fire</span></td></tr>
+<tr><td> ![](http://www.clipartbest.com/cliparts/4T9/E9X/4T9E9XEjc.png){.center  .fragment fragment-index=2 style="width:50%;height:20%;margin-top:-20px"} </td></tr>
+<tr><td>
+::: {.svg-60 .fragment fragment-index=4 .no-svg-margins style="transform:rotate(90deg)"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<How?>,fontsize=24,height=1,color=red,width=1]; }
+```
+:::
+</td></tr>
+<tr><td><span class="fragment" fragment-index=5>Solution for $B$:</span></td></tr>
+<tr><td><span class="fragment" fragment-index=5>Alcohol, wood, matches</span></td></tr>
+<tr><td>
+::: {.r-stack .fragment fragment-index=5}
+![](https://clipground.com/images/wood-picture-clipart-5.jpg){style="width:40%"}
+
+![](https://clipground.com/images/whiskey-bottle-clip-art-15.png){style="width:20%;padding-left:110px"}
+
+![](https://clipart-library.com/8300/2368/matches-clipart-xl.png){style="width:30%;padding-left:170px"}
+:::
+</td></tr>
+</table>
+
+</td>
+</tr>
+
+</table>
+
+
+
+
+
+
 # NP-Complete <!-- from day23.pptx -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
