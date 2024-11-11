@@ -3,6 +3,29 @@ title: "Announcements, Fall 2024"
 ---
 
 ::: {.announcements}
+# Tuesday, November 12th
+
+- PS8 due tomorrow (Wed, 11/13)
+- Quizzes 3&4 next week (Thu, 11/21)
+	- We'll release a list of topics late this week
+- PA4 was released last week, due Monday before Thanksgiving (11/25)
+- Grading update
+	- PS5 & PS6 grades should be back by the end of the week
+- Schedule
+	- Both PS9 and PA5 will be due the last week of class
+	- We'll get them out early so that you have time to procrastinate
+- Office hours (reminder)
+	- Prof Bloomfield Office Hours: Tue 1:00-2:30 and Thu 2:00-3:00 in Rice 402
+	- Prof Pettit Office Hours: Mon 2:30-4:00 and Wed 1:30-3:00 in Rice 212
+	- TA office hours: Sunday through Thursday from 5 pm to 9 pm
+	- Sun/Tue/Thu in Rice 032, Mon/Wed in Rice 540
+- Today's lecture: finish [Dynamic Programming](dp.html), then start [Reductions](reductions.html)
+:::
+
+
+
+
+::: {.announcements}
 # Thursday, November 7th
 
 - PS7 due last night
