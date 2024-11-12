@@ -74,6 +74,12 @@ table.border2px th td, table.border2px tr td, td.border2px, tr.border2px td {
 	border-bottom:2px solid black !important;
 	border-collapse:collapse;
 }
+table.border3px th td, table.border3px tr td, td.border3px, tr.border3px td {
+	border:3px solid black;
+	border-bottom:3px solid black !important;
+	border-bottom:3px solid black !important;
+	border-collapse:collapse;
+}
 
 /* table at bottom of page */
 table.bottom, div.bottom {
@@ -366,6 +372,8 @@ table.table-of-boxes tbody tr td table tbody tr td{
 .green { color:green; }
 .purple { color:purple; }
 .blue { color:blue; }
+.skyblue { color:skyblue; }
+.green { color:forestgreen; }
 .magenta { color:magenta; }
 .orange { color:orange; }
 .grey { color:grey; }
@@ -376,6 +384,8 @@ td.orange { background-color:orange; color:black; }
 td.yellow { background-color:yellow; color:black; }
 td.green { background-color:green; color:white; }
 td.blue { background-color:blue; color:white; }
+td.skyblue { background-color:skyblue; color:black; }
+td.green { background-color:forestgreen; color:white; }
 td.purple { background-color:purple; color:white; }
 td.magenta { background-color:magenta; color:white; }
 td.clear {}
@@ -385,8 +395,10 @@ td.clear {}
 .yellowtext { color:yellow; }
 .greentext { color:green; }
 .bluetext { color:blue; }
+.skybluetext { color:skyblue; }
 .purpletext { color:purple; }
 .magentatext { color:magenta; }
+.forestgreentext { color:forestgreen; }
 
 
 
@@ -615,4 +627,9 @@ div.no-svg-margins > div > div > div > figure > div > svg {
 	width:100%;
 	margin:0 !important;
 }
+
+
+table.minsize4em tbody tr td {
+	height:4em;
+	min-width:4em;
 }

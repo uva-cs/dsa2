@@ -8905,9 +8905,109 @@ Math and CS professors have been asked to testify in court as to the difficulty 
 </ul>
 </div>
 </section>
+<section id="how-does-it-work-1" class="slide level2">
+<h2>How does it work?</h2>
+<div class="font-90">
+<ul>
+<li>States are broken into precincts</li>
+<li>All precincts have the same size</li>
+<li>We know voting preferences of each precinct</li>
+<li>Group precincts into districts to maximize the number of districts won by my party</li>
+</ul>
+</div>
+<table style="width:100%;margin-top:35px" class="compact font-70">
+<tbody><tr>
+<td>
+<table class="border3px allcenter minsize4em">
+<tbody><tr>
+<td colspan="2" style="border:0;height:0">
+Overall: A: 217, B: 183
+</td>
+</tr>
+<tr>
+<td class="magenta">
+A: 65<br>B: 35
+</td>
+<td class="green">
+A: 45<br>B: 55
+</td>
+</tr>
+<tr>
+<td class="magenta">
+A: 60<br>B: 40
+</td>
+<td class="green">
+A: 47<br>B: 53
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<div class="fragment">
+<table class="border3px allcenter minsize4em">
+<tbody><tr>
+<td class="magentatext" style="border:0;height:0">
+A: 125
+</td>
+<td class="greentext" style="border:0;height:0">
+A: 92
+</td>
+</tr>
+<tr>
+<td class="magenta">
+A: 65<br>B: 35
+</td>
+<td class="green" style="border-left:6px double black">
+A: 45<br>B: 55
+</td>
+</tr>
+<tr>
+<td class="magenta">
+A: 60<br>B: 40
+</td>
+<td class="green" style="border-left:6px double black">
+A: 47<br>B: 53
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+<td>
+<div class="fragment">
+<table class="border3px allcenter minsize4em">
+<tbody><tr>
+<td class="magentatext" style="border:0;height:0">
+A: 112
+</td>
+<td class="greentext" style="border:0;height:0">
+A: 105
+</td>
+</tr>
+<tr>
+<td class="magenta">
+A: 65<br>B: 35
+</td>
+<td class="green" style="border-left:6px double black">
+A: 45<br>B: 55
+</td>
+</tr>
+<tr>
+<td class="green">
+A: 47<br>B: 53
+</td>
+<td class="magenta" style="border-left:6px double black">
+A: 60<br>B: 40
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</section>
 <section id="gerrymandering-problem-statement" class="slide level2">
 <h2>Gerrymandering problem statement</h2>
-<table style="font-size:90%">
+<table style="font-size:80%">
 <tbody><tr>
 <td>
 <ul>
@@ -8915,6 +9015,7 @@ Math and CS professors have been asked to testify in court as to the difficulty 
 <ul>
 <li>A list of <span class="math inline">\(n\)</span> precincts: <span class="math inline">\(p_1,p_2,\ldots,p_n\)</span></li>
 <li>Each containing <span class="math inline">\(m\)</span> voters</li>
+<li>Total of <span class="math inline">\(m \cdot n\)</span> voters</li>
 </ul></li>
 <li>Output:
 <ul>
@@ -8925,12 +9026,12 @@ Math and CS professors have been asked to testify in court as to the difficulty 
 <li><span class="math inline">\(S(D_i)\)</span> is the number (size) of voters of your party in <span class="math inline">\(D_i\)</span></li>
 <li><span class="math inline">\(S(D_i)&gt;\frac{m \cdot n}{4}\)</span> means <span class="math inline">\(D_i\)</span> is majority your party</li>
 </ul></li>
-<li>“Failure” if no such solution is possible</li>
+<li>“Failure” if no possible solution</li>
 </ul></li>
 </ul>
 </td>
 <td style="vertical-align:bottom">
-<div class="fragment" data-fragment-index="2">
+<div class="fragment" data-fragment-index="3">
 <table class="bluenote">
 <tbody><tr>
 <td>
@@ -8945,6 +9046,35 @@ Valid Gerrymandering!
 <tbody><tr>
 <td>
 <span class="math inline">\(\frac{m \cdot n}{4}=m \cdot \frac{n}{2} \cdot \frac{1}{2}\)</span>
+</td>
+</tr>
+</tbody></table>
+</div>
+<p>&nbsp;</p>
+<div class="fragment" data-fragment-index="2">
+<table class="border3px allcenter font-70">
+<tbody><tr>
+<td style="border:0">
+<span class="math inline">\(\color{magenta}D_1\)</span>
+</td>
+<td style="border:0">
+<span class="math inline">\(\color{forestgreen}D_2\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\sum p_i= \frac{m \cdot n}{4}\)</span>
+</td>
+<td style="border-left:6px double black">
+<span class="math inline">\(\sum p_i= \frac{m \cdot n}{4}\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\sum p_i= \frac{m \cdot n}{4}\)</span>
+</td>
+<td style="border-left:6px double black">
+<span class="math inline">\(\sum p_i= \frac{m \cdot n}{4}\)</span>
 </td>
 </tr>
 </tbody></table>

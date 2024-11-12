@@ -4019,24 +4019,61 @@ Readings in CLRS 4th edition: chapter 14
 </div>
 
 
+## How does it work?
+
+::: {.font-90}
+- States are broken into precincts
+- All precincts have the same size
+- We know voting preferences of each precinct
+- Group precincts into districts to maximize the number of districts won by my party
+:::
+
+<table style="width:100%;margin-top:35px" class="compact font-70">
+<tr><td>
+<table class="border3px allcenter minsize4em">
+<tr><td colspan=2 style="border:0;height:0">Overall: A: 217, B: 183</td></tr>
+<tr><td class='magenta'>A: 65<br>B: 35</td><td class='green'>A: 45<br>B: 55</td></tr>
+<tr><td class='magenta'>A: 60<br>B: 40</td><td class='green'>A: 47<br>B: 53</td></tr>
+</table>
+</td><td>
+::: {.fragment}
+<table class="border3px allcenter minsize4em">
+<tr><td class='magentatext' style="border:0;height:0">A: 125</td><td class='greentext' style="border:0;height:0">A: 92</td></tr>
+<tr><td class='magenta'>A: 65<br>B: 35</td><td class='green' style="border-left:6px double black">A: 45<br>B: 55</td></tr>
+<tr><td class='magenta'>A: 60<br>B: 40</td><td class='green' style="border-left:6px double black">A: 47<br>B: 53</td></tr>
+</table>
+:::
+</td><td>
+::: {.fragment}
+<table class="border3px allcenter minsize4em">
+<tr><td class='magentatext' style="border:0;height:0">A: 112</td><td class='greentext' style="border:0;height:0">A: 105</td></tr>
+<tr><td class='magenta'>A: 65<br>B: 35</td><td class='green' style="border-left:6px double black">A: 45<br>B: 55</td></tr>
+<tr><td class='green'>A: 47<br>B: 53</td><td class='magenta' style="border-left:6px double black">A: 60<br>B: 40</td></tr>
+</table>
+:::
+</td></tr></table>
+
+
 ## Gerrymandering problem statement
 
-<table style="font-size:90%"><tr><td>
+<table style="font-size:80%"><tr><td>
 
 - Given:
   - A list of $n$ precincts: $p_1,p_2,\ldots,p_n$
   - Each containing $m$ voters
+  - Total of $m \cdot n$ voters
 - Output:
 	- Districts ${\color{magenta}D_1}, {\color{green}D_2} \subset \{ p_1,p_2,\ldots,p_{n-1} \}$
 	- Where $|{\color{magenta}D_1}| = |{\color{green}D_2}|$
 	- $S({\color{magenta}D_1})>\frac{m \cdot n}{4}$ and $S({\color{green}D_2})>\frac{m \cdot n}{4}$
 		- $S(D_i)$ is the number (size) of voters of your party in $D_i$
 		- $S(D_i)>\frac{m \cdot n}{4}$ means $D_i$ is majority your party
-	- "Failure" if no such solution is possible
+	- "Failure" if no possible solution
 
 </td><td style="vertical-align:bottom">
 
-::: {.fragment fragment-index=2}
+
+::: {.fragment fragment-index=3}
 <table class='bluenote'><tr><td>Valid Gerrymandering!</td></tr></table>
 :::
 
@@ -4044,6 +4081,16 @@ Readings in CLRS 4th edition: chapter 14
 
 ::: {.fragment fragment-index=1}
 <table class='purplenote'><tr><td>$\frac{m \cdot n}{4}=m \cdot \frac{n}{2} \cdot \frac{1}{2}$</td></tr></table>
+:::
+
+&nbsp;
+
+::: {.fragment fragment-index=2}
+<table class="border3px allcenter font-70">
+<tr><td style="border:0">$\color{magenta}D_1$</td><td style="border:0">$\color{forestgreen}D_2$</td></tr>
+<tr><td>$\sum p_i= \frac{m \cdot n}{4}$</td><td style="border-left:6px double black">$\sum p_i= \frac{m \cdot n}{4}$</td></tr>
+<tr><td>$\sum p_i= \frac{m \cdot n}{4}$</td><td style="border-left:6px double black">$\sum p_i= \frac{m \cdot n}{4}$</td></tr>
+</table>
 :::
 
 &nbsp;

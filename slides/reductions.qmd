@@ -4,6 +4,10 @@ title: "Reductions"
 
 # Network Flow <!-- from day20.pptx -->
 
+::: {.titlereading}
+Readings in CLRS 4th edition: chapter 24
+:::
+
 
 ## Network Flow
 
@@ -3138,6 +3142,11 @@ See CLRS, chapter 24
 
 # Max flow / Min cut <!-- from day21.pptx -->
 
+::: {.titlereading}
+Readings in CLRS 4th edition: chapter 24
+:::
+
+
 ## Reminder: Graph Cuts
 <!-- day21 slide 7 -->
 
@@ -3654,6 +3663,10 @@ digraph graph23 {
 
 
 # Bipartite Matching <!-- from day21.pptx -->
+
+::: {.titlereading}
+Readings in CLRS 4th edition: chapter 25
+:::
 
 
 ## Edge-Disjoint Paths
@@ -4558,6 +4571,11 @@ graph G2 {
 
 # Reductions <!-- from day22.pptx and day23.pptx -->
 
+::: {.titlereading}
+Readings in CLRS 4th edition: N/A (reductions are covered<br>in CLRS, but not in a context we are studying in CS 3100)
+:::
+
+
 ## Reductions
 
 &nbsp;
@@ -4695,11 +4713,14 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 
 
 
-# NP-Complete <!-- from day23.pptx -->
+# NP-Completeness <!-- from day23.pptx -->
+
+::: {.titlereading}
+Readings in CLRS 4th edition: chapter 34
+:::
 
 
-
-
+## NP-Completeness
 
 
 
