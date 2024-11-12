@@ -113,7 +113,7 @@ digraph graph2 {
 	- ${\color{red}f(e)} \le {\color{green}c(e)}$
 	- "Flow cannot exceed capacity"
 - Flow constraint
-	- $\forall v \in V - \{{\color{purple}s},{\color{navy}t}\}$, $\text{inflow}(v)=\text{outflow}(v)$
+	- $\forall v \in V - \{ {\color{purple}s},{\color{navy}t}\}$, $\text{inflow}(v)=\text{outflow}(v)$
 	- $\text{inflow}(v)=\sum_{x \in V}f(x,v)$
 	- $\text{outflow}(v)=\sum_{x \in V}f(v,x)$
 	- Water going in must match water coming out
