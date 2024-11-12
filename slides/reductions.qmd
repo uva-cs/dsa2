@@ -4431,7 +4431,7 @@ graph G2 {
 }
 ```
 
-<table style="width:72% !important;margin-bottom:5px !important;margin-left:110px">
+<table style="width:55% !important;margin-bottom:5px !important;margin-left:112px">
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -4527,7 +4527,7 @@ graph G2 {
 }
 ```
 
-<table style="width:72% !important;margin-bottom:5px !important;margin-left:110px">
+<table style="width:55% !important;margin-bottom:5px !important;margin-left:112px">
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -4583,6 +4583,16 @@ graph G2 {
 
 
 ## MacGyver's <span class='magenta'>Reduction</span>
+
+::: {.notes}
+
+- MacGyver, season 7 (1992), episode 11: "Gunz 'N Boys"
+- [https://www.amazon.com/The-Stinger/dp/B007TWBT52/](https://www.amazon.com/The-Stinger/dp/B007TWBT52/)
+- Hit on the head at 19:42
+- Door is locked at 20:20, wakes up at 20:24
+- Ends at 24:15
+:::
+
 
 <table class='font-70 allcenter compact' style="vertical-align:top">
 
