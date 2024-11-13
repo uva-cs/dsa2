@@ -96,8 +96,8 @@ There should NOT be blank lines between test cases -- that is only to help illus
 1
 2
 
-1
 3
+1 2 3
 
 2
 1 2
