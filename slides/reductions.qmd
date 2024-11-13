@@ -4024,272 +4024,70 @@ digraph graph25 {
 
 
 
-## Maximum Bipartite Matching
+## Maximum Bipartite Matching test
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-
-```{dot}
-//| fig-width: 8.53
-//| fig-height: 9.64
-graph G2 {
-    // bipartite graph with all edges red
-    rankdir = "LR";
-    graph [start=144;fontsize=36;newrank=true;splines=false;];
-    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
-    subgraph cluster_profs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        l1; l2; l3; l4;
-    }
-    subgraph cluster_dogs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        r2; r3; r1; r4;
-    }
-    // to keep the two sides spaced apart
-    spacer [width="3in",shape=none,label=""];
-    l4 -- spacer -- r4 [style=invis];
-    // the bipartite edges
-    edge [style=solid,color=red];
-    l1 -- r1;
-    l1 -- r2 [style=invis];
-    l1 -- r3 [style=invis];
-    l1 -- r4;
-    l2 -- r1;
-    l2 -- r2;
-    l2 -- r3;
-    l2 -- r4 [style=invis];
-    l3 -- r1;
-    l3 -- r2 [style=invis];
-    l3 -- r3;
-    l3 -- r4 [style=invis];
-    l4 -- r1;
-    l4 -- r2;
-    l4 -- r3 [style=invis];
-    l4 -- r4 [style=invis];
-    // to keep the bottom nodes on the bottom
-    l4 -- end [style=invis];
-    r4 -- end [style=invis];
-    end [shape=none,label="",width="0in"];
-}
+```{python}
+#| echo: false
+#| output: asis
+from reductions import *
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+bipartite_graph(8.53,9.64,0,False)
 ```
-
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-
 :::
 </td></tr></table>
 
 
 
 
-## Maximum Bipartite Matching
+
+## Maximum Bipartite Matching test
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-
-::: {.svg-100 .bipartite-svg style="z-index:0"}
-```{dot}
-//| fig-width: 8.53
-//| fig-height: 9.64
-graph G2 {
-    // bipartite graph with all edges red
-    rankdir = "LR";
-    graph [start=144;fontsize=36;newrank=true;splines=false;];
-    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
-    subgraph cluster_profs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        l1; l2; l3; l4;
-    }
-    subgraph cluster_dogs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        r2; r3; r1; r4;
-    }
-    // to keep the two sides spaced apart
-    spacer [width="3in",shape=none,label=""];
-    l4 -- spacer -- r4 [style=invis];
-    // the bipartite edges
-    edge [style=solid,color=red];
-    l1 -- r1 [color=blue];
-    l1 -- r2 [style=invis];
-    l1 -- r3 [style=invis];
-    l1 -- r4;
-    l2 -- r1;
-    l2 -- r2 [color=blue];
-    l2 -- r3;
-    l2 -- r4 [style=invis];
-    l3 -- r1;
-    l3 -- r2 [style=invis];
-    l3 -- r3 [color=blue];
-    l3 -- r4 [style=invis];
-    l4 -- r1;
-    l4 -- r2;
-    l4 -- r3 [style=invis];
-    l4 -- r4 [style=invis];
-    // to keep the bottom nodes on the bottom
-    l4 -- end [style=invis];
-    r4 -- end [style=invis];
-    end [shape=none,label="",width="0in"];
-}
+```{python}
+#| echo: false
+#| output: asis
+from reductions import *
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+bipartite_graph(8.53,9.64,1,False)
 ```
-:::
-
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-
 :::
 </td></tr></table>
 
 
 
 
-## Maximum Bipartite Matching
+
+## Maximum Bipartite Matching test
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-
-::: {.svg-100 .bipartite-svg style="z-index:0"}
-```{dot}
-//| fig-width: 8.53
-//| fig-height: 9.64
-graph G2 {
-    // bipartite graph with all edges red
-    rankdir = "LR";
-    graph [start=144;fontsize=36;newrank=true;splines=false;];
-    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
-    subgraph cluster_profs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        l1; l2; l3; l4;
-    }
-    subgraph cluster_dogs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        r2; r3; r1; r4;
-    }
-    // to keep the two sides spaced apart
-    spacer [width="3in",shape=none,label=""];
-    l4 -- spacer -- r4 [style=invis];
-    // the bipartite edges
-    edge [style=solid,color=red];
-    l1 -- r1;
-    l1 -- r2 [style=invis];
-    l1 -- r3 [style=invis];
-    l1 -- r4 [color=blue];
-    l2 -- r1;
-    l2 -- r2;
-    l2 -- r3 [color=blue];
-    l2 -- r4 [style=invis];
-    l3 -- r1 [color=blue];
-    l3 -- r2 [style=invis];
-    l3 -- r3;
-    l3 -- r4 [style=invis];
-    l4 -- r1;
-    l4 -- r2 [color=blue];
-    l4 -- r3 [style=invis];
-    l4 -- r4 [style=invis];
-    // to keep the bottom nodes on the bottom
-    l4 -- end [style=invis];
-    r4 -- end [style=invis];
-    end [shape=none,label="",width="0in"];
-}
+```{python}
+#| echo: false
+#| output: asis
+from reductions import *
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+bipartite_graph(8.53,9.64,2,False)
 ```
-:::
-
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-
 :::
 </td></tr></table>
 
 
 
 
-## Maximum Bipartite Matching
+
+## Maximum Bipartite Matching test
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-
-::: {.svg-100 .bipartite-svg style="z-index:0"}
-```{dot}
-//| fig-width: 8.53
-//| fig-height: 9.64
-graph G2 {
-    // bipartite graph with all edges red
-    rankdir = "LR";
-    graph [start=144;fontsize=36;newrank=true;splines=false;];
-    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
-    subgraph cluster_profs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        l1; l2; l3; l4;
-    }
-    subgraph cluster_dogs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        r2; r3; r1; r4;
-    }
-    // to keep the two sides spaced apart
-    spacer [width="3in",shape=none,label=""];
-    l4 -- spacer -- r4 [style=invis];
-    // the bipartite edges
-    edge [style=solid,color=red];
-    l1 -- r1;
-    l1 -- r2 [style=invis];
-    l1 -- r3 [style=invis];
-    l1 -- r4 [color=blue];
-    l2 -- r1;
-    l2 -- r2 [color=blue];
-    l2 -- r3;
-    l2 -- r4 [style=invis];
-    l3 -- r1;
-    l3 -- r2 [style=invis];
-    l3 -- r3 [color=blue];
-    l3 -- r4 [style=invis];
-    l4 -- r1 [color=blue];
-    l4 -- r2;
-    l4 -- r3 [style=invis];
-    l4 -- r4 [style=invis];
-    // to keep the bottom nodes on the bottom
-    l4 -- end [style=invis];
-    r4 -- end [style=invis];
-    end [shape=none,label="",width="0in"];
-}
+```{python}
+#| echo: false
+#| output: asis
+from reductions import *
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+bipartite_graph(8.53,9.64,3,False)
 ```
 :::
-
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-
-:::
 </td></tr></table>
+
 
 
 
@@ -4304,71 +4102,19 @@ graph G2 {
 
 
 ## Maximum Bipartite Matching
+
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-
-::: {.svg-100 .bipartite-svg style="z-index:0"}
-```{dot}
-//| fig-width: 8.53
-//| fig-height: 9.64
-graph G2 {
-    // bipartite graph with all edges red
-    rankdir = "LR";
-    graph [start=144;fontsize=36;newrank=true;splines=false;];
-    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
-    subgraph cluster_profs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        l1; l2; l3; l4;
-    }
-    subgraph cluster_dogs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        r2; r3; r1; r4;
-    }
-    // to keep the two sides spaced apart
-    spacer [width="3in",shape=none,label=""];
-    l4 -- spacer -- r4 [style=invis];
-    // the bipartite edges
-    edge [style=solid,color=red];
-    l1 -- r1;
-    l1 -- r2 [style=invis];
-    l1 -- r3 [style=invis];
-    l1 -- r4;
-    l2 -- r1;
-    l2 -- r2;
-    l2 -- r3;
-    l2 -- r4 [style=invis];
-    l3 -- r1;
-    l3 -- r2 [style=invis];
-    l3 -- r3;
-    l3 -- r4 [style=invis];
-    l4 -- r1;
-    l4 -- r2;
-    l4 -- r3 [style=invis];
-    l4 -- r4 [style=invis];
-    // to keep the bottom nodes on the bottom
-    l4 -- end [style=invis];
-    r4 -- end [style=invis];
-    end [shape=none,label="",width="0in"];
-}
+```{python}
+#| echo: false
+#| output: asis
+from reductions import *
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+bipartite_graph(8.53,9.64,0,False)
 ```
 :::
 
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-
-:::
-</td>
-
-<td style="vertical-align:middle">How could we solve this?</td></tr></table>
+</td><td style="vertical-align:middle">How could we solve this?</td></tr></table>
 
 
 
@@ -4380,77 +4126,13 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-
-```{dot}
-//| fig-width: 13.69
-//| fig-height: 9.69
-graph G2 {
-    // bipartite graph with all edges red
-    rankdir = "LR";
-    graph [start=144;fontsize=36;newrank=true;splines=false;];
-    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
-    subgraph cluster_profs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        l1; l2; l3; l4;
-    }
-    subgraph cluster_dogs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        r2; r3; r1; r4;
-    }
-    // to keep the two sides spaced apart
-    spacer [width="3in",shape=none,label=""];
-    l4 -- spacer -- r4 [style=invis];
-    edge [style=solid,color=red];
-    // start and terminus nodes
-    s [shape=circle,style=filled,color=purple,width="1in",fontsize=36];
-    t [shape=circle,style=filled,color=navy,width="1in";fontcolor=white;fontsize=36];
-    edge [minlen=4,xlabel="1"];
-    s -- l1;
-    s -- l2;
-    s -- l3;
-    s -- l4;
-    r1 -- t;
-    r2 -- t;
-    r3 -- t;
-    r4 -- t;
-    edge [minlen=1];
-    // the bipartite edges
-    edge [style=solid,color=red];
-    l1 -- r1;
-    l1 -- r2 [style=invis];
-    l1 -- r3 [style=invis];
-    l1 -- r4;
-    l2 -- r1;
-    l2 -- r2;
-    l2 -- r3;
-    l2 -- r4 [style=invis];
-    l3 -- r1;
-    l3 -- r2 [style=invis];
-    l3 -- r3;
-    l3 -- r4 [style=invis];
-    l4 -- r1;
-    l4 -- r2;
-    l4 -- r3 [style=invis];
-    l4 -- r4 [style=invis];
-    // to keep the bottom nodes on the bottom
-    l4 -- end [style=invis];
-    r4 -- end [style=invis];
-    end [shape=none,label="",width="0in"];
-}
+```{python}
+#| echo: false
+#| output: asis
+from reductions import *
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+bipartite_graph(13.69,9.69,0,True)
 ```
-
-<table style="width:55% !important;margin-bottom:5px !important;margin-left:112px">
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-
 :::
 </td></tr></table>
 
@@ -4476,77 +4158,13 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-
-```{dot}
-//| fig-width: 13.69
-//| fig-height: 9.69
-graph G2 {
-    // bipartite graph with all edges red
-    rankdir = "LR";
-    graph [start=144;fontsize=36;newrank=true;splines=false;];
-    node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
-    subgraph cluster_profs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        l1; l2; l3; l4;
-    }
-    subgraph cluster_dogs {
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
-        r2; r3; r1; r4;
-    }
-    // to keep the two sides spaced apart
-    spacer [width="3in",shape=none,label=""];
-    l4 -- spacer -- r4 [style=invis];
-    edge [style=solid,color=red];
-    // start and terminus nodes
-    s [shape=circle,style=filled,color=purple,width="1in",fontsize=36];
-    t [shape=circle,style=filled,color=navy,width="1in";fontcolor=white;fontsize=36];
-    edge [minlen=4,xlabel="1/1",color=blue];
-    s -- l1;
-    s -- l2;
-    s -- l3;
-    s -- l4;
-    r1 -- t;
-    r2 -- t;
-    r3 -- t;
-    r4 -- t;
-    edge [minlen=1];
-    // the bipartite edges
-    edge [style=solid,color=blue];
-    l1 -- r1 [xlabel="0/1",color=red];
-    l1 -- r2 [style=invis];
-    l1 -- r3 [style=invis];
-    l1 -- r4;
-    l2 -- r1 [xlabel="0/1",color=red];
-    l2 -- r2;
-    l2 -- r3 [xlabel="0/1",color=red];
-    l2 -- r4 [style=invis];
-    l3 -- r1 [xlabel="0/1",color=red];
-    l3 -- r2 [style=invis];
-    l3 -- r3;
-    l3 -- r4 [style=invis];
-    l4 -- r1;
-    l4 -- r2 [xlabel="0/1",color=red];
-    l4 -- r3 [style=invis];
-    l4 -- r4 [style=invis];
-    // to keep the bottom nodes on the bottom
-    l4 -- end [style=invis];
-    r4 -- end [style=invis];
-    end [shape=none,label="",width="0in"];
-}
+```{python}
+#| echo: false
+#| output: asis
+from reductions import *
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+bipartite_graph(13.69,9.69,3,True)
 ```
-
-<table style="width:55% !important;margin-bottom:5px !important;margin-left:112px">
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-
 :::
 </td></tr></table>
 
