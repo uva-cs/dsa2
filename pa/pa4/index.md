@@ -88,6 +88,8 @@ a 30
 b 11
 ```
 
+Note that the second test case could have also output `b 8`, as doing the two operations in either order yields a magical cost of 8.  Specifically, (meaning $c+(a+b)=b$ and $(c+a)+b=a$, both with cost 8. 
+
 ### Requirements
 
 This needs to be a dynamic programming solution.  Brute force solutions will time out with the test cases we are going to provide.
