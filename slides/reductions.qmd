@@ -2190,7 +2190,7 @@ digraph graph23 {
     s -> a [label="1"];
     a -> b [label="1";style=invis];
     b -> t [label=<<br/>1>];
-    s -> c [label="1"];
+    s -> c [label="2";fontcolor=magenta;dir=back;color=magenta];
     c -> d [label="1"];
     c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
     b -> c [label="1"];
@@ -2202,7 +2202,7 @@ digraph graph23 {
     d -> c [color=magenta;label="2";fontcolor=magenta];
     t -> d [color=magenta;label="  2";fontcolor=magenta];
     t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [color=magenta;label="2";fontcolor=magenta];
+    c -> s [label="1"];
 }
 ```
 :::
@@ -3409,7 +3409,7 @@ digraph graph23 {
     s -> a [label="1"];
     a -> b [label="1";style=invis];
     b -> t [label=<<br/>1>];
-    s -> c [label="1"];
+    s -> c [label="2";fontcolor=magenta;dir=back;color=magenta];
     c -> d [label="1"];
     c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
     b -> c [label="1"];
@@ -3421,7 +3421,7 @@ digraph graph23 {
     d -> c [color=magenta;label="2";fontcolor=magenta];
     t -> d [color=magenta;label="  2";fontcolor=magenta];
     t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [color=magenta;label="2";fontcolor=magenta];
+    c -> s [label="1"];
 
     d -> t [color=orange;label="0"];
     a -> b [color=orange;label="0"];
@@ -3533,7 +3533,7 @@ c 7 -#000080  C 7 -#ADD8E6  P 7
     s -> a [label="1"];
     a -> b [label="1";style=invis];
     b -> t [label=<<br/>1>];
-    s -> c [label="1"];
+    s -> c [label="2";fontcolor=magenta;dir=back;color=magenta];
     c -> d [label="1"];
     c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
     b -> c [label="1"];
@@ -3545,7 +3545,7 @@ c 7 -#000080  C 7 -#ADD8E6  P 7
     d -> c [color=magenta;label="2";fontcolor=magenta];
     t -> d [color=magenta;label="  2";fontcolor=magenta];
     t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [color=magenta;label="2";fontcolor=magenta];
+    c -> s [label="1"];
 
     d -> t [color=orange;label="0"];
     a -> b [color=orange;label="0"];
@@ -3569,7 +3569,7 @@ c 7 -#000080  C 7 -#ADD8E6  P 7
 - Consider edge $\color{forestgreen}(u,v)$ with $u \in {\color{magenta}S},v \in {\color{skyblue}T}$
     - ${\color{red}f(u,v)}={\color{forestgreen}c(u,v)}$ because otherwise ${\color{forestgreen}w(u,v)}>0$ in $G_{\color{red}f}$, which would mean $v \in {\color{magenta}S}$
 - Consider edge $\color{brown}(y,x)$ with $y \in {\color{skyblue}T}, x \in {\color{magenta}S}$
-    - ${\color{red}f(y,x)}={\color{forestgreen}c(u,v)}$ because otherwise the back edge ${\color{brown}w(y,x)}>0$ in $G_{\color{red}f}$, which would mean $y \in {\color{magenta}S}$
+    - ${\color{red}f(y,x)}=0$ because otherwise the back edge ${\color{brown}w(y,x)}>0$ in $G_{\color{red}f}$, which would mean $y \in {\color{magenta}S}$
 
 </div>
 
@@ -3647,7 +3647,7 @@ c 7 -#000080  C 7 -#ADD8E6  P 7
     s -> a [label="1"];
     //a -> b [label="1";style=invis];
     b -> t [label=<<br/>1>];
-    s -> c [label="1"];
+    s -> c [label="2";fontcolor=magenta;dir=back;color=magenta];
     c -> d [label="1"];
     c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>;color=brown];
     b -> c [label="1"];
@@ -3659,7 +3659,7 @@ c 7 -#000080  C 7 -#ADD8E6  P 7
     d -> c [color=magenta;label="2";fontcolor=magenta];
     t -> d [color=magenta;label="  2";fontcolor=magenta];
     t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [color=magenta;label="2";fontcolor=magenta];
+    c -> s [label="1"];
 
     d -> t [color=orange;label="0"];
     a -> b [color=orange;label="0";color=forestgreen];
@@ -4565,7 +4565,7 @@ digraph graph23 {
     s -> a [label="1"];
     a -> b [label="1";style=invis];
     b -> t [label=<<br/>1>];
-    s -> c [label="1"];
+    s -> c [label="2";fontcolor=magenta;dir=back;color=magenta];
     c -> d [label="1"];
     c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
     b -> c [label="1"];
@@ -4577,7 +4577,7 @@ digraph graph23 {
     d -> c [color=magenta;label="2";fontcolor=magenta];
     t -> d [color=magenta;label="  2";fontcolor=magenta];
     t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [color=magenta;label="2";fontcolor=magenta];
+    c -> s [label="1"];
 
     d -> t [color=orange;label="0"];
     a -> b [color=orange;label="0"];
