@@ -5,12 +5,19 @@ Installation (in a venv):
 
 Mac OSX directions:
 
+virtualenv venvmac
+source venvmac/bin/activate
 pip uninstall rpds pyzmq psutil
 pip install graphviz jupyter rpds-py pyzmq psutil
 python -m ipykernel install --user
 
 
-Linux was some subset of those commands (try the first two)
+Linux (Ubuntu 24.04):
+
+virtualenv venv
+source venv/bin/activate
+pip install graphviz jupyter
+
 """
 
 

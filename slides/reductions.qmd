@@ -351,7 +351,7 @@ digraph diamond_graph4 {
 
 <table class="width-100"><tr><td colspan='2' class="font-70 zero-bottom">
 
-Given a flow $f$ in graph $G$, the residual graph $G_f$ models <span class='und'>additional</span> flow that is possible
+Given a flow $f$ in graph $G$, the residual graph $G_{\color{red}f}$ models <span class='und'>additional</span> flow that is possible
 
 - <span class='orange und'>Forward edge</span> for each edge in $G$ with weight set to remaining capacity ${\color{green}c(e)}-{\color{red}f(e)}$
   - Models <span class='und'>additional</span> flow that can be sent along the edge: <span class='purple'>flow to add</span>
@@ -449,7 +449,7 @@ digraph graph4 {
 
 <table class="width-100"><tr><td colspan='2' class="font-70 zero-bottom">
 
-Given a flow $f$ in graph $G$, the residual graph $G_f$ models <span class='und'>additional</span> flow that is possible
+Given a flow $f$ in graph $G$, the residual graph $G_{\color{red}f}$ models <span class='und'>additional</span> flow that is possible
 
 - <span class='orange und'>Forward edge</span> for each edge in $G$ with weight set to remaining capacity ${\color{green}c(e)}-{\color{red}f(e)}$
   - Models <span class='und'>additional</span> flow that can be sent along the edge: <span class='purple'>flow to add</span>
@@ -714,7 +714,7 @@ digraph diamond_graph8 {
 
 <table><tr><td colspan='2' class="font-75 zero-bottom">
 
-Consider a path from ${\color{purple}s} \rightarrow {\color{navy}t}$ in $G_f$ using only edges with positive (non-zero) weight
+Consider a path from ${\color{purple}s} \rightarrow {\color{navy}t}$ in $G_{\color{red}f}$ using only edges with positive (non-zero) weight
 Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
 
 </td></tr><tr><td colspan='2' class="font-75 opacity-0 zero-bottom">
@@ -815,7 +815,7 @@ digraph graph6 {
 
 <table><tr><td colspan='2' class="font-75 zero-bottom">
 
-Consider a path from ${\color{purple}s} \rightarrow {\color{navy}t}$ in $G_f$ using only edges with positive (non-zero) weight
+Consider a path from ${\color{purple}s} \rightarrow {\color{navy}t}$ in $G_{\color{red}f}$ using only edges with positive (non-zero) weight
 Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
 
 </td></tr><tr><td colspan='2' class="font-75 zero-bottom">
@@ -915,7 +915,7 @@ digraph graph6 {
 
 <table><tr><td colspan='2' class="font-75 zero-bottom">
 
-Consider a path from ${\color{purple}s} \rightarrow {\color{navy}t}$ in $G_f$ using only edges with positive (non-zero) weight
+Consider a path from ${\color{purple}s} \rightarrow {\color{navy}t}$ in $G_{\color{red}f}$ using only edges with positive (non-zero) weight
 Consider the minimum-weight edge  along the path: we can increase the flow by $w(e)$
 
 </td></tr><tr><td colspan='2' class="font-75 zero-bottom">
@@ -1013,7 +1013,7 @@ digraph graph6 {
 
 ## Ford-Fulkerson Algorithm
 
-<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_{\color{red}f}$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -2218,7 +2218,7 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_{\color{red}f}$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -2272,7 +2272,7 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_{\color{red}f}$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -2329,7 +2329,7 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_{\color{red}f}$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -2386,7 +2386,7 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_{\color{red}f}$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -2450,7 +2450,7 @@ digraph graph23 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_{\color{red}f}$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -2994,7 +2994,7 @@ digraph diamond_graph19 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_{\color{red}f}$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -3048,7 +3048,7 @@ digraph diamond_graph19 {
 
 ## Ford-Fulkerson Running Time
 
-<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_f$ (using edges of non-zero weight)</p>
+<p class="font-75">Define an augmenting path to be an ${\color{purple}s} \rightarrow {\color{navy}t}$ path in the residual graph $G_{\color{red}f}$ (using edges of non-zero weight)</p>
 
 <table class="width-100 font-75"><tr><td style="padding-left:0;padding-top:0" colspan='2'>
 
@@ -3280,7 +3280,7 @@ digraph graph2 {
 - Max flow upper bounded by any cut separating $\color{purple}s$ and $\color{navy}t$
 - Why? "Conservation of flow"
   - All flow exiting $\color{purple}s$ must eventually get to $\color{navy}t$
-  - To get from $\color{purple}s$ to $\color{navy}t$, all "tanks" must cross the cut
+  - To get from $\color{purple}s$ to $\color{navy}t$, all "pipes" must cross the cut
 - Conclusion: if we find the minimum-cost cut, we've found the max flow
   - $\max_f|f| \le \min_{ {\color{magenta}S}, {\color{skyblue}T}}||{\color{magenta}S}, {\color{skyblue}T}||$
 
@@ -3449,7 +3449,7 @@ digraph graph23 {
 
 <div class="font-80">
 
-- If $|f|$ is a max flow, then $G_f$ has no augmenting path
+- If $|f|$ is a max flow, then $G_{\color{red}f}$ has no augmenting path
     - Otherwise, use that augmenting path to "push" more flow
 - Define ${\color{magenta}S}=$ nodes reachable from source node $\color{purple}s$ by positive-weight edges in the residual graph
     - ${\color{skyblue}T}=V-{\color{magenta}S}$
@@ -3465,7 +3465,12 @@ digraph graph23 {
 ```{dot}
 // this duplicates the one in the reductions column
 digraph graph25 {
-    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
+    _background="
+c 7 -#ff00ff  C 7 -#DDA0DD  P 8  
+10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15
+c 7 -#000080  C 7 -#ADD8E6  P 7  
+390 -15  450 140  450 180  420 210  250 210  120 30  120 -15
+";
     // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
     // the layout when the edge labels are of the form "x/y"
     // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
@@ -3502,7 +3507,12 @@ digraph graph25 {
 ::: {.svg-100}
 ```{dot}
 digraph graph23 {
-    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
+    _background="
+c 7 -#ff00ff  C 7 -#DDA0DD  P 8  
+10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15
+c 7 -#000080  C 7 -#ADD8E6  P 7  
+390 -15  450 140  450 180  420 210  250 210  120 30  120 -15
+";
     // the layout when the edge labels are a single character or digit
     // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
     layout=fdp;
@@ -3557,9 +3567,9 @@ digraph graph23 {
 - To show: $||{\color{magenta}S},{\color{skyblue}T}||=|f|$
     - Weight of the cut matches the flow across the cut
 - Consider edge $\color{forestgreen}(u,v)$ with $u \in {\color{magenta}S},v \in {\color{skyblue}T}$
-    - ${\color{red}f(u,v)}={\color{forestgreen}c(u,v)}$ because otherwise ${\color{forestgreen}w(u,v)}>0$ in $G_f$, which would mean $v \in {\color{magenta}S}$
+    - ${\color{red}f(u,v)}={\color{forestgreen}c(u,v)}$ because otherwise ${\color{forestgreen}w(u,v)}>0$ in $G_{\color{red}f}$, which would mean $v \in {\color{magenta}S}$
 - Consider edge $\color{brown}(y,x)$ with $y \in {\color{skyblue}T}, x \in {\color{magenta}S}$
-    - ${\color{red}f(y,x)}={\color{forestgreen}c(u,v)}$ because otherwise the back edge ${\color{brown}w(y,x)}>0$ in $G_f$, which would mean $y \in {\color{magenta}S}$
+    - ${\color{red}f(y,x)}={\color{forestgreen}c(u,v)}$ because otherwise the back edge ${\color{brown}w(y,x)}>0$ in $G_{\color{red}f}$, which would mean $y \in {\color{magenta}S}$
 
 </div>
 
@@ -3569,7 +3579,12 @@ digraph graph23 {
 ::: {.svg-100}
 ```{dot}
 digraph graph25 {
-    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
+    _background="
+c 7 -#ff00ff  C 7 -#DDA0DD  P 8  
+10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15
+c 7 -#000080  C 7 -#ADD8E6  P 7  
+390 -15  450 140  450 180  420 210  250 210  120 30  120 -15
+";
     // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
     // the layout when the edge labels are of the form "x/y"
     // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
@@ -3606,7 +3621,12 @@ digraph graph25 {
 ::: {.svg-100}
 ```{dot}
 digraph graph23 {
-    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
+    _background="
+c 7 -#ff00ff  C 7 -#DDA0DD  P 8  
+10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15
+c 7 -#000080  C 7 -#ADD8E6  P 7  
+390 -15  450 140  450 180  420 210  250 210  120 30  120 -15
+";
     // the layout when the edge labels are a single character or digit
     // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
     layout=fdp;
@@ -3657,8 +3677,8 @@ digraph graph23 {
 ## Proof Summary
 
 1. The flow $|f|$ of $G$ is upper-bounded by the sum of capacities of edges crossing any cut separating source ${\color{purple}s}$ and sink ${\color{navy}t}$
-2. When Ford-Fulkerson terminates, there are no more augmenting paths in $G_f$
-3. When there are no more augmenting paths in $G_f$ then we can define a cut ${\color{magenta}S}=$ nodes reachable from source node ${\color{purple}s}$ by positive-weight edges in the residual graph
+2. When Ford-Fulkerson terminates, there are no more augmenting paths in $G_{\color{red}f}$
+3. When there are no more augmenting paths in $G_{\color{red}f}$ then we can define a cut ${\color{magenta}S}=$ nodes reachable from source node ${\color{purple}s}$ by positive-weight edges in the residual graph
 4. The sum of edge capacities crossing this cut must match the flow of the graph
 5. Therefore this flow is maximal
 
@@ -4025,7 +4045,7 @@ digraph graph25 {
 
 
 
-## Maximum Bipartite Matching test
+## Maximum Bipartite Matching
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 ```{python}
@@ -4042,7 +4062,7 @@ bipartite_graph(8.53,9.64,0,False)
 
 
 
-## Maximum Bipartite Matching test
+## Maximum Bipartite Matching
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 ```{python}
@@ -4059,7 +4079,7 @@ bipartite_graph(8.53,9.64,1,False)
 
 
 
-## Maximum Bipartite Matching test
+## Maximum Bipartite Matching
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 ```{python}
@@ -4076,7 +4096,7 @@ bipartite_graph(8.53,9.64,2,False)
 
 
 
-## Maximum Bipartite Matching test
+## Maximum Bipartite Matching
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 ```{python}
