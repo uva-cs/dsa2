@@ -3463,6 +3463,7 @@ digraph graph23 {
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
 ```{dot}
+// this duplicates the one in the reductions column
 digraph graph25 {
     _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
     // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
@@ -4200,7 +4201,7 @@ Readings in CLRS 4th edition: N/A (reductions are covered<br>in CLRS, but not in
 
 - Algorithm technique of supreme ultimate power
 - Convert instance of problem A to an instance of Problem B
-- Convert solution of problem B back to a solution of problem A
+- Convert solution of problem B back to a solution of problem&nbsp;A
 
 
 ## Reductions
@@ -4245,7 +4246,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 </td>
 
 <td style="vertical-align:top;width:25%;padding-right:10px !important">
-<table class='blueborder compact allcenter'>
+<table class='compact allcenter'>
 <tr><td><span class="fragment" fragment-index=1>Opening a door</span></td></tr>
 <tr><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f6/Door-liftarn-Door-white-stroke.svg){.fragment fragment-index=1 style="width:30%"} </td></tr>
 <tr><td>&nbsp;</td></tr>
@@ -4326,6 +4327,389 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 
 </table>
 
+
+
+
+
+## Bipartite Matching <span class='magenta'>Reduction</span>
+
+
+<table class='font-70 allcenter compact' style="vertical-align:top">
+
+<tr class='font-70'><td colspan=2 class="und"><span class='fragment' fragment-index=1>Problem we don't know how to solve</span></td><td></td><td></td><td colspan=2 class="und"><span class='fragment' fragment-index=2>Problem we do know how to solve</span></td></tr>
+
+<tr><td style="vertical-align:top;width:10%">
+::: {.svg-100 .no-svg-margins .fragment fragment-index=1}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td>
+
+<td style="vertical-align:top;width:25%;padding-right:10px !important">
+<table class='compact allcenter'>
+<tr><td><span class="fragment" fragment-index=1>Bipartite Matching</span></td></tr>
+<tr><td> 
+
+::: {.fragment fragment-index=1}
+<table class="bipartite" style="width:60%"><tr><td style="max-width:500px !important">
+::: {.r-stack style="height:100%"}
+```{python}
+#| echo: false
+#| output: asis
+from reductions import *
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+bipartite_graph(8.53,9.64,0,False)
+```
+:::
+</td></tr></table>
+:::
+
+<tr><td>&nbsp;</td></tr>
+<tr><td><span class='fragment' fragment-index=7>Solution for $A$:</span></td></tr>
+<td style="vertical-align:top;text-align:center">
+
+::: {.fragment fragment-index=7}
+<table class="bipartite" style="width:60%"><tr><td style="max-width:500px !important">
+::: {.r-stack style="height:100%"}
+```{python}
+#| echo: false
+#| output: asis
+from reductions import *
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+bipartite_graph(8.53,9.64,3,False)
+```
+:::
+</td></tr></table>
+:::
+
+</td></tr></table>
+
+
+</td>
+
+<td colspan=2 style="vertical-align:top">
+
+::: {.r-stack}
+
+<table class="compact fragment" style="width:100%;height:100%"><tr><td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">&nbsp;</td></tr></table>
+
+<table class="compact" style="z-index:1;opacity:0.5"><tr><td>
+::: {.fragment fragment-index=3}
+<table class="bipartite"><tr><td style="vertical-align:middle">
+::: {.r-stack style="height:100%"}
+```{python}
+#| echo: false
+#| output: asis
+from reductions import *
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+bipartite_graph(13.69,9.69,0,True)
+```
+:::
+</td></tr></table>
+:::
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td style="opacity:1;z-index:6" class="fragment">Reduction</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>
+::: {.fragment fragment-index=6}
+<table class="bipartite"><tr><td style="vertical-align:middle">
+::: {.r-stack style="height:100%"}
+```{python}
+#| echo: false
+#| output: asis
+from reductions import *
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+bipartite_graph(13.69,9.69,3,True)
+```
+:::
+</td></tr></table>
+:::
+</td></tr></table>
+
+<div style="z-index:2">
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment fragment-index=3}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment fragment-index=6}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+</div>
+
+:::
+
+</td>
+
+
+<td style="vertical-align:top;width:10%;padding-left:10px !important">
+::: {.svg-100 .no-svg-margins .fragment fragment-index=2}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+</td>
+
+<td style="vertical-align:top;width:25%">
+
+<table class='compact'>
+<tr><td><span class="fragment" fragment-index=2>Max Flow</span></td></tr>
+<tr><td> 
+
+::: {.svg-100 .fragment fragment-index=2}
+```{dot}
+// this duplicates the one in the maxflow column
+digraph graph25 {
+    //_background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
+    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
+    // the layout when the edge labels are of the form "x/y"
+    // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
+    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
+    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
+    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
+    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
+    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
+    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
+    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
+}
+```
+:::
+
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>
+::: {.r-stack}
+::: {.svg-60 .fragment fragment-index=4 .no-svg-margins style="transform:rotate(90deg)"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=24,height=1,color=red,width=1]; }
+```
+:::
+::: {.fragment fragment-index=4}
+<p style="z-index:5">Ford-Fulkerson</p>
+:::
+:::
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><span class="fragment" fragment-index=5>Solution for $B$:</span></td></tr>
+<tr><td>
+
+::: {.svg-100 .fragment fragment-index=5}
+```{dot}
+digraph graph23 {
+    //_background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
+    // the layout when the edge labels are a single character or digit
+    // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
+    layout=fdp;
+    start=144; 
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
+    s [style=filled;fillcolor=purple;fontcolor=white];
+    a [];
+    b [];
+    c [];
+    d [];
+    t [style=filled;fillcolor=navy;fontcolor=white];
+    // edge flows: 
+    // - first three are the top flow from s->t
+    // - second three are the bottom flow from s->t
+    // - last 5 are the remaining edges from left-to-right
+    s -> a [label="1"];
+    a -> b [label="1";style=invis];
+    b -> t [label=<<br/>1>];
+    s -> c [label="1"];
+    c -> d [label="1"];
+    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
+    b -> c [label="1"];
+    d -> b [label="3 "];
+    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
+    a -> s [color=magenta;label="  2";fontcolor=magenta];
+    b -> a [color=magenta;label="2";fontcolor=magenta];
+    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
+    d -> c [color=magenta;label="2";fontcolor=magenta];
+    t -> d [color=magenta;label="  2";fontcolor=magenta];
+    t -> b [color=magenta;label="2";fontcolor=magenta];
+    c -> s [color=magenta;label="2";fontcolor=magenta];
+
+    d -> t [color=orange;label="0"];
+    a -> b [color=orange;label="0"];
+    c -> b [color=magenta;label="0";fontcolor=magenta];
+    d -> b [color=magenta;label="0";fontcolor=magenta];
+    b -> d [color=magenta;label="0";fontcolor=magenta];
+    a -> c [color=magenta;label="0";fontcolor=magenta];
+}
+```
+:::
+
+</td></tr>
+</table>
+
+</td>
+</tr>
+
+</table>
+
+
+
+
+
+
+## In General: <span class='magenta'>Reduction</span>
+
+
+<table class='font-70 allcenter' style="vertical-align:top">
+
+<tr>
+
+<td style="vertical-align:top;width:37%;padding-right:10px !important">
+
+<table class='allcenter'>
+<tr><td colspan=2 class="und"><span class='font-70'>Problem we don't know how to solve</span></td></tr>
+<tr><td> 
+::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><span>Solution for $A$:</span></td></tr>
+<td style="vertical-align:top;text-align:center">
+::: {.svg-60 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr></table>
+
+
+</td><td colspan=2 style="vertical-align:top;width:30%">
+
+<table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
+
+<tr><td class="font-90" style="border-top:2px solid black">
+
+Map instances of problem $A$ to instances of problem $B$
+
+</td></tr>
+
+<tr><td>
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+</td></tr>
+<tr><td>
+
+<table class='bluenote'><tr><td style="padding-left:10px !important;padding-right:10px !important">
+
+Injective: any instance of $A$ can be mapped to some instance of $B$
+
+</td></tr></table>
+
+</td></tr>
+
+<tr><td class="font-90">
+
+Map solutions of problem $B$ to solutions of problem $A$
+
+</td></tr>
+
+
+<tr><td>
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+</td></tr>
+
+<tr><td style="border-bottom:2px solid black">Reduction</td></tr>
+</table>
+
+</td>
+
+
+<td style="vertical-align:top;width:33%">
+
+<table class="compact">
+<tr><td colspan=2 class="und"><span class='font-70'>Problem we do know how to solve</span></td></tr>
+<tr><td> 
+
+::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+
+
+</td></tr>
+<tr><td> Using any algorithm<br>for $B$ </td></tr>
+<tr><td>
+::: {.svg-60 .no-svg-margins style="transform:rotate(90deg)"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=24,height=.75,color=red,width=.75]; }
+```
+:::
+</td></tr>
+<tr><td><span>Solution for $B$:</span></td></tr>
+<tr><td>
+
+::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+
+
+</td></tr>
+</table>
+
+</td>
+</tr>
+
+</table>
 
 
 

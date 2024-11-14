@@ -35,6 +35,7 @@ def bipartite_graph_dot(coloring,flow_graph):
 graph G2 {{
     // bipartite graph with all edges red
     rankdir = "LR";
+    bgcolor=transparent;
     graph [start=144;fontsize=36;newrank=true;splines=false;];
     node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
     edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
@@ -101,11 +102,11 @@ def div_header(w,h):
     return f"""<div class="cell" data-fig-width="{w}" data-fig-height="{h}" data-layout-align="default">
 <div class="cell-output-display">
 <div>
-<p></p><figure class=""><p></p>
+<figure class="">
 <div>"""
 
 div_footer = """</div>
-<p></p></figure><p></p>
+</figure>
 </div>
 </div>
 </div>"""
@@ -131,7 +132,7 @@ def bipartite_graph(w,h,coloring,flow_graph):
     html = re.sub(r'<svg width="[0-9]+pt" height="[0-9]+pt"', f'<svg width="{w}" height="{h}"', html)
     where = html.find("<svg ")
     if flow_graph:
-        table_header = "<table style=\"width:55% !important;margin-bottom:25px !important;margin-left:112px\">"
+        table_header = "<table style=\"width:55% !important;margin-bottom:15px !important;margin-left:112px\">"
     else:
         table_header = "<table style=\"margin-top:75px !important\">"
     print(div_header(w,h) + html[where:] + div_footer + table_header + bipartite_image_table_body + "</table>")
