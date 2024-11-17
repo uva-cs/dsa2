@@ -137,12 +137,18 @@ graph G2 {{
 """
     return ret
 
-def div_header(w,h):
-    return f"""<div class="cell" data-fig-width="{w}" data-fig-height="{h}" data-layout-align="default">
+def div_header(w=None,h=None):
+    ret = "<div class='cell'"
+    if w is not None:
+        ret += f" data-fig-width='{w}'"
+    if h is not None:
+        f" data-fig-height='{h}'"
+    ret += """ data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <figure class="">
 <div>"""
+    return ret
 
 div_footer = """</div>
 </figure>
@@ -428,6 +434,92 @@ def flow_graph(label_set,residual=False,highlight_set=0,revresidual=True):
     graph_num += 1
 
 
+#--------------------------------------------------
+# Edge disjoint graphs
+#--------------------------------------------------
+
+forestg = "ForestGreen"
+edge_disjoint_graph_color_sets = [
+    # s->g     g->t     h->g     s->h     h->f     f->t     f->e     s->e       e->t      e->c       s->b     b->c     c->t       b->a     a->c
+    ['black', 'black', 'black', 'black', 'black', 'black', 'black', 'black',   'black',   'black',   'black', 'black', 'black',   'black', 'black'],
+    ['teal',  'teal',  'black', 'blue',  'blue',  'black', 'blue',  'magenta', 'blue',    'magenta', 'black', 'black', 'magenta', 'black', 'black'],
+    ['teal',  'teal',  'black', 'blue',  'blue',  'blue',  'black', 'magenta', 'magenta', 'black',   forestg, forestg, forestg,   'black', 'black'],
+]
+edge_disjoint_graph_label_sets = [
+    ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    # s->g  g->t   h->g   s->h   h->f   f->t   f->e   s->e   e->t   e->c   s->b   b->c   c->t   b->a   a->c
+    ['1/1', '1/1', '0/1', '1/1', '1/1', '1/1', '0/1', '1/1', '1/1', '0/1', '1/1', '1/1', '1/1', '0/1', '0/1'],
+]
+
+def edge_disjoint_graph_tikz(color_set,label_set,color_e_red):
+    colors = edge_disjoint_graph_color_sets[color_set]
+    labels = edge_disjoint_graph_label_sets[label_set]
+    ret = f"""
+\\begin{{tikzpicture}}[
+     C/.style = {{circle, draw, very thick, minimum size = 8mm, node distance = 5mm and 16mm, fill=orange}},
+     every edge/.style = {{->, draw, ultra thick, -stealth}},
+]
+
+\\tikzset{{font=\\sffamily}}
+
+\\node (g) [C] {{g}};
+\\node (f) [C, below left=of g] {{f}};
+\\node (h) [C, left=of f] {{h}};
+\\node (s) [C, fill=Plum, text=white, below left=of h] {{s}};
+\\node (e) [C, below right=of f, fill={"red" if color_e_red else "orange"}] {{e}};
+\\node (c) [C, below right=of e] {{c}};
+\\node (t) [C, fill=Blue, text=white, above right=of c] {{t}};
+\\node (a) [C, below left=of c] {{a}};
+\\node (b) [C, above left=of a] {{b}};
+
+\\path
+    (s) edge [bend left=30, color={colors[0]}]  node[text=black,above] {{{labels[0]}}}  (g)
+    (g) edge [bend left=20, color={colors[1]}]  node[text=black,above] {{{labels[1]}}}  (t)
+    (h) edge [bend left=10, color={colors[2]}]  node[text=black,above] {{{labels[2]}}}  (g)
+    (s) edge [bend left=10, color={colors[3]}]  node[text=black,below] {{{labels[3]}}}  (h)
+    (h) edge [              color={colors[4]}]  node[text=black,below] {{{labels[4]}}}  (f)
+    (f) edge [bend left=10, color={colors[5]}]  node[text=black,above] {{{labels[5]}}}  (t)
+    (f) edge [bend left=10, color={colors[6]}]  node[text=black,below] {{{labels[6]}}}  (e)
+    (s) edge [              color={colors[7]}]  node[text=black,below] {{{labels[7]}}}  (e)
+    (e) edge [              color={colors[8]}]  node[text=black,above] {{{labels[8]}}}  (t)
+    (e) edge [bend left=10, color={colors[9]}]  node[text=black,below] {{{labels[9]}}}  (c)
+    (s) edge [bend right=10,color={colors[10]}] node[text=black,above] {{{labels[10]}}} (b)
+    (b) edge [              color={colors[11]}] node[text=black,above] {{{labels[11]}}} (c)
+    (c) edge [bend right=10,color={colors[12]}] node[text=black,above] {{{labels[12]}}} (t)
+    (b) edge [bend right=20,color={colors[13]}] node[text=black,above] {{{labels[13]}}} (a)
+    (a) edge [bend right=20,color={colors[14]}] node[text=black,above] {{{labels[14]}}} (c)
+    ;
+
+\\end{{tikzpicture}}
+"""
+    return ret
+
+
+
+def edge_disjoint_graph(color_set=0,label_set=0,color_e_red=False):
+    global graph_num
+    tex_file = tex_header + edge_disjoint_graph_tikz(color_set,label_set,color_e_red) + "\n\\end{document}"
+
+    cached = check_if_in_cache(graph_num,tex_file)
+    if not cached:
+        with open("reductions.tmp.tex","w") as f:
+            f.write(tex_file)
+        os.system ("pdflatex reductions.tmp.tex > /dev/null")
+        os.system ("inkscape reductions.tmp.pdf -n 1 --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
+        with open("reductions.tmp.svg","r") as f:
+           svg = f.read()
+        where = svg.find("<svg\n")
+        register_in_cache(graph_num,tex_file,svg[where:])
+        print(div_header() + svg[where:] + div_footer)
+    else:
+        print(div_header() + cached + div_footer)
+    graph_num += 1
+
+
+#--------------------------------------------------
+# main() equivalent
+#--------------------------------------------------
+
 if __name__ == "__main__":
     graph_num = 0
     #bipartite_graph(13.69,9.69,0,True)
@@ -438,7 +530,8 @@ if __name__ == "__main__":
     #flow_graph(2,True,1)
     #flow_graph(3,True)
     #flow_graph(0,True)
-    flow_graph(7,False,4)
+    #flow_graph(7,False,4)
+    edge_disjoint_graph(3)
 
 
 

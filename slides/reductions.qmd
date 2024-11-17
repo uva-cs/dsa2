@@ -2488,31 +2488,10 @@ Readings in CLRS 4th edition: chapter 25
 
 Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{navy}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{navy}t}$ which share no edges
 
-::: {.svg-80 .bottom}
-```{dot}
-digraph graph25 {
-    layout=dot;
-    rankdir="LR";
-    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    s -> g;
-    s -> h;
-    s -> b;
-    s -> e;
-    h -> g;
-    h -> f;
-    f -> e;
-    e -> c;
-    b -> c;
-    b -> a;
-    a -> c;
-    g -> t;
-    f -> t;
-    e -> t;
-    c -> t;
-}
+::: {.svg-100 .bottom style="width:75%;left:12.5%"}
+```{python}
+#| output: asis
+edge_disjoint_graph()
 ```
 :::
 
@@ -2522,40 +2501,14 @@ digraph graph25 {
 
 Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{navy}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{navy}t}$ which share no edges
 
-::: {.r-stack}
-::: {.width-100}
 - Set of edge-disjoint paths of size 3:
-:::
-:::
 
-::: {.svg-80 .bottom}
-```{dot}
-digraph graph25 {
-    layout=dot;
-    rankdir="LR";
-    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    s -> g [color=teal];
-    s -> h [color=blue];
-    s -> b;
-    s -> e [color=magenta];
-    h -> g;
-    h -> f [color=blue];
-    f -> e [color=blue];
-    e -> c [color=magenta];
-    b -> c;
-    b -> a;
-    a -> c;
-    g -> t [color=teal];
-    f -> t;
-    e -> t [color=blue];
-    c -> t [color=magenta];
-}
+::: {.svg-100 .bottom style="width:75%;left:12.5%"}
+```{python}
+#| output: asis
+edge_disjoint_graph(1)
 ```
 :::
-
 
 
 ## Edge-Disjoint Paths
@@ -2576,31 +2529,10 @@ Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node
 :::
 </div>
 
-::: {.svg-80 .bottom}
-```{dot}
-digraph graph25 {
-    layout=dot;
-    rankdir="LR";
-    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    s -> g [color=teal];
-    s -> h [color=blue];
-    s -> b [color=forestgreen];
-    s -> e [color=magenta];
-    h -> g;
-    h -> f [color=blue];
-    f -> e;
-    e -> c;
-    b -> c [color=forestgreen];
-    b -> a;
-    a -> c;
-    g -> t [color=teal];
-    f -> t [color=blue];
-    e -> t [color=magenta];
-    c -> t [color=forestgreen];
-}
+::: {.svg-100 .bottom style="width:75%;left:12.5%"}
+```{python}
+#| output: asis
+edge_disjoint_graph(2)
 ```
 :::
 
@@ -2615,31 +2547,10 @@ Make ${\color{purple}s}$ and ${\color{navy}t}$ the source and sink, give each ed
 - Max flow = 4
 :::
 
-::: {.svg-80 .bottom}
-```{dot}
-digraph graph25 {
-    layout=dot;
-    rankdir="LR";
-    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1"];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    s -> g [color=teal];
-    s -> h [color=blue];
-    s -> b [color=forestgreen];
-    s -> e [color=magenta];
-    h -> g [label="0/1"];
-    h -> f [color=blue];
-    f -> e [label="0/1"];
-    e -> c [label="0/1"];
-    b -> c [color=forestgreen];
-    b -> a [label="0/1"];
-    a -> c [label="0/1"];
-    g -> t [color=teal];
-    f -> t [color=blue];
-    e -> t [color=magenta];
-    c -> t [color=forestgreen];
-}
+::: {.svg-100 .bottom style="width:75%;left:12.5%"}
+```{python}
+#| output: asis
+edge_disjoint_graph(2,1)
 ```
 :::
 
@@ -2649,33 +2560,13 @@ digraph graph25 {
 
 Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{navy}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{navy}t}$ which share no vertices
 
-::: {.svg-80 .bottom}
-```{dot}
-digraph graph25 {
-    layout=dot;
-    rankdir="LR";
-    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    s -> g;
-    s -> h;
-    s -> b;
-    s -> e;
-    h -> g;
-    h -> f;
-    f -> e;
-    e -> c;
-    b -> c;
-    b -> a;
-    a -> c;
-    g -> t;
-    f -> t;
-    e -> t;
-    c -> t;
-}
+::: {.svg-100 .bottom style="width:75%;left:12.5%"}
+```{python}
+#| output: asis
+edge_disjoint_graph()
 ```
 :::
+
 
 
 ## Vertex-Disjoint Paths
@@ -2688,31 +2579,10 @@ Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node
 :::
 :::
 
-::: {.svg-80 .bottom}
-```{dot}
-digraph graph25 {
-    layout=dot;
-    rankdir="LR";
-    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    s -> g [color=teal];
-    s -> h [color=blue];
-    s -> b;
-    s -> e [color=magenta];
-    h -> g;
-    h -> f [color=blue];
-    f -> e [color=blue];
-    e -> c [color=magenta];
-    b -> c;
-    b -> a;
-    a -> c;
-    g -> t [color=teal];
-    f -> t;
-    e -> t [color=blue];
-    c -> t [color=magenta];
-}
+::: {.svg-100 .bottom style="width:75%;left:12.5%"}
+```{python}
+#| output: asis
+edge_disjoint_graph(1)
 ```
 :::
 
@@ -2735,32 +2605,10 @@ Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node
 :::
 </div>
 
-::: {.svg-80 .bottom}
-```{dot}
-digraph graph25 {
-    layout=dot;
-    rankdir="LR";
-    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    s -> g [color=teal];
-    s -> h [color=blue];
-    s -> b;
-    s -> e [color=magenta];
-    h -> g;
-    h -> f [color=blue];
-    f -> e [color=blue];
-    e [fillcolor=red];
-    e -> c [color=magenta];
-    b -> c;
-    b -> a;
-    a -> c;
-    g -> t [color=teal];
-    f -> t;
-    e -> t [color=blue];
-    c -> t [color=magenta];
-}
+::: {.svg-100 .bottom style="width:75%;left:12.5%"}
+```{python}
+#| output: asis
+edge_disjoint_graph(1,0,True)
 ```
 :::
 
@@ -2782,31 +2630,10 @@ Compute <span class='bold'>Edge-Disjoint Paths</span> on new graph
 
 </div>
 
-::: {.svg-80 .bottom}
-```{dot}
-digraph graph25 {
-    layout=dot;
-    rankdir="LR";
-    node [fontname="Arial",shape=circle,fillcolor=orange,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;label="1/1";fontcolor=transparent];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    s -> g [color=teal];
-    s -> h [color=blue];
-    s -> b;
-    s -> e [color=magenta];
-    h -> g;
-    h -> f [color=blue];
-    f -> e [color=blue];
-    e -> c [color=magenta];
-    b -> c;
-    b -> a;
-    a -> c;
-    g -> t [color=teal];
-    f -> t;
-    e -> t [color=blue];
-    c -> t [color=magenta];
-}
+::: {.svg-100 .bottom style="width:75%;left:12.5%"}
+```{python}
+#| output: asis
+edge_disjoint_graph(1)
 ```
 :::
 
