@@ -3,3 +3,4 @@
 /.quarto/
 graphdev.*
 graphs/
+.graph-cache

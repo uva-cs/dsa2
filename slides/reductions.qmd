@@ -2,6 +2,11 @@
 title: "Reductions"
 ---
 
+```{python}
+from reductions import *
+reset_graph_num()
+```
+
 # Network Flow <!-- from day20.pptx -->
 
 ::: {.titlereading}
@@ -14,6 +19,8 @@ Readings in CLRS 4th edition: chapter 24
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/OpenRailwayMap_of_Northeastern_US_and_Southeastern_Canada.png/1024px-OpenRailwayMap_of_Northeastern_US_and_Southeastern_Canada.png){.center style="object-fit:none;object-position:right;height:513px;width:864px"}
 
 <span class="font-90">**Question:** What is the maximum throughput of the railroad network from Omaha (OMA, far left) to Boston (BBY, far right)?</span>
+
+
 
 
 ## Flow Networks
@@ -32,37 +39,9 @@ Readings in CLRS 4th edition: chapter 24
 
 </td><td class="svg-table-right compact">
 
-```{dot}
-digraph graph1 {
-    // the layout when the edge labels are a single character or digit
-    // capacities only; the graph on day20 slides 13&15 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="3"];
-    a -> b [label="2"];
-    b -> t [label=<<br/>3>];
-    s -> c [label="2"];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(1)
 ```
 
 </td></tr></table>
@@ -74,39 +53,14 @@ digraph graph1 {
 <!-- day20 slide 14 -->
 
 ::: {.svg-50-right-flow-graph}
-```{dot}
-digraph graph2 {
-    // the layout when the edge labels are of the form "x/y"
-    // example flow graph; this one is on slides 14&20&21&23 of day20.pptx, also slides: 20, 21
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+
+```{python}
+#| output: asis
+flow_graph(2)
 ```
+
 <p class="font-75 center"><span class='red'>flow</span> / <span class='green'>capacity</span></p>
+
 :::
 
 <div class="font-75">
@@ -137,73 +91,17 @@ $$|f|=\text{outflow}({\color{purple}s})-\text{inflow}({\color{purple}s})$$
 
 <table class="width-100"><tr><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph1 {
-    // the layout when the edge labels are a single character or digit
-    // capacities only; the graph on day20 slides 13&15 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="3"];
-    a -> b [label="2"];
-    b -> t [label=<<br/>3>];
-    s -> c [label="2"];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(1)
 ```
 :::
 </td><td class="compact">
 ::: {.fragment}
 ::: {.svg-100}
-```{dot}
-digraph graph3 {
-    // the layout when the edge labels are of the form "x/y"
-    // another flow graph; this one is on slide 15 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(3)
 ```
 :::
 :::
@@ -364,37 +262,9 @@ Given a flow $f$ in graph $G$, the residual graph $G_{\color{red}f}$ models <spa
 </td></tr><tr><td class="compact">
 
 ::: {.svg-100}
-```{dot}
-digraph graph2 {
-    // the layout when the edge labels are of the form "x/y"
-    // example flow graph; this one is on slides 14&20&21&23 of day20.pptx, also slides: 20, 21
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(2)
 ```
 :::
 
@@ -403,37 +273,9 @@ digraph graph2 {
 </td><td class="compact">
 ::: {.fragment}
 ::: {.svg-100}
-```{dot}
-digraph graph4 {
-    // the layout when the edge labels are a single character or digit
-    // residual graph: on slide 20 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="2"];
-    a -> b [label="";style=invis];
-    b -> t [label=<<br/>1>];
-    s -> c [label="";style=invis];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
-    b -> c [label="1";style=invis];
-    d -> b [label="1 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>1</td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(2,True,False)
 ```
 :::
 
@@ -462,37 +304,9 @@ Given a flow $f$ in graph $G$, the residual graph $G_{\color{red}f}$ models <spa
 </td></tr><tr><td class="compact">
 
 ::: {.svg-100}
-```{dot}
-digraph graph2 {
-    // the layout when the edge labels are of the form "x/y"
-    // example flow graph; this one is on slides 14&20&21&23 of day20.pptx, also slides: 20, 21
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(2)
 ```
 :::
 
@@ -500,47 +314,9 @@ digraph graph2 {
 
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph5 {
-    // the layout when the edge labels are a single character or digit
-    // residual flow graph: on slide 21 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="2"];
-    a -> b [label="";style=invis];
-    b -> t [label=<<br/>1>];
-    s -> c [label="";style=invis];
-    c -> d [label="1"];
-    d -> t [label="1"];
-    c -> s [xlabel="1",label=" "];
-    c -> a [label="2"];
-    b -> c [label="1";style=invis];
-    d -> b [label="1 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>1</td></tr></table>>];
-    a -> s [color=magenta;label="  1";fontcolor="magenta"];
-    b -> a [color=magenta;label="2";fontcolor="magenta"];
-    t -> b [color=magenta;xlabel="2";fontcolor="magenta";label=" "];
-    c -> s [color=magenta;label="2";fontcolor="magenta"];
-    d -> c [color=magenta;label="2";fontcolor="magenta"];
-    t -> d [color=magenta;label="  1";fontcolor="magenta"];
-    a -> c [color=magenta;xlabel="  1";fontcolor="magenta",label=" "];
-    c -> b [color=magenta;label="1";fontcolor="magenta"];
-    b -> d [color=magenta;label="2";fontcolor="magenta"];
-    d -> b [color=magenta;label="1";fontcolor="magenta"];
-}
+```{python}
+#| output: asis
+flow_graph(2,True)
 ```
 :::
 
@@ -709,7 +485,8 @@ digraph diamond_graph8 {
 </table>
 
 
-## Residual Graphs
+
+## Residual Graphsx
 <!-- day20 slide 23 -->
 
 <table><tr><td colspan='2' class="font-75 zero-bottom">
@@ -728,82 +505,16 @@ Consider the minimum-weight edge  along the path: we can increase the flow by $w
 
 </td></tr><tr><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph2 {
-    // the layout when the edge labels are of the form "x/y"
-    // example flow graph; this one is on slides 14&20&21&23 of day20.pptx, also slides: 20, 21
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(2)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph6 {
-    // the layout when the edge labels are a single character or digit
-    // residual flow graph with some dashed edges: on slide 23&24&25&26 of day20.pptx; also slide(s) 25, 26, 27
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="2";style=dashed];
-    a -> b [label="";style=invis];
-    b -> t [label=<<br/>1>;style=dashed];
-    s -> c [label="";style=invis];
-    c -> d [label="1"];
-    d -> t [label="1"];
-    c -> s [xlabel="1",label=" "];
-    c -> a [label="2"];
-    b -> c [label="1";style=invis];
-    d -> b [label="1 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>1</td></tr></table>>];
-    a -> s [color=magenta;label="  1";fontcolor="magenta"];
-    b -> a [color=magenta;label="2";fontcolor="magenta"];
-    t -> b [color=magenta;xlabel="2";fontcolor="magenta";label=" "];
-    c -> s [color=magenta;label="2";fontcolor="magenta"];
-    d -> c [color=magenta;label="2";fontcolor="magenta"];
-    t -> d [color=magenta;label="  1";fontcolor="magenta"];
-    a -> c [color=magenta;xlabel="  1";fontcolor="magenta",label=" ";style=dashed];
-    c -> b [color=magenta;label="1";fontcolor="magenta";style=dashed];
-    b -> d [color=magenta;label="2";fontcolor="magenta"];
-    d -> b [color=magenta;label="1";fontcolor="magenta"];
-}
+```{python}
+#| output: asis
+flow_graph(2,True)
 ```
 :::
 </td></tr></table>
@@ -829,82 +540,16 @@ Consider the minimum-weight edge  along the path: we can increase the flow by $w
 
 </td></tr><tr><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph7 {
-    // the layout when the edge labels are of the form "x/y"
-    // residual flow graph; on slide 24 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>;color=magenta;style=dashed];
-    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>;color=magenta;style=dashed];
-    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(2,False,1)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph6 {
-    // the layout when the edge labels are a single character or digit
-    // residual flow graph with some dashed edges: on slide 23&24&25 of day20.pptx; also slide(s) 25, 26, 27
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="2";style=dashed];
-    a -> b [label="";style=invis];
-    b -> t [label=<<br/>1>;style=dashed];
-    s -> c [label="";style=invis];
-    c -> d [label="1"];
-    d -> t [label="1"];
-    c -> s [xlabel="1",label=" "];
-    c -> a [label="2"];
-    b -> c [label="1";style=invis];
-    d -> b [label="1 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>1</td></tr></table>>];
-    a -> s [color=magenta;label="  1";fontcolor="magenta"];
-    b -> a [color=magenta;label="2";fontcolor="magenta"];
-    t -> b [color=magenta;xlabel="2";fontcolor="magenta";label=" "];
-    c -> s [color=magenta;label="2";fontcolor="magenta"];
-    d -> c [color=magenta;label="2";fontcolor="magenta"];
-    t -> d [color=magenta;label="  1";fontcolor="magenta"];
-    a -> c [color=magenta;xlabel="  1";fontcolor="magenta",label=" ";style=dashed];
-    c -> b [color=magenta;label="1";fontcolor="magenta";style=dashed];
-    b -> d [color=magenta;label="2";fontcolor="magenta"];
-    d -> b [color=magenta;label="1";fontcolor="magenta"];
-}
+```{python}
+#| output: asis
+flow_graph(2,True,1)
 ```
 :::
 </td></tr></table>
@@ -930,82 +575,16 @@ Consider the minimum-weight edge  along the path: we can increase the flow by $w
 </td></tr><tr><td class="compact">
 
 ::: {.svg-100}
-```{dot}
-digraph graph8 {
-    // the layout when the edge labels are of the form "x/y"
-    // updated residual flow graph; on slide 25 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">3</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>;color=magenta;style=dashed];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>;color=magenta;style=dashed];
-    d -> b [label=<<font color="red">2</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(3,False,1)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph6 {
-    // the layout when the edge labels are a single character or digit
-    // residual flow graph with some dashed edges: on slide 23&24&25 of day20.pptx; also slide(s) 25, 26, 27
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="2";style=dashed];
-    a -> b [label="";style=invis];
-    b -> t [label=<<br/>1>;style=dashed];
-    s -> c [label="";style=invis];
-    c -> d [label="1"];
-    d -> t [label="1"];
-    c -> s [xlabel="1",label=" "];
-    c -> a [label="2"];
-    b -> c [label="1";style=invis];
-    d -> b [label="1 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>1</td></tr></table>>];
-    a -> s [color=magenta;label="  1";fontcolor="magenta"];
-    b -> a [color=magenta;label="2";fontcolor="magenta"];
-    t -> b [color=magenta;xlabel="2";fontcolor="magenta";label=" "];
-    c -> s [color=magenta;label="2";fontcolor="magenta"];
-    d -> c [color=magenta;label="2";fontcolor="magenta"];
-    t -> d [color=magenta;label="  1";fontcolor="magenta"];
-    a -> c [color=magenta;xlabel="  1";fontcolor="magenta",label=" ";style=dashed];
-    c -> b [color=magenta;label="1";fontcolor="magenta";style=dashed];
-    b -> d [color=magenta;label="2";fontcolor="magenta"];
-    d -> b [color=magenta;label="1";fontcolor="magenta"];
-}
+```{python}
+#| output: asis
+flow_graph(3,True)
 ```
 :::
 </td></tr></table>
@@ -1048,74 +627,19 @@ digraph graph6 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph9 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: on slide 29&30 of day20.pptx; also slide(s): 30
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">0</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">0</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(4)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph10 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson residual graph: on slide 29 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="3"];
-    a -> b [label="2"];
-    b -> t [label=<<br/>3>];
-    s -> c [label="2"];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(4,True)
 ```
 :::
+
 </td></tr>
 <tr><td class="font-90">
 <span class="bold">Initially:</span> ${\color{red}f(e)}=0$ for all $e \in E$
@@ -1136,74 +660,19 @@ digraph graph10 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph9 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: on slide 29&30 of day20.pptx; also slide(s): 30
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">0</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">0</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(4)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph11 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson residual graph with dashed lines: on slide 30&31 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="3";style=dashed];
-    a -> b [label="2";style=dashed];
-    b -> t [label=<<br/>3>];
-    s -> c [label="2"];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>;style=dashed];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>;style=dashed];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1";style=dashed];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(4,True,2)
 ```
 :::
+
 </td></tr>
 <tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 </td></tr></table>
@@ -1221,72 +690,16 @@ digraph graph11 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph12 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: on slide 31 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
-    a -> b [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>;color=orange;style=dashed];
-    b -> t [label=<<br/><font color="red">0</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>;color=orange;style=dashed];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>;color=orange;style=dashed];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>;color=orange;style=dashed];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(5,False,2)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph11 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson residual graph with dashed lines: on slide 30&31 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="3";style=dashed];
-    a -> b [label="2";style=dashed];
-    b -> t [label=<<br/>3>];
-    s -> c [label="2"];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>;style=dashed];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>;style=dashed];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1";style=dashed];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(4,True,2)
 ```
 :::
 </td></tr>
@@ -1306,77 +719,16 @@ digraph graph11 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph13 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: updated after flow; on slide 32&33 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">0</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(5)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph14 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson residual graph with magenta back-flows: on slide 32 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="2"];
-    a -> b [label="1"];
-    b -> t [label=<<br/>3>];
-    s -> c [label="2"];
-    c -> d [label="2"];
-    d -> t [headlabel=<1   >];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="";style=invis];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  1";fontcolor=magenta];
-    b -> a [color=magenta;label="1";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta];
-    d -> c [color=magenta;label="1";fontcolor=magenta];
-    t -> d [color=magenta;label="    1";fontcolor=magenta];
-}
+```{python}
+#| output: asis
+flow_graph(5,True)
 ```
 :::
 </td></tr>
@@ -1398,77 +750,16 @@ digraph graph14 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph13 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: updated after flow; on slide 32&33 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">1</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">0</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(5)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph15 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson residual graph with magenta back-flows: on slide 33&34 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="2";style=dashed];
-    a -> b [label="1";style=dashed];
-    b -> t [label=<<br/>3>;style=dashed];
-    s -> c [label="2"];
-    c -> d [label="2"];
-    d -> t [headlabel=<1   >];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="";style=invis];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  1";fontcolor=magenta];
-    b -> a [color=magenta;label="1";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta];
-    d -> c [color=magenta;label="1";fontcolor=magenta];
-    t -> d [color=magenta;label="    1";fontcolor=magenta];
-}
+```{python}
+#| output: asis
+flow_graph(5,True,3)
 ```
 :::
 </td></tr>
@@ -1488,77 +779,16 @@ digraph graph15 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph16 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: updated after flow; on slide 32 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>;color=orange;style=dashed];
-    b -> t [label=<<br/><font color="red">1</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
-    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(6,False,3)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph15 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson residual graph with magenta back-flows: on slide 33&34 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="2";style=dashed];
-    a -> b [label="1";style=dashed];
-    b -> t [label=<<br/>3>;style=dashed];
-    s -> c [label="2"];
-    c -> d [label="2"];
-    d -> t [headlabel=<1   >];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="";style=invis];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  1";fontcolor=magenta];
-    b -> a [color=magenta;label="1";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta];
-    d -> c [color=magenta;label="1";fontcolor=magenta];
-    t -> d [color=magenta;label="    1";fontcolor=magenta];
-}
+```{python}
+#| output: asis
+flow_graph(5,True,3)
 ```
 :::
 </td></tr>
@@ -1578,78 +808,16 @@ digraph graph15 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph17 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: updated after second flow; on slides 35&36 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">1</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(6)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph18 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson second residual graph with magenta back-flows: on slide 35 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="1"];
-    a -> b [label="1";style=invis];
-    b -> t [label=<<br/>2>];
-    s -> c [label="2"];
-    c -> d [label="2"];
-    d -> t [headlabel=<1   >];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="";style=invis];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  2";fontcolor=magenta];
-    b -> a [color=magenta;label="2";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta];
-    d -> c [color=magenta;label="1";fontcolor=magenta];
-    t -> d [color=magenta;label="    1";fontcolor=magenta];
-    t -> b [color=magenta;label="1";fontcolor=magenta];
-}
+```{python}
+#| output: asis
+flow_graph(6,True)
 ```
 :::
 </td></tr>
@@ -1671,78 +839,16 @@ digraph graph18 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph17 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: updated after second flow; on slides 35&36 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">1</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">0</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">1</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(6)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph20 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson second residual graph with magenta back-flows: on slide 36&37 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="1"];
-    a -> b [label="1";style=invis];
-    b -> t [label=<<br/>2>;style=dashed];
-    s -> c [label="2";style=dashed];
-    c -> d [label="2"];
-    d -> t [label=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="";style=invis];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  2";fontcolor=magenta];
-    b -> a [color=magenta;label="2";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta;style=dashed];
-    d -> c [color=magenta;label="1";fontcolor=magenta];
-    t -> d [color=magenta;label="  1";fontcolor=magenta];
-    t -> b [color=magenta;label="1";fontcolor=magenta];
-}
+```{python}
+#| output: asis
+flow_graph(6,True,4)
 ```
 :::
 </td></tr>
@@ -1762,78 +868,16 @@ digraph graph20 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph19 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: third flow; on slides 36&37 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>;color=orange;style=dashed];
-    s -> c [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>;color=orange;style=dashed];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>;color=magenta;style=dashed];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(7,False,4)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph20 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson second residual graph with magenta back-flows: on slide 36&37 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="1"];
-    a -> b [label="1";style=invis];
-    b -> t [label=<<br/>2>;style=dashed];
-    s -> c [label="2";style=dashed];
-    c -> d [label="2"];
-    d -> t [label=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="";style=invis];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  2";fontcolor=magenta];
-    b -> a [color=magenta;label="2";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta;style=dashed];
-    d -> c [color=magenta;label="1";fontcolor=magenta];
-    t -> d [color=magenta;label="  1";fontcolor=magenta];
-    t -> b [color=magenta;label="1";fontcolor=magenta];
-}
+```{python}
+#| output: asis
+flow_graph(6,True,4)
 ```
 :::
 </td></tr>
@@ -1853,79 +897,16 @@ digraph graph20 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph21 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: after third flow; on slides 38&39 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(7)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph22 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson third residual graph with magenta back-flows: on slide 38 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="1"];
-    a -> b [label="1";style=invis];
-    b -> t [label=<<br/>1>];
-    s -> c [label="1"];
-    c -> d [label="2"];
-    d -> t [label=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  2";fontcolor=magenta];
-    b -> a [color=magenta;label="2";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
-    d -> c [color=magenta;label="1";fontcolor=magenta];
-    t -> d [color=magenta;label="  1";fontcolor=magenta];
-    t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [color=magenta;label="1";fontcolor=magenta];
-}
+```{python}
+#| output: asis
+flow_graph(7,True)
 ```
 :::
 </td></tr>
@@ -1947,79 +928,16 @@ digraph graph22 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph21 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: after third flow; on slides 38&39 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">1</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">1</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">1</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(7)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph23 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson third residual graph with magenta back-flows: on slides 39&40 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="1"];
-    a -> b [label="1";style=invis];
-    b -> t [label=<<br/>1>];
-    s -> c [label="1";style=dashed];
-    c -> d [label="2";style=dashed];
-    d -> t [label=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>;style=dashed];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  2";fontcolor=magenta];
-    b -> a [color=magenta;label="2";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
-    d -> c [color=magenta;label="1";fontcolor=magenta];
-    t -> d [color=magenta;label="  1";fontcolor=magenta];
-    t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [color=magenta;label="1";fontcolor=magenta];
-}
+```{python}
+#| output: asis
+flow_graph(7,True,5)
 ```
 :::
 </td></tr>
@@ -2039,79 +957,16 @@ digraph graph23 {
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph24 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: after third flow; on slides 40 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>;color=orange;style=dashed];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>;color=orange;style=dashed];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>;color=orange;style=dashed];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(8,False,5)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph23 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson third residual graph with magenta back-flows: on slides 39&40 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="1"];
-    a -> b [label="1";style=invis];
-    b -> t [label=<<br/>1>];
-    s -> c [label="1";style=dashed];
-    c -> d [label="2";style=dashed];
-    d -> t [label=<<table border="0"><tr><td>&nbsp;</td><td>1</td></tr></table>>;style=dashed];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  2";fontcolor=magenta];
-    b -> a [color=magenta;label="2";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
-    d -> c [color=magenta;label="1";fontcolor=magenta];
-    t -> d [color=magenta;label="  1";fontcolor=magenta];
-    t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [color=magenta;label="1";fontcolor=magenta];
-}
+```{python}
+#| output: asis
+flow_graph(7,True,5)
 ```
 :::
 </td></tr>
@@ -2133,77 +988,16 @@ No more augmenting paths
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph25 {
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(8)
 ```
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph23 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="1"];
-    a -> b [label="1";style=invis];
-    b -> t [label=<<br/>1>];
-    s -> c [label="2";fontcolor=magenta;dir=back;color=magenta];
-    c -> d [label="1"];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  2";fontcolor=magenta];
-    b -> a [color=magenta;label="2";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
-    d -> c [color=magenta;label="2";fontcolor=magenta];
-    t -> d [color=magenta;label="  2";fontcolor=magenta];
-    t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [label="1"];
-}
+```{python}
+#| output: asis
+flow_graph(8,True)
 ```
 :::
 </td></tr>
@@ -4049,9 +2843,7 @@ digraph graph25 {
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 ```{python}
-#| echo: false
 #| output: asis
-from reductions import *
 # flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
 bipartite_graph(8.53,9.64,0,False)
 ```
@@ -4066,9 +2858,7 @@ bipartite_graph(8.53,9.64,0,False)
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 ```{python}
-#| echo: false
 #| output: asis
-from reductions import *
 # flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
 bipartite_graph(8.53,9.64,1,False)
 ```
@@ -4083,9 +2873,7 @@ bipartite_graph(8.53,9.64,1,False)
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 ```{python}
-#| echo: false
 #| output: asis
-from reductions import *
 # flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
 bipartite_graph(8.53,9.64,2,False)
 ```
@@ -4100,9 +2888,7 @@ bipartite_graph(8.53,9.64,2,False)
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 ```{python}
-#| echo: false
 #| output: asis
-from reductions import *
 # flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
 bipartite_graph(8.53,9.64,3,False)
 ```
@@ -4127,9 +2913,7 @@ bipartite_graph(8.53,9.64,3,False)
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 ```{python}
-#| echo: false
 #| output: asis
-from reductions import *
 # flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
 bipartite_graph(8.53,9.64,0,False)
 ```
@@ -4148,9 +2932,7 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
 ```{python}
-#| echo: false
 #| output: asis
-from reductions import *
 # flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
 bipartite_graph(13.69,9.69,0,True)
 ```
@@ -4180,9 +2962,7 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
 ```{python}
-#| echo: false
 #| output: asis
-from reductions import *
 # flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
 bipartite_graph(13.69,9.69,3,True)
 ```
@@ -4377,9 +3157,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 <table class="bipartite" style="width:60%"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 ```{python}
-#| echo: false
 #| output: asis
-from reductions import *
 # flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
 bipartite_graph(8.53,9.64,0,False)
 ```
@@ -4395,9 +3173,7 @@ bipartite_graph(8.53,9.64,0,False)
 <table class="bipartite" style="width:60%"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 ```{python}
-#| echo: false
 #| output: asis
-from reductions import *
 # flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
 bipartite_graph(8.53,9.64,3,False)
 ```
@@ -4421,9 +3197,7 @@ bipartite_graph(8.53,9.64,3,False)
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
 ```{python}
-#| echo: false
 #| output: asis
-from reductions import *
 # flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
 bipartite_graph(13.69,9.69,0,True)
 ```
@@ -4439,9 +3213,7 @@ bipartite_graph(13.69,9.69,0,True)
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
 ```{python}
-#| echo: false
 #| output: asis
-from reductions import *
 # flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
 bipartite_graph(13.69,9.69,3,True)
 ```

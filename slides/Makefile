@@ -14,3 +14,7 @@ clean:
 all:
 	touch *.qmd
 	make $(SLIDE_SETS)
+
+graphtest:
+	pdflatex graph.tex > /dev/null
+	pdf2svg graph.pdf graph.html
