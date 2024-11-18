@@ -1,4 +1,4 @@
-import re, graphviz, os
+import re, graphviz, os, sys
 
 """
 Installation (in a venv):
@@ -20,14 +20,55 @@ pip install graphviz jupyter
 
 """
 
+"""
+
+To call this directly from the *.qmd file, put the following at the top:
+
+```{python}
+from reductions import *
+reset_graph_num()
+```
+
+
+Then include code such as:
+
+```{python}
+#| output: asis
+flow_graph(1)
+```
+
+This has to print() (not return) the SVG or HTML code
+"""
+
+
 graph_num = 0
 cache_dir = ".graph-cache"
+output_to_file = True
+
+
+def xprint(str,filename):
+    global output_to_file
+    if output_to_file:
+        with open(f"graphs/reductions/{filename}.svg","w") as f:
+            print(str,file=f)
+    else:
+        print(str)
+
+def param_join(l):
+    if l == []:
+        return ""
+    l2 = [str(x) for x in l]
+    return "-" + "-".join(l2)
 
 def reset_graph_num():
     global graph_num
     graph_num = 0
 
 def check_if_in_cache(graph_num,file):
+    return False
+
+    # this was used when it was generating the images for each quarto preview run, 
+    # but is not needed now that they are generated separately
     os.system(f"mkdir -p {cache_dir}")
     source_name = f"{cache_dir}/graph-{graph_num}"
     svg_name = source_name + ".svg"
@@ -47,6 +88,10 @@ def check_if_in_cache(graph_num,file):
             return False
 
 def register_in_cache(graph_num,source,svg):
+    return
+
+    # this was used when it was generating the images for each quarto preview run, 
+    # but is not needed now that they are generated separately
     with open(f"{cache_dir}/graph-{graph_num}","w") as f:
         f.write(source)
     with open(f"{cache_dir}/graph-{graph_num}.svg","w") as f:
@@ -163,8 +208,10 @@ bipartite_image_table_body = """
 <tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
 """
 
-def bipartite_graph(w,h,coloring,flow_graph):
+def bipartite_graph(w,h,coloring):
     global graph_num
+    output_filename = "bipartite_graph" + param_join([w,h,coloring])
+
     # if width & height are given in inches, conver it to pixels (96 dpi)
     if w < 20:
         w *= 96
@@ -181,11 +228,7 @@ def bipartite_graph(w,h,coloring,flow_graph):
         register_in_cache(graph_num,dot_source,html)
     html = re.sub(r'<svg width="[0-9]+pt" height="[0-9]+pt"', f'<svg width="{w}" height="{h}"', html)
     where = html.find("<svg ")
-    if flow_graph:
-        table_header = "<table style=\"width:55% !important;margin-bottom:15px !important;margin-left:112px\">"
-    else:
-        table_header = "<table style=\"margin-top:75px !important\">"
-    print(div_header(w,h) + html[where:] + div_footer + table_header + bipartite_image_table_body + "</table>")
+    xprint(html[where:], output_filename)
     graph_num += 1
 
 
@@ -371,6 +414,16 @@ all_highlights = [
 
 def flow_graph(label_set,residual=False,highlight_set=0,revresidual=True):
     global graph_num
+
+    params = [label_set, residual, highlight_set, revresidual]
+    if revresidual:
+        params.pop()
+        if highlight_set == 0:
+            params.pop()
+            if not residual:
+                params.pop()
+    output_filename = "flow_graph" + param_join(params)
+
     w,h = 960,480
     # parameters:
     # flow graph (if so, color edges orange; if not, color edges black)
@@ -426,10 +479,10 @@ def flow_graph(label_set,residual=False,highlight_set=0,revresidual=True):
            svg = f.read()
         where = svg.find("<svg\n")
         register_in_cache(graph_num,tex_file,svg[where:])
-        print(svg[where:])
+        xprint(svg[where:],output_filename)
         pass
     else:
-        print(cached)
+        xprint(cached,output_filename)
         pass
     graph_num += 1
 
@@ -498,6 +551,16 @@ def edge_disjoint_graph_tikz(color_set,label_set,color_e_red):
 
 def edge_disjoint_graph(color_set=0,label_set=0,color_e_red=False):
     global graph_num
+    
+    params = [color_set, label_set, color_e_red]
+    if not color_e_red:
+        params.pop()
+        if label_set == 0:
+            params.pop()
+            if color_set == 0:
+                params.pop()
+    output_filename = "edge_disjoint_graph" + param_join(params)
+    
     tex_file = tex_header + edge_disjoint_graph_tikz(color_set,label_set,color_e_red) + "\n\\end{document}"
 
     cached = check_if_in_cache(graph_num,tex_file)
@@ -510,9 +573,9 @@ def edge_disjoint_graph(color_set=0,label_set=0,color_e_red=False):
            svg = f.read()
         where = svg.find("<svg\n")
         register_in_cache(graph_num,tex_file,svg[where:])
-        print(div_header() + svg[where:] + div_footer)
+        xprint(svg[where:], output_filename)
     else:
-        print(div_header() + cached + div_footer)
+        xprint(cached, output_filename)
     graph_num += 1
 
 
@@ -522,14 +585,57 @@ def edge_disjoint_graph(color_set=0,label_set=0,color_e_red=False):
 
 if __name__ == "__main__":
     graph_num = 0
-    #bipartite_graph(13.69,9.69,0,True)
-    #flow_graph(1)
-    #flow_graph(2)
-    #flow_graph(2,True,0,False)
-    #flow_graph(1)
-    #flow_graph(2,True,1)
-    #flow_graph(3,True)
-    flow_graph(1)
-    #flow_graph(0,True)
-    #flow_graph(7,False,4)
-    #edge_disjoint_graph(3)
+    if len(sys.argv) == 2 and sys.argv[1] == "debug":
+        output_to_file = False
+        #bipartite_graph(13.69,9.69,0,True)
+        #flow_graph(1)
+        #flow_graph(2)
+        #flow_graph(2,True,0,False)
+        #flow_graph(1)
+        #flow_graph(2,True,1)
+        #flow_graph(3,True)
+        flow_graph(1)
+        #flow_graph(0,True)
+        #flow_graph(7,False,4)
+        #edge_disjoint_graph(3)
+    else:
+        os.system("mkdir -p graphs/reductions")
+        bipartite_graph(13.69,9.69,0)
+        bipartite_graph(13.69,9.69,3)
+        bipartite_graph(8.53,9.64,0)
+        bipartite_graph(8.53,9.64,1)
+        bipartite_graph(8.53,9.64,2)
+        bipartite_graph(8.53,9.64,3)
+        edge_disjoint_graph()
+        edge_disjoint_graph(0,1)
+        edge_disjoint_graph(1)
+        edge_disjoint_graph(1,0,True)
+        edge_disjoint_graph(2)
+        edge_disjoint_graph(2,1)
+        flow_graph(1)
+        flow_graph(2)
+        flow_graph(2,False,1)
+        flow_graph(2,True)
+        flow_graph(2,True,1)
+        flow_graph(2,True,0,False)
+        flow_graph(3)
+        flow_graph(3,False,1)
+        flow_graph(3,True)
+        flow_graph(4)
+        flow_graph(4,True)
+        flow_graph(4,True,2)
+        flow_graph(5)
+        flow_graph(5,False,2)
+        flow_graph(5,True)
+        flow_graph(5,True,3)
+        flow_graph(6)
+        flow_graph(6,False,3)
+        flow_graph(6,True)
+        flow_graph(6,True,4)
+        flow_graph(7)
+        flow_graph(7,False,4)
+        flow_graph(7,True)
+        flow_graph(7,True,5)
+        flow_graph(8)
+        flow_graph(8,False,5)
+        flow_graph(8,True)

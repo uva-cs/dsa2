@@ -2,11 +2,6 @@
 title: "Reductions"
 ---
 
-```{python}
-from reductions import *
-reset_graph_num()
-```
-
 # Network Flow <!-- from day20.pptx -->
 
 ::: {.titlereading}
@@ -39,10 +34,9 @@ Readings in CLRS 4th edition: chapter 24
 
 </td><td class="svg-table-right compact">
 
-```{python}
-#| output: asis
-flow_graph(1)
-```
+::: {.svg-100}
+<img src="graphs/reductions/flow_graph-1.svg">
+:::
 
 </td></tr></table>
 
@@ -54,10 +48,7 @@ flow_graph(1)
 
 ::: {.svg-50-right-flow-graph}
 
-```{python}
-#| output: asis
-flow_graph(2)
-```
+<img src="graphs/reductions/flow_graph-2.svg">
 
 <p class="font-75 center"><span class='red'>flow</span> / <span class='green'>capacity</span></p>
 
@@ -91,18 +82,12 @@ $$|f|=\text{outflow}({\color{purple}s})-\text{inflow}({\color{purple}s})$$
 
 <table class="width-100"><tr><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(1)
-```
+<img src="graphs/reductions/flow_graph-1.svg">
 :::
 </td><td class="compact">
 ::: {.fragment}
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(3)
-```
+<img src="graphs/reductions/flow_graph-3.svg">
 :::
 :::
 </td></tr></table>
@@ -262,10 +247,7 @@ Given a flow $f$ in graph $G$, the residual graph $G_{\color{red}f}$ models <spa
 </td></tr><tr><td class="compact">
 
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(2)
-```
+<img src="graphs/reductions/flow_graph-2.svg">
 :::
 
 <p class='svgcaption center'>Flow $\color{red}f$ in $G$</p>
@@ -273,10 +255,7 @@ flow_graph(2)
 </td><td class="compact">
 ::: {.fragment}
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(2,True,False)
-```
+<img src="graphs/reductions/flow_graph-2-True.svg">
 :::
 
 <p class='svgcaption center'>Residual graph $G_{\color{red}f}$</p>
@@ -304,20 +283,14 @@ Given a flow $f$ in graph $G$, the residual graph $G_{\color{red}f}$ models <spa
 </td></tr><tr><td class="compact">
 
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(2)
-```
+<img src="graphs/reductions/flow_graph-2.svg">
 :::
 
 <p class='svgcaption center'>Flow $\color{red}f$ in $G$</p>
 
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(2,True)
-```
+<img src="graphs/reductions/flow_graph-2-True.svg">
 :::
 
 <p class='svgcaption center'>Residual graph $G_{\color{red}f}$</p>
@@ -505,17 +478,11 @@ Consider the minimum-weight edge  along the path: we can increase the flow by $w
 
 </td></tr><tr><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(2)
-```
+<img src="graphs/reductions/flow_graph-2.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(2,True)
-```
+<img src="graphs/reductions/flow_graph-2-True.svg">
 :::
 </td></tr></table>
 
@@ -540,17 +507,11 @@ Consider the minimum-weight edge  along the path: we can increase the flow by $w
 
 </td></tr><tr><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(2,False,1)
-```
+<img src="graphs/reductions/flow_graph-2-False-1.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(2,True,1)
-```
+<img src="graphs/reductions/flow_graph-2-True-1.svg">
 :::
 </td></tr></table>
 
@@ -575,17 +536,11 @@ Consider the minimum-weight edge  along the path: we can increase the flow by $w
 </td></tr><tr><td class="compact">
 
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(3,False,1)
-```
+<img src="graphs/reductions/flow_graph-3-False-1.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(3,True)
-```
+<img src="graphs/reductions/flow_graph-3-True.svg">
 :::
 </td></tr></table>
 
@@ -627,17 +582,11 @@ flow_graph(3,True)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(4)
-```
+<img src="graphs/reductions/flow_graph-4.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(4,True)
-```
+<img src="graphs/reductions/flow_graph-4-True.svg">
 :::
 
 </td></tr>
@@ -660,17 +609,11 @@ flow_graph(4,True)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(4)
-```
+<img src="graphs/reductions/flow_graph-4.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(4,True,2)
-```
+<img src="graphs/reductions/flow_graph-4-True-2.svg">
 :::
 
 </td></tr>
@@ -690,17 +633,11 @@ flow_graph(4,True,2)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(5,False,2)
-```
+<img src="graphs/reductions/flow_graph-5-False-2.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(4,True,2)
-```
+<img src="graphs/reductions/flow_graph-4-True-2.svg">
 :::
 </td></tr>
 <tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
@@ -719,17 +656,11 @@ flow_graph(4,True,2)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(5)
-```
+<img src="graphs/reductions/flow_graph-5.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(5,True)
-```
+<img src="graphs/reductions/flow_graph-5-True.svg">
 :::
 </td></tr>
 <tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
@@ -750,17 +681,11 @@ flow_graph(5,True)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(5)
-```
+<img src="graphs/reductions/flow_graph-5.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(5,True,3)
-```
+<img src="graphs/reductions/flow_graph-5-True-3.svg">
 :::
 </td></tr>
 <tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
@@ -779,17 +704,11 @@ flow_graph(5,True,3)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(6,False,3)
-```
+<img src="graphs/reductions/flow_graph-6-False-3.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(5,True,3)
-```
+<img src="graphs/reductions/flow_graph-5-True-3.svg">
 :::
 </td></tr>
 <tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
@@ -808,17 +727,11 @@ flow_graph(5,True,3)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(6)
-```
+<img src="graphs/reductions/flow_graph-6.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(6,True)
-```
+<img src="graphs/reductions/flow_graph-6-True.svg">
 :::
 </td></tr>
 <tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
@@ -839,17 +752,11 @@ flow_graph(6,True)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(6)
-```
+<img src="graphs/reductions/flow_graph-6.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(6,True,4)
-```
+<img src="graphs/reductions/flow_graph-6-True-4.svg">
 :::
 </td></tr>
 <tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
@@ -868,17 +775,11 @@ flow_graph(6,True,4)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(7,False,4)
-```
+<img src="graphs/reductions/flow_graph-7-False-4.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(6,True,4)
-```
+<img src="graphs/reductions/flow_graph-6-True-4.svg">
 :::
 </td></tr>
 <tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
@@ -897,17 +798,11 @@ flow_graph(6,True,4)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(7)
-```
+<img src="graphs/reductions/flow_graph-7.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(7,True)
-```
+<img src="graphs/reductions/flow_graph-7-True.svg">
 :::
 </td></tr>
 <tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
@@ -928,17 +823,11 @@ flow_graph(7,True)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(7)
-```
+<img src="graphs/reductions/flow_graph-7.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(7,True,5)
-```
+<img src="graphs/reductions/flow_graph-7-True-5.svg">
 :::
 </td></tr>
 <tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
@@ -957,17 +846,11 @@ flow_graph(7,True,5)
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(8,False,5)
-```
+<img src="graphs/reductions/flow_graph-8-False-5.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(7,True,5)
-```
+<img src="graphs/reductions/flow_graph-7-True-5.svg">
 :::
 </td></tr>
 <tr><td></td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
@@ -988,17 +871,11 @@ No more augmenting paths
 </td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(8)
-```
+<img src="graphs/reductions/flow_graph-8.svg">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(8,True)
-```
+<img src="graphs/reductions/flow_graph-8-True.svg">
 :::
 </td></tr>
 <tr><td>
@@ -2489,10 +2366,7 @@ Readings in CLRS 4th edition: chapter 25
 Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{navy}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{navy}t}$ which share no edges
 
 ::: {.svg-100 .bottom style="width:75%;left:12.5%"}
-```{python}
-#| output: asis
-edge_disjoint_graph()
-```
+<img src="graphs/reductions/edge_disjoint_graph.svg">
 :::
 
 
@@ -2504,10 +2378,7 @@ Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node
 - Set of edge-disjoint paths of size 3:
 
 ::: {.svg-100 .bottom style="width:75%;left:12.5%"}
-```{python}
-#| output: asis
-edge_disjoint_graph(1)
-```
+<img src="graphs/reductions/edge_disjoint_graph-1.svg">
 :::
 
 
@@ -2530,10 +2401,7 @@ Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node
 </div>
 
 ::: {.svg-100 .bottom style="width:75%;left:12.5%"}
-```{python}
-#| output: asis
-edge_disjoint_graph(2)
-```
+<img src="graphs/reductions/edge_disjoint_graph-2.svg">
 :::
 
 
@@ -2548,10 +2416,7 @@ Make ${\color{purple}s}$ and ${\color{navy}t}$ the source and sink, give each ed
 :::
 
 ::: {.svg-100 .bottom style="width:75%;left:12.5%"}
-```{python}
-#| output: asis
-edge_disjoint_graph(2,1)
-```
+<img src="graphs/reductions/edge_disjoint_graph-2-1.svg">
 :::
 
 
@@ -2561,10 +2426,7 @@ edge_disjoint_graph(2,1)
 Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{navy}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{navy}t}$ which share no vertices
 
 ::: {.svg-100 .bottom style="width:75%;left:12.5%"}
-```{python}
-#| output: asis
-edge_disjoint_graph()
-```
+<img src="graphs/reductions/edge_disjoint_graph.svg">
 :::
 
 
@@ -2580,10 +2442,7 @@ Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node
 :::
 
 ::: {.svg-100 .bottom style="width:75%;left:12.5%"}
-```{python}
-#| output: asis
-edge_disjoint_graph(1)
-```
+<img src="graphs/reductions/edge_disjoint_graph-1.svg">
 :::
 
 
@@ -2606,10 +2465,7 @@ Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node
 </div>
 
 ::: {.svg-100 .bottom style="width:75%;left:12.5%"}
-```{python}
-#| output: asis
-edge_disjoint_graph(1,0,True)
-```
+<img src="graphs/reductions/edge_disjoint_graph-1-0-True.svg">
 :::
 
 
@@ -2631,10 +2487,7 @@ Compute <span class='bold'>Edge-Disjoint Paths</span> on new graph
 </div>
 
 ::: {.svg-100 .bottom style="width:75%;left:12.5%"}
-```{python}
-#| output: asis
-edge_disjoint_graph(1)
-```
+<img src="graphs/reductions/edge_disjoint_graph-1.svg">
 :::
 
 
@@ -2669,11 +2522,14 @@ digraph graph25 {
 ## Maximum Bipartite Matching
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-bipartite_graph(8.53,9.64,0,False)
-```
+<img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg">
+
+<table style="margin-top:75px !important">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
 :::
 </td></tr></table>
 
@@ -2684,11 +2540,14 @@ bipartite_graph(8.53,9.64,0,False)
 ## Maximum Bipartite Matching
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-bipartite_graph(8.53,9.64,1,False)
-```
+<img src="graphs/reductions/bipartite_graph-8.53-9.64-1.svg">
+
+<table style="margin-top:75px !important">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
 :::
 </td></tr></table>
 
@@ -2699,11 +2558,14 @@ bipartite_graph(8.53,9.64,1,False)
 ## Maximum Bipartite Matching
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-bipartite_graph(8.53,9.64,2,False)
-```
+<img src="graphs/reductions/bipartite_graph-8.53-9.64-2.svg">
+
+<table style="margin-top:75px !important">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
 :::
 </td></tr></table>
 
@@ -2714,11 +2576,14 @@ bipartite_graph(8.53,9.64,2,False)
 ## Maximum Bipartite Matching
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-bipartite_graph(8.53,9.64,3,False)
-```
+<img src="graphs/reductions/bipartite_graph-8.53-9.64-3.svg">
+
+<table style="margin-top:75px !important">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
 :::
 </td></tr></table>
 
@@ -2739,11 +2604,14 @@ bipartite_graph(8.53,9.64,3,False)
 
 <table class="bipartite"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-bipartite_graph(8.53,9.64,0,False)
-```
+<img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg">
+
+<table style="margin-top:75px !important">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
 :::
 
 </td><td style="vertical-align:middle">How could we solve this?</td></tr></table>
@@ -2758,11 +2626,14 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-bipartite_graph(13.69,9.69,0,True)
-```
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-0.svg">
+
+<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
 :::
 </td></tr></table>
 
@@ -2788,11 +2659,14 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-bipartite_graph(13.69,9.69,3,True)
-```
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-3.svg">
+
+<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
 :::
 </td></tr></table>
 
@@ -2983,11 +2857,14 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 ::: {.fragment fragment-index=1}
 <table class="bipartite" style="width:60%"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-bipartite_graph(8.53,9.64,0,False)
-```
+<img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg">
+
+<table style="margin-top:75px !important">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
 :::
 </td></tr></table>
 :::
@@ -2999,11 +2876,14 @@ bipartite_graph(8.53,9.64,0,False)
 ::: {.fragment fragment-index=7}
 <table class="bipartite" style="width:60%"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-bipartite_graph(8.53,9.64,3,False)
-```
+<img src="graphs/reductions/bipartite_graph-8.53-9.64-1.svg">
+
+<table style="margin-top:75px !important">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
 :::
 </td></tr></table>
 :::
@@ -3023,11 +2903,14 @@ bipartite_graph(8.53,9.64,3,False)
 ::: {.fragment fragment-index=3}
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-bipartite_graph(13.69,9.69,0,True)
-```
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-0.svg">
+
+<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
 :::
 </td></tr></table>
 :::
@@ -3039,11 +2922,14 @@ bipartite_graph(13.69,9.69,0,True)
 ::: {.fragment fragment-index=6}
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-bipartite_graph(13.69,9.69,3,True)
-```
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-3.svg">
+
+<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
 :::
 </td></tr></table>
 :::
@@ -3085,10 +2971,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
  <tr><td> 
 
 ::: {.svg-100 .fragment fragment-index=2}
-```{python}
-#| output: asis
-flow_graph(3)
-```
+<img src="graphs/reductions/flow_graph-3.svg">
 :::
 
 </td></tr>
@@ -3110,10 +2993,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 <tr><td>
 
 ::: {.svg-100 .fragment fragment-index=5}
-```{python}
-#| output: asis
-flow_graph(2,True,False)
-```
+<img src="graphs/reductions/flow_graph-2-True-0-False.svg">
 :::
 
 </td></tr>
@@ -3150,11 +3030,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 
 <table class="bipartite" style="width:60%;height:100%"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-edge_disjoint_graph()
-```
+<img src="graphs/reductions/edge_disjoint_graph.svg">
 :::
 </td></tr></table>
 
@@ -3169,11 +3045,7 @@ edge_disjoint_graph()
 
 <table class="bipartite" style="width:60%"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-edge_disjoint_graph(2)
-```
+<img src="graphs/reductions/edge_disjoint_graph-2.svg">
 :::
 </td></tr></table>
 
@@ -3192,11 +3064,7 @@ edge_disjoint_graph(2)
 
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-edge_disjoint_graph(0,1)
-```
+<img src="graphs/reductions/edge_disjoint_graph-0-1.svg">
 :::
 </td></tr></table>
 
@@ -3208,11 +3076,7 @@ edge_disjoint_graph(0,1)
 
 <table class="bipartite"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-```{python}
-#| output: asis
-# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
-edge_disjoint_graph(0,1)
-```
+<img src="graphs/reductions/edge_disjoint_graph-0-1.svg">
 :::
 </td></tr></table>
 
@@ -3254,10 +3118,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
  <tr><td> 
 
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(3)
-```
+<img src="graphs/reductions/flow_graph-3.svg">
 :::
 
 </td></tr>
@@ -3279,10 +3140,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 <tr><td>
 
 ::: {.svg-100}
-```{python}
-#| output: asis
-flow_graph(2,True,False)
-```
+<img src="graphs/reductions/flow_graph-2-True-0-False.svg">
 :::
 
 </td></tr>

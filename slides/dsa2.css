@@ -525,32 +525,32 @@ table.greenbox tr td {
 }
 
 /* graphs */
-div.svg-40 svg {
+div.svg-40 svg, div.svg-40 p img {
 	width:40%;
 	height:auto;
 }
-div.svg-50 svg {
+div.svg-50 svg, div.svg-50 p img {
 	width:50%;
 	height:auto;
 }
-div.svg-60 svg {
+div.svg-60 svg, div.svg-60 p img {
 	width:60%;
 	height:auto;
 }
-div.svg-70 svg {
+div.svg-70 svg, div.svg-70 p img {
 	width:70%;
 	height:auto;
 }
-div.svg-80 svg {
+div.svg-80 svg, div.svg-80 p img {
 	width:80%;
 	height:auto;
 }
-div.svg-50-right-flow-graph svg {
+div.svg-50-right-flow-graph {
 	/* this is for the network flow graphs that are not diamond-shaped (1/2) */
 	width:100%;
 	height:auto;
 }
-div.svg-50-right-flow-graph {
+div.svg-50-right-flow-graph, div.svg-50-right-flow-graph p img {
 	/* this is for the network flow graphs that are not diamond-shaped (2/2) */
 	width:50%;
 	float:right;
@@ -565,15 +565,15 @@ td.svg-table-right svg {
 }
 
 
-div.svg-40-right svg {
+div.svg-40-right svg, div.svg-40-right p img {
 	width:40%;
 	float:right;
 }
-div.svg-90 svg {
+div.svg-90 svg, div.svg-90 p img {
 	width:90%;
 	height:auto;
 }
-div.svg-100 svg {
+div.svg-100 svg, div.svg-100 p img {
 	width:100%;
 	height:auto;
 }
