@@ -31,7 +31,7 @@ def check_if_in_cache(graph_num,file):
     os.system(f"mkdir -p {cache_dir}")
     source_name = f"{cache_dir}/graph-{graph_num}"
     svg_name = source_name + ".svg"
-    if not os.path.exists(source_name):
+    if not os.path.exists(cache_dir) or not os.path.exists(source_name):
         return False
     else:
         with open(source_name) as f:
@@ -421,7 +421,7 @@ def flow_graph(label_set,residual=False,highlight_set=0,revresidual=True):
         with open("reductions.tmp.tex","w") as f:
             f.write(tex_file)
         os.system ("pdflatex reductions.tmp.tex > /dev/null")
-        os.system ("inkscape reductions.tmp.pdf -n 1 --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
+        os.system ("inkscape reductions.tmp.pdf --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
         with open("reductions.tmp.svg","r") as f:
            svg = f.read()
         where = svg.find("<svg\n")
@@ -505,7 +505,7 @@ def edge_disjoint_graph(color_set=0,label_set=0,color_e_red=False):
         with open("reductions.tmp.tex","w") as f:
             f.write(tex_file)
         os.system ("pdflatex reductions.tmp.tex > /dev/null")
-        os.system ("inkscape reductions.tmp.pdf -n 1 --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
+        os.system ("inkscape reductions.tmp.pdf --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
         with open("reductions.tmp.svg","r") as f:
            svg = f.read()
         where = svg.find("<svg\n")
@@ -529,12 +529,7 @@ if __name__ == "__main__":
     #flow_graph(1)
     #flow_graph(2,True,1)
     #flow_graph(3,True)
+    flow_graph(1)
     #flow_graph(0,True)
     #flow_graph(7,False,4)
-    edge_disjoint_graph(3)
-
-
-
-
-
-
+    #edge_disjoint_graph(3)

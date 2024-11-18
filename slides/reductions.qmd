@@ -3082,43 +3082,12 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 
 <table class='compact'>
 <tr><td><span class="fragment" fragment-index=2>Max Flow</span></td></tr>
-<tr><td> 
+ <tr><td> 
 
 ::: {.svg-100 .fragment fragment-index=2}
-```{dot}
-// this duplicates the one in the maxflow column
-digraph graph25 {
-    //_background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
-    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
+```{python}
+#| output: asis
+flow_graph(3)
 ```
 :::
 
@@ -3141,50 +3110,9 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 <tr><td>
 
 ::: {.svg-100 .fragment fragment-index=5}
-```{dot}
-digraph graph23 {
-    //_background="c 7 -#ff00ff  C 7 -#DDA0DD  P 8  10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15";
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="1"];
-    a -> b [label="1";style=invis];
-    b -> t [label=<<br/>1>];
-    s -> c [label="2";fontcolor=magenta;dir=back;color=magenta];
-    c -> d [label="1"];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  2";fontcolor=magenta];
-    b -> a [color=magenta;label="2";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
-    d -> c [color=magenta;label="2";fontcolor=magenta];
-    t -> d [color=magenta;label="  2";fontcolor=magenta];
-    t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [label="1"];
-
-    d -> t [color=orange;label="0"];
-    a -> b [color=orange;label="0"];
-    c -> b [color=magenta;label="0";fontcolor=magenta];
-    d -> b [color=magenta;label="0";fontcolor=magenta];
-    b -> d [color=magenta;label="0";fontcolor=magenta];
-    a -> c [color=magenta;label="0";fontcolor=magenta];
-}
+```{python}
+#| output: asis
+flow_graph(2,True,False)
 ```
 :::
 
@@ -3197,7 +3125,173 @@ digraph graph23 {
 </table>
 
 
+   
 
+## Edge Disjoint Paths <span class='magenta'>Reduction</span>
+
+<table class='font-70 allcenter compact' style="vertical-align:top">
+
+<tr class='font-70'><td colspan=2 class="und"><span>Problem we don't know how to solve</span></td><td></td><td></td><td colspan=2 class="und"><span>Problem we do know how to solve</span></td></tr>
+
+<tr><td style="vertical-align:top;width:10%">
+::: {.svg-100 .no-svg-margins}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td>
+
+<td style="vertical-align:top;width:25%;padding-right:10px !important">
+<table class='compact allcenter'>
+<tr><td><span>Bipartite Matching</span></td></tr>
+<tr><td> 
+
+<table class="bipartite" style="width:60%;height:100%"><tr><td style="max-width:500px !important">
+::: {.r-stack style="height:100%"}
+```{python}
+#| output: asis
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+edge_disjoint_graph()
+```
+:::
+</td></tr></table>
+
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><span>Solution for $A$:</span></td></tr>
+<td style="vertical-align:top;text-align:center">
+
+<table class="bipartite" style="width:60%"><tr><td style="max-width:500px !important">
+::: {.r-stack style="height:100%"}
+```{python}
+#| output: asis
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+edge_disjoint_graph(2)
+```
+:::
+</td></tr></table>
+
+</td></tr></table>
+
+
+</td>
+
+<td colspan=2 style="vertical-align:top">
+
+::: {.r-stack}
+
+<table class="compact" style="width:100%;height:100%"><tr><td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">&nbsp;</td></tr></table>
+
+<table class="compact" style="z-index:1;opacity:0.5"><tr><td>
+
+<table class="bipartite"><tr><td style="vertical-align:middle">
+::: {.r-stack style="height:100%"}
+```{python}
+#| output: asis
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+edge_disjoint_graph(0,1)
+```
+:::
+</td></tr></table>
+
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td style="opacity:1;z-index:6">Reduction</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>
+
+<table class="bipartite"><tr><td style="vertical-align:middle">
+::: {.r-stack style="height:100%"}
+```{python}
+#| output: asis
+# flow graph is 13.69,9.69 in size, non-flow graph is 8.53,9.64 in size
+edge_disjoint_graph(0,1)
+```
+:::
+</td></tr></table>
+
+</td></tr></table>
+
+<div style="z-index:2">
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="Use edges with flow",fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+</div>
+
+:::
+
+</td>
+
+
+<td style="vertical-align:top;width:10%;padding-left:10px !important">
+::: {.svg-100 .no-svg-margins}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+</td>
+
+<td style="vertical-align:top;width:25%">
+
+<table class='compact'>
+<tr><td><span>Max Flow</span></td></tr>
+ <tr><td> 
+
+::: {.svg-100}
+```{python}
+#| output: asis
+flow_graph(3)
+```
+:::
+
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>
+::: {.r-stack}
+::: {.svg-60 .no-svg-margins style="transform:rotate(90deg)"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=24,height=1,color=red,width=1]; }
+```
+:::
+
+<p style="z-index:5">Ford-Fulkerson</p>
+
+:::
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><span>Solution for $B$:</span></td></tr>
+<tr><td>
+
+::: {.svg-100}
+```{python}
+#| output: asis
+flow_graph(2,True,False)
+```
+:::
+
+</td></tr>
+</table>
+
+</td>
+</tr>
+
+</table>
 
 
 
@@ -3334,11 +3428,351 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=
 
 
 
+
+## Worst-case lower-bound Proofs
+
+<table class='compact font-70 allcenter' style="width:100%">
+
+<tr><td style="vertical-align:top;width:20%">
+
+<table class='compact'>
+<tr><td> <p class='font-70 center'>Opening a door</p> </td></tr>
+<tr><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f6/Door-liftarn-Door-white-stroke.svg){.center style="width:50%"} </td></tr>
+</table>
+
+</td><td style="vertical-align:top;width:10%">
+
+<table class='compact'>
+<tr><td>
+::: {.svg-60 .no-svg-margins style="width:75%;margin:auto"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr>
+<tr><td>Problem $A$</td></tr>
+</table>
+
+</td><td style="vertical-align:top;width:40%">
+
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<reduces to>,fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+
+</td><td style="vertical-align:top;width:10%">
+
+<table class='compact'>
+<tr><td>
+::: {.svg-60 .no-svg-margins style="width:75%;margin:auto"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow]; }
+```
+:::
+</td></tr>
+<tr><td>Problem $B$</td></tr>
+</table>
+
+</td><td style="vertical-align:top;width:20%">
+
+<table class='compact'>
+<tr><td> <p class='font-70 center'>Lighting a fire</p> </td></tr>
+<tr><td> ![](http://www.clipartbest.com/cliparts/4T9/E9X/4T9E9XEjc.png){.center style="width:60%;height:25%;margin-top:-20px"} </td></tr>
+</table>
+
+</td></tr>
+
+<tr><td colspan=5>&nbsp;</td></tr>
+
+<tr><td style="vertical-align:top">
+
+<table class='compact'>
+<tr><td> <p class='font-70 center'>Alcohol, wood,<br>matches</p> </td></tr>
+<tr><td> 
+::: {.r-stack}
+![](https://clipground.com/images/wood-picture-clipart-5.jpg){style="width:40%"}
+
+![](https://clipground.com/images/whiskey-bottle-clip-art-15.png){style="width:20%;padding-left:90px"}
+
+![](https://clipart-library.com/8300/2368/matches-clipart-xl.png){style="width:30%;padding-left:140px"}
+:::
+</td></tr>
+</table>
+
+</td><td style="vertical-align:top">
+
+<table class='compact'>
+<tr><td>
+::: {.svg-60 .no-svg-margins style="width:75%;margin:auto"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow]; }
+```
+:::
+</td></tr>
+<tr><td>Algorithm for $B$</td></tr>
+</table>
+
+</td><td style="vertical-align:top">
+
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<can be used<br/>to make>,fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+
+</td><td style="vertical-align:top">
+
+<table class='compact'>
+<tr><td>
+::: {.svg-60 .no-svg-margins style="width:75%;margin:auto"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr>
+<tr><td>Algorithm for $A$</td></tr>
+</table>
+
+</td><td style="vertical-align:top">
+
+<table class='compact'>
+<tr><td> <p class='font-70 center'>Keg cannon<br>battering ram</p> </td></tr>
+<tr><td> 
+::: {.r-stack}
+<p style="margin:0;z-index:0"> ![](https://webstockreview.net/images/clipart-flames-svg-3.png){.center style="padding-bottom:80px;transform:rotate(180deg);width:30%;"} </p>
+<p style="margin:0;z-index:1"> ![](https://clipground.com/images/beer-keg-clipart-20.jpg){.center style="width:30%"} </p>
+:::
+</td></tr>
+</table>
+
+</td></tr>
+
+</table>
+
+<p class='bold center'>$A$ is not harder than problem $B$: $A \le B$</p>
+
+[The name "reduces" is confusing: it is in the <i>opposite</i> direction of the making]{.center .font-80}
+
+
+
+
+
+## Proof of Lower Bound by Reduction
+
+<table class='compact allcenter font-80'>
+<tr><td colspan='3'><p class='und center fragment' data-fragment-index=1>To show: $Y$ is slow</p></td></tr>
+
+<tr class="fragment" data-fragment-index=2><td style="width:15%">
+
+![](https://upload.wikimedia.org/wikipedia/commons/f/f6/Door-liftarn-Door-white-stroke.svg){.center style="width:50%"}
+
+</td><td style="width:15%">
+
+::: {.svg-60 .no-svg-margins style="width:50%;margin:auto"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+
+</td><td style="text-align:left">
+
+1. We know $X$ is slow (by a proof)
+<br> (e.g., $X =$ some way to open the door)
+
+</td></tr>
+
+<tr class="fragment" data-fragment-index=3><td>
+
+::: {.r-stack}
+![](https://clipground.com/images/wood-picture-clipart-5.jpg){style="width:40%"}
+
+![](https://clipground.com/images/whiskey-bottle-clip-art-15.png){style="width:20%;padding-left:65px"}
+
+![](https://clipart-library.com/8300/2368/matches-clipart-xl.png){style="width:30%;padding-left:100px"}
+:::
+
+</td><td>
+
+::: {.svg-60 .no-svg-margins style="width:50%;margin:auto"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=48,style=filled,fillcolor=yellow]; }
+```
+:::
+
+</td><td style="text-align:left">
+
+2. Assume $Y$ is quick [toward contradiction]<br>
+($Y =$ some way to light a fire)
+
+</td></tr>
+
+<tr><td>
+
+::: {.r-stack .fragment data-fragment-index=5}
+<p style="margin:0;z-index:0"> ![](https://webstockreview.net/images/clipart-flames-svg-3.png){.center style="padding-bottom:60px;transform:rotate(180deg);width:30%;"} </p>
+<p style="margin:0;z-index:1"> ![](https://clipground.com/images/beer-keg-clipart-20.jpg){.center style="width:30%"} </p>
+:::
+
+</td><td>
+
+::: {.r-stack}
+
+::: {.svg-60 .no-svg-margins .fragment data-fragment-index=6 style="width:50%;margin:auto;z-index:2"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+
+::: {.svg-60 .no-svg-margins .fragment data-fragment-index=4 style="width:50%;margin:auto;z-index:1"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=48,style=filled,fillcolor=yellow]; }
+```
+:::
+
+:::
+
+</td><td class="fragment" data-fragment-index=4 style="text-align:left">
+
+3. Show how to use $Y$ to perform $X$ quickly
+
+</td></tr>
+
+<tr><td></td><td>
+
+</td><td class="fragment" data-fragment-index='6' style="text-align:left">
+
+4. $X$ is slow, but $Y$ could be used to perform $X$ quickly<br>
+    <span class="fragment" data-fragment-index=7>conclusion: $Y$ must not actually be quick</span>
+
+</td></tr>
+
+</table>
+
+
+
+
+## Reduction Proof Notation
+
+<table class='compact font-70 allcenter' style="width:60%">
+
+<tr><td style="vertical-align:top;width:25%">
+
+<table class='compact'>
+<tr><td>
+::: {.svg-60 .no-svg-margins style="width:60%;margin:auto"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr>
+<tr><td style="font-size:80%">Problem $A$</td></tr>
+</table>
+
+</td><td style="vertical-align:top;width:50%">
+
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<<i>f(n)</i> reduces to>,fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+
+</td><td style="vertical-align:top;width:25%">
+
+<table class='compact'>
+<tr><td>
+::: {.svg-60 .no-svg-margins style="width:60%;margin:auto"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow]; }
+```
+:::
+</td></tr>
+<tr><td style="font-size:80%">Problem $B$</td></tr>
+</table>
+
+</td></tr>
+
+<tr><td style="vertical-align:top">
+
+<table class='compact'>
+<tr><td>
+::: {.svg-60 .no-svg-margins style="width:60%;margin:auto"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow]; }
+```
+:::
+</td></tr>
+<tr><td style="font-size:80%">Algorithm for $B$</td></tr>
+</table>
+
+</td><td style="vertical-align:top">
+
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<can be used to make>,fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+
+<p style="margin-top:-45px;text-align:center">With $O(f(n))$ overhead</p>
+
+</td><td style="vertical-align:top">
+
+<table class='compact'>
+<tr><td>
+::: {.svg-60 .no-svg-margins style="width:60%;margin:auto"}
+```{dot}
+//| fig-width: 2
+//| fig-height: 3
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr>
+<tr><td style="font-size:80%">Algorithm for $A$</td></tr>
+</table>
+
+</td></tr>
+
+</table>
+
+<p class='bold center font-90'>$A$ is not <span class='magenta'>harder</span> than problem $B$</p>
+
+<p class='bold center font-90'>$A \le B$</p>
+
+<p class='bold center font-90'>If $A$ <span class='magenta'>requires time $\Omega(f(n))$</span> time then $B$ <span class='magenta'>also requires time $\Omega(f(n))$</span></p>
+
+<p class='bold center font-90'>$A \le_{f(n)}B$</p>
+
+
+
+
 # NP-Completeness <!-- from day23.pptx -->
 
 ::: {.titlereading}
 Readings in CLRS 4th edition: chapter 34
 :::
+
 
 
 ## NP-Completeness
