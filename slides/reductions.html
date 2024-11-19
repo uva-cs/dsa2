@@ -353,6 +353,7 @@
 <li><a href="#/max-flow-min-cut" id="/toc-max-flow-min-cut">Max flow / Min cut <!-- from day21.pptx --></a></li>
 <li><a href="#/bipartite-matching" id="/toc-bipartite-matching">Bipartite Matching <!-- from day21.pptx --></a></li>
 <li><a href="#/reductions" id="/toc-reductions">Reductions <!-- from day22.pptx and day23.pptx --></a></li>
+<li><a href="#/working" id="/toc-working">working</a></li>
 <li><a href="#/np-completeness" id="/toc-np-completeness">NP-Completeness <!-- from day23.pptx --></a></li>
 </ul>
 </nav>
@@ -6434,71 +6435,8 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <p><img src="graphs/reductions/edge_disjoint_graph-1.svg"></p>
 </div>
 <div class="fragment" data-fragment-index="2">
-<div class="svg-50 bottom" style="position:fixed;right:-300px;bottom:175px">
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<svg width="960" height="480" viewbox="0.00 0.00 361.00 127.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 123.8)">
-<title>graph25</title>
-<!-- empty1 -->
-<!-- g1 -->
-<g id="node2" class="node">
-<title>g1</title>
-<ellipse fill="orange" stroke="black" cx="117" cy="-91" rx="27" ry="18"></ellipse>
-<text text-anchor="middle" x="117" y="-86.8" font-family="Arial" font-size="14.00">g in</text>
-</g>
-<!-- empty1&#45;&gt;g1 -->
-<g id="edge1" class="edge">
-<title>empty1-&gt;g1</title>
-<path fill="none" stroke="teal" stroke-width="4" d="M54.07,-91C62.67,-91 71.27,-91 79.87,-91"></path>
-<polygon fill="teal" stroke="teal" stroke-width="4" points="79.96,-94.5 89.96,-91 79.96,-87.5 79.96,-94.5"></polygon>
-</g>
-<!-- g2 -->
-<g id="node3" class="node">
-<title>g2</title>
-<ellipse fill="orange" stroke="black" cx="231" cy="-91" rx="32.53" ry="18"></ellipse>
-<text text-anchor="middle" x="231" y="-86.8" font-family="Arial" font-size="14.00">g out</text>
-</g>
-<!-- g1&#45;&gt;g2 -->
-<g id="edge2" class="edge">
-<title>g1-&gt;g2</title>
-<path fill="none" stroke="teal" stroke-width="4" d="M144.02,-91C157.05,-91 173.01,-91 187.68,-91"></path>
-<polygon fill="teal" stroke="teal" stroke-width="4" points="188.08,-94.5 198.08,-91 188.08,-87.5 188.08,-94.5"></polygon>
-<text text-anchor="middle" x="171.24" y="-77.2" font-family="Arial" font-size="12.00"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
-<text text-anchor="start" x="143.54" y="-109" font-family="Arial" font-size="12.00">restricts to</text>
-<text text-anchor="start" x="152.85" y="-94.6" font-family="Arial" font-size="12.00">1 edge</text>
-</g>
-<!-- empty2 -->
-<!-- g2&#45;&gt;empty2 -->
-<g id="edge3" class="edge">
-<title>g2-&gt;empty2</title>
-<path fill="none" stroke="teal" stroke-width="4" d="M263.66,-91C271.97,-91 280.28,-91 288.59,-91"></path>
-<polygon fill="teal" stroke="teal" stroke-width="4" points="288.72,-94.5 298.72,-91 288.72,-87.5 288.72,-94.5"></polygon>
-</g>
-<!-- empty3 -->
-<!-- empty3&#45;&gt;g1 -->
-<g id="edge4" class="edge">
-<title>empty3-&gt;g1</title>
-<path fill="none" stroke="black" stroke-width="4" d="M89.35,-35.47C93.71,-44.07 99.15,-54.79 104.04,-64.44"></path>
-<polygon fill="black" stroke="black" stroke-width="4" points="101.05,-66.29 108.7,-73.62 107.29,-63.12 101.05,-66.29"></polygon>
-</g>
-<!-- empty4 -->
-<!-- empty4&#45;&gt;g1 -->
-<g id="edge5" class="edge">
-<title>empty4-&gt;g1</title>
-<path fill="none" stroke="transparent" stroke-width="4" d="M144.65,-35.47C140.29,-44.07 134.85,-54.79 129.96,-64.44"></path>
-<polygon fill="transparent" stroke="transparent" stroke-width="4" points="126.71,-63.12 125.3,-73.62 132.95,-66.29 126.71,-63.12"></polygon>
-</g>
-</g>
-</svg>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<div class="svg-100 bottom" style="position:fixed;right:-100px;bottom:175px">
+<p><img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg"></p>
 </div>
 </div>
 </section>
@@ -6509,7 +6447,7 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <td style="max-width:500px !important">
 <div class="r-stack" style="height:100%">
 <p><img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg"></p>
-<table style="margin-top:75px !important">
+<table>
 <tbody><tr>
 <td>
 <img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
@@ -6792,12 +6730,12 @@ How could we solve this?
 <table>
 <tbody><tr>
 <td style="width:50%">
-<table class="bipartite">
+<table class="bipartite bipartite_flow">
 <tbody><tr>
 <td style="vertical-align:middle">
 <div class="r-stack" style="height:100%">
-<p><img src="graphs/reductions/bipartite_graph-13.69-9.69-0.svg"></p>
-<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<p><img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-True.svg"></p>
+<table style="width:50% !important;margin-bottom:70px !important;margin-left:110px !important">
 <tbody><tr>
 <td>
 <img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
@@ -6869,12 +6807,12 @@ How could we solve this?
 <table>
 <tbody><tr>
 <td style="width:50%">
-<table class="bipartite">
+<table class="bipartite bipartite_flow">
 <tbody><tr>
 <td style="vertical-align:middle">
 <div class="r-stack" style="height:100%">
-<p><img src="graphs/reductions/bipartite_graph-13.69-9.69-3.svg"></p>
-<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<p><img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-True.svg"></p>
+<table style="width:50% !important;margin-bottom:70px !important;margin-left:110px !important">
 <tbody><tr>
 <td>
 <img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
@@ -7078,7 +7016,8 @@ MOVIE&nbsp;TIME!
 <span class="fragment" data-fragment-index="7">Keg cannon<br>battering ram</span>
 </td>
 </tr>
-<tr><td style="vertical-align:top;text-align:center">
+<tr>
+<td style="vertical-align:top;text-align:center">
 <div class="r-stack fragment" data-fragment-index="7">
 <p style="margin:0;z-index:0">
 <img data-src="https://webstockreview.net/images/clipart-flames-svg-3.png" class="center" style="padding-bottom:80px;transform:rotate(180deg);width:30%;">
@@ -7202,29 +7141,9 @@ Reduction
 </tr>
 <tr>
 <td>
-<div class="svg-60 fragment no-svg-margins" data-fragment-index="4" style="transform:rotate(90deg)">
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<svg width="960" height="480" viewbox="0.00 0.00 85.36 80.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 76)">
-<title>g</title>
-<!-- x -->
-<g id="node1" class="node">
-<title>x</title>
-<polygon fill="none" stroke="red" stroke-width="3" points="59.54,-66 -0.18,-66 -0.18,-6 59.54,-6 59.54,0 77.54,-36 59.54,-72 59.54,-66"></polygon>
-<text text-anchor="start" x="8" y="-28.8" font-family="Arial" font-size="24.00">How?</text>
-</g>
-</g>
-</svg>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
 </td>
 </tr>
 <tr>
@@ -7303,12 +7222,12 @@ Reduction
 <tr>
 <td>
 <div class="fragment" data-fragment-index="1">
-<table class="bipartite" style="width:60%">
+<table class="bipartite bipartite_flow2">
 <tbody><tr>
 <td style="max-width:500px !important">
 <div class="r-stack" style="height:100%">
 <p><img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg"></p>
-<table style="margin-top:75px !important">
+<table>
 <tbody><tr>
 <td>
 <img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
@@ -7357,22 +7276,18 @@ Reduction
 </div>
 </td></tr><tr>
 <td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
 <span class="fragment" data-fragment-index="7">Solution for <span class="math inline">\(A\)</span>:</span>
 </td>
 </tr>
-<tr><td style="vertical-align:top;text-align:center">
+<tr>
+<td style="vertical-align:top;text-align:center">
 <div class="fragment" data-fragment-index="7">
-<table class="bipartite" style="width:60%">
+<table class="bipartite bipartite_flow2">
 <tbody><tr>
 <td style="max-width:500px !important">
 <div class="r-stack" style="height:100%">
 <p><img src="graphs/reductions/bipartite_graph-8.53-9.64-1.svg"></p>
-<table style="margin-top:75px !important">
+<table>
 <tbody><tr>
 <td>
 <img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
@@ -7425,7 +7340,7 @@ Reduction
 </td>
 <td colspan="2" style="vertical-align:top">
 <div class="r-stack">
-<table class="compact fragment" style="width:100%;height:100%">
+<table class="compact fragment" data-fragment-index="8" style="width:100%;height:100%">
 <tbody><tr>
 <td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">
 &nbsp;
@@ -7436,12 +7351,12 @@ Reduction
 <tbody><tr>
 <td>
 <div class="fragment" data-fragment-index="3">
-<table class="bipartite">
+<table class="bipartite bipartite_flow3">
 <tbody><tr>
 <td style="vertical-align:middle">
 <div class="r-stack" style="height:100%">
-<p><img src="graphs/reductions/bipartite_graph-13.69-9.69-0.svg"></p>
-<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<p><img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-True.svg"></p>
+<table>
 <tbody><tr>
 <td>
 <img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
@@ -7491,29 +7406,19 @@ Reduction
 </td>
 </tr>
 <tr>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td style="opacity:1;z-index:6" class="fragment">
+<td style="opacity:1;z-index:6" class="fragment" data-fragment-index="8">
 Reduction
 </td>
 </tr>
 <tr>
 <td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
 <div class="fragment" data-fragment-index="6">
-<table class="bipartite">
+<table class="bipartite bipartite_flow3">
 <tbody><tr>
 <td style="vertical-align:middle">
 <div class="r-stack" style="height:100%">
-<p><img src="graphs/reductions/bipartite_graph-13.69-9.69-3.svg"></p>
-<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<p><img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-True.svg"></p>
+<table>
 <tbody><tr>
 <td>
 <img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
@@ -7670,28 +7575,9 @@ Reduction
 <tr>
 <td>
 <div class="r-stack">
-<div class="svg-60 fragment no-svg-margins" data-fragment-index="4" style="transform:rotate(90deg)">
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<svg width="960" height="480" viewbox="0.00 0.00 80.00 80.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 76)">
-<title>g</title>
-<!-- x -->
-<g id="node1" class="node">
-<title>x</title>
-<polygon fill="none" stroke="red" stroke-width="3" points="54,-66 0,-66 0,-6 54,-6 54,0 72,-36 54,-72 54,-66"></polygon>
-</g>
-</g>
-</svg>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
 <div class="fragment" data-fragment-index="4">
 <p style="z-index:5">
 Ford-Fulkerson
@@ -7724,8 +7610,8 @@ Ford-Fulkerson
 </section>
 <section id="edge-disjoint-paths-reduction" class="slide level2">
 <h2>Edge Disjoint Paths <span class="magenta">Reduction</span></h2>
-<table class="font-70 allcenter compact" style="vertical-align:top">
-<tbody><tr class="font-70">
+<table class="font-70 allcenter compact" style="vertical-align:top;height:90%">
+<tbody><tr class="font-70" style="height:0">
 <td colspan="2" class="und">
 <span>Problem we don’t know how to solve</span>
 </td>
@@ -7738,6 +7624,7 @@ Ford-Fulkerson
 </td>
 </tr>
 <tr>
+<!-- this td contains the "A" cylinder and the final cylinder -->
 <td style="vertical-align:top;width:10%">
 <div class="svg-100 no-svg-margins">
 <div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
@@ -7764,127 +7651,44 @@ Ford-Fulkerson
 </div>
 </div>
 </td>
+<!-- this td is the left column that contains the original problem and the final solution -->
 <td style="vertical-align:top;width:25%;padding-right:10px !important">
+<!-- this table contains the image on the left (the "source" problem) -->
 <table class="compact allcenter">
 <tbody><tr>
 <td>
-<span>Bipartite Matching</span>
+<span>Edge Disjoint Paths</span>
 </td>
 </tr>
 <tr>
 <td>
-<table class="bipartite" style="width:60%;height:100%">
-<tbody><tr>
-<td style="max-width:500px !important">
-<div class="r-stack" style="height:100%">
-<p><img src="graphs/reductions/edge_disjoint_graph.svg"></p>
-</div>
+<!-- the "source" image in the upper left -->
+<img src="graphs/reductions/edge_disjoint_graph.svg">
 </td>
 </tr>
 </tbody></table>
-</td></tr><tr>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
+<!-- this table has the bottom-left image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:24%">
+<tbody><tr>
 <td>
 <span>Solution for <span class="math inline">\(A\)</span>:</span>
 </td>
 </tr>
-<tr><td style="vertical-align:top;text-align:center">
-<table class="bipartite" style="width:60%">
+<tr>
+<td style="vertical-align:top;text-align:center">
+<img src="graphs/reductions/edge_disjoint_graph-2.svg">
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this column contains the middle purple column and its contents -->
+<td colspan="2" style="vertical-align:top;border:2px solid black;background-color:plum">
+<!-- this table contains the center top right arrow and image -->
+<table class="compact allcenter">
 <tbody><tr>
-<td style="max-width:500px !important">
-<div class="r-stack" style="height:100%">
-<p><img src="graphs/reductions/edge_disjoint_graph-2.svg"></p>
-</div>
-</td>
-</tr>
-</tbody></table>
-</td>
-</tr>
-</tbody></table>
-</td>
-<td colspan="2" style="vertical-align:top">
+<td>
 <div class="r-stack">
-<table class="compact" style="width:100%;height:100%">
-<tbody><tr>
-<td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">
-&nbsp;
-</td>
-</tr>
-</tbody></table>
-<table class="compact" style="z-index:1;opacity:0.5">
-<tbody><tr>
-<td>
-<table class="bipartite">
-<tbody><tr>
-<td style="vertical-align:middle">
-<div class="r-stack" style="height:100%">
-<p><img src="graphs/reductions/edge_disjoint_graph-0-1.svg"></p>
-</div>
-</td>
-</tr>
-</tbody></table>
-</td>
-</tr>
-<tr>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td style="opacity:1;z-index:6">
-Reduction
-</td>
-</tr>
-<tr>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
-<table class="bipartite">
-<tbody><tr>
-<td style="vertical-align:middle">
-<div class="r-stack" style="height:100%">
-<p><img src="graphs/reductions/edge_disjoint_graph-0-1.svg"></p>
-</div>
-</td>
-</tr>
-</tbody></table>
-</td>
-</tr>
-</tbody></table>
-<div style="z-index:2">
-<div class="svg-60 no-svg-margins" style="padding: 0 10px 0 10px !important">
+<div class="svg-60 no-svg-margins" style="padding: 0 10px 0 10px !important;z-index:2">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -7906,19 +7710,17 @@ Reduction
 </div>
 </div>
 </div>
-<p>
-&nbsp;
-</p>
-<p>
-&nbsp;
-</p>
-<p>
-&nbsp;
-</p>
-<p>
-&nbsp;
-</p>
-<div class="svg-60 no-svg-margins" style="padding: 0 10px 0 10px !important">
+<p><img src="graphs/reductions/edge_disjoint_graph-0-1.svg" style="z-index:1"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<!-- this table contains the center bottom left arrow and image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:30%">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<div class="svg-60 no-svg-margins" style="padding: 0 10px 0 10px !important;z-index:2">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -7941,9 +7743,13 @@ Reduction
 </div>
 </div>
 </div>
-</div>
+<p><img src="graphs/reductions/edge_disjoint_graph-2-1.svg" style="z-index:1"></p>
 </div>
 </td>
+</tr>
+</tbody></table>
+</td>
+<!-- this contains the yellow problem-B box(es) -->
 <td style="vertical-align:top;width:10%;padding-left:10px !important">
 <div class="svg-100 no-svg-margins">
 <div class="cell" data-fig-width="1" data-fig-height="1.75" data-layout-align="default">
@@ -7969,7 +7775,9 @@ Reduction
 </div>
 </div>
 </td>
+<!-- this td is the right column that reduced-to problem the reduced-to solution -->
 <td style="vertical-align:top;width:25%">
+<!-- this table contains both the upper-right image and the down arrow on the right -->
 <table class="compact">
 <tbody><tr>
 <td>
@@ -7985,34 +7793,10 @@ Reduction
 </tr>
 <tr>
 <td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td>
 <div class="r-stack">
-<div class="svg-60 no-svg-margins" style="transform:rotate(90deg)">
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<svg width="960" height="480" viewbox="0.00 0.00 80.00 80.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 76)">
-<title>g</title>
-<!-- x -->
-<g id="node1" class="node">
-<title>x</title>
-<polygon fill="none" stroke="red" stroke-width="3" points="54,-66 0,-66 0,-6 54,-6 54,0 72,-36 54,-72 54,-66"></polygon>
-</g>
-</g>
-</svg>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
 <p style="z-index:5">
 Ford-Fulkerson
 </p>
@@ -8024,7 +7808,10 @@ Ford-Fulkerson
 &nbsp;
 </td>
 </tr>
-<tr>
+</tbody></table>
+<!-- this table has the bottom-right image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:24%">
+<tbody><tr>
 <td>
 <span>Solution for <span class="math inline">\(B\)</span>:</span>
 </td>
@@ -8040,6 +7827,528 @@ Ford-Fulkerson
 </td>
 </tr>
 </tbody></table>
+</section>
+<section id="vertex-disjoint-paths-reduction" class="slide level2">
+<h2>Vertex Disjoint Paths <span class="magenta">Reduction</span></h2>
+<table class="font-70 allcenter compact" style="vertical-align:top;height:90%">
+<tbody><tr class="font-70" style="height:0">
+<td colspan="2" class="und">
+<span>Problem we don’t know how to solve</span>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2" class="und">
+<span>Problem we do know how to solve</span>
+</td>
+</tr>
+<tr>
+<!-- this td contains the "A" cylinder and the final cylinder -->
+<td style="vertical-align:top;width:10%">
+<div class="svg-100 no-svg-margins">
+<div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="144" viewbox="0.00 0.00 62.00 98.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94.2)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-82.08C54,-86.62 41.9,-90.3 27,-90.3 12.1,-90.3 0,-86.62 0,-82.08 0,-82.08 0,-8.12 0,-8.12 0,-3.58 12.1,0.1 27,0.1 41.9,0.1 54,-3.58 54,-8.12 54,-8.12 54,-82.08 54,-82.08"></path>
+<path fill="none" stroke="black" d="M54,-82.08C54,-77.55 41.9,-73.86 27,-73.86 12.1,-73.86 0,-77.55 0,-82.08"></path>
+<text text-anchor="start" x="10.99" y="-30.7" font-family="Arial" font-size="48.00">A</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+<!-- this td is the left column that contains the original problem and the final solution -->
+<td style="vertical-align:top;width:25%;padding-right:10px !important">
+<!-- this table contains the image on the left (the "source" problem) -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<span>Vertex Disjoint Paths</span>
+</td>
+</tr>
+<tr>
+<td>
+<!-- the "source" image in the upper left -->
+<img src="graphs/reductions/edge_disjoint_graph.svg">
+</td>
+</tr>
+</tbody></table>
+<!-- this table has the bottom-left image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:24%">
+<tbody><tr>
+<td>
+<span>Solution for <span class="math inline">\(A\)</span>:</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;text-align:center">
+<img src="graphs/reductions/edge_disjoint_graph-2.svg">
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this column contains the middle purple column and its contents -->
+<td colspan="2" style="vertical-align:top;border:2px solid black;background-color:plum">
+<!-- this table contains the center top right arrow and image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins"></p>
+</div>
+<p><img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg" style="z-index:1"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<!-- this table contains the center bottom left arrow and image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:30%">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins"></p>
+</div>
+<p><img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg" style="z-index:1"></p>
+<p>
+Merge these back
+</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this contains the yellow problem-B box(es) -->
+<td style="vertical-align:top;width:10%;padding-left:10px !important">
+<div class="svg-100 no-svg-margins">
+<div class="cell" data-fig-width="1" data-fig-height="1.75" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="168" viewbox="0.00 0.00 80.00 134.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 130)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="yellow" stroke="black" points="72,-126 0,-126 0,0 72,0 72,-126"></polygon>
+<text text-anchor="start" x="19.99" y="-48.6" font-family="Arial" font-size="48.00">B</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+<!-- this td is the right column that reduced-to problem the reduced-to solution -->
+<td style="vertical-align:top;width:25%">
+<!-- this table contains both the upper-right image and the down arrow on the right -->
+<table class="compact">
+<tbody><tr>
+<td>
+<span>Edge Disjoint Paths</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100">
+<p><img src="graphs/reductions/edge_disjoint_graph.svg"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+<p style="z-index:5">
+(another reduction)
+</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+<!-- this table has the bottom-right image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:24%">
+<tbody><tr>
+<td>
+<span>Solution for <span class="math inline">\(B\)</span>:</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100">
+<p><img src="graphs/reductions/edge_disjoint_graph-2.svg"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="vertex-disjoint-paths-big-picture" class="slide level2">
+<h2>Vertex Disjoint Paths <span class="magenta">Big Picture</span></h2>
+<table class="font-70 allcenter compact" style="vertical-align:top;height:90%">
+<tbody><tr class="font-70" style="height:0">
+<td colspan="2" class="und">
+<span>Problem we don’t know how to solve</span>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2" class="und">
+<span>Problem we still don’t know how to solve</span>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2" class="und">
+<span>Problem we do know how to solve</span>
+</td>
+</tr>
+<tr>
+<!-- this td contains the "A" cylinder and the final cylinder -->
+<td style="vertical-align:top;width:5%">
+<div class="svg-100 no-svg-margins">
+<div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="144" viewbox="0.00 0.00 62.00 98.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94.2)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-82.08C54,-86.62 41.9,-90.3 27,-90.3 12.1,-90.3 0,-86.62 0,-82.08 0,-82.08 0,-8.12 0,-8.12 0,-3.58 12.1,0.1 27,0.1 41.9,0.1 54,-3.58 54,-8.12 54,-8.12 54,-82.08 54,-82.08"></path>
+<path fill="none" stroke="black" d="M54,-82.08C54,-77.55 41.9,-73.86 27,-73.86 12.1,-73.86 0,-77.55 0,-82.08"></path>
+<text text-anchor="start" x="10.99" y="-30.7" font-family="Arial" font-size="48.00">A</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+<!-- this td is the left column that contains the original problem and the final solution -->
+<td style="vertical-align:top;width:15%;padding-right:10px !important">
+<!-- this table contains the image on the left (the "source" problem) -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<span>Vertex Disjoint Paths</span>
+</td>
+</tr>
+<tr>
+<td>
+<!-- the "source" image in the upper left -->
+<img src="graphs/reductions/edge_disjoint_graph.svg">
+</td>
+</tr>
+</tbody></table>
+<!-- this table has the bottom-left image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:14%">
+<tbody><tr>
+<td>
+<span>Solution for <span class="math inline">\(A\)</span>:</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;text-align:center">
+<img src="graphs/reductions/edge_disjoint_graph-2.svg">
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this column contains the middle purple column and its contents -->
+<td colspan="2" style="vertical-align:top;border:2px solid black;background-color:plum;width:20%">
+<!-- this table contains the center top right arrow and image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins"></p>
+</div>
+<p><img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg" style="z-index:1"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<!-- this table contains the center bottom left arrow and image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:20%">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins"></p>
+</div>
+<p><img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg" style="z-index:1"></p>
+<p class="font-70">
+Merge these back
+</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this contains the yellow problem-B box(es) -->
+<td style="vertical-align:top;width:5%;padding-left:10px !important">
+<div class="svg-100 no-svg-margins">
+<div class="cell" data-fig-width="1" data-fig-height="1.75" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="168" viewbox="0.00 0.00 80.00 134.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 130)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="yellow" stroke="black" points="72,-126 0,-126 0,0 72,0 72,-126"></polygon>
+<text text-anchor="start" x="19.99" y="-48.6" font-family="Arial" font-size="48.00">B</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+<!-- this td is the right column that reduced-to problem the reduced-to solution -->
+<td style="vertical-align:top;width:15%">
+<!-- this table contains both the upper-right image and the down arrow on the right -->
+<table class="compact">
+<tbody><tr>
+<td>
+<span>Edge Disjoint Paths</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100">
+<p><img src="graphs/reductions/edge_disjoint_graph.svg"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+<!-- this table has the bottom-right image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:14%">
+<tbody><tr>
+<td>
+<span>Solution for <span class="math inline">\(B\)</span>:</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100">
+<p><img src="graphs/reductions/edge_disjoint_graph-2.svg"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this column contains the middle purple column and its contents -->
+<td colspan="2" style="vertical-align:top;border:2px solid black;background-color:plum;width:20%">
+<!-- this table contains the center top right arrow and image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<div class="svg-60 no-svg-margins" style="padding: 0 10px 0 10px !important;z-index:2">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 152.00 51.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 47)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="none" stroke="red" stroke-width="3" points="126,-37 0,-37 0,-6 126,-6 126,0 144,-21.5 126,-43 126,-37"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p><img src="graphs/reductions/edge_disjoint_graph-0-1.svg" style="z-index:1"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<!-- this table contains the center bottom left arrow and image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:20%">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<div class="svg-60 no-svg-margins" style="padding: 0 10px 0 10px !important;z-index:2">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 152.00 51.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 47)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="none" stroke="red" stroke-width="3" points="144,-37 18,-37 18,-43 0,-21.5 18,0 18,-6 144,-6 144,-37"></polygon>
+<text text-anchor="middle" x="72" y="-17.9" font-family="Arial" font-size="12.00">Use edges with flow</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p><img src="graphs/reductions/edge_disjoint_graph-2-1.svg" style="z-index:1"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this contains the yellow problem-B box(es) -->
+<td style="vertical-align:top;width:5%;padding-left:10px !important">
+<div class="svg-100 no-svg-margins">
+<div class="cell" data-fig-width="1" data-fig-height="1.75" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="168" viewbox="0.00 0.00 80.00 134.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 130)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="green" stroke="black" points="72,-126 0,-126 0,0 72,0 72,-126"></polygon>
+<text text-anchor="start" x="18.67" y="-48.6" font-family="Arial" font-size="48.00">C</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+<!-- this td is the right column that reduced-to problem the reduced-to solution -->
+<td style="vertical-align:top;width:15%">
+<!-- this table contains both the upper-right image and the down arrow on the right -->
+<table class="compact">
+<tbody><tr>
+<td>
+<span>Max Flow</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100">
+<p><img src="graphs/reductions/flow_graph-3.svg"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+<p style="z-index:5" class="font-80">
+Ford-Fulkerson
+</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+<!-- this table has the bottom-right image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:16%">
+<tbody><tr>
+<td>
+<span>Solution for <span class="math inline">\(C\)</span>:</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100">
+<p><img src="graphs/reductions/flow_graph-2-True-0-False.svg"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="reductions-for-algorithms" class="slide level2">
+<h2>Reductions for Algorithms</h2>
+<p>&nbsp;</p>
+<ul>
+<li>Create an algorithm for a new problem by using one you already know!
+<ul>
+<li>More algorithms = More opportunities!</li>
+</ul></li>
+<li>The problem you reduced to could itself be solved using a reduction!</li>
+</ul>
 </section>
 <section id="in-general-reduction" class="slide level2">
 <h2>In General: <span class="magenta">Reduction</span></h2>
@@ -8110,7 +8419,8 @@ Ford-Fulkerson
 <span>Solution for <span class="math inline">\(A\)</span>:</span>
 </td>
 </tr>
-<tr><td style="vertical-align:top;text-align:center">
+<tr>
+<td style="vertical-align:top;text-align:center">
 <div class="svg-60 no-svg-margins" style="width:25%;margin:auto">
 <div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
 <div class="cell-output-display">
@@ -8174,7 +8484,7 @@ Ford-Fulkerson
 </tr>
 <tr>
 <td>
-<table class="bluenote">
+<table class="bluenote fragment">
 <tbody><tr>
 <td style="padding-left:10px !important;padding-right:10px !important">
 <p>Injective: any instance of <span class="math inline">\(A\)</span> can be mapped to some instance of <span class="math inline">\(B\)</span></p>
@@ -8262,28 +8572,9 @@ Using any algorithm<br>for <span class="math inline">\(B\)</span>
 </tr>
 <tr>
 <td>
-<div class="svg-60 no-svg-margins" style="transform:rotate(90deg)">
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<svg width="960" height="480" viewbox="0.00 0.00 62.00 62.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 58)">
-<title>g</title>
-<!-- x -->
-<g id="node1" class="node">
-<title>x</title>
-<polygon fill="none" stroke="red" stroke-width="3" points="36,-48 0,-48 0,-6 36,-6 36,0 54,-27 36,-54 36,-48"></polygon>
-</g>
-</g>
-</svg>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
 </td>
 </tr>
 <tr>
@@ -8323,8 +8614,264 @@ Using any algorithm<br>for <span class="math inline">\(B\)</span>
 </tr>
 </tbody></table>
 </section>
+<section id="another-use-of-reductions" class="slide level2">
+<h2>Another use of Reductions</h2>
+<table class="font-70 allcenter" style="vertical-align:top">
+<tbody><tr>
+<td style="vertical-align:top;width:37%;padding-right:10px !important">
+<table class="allcenter">
+<tbody><tr>
+<td>
+Problem <span class="math inline">\(A\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="144" viewbox="0.00 0.00 62.00 98.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94.2)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-82.08C54,-86.62 41.9,-90.3 27,-90.3 12.1,-90.3 0,-86.62 0,-82.08 0,-82.08 0,-8.12 0,-8.12 0,-3.58 12.1,0.1 27,0.1 41.9,0.1 54,-3.58 54,-8.12 54,-8.12 54,-82.08 54,-82.08"></path>
+<path fill="none" stroke="black" d="M54,-82.08C54,-77.55 41.9,-73.86 27,-73.86 12.1,-73.86 0,-77.55 0,-82.08"></path>
+<text text-anchor="start" x="10.99" y="-30.7" font-family="Arial" font-size="48.00">A</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<table class="bluenote fragment" data-fragment-index="1">
+<tbody><tr>
+<td>
+Suppose I know a worst-case lower-bound of <span class="math inline">\(\Omega(f(n))\)</span> for <span class="math inline">\(A\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+<p class="font-80" style="text-align:center">
+<span class="math inline">\(\Omega(f(n))\)</span>
+</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for <span class="math inline">\(A\)</span>:</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;text-align:center">
+<div class="svg-60 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="144" viewbox="0.00 0.00 62.00 98.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94.2)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-82.08C54,-86.62 41.9,-90.3 27,-90.3 12.1,-90.3 0,-86.62 0,-82.08 0,-82.08 0,-8.12 0,-8.12 0,-3.58 12.1,0.1 27,0.1 41.9,0.1 54,-3.58 54,-8.12 54,-8.12 54,-82.08 54,-82.08"></path>
+<path fill="none" stroke="black" d="M54,-82.08C54,-77.55 41.9,-73.86 27,-73.86 12.1,-73.86 0,-77.55 0,-82.08"></path>
+<text text-anchor="start" x="10.99" y="-30.7" font-family="Arial" font-size="48.00">X</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td colspan="2" style="vertical-align:top;width:30%">
+<table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
+<tbody><tr>
+<td class="font-90" style="border-top:2px solid black">
+<p>Map instances of problem <span class="math inline">\(A\)</span> to instances of problem <span class="math inline">\(B\)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins" style="margin:0"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<table class="bluenote fragment" data-fragment-index="2">
+<tbody><tr>
+<td>
+Then this entire path must be <span class="math inline">\(\Omega(f(n))\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td class="font-90">
+<p>Map solutions of problem <span class="math inline">\(B\)</span> to solutions of problem <span class="math inline">\(A\)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins" style="margin:0"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+Reduction
+</td>
+</tr>
+
+
+</tbody></table>
+</td>
+<td style="vertical-align:top;width:33%">
+<table class="compact">
+<tbody><tr>
+<td>
+<div class="svg-100 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.75" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="168" viewbox="0.00 0.00 80.00 134.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 130)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="yellow" stroke="black" points="72,-126 0,-126 0,0 72,0 72,-126"></polygon>
+<text text-anchor="start" x="19.99" y="-48.6" font-family="Arial" font-size="48.00">B</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+Some algorithm for <span class="math inline">\(B\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for <span class="math inline">\(B\)</span></span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.75" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="168" viewbox="0.00 0.00 80.00 134.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 130)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="yellow" stroke="black" points="72,-126 0,-126 0,0 72,0 72,-126"></polygon>
+<text text-anchor="start" x="19.99" y="-48.6" font-family="Arial" font-size="48.00">Y</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="worst-case-lower-bound" class="slide level2">
+<h2>Worst Case Lower Bound</h2>
+<div class="font-90">
+<ul>
+<li>Definition:
+<ul>
+<li>A <span class="bold">worst case lower bound</span> on a problem is an <i>asymptotic lower bound on the worst case running time</i> of any algorithm which solves it</li>
+<li>If <span class="math inline">\(f(n)\)</span> is a worst case lower bound for problem <span class="math inline">\(A\)</span>, then the worst-case running time of any algorithm which solves <span class="math inline">\(A\)</span> must be <span class="math inline">\(\Omega(f(n))\)</span>
+<ul>
+<li>i.e.&nbsp;for sufficiently large values of <span class="math inline">\(n\)</span>, for every algorithm which solves <span class="math inline">\(A\)</span>, there is at least one input of size <span class="math inline">\(n\)</span> which causes the algorithm to do <span class="math inline">\(\Omega(f(n))\)</span> steps</li>
+</ul></li>
+</ul></li>
+<li>Examples:
+<ul>
+<li><span class="math inline">\(n\)</span> is a worst-case lower bound on finding the minimum in a list</li>
+<li><span class="math inline">\(n^2\)</span> is a worst-case lower bound on matrix multiplication</li>
+</ul></li>
+</ul>
+</div>
+</section>
 <section id="worst-case-lower-bound-proofs" class="slide level2">
-<h2>Worst-case lower-bound Proofs</h2>
+<h2>Worst case lower bound Proofs</h2>
 <table class="compact font-70 allcenter" style="width:100%">
 <tbody><tr>
 <td style="vertical-align:top;width:20%">
@@ -8611,7 +9158,9 @@ Keg cannon<br>battering ram
 <p class="bold center">
 <span class="math inline">\(A\)</span> is not harder than problem <span class="math inline">\(B\)</span>: <span class="math inline">\(A \le B\)</span>
 </p>
-<p><span class="center font-80">The name “reduces” is confusing: it is in the <i>opposite</i> direction of the making</span></p>
+<p class="fragment center font-80">
+The name “reduces” is confusing: it is in the <i>opposite</i> direction of the making
+</p>
 </section>
 <section id="proof-of-lower-bound-by-reduction" class="slide level2">
 <h2>Proof of Lower Bound by Reduction</h2>
@@ -8999,23 +9548,1562 @@ If <span class="math inline">\(A\)</span> <span class="magenta">requires time <s
 <p class="bold center font-90">
 <span class="math inline">\(A \le_{f(n)}B\)</span>
 </p>
+</section>
+<section id="two-ways-to-use-reductions" class="slide level2">
+<h2>Two Ways to Use Reductions</h2>
+<div class="font-90 center">
+<p class="center">
+Suppose we have a “fast” <span style="color:plum">reduction</span> from <span class="red"><span class="math inline">\(A\)</span></span> to <span class="orange"><span class="math inline">\(B\)</span></span>
+</p>
+<table class="compact font-80" style="width:100%">
+<tbody><tr>
+<td style="width:37%;text-align:right;vertical-align:bottom">
+</td>
+<td style="width:26%">
+<img src="graphs/reductions/mini_reduction.svg" style="margin:auto">
+</td>
+<td style="width:37%;text-align:left;vertical-align:top">
+</td>
+</tr>
+</tbody></table>
+<p class="center">
+A “fast” algorithm for <span class="orange"><span class="math inline">\(B\)</span></span> gives a <span class="bold">fast algorithm</span> for <span class="red"><span class="math inline">\(A\)</span></span>
+</p>
+<table class="compact font-80" style="width:100%">
+<tbody><tr>
+<td style="width:37%;text-align:right;vertical-align:bottom">
+Then <span class="math inline">\(A\)</span> is fast&nbsp;
+</td>
+<td style="width:26%">
+<img src="graphs/reductions/mini_reduction.svg" style="margin:auto">
+</td>
+<td style="width:37%;text-align:left;vertical-align:top">
+&nbsp;If <span class="math inline">\(B\)</span> is fast
+</td>
+</tr>
+</tbody></table>
+<p class="center">
+If we have a worst-case lower bound for <span class="red"><span class="math inline">\(A\)</span></span>, we also have one for <span class="orange"><span class="math inline">\(B\)</span></span>
+</p>
+<table class="compact font-80" style="width:100%">
+<tbody><tr>
+<td style="width:37%;text-align:right;vertical-align:top">
+If <span class="math inline">\(A\)</span> is slow&nbsp;
+</td>
+<td style="width:26%">
+<img src="graphs/reductions/mini_reduction.svg" style="margin:auto">
+</td>
+<td style="width:37%;text-align:left;vertical-align:bottom">
+&nbsp;Then <span class="math inline">\(B\)</span> is slow
+</td>
+</tr>
+</tbody></table>
+</div>
+</section>
+<section id="bipartite-matching-reduction-1" class="slide level2">
+<h2>Bipartite Matching <span class="magenta">Reduction</span></h2>
+<table class="font-70 allcenter compact" style="vertical-align:top">
+<tbody><tr class="font-70">
+<td colspan="2" class="und">
+<span>Problem we don’t know how to solve</span>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2" class="und">
+<span>Problem we do know how to solve</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;width:10%">
+<div class="svg-100 no-svg-margins">
+<div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="144" viewbox="0.00 0.00 62.00 98.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94.2)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-82.08C54,-86.62 41.9,-90.3 27,-90.3 12.1,-90.3 0,-86.62 0,-82.08 0,-82.08 0,-8.12 0,-8.12 0,-3.58 12.1,0.1 27,0.1 41.9,0.1 54,-3.58 54,-8.12 54,-8.12 54,-82.08 54,-82.08"></path>
+<path fill="none" stroke="black" d="M54,-82.08C54,-77.55 41.9,-73.86 27,-73.86 12.1,-73.86 0,-77.55 0,-82.08"></path>
+<text text-anchor="start" x="10.99" y="-30.7" font-family="Arial" font-size="48.00">A</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+<td style="vertical-align:top;width:25%;padding-right:10px !important">
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<span>Bipartite Matching</span>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<table class="bipartite bipartite_flow2">
+<tbody><tr>
+<td style="max-width:500px !important">
+<div class="r-stack" style="height:100%">
+<p><img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg"></p>
+<table>
+<tbody><tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&amp;itok=jvoP0ymk" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg" style="">
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</td></tr><tr>
+<td>
+<span>Solution for <span class="math inline">\(A\)</span>:</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;text-align:center">
+<div>
+<table class="bipartite bipartite_flow2">
+<tbody><tr>
+<td style="max-width:500px !important">
+<div class="r-stack" style="height:100%">
+<p><img src="graphs/reductions/bipartite_graph-8.53-9.64-1.svg"></p>
+<table>
+<tbody><tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&amp;itok=jvoP0ymk" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg" style="">
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td colspan="2" style="vertical-align:top">
+<div class="r-stack">
+<table class="compact" style="width:100%;height:100%">
+<tbody><tr>
+<td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+<table class="compact" style="z-index:1;opacity:0.5">
+<tbody><tr>
+<td>
+<div>
+<table class="bipartite bipartite_flow3">
+<tbody><tr>
+<td style="vertical-align:middle">
+<div class="r-stack" style="height:100%">
+<p><img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-True.svg"></p>
+<table>
+<tbody><tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&amp;itok=jvoP0ymk" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg" style="">
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+<tr>
+<td style="opacity:1;z-index:6">
+Reduction
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<table class="bipartite bipartite_flow3">
+<tbody><tr>
+<td style="vertical-align:middle">
+<div class="r-stack" style="height:100%">
+<p><img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-True.svg"></p>
+<table>
+<tbody><tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&amp;itok=jvoP0ymk" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg" style="">
+</td>
+</tr>
+<tr>
+<td>
+<img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg" style="">
+</td>
+<td>
+</td>
+<td>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg" style="">
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</td>
+</tr>
+</tbody></table>
+<div style="z-index:2">
+<div class="svg-60 no-svg-margins" style="padding: 0 10px 0 10px !important">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 152.00 51.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 47)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="none" stroke="red" stroke-width="3" points="126,-37 0,-37 0,-6 126,-6 126,0 144,-21.5 126,-43 126,-37"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+<div class="svg-60 no-svg-margins" style="padding: 0 10px 0 10px !important">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="960" height="480" viewbox="0.00 0.00 152.00 51.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 47)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="none" stroke="red" stroke-width="3" points="144,-37 18,-37 18,-43 0,-21.5 18,0 18,-6 144,-6 144,-37"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</td>
+<td style="vertical-align:top;width:10%;padding-left:10px !important">
+<div class="svg-100 no-svg-margins">
+<div class="cell" data-fig-width="1" data-fig-height="1.75" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="168" viewbox="0.00 0.00 80.00 134.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 130)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="yellow" stroke="black" points="72,-126 0,-126 0,0 72,0 72,-126"></polygon>
+<text text-anchor="start" x="19.99" y="-48.6" font-family="Arial" font-size="48.00">B</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+<td style="vertical-align:top;width:25%">
+<table class="compact">
+<tbody><tr>
+<td>
+<span>Max Flow</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100">
+<p><img src="graphs/reductions/flow_graph-3.svg"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+<div>
+<p style="z-index:5">
+Ford-Fulkerson
+</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for <span class="math inline">\(B\)</span>:</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100">
+<p><img src="graphs/reductions/flow_graph-2-True-0-False.svg"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table class="fragment" data-fragment-index="1" style="position:absolute;top:50%;right:0;z-index:3">
+<tbody><tr>
+<td>
+<table class="bluenote fragment fade-out" data-fragment-index="3'">
+<tbody><tr>
+<td>
+If this is fast
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table class="fragment" data-fragment-index="2" style="position:absolute;top:50%;left:0;z-index:3">
+<tbody><tr>
+<td>
+<table class="bluenote fragment fade-out" data-fragment-index="3'">
+<tbody><tr>
+<td>
+Then this is fast
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table class="fragment" data-fragment-index="4" style="position:absolute;top:50%;left:0;z-index:3">
+<tbody><tr>
+<td>
+<table class="bluenote fragment fade-out" data-fragment-index="6'">
+<tbody><tr>
+<td>
+If this is slow
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table class="fragment" data-fragment-index="5" style="position:absolute;top:50%;right:0;z-index:3">
+<tbody><tr>
+<td>
+<table class="bluenote fragment fade-out" data-fragment-index="6'">
+<tbody><tr>
+<td>
+Then this is slow
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="worst-case-lower-bound-using-reductions" class="slide level2">
+<h2><span class="r-fit-text">Worst-case Lower Bound Using Reductions</span></h2>
+<p>&nbsp;</p>
+<ul>
+<li>Closest pair of points
+<ul>
+<li>D&amp;C algorithm: <span class="math inline">\(\Theta(n \log n)\)</span></li>
+<li>Can we do better?</li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<p>Idea: Show that doing closest pair in <span class="math inline">\(o(n \log n)\)</span> enables an impossibly fast algorithm for another problem</p>
+</section>
+<section id="reductions-for-lower-bound-proofs" class="slide level2">
+<h2>Reductions for Lower-Bound Proofs</h2>
+<table class="font-70 allcenter" style="vertical-align:top">
+<tbody><tr>
+<td style="vertical-align:top;width:37%;padding-right:10px !important">
+<table class="allcenter">
+<tbody><tr>
+<td colspan="2" class="und">
+<span class="font-70">Problem we know is “hard”</span>
+</td>
+</tr>
+<tr>
+<td>
+Problem <span class="math inline">\(A\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="144" viewbox="0.00 0.00 62.00 98.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94.2)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-82.08C54,-86.62 41.9,-90.3 27,-90.3 12.1,-90.3 0,-86.62 0,-82.08 0,-82.08 0,-8.12 0,-8.12 0,-3.58 12.1,0.1 27,0.1 41.9,0.1 54,-3.58 54,-8.12 54,-8.12 54,-82.08 54,-82.08"></path>
+<path fill="none" stroke="black" d="M54,-82.08C54,-77.55 41.9,-73.86 27,-73.86 12.1,-73.86 0,-77.55 0,-82.08"></path>
+<text text-anchor="start" x="10.99" y="-30.7" font-family="Arial" font-size="48.00">A</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<table class="bluenote fragment" data-fragment-index="3">
+<tbody><tr>
+<td>
+and this must be slow,
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+<p class="font-80" style="text-align:center">
+“Hard” means this<br>must be slow
+</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for <span class="math inline">\(A\)</span>:</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;text-align:center">
+<div class="svg-60 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="144" viewbox="0.00 0.00 62.00 98.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94.2)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-82.08C54,-86.62 41.9,-90.3 27,-90.3 12.1,-90.3 0,-86.62 0,-82.08 0,-82.08 0,-8.12 0,-8.12 0,-3.58 12.1,0.1 27,0.1 41.9,0.1 54,-3.58 54,-8.12 54,-8.12 54,-82.08 54,-82.08"></path>
+<path fill="none" stroke="black" d="M54,-82.08C54,-77.55 41.9,-73.86 27,-73.86 12.1,-73.86 0,-77.55 0,-82.08"></path>
+<text text-anchor="start" x="10.99" y="-30.7" font-family="Arial" font-size="48.00">X</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td colspan="2" style="vertical-align:top;width:30%">
+<table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
+<tbody><tr>
+<td class="font-90" style="border-top:2px solid black">
+<p><span class="bold">Quickly</span> map instances of problem <span class="math inline">\(A\)</span> to instances of problem <span class="math inline">\(B\)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins" style="margin:0"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<table class="bluenote fragment" data-fragment-index="1">
+<tbody><tr>
+<td>
+If this is quick
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td class="font-90">
+<p>Map solutions of problem <span class="math inline">\(B\)</span> to solutions of problem <span class="math inline">\(A\)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins" style="margin:0"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+Reduction
+</td>
+</tr>
+<tr>
+<td style="border-bottom:2px solid black">
+<table class="bluenote fragment" data-fragment-index="2">
+<tbody><tr>
+<td>
+and this is quick
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td style="vertical-align:top;width:33%">
+<table class="compact">
+<tbody><tr>
+<td colspan="2" class="und">
+<span class="font-70">Problem we want to show is “hard”</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.75" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="168" viewbox="0.00 0.00 80.00 134.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 130)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="yellow" stroke="black" points="72,-126 0,-126 0,0 72,0 72,-126"></polygon>
+<text text-anchor="start" x="19.99" y="-48.6" font-family="Arial" font-size="48.00">B</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<table class="bluenote fragment" data-fragment-index="4">
+<tbody><tr>
+<td>
+&nbsp;then this can’t be fast!&nbsp;
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+Some algorithm for <span class="math inline">\(B\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for <span class="math inline">\(B\)</span></span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.75" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="168" viewbox="0.00 0.00 80.00 134.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 130)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<polygon fill="yellow" stroke="black" points="72,-126 0,-126 0,0 72,0 72,-126"></polygon>
+<text text-anchor="start" x="19.99" y="-48.6" font-family="Arial" font-size="48.00">Y</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="reductions-for-lower-bound-proofs-1" class="slide level2">
+<h2>Reductions for Lower-Bound Proofs</h2>
+<table class="font-70 allcenter" style="vertical-align:top">
+<tbody><tr>
+<td style="vertical-align:top;width:37%;padding-right:10px !important">
+<table class="allcenter">
+<tbody><tr>
+<td colspan="2" class="und">
+<span class="font-70">Problem we know is <span class="math inline">\(\Omega(n \log n)\)</span></span>
+</td>
+</tr>
+<tr>
+<td>
+Problem <span class="math inline">\(A\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="144" viewbox="0.00 0.00 62.00 98.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94.2)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-82.08C54,-86.62 41.9,-90.3 27,-90.3 12.1,-90.3 0,-86.62 0,-82.08 0,-82.08 0,-8.12 0,-8.12 0,-3.58 12.1,0.1 27,0.1 41.9,0.1 54,-3.58 54,-8.12 54,-8.12 54,-82.08 54,-82.08"></path>
+<path fill="none" stroke="black" d="M54,-82.08C54,-77.55 41.9,-73.86 27,-73.86 12.1,-73.86 0,-77.55 0,-82.08"></path>
+<text text-anchor="start" x="10.99" y="-30.7" font-family="Arial" font-size="48.00">A</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<table class="bluenote fragment" data-fragment-index="2">
+<tbody><tr>
+<td>
+Then this can be done in <span class="math inline">\(o(n\log n)\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+<p class="font-80" style="text-align:center">
+<span class="math inline">\(\Omega(n \log n)\)</span>
+</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for <span class="math inline">\(A\)</span>:</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;text-align:center">
+<div class="svg-60 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="144" viewbox="0.00 0.00 62.00 98.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94.2)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-82.08C54,-86.62 41.9,-90.3 27,-90.3 12.1,-90.3 0,-86.62 0,-82.08 0,-82.08 0,-8.12 0,-8.12 0,-3.58 12.1,0.1 27,0.1 41.9,0.1 54,-3.58 54,-8.12 54,-8.12 54,-82.08 54,-82.08"></path>
+<path fill="none" stroke="black" d="M54,-82.08C54,-77.55 41.9,-73.86 27,-73.86 12.1,-73.86 0,-77.55 0,-82.08"></path>
+<text text-anchor="start" x="10.99" y="-30.7" font-family="Arial" font-size="48.00">X</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td colspan="2" style="vertical-align:top;width:30%">
+<table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
+<tbody><tr>
+<td class="font-90" style="border-top:2px solid black">
+<p><span class="bold">Quickly</span> map instances of problem <span class="math inline">\(A\)</span> to instances of problem <span class="math inline">\(B\)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins" style="margin:0"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td class="font-90">
+<p>Map solutions of problem <span class="math inline">\(B\)</span> to solutions of problem <span class="math inline">\(A\)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins" style="margin:0"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+Reduction
+</td>
+</tr>
+<tr>
+<td style="border-bottom:2px solid black">
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+</td>
+<td style="vertical-align:top;width:33%">
+<table class="compact">
+<tbody><tr>
+<td colspan="2" class="und">
+<span class="font-70">Problem we want to show is <span class="math inline">\(\Omega(n \log n)\)</span></span>
+</td>
+</tr>
+<tr>
+<td>
+<table class="compact">
+<tbody><tr>
+<td>
+<img class="svg-100 no-svg-margins" src="graphs/reductions/cpp-0.svg" style="width:55%;margin:auto">
+</td>
+<td>
+Closest<br>pair of<br>points
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+Some algorithm for <span class="math inline">\(CPP\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<table class="bluenote fragment" data-fragment-index="1">
+<tbody><tr>
+<td>
+&nbsp;&nbsp;If this could be done in&nbsp;&nbsp;<br><span class="math inline">\(o(n \log n)\)</span>&nbsp;
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for <span class="math inline">\(B\)</span></span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+<p style="text-align:center">
+<img class="svg-100 no-svg-margins" src="graphs/reductions/cpp-1.svg" style="width:45%;margin:auto !important">
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="a-hard-problem-element-uniqueness" class="slide level2">
+<h2><span class="r-fit-text">A “Hard” Problem: Element Uniqueness</span></h2>
+<div class="font-70" style="float:right">
+<table class="blueborder">
+<tbody><tr>
+<td>
+113
+</td>
+<td>
+901
+</td>
+<td>
+555
+</td>
+<td>
+512
+</td>
+<td>
+245
+</td>
+<td>
+800
+</td>
+<td>
+018
+</td>
+<td>
+121
+</td>
+<td style="border-right:0;border-top:0;border-bottom:0 !important">
+<span class="blue">True</span>
+</td>
+</tr>
+</tbody></table>
+<p>
+&nbsp;
+</p>
+<table class="redborder">
+<tbody><tr>
+<td>
+103
+</td>
+<td>
+801
+</td>
+<td>
+401
+</td>
+<td>
+<span class="red">323</span>
+</td>
+<td>
+255
+</td>
+<td>
+<span class="red">323</span>
+</td>
+<td>
+999
+</td>
+<td>
+101
+</td>
+<td style="border-right:0;border-top:0;border-bottom:0 !important">
+<span class="red">False</span>
+</td>
+</tr>
+</tbody></table>
+</div>
+<ul>
+<li>Input:
+<ul>
+<li>A list of integers</li>
+</ul></li>
+<li>Output:
+<ul>
+<li><span class="blue">True</span> if all values<br>are unique, <span class="red">False</span> otherwise</li>
+</ul></li>
+<li>Can this be solved in <span class="math inline">\(O(n \log n)\)</span> time?
+<ul>
+<li>Yes! Sort, then check if any adjacent elements match</li>
+</ul></li>
+<li>Can this be solved in <span class="math inline">\(o(n \log n)\)</span> time?
+<ul>
+<li>No! (we’re going to skip this <a href="https://en.wikipedia.org/wiki/Element_distinctness_problem">proof</a>)</li>
+</ul></li>
+</ul>
+</section>
+<section id="reductions-for-lower-bound-on-cpp" class="slide level2">
+<h2>Reductions for Lower Bound on CPP</h2>
+<table class="font-70 allcenter" style="vertical-align:top">
+<tbody><tr>
+<td style="vertical-align:top;width:37%;padding-right:10px !important">
+<table class="allcenter">
+<tbody><tr>
+<td colspan="2" class="und">
+<span class="font-70">Problem we know is <span class="math inline">\(\Omega(n \log n)\)</span></span>
+</td>
+</tr>
+<tr>
+<td>
+Problem <span class="math inline">\(A\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<table>
+<tbody><tr>
+<td>
+<div class="svg-100 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="144" viewbox="0.00 0.00 62.00 98.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94.2)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-82.08C54,-86.62 41.9,-90.3 27,-90.3 12.1,-90.3 0,-86.62 0,-82.08 0,-82.08 0,-8.12 0,-8.12 0,-3.58 12.1,0.1 27,0.1 41.9,0.1 54,-3.58 54,-8.12 54,-8.12 54,-82.08 54,-82.08"></path>
+<path fill="none" stroke="black" d="M54,-82.08C54,-77.55 41.9,-73.86 27,-73.86 12.1,-73.86 0,-77.55 0,-82.08"></path>
+<text text-anchor="start" x="10.99" y="-30.7" font-family="Arial" font-size="48.00">A</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+<td>
+<table class="blueborder">
+<tbody><tr>
+<td>
+5
+</td>
+<td>
+7
+</td>
+<td>
+9
+</td>
+<td>
+8
+</td>
+</tr>
+</tbody></table>
+<table class="redborder" style="margin-top:10px">
+<tbody><tr>
+<td>
+<span class="red">6</span>
+</td>
+<td>
+3
+</td>
+<td>
+<span class="red">6</span>
+</td>
+<td>
+9
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+<table class="bluenote fragment" data-fragment-index="2">
+<tbody><tr>
+<td>
+Then this can be done in <span class="math inline">\(o(n\log n)\)</span>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+<p class="font-80" style="text-align:center">
+<span class="math inline">\(\Omega(n \log n)\)</span>
+</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for <span class="math inline">\(A\)</span>:</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;text-align:center">
+<div class="svg-60 no-svg-margins" style="width:25%;margin:auto">
+<div class="cell" data-fig-width="1" data-fig-height="1.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="96" height="144" viewbox="0.00 0.00 62.00 98.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94.2)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-82.08C54,-86.62 41.9,-90.3 27,-90.3 12.1,-90.3 0,-86.62 0,-82.08 0,-82.08 0,-8.12 0,-8.12 0,-3.58 12.1,0.1 27,0.1 41.9,0.1 54,-3.58 54,-8.12 54,-8.12 54,-82.08 54,-82.08"></path>
+<path fill="none" stroke="black" d="M54,-82.08C54,-77.55 41.9,-73.86 27,-73.86 12.1,-73.86 0,-77.55 0,-82.08"></path>
+<text text-anchor="start" x="10.99" y="-30.7" font-family="Arial" font-size="48.00">X</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td colspan="2" style="vertical-align:top;width:30%">
+<table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
+<tbody><tr>
+<td class="font-90" style="border-top:2px solid black">
+<p>Map instances of problem <span class="math inline">\(A\)</span> to instances of <span class="math inline">\(CPP\)</span> in <span class="math inline">\(o(n \log n)\)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins" style="margin:0"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td class="font-90">
+<p>Map solutions of <span class="math inline">\(CPP\)</span> to solutions of problem <span class="math inline">\(A\)</span> in <span class="math inline">\(o(n \log n)\)</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins" style="margin:0"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+Reduction
+</td>
+</tr>
+<tr>
+<td style="border-bottom:2px solid black">
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+</td>
+<td style="vertical-align:top;width:33%">
+<table class="compact">
+<tbody><tr>
+<td colspan="2" class="und">
+<span class="font-70">Problem we want to show is <span class="math inline">\(\Omega(n \log n)\)</span></span>
+</td>
+</tr>
+<tr>
+<td>
+<table class="compact">
+<tbody><tr>
+<td>
+<img class="svg-100 no-svg-margins" src="graphs/reductions/cpp-0.svg" style="width:55%;margin:auto">
+</td>
+<td>
+Closest<br>pair of<br>points
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+Some algorithm for <span class="math inline">\(CPP\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<table class="bluenote fragment" data-fragment-index="1">
+<tbody><tr>
+<td>
+&nbsp;&nbsp;If this could be done in&nbsp;&nbsp;<br><span class="math inline">\(o(n \log n)\)</span>&nbsp;
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for <span class="math inline">\(B\)</span></span>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+<p style="text-align:center">
+<img class="svg-100 no-svg-margins" src="graphs/reductions/cpp-1.svg" style="width:45%;margin:auto !important">
+</p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="two-ways-to-use-reductions-1" class="slide level2">
+<h2>Two Ways to Use Reductions</h2>
+<div class="font-90 center">
+<p class="center">
+Suppose we have a “fast” <span style="color:plum">reduction</span> from <span class="red"><span class="math inline">\(A\)</span></span> to <span class="orange"><span class="math inline">\(B\)</span></span>
+</p>
+<table class="compact font-80" style="width:100%">
+<tbody><tr>
+<td style="width:37%;text-align:right;vertical-align:bottom">
+</td>
+<td style="width:26%">
+<img src="graphs/reductions/mini_reduction.svg" style="margin:auto">
+</td>
+<td style="width:37%;text-align:left;vertical-align:top">
+</td>
+</tr>
+</tbody></table>
+<p class="center">
+A “fast” algorithm for <span class="orange"><span class="math inline">\(B\)</span></span> gives a <span class="bold">fast algorithm</span> for <span class="red"><span class="math inline">\(A\)</span></span>
+</p>
+<table class="compact font-80" style="width:100%">
+<tbody><tr>
+<td style="width:37%;text-align:right;vertical-align:bottom">
+Then <span class="math inline">\(A\)</span> is fast&nbsp;
+</td>
+<td style="width:26%">
+<img src="graphs/reductions/mini_reduction.svg" style="margin:auto">
+</td>
+<td style="width:37%;text-align:left;vertical-align:top">
+&nbsp;If <span class="math inline">\(B\)</span> is fast
+</td>
+</tr>
+</tbody></table>
+<p class="center">
+If we have a worst-case lower bound for <span class="red"><span class="math inline">\(A\)</span></span>, we also have one for <span class="orange"><span class="math inline">\(B\)</span></span>
+</p>
+<table class="compact font-80" style="width:100%">
+<tbody><tr>
+<td style="width:37%;text-align:right;vertical-align:top">
+If <span class="math inline">\(A\)</span> is slow&nbsp;
+</td>
+<td style="width:26%">
+<img src="graphs/reductions/mini_reduction.svg" style="margin:auto">
+</td>
+<td style="width:37%;text-align:left;vertical-align:bottom">
+&nbsp;Then <span class="math inline">\(B\)</span> is slow
+</td>
+</tr>
+</tbody></table>
+</div>
 </section></section>
 <section>
+<section id="working" class="title-slide slide level1 center">
+<h1>working</h1>
+
+</section>
+<section id="party-problem" class="slide level2">
+<h2>Party Problem</h2>
+<div class="r-stack">
+<div style="width:100%">
+<table style="width:100%" class="compact">
+<tbody><tr>
+<td style="vertical-align:middle">
+&nbsp;
+</td>
+<td style="font-size:65%;width:55%;padding:0">
+Draw edges between people who don’t get along<br>Find the maximum number of people who get along
+</td>
+</tr>
+</tbody></table>
+<p style="text-align:center">
+<img src="graphs/reductions/independent_set-1.svg" style="width:70%;margin:auto">
+</p>
+</div>
+<p><img src="graphs/reductions/independent_set-2.svg" style="max-width: 400% !important;max-height: 400% !important;width: 400%;margin-bottom:1000%;margin-left:-500%"></p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/The_Grinch_Merry_Christmas_-By_LOPDesigns.png/192px-The_Grinch_Merry_Christmas_-By_LOPDesigns.png" class="ispic" style="margin-left:400%;margin-top:-75%"> <!-- the grinch --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" class="ispic" style="margin-top:250%;margin-left:25%"> <!-- floryan --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp" class="ispic" style="margin-left:175%;margin-bottom:425%"> <!-- robbie --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&amp;itok=jvoP0ymk" class="ispic" style="margin-left:-200%;margin-top:-75%"> <!-- ray --></p>
+<p><img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg" class="ispic" style="margin-left:150%;margin-top:-75%"> <!-- me --></p>
+<p><img data-src="https://www.cs.virginia.edu/~nn4pj/rich2017.jpg" class="ispic" style="margin-left:150%;margin-top:200%"> <!-- rich --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/selfie%2520-%2520Paul%2520McBurney%5B1%5D.webp?h=1914eaad&amp;itok=wEQ3K-_-" class="ispic" style="margin-left:-150%;margin-top:200%"> <!-- mcburney --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/MarkSherriff_headshot.webp?itok=VIFy0Ysc" class="ispic" style="margin-top:465%;margin-left:-150%"> <!-- sherriff --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/horton-tom.webp?itok=hFBeCUQC" class="ispic" style="margin-left:300%;margin-top:275%"> <!-- tom --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Morrison03.JPG?h=863c5a9e&amp;itok=JkOfG3kH" class="ispic" style="margin-bottom:400%;margin-left:-325%"> <!-- briana --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-05/Nada_BASIT_Headshot.JPG?h=d416eee1&amp;itok=xsIfZg10" class="ispic" style="margin-bottom: 625%;margin-left: -150%;"> <!-- nada --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/Sandhya-Dwarkadas_TWZ-3_sq.webp?itok=PRTWNtgX" class="ispic" style="margin-bottom: 625%;margin-left: -300%;"> <!-- sandhya --></p>
+</div>
+</section>
+<section id="maximum-independent-set" class="slide level2">
+<h2>Maximum Independent Set</h2>
+<p>&nbsp;</p>
+<ul>
+<li>Independent set: <span class="math inline">\(S \subseteq V\)</span> is an independent set if no two nodes in <span class="math inline">\(S\)</span> share an edge</li>
+<li>Maximum Independent Set Problem: Given a graph <span class="math inline">\(G=(V,E)\)</span>, find the maximum independent set <span class="math inline">\(S\)</span></li>
+</ul>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<div class="r-stack">
+<div style="width:100%">
+<table style="width:100%;margin-top:-20px" class="compact">
+<tbody><tr>
+<td style="vertical-align:middle">
+&nbsp;
+</td>
+<td class="redtext" style="font-size:85%;width:55%;padding:0;vertical-align:top">
+Independent set of size 6
+</td>
+</tr>
+</tbody></table>
+<p style="text-align:center">
+<img src="graphs/reductions/independent_set-1.svg" style="width:70%;margin:auto">
+</p>
+</div>
+<p><img src="graphs/reductions/independent_set-2.svg" style="max-width: 400% !important;max-height: 400% !important;width: 400%;margin-bottom:1000%;margin-left:-500%"></p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/The_Grinch_Merry_Christmas_-By_LOPDesigns.png/192px-The_Grinch_Merry_Christmas_-By_LOPDesigns.png" class="ispic" style="margin-left:375%;margin-top:-75%;border:5px solid red"> <!-- the grinch --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" class="ispic" style="margin-top:225%;margin-left:25%;border:5px solid red"> <!-- floryan --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp" class="ispic" style="margin-left:175%;margin-bottom:425%"> <!-- robbie --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&amp;itok=jvoP0ymk" class="ispic" style="margin-left:-175%;margin-top:-75%;border:5px solid red"> <!-- ray --></p>
+<p><img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg" class="ispic" style="margin-left:150%;margin-top:-75%"> <!-- me --></p>
+<p><img data-src="https://www.cs.virginia.edu/~nn4pj/rich2017.jpg" class="ispic" style="margin-left:150%;margin-top:175%"> <!-- rich --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/selfie%2520-%2520Paul%2520McBurney%5B1%5D.webp?h=1914eaad&amp;itok=wEQ3K-_-" class="ispic" style="margin-left:-150%;margin-top:200%;border:5px solid red"> <!-- mcburney --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/MarkSherriff_headshot.webp?itok=VIFy0Ysc" class="ispic" style="margin-top:465%;margin-left:-150%"> <!-- sherriff --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/horton-tom.webp?itok=hFBeCUQC" class="ispic" style="margin-left:300%;margin-top:275%"> <!-- tom --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Morrison03.JPG?h=863c5a9e&amp;itok=JkOfG3kH" class="ispic" style="margin-bottom:400%;margin-left:-325%;border:5px solid red"> <!-- briana --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-05/Nada_BASIT_Headshot.JPG?h=d416eee1&amp;itok=xsIfZg10" class="ispic" style="margin-bottom: 700%;margin-left: -150%;"> <!-- nada --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/Sandhya-Dwarkadas_TWZ-3_sq.webp?itok=PRTWNtgX" class="ispic" style="margin-bottom: 625%;margin-left: -300%;border:5px solid red"> <!-- sandhya --></p>
+</div>
+</section>
+<section id="generalized-baseball" class="slide level2">
+<h2>Generalized Baseball</h2>
+
+<img data-src="graphs/reductions/vertex_cover-1.svg" class="center r-stretch"></section>
+<section id="generalized-baseball-1" class="slide level2">
+<h2>Generalized Baseball</h2>
+<table style="width:100%">
+<tbody><tr>
+<td style="width:70%">
+<img data-src="graphs/reductions/vertex_cover-2.svg" class="center" style="width: 300%;height: 300%;max-width: 300%% !important;max-height: 300% !important;">
+</td>
+<td class="font-80 fragment" style="vertical-align:top">
+Need to place defenders on bases such that every edge is defended <br>&nbsp;<br> What’s the fewest number of defenders needed?
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="vertex-cover" class="slide level2">
+<h2>Vertex Cover</h2>
+<p>&nbsp;</p>
+<ul>
+<li>Vertex Cover: <span class="math inline">\(C \subseteq V\)</span> is a vertex cover if every edge in <span class="math inline">\(E\)</span> has one of its endpoints in <span class="math inline">\(C\)</span></li>
+<li>Minimum Vertex Cover: Given a graph <span class="math inline">\(G=(V,E)\)</span> find the minimum vertex cover <span class="math inline">\(C\)</span></li>
+</ul>
+</section>
+<section id="generalized-baseball-2" class="slide level2">
+<h2>Generalized Baseball</h2>
+<table style="width:100%">
+<tbody><tr>
+<td style="width:70%">
+<img data-src="graphs/reductions/vertex_cover-3.svg" class="center" style="width: 300%;height: 300%;max-width: 300%% !important;max-height: 300% !important;">
+</td>
+<td class="font-80 redtext" style="vertical-align:top">
+Vertex cover of size 5
+</td>
+</tr>
+</tbody></table>
+</section></section>
 <section id="np-completeness" class="title-slide slide level1 center">
 <h1>NP-Completeness <!-- from day23.pptx --></h1>
 <div class="titlereading">
 <p>Readings in CLRS 4th edition: chapter 34</p>
 </div>
-</section>
-<section id="np-completeness-1" class="slide level2">
-<h2>NP-Completeness</h2>
 <div class="quarto-auto-generated-content">
 <p><img src="images/quarto.webp" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://uva-cs.github.io/dsa2" class="uri">https://uva-cs.github.io/dsa2</a></p>
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 

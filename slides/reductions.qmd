@@ -2492,28 +2492,8 @@ Compute <span class='bold'>Edge-Disjoint Paths</span> on new graph
 
 
 ::: {.fragment fragment-index=2}
-::: {.svg-50 .bottom style="position:fixed;right:-300px;bottom:175px"}
-```{dot}
-digraph graph25 {
-    layout=dot;
-    rankdir="BT";
-    graph [bgcolor=transparent];
-    node [fontname="Arial",shape=oval,fillcolor=orange,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;color=teal];
-    empty1 [label="",style=invis];
-    g1 [label="g in"];
-    g2 [label="g out"];
-    empty2 [label="",style=invis];
-    empty1 -> g1;
-    g1 -> g2 [xlabel=<restricts to<br/>1 edge>;label="           ";fontsize=12];
-    g2 -> empty2;
-    empty3 [label="";style=invis];
-    empty3 -> g1 [color=black];
-    empty4 [label="";style=invis];
-    empty4 -> g1 [color=invis];
-    {rank=same empty1 g1 g2 empty2};
-}
-```
+::: {.svg-100 .bottom style="position:fixed;right:-100px;bottom:175px"}
+<img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg">
 :::
 :::
 
@@ -2524,7 +2504,7 @@ digraph graph25 {
 ::: {.r-stack style="height:100%"}
 <img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg">
 
-<table style="margin-top:75px !important">
+<table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -2624,11 +2604,11 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 
 <table><tr><td style="width:50%">
 
-<table class="bipartite"><tr><td style="vertical-align:middle">
+<table class="bipartite bipartite_flow"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-0.svg">
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-True.svg">
 
-<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<table style="width:50% !important;margin-bottom:70px !important;margin-left:110px !important">
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -2657,11 +2637,11 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 
 <table><tr><td style="width:50%">
 
-<table class="bipartite"><tr><td style="vertical-align:middle">
+<table class="bipartite bipartite_flow"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-3.svg">
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-True.svg">
 
-<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<table style="width:50% !important;margin-bottom:70px !important;margin-left:110px !important">
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -2754,7 +2734,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 <tr><td>&nbsp;</td></tr>
 <tr><td><span class='fragment' fragment-index=7>Solution for $A$:</span></td></tr>
 <tr><td style="padding-bottom:10px !important"><span class='fragment' fragment-index=7>Keg cannon<br>battering ram</span></td></tr>
-<td style="vertical-align:top;text-align:center">
+<tr><td style="vertical-align:top;text-align:center">
 ::: {.r-stack .fragment fragment-index=7}
 <p style="margin:0;z-index:0"> ![](https://webstockreview.net/images/clipart-flames-svg-3.png){.center style="padding-bottom:80px;transform:rotate(180deg);width:30%;"} </p>
 <p style="margin:0;z-index:1"> ![](https://clipground.com/images/beer-keg-clipart-20.jpg){.center style="width:30%"} </p>
@@ -2804,11 +2784,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <tr><td><span class="fragment" fragment-index=2>Lighting a fire</span></td></tr>
 <tr><td> ![](http://www.clipartbest.com/cliparts/4T9/E9X/4T9E9XEjc.png){.center  .fragment fragment-index=2 style="width:50%;height:20%;margin-top:-20px"} </td></tr>
 <tr><td>
-::: {.svg-60 .fragment fragment-index=4 .no-svg-margins style="transform:rotate(90deg)"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<How?>,fontsize=24,height=1,color=red,width=1]; }
-```
-:::
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
 </td></tr>
 <tr><td><span class="fragment" fragment-index=5>Solution for $B$:</span></td></tr>
 <tr><td><span class="fragment" fragment-index=5>Alcohol, wood, matches</span></td></tr>
@@ -2837,10 +2813,10 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 
 <table class='font-70 allcenter compact' style="vertical-align:top">
 
-<tr class='font-70'><td colspan=2 class="und"><span class='fragment' fragment-index=1>Problem we don't know how to solve</span></td><td></td><td></td><td colspan=2 class="und"><span class='fragment' fragment-index=2>Problem we do know how to solve</span></td></tr>
+<tr class='font-70'><td colspan=2 class="und"><span class='fragment' data-fragment-index=1>Problem we don't know how to solve</span></td><td></td><td></td><td colspan=2 class="und"><span class='fragment' data-fragment-index=2>Problem we do know how to solve</span></td></tr>
 
 <tr><td style="vertical-align:top;width:10%">
-::: {.svg-100 .no-svg-margins .fragment fragment-index=1}
+::: {.svg-100 .no-svg-margins .fragment data-fragment-index=1}
 ```{dot}
 //| fig-width: 1
 //| fig-height: 1.5
@@ -2851,15 +2827,15 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 
 <td style="vertical-align:top;width:25%;padding-right:10px !important">
 <table class='compact allcenter'>
-<tr><td><span class="fragment" fragment-index=1>Bipartite Matching</span></td></tr>
+<tr><td><span class="fragment" data-fragment-index=1>Bipartite Matching</span></td></tr>
 <tr><td> 
 
-::: {.fragment fragment-index=1}
-<table class="bipartite" style="width:60%"><tr><td style="max-width:500px !important">
+::: {.fragment data-fragment-index=1}
+<table class="bipartite bipartite_flow2"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 <img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg">
 
-<table style="margin-top:75px !important">
+<table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -2869,16 +2845,15 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 </td></tr></table>
 :::
 
-<tr><td>&nbsp;</td></tr>
-<tr><td><span class='fragment' fragment-index=7>Solution for $A$:</span></td></tr>
-<td style="vertical-align:top;text-align:center">
+<tr><td><span class='fragment' data-fragment-index=7>Solution for $A$:</span></td></tr>
+<tr><td style="vertical-align:top;text-align:center">
 
-::: {.fragment fragment-index=7}
-<table class="bipartite" style="width:60%"><tr><td style="max-width:500px !important">
+::: {.fragment data-fragment-index=7}
+<table class="bipartite bipartite_flow2"><tr><td style="max-width:500px !important">
 ::: {.r-stack style="height:100%"}
 <img src="graphs/reductions/bipartite_graph-8.53-9.64-1.svg">
 
-<table style="margin-top:75px !important">
+<table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -2897,15 +2872,15 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 
 ::: {.r-stack}
 
-<table class="compact fragment" style="width:100%;height:100%"><tr><td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">&nbsp;</td></tr></table>
+<table class="compact fragment" data-fragment-index=8 style="width:100%;height:100%"><tr><td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">&nbsp;</td></tr></table>
 
 <table class="compact" style="z-index:1;opacity:0.5"><tr><td>
-::: {.fragment fragment-index=3}
-<table class="bipartite"><tr><td style="vertical-align:middle">
+::: {.fragment data-fragment-index=3}
+<table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-0.svg">
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-True.svg">
 
-<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -2915,16 +2890,14 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 </td></tr></table>
 :::
 </td></tr>
-<tr><td>&nbsp;</td></tr>
-<tr><td style="opacity:1;z-index:6" class="fragment">Reduction</td></tr>
-<tr><td>&nbsp;</td></tr>
+<tr><td style="opacity:1;z-index:6" class="fragment" data-fragment-index=8 >Reduction</td></tr>
 <tr><td>
-::: {.fragment fragment-index=6}
-<table class="bipartite"><tr><td style="vertical-align:middle">
+::: {.fragment data-fragment-index=6}
+<table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-3.svg">
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-True.svg">
 
-<table style="width:55% !important;margin-bottom:15px !important;margin-left:112px">
+<table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -2936,13 +2909,13 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 </td></tr></table>
 
 <div style="z-index:2">
-::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment fragment-index=3}
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment data-fragment-index=3}
 ```{dot}
 graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
 ```
 :::
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment fragment-index=6}
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment data-fragment-index=6}
 ```{dot}
 graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
 ```
@@ -2955,7 +2928,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label=
 
 
 <td style="vertical-align:top;width:10%;padding-left:10px !important">
-::: {.svg-100 .no-svg-margins .fragment fragment-index=2}
+::: {.svg-100 .no-svg-margins .fragment data-fragment-index=2}
 ```{dot}
 //| fig-width: 1
 //| fig-height: 1.75
@@ -2967,10 +2940,10 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <td style="vertical-align:top;width:25%">
 
 <table class='compact'>
-<tr><td><span class="fragment" fragment-index=2>Max Flow</span></td></tr>
+<tr><td><span class="fragment" data-fragment-index=2>Max Flow</span></td></tr>
  <tr><td> 
 
-::: {.svg-100 .fragment fragment-index=2}
+::: {.svg-100 .fragment data-fragment-index=2}
 <img src="graphs/reductions/flow_graph-3.svg">
 :::
 
@@ -2978,21 +2951,18 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <tr><td>&nbsp;</td></tr>
 <tr><td>
 ::: {.r-stack}
-::: {.svg-60 .fragment fragment-index=4 .no-svg-margins style="transform:rotate(90deg)"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=24,height=1,color=red,width=1]; }
-```
-:::
-::: {.fragment fragment-index=4}
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+
+::: {.fragment data-fragment-index=4}
 <p style="z-index:5">Ford-Fulkerson</p>
 :::
 :::
 </td></tr>
 <tr><td>&nbsp;</td></tr>
-<tr><td><span class="fragment" fragment-index=5>Solution for $B$:</span></td></tr>
+<tr><td><span class="fragment" data-fragment-index=5>Solution for $B$:</span></td></tr>
 <tr><td>
 
-::: {.svg-100 .fragment fragment-index=5}
+::: {.svg-100 .fragment data-fragment-index=5}
 <img src="graphs/reductions/flow_graph-2-True-0-False.svg">
 :::
 
@@ -3009,11 +2979,13 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 
 ## Edge Disjoint Paths <span class='magenta'>Reduction</span>
 
-<table class='font-70 allcenter compact' style="vertical-align:top">
+<table class='font-70 allcenter compact' style="vertical-align:top;height:90%">
 
-<tr class='font-70'><td colspan=2 class="und"><span>Problem we don't know how to solve</span></td><td></td><td></td><td colspan=2 class="und"><span>Problem we do know how to solve</span></td></tr>
+<tr class='font-70' style="height:0"><td colspan=2 class="und"><span>Problem we don't know how to solve</span></td><td></td><td></td><td colspan=2 class="und"><span>Problem we do know how to solve</span></td></tr>
+<tr>
 
-<tr><td style="vertical-align:top;width:10%">
+<!-- this td contains the "A" cylinder and the final cylinder -->
+<td style="vertical-align:top;width:10%">
 ::: {.svg-100 .no-svg-margins}
 ```{dot}
 //| fig-width: 1
@@ -3023,84 +2995,53 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 :::
 </td>
 
+<!-- this td is the left column that contains the original problem and the final solution -->
 <td style="vertical-align:top;width:25%;padding-right:10px !important">
+<!-- this table contains the image on the left (the "source" problem) -->
 <table class='compact allcenter'>
-<tr><td><span>Bipartite Matching</span></td></tr>
-<tr><td> 
-
-<table class="bipartite" style="width:60%;height:100%"><tr><td style="max-width:500px !important">
-::: {.r-stack style="height:100%"}
+<tr><td><span>Edge Disjoint Paths</span></td></tr>
+<tr><td>
+<!-- the "source" image in the upper left -->
 <img src="graphs/reductions/edge_disjoint_graph.svg">
-:::
 </td></tr></table>
-
-<tr><td>&nbsp;</td></tr>
-<tr><td>&nbsp;</td></tr>
-<tr><td>&nbsp;</td></tr>
-<tr><td>&nbsp;</td></tr>
-<tr><td>&nbsp;</td></tr>
-<tr><td>&nbsp;</td></tr>
+<!-- this table has the bottom-left image -->
+<table class='compact allcenter' style="position:absolute;bottom:0;width:24%">
 <tr><td><span>Solution for $A$:</span></td></tr>
-<td style="vertical-align:top;text-align:center">
-
-<table class="bipartite" style="width:60%"><tr><td style="max-width:500px !important">
-::: {.r-stack style="height:100%"}
+<tr><td style="vertical-align:top;text-align:center">
 <img src="graphs/reductions/edge_disjoint_graph-2.svg">
-:::
 </td></tr></table>
-
-</td></tr></table>
-
-
 </td>
 
-<td colspan=2 style="vertical-align:top">
+<!-- this column contains the middle purple column and its contents -->
+<td colspan=2 style="vertical-align:top;border:2px solid black;background-color:plum">
 
+<!-- this table contains the center top right arrow and image -->
+<table class='compact allcenter'><tr><td>
 ::: {.r-stack}
-
-<table class="compact" style="width:100%;height:100%"><tr><td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">&nbsp;</td></tr></table>
-
-<table class="compact" style="z-index:1;opacity:0.5"><tr><td>
-
-<table class="bipartite"><tr><td style="vertical-align:middle">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/edge_disjoint_graph-0-1.svg">
-:::
-</td></tr></table>
-
-</td></tr>
-<tr><td>&nbsp;</td></tr>
-<tr><td style="opacity:1;z-index:6">Reduction</td></tr>
-<tr><td>&nbsp;</td></tr>
-<tr><td>
-
-<table class="bipartite"><tr><td style="vertical-align:middle">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/edge_disjoint_graph-0-1.svg">
-:::
-</td></tr></table>
-
-</td></tr></table>
-
-<div style="z-index:2">
-::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important;z-index:2"}
 ```{dot}
 graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
 ```
 :::
-<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
-::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+<img src="graphs/reductions/edge_disjoint_graph-0-1.svg" style="z-index:1">
+:::
+</td></tr></table>
+
+<!-- this table contains the center bottom left arrow and image -->
+<table class='compact allcenter' style="position:absolute;bottom:0;width:30%"><tr><td>
+::: {.r-stack}
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important;z-index:2"}
 ```{dot}
 graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="Use edges with flow",fontsize=12,height=0.6,color=red,width=2]; }
 ```
 :::
-</div>
-
+<img src="graphs/reductions/edge_disjoint_graph-2-1.svg" style="z-index:1">
 :::
+</td></tr></table>
 
 </td>
 
-
+<!-- this contains the yellow problem-B box(es) -->
 <td style="vertical-align:top;width:10%;padding-left:10px !important">
 ::: {.svg-100 .no-svg-margins}
 ```{dot}
@@ -3111,45 +3052,337 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 :::
 </td>
 
+<!-- this td is the right column that reduced-to problem the reduced-to solution -->
 <td style="vertical-align:top;width:25%">
-
+<!-- this table contains both the upper-right image and the down arrow on the right -->
 <table class='compact'>
 <tr><td><span>Max Flow</span></td></tr>
- <tr><td> 
-
+<tr><td> 
 ::: {.svg-100}
 <img src="graphs/reductions/flow_graph-3.svg">
 :::
-
 </td></tr>
-<tr><td>&nbsp;</td></tr>
 <tr><td>
 ::: {.r-stack}
-::: {.svg-60 .no-svg-margins style="transform:rotate(90deg)"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=24,height=1,color=red,width=1]; }
-```
-:::
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
 
 <p style="z-index:5">Ford-Fulkerson</p>
-
 :::
 </td></tr>
 <tr><td>&nbsp;</td></tr>
+</table>
+<!-- this table has the bottom-right image -->
+<table class='compact allcenter' style="position:absolute;bottom:0;width:24%">
 <tr><td><span>Solution for $B$:</span></td></tr>
 <tr><td>
-
 ::: {.svg-100}
 <img src="graphs/reductions/flow_graph-2-True-0-False.svg">
 :::
+</td></tr></table>
+</td>
 
-</td></tr>
-</table>
+</tr></table>
+
+
+
+
+
+## Vertex Disjoint Paths <span class='magenta'>Reduction</span>
+
+<table class='font-70 allcenter compact' style="vertical-align:top;height:90%">
+
+<tr class='font-70' style="height:0"><td colspan=2 class="und"><span>Problem we don't know how to solve</span></td><td></td><td></td><td colspan=2 class="und"><span>Problem we do know how to solve</span></td></tr>
+<tr>
+
+<!-- this td contains the "A" cylinder and the final cylinder -->
+<td style="vertical-align:top;width:10%">
+::: {.svg-100 .no-svg-margins}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td>
+
+<!-- this td is the left column that contains the original problem and the final solution -->
+<td style="vertical-align:top;width:25%;padding-right:10px !important">
+<!-- this table contains the image on the left (the "source" problem) -->
+<table class='compact allcenter'>
+<tr><td><span>Vertex Disjoint Paths</span></td></tr>
+<tr><td>
+<!-- the "source" image in the upper left -->
+<img src="graphs/reductions/edge_disjoint_graph.svg">
+</td></tr></table>
+<!-- this table has the bottom-left image -->
+<table class='compact allcenter' style="position:absolute;bottom:0;width:24%">
+<tr><td><span>Solution for $A$:</span></td></tr>
+<tr><td style="vertical-align:top;text-align:center">
+<img src="graphs/reductions/edge_disjoint_graph-2.svg">
+</td></tr></table>
+</td>
+
+<!-- this column contains the middle purple column and its contents -->
+<td colspan=2 style="vertical-align:top;border:2px solid black;background-color:plum">
+
+<!-- this table contains the center top right arrow and image -->
+<table class='compact allcenter'><tr><td>
+::: {.r-stack}
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins">
+</div>
+
+<img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg" style="z-index:1">
+:::
+</td></tr></table>
+
+<!-- this table contains the center bottom left arrow and image -->
+<table class='compact allcenter' style="position:absolute;bottom:0;width:30%"><tr><td>
+::: {.r-stack}
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins">
+</div>
+
+<img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg" style="z-index:1">
+
+<p>Merge these back</p>
+:::
+</td></tr></table>
 
 </td>
-</tr>
 
+<!-- this contains the yellow problem-B box(es) -->
+<td style="vertical-align:top;width:10%;padding-left:10px !important">
+::: {.svg-100 .no-svg-margins}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+</td>
+
+<!-- this td is the right column that reduced-to problem the reduced-to solution -->
+<td style="vertical-align:top;width:25%">
+<!-- this table contains both the upper-right image and the down arrow on the right -->
+<table class='compact'>
+<tr><td><span>Edge Disjoint Paths</span></td></tr>
+<tr><td> 
+::: {.svg-100}
+<img src="graphs/reductions/edge_disjoint_graph.svg">
+:::
+</td></tr>
+<tr><td>
+::: {.r-stack}
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+
+<p style="z-index:5">(another reduction)</p>
+:::
+</td></tr>
+<tr><td>&nbsp;</td></tr>
 </table>
+<!-- this table has the bottom-right image -->
+<table class='compact allcenter' style="position:absolute;bottom:0;width:24%">
+<tr><td><span>Solution for $B$:</span></td></tr>
+<tr><td>
+::: {.svg-100}
+<img src="graphs/reductions/edge_disjoint_graph-2.svg">
+:::
+</td></tr></table>
+</td>
+
+</tr></table>
+
+
+
+
+
+
+## Vertex Disjoint Paths <span class='magenta'>Big Picture</span>
+
+<table class='font-70 allcenter compact' style="vertical-align:top;height:90%">
+
+<tr class='font-70' style="height:0">
+<td colspan=2 class="und"><span>Problem we don't know how to solve</span></td><td></td><td></td>
+<td colspan=2 class="und"><span>Problem we still don't know how to solve</span></td><td></td><td></td>
+<td colspan=2 class="und"><span>Problem we do know how to solve</span></td></tr>
+<tr>
+
+<!-- this td contains the "A" cylinder and the final cylinder -->
+<td style="vertical-align:top;width:5%">
+::: {.svg-100 .no-svg-margins}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td>
+
+<!-- this td is the left column that contains the original problem and the final solution -->
+<td style="vertical-align:top;width:15%;padding-right:10px !important">
+<!-- this table contains the image on the left (the "source" problem) -->
+<table class='compact allcenter'>
+<tr><td><span>Vertex Disjoint Paths</span></td></tr>
+<tr><td>
+<!-- the "source" image in the upper left -->
+<img src="graphs/reductions/edge_disjoint_graph.svg">
+</td></tr></table>
+<!-- this table has the bottom-left image -->
+<table class='compact allcenter' style="position:absolute;bottom:0;width:14%">
+<tr><td><span>Solution for $A$:</span></td></tr>
+<tr><td style="vertical-align:top;text-align:center">
+<img src="graphs/reductions/edge_disjoint_graph-2.svg">
+</td></tr></table>
+</td>
+
+<!-- this column contains the middle purple column and its contents -->
+<td colspan=2 style="vertical-align:top;border:2px solid black;background-color:plum;width:20%">
+
+<!-- this table contains the center top right arrow and image -->
+<table class='compact allcenter'><tr><td>
+::: {.r-stack}
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins">
+</div>
+
+<img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg" style="z-index:1">
+:::
+</td></tr></table>
+
+<!-- this table contains the center bottom left arrow and image -->
+<table class='compact allcenter' style="position:absolute;bottom:0;width:20%"><tr><td>
+::: {.r-stack}
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins">
+</div>
+
+<img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg" style="z-index:1">
+
+<p class='font-70'>Merge these back</p>
+:::
+</td></tr></table>
+
+</td>
+
+<!-- this contains the yellow problem-B box(es) -->
+<td style="vertical-align:top;width:5%;padding-left:10px !important">
+::: {.svg-100 .no-svg-margins}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+</td>
+
+<!-- this td is the right column that reduced-to problem the reduced-to solution -->
+<td style="vertical-align:top;width:15%">
+<!-- this table contains both the upper-right image and the down arrow on the right -->
+<table class='compact'>
+<tr><td><span>Edge Disjoint Paths</span></td></tr>
+<tr><td> 
+::: {.svg-100}
+<img src="graphs/reductions/edge_disjoint_graph.svg">
+:::
+</td></tr>
+<tr><td>
+
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+</table>
+<!-- this table has the bottom-right image -->
+<table class='compact allcenter' style="position:absolute;bottom:0;width:14%">
+<tr><td><span>Solution for $B$:</span></td></tr>
+<tr><td>
+::: {.svg-100}
+<img src="graphs/reductions/edge_disjoint_graph-2.svg">
+:::
+</td></tr></table>
+</td>
+
+
+<!-- this column contains the middle purple column and its contents -->
+<td colspan=2 style="vertical-align:top;border:2px solid black;background-color:plum;width:20%">
+
+<!-- this table contains the center top right arrow and image -->
+<table class='compact allcenter'><tr><td>
+::: {.r-stack}
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important;z-index:2"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+<img src="graphs/reductions/edge_disjoint_graph-0-1.svg" style="z-index:1">
+:::
+</td></tr></table>
+
+<!-- this table contains the center bottom left arrow and image -->
+<table class='compact allcenter' style="position:absolute;bottom:0;width:20%"><tr><td>
+::: {.r-stack}
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important;z-index:2"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="Use edges with flow",fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+<img src="graphs/reductions/edge_disjoint_graph-2-1.svg" style="z-index:1">
+:::
+</td></tr></table>
+
+</td>
+
+<!-- this contains the yellow problem-B box(es) -->
+<td style="vertical-align:top;width:5%;padding-left:10px !important">
+::: {.svg-100 .no-svg-margins}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<C>,fontsize=48,style=filled,fillcolor=green;height="1.75in";width="1in"]; }
+```
+:::
+</td>
+
+<!-- this td is the right column that reduced-to problem the reduced-to solution -->
+<td style="vertical-align:top;width:15%">
+<!-- this table contains both the upper-right image and the down arrow on the right -->
+<table class='compact'>
+<tr><td><span>Max Flow</span></td></tr>
+<tr><td> 
+::: {.svg-100}
+<img src="graphs/reductions/flow_graph-3.svg">
+:::
+</td></tr>
+<tr><td>
+::: {.r-stack}
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+
+<p style="z-index:5" class="font-80">Ford-Fulkerson</p>
+:::
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+</table>
+<!-- this table has the bottom-right image -->
+<table class='compact allcenter' style="position:absolute;bottom:0;width:16%">
+<tr><td><span>Solution for $C$:</span></td></tr>
+<tr><td>
+::: {.svg-100}
+<img src="graphs/reductions/flow_graph-2-True-0-False.svg">
+:::
+</td></tr></table>
+</td>
+
+</tr></table>
+
+
+
+## Reductions for Algorithms
+
+&nbsp;
+
+- Create an algorithm for a new problem by using one you already know!
+  - More algorithms = More opportunities!
+- The problem you reduced to could itself be solved using a reduction!
+
 
 
 
@@ -3179,7 +3412,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 <tr><td>&nbsp;</td></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td><span>Solution for $A$:</span></td></tr>
-<td style="vertical-align:top;text-align:center">
+<tr><td style="vertical-align:top;text-align:center">
 ::: {.svg-60 .no-svg-margins style="width:25%;margin:auto"}
 ```{dot}
 //| fig-width: 1
@@ -3209,7 +3442,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 </td></tr>
 <tr><td>
 
-<table class='bluenote'><tr><td style="padding-left:10px !important;padding-right:10px !important">
+<table class='bluenote fragment'><tr><td style="padding-left:10px !important;padding-right:10px !important">
 
 Injective: any instance of $A$ can be mapped to some instance of $B$
 
@@ -3256,11 +3489,8 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 </td></tr>
 <tr><td> Using any algorithm<br>for $B$ </td></tr>
 <tr><td>
-::: {.svg-60 .no-svg-margins style="transform:rotate(90deg)"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=24,height=.75,color=red,width=.75]; }
-```
-:::
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+
 </td></tr>
 <tr><td><span>Solution for $B$:</span></td></tr>
 <tr><td>
@@ -3284,10 +3514,127 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=
 
 
 
+## Another use of Reductions
+
+<table class='font-70 allcenter' style="vertical-align:top"><tr>
+<td style="vertical-align:top;width:37%;padding-right:10px !important">
+<table class='allcenter'>
+
+<tr><td>Problem $A$</td></tr>
+<tr><td> 
+::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=1><tr><td>Suppose I know a worst-case lower-bound of $\Omega(f(n))$ for $A$</td></tr></table></td></tr>
+<tr><td>
+::: {.r-stack}
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+
+<p class="font-80" style="text-align:center">$\Omega(f(n))$ </p>
+:::
+</td></tr>
+<tr><td><span>Solution for $A$:</span></td></tr>
+<tr><td style="vertical-align:top;text-align:center">
+::: {.svg-60 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr></table>
+</td><td colspan=2 style="vertical-align:top;width:30%">
+
+<table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
+
+<tr><td class="font-90" style="border-top:2px solid black">
+
+Map instances of problem $A$ to instances of problem $B$
+
+</td></tr><tr><td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins" style="margin:0">
+</div>
+</td></tr><tr><td>
+<table class='bluenote fragment' data-fragment-index=2><tr><td>Then this entire path must be $\Omega(f(n))$</td></tr></table>
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="font-90">
+
+Map solutions of problem $B$ to solutions of problem $A$
+
+</td></tr><tr><td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins" style="margin:0">
+</div>
+</td></tr>
+<tr><td>Reduction</td></tr>
+</td></tr>
+</table>
+
+</td>
+<td style="vertical-align:top;width:33%">
+
+<table class="compact">
+
+<tr><td> 
+
+::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td> Some algorithm for $B$ </td></tr>
+<tr><td style="text-align:center">
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><span>Solution for $B$</span></td></tr>
+<tr><td>
+
+::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+
+</td></tr></table>
+</td></tr></table>
 
 
 
-## Worst-case lower-bound Proofs
+
+
+## Worst Case Lower Bound
+
+<div class="font-90">
+
+- Definition:
+  - A <span class='bold'>worst case lower bound</span> on a problem is an <i>asymptotic lower bound on the worst case running time</i> of any algorithm which solves it
+  - If $f(n)$ is a worst case lower bound for problem $A$, then the worst-case running time of any algorithm which solves $A$ must be $\Omega(f(n))$
+    - i.e. for sufficiently large values of $n$, for every algorithm which solves $A$, there is at least one input of size $n$ which causes the algorithm to do $\Omega(f(n))$ steps
+- Examples:
+  - $n$ is a worst-case lower bound on finding the minimum in a list
+  - $n^2$ is a worst-case lower bound on matrix multiplication
+
+</div>
+
+
+
+
+## Worst case lower bound Proofs
 
 <table class='compact font-70 allcenter' style="width:100%">
 
@@ -3418,7 +3765,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fonts
 
 <p class='bold center'>$A$ is not harder than problem $B$: $A \le B$</p>
 
-[The name "reduces" is confusing: it is in the <i>opposite</i> direction of the making]{.center .font-80}
+<p class='fragment center font-80'>The name "reduces" is confusing: it is in the <i>opposite</i> direction of the making</p>
 
 
 
@@ -3624,23 +3971,680 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fonts
 
 
 
+## Two Ways to Use Reductions
+
+<div class="font-90 center">
+
+<p class='center'>Suppose we have a "fast" <span style="color:plum">reduction</span> from <span class='red'>$A$</span> to <span class='orange'>$B$</span></p>
+
+<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:bottom"></td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:top"></td></tr></table>
+
+<p class='center'>A "fast" algorithm for <span class='orange'>$B$</span> gives a <span class='bold'>fast algorithm</span> for <span class='red'>$A$</span></p>
+
+<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:bottom">Then $A$ is fast&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:top">&nbsp;If $B$ is fast</td></tr></table>
+
+<p class='center'>If we have a worst-case lower bound for <span class='red'>$A$</span>, we also have one for <span class='orange'>$B$</span></p>
+
+<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:top">If $A$ is slow&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:bottom">&nbsp;Then $B$ is slow</td></tr></table>
+
+</div>
+
+
+
+
+
+## Bipartite Matching <span class='magenta'>Reduction</span>
+
+<table class='font-70 allcenter compact' style="vertical-align:top">
+
+<tr class='font-70'><td colspan=2 class="und"><span>Problem we don't know how to solve</span></td><td></td><td></td><td colspan=2 class="und"><span>Problem we do know how to solve</span></td></tr>
+
+<tr><td style="vertical-align:top;width:10%">
+::: {.svg-100 .no-svg-margins}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td>
+
+<td style="vertical-align:top;width:25%;padding-right:10px !important">
+<table class='compact allcenter'>
+<tr><td><span>Bipartite Matching</span></td></tr>
+<tr><td> 
+
+::: {}
+<table class="bipartite bipartite_flow2"><tr><td style="max-width:500px !important">
+::: {.r-stack style="height:100%"}
+<img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg">
+
+<table>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
+:::
+</td></tr></table>
+:::
+
+<tr><td><span>Solution for $A$:</span></td></tr>
+<tr><td style="vertical-align:top;text-align:center">
+
+::: {}
+<table class="bipartite bipartite_flow2"><tr><td style="max-width:500px !important">
+::: {.r-stack style="height:100%"}
+<img src="graphs/reductions/bipartite_graph-8.53-9.64-1.svg">
+
+<table>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
+:::
+</td></tr></table>
+:::
+
+</td></tr></table>
+
+
+</td>
+
+<td colspan=2 style="vertical-align:top">
+
+::: {.r-stack}
+
+<table class="compact" style="width:100%;height:100%"><tr><td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">&nbsp;</td></tr></table>
+
+<table class="compact" style="z-index:1;opacity:0.5"><tr><td>
+::: {}
+<table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
+::: {.r-stack style="height:100%"}
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-True.svg">
+
+<table>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
+:::
+</td></tr></table>
+:::
+</td></tr>
+<tr><td style="opacity:1;z-index:6">Reduction</td></tr>
+<tr><td>
+::: {}
+<table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
+::: {.r-stack style="height:100%"}
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-True.svg">
+
+<table>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
+<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
+<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
+</table>
+:::
+</td></tr></table>
+:::
+</td></tr></table>
+
+<div style="z-index:2">
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
+```{dot}
+graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
+```
+:::
+</div>
+
+:::
+
+</td>
+
+
+<td style="vertical-align:top;width:10%;padding-left:10px !important">
+::: {.svg-100 .no-svg-margins}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+</td>
+
+<td style="vertical-align:top;width:25%">
+
+<table class='compact'>
+<tr><td><span>Max Flow</span></td></tr>
+ <tr><td> 
+
+::: {.svg-100}
+<img src="graphs/reductions/flow_graph-3.svg">
+:::
+
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>
+::: {.r-stack}
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+
+::: {}
+<p style="z-index:5">Ford-Fulkerson</p>
+:::
+:::
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><span>Solution for $B$:</span></td></tr>
+<tr><td>
+
+::: {.svg-100}
+<img src="graphs/reductions/flow_graph-2-True-0-False.svg">
+:::
+
+</td></tr>
+</table>
+
+</td>
+</tr>
+
+</table>
+
+<table class='fragment' data-fragment-index=1 style="position:absolute;top:50%;right:0;z-index:3"><tr><td><table class='bluenote fragment fade-out' data-fragment-index=3'><tr><td>If this is fast</td></tr></table></td></tr></table>
+
+<table class='fragment' data-fragment-index=2 style="position:absolute;top:50%;left:0;z-index:3"><tr><td><table class='bluenote fragment fade-out' data-fragment-index=3'><tr><td>Then this is fast</td></tr></table></td></tr></table>
+
+<table class='fragment' data-fragment-index=4 style="position:absolute;top:50%;left:0;z-index:3"><tr><td><table class='bluenote fragment fade-out' data-fragment-index=6'><tr><td>If this is slow</td></tr></table></td></tr></table>
+
+<table class='fragment' data-fragment-index=5 style="position:absolute;top:50%;right:0;z-index:3"><tr><td><table class='bluenote fragment fade-out' data-fragment-index=6'><tr><td>Then this is slow</td></tr></table></td></tr></table>
+
+
+
+
+## [Worst-case Lower Bound Using Reductions]{.r-fit-text}
+
+&nbsp;
+
+- Closest pair of points
+  - D&C algorithm: $\Theta(n \log n)$
+  - Can we do better?
+
+&nbsp;
+
+Idea: Show that doing closest pair in $o(n \log n)$ enables an impossibly fast algorithm for another problem
+
+
+
+
+
+## Reductions for Lower-Bound Proofs
+
+
+<table class='font-70 allcenter' style="vertical-align:top"><tr>
+<td style="vertical-align:top;width:37%;padding-right:10px !important">
+<table class='allcenter'>
+<tr><td colspan=2 class="und"><span class='font-70'>Problem we know is "hard"</span></td></tr>
+<tr><td>Problem $A$</td></tr>
+<tr><td> 
+::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=3><tr><td>and this must be slow,</td></tr></table></td></tr>
+<tr><td>
+::: {.r-stack}
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+
+<p class="font-80" style="text-align:center">"Hard" means this<br>must be slow</p>
+:::
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td><span>Solution for $A$:</span></td></tr>
+<tr><td style="vertical-align:top;text-align:center">
+::: {.svg-60 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr></table>
+</td><td colspan=2 style="vertical-align:top;width:30%">
+
+<table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
+
+<tr><td class="font-90" style="border-top:2px solid black">
+
+<span class='bold'>Quickly</span> map instances of problem $A$ to instances of problem $B$
+
+</td></tr><tr><td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins" style="margin:0">
+</div>
+</td></tr><tr><td>
+<table class='bluenote fragment' data-fragment-index=1><tr><td>If this is quick</td></tr></table>
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="font-90">
+
+Map solutions of problem $B$ to solutions of problem $A$
+
+</td></tr><tr><td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins" style="margin:0">
+</div>
+</td></tr>
+<tr><td>Reduction</td></tr>
+<tr><td style="border-bottom:2px solid black"><table class='bluenote fragment' data-fragment-index=2><tr><td>and this is quick</td></tr></table>
+</td></tr>
+</table>
+
+</td>
+<td style="vertical-align:top;width:33%">
+
+<table class="compact">
+<tr><td colspan=2 class="und"><span class='font-70'>Problem we want to show is "hard"</span></td></tr>
+<tr><td> 
+
+::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+
+</td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=4><tr><td>&nbsp;then this can't be fast!&nbsp;</td></tr></table></td></tr>
+<tr><td> Some algorithm for $B$ </td></tr>
+<tr><td style="text-align:center">
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+</td></tr>
+<tr><td><span>Solution for $B$</span></td></tr>
+<tr><td>
+
+::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.75
+graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
+```
+:::
+
+</td></tr></table>
+</td></tr></table>
+
+
+
+
+
+
+## Reductions for Lower-Bound Proofs
+
+
+<table class='font-70 allcenter' style="vertical-align:top"><tr>
+<td style="vertical-align:top;width:37%;padding-right:10px !important">
+<table class='allcenter'>
+<tr><td colspan=2 class="und"><span class='font-70'>Problem we know is $\Omega(n \log n)$</span></td></tr>
+<tr><td>Problem $A$</td></tr>
+<tr><td> 
+::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=2><tr><td>Then this can be done in $o(n\log n)$</td></tr></table></td></tr>
+<tr><td>
+::: {.r-stack}
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+
+<p class="font-80" style="text-align:center"> $\Omega(n \log n)$</p>
+:::
+</td></tr>
+<tr><td><span>Solution for $A$:</span></td></tr>
+<tr><td style="vertical-align:top;text-align:center">
+::: {.svg-60 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr></table>
+</td><td colspan=2 style="vertical-align:top;width:30%">
+
+<table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
+
+<tr><td class="font-90" style="border-top:2px solid black">
+
+<span class='bold'>Quickly</span> map instances of problem $A$ to instances of problem $B$
+
+</td></tr><tr><td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins" style="margin:0">
+</div>
+</td></tr><tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="font-90">
+
+Map solutions of problem $B$ to solutions of problem $A$
+
+</td></tr><tr><td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins" style="margin:0">
+</div>
+</td></tr>
+<tr><td>Reduction</td></tr>
+<tr><td style="border-bottom:2px solid black">&nbsp;</td></tr>
+</table>
+
+</td>
+<td style="vertical-align:top;width:33%">
+
+<table class="compact">
+<tr><td colspan=2 class="und"><span class='font-70'>Problem we want to show is $\Omega(n \log n)$</span></td></tr>
+<tr><td> 
+
+<table class='compact'><tr><td><img class="svg-100 no-svg-margins" src="graphs/reductions/cpp-0.svg" style="width:55%;margin:auto"></td><td>Closest<br>pair of<br>points</td></tr></table>
+
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td> Some algorithm for $CPP$ </td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=1><tr><td>&nbsp;&nbsp;If this could be done in&nbsp;&nbsp;<br>$o(n \log n)$&nbsp;</td></tr></table></td></tr>
+<tr><td style="text-align:center">
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+</td></tr>
+<tr><td><span>Solution for $B$</span></td></tr>
+<tr><td style="text-align:center">
+
+<p style="text-align:center"><img class="svg-100 no-svg-margins" src="graphs/reductions/cpp-1.svg" style="width:45%;margin:auto !important"></p>
+
+</td></tr></table>
+</td></tr></table>
+
+
+
+## [A "Hard" Problem: Element Uniqueness]{.r-fit-text}
+
+
+<div class="font-70" style="float:right">
+<table class="blueborder"><tr><td>113</td><td>901</td><td>555</td><td>512</td><td>245</td><td>800</td><td>018</td><td>121</td><td style="border-right:0;border-top:0;border-bottom:0 !important"><span class='blue'>True</span></td></tr></table>
+<p>&nbsp;</p>
+<table class="redborder"><tr><td>103</td><td>801</td><td>401</td><td><span class='red'>323</span></td><td>255</td><td><span class='red'>323</span></td><td>999</td><td>101</td><td style="border-right:0;border-top:0;border-bottom:0 !important"><span class='red'>False</span></td></tr></table>
+</div>
+
+- Input: 
+    - A list of integers
+- Output: 
+    - <span class='blue'>True</span> if all values<br>are unique, <span class='red'>False</span> otherwise
+- Can this be solved in $O(n \log n)$ time?
+    - Yes! Sort, then check if any adjacent elements match
+- Can this be solved in $o(n \log n)$ time?
+    - No! (we’re going to skip this [proof](https://en.wikipedia.org/wiki/Element_distinctness_problem))
+
+
+
+
+## Reductions for Lower Bound on CPP
+
+
+<table class='font-70 allcenter' style="vertical-align:top"><tr>
+<td style="vertical-align:top;width:37%;padding-right:10px !important">
+<table class='allcenter'>
+<tr><td colspan=2 class="und"><span class='font-70'>Problem we know is $\Omega(n \log n)$</span></td></tr>
+<tr><td>Problem $A$</td></tr>
+<tr><td> 
+
+<table><tr><td>
+::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td><td>
+
+<table class='blueborder'><tr><td>5</td><td>7</td><td>9</td><td>8</td></tr></table>
+<table class='redborder' style="margin-top:10px"><tr><td><span class='red'>6</span></td><td>3</td><td><span class='red'>6</span></td><td>9</td></tr></table>
+
+</td></tr></table>
+
+</td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=2><tr><td>Then this can be done in $o(n\log n)$</td></tr></table></td></tr>
+<tr><td>
+::: {.r-stack}
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+
+<p class="font-80" style="text-align:center"> $\Omega(n \log n)$</p>
+:::
+</td></tr>
+<tr><td><span>Solution for $A$:</span></td></tr>
+<tr><td style="vertical-align:top;text-align:center">
+::: {.svg-60 .no-svg-margins style="width:25%;margin:auto"}
+```{dot}
+//| fig-width: 1
+//| fig-height: 1.5
+graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
+```
+:::
+</td></tr></table>
+</td><td colspan=2 style="vertical-align:top;width:30%">
+
+<table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
+
+<tr><td class="font-90" style="border-top:2px solid black">
+
+Map instances of problem $A$ to instances of $CPP$ in $o(n \log n)$
+
+</td></tr><tr><td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins" style="margin:0">
+</div>
+</td></tr><tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td class="font-90">
+
+Map solutions of $CPP$ to solutions of problem $A$ in $o(n \log n)$
+
+</td></tr><tr><td>
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins" style="margin:0">
+</div>
+</td></tr>
+<tr><td>Reduction</td></tr>
+<tr><td style="border-bottom:2px solid black">&nbsp;</td></tr>
+</table>
+
+</td>
+<td style="vertical-align:top;width:33%">
+
+<table class="compact">
+<tr><td colspan=2 class="und"><span class='font-70'>Problem we want to show is $\Omega(n \log n)$</span></td></tr>
+<tr><td> 
+
+<table class='compact'><tr><td><img class="svg-100 no-svg-margins" src="graphs/reductions/cpp-0.svg" style="width:55%;margin:auto"></td><td>Closest<br>pair of<br>points</td></tr></table>
+
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td> Some algorithm for $CPP$ </td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=1><tr><td>&nbsp;&nbsp;If this could be done in&nbsp;&nbsp;<br>$o(n \log n)$&nbsp;</td></tr></table></td></tr>
+<tr><td style="text-align:center">
+<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+</td></tr>
+<tr><td><span>Solution for $B$</span></td></tr>
+<tr><td style="text-align:center">
+
+<p style="text-align:center"><img class="svg-100 no-svg-margins" src="graphs/reductions/cpp-1.svg" style="width:45%;margin:auto !important"></p>
+
+</td></tr></table>
+</td></tr></table>
+
+
+
+
+## Two Ways to Use Reductions
+
+<div class="font-90 center">
+
+<p class='center'>Suppose we have a "fast" <span style="color:plum">reduction</span> from <span class='red'>$A$</span> to <span class='orange'>$B$</span></p>
+
+<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:bottom"></td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:top"></td></tr></table>
+
+<p class='center'>A "fast" algorithm for <span class='orange'>$B$</span> gives a <span class='bold'>fast algorithm</span> for <span class='red'>$A$</span></p>
+
+<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:bottom">Then $A$ is fast&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:top">&nbsp;If $B$ is fast</td></tr></table>
+
+<p class='center'>If we have a worst-case lower bound for <span class='red'>$A$</span>, we also have one for <span class='orange'>$B$</span></p>
+
+<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:top">If $A$ is slow&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:bottom">&nbsp;Then $B$ is slow</td></tr></table>
+
+</div>
+
+
+# working
+
+
+## Party Problem
+
+::: {.r-stack}
+
+<div style="width:100%">
+<table style="width:100%" class='compact'><tr><td style="vertical-align:middle">&nbsp;</td><td style="font-size:65%;width:55%;padding:0">Draw edges between people who don't get along<br>Find the maximum number of people who get along</td></tr></table>
+<p style="text-align:center"><img src="graphs/reductions/independent_set-1.svg" style="width:70%;margin:auto"></p>
+</div>
+
+<img src="graphs/reductions/independent_set-2.svg" style="max-width: 400% !important;max-height: 400% !important;width: 400%;margin-bottom:1000%;margin-left:-500%">
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/The_Grinch_Merry_Christmas_-By_LOPDesigns.png/192px-The_Grinch_Merry_Christmas_-By_LOPDesigns.png){class="ispic" style="margin-left:400%;margin-top:-75%"} <!-- the grinch -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){class="ispic" style="margin-top:250%;margin-left:25%"} <!-- floryan -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){class="ispic" style="margin-left:175%;margin-bottom:425%"} <!-- robbie -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){class="ispic" style="margin-left:-200%;margin-top:-75%"} <!-- ray -->
+
+![](https://www.cs.virginia.edu/~asb/images/me.jpg){class="ispic" style="margin-left:150%;margin-top:-75%"} <!-- me -->
+
+![](https://www.cs.virginia.edu/~nn4pj/rich2017.jpg){class="ispic" style="margin-left:150%;margin-top:200%"} <!-- rich -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/selfie%2520-%2520Paul%2520McBurney%5B1%5D.webp?h=1914eaad&itok=wEQ3K-_-){class="ispic" style="margin-left:-150%;margin-top:200%"} <!-- mcburney -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/MarkSherriff_headshot.webp?itok=VIFy0Ysc){class="ispic" style="margin-top:465%;margin-left:-150%"} <!-- sherriff -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/horton-tom.webp?itok=hFBeCUQC){class="ispic" style="margin-left:300%;margin-top:275%"} <!-- tom -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Morrison03.JPG?h=863c5a9e&itok=JkOfG3kH){class="ispic" style="margin-bottom:400%;margin-left:-325%"} <!-- briana -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-05/Nada_BASIT_Headshot.JPG?h=d416eee1&itok=xsIfZg10){class="ispic" style="margin-bottom: 625%;margin-left: -150%;"} <!-- nada -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/Sandhya-Dwarkadas_TWZ-3_sq.webp?itok=PRTWNtgX){class="ispic" style="margin-bottom: 625%;margin-left: -300%;"} <!-- sandhya -->
+:::
+
+
+
+## Maximum Independent Set
+
+&nbsp;
+
+- Independent set: $S \subseteq V$ is an independent set if no two nodes in $S$ share an edge
+- Maximum Independent Set Problem: Given a graph $G=(V,E)$, find the maximum independent set $S$
+
+
+
+
+
+## Example
+
+::: {.r-stack}
+
+<div style="width:100%">
+<table style="width:100%;margin-top:-20px" class='compact'><tr><td style="vertical-align:middle">&nbsp;</td><td class='redtext' style="font-size:85%;width:55%;padding:0;vertical-align:top">Independent set of size 6</td></tr></table>
+<p style="text-align:center"><img src="graphs/reductions/independent_set-1.svg" style="width:70%;margin:auto"></p>
+</div>
+
+<img src="graphs/reductions/independent_set-2.svg" style="max-width: 400% !important;max-height: 400% !important;width: 400%;margin-bottom:1000%;margin-left:-500%">
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/The_Grinch_Merry_Christmas_-By_LOPDesigns.png/192px-The_Grinch_Merry_Christmas_-By_LOPDesigns.png){class="ispic" style="margin-left:375%;margin-top:-75%;border:5px solid red"} <!-- the grinch -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){class="ispic" style="margin-top:225%;margin-left:25%;border:5px solid red"} <!-- floryan -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){class="ispic" style="margin-left:175%;margin-bottom:425%"} <!-- robbie -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){class="ispic" style="margin-left:-175%;margin-top:-75%;border:5px solid red"} <!-- ray -->
+
+![](https://www.cs.virginia.edu/~asb/images/me.jpg){class="ispic" style="margin-left:150%;margin-top:-75%"} <!-- me -->
+
+![](https://www.cs.virginia.edu/~nn4pj/rich2017.jpg){class="ispic" style="margin-left:150%;margin-top:175%"} <!-- rich -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/selfie%2520-%2520Paul%2520McBurney%5B1%5D.webp?h=1914eaad&itok=wEQ3K-_-){class="ispic" style="margin-left:-150%;margin-top:200%;border:5px solid red"} <!-- mcburney -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/MarkSherriff_headshot.webp?itok=VIFy0Ysc){class="ispic" style="margin-top:465%;margin-left:-150%"} <!-- sherriff -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/horton-tom.webp?itok=hFBeCUQC){class="ispic" style="margin-left:300%;margin-top:275%"} <!-- tom -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Morrison03.JPG?h=863c5a9e&itok=JkOfG3kH){class="ispic" style="margin-bottom:400%;margin-left:-325%;border:5px solid red"} <!-- briana -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-05/Nada_BASIT_Headshot.JPG?h=d416eee1&itok=xsIfZg10){class="ispic" style="margin-bottom: 700%;margin-left: -150%;"} <!-- nada -->
+
+![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/Sandhya-Dwarkadas_TWZ-3_sq.webp?itok=PRTWNtgX){class="ispic" style="margin-bottom: 625%;margin-left: -300%;border:5px solid red"} <!-- sandhya -->
+:::
+
+
+
+
+## Generalized Baseball
+
+![](graphs/reductions/vertex_cover-1.svg){.center}
+
+
+## Generalized Baseball
+
+<table style="width:100%"><tr><td style="width:70%">
+![](graphs/reductions/vertex_cover-2.svg){.center style="width: 300%;height: 300%;max-width: 300%% !important;max-height: 300% !important;"}
+</td><td class="font-80 fragment" style="vertical-align:top">Need to place defenders on bases such that every edge is defended
+<br>&nbsp;<br>
+What’s the fewest number of defenders needed?
+</td></tr></table>
+
+
+## Vertex Cover
+
+&nbsp;
+
+- Vertex Cover: $C \subseteq V$ is a vertex cover if every edge in $E$ has one of its endpoints in $C$
+- Minimum Vertex Cover: Given a graph $G=(V,E)$ find the minimum vertex cover $C$
+
+
+## Generalized Baseball
+
+<table style="width:100%"><tr><td style="width:70%">
+![](graphs/reductions/vertex_cover-3.svg){.center style="width: 300%;height: 300%;max-width: 300%% !important;max-height: 300% !important;"}
+</td><td class="font-80 redtext" style="vertical-align:top">Vertex cover of size 5</td></tr></table>
+
+
+
 
 # NP-Completeness <!-- from day23.pptx -->
 
 ::: {.titlereading}
 Readings in CLRS 4th edition: chapter 34
 :::
-
-
-
-## NP-Completeness
-
-
-
-
-
-
-
 
 
 

@@ -112,7 +112,7 @@ preset_colors = [
     ["red",  "blue", "red",  "blue", "red",  "red",  "blue", "blue", "red",  ],
 ]
 
-def bipartite_graph_dot(coloring,flow_graph):
+def bipartite_graph_dot(coloring,flow_graph,label=False):
     colors = preset_colors[coloring]
 
     ret = f"""
@@ -144,7 +144,7 @@ graph G2 {{
      edge [style=solid,color={"red" if coloring == 0 else "blue"}];
      s [shape=circle,style=filled,color=purple,width="1in",fontsize=36];
      t [shape=circle,style=filled,color=navy,width="1in";fontcolor=white;fontsize=36];
-     edge [minlen=4,xlabel="1"];
+     edge [minlen=4,xlabel="{"1" if label else ""}"];
      s -- l1;
      s -- l2;
      s -- l3;
@@ -208,9 +208,16 @@ bipartite_image_table_body = """
 <tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
 """
 
-def bipartite_graph(w,h,coloring):
+def bipartite_graph(w,h,coloring,flow_graph=False,label=False):
     global graph_num
-    output_filename = "bipartite_graph" + param_join([w,h,coloring])
+
+    params = [w,h,coloring]
+    if flow_graph and not label:
+        params.append(True)
+    if label:
+        params.append(True)
+        params.append(True)
+    output_filename = "bipartite_graph" + param_join(params)
 
     # if width & height are given in inches, conver it to pixels (96 dpi)
     if w < 20:
@@ -220,7 +227,7 @@ def bipartite_graph(w,h,coloring):
     # which coloring are we using?
     assert coloring >= 0 and coloring < len(preset_colors)
     # generate the graph
-    dot_source = bipartite_graph_dot(coloring,flow_graph)
+    dot_source = bipartite_graph_dot(coloring,flow_graph,label)
     html = check_if_in_cache(graph_num,dot_source)
     if not html:
         g = graphviz.Source(dot_source,format='svg')
@@ -287,7 +294,8 @@ tex_header = """
 \\usepackage[dvipsnames]{xcolor}
 \\usepackage{tikz}
 \\usetikzlibrary{arrows.meta,  % define arrows head styles
-                positioning}  % for nodes positioning
+                positioning,  % for nodes positioning
+                shapes.geometric} % for ellipses
 \\begin{document}
 """
 
@@ -579,6 +587,267 @@ def edge_disjoint_graph(color_set=0,label_set=0,color_e_red=False):
     graph_num += 1
 
 
+def vertex_disjoint_to_edge_disjoint_graph():
+    graph_dot = """digraph vd2ed {
+    layout=dot;
+    rankdir="BT";
+    graph [bgcolor=transparent];
+    node [fontname="Arial",shape=oval,fillcolor=orange,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;color=teal];
+    empty0 [label="";style=invis];
+    empty1 [label="";style=invis];
+    g1 [label="g in"];
+    g1 -> empty0 [color=invis];
+    g2 [label="g out"];
+    empty2 [label="empty2";style=invis];
+    empty1 -> g1;
+    g1 -> g2 [xlabel=<restricts to<br/>1 edge<br/>&nbsp;>;label="           ";fontsize=12];
+    g2 -> empty2;
+    empty3 [label="";style=invis];
+    empty3 -> g1 [color=black];
+    empty4 [label="";style=invis];
+    empty4 -> g1 [color=invis];
+    {rank=same empty1 g1 g2 empty2};
+}
+"""
+    output_filename = "vertex_disjoint_to_edge_disjoint"
+    g = graphviz.Source(graph_dot,format='svg')
+    svg = g.pipe(format='svg').decode('utf-8')
+    xprint(svg,output_filename)
+
+
+def arrows():
+    rarrow = """graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }"""
+    output_filename = "rarrow"
+    g = graphviz.Source(rarrow,format='svg')
+    svg = g.pipe(format='svg').decode('utf-8')
+    xprint(svg,output_filename)
+    larrow = rarrow.replace("rarrow","larrow")
+    output_filename = "larrow"
+    g = graphviz.Source(larrow,format='svg')
+    svg = g.pipe(format='svg').decode('utf-8')
+    xprint(svg,output_filename)
+    rarrow_square = """graph g { bgcolor=transparent;x [penwidth=3,fontname="Arial",shape=rarrow,label="",fontsize=24,fixedsize=true,height=1,color=red,width=1]; }"""
+    output_filename = "rarrow-square"
+    g = graphviz.Source(rarrow_square,format='svg')
+    svg = g.pipe(format='svg').decode('utf-8')
+    xprint(svg,output_filename)
+
+def mini_reduction():
+    graph_dot = """
+digraph g { 
+    graph [bgcolor=transparent;fontname="Arial"];
+    node [shape=rect;fontsize=72;height=2.5;width=1.5];
+    x [shape=cylinder,label=<A>,style=filled,fillcolor=red];
+    y [label=<&rarr;<br/>fast<br/>&larr;>,fontsize=48,style=filled,fillcolor=Plum];
+    z [label=<B>,style=filled,fillcolor=yellow];
+}
+"""
+    output_filename = "mini_reduction"
+    g = graphviz.Source(graph_dot,format='svg')
+    svg = g.pipe(format='svg').decode('utf-8')
+    xprint(svg,output_filename)
+
+
+
+def cpp():
+    tikz = f"""
+\\begin{{tikzpicture}}[
+     C/.style = {{circle, draw, very thick, minimum size = 8mm, fill=orange}},
+     every edge/.style = {{->, draw, ultra thick, -stealth, -}},
+]
+
+\\tikzset{{font=\\sffamily}}
+
+\\node at (2,10) [C] {{}};
+\\node at (3,8) [C] {{}};
+\\node at (7,11) [C] {{}};
+\\node at (10,4) [C] {{}};
+\\node at (9,9) [C] {{}};
+\\node at (7,6) [C] {{}};
+\\node at (5,3) [C] {{}};
+\\node at (2,1) [C] {{}};
+\\node at (7,1) [C] {{}};
+
+\\node at (6,6) [very thick, minimum size=12cm,draw] {{}};
+
+\\node at (2.5,9) [C,fill=none,minimum size=36mm, draw=none] {{}};
+
+\\end{{tikzpicture}}
+"""
+
+    tex_file = tex_header + tikz + "\n\\end{document}"
+    for i in range(2):
+        with open("reductions.tmp.tex","w") as f:
+            f.write(tex_file)
+        os.system ("pdflatex reductions.tmp.tex > /dev/null")
+        os.system ("inkscape reductions.tmp.pdf --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
+        with open("reductions.tmp.svg","r") as f:
+           svg = f.read()
+        where = svg.find("<svg\n")
+        register_in_cache(graph_num,tex_file,svg[where:])
+        xprint(svg[where:],f"cpp-{i}")
+        tex_file = tex_file.replace("draw=none","draw=red")
+
+
+
+def independent_set():
+    tikz1 = f"""
+\\begin{{tikzpicture}}[
+     C/.style = {{circle, draw, very thick, minimum size = 3mm,scale=0.1}},
+     every edge/.style = {{draw, ultra thick, -stealth, -}},
+]
+
+\\tikzset{{font=\\sffamily}}
+
+\\node (c) [C] {{}}; % kc3
+\\node (b) [C,above left=of c] {{}}; % pm
+\\node (d) [C,left=of c] {{}}; % me
+\\node (e) [C,below left=of c] {{}}; % ej
+\\node (f) [C,below=of c] {{}}; % cpm
+\\node (g) [C,below left=of d] {{}}; % bpm
+\\node (h) [C,above left=of g] {{}}; % ???
+\\node (i) [C,below left=of g] {{}}; % ???
+\\node (j) [C,above=of i] {{}}; % rs
+\\node (a) [C,above left=of h] {{}}; % a
+
+\\path
+    (a) edge (b)
+    (b) edge (c)
+    (c) edge (f)
+    (f) edge (i)
+    (i) edge (j)
+    (c) edge (d)
+    (d) edge (h)
+    (c) edge (e)
+    (e) edge (g);
+
+\\end{{tikzpicture}}
+"""
+    tikz2 = f"""
+\\begin{{tikzpicture}}[
+     C/.style = {{circle, draw, very thick, minimum size = 3mm,scale=0.1}},
+     every edge/.style = {{draw, ultra thick, -stealth, -}},
+]
+
+\\tikzset{{font=\\sffamily}}
+
+\\node (a) [C] {{}}; % kc3
+\\node (b) [C,left=of a] {{}};
+
+\\path
+    (a) edge (b);
+
+\\end{{tikzpicture}}
+"""
+
+    tex_file = tex_header + tikz1 + "\n\\end{document}"
+    with open("reductions.tmp.tex","w") as f:
+        f.write(tex_file)
+    os.system ("pdflatex reductions.tmp.tex > /dev/null")
+    os.system ("inkscape reductions.tmp.pdf --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
+    with open("reductions.tmp.svg","r") as f:
+       svg = f.read()
+    where = svg.find("<svg\n")
+    register_in_cache(graph_num,tex_file,svg[where:])
+    xprint(svg[where:],f"independent_set-1")
+    tex_file = tex_header + tikz2 + "\n\\end{document}"
+    with open("reductions.tmp.tex","w") as f:
+        f.write(tex_file)
+    os.system ("pdflatex reductions.tmp.tex > /dev/null")
+    os.system ("inkscape reductions.tmp.pdf --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
+    with open("reductions.tmp.svg","r") as f:
+       svg = f.read()
+    where = svg.find("<svg\n")
+    register_in_cache(graph_num,tex_file,svg[where:])
+    xprint(svg[where:],f"independent_set-2")
+
+
+def vertex_cover():
+    vc1_dot = f"""
+graph g {{
+    layout=circo;
+    rankdir="BT";
+    graph [bgcolor=transparent];
+    node [fontname="Arial",shape=rect,fillcolor=CornflowerBlue,style=filled,fixedsize=true,width="0.25in",height="0.25in",label=""];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;color=black];
+
+    h [shape=diamond,width="0.35in",height="0.35in"];
+    h -- 1 -- 2 -- 3 -- h;
+    {{rank=same 1 3}}
+}}
+"""
+    vc2_dot = f"""
+graph g {{
+    layout=fdp;
+    rankdir="BT";
+    graph [bgcolor=transparent];
+    node [fontname="Arial",shape=rect,fillcolor=CornflowerBlue,style=filled,fixedsize=true,width="0.25in",height="0.25in",label=""];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;color=black];
+
+    h -- 1;
+    h -- 8;
+    1 -- 2;
+    1 -- 3;
+    1 -- 8;
+    2 -- 3;
+    2 -- 6;
+    3 -- 4;
+    3 -- 5;
+    4 -- 5;
+    5 -- 6;
+    5 -- 7;
+    7 -- 8;
+
+    7 [shape=diamond,width="0.35in",height="0.35in"];
+}}
+"""
+    vc3_dot = f"""
+graph g {{
+    layout=fdp;
+    rankdir="BT";
+    graph [bgcolor=transparent];
+    node [fontname="Arial",shape=rect,fillcolor=CornflowerBlue,style=filled,fixedsize=true,width="0.25in",height="0.25in",label=""];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;color=black];
+
+    h -- 1;
+    h -- 8;
+    1 -- 2;
+    1 -- 3;
+    1 -- 8;
+    2 -- 3;
+    2 -- 6;
+    3 -- 4;
+    3 -- 5;
+    4 -- 5;
+    5 -- 6;
+    5 -- 7;
+    7 -- 8;
+
+    5 [fillcolor=red];
+    8 [fillcolor=red];
+    2 [fillcolor=red];
+    3 [fillcolor=red];
+    h [fillcolor=red];
+
+    7 [shape=diamond,width="0.35in",height="0.35in"];
+}}
+"""
+
+    output_filename = "vertex_cover-1"
+    g = graphviz.Source(vc1_dot,format='svg')
+    svg = g.pipe(format='svg').decode('utf-8')
+    xprint(svg,output_filename)
+    output_filename = "vertex_cover-2"
+    g = graphviz.Source(vc2_dot,format='svg')
+    svg = g.pipe(format='svg').decode('utf-8')
+    xprint(svg,output_filename)
+    output_filename = "vertex_cover-3"
+    g = graphviz.Source(vc3_dot,format='svg')
+    svg = g.pipe(format='svg').decode('utf-8')
+    xprint(svg,output_filename)
+
+
 #--------------------------------------------------
 # main() equivalent
 #--------------------------------------------------
@@ -600,12 +869,14 @@ if __name__ == "__main__":
         #edge_disjoint_graph(3)
     else:
         os.system("mkdir -p graphs/reductions")
-        bipartite_graph(13.69,9.69,0)
-        bipartite_graph(13.69,9.69,3)
+        arrows()
+        bipartite_graph(13.69,9.69,0,True,True)
+        bipartite_graph(13.69,9.69,3,True,True)
         bipartite_graph(8.53,9.64,0)
         bipartite_graph(8.53,9.64,1)
         bipartite_graph(8.53,9.64,2)
         bipartite_graph(8.53,9.64,3)
+        cpp()
         edge_disjoint_graph()
         edge_disjoint_graph(0,1)
         edge_disjoint_graph(1)
@@ -639,3 +910,8 @@ if __name__ == "__main__":
         flow_graph(8)
         flow_graph(8,False,5)
         flow_graph(8,True)
+        independent_set()
+        mini_reduction()
+        vertex_cover()
+        vertex_disjoint_to_edge_disjoint_graph()
+

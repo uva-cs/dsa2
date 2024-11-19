@@ -1,129 +1,120 @@
 <svg width="818.8799999999999" height="925.44"
- viewBox="0.00 0.00 1071.00 746.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 742)">
+ viewBox="0.00 0.00 678.00 742.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 738)">
 <title>G2</title>
 <g id="clust1" class="cluster">
 <title>cluster_profs</title>
-<polygon fill="lightgrey" stroke="lightgrey" points="211,-8 211,-722 420,-722 420,-8 211,-8"/>
-<text text-anchor="middle" x="315.5" y="-689.2" font-family="Times,serif" font-size="36.00">professors</text>
+<polygon fill="lightgrey" stroke="lightgrey" points="0,-8 0,-722 209,-722 209,-8 0,-8"/>
+<text text-anchor="middle" x="104.5" y="-689.2" font-family="Times,serif" font-size="36.00">professors</text>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_dogs</title>
-<polygon fill="lightgrey" stroke="lightgrey" points="692,-16 692,-730 852,-730 852,-16 692,-16"/>
-<text text-anchor="middle" x="772" y="-697.2" font-family="Times,serif" font-size="36.00">dogs</text>
+<polygon fill="lightgrey" stroke="lightgrey" points="481,-12 481,-726 641,-726 641,-12 481,-12"/>
+<text text-anchor="middle" x="561" y="-693.2" font-family="Times,serif" font-size="36.00">dogs</text>
 </g>
 <!-- spacer1 -->
 <g id="node1" class="node">
 <title>spacer1</title>
-<polygon fill="transparent" stroke="transparent" points="387,-665.5 243,-665.5 243,-664.5 387,-664.5 387,-665.5"/>
+<polygon fill="transparent" stroke="transparent" points="176,-665.5 32,-665.5 32,-664.5 176,-664.5 176,-665.5"/>
 </g>
 <!-- l1 -->
 <g id="node2" class="node">
 <title>l1</title>
-<polygon fill="none" stroke="transparent" points="333,-646 297,-646 297,-502 333,-502 333,-646"/>
-<text text-anchor="middle" x="315" y="-570.3" font-family="Arial" font-size="14.00">l1</text>
+<polygon fill="none" stroke="transparent" points="122,-646 86,-646 86,-502 122,-502 122,-646"/>
+<text text-anchor="middle" x="104" y="-570.3" font-family="Arial" font-size="14.00">l1</text>
 </g>
 <!-- r2 -->
 <g id="node7" class="node">
 <title>r2</title>
-<polygon fill="none" stroke="transparent" points="790,-492 754,-492 754,-348 790,-348 790,-492"/>
-<text text-anchor="middle" x="772" y="-416.3" font-family="Arial" font-size="14.00">r2</text>
+<polygon fill="none" stroke="transparent" points="579,-488 543,-488 543,-344 579,-344 579,-488"/>
+<text text-anchor="middle" x="561" y="-412.3" font-family="Arial" font-size="14.00">r2</text>
 </g>
 <!-- l1&#45;&#45;r2 -->
 <!-- r3 -->
 <g id="node8" class="node">
 <title>r3</title>
-<polygon fill="none" stroke="transparent" points="790,-330 754,-330 754,-186 790,-186 790,-330"/>
-<text text-anchor="middle" x="772" y="-254.3" font-family="Arial" font-size="14.00">r3</text>
+<polygon fill="none" stroke="transparent" points="579,-326 543,-326 543,-182 579,-182 579,-326"/>
+<text text-anchor="middle" x="561" y="-250.3" font-family="Arial" font-size="14.00">r3</text>
 </g>
 <!-- l1&#45;&#45;r3 -->
 <!-- r1 -->
 <g id="node9" class="node">
 <title>r1</title>
-<polygon fill="none" stroke="transparent" points="790,-654 754,-654 754,-510 790,-510 790,-654"/>
-<text text-anchor="middle" x="772" y="-578.3" font-family="Arial" font-size="14.00">r1</text>
+<polygon fill="none" stroke="transparent" points="579,-650 543,-650 543,-506 579,-506 579,-650"/>
+<text text-anchor="middle" x="561" y="-574.3" font-family="Arial" font-size="14.00">r1</text>
 </g>
 <!-- l1&#45;&#45;r1 -->
-<g id="edge11" class="edge">
+<g id="edge3" class="edge">
 <title>l1&#45;&#45;r1</title>
-<path fill="none" stroke="red" stroke-width="6" d="M333.2,-574.32C406.57,-575.6 680.28,-580.39 753.75,-581.68"/>
-<text text-anchor="middle" x="536.47" y="-558.8" font-family="Arial" font-size="24.00">1</text>
+<path fill="none" stroke="red" stroke-width="6" d="M122.2,-574.16C195.57,-574.8 469.28,-577.2 542.75,-577.84"/>
 </g>
 <!-- r4 -->
 <g id="node10" class="node">
 <title>r4</title>
-<polygon fill="none" stroke="transparent" points="790,-168 754,-168 754,-24 790,-24 790,-168"/>
-<text text-anchor="middle" x="772" y="-92.3" font-family="Arial" font-size="14.00">r4</text>
+<polygon fill="none" stroke="transparent" points="579,-164 543,-164 543,-20 579,-20 579,-164"/>
+<text text-anchor="middle" x="561" y="-88.3" font-family="Arial" font-size="14.00">r4</text>
 </g>
 <!-- l1&#45;&#45;r4 -->
-<g id="edge14" class="edge">
+<g id="edge6" class="edge">
 <title>l1&#45;&#45;r4</title>
-<path fill="none" stroke="red" stroke-width="6" d="M333.2,-554.97C406.66,-478.13 680.9,-191.29 754,-114.83"/>
-<text text-anchor="middle" x="536.6" y="-315.7" font-family="Arial" font-size="24.00">1</text>
+<path fill="none" stroke="red" stroke-width="6" d="M122.2,-554.81C195.66,-477.33 469.9,-188.08 543,-110.99"/>
 </g>
 <!-- l2 -->
 <g id="node3" class="node">
 <title>l2</title>
-<polygon fill="none" stroke="transparent" points="333,-322 297,-322 297,-178 333,-178 333,-322"/>
-<text text-anchor="middle" x="315" y="-246.3" font-family="Arial" font-size="14.00">l2</text>
+<polygon fill="none" stroke="transparent" points="122,-484 86,-484 86,-340 122,-340 122,-484"/>
+<text text-anchor="middle" x="104" y="-408.3" font-family="Arial" font-size="14.00">l2</text>
 </g>
 <!-- l2&#45;&#45;r2 -->
-<g id="edge16" class="edge">
+<g id="edge8" class="edge">
 <title>l2&#45;&#45;r2</title>
-<path fill="none" stroke="red" stroke-width="6" d="M333.2,-256.77C406.57,-284.06 680.28,-385.88 753.75,-413.21"/>
-<text text-anchor="middle" x="536.47" y="-341.79" font-family="Arial" font-size="24.00">1</text>
+<path fill="none" stroke="red" stroke-width="6" d="M122.2,-412.16C195.57,-412.8 469.28,-415.2 542.75,-415.84"/>
 </g>
 <!-- l2&#45;&#45;r3 -->
-<g id="edge17" class="edge">
+<g id="edge9" class="edge">
 <title>l2&#45;&#45;r3</title>
-<path fill="none" stroke="red" stroke-width="6" d="M333.2,-250.32C406.57,-251.6 680.28,-256.39 753.75,-257.68"/>
-<text text-anchor="middle" x="536.47" y="-234.8" font-family="Arial" font-size="24.00">1</text>
+<path fill="none" stroke="red" stroke-width="6" d="M122.2,-405.71C195.57,-380.34 469.28,-285.71 542.75,-260.31"/>
 </g>
 <!-- l2&#45;&#45;r1 -->
-<g id="edge15" class="edge">
+<g id="edge7" class="edge">
 <title>l2&#45;&#45;r1</title>
-<path fill="none" stroke="red" stroke-width="6" d="M333.2,-263.22C406.57,-316.53 680.28,-515.37 753.75,-568.74"/>
-<text text-anchor="middle" x="550.47" y="-396.78" font-family="Arial" font-size="24.00">1</text>
+<path fill="none" stroke="red" stroke-width="6" d="M122.2,-418.61C195.57,-445.26 469.28,-544.68 542.75,-571.37"/>
 </g>
 <!-- l2&#45;&#45;r4 -->
 <!-- l3 -->
 <g id="node4" class="node">
 <title>l3</title>
-<polygon fill="none" stroke="transparent" points="333,-484 297,-484 297,-340 333,-340 333,-484"/>
-<text text-anchor="middle" x="315" y="-408.3" font-family="Arial" font-size="14.00">l3</text>
+<polygon fill="none" stroke="transparent" points="122,-322 86,-322 86,-178 122,-178 122,-322"/>
+<text text-anchor="middle" x="104" y="-246.3" font-family="Arial" font-size="14.00">l3</text>
 </g>
 <!-- l3&#45;&#45;r2 -->
 <!-- l3&#45;&#45;r3 -->
-<g id="edge21" class="edge">
+<g id="edge13" class="edge">
 <title>l3&#45;&#45;r3</title>
-<path fill="none" stroke="red" stroke-width="6" d="M333.2,-405.87C406.57,-381.14 680.28,-288.91 753.75,-264.15"/>
-<text text-anchor="middle" x="550.47" y="-315.81" font-family="Arial" font-size="24.00">1</text>
+<path fill="none" stroke="red" stroke-width="6" d="M122.2,-250.16C195.57,-250.8 469.28,-253.2 542.75,-253.84"/>
 </g>
 <!-- l3&#45;&#45;r1 -->
-<g id="edge19" class="edge">
+<g id="edge11" class="edge">
 <title>l3&#45;&#45;r1</title>
-<path fill="none" stroke="red" stroke-width="6" d="M333.2,-418.77C406.57,-446.06 680.28,-547.88 753.75,-575.21"/>
-<text text-anchor="middle" x="550.47" y="-477.79" font-family="Arial" font-size="24.00">1</text>
+<path fill="none" stroke="red" stroke-width="6" d="M122.2,-263.06C195.57,-315.72 469.28,-512.17 542.75,-564.9"/>
 </g>
 <!-- l3&#45;&#45;r4 -->
 <!-- l4 -->
 <g id="node5" class="node">
 <title>l4</title>
-<polygon fill="none" stroke="transparent" points="333,-160 297,-160 297,-16 333,-16 333,-160"/>
-<text text-anchor="middle" x="315" y="-84.3" font-family="Arial" font-size="14.00">l4</text>
+<polygon fill="none" stroke="transparent" points="122,-160 86,-160 86,-16 122,-16 122,-160"/>
+<text text-anchor="middle" x="104" y="-84.3" font-family="Arial" font-size="14.00">l4</text>
 </g>
 <!-- l4&#45;&#45;r2 -->
-<g id="edge24" class="edge">
+<g id="edge16" class="edge">
 <title>l4&#45;&#45;r2</title>
-<path fill="none" stroke="red" stroke-width="6" d="M333.2,-101.22C406.57,-154.53 680.28,-353.37 753.75,-406.74"/>
-<text text-anchor="middle" x="550.47" y="-234.78" font-family="Arial" font-size="24.00">1</text>
+<path fill="none" stroke="red" stroke-width="6" d="M122.2,-101.06C195.57,-153.72 469.28,-350.17 542.75,-402.9"/>
 </g>
 <!-- l4&#45;&#45;r3 -->
 <!-- l4&#45;&#45;r1 -->
-<g id="edge23" class="edge">
+<g id="edge15" class="edge">
 <title>l4&#45;&#45;r1</title>
-<path fill="none" stroke="red" stroke-width="6" d="M333.2,-107.67C406.66,-187.08 680.9,-483.52 754,-562.54"/>
-<text text-anchor="middle" x="550.6" y="-341.91" font-family="Arial" font-size="24.00">1</text>
+<path fill="none" stroke="red" stroke-width="6" d="M122.2,-107.51C195.66,-186.27 469.9,-480.32 543,-558.7"/>
 </g>
 <!-- l4&#45;&#45;r4 -->
 <!-- spacer -->
@@ -132,77 +123,17 @@
 </g>
 <!-- l4&#45;&#45;spacer -->
 <!-- end -->
-<g id="node14" class="node">
+<g id="node12" class="node">
 <title>end</title>
 </g>
 <!-- l4&#45;&#45;end -->
 <!-- spacer2 -->
 <g id="node6" class="node">
 <title>spacer2</title>
-<polygon fill="transparent" stroke="transparent" points="844,-673.5 700,-673.5 700,-672.5 844,-672.5 844,-673.5"/>
-</g>
-<!-- t -->
-<g id="node13" class="node">
-<title>t</title>
-<ellipse fill="navy" stroke="navy" cx="1027" cy="-339" rx="36" ry="36"/>
-<text text-anchor="middle" x="1027" y="-330.2" font-family="Arial" font-size="36.00" fill="white">t</text>
-</g>
-<!-- r2&#45;&#45;t -->
-<g id="edge8" class="edge">
-<title>r2&#45;&#45;t</title>
-<path fill="none" stroke="red" stroke-width="6" d="M790.34,-414.17C832.71,-400.72 937.94,-367.29 992.68,-349.9"/>
-<text text-anchor="middle" x="884.51" y="-362.84" font-family="Arial" font-size="24.00">1</text>
-</g>
-<!-- r3&#45;&#45;t -->
-<g id="edge9" class="edge">
-<title>r3&#45;&#45;t</title>
-<path fill="none" stroke="red" stroke-width="6" d="M790.34,-263.83C832.71,-277.28 937.94,-310.71 992.68,-328.1"/>
-<text text-anchor="middle" x="884.51" y="-276.76" font-family="Arial" font-size="24.00">1</text>
-</g>
-<!-- r1&#45;&#45;t -->
-<g id="edge7" class="edge">
-<title>r1&#45;&#45;t</title>
-<path fill="none" stroke="red" stroke-width="6" d="M790.34,-564.52C834.88,-522.08 948.88,-413.45 1000.68,-364.08"/>
-<text text-anchor="middle" x="888.51" y="-445.1" font-family="Arial" font-size="24.00">1</text>
-</g>
-<!-- r4&#45;&#45;t -->
-<g id="edge10" class="edge">
-<title>r4&#45;&#45;t</title>
-<path fill="none" stroke="red" stroke-width="6" d="M790.34,-113.48C834.88,-155.92 948.88,-264.55 1000.68,-313.92"/>
-<text text-anchor="middle" x="888.51" y="-194.5" font-family="Arial" font-size="24.00">1</text>
+<polygon fill="transparent" stroke="transparent" points="633,-669.5 489,-669.5 489,-668.5 633,-668.5 633,-669.5"/>
 </g>
 <!-- r4&#45;&#45;end -->
 <!-- spacer&#45;&#45;r4 -->
-<!-- s -->
-<g id="node12" class="node">
-<title>s</title>
-<ellipse fill="purple" stroke="purple" cx="36" cy="-300" rx="36" ry="36"/>
-<text text-anchor="middle" x="36" y="-291.2" font-family="Arial" font-size="36.00">s</text>
-</g>
-<!-- s&#45;&#45;l1 -->
-<g id="edge3" class="edge">
-<title>s&#45;&#45;l1</title>
-<path fill="none" stroke="red" stroke-width="6" d="M61.75,-325.29C117.6,-380.13 248.71,-508.9 296.86,-556.18"/>
-<text text-anchor="middle" x="172.3" y="-421.53" font-family="Arial" font-size="24.00">1</text>
-</g>
-<!-- s&#45;&#45;l2 -->
-<g id="edge4" class="edge">
-<title>s&#45;&#45;l2</title>
-<path fill="none" stroke="red" stroke-width="6" d="M71.62,-293.62C131.7,-282.85 251.1,-261.45 296.71,-253.28"/>
-<text text-anchor="middle" x="177.16" y="-254.25" font-family="Arial" font-size="24.00">1</text>
-</g>
-<!-- s&#45;&#45;l3 -->
-<g id="edge5" class="edge">
-<title>s&#45;&#45;l3</title>
-<path fill="none" stroke="red" stroke-width="6" d="M69.65,-313.51C129.08,-337.36 250.66,-386.17 296.74,-404.67"/>
-<text text-anchor="middle" x="176.2" y="-339.89" font-family="Arial" font-size="24.00">1</text>
-</g>
-<!-- s&#45;&#45;l4 -->
-<g id="edge6" class="edge">
-<title>s&#45;&#45;l4</title>
-<path fill="none" stroke="red" stroke-width="6" d="M64.81,-278.11C122.17,-234.52 249.22,-137.98 296.66,-101.94"/>
-<text text-anchor="middle" x="173.73" y="-170.82" font-family="Arial" font-size="24.00">1</text>
-</g>
 </g>
 </svg>
 

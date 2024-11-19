@@ -56,15 +56,30 @@ span.math {
 	font-size:90%;
 }
 
+/* independent set images */
+
+img.ispic {
+	max-width:100px;
+	max-height:100px;
+	border-radius:50px;
+	z-index:5;
+}
+
+/* ... */
 
 table.border th td, table.border tr td, td.border, tr.border td {
 	border:1px solid black;
 	border-bottom:1px solid black !important;
 	border-collapse:collapse;
 }
-table.borderblue th td, table.borderblue tr td, td.borderblue, tr.borderblue td {
-	border:1px solid blue;
-	border-bottom:1px solid blue !important;
+table.blueborder th td, table.blueborder tr td, td.blueborder, tr.borderblue td {
+	border:2px solid blue;
+	border-bottom:2px solid blue !important;
+	border-collapse:collapse;
+}
+table.redborder th td, table.redborder tr td, td.redborder, tr.redborder td {
+	border:2px solid red;
+	border-bottom:2px solid red !important;
 	border-collapse:collapse;
 }
 
@@ -102,18 +117,19 @@ table.bipartite tbody tr td div div {
 table.bipartite tbody tr td div table {
 	/* padding:0 10% 0 10% !important; */
 	z-index:1;
-	width:88%;
+	width:85%;
 	height:0;
 	margin-bottom: 30px !important;
-	margin-top: auto !important;
+	margin-top:75px !important;
+	margin-left:20px !important
 }
 table.bipartite tbody tr td div table tbody tr td {
 	padding:0;
 	vertical-align:middle;
 }
 /* table.bipartite tbody tr td div table tbody tr:nth-child(1) { height:20%; }*/
-table.bipartite tbody tr td div table tbody tr td:nth-child(1) { width:25%; }
-table.bipartite tbody tr td div table tbody tr td:nth-child(2) { width:48%; }
+table.bipartite tbody tr td div table tbody tr td:nth-child(1) { width:27%; }
+table.bipartite tbody tr td div table tbody tr td:nth-child(2) { width:46%; }
 table.bipartite tbody tr td div table tbody tr td:nth-child(3) { /* the remainder */ }
 table.bipartite tbody tr td div table tbody tr td img {
 	width:auto;
@@ -132,6 +148,26 @@ table.bipartite tbody tr td div div div div figure div svg {
 	width:100% !important;
 	height:auto !important;
 }
+
+table.bipartite_flow tbody tr td div table tbody tr td:nth-child(1) { width:20% !important; }
+table.bipartite_flow tbody tr td div table tbody tr td:nth-child(2) { width:60% !important; }
+
+table.bipartite_flow2 tbody tr td div table {
+	width:80% !important;
+	margin-bottom:80px !important;
+	margin-left:16px !important;
+}
+table.bipartite_flow2 tbody tr td div table tbody tr td:nth-child(1) { width:20% !important; }
+table.bipartite_flow2 tbody tr td div table tbody tr td:nth-child(2) { width:60% !important; }
+
+table.bipartite_flow3 tbody tr td div table {
+	width:50% !important;
+	margin-bottom:70px !important;
+	margin-left:70px !important;
+}
+table.bipartite_flow3 tbody tr td div table tbody tr td:nth-child(1) { width:20% !important; }
+table.bipartite_flow3 tbody tr td div table tbody tr td:nth-child(2) { width:60% !important; }
+
 
 /* centering an image */
  .center {
