@@ -353,7 +353,6 @@
 <li><a href="#/max-flow-min-cut" id="/toc-max-flow-min-cut">Max flow / Min cut <!-- from day21.pptx --></a></li>
 <li><a href="#/bipartite-matching" id="/toc-bipartite-matching">Bipartite Matching <!-- from day21.pptx --></a></li>
 <li><a href="#/reductions" id="/toc-reductions">Reductions <!-- from day22.pptx and day23.pptx --></a></li>
-<li><a href="#/working" id="/toc-working">working</a></li>
 <li><a href="#/np-completeness" id="/toc-np-completeness">NP-Completeness <!-- from day23.pptx --></a></li>
 </ul>
 </nav>
@@ -6662,7 +6661,7 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <ul>
 <li>Given a graph <span class="math inline">\(G=(L,R,E)\)</span>
 <ul>
-<li>a set of left nodes, right nodes, and edges between left and right</li>
+<li>A set of left nodes, right nodes, and edges between left and right</li>
 </ul></li>
 <li>Find the largest set of edges <span class="math inline">\(M \subseteq E\)</span> such that each node <span class="math inline">\(u \in L\)</span> or <span class="math inline">\(v \in R\)</span> is incident to at most one edge</li>
 </ul>
@@ -6735,7 +6734,7 @@ How could we solve this?
 <td style="vertical-align:middle">
 <div class="r-stack" style="height:100%">
 <p><img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-True.svg"></p>
-<table style="width:50% !important;margin-bottom:70px !important;margin-left:110px !important">
+<table>
 <tbody><tr>
 <td>
 <img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
@@ -6812,7 +6811,7 @@ How could we solve this?
 <td style="vertical-align:middle">
 <div class="r-stack" style="height:100%">
 <p><img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-True.svg"></p>
-<table style="width:50% !important;margin-bottom:70px !important;margin-left:110px !important">
+<table>
 <tbody><tr>
 <td>
 <img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" style="">
@@ -7141,9 +7140,19 @@ Reduction
 </tr>
 <tr>
 <td>
-<p style="text-align:center">
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<p style="text-align:center" class="fragment" data-fragment-index="4">
 <img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
 </p>
+<p style="text-align:center" class="fragment" data-fragment-index="4">
+How?
+</p>
+</div>
 </td>
 </tr>
 <tr>
@@ -7575,7 +7584,7 @@ Reduction
 <tr>
 <td>
 <div class="r-stack">
-<p style="text-align:center">
+<p style="text-align:center" class="fragment" data-fragment-index="4">
 <img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
 </p>
 <div class="fragment" data-fragment-index="4">
@@ -8487,7 +8496,7 @@ Ford-Fulkerson
 <table class="bluenote fragment">
 <tbody><tr>
 <td style="padding-left:10px !important;padding-right:10px !important">
-<p>Injective: any instance of <span class="math inline">\(A\)</span> can be mapped to some instance of <span class="math inline">\(B\)</span></p>
+<p>Any instance of <span class="math inline">\(A\)</span> can be mapped to some instance of <span class="math inline">\(B\)</span></p>
 </td>
 </tr>
 </tbody></table>
@@ -8657,7 +8666,7 @@ Problem <span class="math inline">\(A\)</span>
 <td>
 <table class="bluenote fragment" data-fragment-index="1">
 <tbody><tr>
-<td>
+<td class="font-80">
 Suppose I know a worst-case lower-bound of <span class="math inline">\(\Omega(f(n))\)</span> for <span class="math inline">\(A\)</span>
 </td>
 </tr>
@@ -8852,7 +8861,7 @@ Some algorithm for <span class="math inline">\(B\)</span>
 </section>
 <section id="worst-case-lower-bound" class="slide level2">
 <h2>Worst Case Lower Bound</h2>
-<div class="font-90">
+<div class="font-85">
 <ul>
 <li>Definition:
 <ul>
@@ -10412,7 +10421,7 @@ Problem <span class="math inline">\(A\)</span>
 <td>
 <table class="bluenote fragment" data-fragment-index="2">
 <tbody><tr>
-<td>
+<td class="font-80">
 Then this can be done in <span class="math inline">\(o(n\log n)\)</span>
 </td>
 </tr>
@@ -10549,7 +10558,7 @@ Some algorithm for <span class="math inline">\(CPP\)</span>
 <td>
 <table class="bluenote fragment" data-fragment-index="1">
 <tbody><tr>
-<td>
+<td class="font-80">
 &nbsp;&nbsp;If this could be done in&nbsp;&nbsp;<br><span class="math inline">\(o(n \log n)\)</span>&nbsp;
 </td>
 </tr>
@@ -10756,7 +10765,7 @@ Problem <span class="math inline">\(A\)</span>
 <td>
 <table class="bluenote fragment" data-fragment-index="2">
 <tbody><tr>
-<td>
+<td class="font-80">
 Then this can be done in <span class="math inline">\(o(n\log n)\)</span>
 </td>
 </tr>
@@ -10893,7 +10902,7 @@ Some algorithm for <span class="math inline">\(CPP\)</span>
 <td>
 <table class="bluenote fragment" data-fragment-index="1">
 <tbody><tr>
-<td>
+<td class="font-80">
 &nbsp;&nbsp;If this could be done in&nbsp;&nbsp;<br><span class="math inline">\(o(n \log n)\)</span>&nbsp;
 </td>
 </tr>
@@ -10974,11 +10983,6 @@ If <span class="math inline">\(A\)</span> is slow&nbsp;
 </tr>
 </tbody></table>
 </div>
-</section></section>
-<section>
-<section id="working" class="title-slide slide level1 center">
-<h1>working</h1>
-
 </section>
 <section id="party-problem" class="slide level2">
 <h2>Party Problem</h2>
@@ -11092,18 +11096,22 @@ Vertex cover of size 5
 </tr>
 </tbody></table>
 </section></section>
+<section>
 <section id="np-completeness" class="title-slide slide level1 center">
 <h1>NP-Completeness <!-- from day23.pptx --></h1>
 <div class="titlereading">
 <p>Readings in CLRS 4th edition: chapter 34</p>
 </div>
+</section>
+<section id="np-completeness-1" class="slide level2">
+<h2>NP-Completeness</h2>
 <div class="quarto-auto-generated-content">
 <p><img src="images/quarto.webp" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://uva-cs.github.io/dsa2" class="uri">https://uva-cs.github.io/dsa2</a></p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

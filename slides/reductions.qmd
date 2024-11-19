@@ -2575,7 +2575,7 @@ Compute <span class='bold'>Edge-Disjoint Paths</span> on new graph
 &nbsp;
 
 - Given a graph $G=(L,R,E)$
-    - a set of left nodes, right nodes, and edges between left and right
+    - A set of left nodes, right nodes, and edges between left and right
 - Find the largest set of edges $M \subseteq E$ such that each node $u \in L$ or $v \in R$ is incident to at most one edge
 
 
@@ -2608,7 +2608,7 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 ::: {.r-stack style="height:100%"}
 <img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-True.svg">
 
-<table style="width:50% !important;margin-bottom:70px !important;margin-left:110px !important">
+<table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -2641,7 +2641,7 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 ::: {.r-stack style="height:100%"}
 <img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-True.svg">
 
-<table style="width:50% !important;margin-bottom:70px !important;margin-left:110px !important">
+<table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
@@ -2783,8 +2783,13 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <table class='compact'>
 <tr><td><span class="fragment" fragment-index=2>Lighting a fire</span></td></tr>
 <tr><td> ![](http://www.clipartbest.com/cliparts/4T9/E9X/4T9E9XEjc.png){.center  .fragment fragment-index=2 style="width:50%;height:20%;margin-top:-20px"} </td></tr>
+<tr><td>&nbsp;</td></tr>
 <tr><td>
-<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+::: {.r-stack}
+<p style="text-align:center" class="fragment" data-fragment-index=4><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+
+<p style="text-align:center" class="fragment" data-fragment-index=4>How?</p>
+:::
 </td></tr>
 <tr><td><span class="fragment" fragment-index=5>Solution for $B$:</span></td></tr>
 <tr><td><span class="fragment" fragment-index=5>Alcohol, wood, matches</span></td></tr>
@@ -2951,7 +2956,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <tr><td>&nbsp;</td></tr>
 <tr><td>
 ::: {.r-stack}
-<p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
+<p style="text-align:center" class="fragment" data-fragment-index=4><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
 
 ::: {.fragment data-fragment-index=4}
 <p style="z-index:5">Ford-Fulkerson</p>
@@ -3444,7 +3449,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 
 <table class='bluenote fragment'><tr><td style="padding-left:10px !important;padding-right:10px !important">
 
-Injective: any instance of $A$ can be mapped to some instance of $B$
+Any instance of $A$ can be mapped to some instance of $B$
 
 </td></tr></table>
 
@@ -3530,7 +3535,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 ```
 :::
 </td></tr>
-<tr><td><table class='bluenote fragment' data-fragment-index=1><tr><td>Suppose I know a worst-case lower-bound of $\Omega(f(n))$ for $A$</td></tr></table></td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=1><tr><td class='font-80'>Suppose I know a worst-case lower-bound of $\Omega(f(n))$ for $A$</td></tr></table></td></tr>
 <tr><td>
 ::: {.r-stack}
 <p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
@@ -3619,7 +3624,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=
 
 ## Worst Case Lower Bound
 
-<div class="font-90">
+<div class="font-85">
 
 - Definition:
   - A <span class='bold'>worst case lower bound</span> on a problem is an <i>asymptotic lower bound on the worst case running time</i> of any algorithm which solves it
@@ -4308,7 +4313,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 ```
 :::
 </td></tr>
-<tr><td><table class='bluenote fragment' data-fragment-index=2><tr><td>Then this can be done in $o(n\log n)$</td></tr></table></td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=2><tr><td class='font-80'>Then this can be done in $o(n\log n)$</td></tr></table></td></tr>
 <tr><td>
 ::: {.r-stack}
 <p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
@@ -4365,7 +4370,7 @@ Map solutions of problem $B$ to solutions of problem $A$
 </td></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td> Some algorithm for $CPP$ </td></tr>
-<tr><td><table class='bluenote fragment' data-fragment-index=1><tr><td>&nbsp;&nbsp;If this could be done in&nbsp;&nbsp;<br>$o(n \log n)$&nbsp;</td></tr></table></td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=1><tr><td class='font-80'>&nbsp;&nbsp;If this could be done in&nbsp;&nbsp;<br>$o(n \log n)$&nbsp;</td></tr></table></td></tr>
 <tr><td style="text-align:center">
 <p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
 </td></tr>
@@ -4426,7 +4431,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 </td></tr></table>
 
 </td></tr>
-<tr><td><table class='bluenote fragment' data-fragment-index=2><tr><td>Then this can be done in $o(n\log n)$</td></tr></table></td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=2><tr><td class='font-80'>Then this can be done in $o(n\log n)$</td></tr></table></td></tr>
 <tr><td>
 ::: {.r-stack}
 <p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
@@ -4483,7 +4488,7 @@ Map solutions of $CPP$ to solutions of problem $A$ in $o(n \log n)$
 </td></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td> Some algorithm for $CPP$ </td></tr>
-<tr><td><table class='bluenote fragment' data-fragment-index=1><tr><td>&nbsp;&nbsp;If this could be done in&nbsp;&nbsp;<br>$o(n \log n)$&nbsp;</td></tr></table></td></tr>
+<tr><td><table class='bluenote fragment' data-fragment-index=1><tr><td class='font-80'>&nbsp;&nbsp;If this could be done in&nbsp;&nbsp;<br>$o(n \log n)$&nbsp;</td></tr></table></td></tr>
 <tr><td style="text-align:center">
 <p style="text-align:center"><img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important"></p>
 </td></tr>
@@ -4516,8 +4521,6 @@ Map solutions of $CPP$ to solutions of problem $A$ in $o(n \log n)$
 
 </div>
 
-
-# working
 
 
 ## Party Problem
@@ -4648,6 +4651,7 @@ Readings in CLRS 4th edition: chapter 34
 
 
 
+## NP-Completeness
 
 
 
