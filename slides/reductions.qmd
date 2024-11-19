@@ -2687,6 +2687,14 @@ Readings in CLRS 4th edition: N/A (reductions are covered<br>in CLRS, but not in
 
 ## Reductions
 
+::: {.notes}
+- MacGyver, season 7 (1992), episode 11: "Gunz 'N Boys"
+- [https://www.amazon.com/The-Stinger/dp/B007TWBT52/](https://www.amazon.com/The-Stinger/dp/B007TWBT52/)
+- Hit on the head at 19:42
+- Door is locked at 20:20, wakes up at 20:24
+- Ends at 24:15
+:::
+
 <p style="text-align:center">Shows how two different problems relate to each other</p>
 
 <table class='allcenter'>
