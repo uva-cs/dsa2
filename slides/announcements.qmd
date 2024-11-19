@@ -3,6 +3,30 @@ title: "Announcements, Fall 2024"
 ---
 
 ::: {.announcements}
+# Tuesday, November 19th
+
+- Quizzes 3&4 this Thursday (Thu, 11/21)
+	- Topic list and sample quizzes in Canvas' files
+- Upcoming assignments
+	- [PA4](../pa/pa4/index.html) is due Monday before Thanksgiving (11/25)
+	- PS9 will be out late this week, and will be due the week *after* Thanksgiving (Wed, Dec 4th)
+	- PA5 will be out late this week, and will be due the last day of classes (Fri, Dec 6th)
+- Grading: [PS5](../ps/ps5.html) & [PS6](../ps/ps6.html) grades returned (in Gradescope); late penalty info in Canvas' Posted Feedback
+	- Also grades for [PA2](../pa/pa2/index.html) & [PA3](../pa/pa3/index.html)
+	- [PA3](../pa/pa3/index.html) is having a discussion about the test cases (Piazza post @319)
+- Office hours (reminder)
+	- Prof Bloomfield Office Hours: Tue 1:00-2:30 and Thu 2:00-3:00 in Rice 402
+	- Prof Pettit Office Hours: Mon 2:30-4:00 and Wed 1:30-3:00 in Rice 212
+	- TA office hours: Sunday through Thursday from 5 pm to 9 pm
+	- Sun/Tue/Thu in Rice 032, Mon/Wed in Rice 540
+	- No OH this Thursday (b/c of the quizzes), and none after next Monday
+- Today's lecture: continue with [Reductions](reductions.html)
+	- Reminder: slide sets are now in the [course repository](https://uva-cs.github.io/dsa2/)
+:::
+
+
+
+::: {.announcements}
 # Tuesday, November 14th
 
 - [PS8](../ps/ps8.html) was due yesterday (Wed, 11/13)
