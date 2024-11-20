@@ -98,97 +98,28 @@ $$|f|=\text{outflow}({\color{purple}s})-\text{inflow}({\color{purple}s})$$
 ## Greedy Approach
 <!-- day20 slide 16 -->
 
-&nbsp;
-
 **Greedy choice:** saturate *highest* capacity path first
 
 
-::: {.svg-50}
-```{dot}
-digraph diamond_graph1 {
-    // capacity only; slide 16 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [taillabel="         10"];
-    a -> s [dir=back;label="20"];
-    t -> b [dir=back;label="20"];
-    s -> b [xlabel="   10",label=" "];
-    a -> b [label="30 "];
-    {rank=same s t}
-}
-```
-:::
+<img src="graphs/reductions/diamond_flow.svg" class="center" style="height:50%;width:50%">
 
 
 
 ## Greedy Approach
 <!-- day20 slide 17 -->
 
-&nbsp;
-
 **Greedy choice:** saturate *highest* capacity path first
 
-::: {.svg-50}
-```{dot}
-digraph diamond_graph2 {
-    // capacity only with red edges; slide 17 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [taillabel="         10"];
-    a -> s [dir=back;label="20";color=red];
-    t -> b [dir=back;label="20";color=red];
-    s -> b [xlabel="   10",label=" "];
-    a -> b [label="30 ";color=red];
-    {rank=same s t}
-}
-```
-:::
+<img src="graphs/reductions/diamond_flow-1.svg" class="center" style="height:50%;width:50%">
 
 
 
 ## Greedy Approach
 <!-- day20 slide 18 -->
 
-&nbsp;
-
 **Greedy choice:** saturate *highest* capacity path first
 
-::: {.svg-50}
-```{dot}
-digraph diamond_graph3 {
-    // flow selected; slide 18 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [taillabel="         10"];
-    a -> s [dir=back;label=<<font color='red'>20</font><font color='black'>/</font>20>;color=red];
-    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>20</font><font color='black'>/</font>20>;color=red];
-    s -> b [xlabel="   10",label=" "];
-    a -> b [label=<<font color='red'>20</font><font color='black'>/</font>30&nbsp;>;color=red];
-    {rank=same s t}
-}
-```
-:::
+<img src="graphs/reductions/diamond_flow-1-1.svg" class="center" style="height:50%;width:50%">
 
 <p class='red'>Flow: 20</p>
 
@@ -196,32 +127,9 @@ digraph diamond_graph3 {
 ## Greedy Approach
 <!-- day20 slide 19 -->
 
-&nbsp;
-
 **Greedy choice:** saturate *highest* capacity path first
 
-::: {.svg-50}
-```{dot}
-digraph diamond_graph4 {
-    // full flow; slide 19&22 of day20.pptx
-    layout=sfdp;
-    start=144;
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [label=<   <font color='red'>10</font><font color='black'>/</font>10>;color=red];
-    a -> s [dir=back;label=<<font color='red'>20</font><font color='black'>/</font>20>;color=red];
-    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>20</font><font color='black'>/</font>20>;color=red];
-    s -> b [xlabel=<<font color='red'>10</font><font color='black'>/</font>10>,label=" ";color=red];
-    a -> b [label=<<font color='red'>10</font><font color='black'>/</font>30&nbsp;>;color=red];
-    {rank=same s t}
-}
-```
-:::
+<img src="graphs/reductions/diamond_flow-2-2.svg" class="center" style="height:50%;width:50%">
 
 <p class='red'>Maximum flow: 30</p>
 
@@ -302,156 +210,35 @@ Given a flow $f$ in graph $G$, the residual graph $G_{\color{red}f}$ models <spa
 ## Residual Graphs Example
 <!-- day20 slide 22 -->
 
-<table><tr><td class="und bold" style="text-align:center">Flow Graph</td><td class="und bold" style="text-align:center">Residual Graph</td></tr>
-<tr><td>
+<table style="width:80%"><tr><td class="und bold" style="text-align:center;width:50%">Flow Graph</td><td class="und bold" style="text-align:center">Residual Graph</td></tr>
+<tr><td style="vertical-align:top;padding:0">
 
-::: {.svg-90}
-```{dot}
-digraph diamond_graph5 {
-    // partial flow; slide 22 (top) of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4;color=black];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [label=" ";xlabel=<<font color='red'> 0</font><font color='black'>/</font>10>];
-    a -> s [dir=back;label=<<font color='red'>20</font><font color='black'>/</font>20>];
-    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>20</font><font color='black'>/</font>20>];
-    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>10>,label=" "];
-    a -> b [label=<<font color='red'>20</font><font color='black'>/</font>30&nbsp;>];
-    {rank=same s t}
-}
-```
+::: {.r-stack}
+<p style="margin:0"><img src="graphs/reductions/diamond_flow-0-3.svg" class="center diamond_flow_in_table"></p>
 :::
 
-</td><td>
+</td><td style="vertical-align:top;padding:0">
 
 ::: {.r-stack}
 
-::: {.fragment fragment-index=1 .fade-out}
-::: {.svg-90}
-```{dot}
-digraph diamond_graph6 {
-    // residual graph for graph5; slide 22 (top) of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [taillabel=<    10<br/>>];
-    a -> s [dir=back;headlabel=< <br/>            0>];
-    t -> b [dir=back;label=<<br/>0>];
-    s -> b [xlabel=" 10",label=" "];
-    a -> b [xlabel=" 10";label="   "];
-    a -> s [color=magenta;label=<20<br/> >;fontcolor=magenta];
-    b -> s [color=magenta;label="0";fontcolor=magenta];
-    b -> a [color=magenta;label="20 ";fontcolor=magenta];
-    t -> a [color=magenta;label=<&nbsp;>;xlabel="0";fontcolor=magenta];
-    t -> b [color=magenta;label=<20>;fontcolor=magenta];
-    {rank=same s t}
-}
-```
-:::
-:::
+<p style="margin:0" class="fragment fade-out" data-fragment-index=1><img src="graphs/reductions/diamond_flow-0-4-True.svg" class="center diamond_flow_in_table"></p>
 
-::: {.fragment fragment-index=1}
-::: {.svg-90}
-```{dot}
-digraph diamond_graph7 {
-    // residual graph for graph5; slide 22 (top) of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [taillabel=<    10<br/>>;style=dashed];
-    a -> s [dir=back;headlabel=< <br/>            0>];
-    t -> b [dir=back;label=<<br/>0>];
-    s -> b [xlabel=" 10",label=" ";style=dashed];
-    a -> b [xlabel=" 10";label="   "];
-    a -> s [color=magenta;label=<20<br/> >;fontcolor=magenta];
-    b -> s [color=magenta;label="0";fontcolor=magenta];
-    b -> a [color=magenta;label="20 ";fontcolor=magenta;style=dashed];
-    t -> a [color=magenta;label=<&nbsp;>;xlabel="0";fontcolor=magenta];
-    t -> b [color=magenta;label=<20>;fontcolor=magenta];
-    {rank=same s t}
-}
-```
-:::
-:::
+<p style="margin:0" class="fragment" data-fragment-index=1><img src="graphs/reductions/diamond_flow-0-4-True-2.svg" class="center diamond_flow_in_table"></p>
 
 :::
 
-</td></tr>
-<tr><td>
+</td></tr><tr><td style="vertical-align:top;padding:0">
 
-::: {.fragment fragment-index=2}
-::: {.svg-90}
-```{dot}
-digraph diamond_graph5a {
-    // partial flow; slide 22 (top) of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4;color=black];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [label=" ";xlabel=<<font color='red'>10</font><font color='black'>/</font>10>];
-    a -> s [dir=back;label=<<font color='red'>20</font><font color='black'>/</font>20>];
-    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>20</font><font color='black'>/</font>20>];
-    s -> b [xlabel=<<font color='red'>10</font><font color='black'>/</font>10>,label=" "];
-    a -> b [label=<<font color='red'>10</font><font color='black'>/</font>30&nbsp;>];
-    {rank=same s t}
-}
-```
-:::
+::: {.r-stack}
+
+<p style="margin:0" class="fragment" data-fragment-index=2><img src="graphs/reductions/diamond_flow-0-2.svg" class="center diamond_flow_in_table"></p>
+
 :::
 
-</td><td>
+</td><td style="vertical-align:top;padding:0">
 
-::: {.fragment fragment-index=3}
-::: {.svg-90}
- ```{dot}
-digraph diamond_graph8 {
-    // residual graph for graph5; slide 22 (top) of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [taillabel=<    0<br/>>;fontcolor=forestgreen];
-    a -> s [dir=back;headlabel=< <br/>            0>];
-    t -> b [dir=back;label=<<br/>0>];
-    s -> b [xlabel=" 0",label=" ";fontcolor=forestgreen];
-    a -> b [xlabel=" 20";label="   ";fontcolor=forestgreen];
-    a -> s [color=magenta;label=<20<br/> >;fontcolor=magenta];
-    b -> s [color=magenta;label="10";fontcolor=forestgreen];
-    b -> a [color=magenta;label="10 ";fontcolor=forestgreen];
-    t -> a [color=magenta;label=<&nbsp;>;xlabel="10";fontcolor=forestgreen];
-    t -> b [color=magenta;label=<20>;fontcolor=magenta];
-    {rank=same s t}
-}
-```
-:::
+::: {.r-stack}
+<p style="margin:0" class="fragment" data-fragment-index=3><img src="graphs/reductions/diamond_flow-0-5-True.svg" class="center diamond_flow_in_table"></p>
 :::
 
 </td></tr>
@@ -1174,58 +961,14 @@ No more augmenting paths
 ## Worst Case Ford-Fulkerson
 <!-- day20 slide 46 -->
 
-&nbsp;
-
-<table>
+<table class="ford_fulk_worst_case">
 <tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
 <p class='center'>Increase flow by 1 unit</p>
 </td></tr>
 <tr><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph9 {
-    // worst case ford fulkerson; slide 46&47 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [xlabel=<   <font color='red'>0</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
-    a -> s [dir=back;label=<<font color='red'>0</font><font color='black'>/</font>100>];
-    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>0</font><font color='black'>/</font>100>];
-    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>100>,label=" "];
-    a -> b [label=<<font color='red'>0</font><font color='black'>/</font>1&nbsp;>];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-6.svg" class="center"></p>
 </td><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph10 {
-    // worst case ford fulkerson; slide 46 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [taillabel="         100"];
-    a -> s [dir=back;label="100"];
-    t -> b [dir=back;label="100"];
-    s -> b [xlabel="   100",label=" "];
-    a -> b [label="1 "];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-7-True.svg" class="center"></p>
 </td></tr></table>
 
 
@@ -1233,363 +976,88 @@ digraph diamond_graph10 {
 ## Worst Case Ford-Fulkerson
 <!-- day20 slide 47 -->
 
-&nbsp;
-
-<table>
+<table class="ford_fulk_worst_case">
 <tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
 ::: {.fragment}
 <p class='center'>Increase flow by 1 unit</p>
 :::
 </td></tr>
 <tr><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph9 {
-    // worst case ford fulkerson; slide 46&47 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [xlabel=<   <font color='red'>0</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
-    a -> s [dir=back;label=<<font color='red'>0</font><font color='black'>/</font>100>];
-    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>0</font><font color='black'>/</font>100>];
-    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>100>,label=" "];
-    a -> b [label=<<font color='red'>0</font><font color='black'>/</font>1&nbsp;>];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-6.svg" class="center"></p>
 </td><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph11 {
-    // worst case ford fulkerson; slide 47&48 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [taillabel="         100"];
-    a -> s [dir=back;label="100";style=dashed];
-    t -> b [dir=back;label="100";style=dashed];
-    s -> b [xlabel="   100",label=" "];
-    a -> b [label="1 ";style=dashed];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-7-True-1.svg" class="center"></p>
 </td></tr></table>
 
 
 ## Worst Case Ford-Fulkerson
 <!-- day20 slide 48 -->
 
-&nbsp;
-
-<table>
+<table class="ford_fulk_worst_case">
 <tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
 <p class='center'>Increase flow by 1 unit</p>
 </td></tr>
 <tr><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph12 {
-    // worst case ford fulkerson; slide 48 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [xlabel=<   <font color='red'>0</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
-    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>;color=orange;style=dashed];
-    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>1</font><font color='black'>/</font>100>;color=orange;style=dashed];
-    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>100>,label=" "];
-    a -> b [label=<<font color='red'>1</font><font color='black'>/</font>1&nbsp;>;color=orange;style=dashed];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-3-8-False-1.svg" class="center"></p>
 </td><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph11 {
-    // worst case ford fulkerson; slide 47&48 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [taillabel="         100"];
-    a -> s [dir=back;label="100";style=dashed];
-    t -> b [dir=back;label="100";style=dashed];
-    s -> b [xlabel="   100",label=" "];
-    a -> b [label="1 ";style=dashed];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-7-True-1.svg" class="center"></p>
 </td></tr></table>
 
 
 ## Worst Case Ford-Fulkerson
 <!-- day20 slide 49 -->
 
-&nbsp;
-
-<table>
+<table class="ford_fulk_worst_case">
 <tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
 <p class='center'>Increase flow by 1 unit</p>
 </td></tr>
 <tr><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph13 {
-    // worst case ford fulkerson; slide 49&50 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [xlabel=<   <font color='red'>0</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
-    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>];
-    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>1</font><font color='black'>/</font>100>];
-    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>100>,label=" "];
-    a -> b [label=<<font color='red'>1</font><font color='black'>/</font>1&nbsp;>];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-8.svg" class="center"></p>
 </td><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph14 {
-    // worst case ford fulkerson; slide 49 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [label="     100"];
-    a -> s [dir=back;headlabel=< <br/>         <font color='orange'>99</font>>];
-    t -> b [dir=back;taillabel=<<br/> 99>];
-    s -> b [xlabel=" 100",label=" "];
-    a -> s [color=magenta;label=<<font color='transparent'>1</font><br/>>;xlabel="1";fontcolor=magenta];
-    b -> a [color=magenta;label="1 ";fontcolor=magenta];
-    t -> b [color=magenta;label=<1>;fontcolor=magenta];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-9-True.svg" class="center"></p>
 </td></tr></table>
 
 
 ## Worst Case Ford-Fulkerson
 <!-- day20 slide 50 -->
 
-&nbsp;
-
-<table>
+<table class="ford_fulk_worst_case">
 <tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
 ::: {.fragment}
 <p class='center'>Increase flow by 1 unit</p>
 :::
 </td></tr>
 <tr><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph13 {
-    // worst case ford fulkerson; slide 49&50 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [xlabel=<   <font color='red'>0</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
-    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>];
-    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>1</font><font color='black'>/</font>100>];
-    s -> b [xlabel=<<font color='red'>0</font><font color='black'>/</font>100>,label=" "];
-    a -> b [label=<<font color='red'>1</font><font color='black'>/</font>1&nbsp;>];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-8.svg" class="center"></p>
 </td><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph15 {
-    // worst case ford fulkerson; slide 49 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [label="     100";style=dashed];
-    a -> s [dir=back;headlabel=< <br/>         <font color='orange'>99</font>>];
-    t -> b [dir=back;taillabel=<<br/> 99>];
-    s -> b [xlabel=" 100",label=" ";style=dashed];
-    a -> s [color=magenta;label=<<font color='transparent'>1</font><br/>>;xlabel="1";fontcolor=magenta];
-    b -> a [color=magenta;label="1 ";fontcolor=magenta;style=dashed];
-    t -> b [color=magenta;label=<1>;fontcolor=magenta];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-9-True-2.svg" class="center"></p>
 </td></tr></table>
 
 
 ## Worst Case Ford-Fulkerson
 <!-- day20 slide 51 -->
 
-&nbsp;
-
-<table>
+<table class="ford_fulk_worst_case">
 <tr><td></td><td style="opacity:1;text-align:center" class="zero-bottom">
 <p class='center'>Increase flow by 1 unit</p>
 </td></tr>
 <tr><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph16 {
-    // worst case ford fulkerson; slide 51 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [xlabel=<   <font color='red'>1</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>;style=dashed;color=orange];
-    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>];
-    t -> b [dir=back;taillabel=<<br/> <font color='red'>1</font><font color='black'>/</font>100>];
-    s -> b [xlabel=<<font color='red'>1</font><font color='black'>/</font>100>,label=" ";style=dashed;color=orange];
-    a -> b [label=<<font color='red'>0</font><font color='black'>/</font>1&nbsp;>;style=dashed;color=magenta];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-4-10-True-2.svg" class="center"></p>
 </td><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph15 {
-    // worst case ford fulkerson; slide 49 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [label="     100";style=dashed];
-    a -> s [dir=back;headlabel=< <br/>         <font color='orange'>99</font>>];
-    t -> b [dir=back;taillabel=<<br/> 99>];
-    s -> b [xlabel=" 100",label=" ";style=dashed];
-    a -> s [color=magenta;label=<<font color='transparent'>1</font><br/>>;xlabel="1";fontcolor=magenta];
-    b -> a [color=magenta;label="1 ";fontcolor=magenta;style=dashed];
-    t -> b [color=magenta;label=<1>;fontcolor=magenta];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-9-True-2.svg" class="center"></p>
 </td></tr></table>
 
 
 ## Worst Case Ford-Fulkerson
 <!-- day20 slide 52 -->
 
-&nbsp;
-
-<table>
+<table class="ford_fulk_worst_case">
 <tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
 <p class='center'>Increase flow by 1 unit</p>
 </td></tr>
 <tr><td class="compact">
-::: {.svg-100}
-
-```{dot}
-digraph diamond_graph17 {
-    // worst case ford fulkerson; slide 52&53 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [xlabel=<   <font color='red'>1</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
-    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>];
-    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>1</font><font color='black'>/</font>100>];
-    s -> b [xlabel=<<font color='red'>1</font><font color='black'>/</font>100>,label=" "];
-    a -> b [label=<<font color='red'>0</font><font color='black'>/</font>1&nbsp;>];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-10.svg" class="center"></p>
 </td><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph18 {
-    // worst case ford fulkerson; slide 52 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [label=<99>];
-    a -> s [dir=back;headlabel=< <br/>         <font color='orange'>99</font>>];
-    t -> b [dir=back;taillabel=<<br/> 99>];
-    s -> b [xlabel=" 99",label=" "];
-    a -> b [xlabel=" 1";label="   "];
-    a -> s [color=magenta;label=<<font color='transparent'>1</font><br/>>;xlabel="1";fontcolor=magenta];
-    b -> s [color=magenta;label="1";fontcolor=magenta];
-    t -> a [color=magenta;headlabel=< <br/>      1>;fontcolor=magenta];
-    t -> b [color=magenta;label=<1>;fontcolor=magenta];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-11-True.svg" class="center"></p>
 </td></tr></table>
 
 
@@ -1597,62 +1065,14 @@ digraph diamond_graph18 {
 ## Worst Case Ford-Fulkerson
 <!-- day20 slide 53 -->
 
-&nbsp;
-
-<table>
+<table class="ford_fulk_worst_case">
 <tr><td></td><td style="opacity:0;text-align:center" class="zero-bottom">
 <p class='center'>Increase flow by 1 unit</p>
 </td></tr>
 <tr><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph17 {
-    // worst case ford fulkerson; slide 52&53 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=forestgreen;fontsize=24;penwidth=4];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [xlabel=<   <font color='red'>1</font><font color='black'>/</font>100>;label=<<font color='transparent'>spacer</font>>];
-    a -> s [dir=back;label=<<font color='red'>1</font><font color='black'>/</font>100>];
-    t -> b [dir=back;taillabel=<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>1</font><font color='black'>/</font>100>];
-    s -> b [xlabel=<<font color='red'>1</font><font color='black'>/</font>100>,label=" "];
-    a -> b [label=<<font color='red'>0</font><font color='black'>/</font>1&nbsp;>];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-10.svg" class="center"></p>
 </td><td class="compact">
-::: {.svg-100}
-```{dot}
-digraph diamond_graph19 {
-    // worst case ford fulkerson; slide 52 of day20.pptx
-    layout=sfdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;color=orange];
-    t [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    s [style=filled;fillcolor=navy;fontcolor=white];
-    a -> t [label=<99>];
-    a -> s [dir=back;headlabel=< <br/>         <font color='orange'>99</font>>;style=dashed];
-    t -> b [dir=back;taillabel=<<br/> 99>;style=dashed];
-    s -> b [xlabel=" 99",label=" "];
-    a -> b [xlabel=" 1";label="   ";style=dashed];
-    a -> s [color=magenta;label=<<font color='transparent'>1</font><br/>>;xlabel="1";fontcolor=magenta];
-    b -> s [color=magenta;label="1";fontcolor=magenta];
-    t -> a [color=magenta;headlabel=< <br/>      1>;fontcolor=magenta];
-    t -> b [color=magenta;label=<1>;fontcolor=magenta];
-    {rank=same s t}
-}
-```
-:::
+<p><img src="graphs/reductions/diamond_flow-0-11-True-1.svg" class="center"></p>
 </td></tr></table>
 
 <span class='bold'>Observation:</span> each iteration increases flow by 1 unit
@@ -2410,7 +1830,22 @@ Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node
 
 Make ${\color{purple}s}$ and ${\color{navy}t}$ the source and sink, give each edge capacity 1, find the max flow.
 
-::: {.fragment}
+::: {style="opacity:0"}
+- Set of edge-disjoint paths of size 4
+- Max flow = 4
+:::
+
+::: {.svg-100 .bottom style="width:75%;left:12.5%"}
+<img src="graphs/reductions/edge_disjoint_graph-0-2.svg">
+:::
+
+
+
+## Edge-Disjoint Paths
+
+Make ${\color{purple}s}$ and ${\color{navy}t}$ the source and sink, give each edge capacity 1, find the max flow.
+
+::: {}
 - Set of edge-disjoint paths of size 4
 - Max flow = 4
 :::
@@ -2606,7 +2041,7 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 
 <table class="bipartite bipartite_flow"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-True.svg">
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-1.svg">
 
 <table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
@@ -2639,7 +2074,7 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 
 <table class="bipartite bipartite_flow"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-True.svg">
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-2.svg">
 
 <table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
@@ -2891,7 +2326,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 ::: {.fragment data-fragment-index=3}
 <table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-True.svg">
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-1.svg">
 
 <table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
@@ -2908,7 +2343,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 ::: {.fragment data-fragment-index=6}
 <table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-True.svg">
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-2.svg">
 
 <table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
@@ -4075,7 +3510,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 ::: {}
 <table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-True.svg">
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-1.svg">
 
 <table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
@@ -4092,7 +3527,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 ::: {}
 <table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
 ::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-True.svg">
+<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-2.svg">
 
 <table>
 <tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>

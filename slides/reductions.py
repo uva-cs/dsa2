@@ -112,7 +112,11 @@ preset_colors = [
     ["red",  "blue", "red",  "blue", "red",  "red",  "blue", "blue", "red",  ],
 ]
 
-def bipartite_graph_dot(coloring,flow_graph,label=False):
+def bipartite_graph_dot(coloring,flow_graph,label=0):
+    # label value:
+    # 0: no labels
+    # 1: capacity only
+    # 2: flow (based on color)
     colors = preset_colors[coloring]
 
     ret = f"""
@@ -144,7 +148,7 @@ graph G2 {{
      edge [style=solid,color={"red" if coloring == 0 else "blue"}];
      s [shape=circle,style=filled,color=purple,width="1in",fontsize=36];
      t [shape=circle,style=filled,color=navy,width="1in";fontcolor=white;fontsize=36];
-     edge [minlen=4,xlabel="{"1" if label else ""}"];
+     edge [minlen=4,xlabel="{"1" if label==1 else "" if label==0 else "1/1"}"];
      s -- l1;
      s -- l2;
      s -- l3;
@@ -158,20 +162,20 @@ graph G2 {{
 
     ret += f"""// the bipartite edges
     edge [style=solid,color=red];
-    l1 -- r1 [color={colors[0]}];
+    l1 -- r1 [color={colors[0]},xlabel="{"1" if label==1 else "" if label==0 else "0/1" if colors[0]=="red" else "1/1"}"];
     l1 -- r2 [style=invis];
     l1 -- r3 [style=invis];
-    l1 -- r4 [color={colors[1]}];
-    l2 -- r1 [color={colors[2]}];
-    l2 -- r2 [color={colors[3]}];
-    l2 -- r3 [color={colors[4]}];
+    l1 -- r4 [color={colors[1]},xlabel="{"1" if label==1 else "" if label==0 else "0/1" if colors[1]=="red" else "1/1"}"];
+    l2 -- r1 [color={colors[2]},xlabel="{"1" if label==1 else "" if label==0 else "0/1" if colors[2]=="red" else "1/1"}"];
+    l2 -- r2 [color={colors[3]},xlabel="{"1" if label==1 else "" if label==0 else "0/1" if colors[3]=="red" else "1/1"}"];
+    l2 -- r3 [color={colors[4]},xlabel="{"1" if label==1 else "" if label==0 else "0/1" if colors[4]=="red" else "1/1"}"];
     l2 -- r4 [style=invis];
-    l3 -- r1 [color={colors[5]}];
+    l3 -- r1 [color={colors[5]},xlabel="{"1" if label==1 else "" if label==0 else "0/1" if colors[5]=="red" else "1/1"}"];
     l3 -- r2 [style=invis];
-    l3 -- r3 [color={colors[6]}];
+    l3 -- r3 [color={colors[6]},xlabel="{"1" if label==1 else "" if label==0 else "0/1" if colors[6]=="red" else "1/1"}"];
     l3 -- r4 [style=invis];
-    l4 -- r1 [color={colors[7]}];
-    l4 -- r2 [color={colors[8]}];
+    l4 -- r1 [color={colors[7]},xlabel="{"1" if label==1 else "" if label==0 else "0/1" if colors[7]=="red" else "1/1"}"];
+    l4 -- r2 [color={colors[8]},xlabel="{"1" if label==1 else "" if label==0 else "0/1" if colors[8]=="red" else "1/1"}"];
     l4 -- r3 [style=invis];
     l4 -- r4 [style=invis];
     // to keep the bottom nodes on the bottom
@@ -208,15 +212,15 @@ bipartite_image_table_body = """
 <tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
 """
 
-def bipartite_graph(w,h,coloring,flow_graph=False,label=False):
+def bipartite_graph(w,h,coloring,flow_graph=False,label=0):
     global graph_num
 
     params = [w,h,coloring]
-    if flow_graph and not label:
+    if flow_graph and label == 0:
         params.append(True)
-    if label:
+    if label != 0:
         params.append(True)
-        params.append(True)
+        params.append(label)
     output_filename = "bipartite_graph" + param_join(params)
 
     # if width & height are given in inches, conver it to pixels (96 dpi)
@@ -228,6 +232,7 @@ def bipartite_graph(w,h,coloring,flow_graph=False,label=False):
     assert coloring >= 0 and coloring < len(preset_colors)
     # generate the graph
     dot_source = bipartite_graph_dot(coloring,flow_graph,label)
+    #print("\n\n\n\n\n",dot_source)
     html = check_if_in_cache(graph_num,dot_source)
     if not html:
         g = graphviz.Source(dot_source,format='svg')
@@ -296,6 +301,7 @@ tex_header = """
 \\usetikzlibrary{arrows.meta,  % define arrows head styles
                 positioning,  % for nodes positioning
                 shapes.geometric} % for ellipses
+\\newcommand{\\comment}[1]{}
 \\begin{document}
 """
 
@@ -510,6 +516,7 @@ edge_disjoint_graph_label_sets = [
     ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     # s->g  g->t   h->g   s->h   h->f   f->t   f->e   s->e   e->t   e->c   s->b   b->c   c->t   b->a   a->c
     ['1/1', '1/1', '0/1', '1/1', '1/1', '1/1', '0/1', '1/1', '1/1', '0/1', '1/1', '1/1', '1/1', '0/1', '0/1'],
+    ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'],
 ]
 
 def edge_disjoint_graph_tikz(color_set,label_set,color_e_red):
@@ -848,6 +855,113 @@ graph g {{
     xprint(svg,output_filename)
 
 
+
+#--------------------------------------------------
+# diamond flow graphs
+#--------------------------------------------------
+
+label_sets = [
+    ["20","10","30","10","20",                  0,0,0,0,0], # 0
+    ["20/20","10","20/30","10","20/20",         0,0,0,0,0], # 1
+    ["20/20","10/10","10/30","10/10","20/20",   0,0,0,0,0], # 2
+    ["20/20","0/10","20/30","0/10","20/20",     0,0,0,0,0], # 3
+    [0,10,10,10,0, 20,0,20,0,20],                           # 4
+    [0,0,20,0,0, 20,10,10,10,20],                           # 5
+    ["0/100","0/100","0/1","0/100","0/100",     0,0,0,0,0], # 6
+    [100,100,1,100,100, 0,0,0,0,0],                         # 7
+    ["1/100",100,"1/1",100,"1/100", 0,0,0,0,0],             # 8
+    [99,100,0,100,99, 1,0,1,0,1],                           # 9
+    ["1/100","1/100","0/1","1/100","1/100", 0,0,0,0,0],     # 10
+    [99,99,1,99,99, 1,1,0,1,1],                             # 11
+]
+
+color_sets = [
+    ["black","black","black","black","black"],
+    ["red","black","red","black","red"],
+    ["red","red","red","red","red"],
+    ["orange","black","orange","black","orange"],
+    ["orange","black","magenta","black","orange"],
+]
+
+def diamond_flow(color_set=0,label_set=0,residual=False,highlight=0):
+    params = [color_set, label_set, residual, highlight]
+    if highlight == 0:
+        params.pop()
+        if not residual:
+            params.pop()
+            if label_set == 0:
+                params.pop()
+                if color_set == 0:
+                    params.pop()
+    output_filename = "diamond_flow" + param_join(params)
+
+    labels = list(label_sets[label_set])
+    origlabels = list(labels)
+    for i in range(len(labels)):
+        if residual and str(labels[i]) == "0":
+            labels[i] = ""
+        if not residual:
+            if "/" in str(labels[i]):
+                pos = labels[i].find("/")
+                labels[i] = f"\\textcolor{{red}}{{\\Large {labels[i][:pos]}}}/\\textcolor{{ForestGreen}}{{\\Large {labels[i][pos+1:]}}}"
+            else:
+                labels[i] = f"\\textcolor{{ForestGreen}}{{\\Large {labels[i]}}}"
+    colors = color_sets[color_set]
+
+    tikz1 = f"""
+\\begin{{tikzpicture}}[
+     C/.style = {{circle, draw, very thick, minimum size = 10mm, node distance = 20mm, fill=CornflowerBlue}},
+     every edge/.style = {{->, ultra thick, -stealth}},
+]
+
+\\tikzset{{font=\\sffamily}}
+
+\\node (a) at (0,4) [C, draw] {{\\Large a}};
+\\node (s) at (-3,2) [C, draw,fill=Blue,text=white] {{\\Large s}};
+\\node (t) at (3,2) [C, draw,fill=Plum,text=white] {{\\Large t}};
+\\node (b) at (0,0) [C, draw] {{\\Large b}};
+
+{"\\comment{" if residual else ""}
+\\path
+    (s) edge [{"dashed," if highlight==1 else ""} draw,{colors[0]}] node[above left] {{{str(labels[0])}~}}  (a)
+    (s) edge [{"dashed," if highlight==2 else ""} draw,{colors[1]}] node[below left] {{{str(labels[1])}~}} (b)
+    (a) edge [{"dashed," if highlight==1 or highlight==2 else ""} draw,{colors[2]}] node[left] {{{str(labels[2])}}} (b)
+    (a) edge [{"dashed," if highlight==2 else ""} draw,{colors[3]}] node[above right] {{~{str(labels[3])}}} (t)
+    (b) edge [{"dashed," if highlight==1 else ""} draw,{colors[4]}] node[below right] {{~{str(labels[4])}}} (t);
+{"}" if residual else ""}
+
+{"\\comment{" if not residual else ""}
+\\path
+    (s) edge [orange, {"" if str(origlabels[0])[0] == "0" else "draw,"} {"dashed," if highlight==1 else ""} bend left=10] node[above left,text=orange] {{\\Large {str(labels[0])}~}}  (a)
+    (s) edge [orange, {"" if str(origlabels[1])[0] == "0" else "draw,"} {"dashed," if highlight==2 else ""} bend right=10] node[below left,text=orange] {{\\Large {str(labels[1])}~}} (b)
+    (a) edge [orange, {"" if str(origlabels[2])[0] == "0" else "draw,"} {"dashed,draw," if highlight==1 else ""} bend left=10] node[right,text=orange] {{\\Large {str(labels[2])}}} (b)
+    (a) edge [orange, {"" if str(origlabels[3])[0] == "0" else "draw,"} {"dashed," if highlight==2 else ""} bend left=10] node[above right,text=orange] {{\\Large ~{str(labels[3])}}} (t)
+    (b) edge [orange, {"" if str(origlabels[4])[0] == "0" else "draw,"} {"dashed," if highlight==1 else ""} bend right=10] node[below right,text=orange] {{\\Large ~{str(labels[4])}}} (t);
+
+\\path
+    (a) edge [magenta, {"" if str(origlabels[5])[0] == "0" else "draw,"} bend left=10] node[below right,text=magenta] {{\\Large {str(labels[5])}~}}  (s)
+    (b) edge [magenta, {"" if str(origlabels[6])[0] == "0" else "draw,"} bend right=10] node[above right,text=magenta] {{\\Large {str(labels[6])}~}} (s)
+    (b) edge [magenta, {"" if str(origlabels[7])[0] == "0" else "draw,"} {"dashed,draw," if highlight==2 else ""} bend left=10] node[left,text=magenta] {{\\Large {str(labels[7])}}} (a)
+    (t) edge [magenta, {"" if str(origlabels[8])[0] == "0" else "draw,"} bend left=10] node[below left,text=magenta] {{\\Large ~{str(labels[8])}}} (a)
+    (t) edge [magenta, {"" if str(origlabels[9])[0] == "0" else "draw,"} bend right=10] node[above left,text=magenta] {{\\Large ~{str(labels[9])}}} (b);
+{"}" if not residual else ""}
+
+\\end{{tikzpicture}}
+"""
+
+    tex_file = tex_header + tikz1 + "\n\\end{document}"
+    with open("reductions.tmp.tex","w") as f:
+        f.write(tex_file)
+    os.system ("pdflatex reductions.tmp.tex > /dev/null")
+    os.system ("inkscape reductions.tmp.pdf --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
+    with open("reductions.tmp.svg","r") as f:
+       svg = f.read()
+    where = svg.find("<svg\n")
+    xprint(svg[where:],output_filename)
+
+
+
+
 #--------------------------------------------------
 # main() equivalent
 #--------------------------------------------------
@@ -869,16 +983,40 @@ if __name__ == "__main__":
         #edge_disjoint_graph(3)
     else:
         os.system("mkdir -p graphs/reductions")
+
+        exit()
+
         arrows()
-        bipartite_graph(13.69,9.69,0,True,True)
-        bipartite_graph(13.69,9.69,3,True,True)
+        bipartite_graph(13.69,9.69,0,True,1)
+        bipartite_graph(13.69,9.69,3,True,2)
         bipartite_graph(8.53,9.64,0)
         bipartite_graph(8.53,9.64,1)
         bipartite_graph(8.53,9.64,2)
         bipartite_graph(8.53,9.64,3)
         cpp()
+        diamond_flow() # 0,0
+        diamond_flow(1,0)
+        diamond_flow(1,1)
+        diamond_flow(2,2)
+        diamond_flow(0,3)
+        diamond_flow(0,4,True)
+        diamond_flow(0,4,True,2)
+        diamond_flow(0,2)
+        diamond_flow(0,5,True)
+        diamond_flow(0,6)
+        diamond_flow(0,7,True)
+        diamond_flow(0,7,True,1)
+        diamond_flow(3,8,False,1)
+        diamond_flow(0,8)
+        diamond_flow(0,9,True)
+        diamond_flow(0,9,True,2)
+        diamond_flow(4,10,True,2)
+        diamond_flow(0,10)
+        diamond_flow(0,11,True)
+        diamond_flow(0,11,True,1)
         edge_disjoint_graph()
         edge_disjoint_graph(0,1)
+        edge_disjoint_graph(0,2)
         edge_disjoint_graph(1)
         edge_disjoint_graph(1,0,True)
         edge_disjoint_graph(2)
