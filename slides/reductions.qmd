@@ -1321,44 +1321,9 @@ graph graph1 {
 
 </div>
 
-<table class="compact bottom width-100"><tr><td>
-::: {.svg-60 .center}
-```{dot}
-digraph graph2 {
-    // the layout when the edge labels are a single character or digit
-    // capacities only; the graph on day20 slides 13&15 of day20.pptx
-    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 6  10 -15  -10 10  -10 190  30 220  100 220  240 -15 c 7 -#000080  C 7 -#ADD8E6  P 6  390 -15  450 140  450 180  420 220  170 220  310 -15 ";
-    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
 
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [xlabel=<<font color='magenta' point-size="36" face="times">S</font>>];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white;xlabel=<<font color='blue' point-size="36" face="times">T</font>>];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="3"];
-    a -> b [label="2";color=forestgreen;fontcolor=forestgreen];
-    b -> t [label=<<br/>3>];
-    s -> c [label="2"];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>;color=forestgreen;fontcolor=forestgreen];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-}
-```
-:::
+<table class="compact bottom width-100" style="height:50%"><tr><td>
+<p style="text-align:center;margin:0"><img src="graphs/reductions/flow_graph-1-False-0-True-1.svg" style="width:80%;margin:0"></p>
 </td></tr></table>
 
 
@@ -1377,44 +1342,8 @@ digraph graph2 {
 
 </div>
 
-<table class="compact bottom width-100"><tr><td>
-::: {.svg-60 .center}
-```{dot}
-digraph graph1 {
-    // the layout when the edge labels are a single character or digit
-    // capacities only; the graph on day20 slides 13&15 of day20.pptx
-    _background="c 7 -#ff00ff  C 7 -#DDA0DD  P 6  10 -15  -10 10  -10 190  30 220  100 220  240 -15 c 7 -#000080  C 7 -#ADD8E6  P 6  390 -15  450 140  450 180  420 220  170 220  310 -15 ";
-    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
-
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [xlabel=<<font color='magenta' point-size="36" face="times">S</font>>];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white;xlabel=<<font color='blue' point-size="36" face="times">T</font>>];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="3"];
-    a -> b [label="2";color=forestgreen;fontcolor=forestgreen];
-    b -> t [label=<<br/>3>];
-    s -> c [label="2"];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td>3</td></tr></table>>,label=<&nbsp;>;color=forestgreen;fontcolor=forestgreen];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td>2</td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td>1</td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-}
-```
-:::
+<table class="compact bottom width-100" style="height:50%"><tr><td>
+<p style="text-align:center;margin:0"><img src="graphs/reductions/flow_graph-1-False-0-True-1.svg" style="width:80%;margin:0"></p>
 </td></tr></table>
 
 
@@ -1435,93 +1364,11 @@ digraph graph1 {
 <tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph25 {
-    // _background: pink first, then blue
-    _background="
-c 7 -#ff00ff  C 7 -#DDA0DD  P 8  
-10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15
-c 7 -#000080  C 7 -#ADD8E6  P 7  
-390 -15  450 140  450 180  420 210  250 210  120 30  120 -15
-";
-    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>;color=forestgreen];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>;color=forestgreen];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
-```
+<img src="graphs/reductions/flow_graph-3-False-0-True-2.svg" style="width:80%;margin:0">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph23 {
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="1"];
-    a -> b [label="1";style=invis];
-    b -> t [label=<<br/>1>];
-    s -> c [label="2";fontcolor=magenta;dir=back;color=magenta];
-    c -> d [label="1"];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  2";fontcolor=magenta];
-    b -> a [color=magenta;label="2";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
-    d -> c [color=magenta;label="2";fontcolor=magenta];
-    t -> d [color=magenta;label="  2";fontcolor=magenta];
-    t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [label="1"];
-
-    d -> t [color=orange;label="0"];
-    a -> b [color=orange;label="0"];
-    c -> b [color=magenta;label="0";fontcolor=magenta];
-    d -> b [color=magenta;label="0";fontcolor=magenta];
-    b -> d [color=magenta;label="0";fontcolor=magenta];
-    a -> c [color=magenta;label="0";fontcolor=magenta];
-}
-```
+<img src="graphs/reductions/flow_graph-3-True.svg">
 :::
 </td></tr>
 
@@ -1553,99 +1400,11 @@ digraph graph23 {
 <tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-// this duplicates the one in the reductions column
-digraph graph25 {
-    _background="
-c 7 -#ff00ff  C 7 -#DDA0DD  P 8  
-10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15
-c 7 -#000080  C 7 -#ADD8E6  P 7  
-390 -15  450 140  450 180  420 210  250 210  120 30  120 -15
-";
-    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
-```
+<img src="graphs/reductions/flow_graph-3-False-0-True-4.svg" style="width:80%;margin:0">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph23 {
-    _background="
-c 7 -#ff00ff  C 7 -#DDA0DD  P 8  
-10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15
-c 7 -#000080  C 7 -#ADD8E6  P 7  
-390 -15  450 140  450 180  420 210  250 210  120 30  120 -15
-";
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="1"];
-    a -> b [label="1";style=invis];
-    b -> t [label=<<br/>1>];
-    s -> c [label="2";fontcolor=magenta;dir=back;color=magenta];
-    c -> d [label="1"];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  2";fontcolor=magenta];
-    b -> a [color=magenta;label="2";fontcolor=magenta];
-    c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
-    d -> c [color=magenta;label="2";fontcolor=magenta];
-    t -> d [color=magenta;label="  2";fontcolor=magenta];
-    t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [label="1"];
-
-    d -> t [color=orange;label="0"];
-    a -> b [color=orange;label="0"];
-    c -> b [color=magenta;label="0";fontcolor=magenta];
-    d -> b [color=magenta;label="0";fontcolor=magenta];
-    b -> d [color=magenta;label="0";fontcolor=magenta];
-    a -> c [color=magenta;label="0";fontcolor=magenta];
-}
-```
+<img src="graphs/reductions/flow_graph-3-True-0-True-4.svg" style="width:80%;margin:0">
 :::
 </td></tr></table>
 
@@ -1668,98 +1427,11 @@ c 7 -#000080  C 7 -#ADD8E6  P 7
 <tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-```{dot}
-digraph graph25 {
-    _background="
-c 7 -#ff00ff  C 7 -#DDA0DD  P 8  
-10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15
-c 7 -#000080  C 7 -#ADD8E6  P 7  
-390 -15  450 140  450 180  420 210  250 210  120 30  120 -15
-";
-    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
-    // the layout when the edge labels are of the form "x/y"
-    // ford-fulkerson graph: after third flow; on slides 41 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;minlen=32];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label=<<font color="red">2</font>/<font color="forestgreen">3</font>>];
-    a -> b [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>;color=forestgreen];
-    b -> t [label=<<br/><font color="red">2</font>/<font color="forestgreen">3</font>>];
-    s -> c [label=<<font color="red">2</font>/<font color="forestgreen">2</font>>];
-    c -> d [xlabel=<<table border="0"><tr><td></td></tr><tr><td><font color="red">2</font>/<font color="forestgreen">3</font></td></tr></table>>,label=<&nbsp;>];
-    d -> t [taillabel=<<table border="0"><tr><td>&nbsp;</td><td><font color="red">2</font>/<font color="forestgreen">2</font></td></tr></table>>];
-    c -> s [label=<<table border="0"><tr><td></td></tr><tr><td><font color="red">0</font>/<font color="forestgreen">1</font></td></tr></table>>];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">3</font></td></tr></table>>;color=brown];
-    b -> c [label=<<font color="red">0</font>/<font color="forestgreen">1</font>&nbsp;>];
-    d -> b [label=<<font color="red">0</font>/<font color="forestgreen">3</font>&nbsp;>];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><font color="red">0</font>/<font color="forestgreen">2</font></td></tr></table>>];
-}
-```
+<img src="graphs/reductions/flow_graph-3-False-0-True-3.svg" style="width:80%;margin:0">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-```{dot}
-digraph graph23 {
-    _background="
-c 7 -#ff00ff  C 7 -#DDA0DD  P 8  
-10 -15  -10 10  -10 170  30 210  100 210  120 180  120 100  40 -15
-c 7 -#000080  C 7 -#ADD8E6  P 7  
-390 -15  450 140  450 180  420 210  250 210  120 30  120 -15
-";
-    // the layout when the edge labels are a single character or digit
-    // ford-fulkerson third residual graph with magenta back-flows: on slides 41 of day20.pptx
-    layout=fdp;
-    start=144; 
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=orange;fontsize=24;penwidth=4;minlen=32,color=orange];
-    s [style=filled;fillcolor=purple;fontcolor=white];
-    a [];
-    b [];
-    c [];
-    d [];
-    t [style=filled;fillcolor=navy;fontcolor=white];
-    // edge flows: 
-    // - first three are the top flow from s->t
-    // - second three are the bottom flow from s->t
-    // - last 5 are the remaining edges from left-to-right
-    s -> a [label="1"];
-    //a -> b [label="1";style=invis];
-    b -> t [label=<<br/>1>];
-    s -> c [label="2";fontcolor=magenta;dir=back;color=magenta];
-    c -> d [label="1"];
-    c -> a [headlabel=<<table border="0"><tr><td>&nbsp;&nbsp;</td><td>3</td></tr></table>>;color=brown];
-    b -> c [label="1"];
-    d -> b [label="3 "];
-    b -> d [taillabel=<<table border="0"><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>2</td></tr></table>>];
-    a -> s [color=magenta;label="  2";fontcolor=magenta];
-    b -> a [color=magenta;label="2";fontcolor=magenta];
-    //c -> b [color=magenta;label="1";fontcolor=magenta;style=invis];
-    d -> c [color=magenta;label="2";fontcolor=magenta];
-    t -> d [color=magenta;label="  2";fontcolor=magenta];
-    t -> b [color=magenta;label="2";fontcolor=magenta];
-    c -> s [label="1"];
-
-    d -> t [color=orange;label="0"];
-    a -> b [color=orange;label="0";color=forestgreen];
-    c -> b [color=magenta;label="0";fontcolor=magenta];
-    d -> b [color=magenta;label="0";fontcolor=magenta];
-    b -> d [color=magenta;label="0";fontcolor=magenta];
-    a -> c [color=magenta;label="0";fontcolor=magenta];
-}
-```
+<img src="graphs/reductions/flow_graph-3-True-0-True-3.svg" style="width:80%;margin:0">
 :::
 </td></tr></table>
 

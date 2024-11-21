@@ -305,10 +305,13 @@ tex_header = """
 \\begin{document}
 """
 
-def tec(labels,i,hide): # tec == tikz_edge_color
-    label = labels[i]
+def tec(labels,edge,hide,cut_graph): # tec == tikz_edge_color
+    label = labels[edge]
     #if not hide:
     #    return "black"
+    if (cut_graph == 1 and edge in [4,6]) or \
+       (cut_graph == 2 and edge in [1,4]):
+        return "ForestGreen,"
     if (str(label) == "" or (len(str(label)) > 0 and str(label)[0] == "0")) and hide:
         return "transparent,"
     #if (str(label) != "" and (len(str(label)) > 0 and str(label)[0] != "0")) and hide:
@@ -327,7 +330,12 @@ def tch(source,terminus,color,highlights): # tch = tikz check highlights
         return ""
 
 
-def flow_graph_tikz(labels, res, revres, revlabels, highlights): # labels, residual, reverse-residual, reverse-residual labels
+def flow_graph_tikz(labels, res, revres, revlabels, highlights, cut_graph): # labels, residual, reverse-residual, reverse-residual labels
+    # cut graph 0 is no cut graph
+    # cut graph 1 has three nodes in the left cut, and the two edges that cross the cut are colored green
+    # cut graph 2 has two nodes in the left cut, and the two edges that cross the cut are colored green
+    # cut graph 3 has two nodes in the left cut, and the two edges that cross the cut are colored green and brown
+    # cut graph 4 has two nodes in th eleft cut, and no change of edge colorings
     ret = f"""
 \\begin{{tikzpicture}}[
      C/.style = {{circle, draw, very thick, minimum size = 8mm, node distance = 20mm, fill=CornflowerBlue}},
@@ -335,13 +343,35 @@ def flow_graph_tikz(labels, res, revres, revlabels, highlights): # labels, resid
 ]
 
 \\tikzset{{font=\\sffamily}}
+"""
 
-\\node (a) [C] {{a}};
-\\node (b) [C, right=of a] {{b}};
-\\node (t) [C, fill=Blue, text=white, right=of b] {{t}};
-\\node (s) [C, fill=Plum, text=white, below left=of a] {{s}};
-\\node (c) [C, right=of s] {{c}};
-\\node (d) [C, right=of c] {{d}};
+    if cut_graph == 1:
+        ret += f"""
+\\node (S) at (1.5,0.65) [circle,draw,fill=Lavender!70,minimum size=44mm] {{}};
+\\node (T) at (6,1.3) [circle,draw,fill=SkyBlue!50,minimum size=44mm] {{}};
+\\node (Sl) at (0.5,2) [text=magenta] {{\\LARGE S}};
+\\node (Tl) at (6,3) [text=blue] {{\\LARGE T}};
+
+"""
+    if cut_graph in [2,3,4]:
+        ret += f"""
+%\\node (S) at (0.5,1) [circle,draw,fill=Lavender!70,minimum size=36mm] {{}};
+\\draw[rotate around={{50:(0.8,1)}}, fill=Lavender!70] (0.8,1) ellipse[x radius=2, y radius=1];
+%\\node (T) at (5.2,1.3) [circle,draw,fill=SkyBlue!50,minimum size=58mm] {{}};
+\\draw[rotate around={{20:(5.5,1)}}, fill=SkyBlue!50] (5.25,1) ellipse[x radius=3.25, y radius=2];
+\\node (Sl) at (0.5,2.75) [text=magenta] {{\\LARGE S}};
+\\node (Tl) at (3.55,2.75) [text=blue] {{\\LARGE T}};
+
+
+"""
+
+    ret += f"""
+\\node (a) at (1.5,2) [C] {{a}};
+\\node (b) at (4.5,2) [C] {{b}};
+\\node (t) at (7.5,2) [C, fill=Blue, text=white] {{t}};
+\\node (s) at (0,0) [C, fill=Plum, text=white] {{s}};
+\\node (c) at (3,0) [C] {{c}};
+\\node (d) at (6,0) [C] {{d}};
 """
     if not revres:
         # this has (mostly) straight edges
@@ -350,33 +380,33 @@ def flow_graph_tikz(labels, res, revres, revlabels, highlights): # labels, resid
         else:
             ret += "\\path\n"
         ret += f"""
-    (s) edge[{tch('s','a','b',highlights)} {tec(labels,0,res)}] node[above left] {{{str(labels[0])}}} (a)
-    (s) edge[{tch('s','c','b',highlights)} {tec(labels,1,res)} bend left=15] node[above] {{{str(labels[1])}}} (c)
-    (c) edge[{tch('c','s','b',highlights)} {tec(labels,2,res)} bend left=15] node[below] {{{str(labels[2])}}} (s)
-    (c) edge[{tch('c','a','b',highlights)} {tec(labels,3,res)}] node[right] {{{str(labels[3])}}} (a)
-    (a) edge[{tch('a','b','b',highlights)} {tec(labels,4,res)}] node[above] {{{str(labels[4])}}} (b)
-    (b) edge[{tch('b','c','b',highlights)} {tec(labels,5,res)}] node[above] {{{str(labels[5])}}} (c)
-    (c) edge[{tch('c','d','b',highlights)} {tec(labels,6,res)}] node[below] {{{str(labels[6])}}} (d)
-    (d) edge[{tch('d','b','b',highlights)} {tec(labels,7,res)} bend left=15] node[left] {{{str(labels[7])}}} (b)
-    (b) edge[{tch('b','d','b',highlights)} {tec(labels,8,res)} bend left=15] node[above right] {{{str(labels[8])}}} (d)
-    (b) edge[{tch('b','t','b',highlights)} {tec(labels,9,res)}] node[above] {{{str(labels[9])}}} (t)
-    (d) edge[{tch('d','t','b',highlights)} {tec(labels,10,res)}] node[below right] {{{str(labels[10])}}} (t);
+    (s) edge[{tch('s','a','b',highlights)} {tec(labels,0,res,cut_graph)}] node[above left] {{{str(labels[0])}}} (a)
+    (s) edge[{tch('s','c','b',highlights)} {tec(labels,1,res,cut_graph)} bend left=15] node[above] {{{str(labels[1])}}} (c)
+    (c) edge[{tch('c','s','b',highlights)} {tec(labels,2,res,cut_graph)} bend left=15] node[below] {{{str(labels[2])}}} (s)
+    (c) edge[{tch('c','a','b',highlights)} {"Bittersweet," if cut_graph==3 else tec(labels,3,res,cut_graph)}] node[right] {{{str(labels[3])}}} (a)
+    (a) edge[{tch('a','b','b',highlights)} {"ForestGreen," if cut_graph==3 else tec(labels,4,res,cut_graph)}] node[above] {{{str(labels[4])}}} (b)
+    (b) edge[{tch('b','c','b',highlights)} {tec(labels,5,res,cut_graph)}] node[above] {{{str(labels[5])}}} (c)
+    (c) edge[{tch('c','d','b',highlights)} {tec(labels,6,res,cut_graph)}] node[below] {{{str(labels[6])}}} (d)
+    (d) edge[{tch('d','b','b',highlights)} {tec(labels,7,res,cut_graph)} bend left=15] node[left] {{{str(labels[7])}}} (b)
+    (b) edge[{tch('b','d','b',highlights)} {tec(labels,8,res,cut_graph)} bend left=15] node[above right] {{{str(labels[8])}}} (d)
+    (b) edge[{tch('b','t','b',highlights)} {tec(labels,9,res,cut_graph)}] node[above] {{{str(labels[9])}}} (t)
+    (d) edge[{tch('d','t','b',highlights)} {tec(labels,10,res,cut_graph)}] node[below right] {{{str(labels[10])}}} (t);
 
 """
     else:
         ret += f"""
 \\path[orange]
-    (s) edge[{tch('s','a','o',highlights)} {tec(labels,0,res)} bend left=15] node[above left] {{{str(labels[0])}}} (a)
-    (s) edge[{tch('s','c','o',highlights)} {tec(labels,1,res)} bend left=30] node[above] {{{str(labels[1])}}} (c)
-    (c) edge[{tch('c','s','o',highlights)} {tec(labels,2,res)} bend left=10] node[below] {{{str(labels[2])}}} (s)
-    (c) edge[{tch('c','a','o',highlights)} {tec(labels,3,res)} bend left=15] node[right] {{{str(labels[3])}}} (a)
-    (a) edge[{tch('a','b','o',highlights)} {tec(labels,4,res)} bend left=15] node[above] {{{str(labels[4])}}} (b)
-    (b) edge[{tch('b','c','o',highlights)} {tec(labels,5,res)} bend left=15] node[above left] {{{str(labels[5])}}} (c)
-    (c) edge[{tch('c','d','o',highlights)} {tec(labels,6,res)} bend left=15] node[below] {{{str(labels[6])}}} (d)
-    (d) edge[{tch('d','b','o',highlights)} {tec(labels,7,res)} bend left=30] node[left] {{{str(labels[7])}}} (b)
-    (b) edge[{tch('b','d','o',highlights)} {tec(labels,8,res)} bend left=10] node[above right] {{{str(labels[8])}}} (d)
-    (b) edge[{tch('b','t','o',highlights)} {tec(labels,9,res)} bend left=15] node[above] {{{str(labels[9])}}} (t)
-    (d) edge[{tch('d','t','o',highlights)} {tec(labels,10,res)} bend left=15] node[below right] {{{str(labels[10])}}} (t);
+    (s) edge[{tch('s','a','o',highlights)} {tec(labels,0,res,cut_graph)} bend left=15] node[above left] {{{str(labels[0])}}} (a)
+    (s) edge[{tch('s','c','o',highlights)} {tec(labels,1,res,cut_graph)} bend left=30] node[above] {{{str(labels[1])}}} (c)
+    (c) edge[{tch('c','s','o',highlights)} {tec(labels,2,res,cut_graph)} bend left=10] node[below] {{{str(labels[2])}}} (s)
+    (c) edge[{tch('c','a','o',highlights)} {"Bittersweet," if cut_graph==3 else tec(labels,3,res,cut_graph)} bend left=15] node[right] {{{str(labels[3])}}} (a)
+    (a) edge[{tch('a','b','o',highlights)} {"ForestGreen," if cut_graph==3 else tec(labels,4,res,cut_graph)} bend left=15] node[above] {{{str(labels[4])}}} (b)
+    (b) edge[{tch('b','c','o',highlights)} {tec(labels,5,res,cut_graph)} bend left=15] node[above left] {{{str(labels[5])}}} (c)
+    (c) edge[{tch('c','d','o',highlights)} {tec(labels,6,res,cut_graph)} bend left=15] node[below] {{{str(labels[6])}}} (d)
+    (d) edge[{tch('d','b','o',highlights)} {tec(labels,7,res,cut_graph)} bend left=30] node[left] {{{str(labels[7])}}} (b)
+    (b) edge[{tch('b','d','o',highlights)} {tec(labels,8,res,cut_graph)} bend left=10] node[above right] {{{str(labels[8])}}} (d)
+    (b) edge[{tch('b','t','o',highlights)} {tec(labels,9,res,cut_graph)} bend left=15] node[above] {{{str(labels[9])}}} (t)
+    (d) edge[{tch('d','t','o',highlights)} {tec(labels,10,res,cut_graph)} bend left=15] node[below right] {{{str(labels[10])}}} (t);
 
 """
 
@@ -384,18 +414,27 @@ def flow_graph_tikz(labels, res, revres, revlabels, highlights): # labels, resid
         ret += f"""
 \\tikzset{{text=magenta}}
 \\draw[magenta]
-    (a) edge[{tch('a','s','m',highlights)}{tec(revlabels,0,revres)} bend left=15] node[above left] {{{revlabels[0]}}} (s)
-    (c) edge[{tch('c','s','m',highlights)}{tec(revlabels,1,revres)} bend right=10] node[above] {{{revlabels[1]}}} (s)
-    (s) edge[{tch('s','c','m',highlights)}{tec(revlabels,2,revres)} bend right=30] node[below] {{{revlabels[2]}}} (c)
-    (a) edge[{tch('a','c','m',highlights)}{tec(revlabels,3,revres)} bend left=15] node[right] {{{revlabels[3]}}} (c)
-    (b) edge[{tch('b','a','m',highlights)}{tec(revlabels,4,revres)} bend left=15] node[above] {{{revlabels[4]}}} (a)
-    (c) edge[{tch('c','b','m',highlights)}{tec(revlabels,5,revres)} bend left=15] node[above] {{{revlabels[5]}}} (b)
-    (d) edge[{tch('d','c','m',highlights)}{tec(revlabels,6,revres)} bend left=15] node[below] {{{revlabels[6]}}} (c)
-    (b) edge[{tch('b','d','m',highlights)}{tec(revlabels,7,revres)} bend right=10] node[left] {{{revlabels[7]}}} (d)
-    (d) edge[{tch('d','b','m',highlights)}{tec(revlabels,8,revres)} bend right=30] node[above right] {{{revlabels[8]}}} (b)
-    (t) edge[{tch('t','b','m',highlights)}{tec(revlabels,9,revres)} bend left=15] node[above] {{{revlabels[9]}}} (b)
-    (t) edge[{tch('t','d','m',highlights)}{tec(revlabels,10,revres)} bend left=15] node[below right] {{{revlabels[10]}}} (d);
+    (a) edge[{tch('a','s','m',highlights)}{tec(revlabels,0,revres,cut_graph)} bend left=15] node[above left] {{{revlabels[0]}}} (s)
+    (c) edge[{tch('c','s','m',highlights)}{tec(revlabels,1,revres,cut_graph)} bend right=10] node[above] {{{revlabels[1]}}} (s)
+    (s) edge[{tch('s','c','m',highlights)}{tec(revlabels,2,revres,cut_graph)} bend right=30] node[below] {{{revlabels[2]}}} (c)
+    (a) edge[{tch('a','c','m',highlights)}{tec(revlabels,3,revres,cut_graph)} bend left=15] node[right] {{{revlabels[3]}}} (c)
+    (b) edge[{tch('b','a','m',highlights)}{tec(revlabels,4,revres,cut_graph)} bend left=15] node[above] {{{revlabels[4]}}} (a)
+    (c) edge[{tch('c','b','m',highlights)}{tec(revlabels,5,revres,cut_graph)} bend left=15] node[above] {{{revlabels[5]}}} (b)
+    (d) edge[{tch('d','c','m',highlights)}{tec(revlabels,6,revres,cut_graph)} bend left=15] node[below] {{{revlabels[6]}}} (c)
+    (b) edge[{tch('b','d','m',highlights)}{tec(revlabels,7,revres,cut_graph)} bend right=10] node[left] {{{revlabels[7]}}} (d)
+    (d) edge[{tch('d','b','m',highlights)}{tec(revlabels,8,revres,cut_graph)} bend right=30] node[above right] {{{revlabels[8]}}} (b)
+    (t) edge[{tch('t','b','m',highlights)}{tec(revlabels,9,revres,cut_graph)} bend left=15] node[above] {{{revlabels[9]}}} (b)
+    (t) edge[{tch('t','d','m',highlights)}{tec(revlabels,10,revres,cut_graph)} bend left=15] node[below right] {{{revlabels[10]}}} (d);
 """
+    """
+    if cut_graph == 3:
+        ret += f""
+\\tikzset{{text=magenta}}
+\\draw[magenta]
+    (a) edge[ForestGreen, bend left=15] node[above] {{0}} (b)
+    (c) edge[Bittersweet, bend left=15] node[right] {{3}} (a);
+"""
+
 
     ret += "\\end{tikzpicture}"
     return ret
@@ -426,16 +465,18 @@ all_highlights = [
 ]
 
 
-def flow_graph(label_set,residual=False,highlight_set=0,revresidual=True):
+def flow_graph(label_set,residual=False,highlight_set=0,revresidual=True,cut_graph=0):
     global graph_num
 
-    params = [label_set, residual, highlight_set, revresidual]
-    if revresidual:
+    params = [label_set, residual, highlight_set, revresidual, cut_graph]
+    if cut_graph == 0:
         params.pop()
-        if highlight_set == 0:
+        if revresidual:
             params.pop()
-            if not residual:
+            if highlight_set == 0:
                 params.pop()
+                if not residual:
+                    params.pop()
     output_filename = "flow_graph" + param_join(params)
 
     w,h = 960,480
@@ -478,11 +519,11 @@ def flow_graph(label_set,residual=False,highlight_set=0,revresidual=True):
     # generate the graph
     #print(f"<p>flowedgelabels: {flowedgelabels}</p><p>revflowedgelabels: {revflowedgelabels}")
     if residual and revresidual:
-        tex_file = tex_header + flow_graph_tikz(revflowedgelabels,residual,revresidual,flowedgelabels,highlights) + "\n\\end{document}"
+        tex_file = tex_header + flow_graph_tikz(revflowedgelabels,residual,revresidual,flowedgelabels,highlights,cut_graph) + "\n\\end{document}"
     elif residual:
-        tex_file = tex_header + flow_graph_tikz(revflowedgelabels,residual,revresidual,flowedgelabels,highlights) + "\n\\end{document}"
+        tex_file = tex_header + flow_graph_tikz(revflowedgelabels,residual,revresidual,flowedgelabels,highlights,cut_graph) + "\n\\end{document}"
     else:
-        tex_file = tex_header + flow_graph_tikz(edgelabels,residual,revresidual,revflowedgelabels,highlights) + "\n\\end{document}"
+        tex_file = tex_header + flow_graph_tikz(edgelabels,residual,revresidual,revflowedgelabels,highlights,cut_graph) + "\n\\end{document}"
     cached = check_if_in_cache(graph_num,tex_file)
     if not cached:
         with open("reductions.tmp.tex","w") as f:
@@ -983,6 +1024,15 @@ if __name__ == "__main__":
         #edge_disjoint_graph(3)
     else:
         os.system("mkdir -p graphs/reductions")
+        flow_graph(1,False,0,True,1)   
+        flow_graph(3,False,0,True,2)
+        flow_graph(3,False,0,True,3)
+        flow_graph(3,False,0,True,4)
+        flow_graph(3,True,0,True,3)
+        flow_graph(3,True,0,True,4)
+
+        #<img src="graphs/reductions/flow_graph-3-False-0-True-2.svg" style="width:80%;margin:0">
+
 
         exit()
 

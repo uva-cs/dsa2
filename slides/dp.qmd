@@ -4066,7 +4066,7 @@ Readings in CLRS 4th edition: chapter 14
   - Each containing $m$ voters
   - Total of $m \cdot n$ voters
 - Output:
-	- Districts ${\color{magenta}D_1}, {\color{green}D_2} \subset \{ p_1,p_2,\ldots,p_{n-1} \}$
+	- Districts ${\color{magenta}D_1}, {\color{green}D_2} \subset \{ p_1,p_2,\ldots,p_{n} \}$
 	- Where $|{\color{magenta}D_1}| = |{\color{green}D_2}|$
 	- $S({\color{magenta}D_1})>\frac{m \cdot n}{4}$ and $S({\color{green}D_2})>\frac{m \cdot n}{4}$
 		- $S(D_i)$ is the number (size) of voters of your party in $D_i$
