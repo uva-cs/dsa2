@@ -1248,42 +1248,7 @@ Readings in CLRS 4th edition: chapter 24
 ::: {.r-stack}
 
 ::: {.svg-70}
-```{dot}
-graph graph1 {
-    // points start at the lower-left and rotate counter-clockwise
-    _background="c 7 -#000080  C 7 -#ADD8E6  P 18  -9 100  20 75  50 75  100 140  150 140  250 110  420 110  490 90  515 90  530 110  530 260  480 300  370 300  240 220  220 220  150 288  70 288  -9 220";
-    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
-    layout=sfdp;
-    graph[K=1.5];
-    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
-    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;color=green];
-
-    E [];
-    A [fillcolor=brown];
-    D [fillcolor=brown];
-    B [fillcolor=brown];
-    H [fillcolor=brown];
-    I [fillcolor=brown];
-    C [];
-    F [];
-    G [];
-
-    B -- E [label="8";color=purple];
-    B -- A [label="10";color=green];
-    E -- H [label="8";color=purple];
-    E -- D [label="7";color=purple];
-    A -- C [label="12    ";color=purple];
-    B -- C [label="9 ";color=purple];
-    C -- D [label="3";color=purple];
-    C -- F [label="1";color=green];
-    D -- F [label="3  ";color=purple];
-    E -- G [label="5   ";color=green];
-    F -- G [label="6";color=green];
-    G -- H [label="9";color=purple];
-    G -- I [xlabel="    11";label=" ";color=purple];
-    H -- I [label="2 ";color=green];
-}
-```
+<img src="graphs/graph_cut.svg" class="center">
 :::
 
 <table class="compact" style="margin-right:0;margin-bottom:0"><tr><td>
@@ -1323,7 +1288,7 @@ graph graph1 {
 
 
 <table class="compact bottom width-100" style="height:50%"><tr><td>
-<p style="text-align:center;margin:0"><img src="graphs/reductions/flow_graph-1-False-0-True-1.svg" style="width:80%;margin:0"></p>
+<p style="text-align:center;margin:0"><img src="graphs/reductions/flow_graph-1-False-0-True-1.svg" style="width:65%;margin:0"></p>
 </td></tr></table>
 
 
@@ -1343,7 +1308,7 @@ graph graph1 {
 </div>
 
 <table class="compact bottom width-100" style="height:50%"><tr><td>
-<p style="text-align:center;margin:0"><img src="graphs/reductions/flow_graph-1-False-0-True-1.svg" style="width:80%;margin:0"></p>
+<p style="text-align:center;margin:0"><img src="graphs/reductions/flow_graph-1-False-0-True-1.svg" style="width:65%;margin:0"></p>
 </td></tr></table>
 
 
@@ -1364,11 +1329,11 @@ graph graph1 {
 <tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-<img src="graphs/reductions/flow_graph-3-False-0-True-2.svg" style="width:80%;margin:0">
+<img src="graphs/reductions/flow_graph-3-False-0-True-2.svg" style="width:80%;margin:0 auto 0 auto" class="center">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-<img src="graphs/reductions/flow_graph-3-True.svg">
+<img src="graphs/reductions/flow_graph-3-True.svg" style="margin:0 auto 0 auto" class="center">
 :::
 </td></tr>
 
@@ -1400,11 +1365,11 @@ graph graph1 {
 <tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-<img src="graphs/reductions/flow_graph-3-False-0-True-4.svg" style="width:80%;margin:0">
+<img src="graphs/reductions/flow_graph-3-False-0-True-4.svg" style="width:80%;margin:0 auto 0 auto" class="center">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-<img src="graphs/reductions/flow_graph-3-True-0-True-4.svg" style="width:80%;margin:0">
+<img src="graphs/reductions/flow_graph-3-True-0-True-4.svg" style="width:80%;margin:0 auto 0 auto" class="center">
 :::
 </td></tr></table>
 
@@ -1427,11 +1392,11 @@ graph graph1 {
 <tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-<img src="graphs/reductions/flow_graph-3-False-0-True-3.svg" style="width:80%;margin:0">
+<img src="graphs/reductions/flow_graph-3-False-0-True-3.svg" style="width:80%;margin:0 auto 0 auto" class="center">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-<img src="graphs/reductions/flow_graph-3-True-0-True-3.svg" style="width:80%;margin:0">
+<img src="graphs/reductions/flow_graph-3-True-0-True-3.svg" style="width:80%;margin:0 auto 0 auto" class="center">
 :::
 </td></tr></table>
 
@@ -1833,11 +1798,7 @@ Readings in CLRS 4th edition: N/A (reductions are covered<br>in CLRS, but not in
 
 <tr><td style="vertical-align:top;width:10%">
 ::: {.svg-100 .no-svg-margins .fragment fragment-index=1}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td>
 
@@ -1867,15 +1828,11 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 
 <div>
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment fragment-index=3}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<Aim duct at door,<br/>insert keg>,fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/rarrow.svg">
 :::
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment fragment-index=6}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label=<Put fire under the keg>,fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/larrow.svg">
 :::
 </div>
 :::
@@ -1885,11 +1842,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label=
 
 <td style="vertical-align:top;width:10%;padding-left:10px !important">
 ::: {.svg-100 .no-svg-margins .fragment fragment-index=2}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 </td>
 
@@ -1937,11 +1890,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 
 <tr><td style="vertical-align:top;width:10%">
 ::: {.svg-100 .no-svg-margins .fragment data-fragment-index=1}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td>
 
@@ -2030,15 +1979,11 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 
 <div style="z-index:2">
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment data-fragment-index=3}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/rarrow.svg">
 :::
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important" .fragment data-fragment-index=6}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins">
 :::
 </div>
 
@@ -2049,11 +1994,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label=
 
 <td style="vertical-align:top;width:10%;padding-left:10px !important">
 ::: {.svg-100 .no-svg-margins .fragment data-fragment-index=2}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 </td>
 
@@ -2107,11 +2048,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <!-- this td contains the "A" cylinder and the final cylinder -->
 <td style="vertical-align:top;width:10%">
 ::: {.svg-100 .no-svg-margins}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td>
 
@@ -2139,9 +2076,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 <table class='compact allcenter'><tr><td>
 ::: {.r-stack}
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important;z-index:2"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins">
 :::
 <img src="graphs/reductions/edge_disjoint_graph-0-1.svg" style="z-index:1">
 :::
@@ -2151,9 +2086,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 <table class='compact allcenter' style="position:absolute;bottom:0;width:30%"><tr><td>
 ::: {.r-stack}
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important;z-index:2"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="Use edges with flow",fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins">
 :::
 <img src="graphs/reductions/edge_disjoint_graph-2-1.svg" style="z-index:1">
 :::
@@ -2164,11 +2097,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label=
 <!-- this contains the yellow problem-B box(es) -->
 <td style="vertical-align:top;width:10%;padding-left:10px !important">
 ::: {.svg-100 .no-svg-margins}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 </td>
 
@@ -2217,11 +2146,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <!-- this td contains the "A" cylinder and the final cylinder -->
 <td style="vertical-align:top;width:10%">
 ::: {.svg-100 .no-svg-margins}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td>
 
@@ -2274,11 +2199,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 <!-- this contains the yellow problem-B box(es) -->
 <td style="vertical-align:top;width:10%;padding-left:10px !important">
 ::: {.svg-100 .no-svg-margins}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 </td>
 
@@ -2331,11 +2252,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <!-- this td contains the "A" cylinder and the final cylinder -->
 <td style="vertical-align:top;width:5%">
 ::: {.svg-100 .no-svg-margins}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td>
 
@@ -2388,11 +2305,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 <!-- this contains the yellow problem-B box(es) -->
 <td style="vertical-align:top;width:5%;padding-left:10px !important">
 ::: {.svg-100 .no-svg-margins}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 </td>
 
@@ -2429,9 +2342,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <table class='compact allcenter'><tr><td>
 ::: {.r-stack}
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important;z-index:2"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins">
 :::
 <img src="graphs/reductions/edge_disjoint_graph-0-1.svg" style="z-index:1">
 :::
@@ -2441,10 +2352,11 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 <table class='compact allcenter' style="position:absolute;bottom:0;width:20%"><tr><td>
 ::: {.r-stack}
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important;z-index:2"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="Use edges with flow",fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins">
 :::
+
+<p>Use edges with flow</p>
+
 <img src="graphs/reductions/edge_disjoint_graph-2-1.svg" style="z-index:1">
 :::
 </td></tr></table>
@@ -2454,11 +2366,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label=
 <!-- this contains the yellow problem-B box(es) -->
 <td style="vertical-align:top;width:5%;padding-left:10px !important">
 ::: {.svg-100 .no-svg-margins}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<C>,fontsize=48,style=filled,fillcolor=green;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/green_C_cylinder.svg">
 :::
 </td>
 
@@ -2519,11 +2427,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<C>,fontsize=
 <tr><td colspan=2 class="und"><span class='font-70'>Problem we don't know how to solve</span></td></tr>
 <tr><td> 
 ::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td></tr>
 <tr><td>&nbsp;</td></tr>
@@ -2534,11 +2438,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 <tr><td><span>Solution for $A$:</span></td></tr>
 <tr><td style="vertical-align:top;text-align:center">
 ::: {.svg-60 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_X_cylinder.svg">
 :::
 </td></tr></table>
 
@@ -2555,9 +2455,7 @@ Map instances of problem $A$ to instances of problem $B$
 
 <tr><td>
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/rarrow.svg">
 :::
 </td></tr>
 <tr><td>
@@ -2579,9 +2477,7 @@ Map solutions of problem $B$ to solutions of problem $A$
 
 <tr><td>
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/larrow.svg">
 :::
 </td></tr>
 
@@ -2598,11 +2494,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label=
 <tr><td> 
 
 ::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 
 
@@ -2616,11 +2508,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <tr><td>
 
 ::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_Y_box.svg">
 :::
 
 
@@ -2643,11 +2531,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=
 <tr><td>Problem $A$</td></tr>
 <tr><td> 
 ::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td></tr>
 <tr><td><table class='bluenote fragment' data-fragment-index=1><tr><td class='font-80'>Suppose I know a worst-case lower-bound of $\Omega(f(n))$ for $A$</td></tr></table></td></tr>
@@ -2661,11 +2545,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 <tr><td><span>Solution for $A$:</span></td></tr>
 <tr><td style="vertical-align:top;text-align:center">
 ::: {.svg-60 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_X_cylinder.svg">
 :::
 </td></tr></table>
 </td><td colspan=2 style="vertical-align:top;width:30%">
@@ -2705,11 +2585,7 @@ Map solutions of problem $B$ to solutions of problem $A$
 <tr><td> 
 
 ::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 
 </td></tr>
@@ -2723,11 +2599,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <tr><td>
 
 ::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_Y_box.svg">
 :::
 
 </td></tr></table>
@@ -2770,11 +2642,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=
 <table class='compact'>
 <tr><td>
 ::: {.svg-60 .no-svg-margins style="width:75%;margin:auto"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td></tr>
 <tr><td>Problem $A$</td></tr>
@@ -2783,9 +2651,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 </td><td style="vertical-align:top;width:40%">
 
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<reduces to>,fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/rarrow.svg">
 :::
 
 </td><td style="vertical-align:top;width:10%">
@@ -2793,11 +2659,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 <table class='compact'>
 <tr><td>
 ::: {.svg-60 .no-svg-margins style="width:75%;margin:auto"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 </td></tr>
 <tr><td>Problem $B$</td></tr>
@@ -2834,11 +2696,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <table class='compact'>
 <tr><td>
 ::: {.svg-60 .no-svg-margins style="width:75%;margin:auto"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 </td></tr>
 <tr><td>Algorithm for $B$</td></tr>
@@ -2847,9 +2705,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 </td><td style="vertical-align:top">
 
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<can be used<br/>to make>,fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/rarrow.svg">
 :::
 
 </td><td style="vertical-align:top">
@@ -2857,11 +2713,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 <table class='compact'>
 <tr><td>
 ::: {.svg-60 .no-svg-margins style="width:75%;margin:auto"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_X_cylinder.svg">
 :::
 </td></tr>
 <tr><td>Algorithm for $A$</td></tr>
@@ -2903,11 +2755,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fonts
 </td><td style="width:15%">
 
 ::: {.svg-60 .no-svg-margins style="width:50%;margin:auto"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_X_cylinder.svg">
 :::
 
 </td><td style="text-align:left">
@@ -2930,11 +2778,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fonts
 </td><td>
 
 ::: {.svg-60 .no-svg-margins style="width:50%;margin:auto"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=48,style=filled,fillcolor=yellow]; }
-```
+<img src="graphs/reductions/yellow_Y_box.svg">
 :::
 
 </td><td style="text-align:left">
@@ -2956,19 +2800,11 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=
 ::: {.r-stack}
 
 ::: {.svg-60 .no-svg-margins .fragment data-fragment-index=6 style="width:50%;margin:auto;z-index:2"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_X_cylinder.svg">
 :::
 
 ::: {.svg-60 .no-svg-margins .fragment data-fragment-index=4 style="width:50%;margin:auto;z-index:1"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=48,style=filled,fillcolor=yellow]; }
-```
+<img src="graphs/reductions/yellow_Y_box.svg">
 :::
 
 :::
@@ -3002,11 +2838,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=
 <table class='compact'>
 <tr><td>
 ::: {.svg-60 .no-svg-margins style="width:60%;margin:auto"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td></tr>
 <tr><td style="font-size:80%">Problem $A$</td></tr>
@@ -3015,9 +2847,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 </td><td style="vertical-align:top;width:50%">
 
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<<i>f(n)</i> reduces to>,fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/rarrow.svg">
 :::
 
 </td><td style="vertical-align:top;width:25%">
@@ -3025,11 +2855,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 <table class='compact'>
 <tr><td>
 ::: {.svg-60 .no-svg-margins style="width:60%;margin:auto"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 </td></tr>
 <tr><td style="font-size:80%">Problem $B$</td></tr>
@@ -3042,11 +2868,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <table class='compact'>
 <tr><td>
 ::: {.svg-60 .no-svg-margins style="width:60%;margin:auto"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 </td></tr>
 <tr><td style="font-size:80%">Algorithm for $B$</td></tr>
@@ -3055,9 +2877,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 </td><td style="vertical-align:top">
 
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=<can be used to make>,fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/rarrow.svg">
 :::
 
 <p style="margin-top:-45px;text-align:center">With $O(f(n))$ overhead</p>
@@ -3067,11 +2887,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label=
 <table class='compact'>
 <tr><td>
 ::: {.svg-60 .no-svg-margins style="width:60%;margin:auto"}
-```{dot}
-//| fig-width: 2
-//| fig-height: 3
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_X_cylinder.svg">
 :::
 </td></tr>
 <tr><td style="font-size:80%">Algorithm for $A$</td></tr>
@@ -3121,11 +2937,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fonts
 
 <tr><td style="vertical-align:top;width:10%">
 ::: {.svg-100 .no-svg-margins}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td>
 
@@ -3214,15 +3026,11 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 
 <div style="z-index:2">
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=rarrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/rarrow.svg">
 :::
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 ::: {.svg-60 .no-svg-margins style="padding: 0 10px 0 10px !important"}
-```{dot}
-graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label="",fontsize=12,height=0.6,color=red,width=2]; }
-```
+<img src="graphs/reductions/larrow.svg">
 :::
 </div>
 
@@ -3233,11 +3041,7 @@ graph g { bgcolor=transparent;x [penwidth=3;fontname="Arial",shape=larrow,label=
 
 <td style="vertical-align:top;width:10%;padding-left:10px !important">
 ::: {.svg-100 .no-svg-margins}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 </td>
 
@@ -3315,11 +3119,7 @@ Idea: Show that doing closest pair in $o(n \log n)$ enables an impossibly fast a
 <tr><td>Problem $A$</td></tr>
 <tr><td> 
 ::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td></tr>
 <tr><td><table class='bluenote fragment' data-fragment-index=3><tr><td>and this must be slow,</td></tr></table></td></tr>
@@ -3334,11 +3134,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 <tr><td><span>Solution for $A$:</span></td></tr>
 <tr><td style="vertical-align:top;text-align:center">
 ::: {.svg-60 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_X_cylinder.svg">
 :::
 </td></tr></table>
 </td><td colspan=2 style="vertical-align:top;width:30%">
@@ -3379,11 +3175,7 @@ Map solutions of problem $B$ to solutions of problem $A$
 <tr><td> 
 
 ::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_B_box.svg">
 :::
 
 </td></tr>
@@ -3396,11 +3188,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=
 <tr><td>
 
 ::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.75
-graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }
-```
+<img src="graphs/reductions/yellow_Y_box.svg">
 :::
 
 </td></tr></table>
@@ -3421,11 +3209,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=
 <tr><td>Problem $A$</td></tr>
 <tr><td> 
 ::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td></tr>
 <tr><td><table class='bluenote fragment' data-fragment-index=2><tr><td class='font-80'>Then this can be done in $o(n\log n)$</td></tr></table></td></tr>
@@ -3439,11 +3223,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 <tr><td><span>Solution for $A$:</span></td></tr>
 <tr><td style="vertical-align:top;text-align:center">
 ::: {.svg-60 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_X_cylinder.svg">
 :::
 </td></tr></table>
 </td><td colspan=2 style="vertical-align:top;width:30%">
@@ -3532,11 +3312,7 @@ Map solutions of problem $B$ to solutions of problem $A$
 
 <table><tr><td>
 ::: {.svg-100 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_A_cylinder.svg">
 :::
 </td><td>
 
@@ -3557,11 +3333,7 @@ graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fonts
 <tr><td><span>Solution for $A$:</span></td></tr>
 <tr><td style="vertical-align:top;text-align:center">
 ::: {.svg-60 .no-svg-margins style="width:25%;margin:auto"}
-```{dot}
-//| fig-width: 1
-//| fig-height: 1.5
-graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }
-```
+<img src="graphs/reductions/red_X_cylinder.svg">
 :::
 </td></tr></table>
 </td><td colspan=2 style="vertical-align:top;width:30%">

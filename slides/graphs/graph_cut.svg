@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="960"
+   height="480"
+   viewBox="0.00 0.00 513.34 305.34"
+   xlink="http://www.w3.org/1999/xlink"
+   style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto"
+   version="1.1"
+   id="svg25"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs25" />
+  <g
+     id="graph0"
+     class="graph"
+     transform="scale(1 1) rotate(0) translate(4 301.34)">
+    <title
+       id="title1">graph1</title>
+    <polygon
+       fill="white"
+       stroke="transparent"
+       points="-4,4 -4,-301.34 509.34,-301.34 509.34,4 -4,4"
+       id="polygon1" />
+    <polygon
+       fill="#add8e6"
+       stroke="#000080"
+       points="-9,-100 20,-75 50,-75 100,-140 150,-140 250,-110 420,-110 490,-90 515,-90 530,-110 530,-260 480,-300 370,-300 240,-220 220,-220 150,-288 70,-288 -9,-220 -9,-100"
+       id="polygon2" />
+    <!-- E -->
+    <g
+       id="node1"
+       class="node">
+      <title
+         id="title2">E</title>
+      <ellipse
+         fill="cornflowerblue"
+         stroke="black"
+         cx="228.98"
+         cy="-269.98"
+         rx="18"
+         ry="18"
+         id="ellipse2" />
+      <text
+         text-anchor="middle"
+         x="228.98"
+         y="-265.78"
+         font-family="Arial"
+         font-size="14.00"
+         id="text2">E</text>
+    </g>
+    <!-- D -->
+    <g
+       id="node3"
+       class="node">
+      <title
+         id="title3">D</title>
+      <ellipse
+         fill="brown"
+         stroke="black"
+         cx="306.26"
+         cy="-140.72"
+         rx="18.02"
+         ry="18.02"
+         id="ellipse3" />
+      <text
+         text-anchor="middle"
+         x="306.26"
+         y="-136.52"
+         font-family="Arial"
+         font-size="14.00"
+         id="text3">D</text>
+    </g>
+    <!-- E&#45;&#45;D -->
+    <g
+       id="edge4"
+       class="edge">
+      <title
+         id="title4">E--D</title>
+      <path
+         fill="none"
+         stroke="purple"
+         stroke-width="4"
+         d="M238.3,-254.39C253.15,-229.54 282.03,-181.25 296.91,-156.37"
+         id="path4" />
+      <text
+         text-anchor="middle"
+         x="260.93"
+         y="-212.58"
+         font-family="Arial"
+         font-size="24.00"
+         id="text4">7</text>
+    </g>
+    <!-- H -->
+    <g
+       id="node5"
+       class="node">
+      <title
+         id="title5">H</title>
+      <ellipse
+         fill="brown"
+         stroke="black"
+         cx="63.8"
+         cy="-230.85"
+         rx="18.02"
+         ry="18.02"
+         id="ellipse5" />
+      <text
+         text-anchor="middle"
+         x="63.8"
+         y="-226.65"
+         font-family="Arial"
+         font-size="14.00"
+         id="text5">H</text>
+    </g>
+    <!-- E&#45;&#45;H -->
+    <g
+       id="edge3"
+       class="edge">
+      <title
+         id="title6">E--H</title>
+      <path
+         fill="none"
+         stroke="purple"
+         stroke-width="4"
+         d="M211.3,-265.79C179.51,-258.26 113.05,-242.52 81.35,-235.01"
+         id="path6" />
+      <text
+         text-anchor="middle"
+         x="139.65"
+         y="-257.6"
+         font-family="Arial"
+         font-size="24.00"
+         id="text6">8</text>
+    </g>
+    <!-- G -->
+    <g
+       id="node9"
+       class="node">
+      <title
+         id="title7">G</title>
+      <ellipse
+         fill="cornflowerblue"
+         stroke="black"
+         cx="119.3"
+         cy="-109.34"
+         rx="18.6"
+         ry="18.6"
+         id="ellipse7" />
+      <text
+         text-anchor="middle"
+         x="119.3"
+         y="-105.14"
+         font-family="Arial"
+         font-size="14.00"
+         id="text7">G</text>
+    </g>
+    <!-- E&#45;&#45;G -->
+    <g
+       id="edge10"
+       class="edge">
+      <title
+         id="title8">E--G</title>
+      <path
+         fill="none"
+         stroke="green"
+         stroke-width="4"
+         d="M218.66,-254.87C197.86,-224.41 151.1,-155.91 130,-125"
+         id="path8" />
+      <text
+         text-anchor="middle"
+         x="157.65"
+         y="-197.13"
+         font-family="Arial"
+         font-size="24.00"
+         id="text8">5 </text>
+    </g>
+    <!-- A -->
+    <g
+       id="node2"
+       class="node">
+      <title
+         id="title9">A</title>
+      <ellipse
+         fill="brown"
+         stroke="black"
+         cx="487.34"
+         cy="-139.55"
+         rx="18"
+         ry="18"
+         id="ellipse9" />
+      <text
+         text-anchor="middle"
+         x="487.34"
+         y="-135.35"
+         font-family="Arial"
+         font-size="14.00"
+         id="text9">A</text>
+    </g>
+    <!-- C -->
+    <g
+       id="node7"
+       class="node">
+      <title
+         id="title10">C</title>
+      <ellipse
+         fill="cornflowerblue"
+         stroke="black"
+         cx="410.13"
+         cy="-74.65"
+         rx="18.02"
+         ry="18.02"
+         id="ellipse10" />
+      <text
+         text-anchor="middle"
+         x="410.13"
+         y="-70.45"
+         font-family="Arial"
+         font-size="14.00"
+         id="text10">C</text>
+    </g>
+    <!-- A&#45;&#45;C -->
+    <g
+       id="edge5"
+       class="edge">
+      <title
+         id="title11">A--C</title>
+      <path
+         fill="none"
+         stroke="purple"
+         stroke-width="4"
+         d="M473.54,-127.95C459.57,-116.21 438.09,-98.15 424.07,-86.37"
+         id="path11" />
+      <text
+         text-anchor="middle"
+         x="422.12"
+         y="-114.36"
+         font-family="Arial"
+         font-size="24.00"
+         id="text11">12 </text>
+    </g>
+    <!-- F -->
+    <g
+       id="node8"
+       class="node">
+      <title
+         id="title12">F</title>
+      <ellipse
+         fill="cornflowerblue"
+         stroke="black"
+         cx="250.83"
+         cy="-18"
+         rx="18"
+         ry="18"
+         id="ellipse12" />
+      <text
+         text-anchor="middle"
+         x="250.83"
+         y="-13.8"
+         font-family="Arial"
+         font-size="14.00"
+         id="text12">F</text>
+    </g>
+    <!-- D&#45;&#45;F -->
+    <g
+       id="edge9"
+       class="edge">
+      <title
+         id="title13">D--F</title>
+      <path
+         fill="none"
+         stroke="purple"
+         stroke-width="4"
+         d="M298.78,-124.17C288.2,-100.75 268.97,-58.17 258.36,-34.68"
+         id="path13" />
+      <text
+         text-anchor="middle"
+         x="265.23"
+         y="-86.63"
+         font-family="Arial"
+         font-size="24.00"
+         id="text13">3 </text>
+    </g>
+    <!-- B -->
+    <g
+       id="node4"
+       class="node">
+      <title
+         id="title14">B</title>
+      <ellipse
+         fill="brown"
+         stroke="black"
+         cx="438.48"
+         cy="-267.1"
+         rx="18"
+         ry="18"
+         id="ellipse14" />
+      <text
+         text-anchor="middle"
+         x="438.48"
+         y="-262.9"
+         font-family="Arial"
+         font-size="14.00"
+         id="text14">B</text>
+    </g>
+    <!-- B&#45;&#45;E -->
+    <g
+       id="edge1"
+       class="edge">
+      <title
+         id="title15">B--E</title>
+      <path
+         fill="none"
+         stroke="purple"
+         stroke-width="4"
+         d="M420.25,-267.35C380.53,-267.89 286.56,-269.19 247.01,-269.73"
+         id="path15" />
+      <text
+         text-anchor="middle"
+         x="326.96"
+         y="-275.74"
+         font-family="Arial"
+         font-size="24.00"
+         id="text15">8</text>
+    </g>
+    <!-- B&#45;&#45;A -->
+    <g
+       id="edge2"
+       class="edge">
+      <title
+         id="title16">B--A</title>
+      <path
+         fill="none"
+         stroke="green"
+         stroke-width="4"
+         d="M444.97,-250.16C454.31,-225.76 471.46,-180.99 480.82,-156.56"
+         id="path16" />
+      <text
+         text-anchor="middle"
+         x="449.55"
+         y="-210.56"
+         font-family="Arial"
+         font-size="24.00"
+         id="text16">10</text>
+    </g>
+    <!-- B&#45;&#45;C -->
+    <g
+       id="edge6"
+       class="edge">
+      <title
+         id="title17">B--C</title>
+      <path
+         fill="none"
+         stroke="purple"
+         stroke-width="4"
+         d="M435.81,-248.99C430.39,-212.22 418.16,-129.18 412.77,-92.56"
+         id="path17" />
+      <text
+         text-anchor="middle"
+         x="414.28"
+         y="-177.98"
+         font-family="Arial"
+         font-size="24.00"
+         id="text17">9 </text>
+    </g>
+    <!-- I -->
+    <g
+       id="node6"
+       class="node">
+      <title
+         id="title18">I</title>
+      <ellipse
+         fill="brown"
+         stroke="black"
+         cx="18"
+         cy="-125.94"
+         rx="18"
+         ry="18"
+         id="ellipse18" />
+      <text
+         text-anchor="middle"
+         x="18"
+         y="-121.74"
+         font-family="Arial"
+         font-size="14.00"
+         id="text18">I</text>
+    </g>
+    <!-- H&#45;&#45;I -->
+    <g
+       id="edge14"
+       class="edge">
+      <title
+         id="title19">H--I</title>
+      <path
+         fill="none"
+         stroke="green"
+         stroke-width="4"
+         d="M56.44,-214C47.9,-194.42 33.88,-162.31 25.34,-142.75"
+         id="path19" />
+      <text
+         text-anchor="middle"
+         x="30.88"
+         y="-185.57"
+         font-family="Arial"
+         font-size="24.00"
+         id="text19">2 </text>
+    </g>
+    <!-- C&#45;&#45;D -->
+    <g
+       id="edge7"
+       class="edge">
+      <title
+         id="title20">C--D</title>
+      <path
+         fill="none"
+         stroke="purple"
+         stroke-width="4"
+         d="M394.8,-84.4C375.17,-96.89 341.32,-118.42 321.65,-130.93"
+         id="path20" />
+      <text
+         text-anchor="middle"
+         x="351.55"
+         y="-114.86"
+         font-family="Arial"
+         font-size="24.00"
+         id="text20">3</text>
+    </g>
+    <!-- C&#45;&#45;F -->
+    <g
+       id="edge8"
+       class="edge">
+      <title
+         id="title21">C--F</title>
+      <path
+         fill="none"
+         stroke="green"
+         stroke-width="4"
+         d="M393.08,-68.58C362.58,-57.74 298.99,-35.13 268.23,-24.19"
+         id="path21" />
+      <text
+         text-anchor="middle"
+         x="323.98"
+         y="-53.59"
+         font-family="Arial"
+         font-size="24.00"
+         id="text21">1</text>
+    </g>
+    <!-- F&#45;&#45;G -->
+    <g
+       id="edge11"
+       class="edge">
+      <title
+         id="title22">F--G</title>
+      <path
+         fill="none"
+         stroke="green"
+         stroke-width="4"
+         d="M235.99,-28.3C210.87,-45.75 160.19,-80.95 134.69,-98.65"
+         id="path22" />
+      <text
+         text-anchor="middle"
+         x="178.67"
+         y="-70.68"
+         font-family="Arial"
+         font-size="24.00"
+         id="text22">6</text>
+    </g>
+    <!-- G&#45;&#45;H -->
+    <g
+       id="edge12"
+       class="edge">
+      <title
+         id="title23">G--H</title>
+      <path
+         fill="none"
+         stroke="purple"
+         stroke-width="4"
+         d="M111.59,-126.23C100.98,-149.45 82.02,-190.96 71.45,-214.1"
+         id="path23" />
+      <text
+         text-anchor="middle"
+         x="84.85"
+         y="-177.37"
+         font-family="Arial"
+         font-size="24.00"
+         id="text23">9</text>
+    </g>
+    <!-- G&#45;&#45;I -->
+    <g
+       id="edge13"
+       class="edge">
+      <title
+         id="title24">G--I</title>
+      <path
+         fill="none"
+         stroke="purple"
+         stroke-width="4"
+         d="M100.72,-112.38C82.22,-115.41 54.01,-120.04 35.78,-123.03"
+         id="path24" />
+      <text
+         text-anchor="middle"
+         x="64.92"
+         y="-124.9"
+         font-family="Arial"
+         font-size="24.00"
+         id="text24" />
+      <text
+         text-anchor="middle"
+         x="68.25"
+         y="-96.1"
+         font-family="Arial"
+         font-size="24.00"
+         id="text25"> 11</text>
+    </g>
+  </g>
+</svg>

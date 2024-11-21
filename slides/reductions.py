@@ -1001,6 +1001,67 @@ def diamond_flow(color_set=0,label_set=0,residual=False,highlight=0):
     xprint(svg[where:],output_filename)
 
 
+#--------------------------------------------------
+# small_images()
+#--------------------------------------------------
+
+small_images_dot = {
+    'red_A_cylinder': 'graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<A>,fontsize=48,style=filled,fillcolor=red]; }',
+    'yellow_B_box': 'graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<B>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }',
+    'green_C_cylinder': 'graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<C>,fontsize=48,style=filled,fillcolor=green;height="1.75in";width="1in"]; }',
+    'red_X_cylinder': 'graph g { bgcolor=transparent;x [fontname="Arial",shape=cylinder,label=<X>,fontsize=48,style=filled,fillcolor=red]; }',
+    'yellow_Y_box': 'graph g { bgcolor=transparent;x [fontname="Arial",shape=rect,label=<Y>,fontsize=48,style=filled,fillcolor=yellow;height="1.75in";width="1in"]; }',
+
+}
+
+def small_images():
+    for key in small_images_dot.keys():
+        g = graphviz.Source(small_images_dot[key],format='svg')
+        html = g.pipe(format='svg').decode('utf-8')
+        where = html.find("<svg ")
+        xprint(html[where:], key)
+
+
+graph_cut_dot = """graph graph1 {
+    // points start at the lower-left and rotate counter-clockwise
+    _background="c 7 -#000080  C 7 -#ADD8E6  P 18  -9 100  20 75  50 75  100 140  150 140  250 110  420 110  490 90  515 90  530 110  530 260  480 300  370 300  240 220  220 220  150 288  70 288  -9 220";
+    // xdot (aka _background) format specification: https://web.mit.edu/spin_v4.2.5/share/graphviz/doc/html/info/output.html
+    layout=sfdp;
+    graph[K=1.5];
+    node [fontname="Arial",shape=circle,fillcolor=cornflowerblue,style="rounded,filled"];
+    edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=4;color=green];
+
+    E [];
+    A [fillcolor=brown];
+    D [fillcolor=brown];
+    B [fillcolor=brown];
+    H [fillcolor=brown];
+    I [fillcolor=brown];
+    C [];
+    F [];
+    G [];
+
+    B -- E [label="8";color=purple];
+    B -- A [label="10";color=green];
+    E -- H [label="8";color=purple];
+    E -- D [label="7";color=purple];
+    A -- C [label="12    ";color=purple];
+    B -- C [label="9 ";color=purple];
+    C -- D [label="3";color=purple];
+    C -- F [label="1";color=green];
+    D -- F [label="3  ";color=purple];
+    E -- G [label="5   ";color=green];
+    F -- G [label="6";color=green];
+    G -- H [label="9";color=purple];
+    G -- I [xlabel="    11";label=" ";color=purple];
+    H -- I [label="2 ";color=green];
+}"""
+
+def graph_cut():
+    g = graphviz.Source(graph_cut_dot,format='svg')
+    html = g.pipe(format='svg').decode('utf-8')
+    where = html.find("<svg ")
+    xprint(html[where:], "graph_cut")
 
 
 #--------------------------------------------------
@@ -1024,18 +1085,7 @@ if __name__ == "__main__":
         #edge_disjoint_graph(3)
     else:
         os.system("mkdir -p graphs/reductions")
-        flow_graph(1,False,0,True,1)   
-        flow_graph(3,False,0,True,2)
-        flow_graph(3,False,0,True,3)
-        flow_graph(3,False,0,True,4)
-        flow_graph(3,True,0,True,3)
-        flow_graph(3,True,0,True,4)
-
-        #<img src="graphs/reductions/flow_graph-3-False-0-True-2.svg" style="width:80%;margin:0">
-
-
-        exit()
-
+        #graph_cut() # currently using a hand-written version
         arrows()
         bipartite_graph(13.69,9.69,0,True,1)
         bipartite_graph(13.69,9.69,3,True,2)
@@ -1098,8 +1148,15 @@ if __name__ == "__main__":
         flow_graph(8)
         flow_graph(8,False,5)
         flow_graph(8,True)
+        flow_graph(1,False,0,True,1)   
+        flow_graph(3,False,0,True,2)
+        flow_graph(3,False,0,True,3)
+        flow_graph(3,False,0,True,4)
+        flow_graph(3,True,0,True,3)
+        flow_graph(3,True,0,True,4)
         independent_set()
         mini_reduction()
+        small_images()
         vertex_cover()
         vertex_disjoint_to_edge_disjoint_graph()
-
+        os.system('inkscape --actions "select-all;transform-rotate:90;export-filename:darrow.svg;export-do" rarrow-square.svg')

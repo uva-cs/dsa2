@@ -1,0 +1,14 @@
+<svg width="62pt" height="93pt"
+ viewBox="0.00 0.00 62.00 93.25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 89.25)">
+<title>g</title>
+<!-- x -->
+<g id="node1" class="node">
+<title>x</title>
+<path fill="red" stroke="black" d="M54,-77.5C54,-81.78 41.9,-85.25 27,-85.25 12.1,-85.25 0,-81.78 0,-77.5 0,-77.5 0,-7.75 0,-7.75 0,-3.47 12.1,0 27,0 41.9,0 54,-3.47 54,-7.75 54,-7.75 54,-77.5 54,-77.5"/>
+<path fill="none" stroke="black" d="M54,-77.5C54,-73.22 41.9,-69.75 27,-69.75 12.1,-69.75 0,-73.22 0,-77.5"/>
+<text text-anchor="start" x="10.88" y="-24.02" font-family="Arial" font-size="48.00">X</text>
+</g>
+</g>
+</svg>
+
