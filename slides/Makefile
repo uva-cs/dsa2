@@ -9,7 +9,7 @@ slides: $(SLIDE_SETS)
 	quarto render $< --to revealjs
 
 clean:
-	/bin/rm -rf *~ */*~ */*/*~ */*/*/*~
+	/bin/rm -rf *~ */*~ */*/*~ */*/*/*~ reductions.tmp.*
 
 all:
 	touch *.qmd

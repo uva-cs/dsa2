@@ -112,7 +112,7 @@ preset_colors = [
     ["red",  "blue", "red",  "blue", "red",  "red",  "blue", "blue", "red",  ],
 ]
 
-def bipartite_graph_dot(coloring,flow_graph,label=0):
+def bipartite_graph_dot(coloring,flow_graph,label,show_gray_boxes):
     # label value:
     # 0: no labels
     # 1: capacity only
@@ -128,19 +128,31 @@ graph G2 {{
     node [fontname="Arial",shape=square,fixedsize=true,width="2in",color=transparent];
     edge [fontname="Arial",fontcolor=black;fontsize=24;penwidth=6;style=solid,minlen=1];
     subgraph cluster_profs {{
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
+    """
+    if show_gray_boxes:
+        ret += 'graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];\n'
+        ret += 'node [shape=rect,width="0.5in",height="2in"];\n'
+        ret += 'spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];\n'
+    else:
+        ret += 'graph [start=144;rank=same;style=filled;color=transparent;label="";fontsize=2];\n'
+        ret += 'node [shape=rect,width="0.01in",height="2in",fontsize=1,label=\"\"];\n'
+    ret += f"""
         l1; l2; l3; l4;
     }}
     subgraph cluster_dogs {{
-        graph [start=144;rank=same;style=filled;color=lightgrey;label="dogs"];
-        node [shape=rect,width="0.5in",height="2in"];
-        spacer2 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];
+    """
+    if show_gray_boxes:
+        ret += 'graph [start=144;rank=same;style=filled;color=lightgrey;label="professors"];\n'
+        ret += 'node [shape=rect,width="0.5in",height="2in"];\n'
+        ret += 'spacer1 [style=rect,width="2in",height="0.01in",color=transparent,style=filled,fixedsize=true,label=""];\n'
+    else:
+        ret += 'graph [start=144;rank=same;style=filled;color=transparent;label="";fontsize=2];\n'
+        ret += 'node [shape=rect,width="0.1in",height="2in",fontsize=1];\n'
+    ret += f"""
         r2; r3; r1; r4;
     }}
     // to keep the two sides spaced apart
-    spacer [width="3in",shape=none,label=""];
+    spacer [width="3in",shape=none,label=""]; // what keeps the two halves separated
     l4 -- spacer -- r4 [style=invis];"""
 
     if flow_graph:
@@ -212,15 +224,16 @@ bipartite_image_table_body = """
 <tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
 """
 
-def bipartite_graph(w,h,coloring,flow_graph=False,label=0):
+def bipartite_graph(w,h,coloring,flow_graph=False,label=0,show_gray_boxes=True):
     global graph_num
 
     params = [w,h,coloring]
-    if flow_graph and label == 0:
-        params.append(True)
-    if label != 0:
-        params.append(True)
-        params.append(label)
+    if not show_gray_boxes:
+        params += [flow_graph,label,show_gray_boxes]
+    elif label != 0:
+        params += [flow_graph,label]
+    elif not flow_graph:
+        params += [flow_graph]
     output_filename = "bipartite_graph" + param_join(params)
 
     # if width & height are given in inches, conver it to pixels (96 dpi)
@@ -231,7 +244,7 @@ def bipartite_graph(w,h,coloring,flow_graph=False,label=0):
     # which coloring are we using?
     assert coloring >= 0 and coloring < len(preset_colors)
     # generate the graph
-    dot_source = bipartite_graph_dot(coloring,flow_graph,label)
+    dot_source = bipartite_graph_dot(coloring,flow_graph,label,show_gray_boxes)
     #print("\n\n\n\n\n",dot_source)
     html = check_if_in_cache(graph_num,dot_source)
     if not html:
@@ -242,6 +255,105 @@ def bipartite_graph(w,h,coloring,flow_graph=False,label=0):
     where = html.find("<svg ")
     xprint(html[where:], output_filename)
     graph_num += 1
+
+
+
+
+def bipartite_graph_tikz(coloring,flow_graph=False,label=0):
+    colors = preset_colors[coloring]
+    params = [coloring,flow_graph,label]
+    if label == 0:
+        params.pop()
+        if not flow_graph:
+            params.pop()
+    output_filename = "bipartite_graph" + param_join(params)
+
+    ret = f"""\\begin{{tikzpicture}}[
+     C/.style = {{circle, minimum size = 1mm, node distance = 20mm, fill=none}},
+     every edge/.style = {{draw, ultra thick}},
+]
+
+\\tikzset{{font=\\sffamily}}
+"""
+    if flow_graph:
+        ret += f"""
+\node (spacer) at (4,6) [C] {{}};
+\node (spacer2) at (4,0) [C] {{}};
+
+\\node (l1) at (2.75,4.5) [C] {{}};
+\\node (l2) at (2.75,3) [C] {{}};
+\\node (l3) at (2.75,1.5) [C] {{}};
+\\node (l4) at (2.75,0) [C] {{}};
+
+\\node (r1) at (6.25,4.5) [C] {{}};
+\\node (r2) at (6.25,3) [C] {{}};
+\\node (r3) at (6.25,1.5) [C] {{}};
+\\node (r4) at (6.25,0) [C] {{}};
+"""
+    else:
+        ret += f"""
+\\node (l1) at (3,6) [C] {{}};
+\\node (l2) at (3,4) [C] {{}};
+\\node (l3) at (3,2) [C] {{}};
+\\node (l4) at (3,0) [C] {{}};
+
+\\node (r1) at (6,6) [C] {{}};
+\\node (r2) at (6,4) [C] {{}};
+\\node (r3) at (6,2) [C] {{}};
+\\node (r4) at (6,0) [C] {{}};
+"""
+
+    if flow_graph:
+        if label == 1:
+            edgelabel = "1"
+        elif label == 2:
+            edgelabel = "1/1"
+        else:
+            label = ""
+        color = "red" if label != 2 else "blue"
+        ret += f"""
+\\node (s) at (-1,2.25) [C,fill=Plum,minimum size=1mm,text=white] {{\\LARGE s}};
+\\node (t) at (10,2.25) [C,fill=Blue,minimum size=1mm,text=white] {{\\LARGE t}};
+\\node (l1b) at (2,4.5) [C] {{}};
+\\node (l2b) at (2,3) [C] {{}};
+\\node (l3b) at (2,1.5) [C] {{}};
+\\node (l4b) at (2,0) [C] {{}};
+\\node (r1b) at (7,4.5) [C] {{}};
+\\node (r2b) at (7,3) [C] {{}};
+\\node (r3b) at (7,1.5) [C] {{}};
+\\node (r4b) at (7,0) [C] {{}};
+
+%\\node (spacer) at (4.5,7) [C] {{spacer}};
+%\\node (spacer2) at (4.5,-1) [C] {{spacer2}};
+
+\\path[{{{color}}}] (s) edge node[above] {{{edgelabel}}} (l1b) (s) edge node[above] {{{edgelabel}}} (l2b) (s) edge node[above] {{{edgelabel}}} (l3b) (s) edge node[above] {{{edgelabel}}} (l4b);
+\\path[{{{color}}}] (r1b) edge node[above] {{{edgelabel}}} (t) (r2b) edge node[above] {{{edgelabel}}} (t) (r3b) edge node[above] {{{edgelabel}}} (t) (r4b) edge node[above] {{{edgelabel}}} (t);
+"""
+    ret += f"""
+\\path
+    (l1) edge [{colors[0]}] node[above] {{{"1" if label==1 else "" if label==0 else "0/1" if colors[0]=="red" else "1/1"}}} (r1)
+    (l1) edge [{colors[1]}] node[above left] {{{"1" if label==1 else "" if label==0 else "0/1" if colors[1]=="red" else "1/1"}}} (r4)
+    (l2) edge [{colors[2]}] node[above] {{{"1" if label==1 else "" if label==0 else "0/1" if colors[2]=="red" else "1/1"}}} (r1)
+    (l2) edge [{colors[3]}] node[below] {{{"1" if label==1 else "" if label==0 else "0/1" if colors[3]=="red" else "1/1"}}} (r2)
+    (l2) edge [{colors[4]}] node[left] {{{"1" if label==1 else "" if label==0 else "0/1" if colors[4]=="red" else "1/1"}}} (r3)
+    (l3) edge [{colors[5]}] node[above] {{{"1" if label==1 else "" if label==0 else "0/1" if colors[5]=="red" else "1/1"}}} (r1)
+    (l3) edge [{colors[6]}] node[above] {{{"1" if label==1 else "" if label==0 else "0/1" if colors[6]=="red" else "1/1"}}} (r3)
+    (l4) edge [{colors[7]}] node[above right] {{\\ {"1" if label==1 else "" if label==0 else "0/1" if colors[7]=="red" else "1/1"}}} (r1)
+    (l4) edge [{colors[8]}] node[below right] {{{"1" if label==1 else "" if label==0 else "0/1" if colors[8]=="red" else "1/1"}}} (r2);
+
+
+\\end{{tikzpicture}}
+"""
+    tex_file = tex_header + ret + "\n\\end{document}"
+    with open("reductions.tmp.tex","w") as f:
+        f.write(tex_file)
+    os.system ("pdflatex reductions.tmp.tex > /dev/null")
+    os.system ("inkscape reductions.tmp.pdf --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
+    with open("reductions.tmp.svg","r") as f:
+           svg = f.read()
+    where = svg.find("<svg\n")
+    xprint(svg[where:],output_filename)
+
 
 
 #--------------------------------------------------
@@ -1086,6 +1198,29 @@ if __name__ == "__main__":
     else:
         os.system("mkdir -p graphs/reductions")
         #graph_cut() # currently using a hand-written version
+        """
+        bipartite_graph(5.5,9.64,0,False,0,False)
+        os.system ("mv graphs/reductions/bipartite_graph-5.5-9.64-0-False-0-False.svg graphs/reductions/bipartite_graph-0.svg")
+        bipartite_graph(5.5,9.64,1,False,0,False)
+        os.system ("mv graphs/reductions/bipartite_graph-5.5-9.64-1-False-0-False.svg graphs/reductions/bipartite_graph-1.svg")
+        bipartite_graph(5.5,9.64,2,False,0,False)
+        os.system ("mv graphs/reductions/bipartite_graph-5.5-9.64-2-False-0-False.svg graphs/reductions/bipartite_graph-2.svg")
+        bipartite_graph(5.5,9.64,3,False,0,False)
+        os.system ("mv graphs/reductions/bipartite_graph-5.5-9.64-3-False-0-False.svg graphs/reductions/bipartite_graph-3.svg")
+        """
+        #bipartite_graph(13.69,9.69,0,True,1,False)
+        #os.system ("mv graphs/reductions/bipartite_graph-13.69-9.69-0-True-1-False.svg graphs/reductions/bipartite_graph-a.svg")
+        #bipartite_graph(13.69,9.69,3,True,2,False)
+        #os.system ("mv graphs/reductions/bipartite_graph-13.69-9.69-3-True-2-False.svg graphs/reductions/bipartite_graph-b.svg")
+
+        bipartite_graph_tikz(0,False,0)
+        bipartite_graph_tikz(1,False,0)
+        bipartite_graph_tikz(2,False,0)
+        bipartite_graph_tikz(3,False,0)
+        bipartite_graph_tikz(0,True,1)
+        bipartite_graph_tikz(3,True,2)
+
+        exit()
         arrows()
         bipartite_graph(13.69,9.69,0,True,1)
         bipartite_graph(13.69,9.69,3,True,2)
@@ -1093,6 +1228,7 @@ if __name__ == "__main__":
         bipartite_graph(8.53,9.64,1)
         bipartite_graph(8.53,9.64,2)
         bipartite_graph(8.53,9.64,3)
+
         cpp()
         diamond_flow() # 0,0
         diamond_flow(1,0)

@@ -3,3 +3,4 @@
 /.quarto/
 graphdev.*
 .graph-cache
+reductions.tmp.*

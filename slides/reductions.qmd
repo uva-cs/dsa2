@@ -1572,72 +1572,77 @@ Compute <span class='bold'>Edge-Disjoint Paths</span> on new graph
 
 
 ## Maximum Bipartite Matching
-<table class="bipartite"><tr><td style="max-width:500px !important">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg">
 
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-:::
-</td></tr></table>
-
-
-
-
-
-## Maximum Bipartite Matching
-<table class="bipartite"><tr><td style="max-width:500px !important">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-8.53-9.64-1.svg">
-
-<table style="margin-top:75px !important">
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-:::
-</td></tr></table>
-
+<table class="bipart" style="width:50%"><tr><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td><img src="graphs/reductions/bipartite_graph-0.svg"></td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td></tr></table>
 
 
 
 
 ## Maximum Bipartite Matching
-<table class="bipartite"><tr><td style="max-width:500px !important">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-8.53-9.64-2.svg">
 
-<table style="margin-top:75px !important">
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-:::
-</td></tr></table>
-
+<table class="bipart" style="width:50%"><tr><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td><img src="graphs/reductions/bipartite_graph-1.svg"></td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td></tr></table>
 
 
 
 
 ## Maximum Bipartite Matching
-<table class="bipartite"><tr><td style="max-width:500px !important">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-8.53-9.64-3.svg">
 
-<table style="margin-top:75px !important">
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-:::
-</td></tr></table>
+<table class="bipart" style="width:50%"><tr><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td><img src="graphs/reductions/bipartite_graph-2.svg"></td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td></tr></table>
+
+
+
+
+## Maximum Bipartite Matching
+
+<table class="bipart" style="width:50%"><tr><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td><img src="graphs/reductions/bipartite_graph-3.svg"></td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td></tr></table>
 
 
 
@@ -1654,19 +1659,24 @@ Compute <span class='bold'>Edge-Disjoint Paths</span> on new graph
 
 ## Maximum Bipartite Matching
 
-<table class="bipartite"><tr><td style="max-width:500px !important">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg">
+<table style="width:100%"><tr><td style="width:62.5%;height:100%">
 
-<table style="margin-top:75px !important">
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-:::
+<table class="bipart" style="width:80%"><tr><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td><img src="graphs/reductions/bipartite_graph-0.svg"></td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td></tr></table>
 
-</td><td style="vertical-align:middle">How could we solve this?</td></tr></table>
+
+</td><td style="vertical-align:middle"><p style="text-align:center">How could<br>we solve</br>this?</p></td></tr></table>
 
 
 
@@ -1674,22 +1684,29 @@ Compute <span class='bold'>Edge-Disjoint Paths</span> on new graph
 
 Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 
-<table><tr><td style="width:50%">
+<table><tr><td style="width:60%">
 
-<table class="bipartite bipartite_flow"><tr><td style="vertical-align:middle">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-1.svg">
-
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
+<table class="compact bipart2_outer"><tr><td><div>
+::: {.r-stack}
+<table class="bipart2"><tr>
+<td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td></tr></table>
+<p><img src="graphs/reductions/bipartite_graph-0-True-1.svg"></p>
 :::
-</td></tr></table>
+</div></td></tr></table>
 
-</td><td style="vertical-align:top">
+</td><td style="vertical-align:top" class="font-80">
 
 - Adding in a <span class='purple'>source</span> and <span class='navy'>sink</span> to the set of nodes: 
   - $V'=L \bigcup R \bigcup \{ {\color{purple}s},{\color{navy}t}\}$
@@ -1707,28 +1724,35 @@ Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 
 Make $G=(L,R,E)$ a flow network $G=(V,E)$ by:
 
-<table><tr><td style="width:50%">
+<table><tr><td style="width:60%">
 
-<table class="bipartite bipartite_flow"><tr><td style="vertical-align:middle">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-2.svg">
-
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
+<table class="compact bipart2_outer"><tr><td><div>
+::: {.r-stack}
+<table class="bipart2"><tr>
+<td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td></tr></table>
+<p><img src="graphs/reductions/bipartite_graph-3-True-2.svg"></p>
 :::
-</td></tr></table>
+</div></td></tr></table>
 
-</td><td style="vertical-align:top">
+</td><td style="vertical-align:top" class="font-80">
 
 ::: {.no-second-bullets}
 - Make $G$ into $G'$
   - [$\color{red}\Theta(L+R)$]{.fragment}
 - Compute Max Flow on $G'$
-  - [$\color{red}\Theta(E \cdot V)\text{ since }|f| \le L$]{.fragment}
+  - [$\color{red}\Theta(E \cdot V)$ since $|f| \le L$]{.fragment}
 - Return $M$ as "middle" edges with flow 1
   - [$\color{red}\Theta(L+R)$]{.fragment}
 :::
@@ -1900,40 +1924,42 @@ Readings in CLRS 4th edition: N/A (reductions are covered<br>in CLRS, but not in
 <tr><td> 
 
 ::: {.fragment data-fragment-index=1}
-<table class="bipartite bipartite_flow2"><tr><td style="max-width:500px !important">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg">
-
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
+<table class="bipart" style="width:80%"><tr><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td><img src="graphs/reductions/bipartite_graph-0.svg"></td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td></tr></table>
 :::
-</td></tr></table>
-:::
 
+<tr><td>&nbsp;</td></tr>
 <tr><td><span class='fragment' data-fragment-index=7>Solution for $A$:</span></td></tr>
 <tr><td style="vertical-align:top;text-align:center">
 
 ::: {.fragment data-fragment-index=7}
-<table class="bipartite bipartite_flow2"><tr><td style="max-width:500px !important">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-8.53-9.64-1.svg">
-
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
+<table class="bipart" style="width:80%"><tr><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td><img src="graphs/reductions/bipartite_graph-0.svg"></td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td></tr></table>
 :::
-</td></tr></table>
-:::
 
 </td></tr></table>
-
 
 </td>
 
@@ -1945,35 +1971,53 @@ Readings in CLRS 4th edition: N/A (reductions are covered<br>in CLRS, but not in
 
 <table class="compact" style="z-index:1;opacity:0.5"><tr><td>
 ::: {.fragment data-fragment-index=3}
-<table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-1.svg">
 
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
+<table class="compact bipart2_outer"><tr><td><div>
+::: {.r-stack}
+<table class="bipart2"><tr>
+<td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td></tr></table>
+<p><img src="graphs/reductions/bipartite_graph-0-True-1.svg"></p>
 :::
-</td></tr></table>
+</div></td></tr></table>
+
 :::
 </td></tr>
 <tr><td style="opacity:1;z-index:6" class="fragment" data-fragment-index=8 >Reduction</td></tr>
 <tr><td>
 ::: {.fragment data-fragment-index=6}
-<table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-2.svg">
 
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
+<table class="compact bipart2_outer"><tr><td><div>
+::: {.r-stack}
+<table class="bipart2"><tr>
+<td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td></tr></table>
+<p><img src="graphs/reductions/bipartite_graph-3-True-2.svg"></p>
 :::
-</td></tr></table>
+</div></td></tr></table>
+
 :::
 </td></tr></table>
 
@@ -2946,38 +2990,38 @@ Map solutions of problem $B$ to solutions of problem $A$
 <tr><td><span>Bipartite Matching</span></td></tr>
 <tr><td> 
 
-::: {}
-<table class="bipartite bipartite_flow2"><tr><td style="max-width:500px !important">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-8.53-9.64-0.svg">
+<table class="bipart" style="width:80%"><tr><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td><img src="graphs/reductions/bipartite_graph-0.svg"></td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td></tr></table>
 
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-:::
-</td></tr></table>
-:::
-
+</td></tr>
+<tr><td>&nbsp;</td></tr>
 <tr><td><span>Solution for $A$:</span></td></tr>
 <tr><td style="vertical-align:top;text-align:center">
 
-::: {}
-<table class="bipartite bipartite_flow2"><tr><td style="max-width:500px !important">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-8.53-9.64-1.svg">
-
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
-:::
-</td></tr></table>
-:::
+<table class="bipart" style="width:80%"><tr><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td><img src="graphs/reductions/bipartite_graph-0.svg"></td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td></tr></table>
 
 </td></tr></table>
 
@@ -2992,35 +3036,53 @@ Map solutions of problem $B$ to solutions of problem $A$
 
 <table class="compact" style="z-index:1;opacity:0.5"><tr><td>
 ::: {}
-<table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-0-True-1.svg">
 
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
+<table class="compact bipart2_outer"><tr><td><div>
+::: {.r-stack}
+<table class="bipart2"><tr>
+<td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td></tr></table>
+<p><img src="graphs/reductions/bipartite_graph-0-True-1.svg"></p>
 :::
-</td></tr></table>
+</div></td></tr></table>
+
 :::
 </td></tr>
 <tr><td style="opacity:1;z-index:6">Reduction</td></tr>
 <tr><td>
 ::: {}
-<table class="bipartite bipartite_flow3"><tr><td style="vertical-align:middle">
-::: {.r-stack style="height:100%"}
-<img src="graphs/reductions/bipartite_graph-13.69-9.69-3-True-2.svg">
 
-<table>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg){style=""} </td></tr>
-<tr><td> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg){style=""} </td></tr>
-<tr><td> ![](https://www.cs.virginia.edu/~asb/images/me.jpg){style=""} </td><td> </td><td> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg){style=""} </td></tr>
-</table>
+<table class="compact bipart2_outer"><tr><td><div>
+::: {.r-stack}
+<table class="bipart2"><tr>
+<td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td><td>&nbsp;</td></tr></table>
+<p><img src="graphs/reductions/bipartite_graph-3-True-2.svg"></p>
 :::
-</td></tr></table>
+</div></td></tr></table>
+
 :::
 </td></tr></table>
 
