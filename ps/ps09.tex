@@ -1,0 +1,213 @@
+%---------change this every homework
+\def\yourid{mst3k}
+\def\collabs{list your collaborators here}
+\def\sources{list your sources here}
+% -----------------------------------------------------
+\def\duedate{December 4, 2024 at 11:59p}
+\def\pnumber{9}
+%-------------------------------------
+
+\documentclass[10pt]{article}
+\usepackage{dsa2}
+\usepackage{tikz-cd}
+
+
+\begin{document}
+\thispagestyle{empty}
+\handout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Max Flow \end{problem}
+
+Given the following Flow Network $G$ and the beginning of the Residual Graph $G'$:
+
+\vskip 2em
+\begin{center}
+\resizebox{.45\textwidth}{!}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+  thick,main node/.style={circle,fill=gray!10,draw,
+  font=\sffamily\Large\bfseries,minimum size=10mm}]
+
+  \node[main node] (s) {s};
+  \node[main node] (a) [above right of=s] {a};
+  \node[main node] (b) [below right of=a] {b};
+  \node[main node] (c) [above right of=b] {c};
+  \node[main node] (t) [below right of=c] {t};
+  \node[main node] (f) [below right of=s] {f};
+  \node[main node] (e) [below right of=b] {e};
+
+  \path[every node/.style={
+        fill=white,inner sep=2pt}]
+    % Right-hand-side arrows rendered from top to bottom to
+    % achieve proper rendering of labels over arrows.
+    (s) edge [] node[] {1/3} (a)
+        edge [] node[] {5/8} (f)
+    (a) edge [] node[] {1/2} (b)
+    (b) edge [] node[] {1/4} (c)
+        edge [] node[] {0/2} (f)
+        edge [] node[] {0/3} (e)
+    (c) edge [] node[] {5/7} (t)
+        edge [] node[] {0/3} (a)
+    (e) edge [] node[] {4/4} (c)
+        edge [] node[] {1/1} (t)
+    (f) edge [] node[] {5/6} (e);
+\end{tikzpicture}}\hfill
+\resizebox{.45\textwidth}{!}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+  thick,main node/.style={circle,fill=gray!10,draw,
+  font=\sffamily\Large\bfseries,minimum size=10mm}]
+      
+  %% THESE ARE THE NODES.  NOTE THAT THEY ARE LABELED IN LATEX
+  \node[main node] (s) {s};
+  \node[main node] (a) [above right of=s] {a};
+  \node[main node] (b) [below right of=a] {b};
+  \node[main node] (c) [above right of=b] {c};
+  \node[main node] (t) [below right of=c] {t};
+  \node[main node] (f) [below right of=s] {f};
+  \node[main node] (e) [below right of=b] {e};
+
+{
+  \path[every node/.style={
+        fill=white,inner sep=0pt,outer sep=0pt}]
+    
+    % THESE ARE THE EDGES. REPLACE THE 0 VALUES WITH THE ACTUAL VALUES 
+    (s) edge [bend left=10] node[] {0/0} (a)
+    (a) edge [bend left=10] node[] {0/0} (s)
+    (s) edge [bend left=10] node[] {0/0} (f)
+    (f) edge [bend left=10] node[] {0/0} (s)
+    (a) edge [bend left=10] node[] {0/0} (c)
+    (c) edge [bend left=10] node[] {0/0} (a)
+    (c) edge [bend left=10] node[] {0/0} (t)
+    (t) edge [bend left=10] node[] {0/0} (c)
+    (a) edge [bend left=10] node[] {0/0} (b)
+    (b) edge [bend left=10] node[] {0/0} (a)
+    (b) edge [bend left=10] node[] {0/0} (c)
+    (c) edge [bend left=10] node[] {0/0} (b)
+    (e) edge [bend left=10] node[] {0/0} (c)
+    (c) edge [bend left=10] node[] {0/0} (e)
+    (b) edge [bend left=10] node[] {0/0} (f)
+    (f) edge [bend left=10] node[] {0/0} (b)
+    (b) edge [bend left=10] node[] {0/0} (e)
+    (e) edge [bend left=10] node[] {0/0} (b)
+    (f) edge [bend left=10] node[] {0/0} (e)
+    (e) edge [bend left=10] node[] {0/0} (f)
+    (e) edge [bend left=10] node[] {0/0} (t)
+    (t) edge [bend left=10] node[] {0/0} (e)
+    ;}
+\end{tikzpicture}}
+\end{center}
+\hspace{0.95in} Flow Network $G$ \hspace{2in} Residual Graph $G'$
+
+
+\begin{enumerate}
+    \item Complete the Residual Graph $G'$ above.  You \textbf{must} edit the graph in \LaTeX~above (do not upload a picture).
+    
+    \item Find an augmenting path in the graph $G'$ using BFS. List the nodes in the path you found in order (e.g., $s\rightarrow a \rightarrow b \rightarrow c \rightarrow d \rightarrow t$).
+
+    \solution{
+    
+    }
+    
+    \item Update the Flow Network $G$ above.  You \textbf{must} edit the graph below (do not upload a picture).
+    
+    \begin{center}
+    \resizebox{.45\textwidth}{!}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+      thick,main node/.style={circle,fill=gray!10,draw,
+      font=\sffamily\Large\bfseries,minimum size=10mm}]
+
+      %% THESE ARE THE NODES.  NOTE THAT THEY ARE LABELED IN LATEX
+        \node[main node] (s) {s};
+        \node[main node] (a) [above right of=s] {a};
+        \node[main node] (b) [below right of=a] {b};
+        \node[main node] (c) [above right of=b] {c};
+        \node[main node] (t) [below right of=c] {t};
+        \node[main node] (f) [below right of=s] {f};
+        \node[main node] (e) [below right of=b] {e};
+
+
+{
+    \path[every node/.style={
+        fill=white,inner sep=0pt,outer sep=0pt}]
+      %% THESE ARE THE EDGES. UPDATE THE WEIGHTS BELOW.
+    (s) edge [] node[] {0/0} (a)
+        edge [] node[] {0/0} (f)
+    (a) edge [] node[] {0/0} (b)
+    (b) edge [] node[] {0/0} (c)
+        edge [] node[] {0/0} (f)
+        edge [] node[] {0/0} (e)
+    (c) edge [] node[] {0/0} (t)
+        edge [] node[] {0/0} (a)
+    (e) edge [] node[] {0/0} (c)
+        edge [] node[] {0/0} (t)
+    (f) edge [] node[] {0/0} (e);}
+    \end{tikzpicture}}
+    \end{center}
+    
+    \item Find the min cut of the graph.  List the nodes on each side of the cut.
+
+    \solution{
+    
+    }
+    
+    
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Closest Pair of Points Reduction \end{problem}
+
+Reduce Element Uniqueness to Closest Pair of Points in $O(n)$ time (the reduction needs to be done in $O(n)$, the CPP algorithm takes $O(n$log$n$) ).  Element Uniqueness is defined as: given a list of numbers, return $True$ if no number appears more than once (i.e., every number is distinct). For example,  $\{1,3,7,2,3,4\}$ would return $False$ and $\{4,3,12,8,9,14,1\}$ would return $True$. Remember that closest Pair of Points is defined as: given a list of points $(x,y)$, return the smallest distance between any two points.
+
+\solution{
+
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Reading and Evaluating Proofs \end{problem}
+Generative AI systems are exciting -- \textit{and scary}. They can answer many questions, but how much can we trust the results?
+
+For this problem you will choose an generative AI system (e.g., ChatGPT) and ask it to do a proof for an algorithm we've studied. Specifically, ask for the proof that the reduction of Bi-Partite Matching to Max-Flow is correct. You'll then carefully read the proof it gives you and compare it to the version of that proof in our textbook, noting any issues or significant differences. 
+
+Here's a suggested prompt to give the system. You may use this unchanged, or alter it to try to get a better result.
+\\
+\textit{Answer this question as if you were a computer scientist. Formally prove that the Bi-Partite Matching algorithm using a max-flow algorithm is correct (i.e, it always find the optimal matching between nodes in the bi-partite graph).}
+
+
+
+In your solution, provide the following;
+\begin{enumerate}
+\item Give the name and version number of the generative AI system you've used.
+
+\solution{
+
+}
+
+\item In a sentence, describe the proof strategy used by the AI.
+
+\solution{
+
+}
+
+\item Study the textbook's proof of this algorithm, Lemma 24.9 in Section 24.3 of the 4th edition of the textbook. In no more than 5 or 6 sentences, describe any issues or problems you see in the AI's result or how it differs from the textbook's proof.  \textit{Your answer might address the following questions: Do you think it successfully proves correctness?  Are there gaps or odd logical jumps in the proof it provides?  How different is it from the proof in the textbook?  (If there are no issues to report, just say that.)}
+
+\solution{
+
+}
+
+\item Copy the prompt you gave the AI below.
+
+\solution{
+
+}
+
+\item Copy the AI's response (the proof) below.
+
+\solution{
+
+}
+
+\end{enumerate}
+
+
+
+\end{document}
