@@ -25,11 +25,13 @@ Repository Contents
 	- [PS6](ps/ps6.html) ([md](ps/ps6.md))
 	- [PS7](ps/ps7.html) ([md](ps/ps7.md))
 	- [PS8](ps/ps8.html) ([md](ps/ps8.md))
+	- [PS9](ps/ps9.html) ([md](ps/ps9.md))
 - Programming assignments:
 	- [PA1](pa/pa1/index.html) ([md](pa/pa1/index.md))
 	- [PA2](pa/pa2/index.html) ([md](pa/pa2/index.md))
 	- [PA3](pa/pa3/index.html) ([md](pa/pa3/index.md))
 	- [PA4](pa/pa4/index.html) ([md](pa/pa4/index.md))
+	- [PA5](pa/pa5/index.html) ([md](pa/pa5/index.md))
 - Slide sets:
 	- [Daily announcement slides](slides/announcements.html#/)
     - [Dynamic Programming](slides/dp.html#/)
