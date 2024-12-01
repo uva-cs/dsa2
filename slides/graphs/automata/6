@@ -1,0 +1,21 @@
+\begin{tikzpicture}[
+     C/.style = {circle, draw, very thick, minimum size = 5mm},
+     every edge/.style = {draw, ultra thick, -stealth},
+]
+\tikzset{font=\sffamily}
+\node (1) [C,initial,double] {1};
+\node (2) [C,above=of 1] {2};
+\node (3) [C,above=of 2] {3};
+\node (4) [C,above=of 3] {4};
+\node (5) [C,above=of 4] {5};
+\path
+    (1) edge[bend right] node[right,text width=1cm] {a} (2)
+    (2) edge[bend right] node[left,text width=1cm,align=right] {b} (1)
+    (2) edge[bend right] node[right,text width=1cm] {a} (3)
+    (3) edge[bend right] node[left,text width=1cm,align=right] {b} (2)
+    (3) edge[bend right] node[right,text width=1cm] {a} (4)
+    (4) edge[bend right] node[left,text width=1cm,align=right] {b} (3)
+    (4) edge[bend right] node[right,text width=1cm] {a} (5)
+    (5) edge[bend right] node[left,text width=1cm,align=right] {b} (4);
+\end{tikzpicture}
+

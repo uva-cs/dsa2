@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="quarto_files/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="dsa2.css">
@@ -6828,8 +6893,968 @@ Vertex cover of size 5
 <p>Readings in CLRS 4th edition: chapter 34</p>
 </div>
 </section>
-<section id="np-completeness-1" class="slide level2">
-<h2>NP-Completeness</h2>
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<ul>
+<li>What we could prove that some problems are (most likely) hard?
+<ul>
+<li>Here, “hard” means runs in exponential time</li>
+</ul></li>
+<li>We <em>want</em> there to be “hard” problems
+<ul>
+<li>Cracking encryption should be “hard”</li>
+<li>But regular encryption and decryption should be “easy”</li>
+</ul></li>
+<li>Given a new encryption algorithm, how do we show that it’s really “hard”?
+<ul>
+<li>And not that we just haven’t found an “easy” solution?</li>
+</ul></li>
+</ul>
+</section>
+<section id="dmt-1-review" class="slide level2">
+<h2>DMT 1 review</h2>
+<ul>
+<li>An AND operation is called a <em>conjunction</em></li>
+<li>An OR operation is called a <em>disjunction</em></li>
+<li>DeMorgan’s law:
+<ul>
+<li><span class="math inline">\(\neg(a \vee b) == \neg a \wedge \neg b\)</span></li>
+<li><span class="math inline">\(\neg(a \wedge b) == \neg a \vee \neg b\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="background-satisfiability" class="slide level2">
+<h2>Background: Satisfiability</h2>
+<ul>
+<li>Given a boolean expression, can we find an assignment of true/false values to the variables such that the entire expression is true?</li>
+<li>Examples:
+<ul>
+<li><span class="math inline">\(x_1 \wedge (x_2 \vee \neg x_3) \wedge (\neg x_1 \vee x_3) \wedge (x_2 \vee \neg x_3)\)</span>
+<ul>
+<li>Yes: <span class="math inline">\(x_1\)</span> is true, <span class="math inline">\(x_2\)</span> is true, <span class="math inline">\(x_3\)</span> is true</li>
+</ul></li>
+<li><span class="math inline">\(x_1 \wedge (x_2 \vee \neg x_3) \wedge (\neg x_1 \vee x_3) \wedge ({\color{red}\neg} x_2 \vee \neg x_3)\)</span>
+<ul>
+<li>No, there is no assignment of true/false values that will satisfy this equation</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="background-satisfiability-1" class="slide level2">
+<h2>Background: Satisfiability</h2>
+<ul>
+<li>The equations presented so far:
+<ul>
+<li><span class="math inline">\(x_1 \wedge (x_2 \vee \neg x_3) \wedge (\neg x_1 \vee x_3) \wedge (x_2 \vee \neg x_3)\)</span></li>
+<li><span class="math inline">\(x_1 \wedge (x_2 \vee \neg x_3) \wedge (\neg x_1 \vee x_3) \wedge ({\color{red}\neg} x_2 \vee \neg x_3)\)</span></li>
+</ul></li>
+<li>… are in <em>conjunctive normal form</em>
+<ul>
+<li>Meaning it’s a conjunction (AND’ing) of disjunctions (OR’ing)</li>
+</ul></li>
+<li>We’ll keep this as a standard format</li>
+<li>Nobody yet has found an <em>efficient</em> (polynomial-time) algorithm to solve it
+<ul>
+<li>Only exponential-time algorithms</li>
+</ul></li>
+<li>Note that this problem is hard to <em>solve</em>, but easy to <em>verify</em> (when given an answer)</li>
+</ul>
+</section>
+<section id="how-would-we-check-for-a-valid-uva-userid" class="slide level2">
+<h2><span class="r-fit-text">How would we check for a valid UVA userid?</span></h2>
+<ul>
+<li>Format:
+<ul>
+<li>Starts with 2 or 3 letters</li>
+<li>Optional digit</li>
+<li>1-3 letters if there was a digit</li>
+</ul></li>
+<li>Of the forms: ll, lll, lldl, llldl, lldll, llldll, lldlll, llldlll</li>
+</ul>
+</section>
+<section id="programmatically" class="slide level2">
+<h2>Programmatically</h2>
+<div id="2cab9708" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="kw">def</span> check_uva_userid1(what):</span>
+<span id="cb1-2"><a href=""></a>    chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
+<span id="cb1-3"><a href=""></a>    <span class="co"># check first character (must be a letter)</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-5"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-6"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-7"><a href=""></a>    <span class="co"># check second character (must be a letter)</span></span>
+<span id="cb1-8"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-9"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-10"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-11"><a href=""></a>    <span class="co"># return true if of the form ll</span></span>
+<span id="cb1-12"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-13"><a href=""></a>    <span class="co"># check optional 3rd letter</span></span>
+<span id="cb1-14"><a href=""></a>    <span class="cf">if</span> chars[<span class="dv">0</span>].isalpha():</span>
+<span id="cb1-15"><a href=""></a>        chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-16"><a href=""></a>        <span class="co"># return true if of the form lll</span></span>
+<span id="cb1-17"><a href=""></a>        <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-18"><a href=""></a>    <span class="co"># check digit</span></span>
+<span id="cb1-19"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-20"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isdigit(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-21"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-22"><a href=""></a>    <span class="co"># check first letter after the digit</span></span>
+<span id="cb1-23"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-24"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-25"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-26"><a href=""></a>    <span class="co"># return true if of the form lldl or llldl</span></span>
+<span id="cb1-27"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-28"><a href=""></a>    <span class="co"># check second letter after the digit</span></span>
+<span id="cb1-29"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-30"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-31"><a href=""></a>    <span class="co"># return true if of the form lldll or llldll</span></span>
+<span id="cb1-32"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-33"><a href=""></a>    <span class="co"># check third letter after the digit</span></span>
+<span id="cb1-34"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-35"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-36"><a href=""></a>    <span class="co"># return true if of the form lldlll or llldlll</span></span>
+<span id="cb1-37"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-38"><a href=""></a>    <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Source: <a href="src/reductions/uvauserid1.py.html">uvauserid1.py</a></p>
+</section>
+<section id="automata" class="slide level2">
+<h2>Automata</h2>
+
+<img data-src="graphs/reductions/automata_1.svg" class="center r-stretch" style="width:75%"><ul>
+<li>Double circled states are final states</li>
+<li>Each arrow assumes that it pops one input character</li>
+</ul>
+</section>
+<section id="as-code" class="slide level2">
+<h2>As code</h2>
+<div id="b10b46bf" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> check_uva_userid2(what):</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a>    state_table <span class="op">=</span> [ </span>
+<span id="cb2-4"><a href=""></a>        <span class="co"># from each state, where to go on an 'l', 'd', and 'o', respectively</span></span>
+<span id="cb2-5"><a href=""></a>        [], <span class="co"># we numbered our states from 1, so we burn spot 0</span></span>
+<span id="cb2-6"><a href=""></a>        [<span class="dv">2</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 1 goes to 2 on a letter</span></span>
+<span id="cb2-7"><a href=""></a>        [<span class="dv">3</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 2 goes to 3 on a letter</span></span>
+<span id="cb2-8"><a href=""></a>        [<span class="dv">4</span>,    <span class="dv">5</span>,    <span class="va">None</span>], <span class="co"># state 3 goes to 4 on a letter and 5 on a digit</span></span>
+<span id="cb2-9"><a href=""></a>        [<span class="va">None</span>, <span class="dv">5</span>,    <span class="va">None</span>], <span class="co"># state 4 goes to 5 on a digit</span></span>
+<span id="cb2-10"><a href=""></a>        [<span class="dv">6</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 5 goes to 6 on a letter</span></span>
+<span id="cb2-11"><a href=""></a>        [<span class="dv">7</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 6 goes to 7 on a letter</span></span>
+<span id="cb2-12"><a href=""></a>        [<span class="dv">8</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 7 goes to 8 on a letter</span></span>
+<span id="cb2-13"><a href=""></a>        [<span class="va">None</span>, <span class="va">None</span>, <span class="va">None</span>], <span class="co"># no transitions out of state 8</span></span>
+<span id="cb2-14"><a href=""></a>    ]</span>
+<span id="cb2-15"><a href=""></a>    final_states <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>]</span>
+<span id="cb2-16"><a href=""></a></span>
+<span id="cb2-17"><a href=""></a>    chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
+<span id="cb2-18"><a href=""></a>    state <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-19"><a href=""></a>    <span class="cf">while</span> <span class="bu">len</span>(chars) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb2-20"><a href=""></a>        which <span class="op">=</span> <span class="dv">0</span> <span class="cf">if</span> chars[<span class="dv">0</span>].isalpha() <span class="cf">else</span> <span class="dv">1</span> <span class="cf">if</span> chars[<span class="dv">0</span>].isdigit() <span class="cf">else</span> <span class="dv">2</span></span>
+<span id="cb2-21"><a href=""></a>        next_state <span class="op">=</span> state_table[state][which]</span>
+<span id="cb2-22"><a href=""></a>        <span class="cf">if</span> next_state <span class="kw">is</span> <span class="va">None</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb2-23"><a href=""></a>        state <span class="op">=</span> next_state</span>
+<span id="cb2-24"><a href=""></a>        chars.pop(<span class="dv">0</span>)</span>
+<span id="cb2-25"><a href=""></a>    <span class="cf">return</span> state <span class="kw">in</span> final_states</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Source: <a href="src/reductions/uvauserid2.py.html">uvauserid1.py</a></p>
+</section>
+<section id="automata-1" class="slide level2">
+<h2>Automata</h2>
+
+<img data-src="graphs/reductions/automata_2.svg" class="center r-stretch" style="width:75%"><ul>
+<li>What if we only have one accepting (aka final) state?</li>
+<li>But which way to go?
+<ul>
+<li>In state 3, on a input of a letter, we could go to <em>three</em> different states: 4, 5, and 8</li>
+</ul></li>
+<li>This is called <em>non-determinism</em></li>
+</ul>
+</section>
+<section id="automata-2" class="slide level2">
+<h2>Automata</h2>
+
+<img data-src="graphs/reductions/automata_3.svg" class="center r-stretch" style="width:50%"><ul>
+<li>The same automata as last time, but laid out differently</li>
+</ul>
+</section>
+<section id="why-non-determinism" class="slide level2">
+<h2>Why non-determinism</h2>
+<p>(to fill in)</p>
+</section>
+<section id="automata-3" class="slide level2">
+<h2>Automata</h2>
+
+<img data-src="graphs/reductions/automata_4.svg" class="center r-stretch" style="width:50%"><ul>
+<li>This has empty (<span class="math inline">\(\epsilon\)</span>) transitions</li>
+</ul>
+</section>
+<section id="automata-definitions" class="slide level2">
+<h2>Automata definitions</h2>
+<ul>
+<li>DFA: Deterministic Finite Automata
+<ul>
+<li>From any state, on any input, there is at most one destination state</li>
+</ul></li>
+<li>NFA: Non-deterministic Finite Automata
+<ul>
+<li>There is at least one state, which on some input, has more than one possible destination state</li>
+<li>and/or there is at least one empty transition</li>
+</ul></li>
+<li>The range of languages (strings) that these can produce (aka accept) are called <em>regular</em> languages</li>
+</ul>
+</section>
+<section id="automata-and-languages" class="slide level2">
+<h2>Automata and languages</h2>
+
+<img data-src="graphs/reductions/automata_5.svg" style="width:25%;float:right" class="r-stretch"><ul>
+<li>How would you write an automata that can accept strings with <em>some</em> positive number of a’s followed by some positive number of b’s?
+<ul>
+<li>Expressed as <span class="math inline">\(a^+b^+\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="more-powerful-automata" class="slide level2">
+<h2>More powerful automata</h2>
+<p><img data-src="graphs/reductions/automata_6.svg" style="height:70%;float:right;width:30%"></p>
+<ul>
+<li>How would you write an automata that can accept strings with <em>some</em> positive number of a’s followed by <strong>the same number</strong> of b’s?
+<ul>
+<li>Expressed as <span class="math inline">\(a^nb^n\)</span></li>
+</ul></li>
+<li>Answer: you can’t. Any <em>finite</em> automata of <span class="math inline">\(n\)</span> states cannot accept a string of <span class="math inline">\(n+1\)</span> a’s (and <span class="math inline">\(n+1\)</span> b’s)</li>
+</ul>
+</section>
+<section id="accepting-anbn" class="slide level2">
+<h2>Accepting <span class="math inline">\(a^nb^n\)</span></h2>
+<p><img data-src="graphs/reductions/automata_6.svg" style="height:70%;float:right;width:30%"></p>
+<ul>
+<li>To accept these strings, you need <em>memory</em>: how many a’s have been accepted</li>
+<li>This is done via a stack
+<ul>
+<li>On each a, push a value onto the stack</li>
+<li>On each b, pop a value from the stack</li>
+</ul></li>
+<li>Ensure the stack is empty at the end</li>
+<li>This is called a <em>push-down automata</em></li>
+<li>The range of languages (strings) that these can produce (aka accept) are called <em>context-free</em> languages</li>
+</ul>
+</section>
+<section id="even-more-powerful-automata" class="slide level2">
+<h2>Even more powerful automata</h2>
+<ul>
+<li>What about <span class="math inline">\(a^nb^nc^n\)</span>?</li>
+<li>A push-down automata (from the last slide) can’t handle this</li>
+<li>You need something called a <em>linear-bounded automata</em>
+<ul>
+<li>An automata with a limited form of memory</li>
+</ul></li>
+<li>The range of languages (strings) that these can produce (aka accept) are called <em>context-sensitive</em> languages</li>
+</ul>
+</section>
+<section id="yet-even-more-powerful-automata" class="slide level2">
+<h2>Yet even more powerful automata</h2>
+<ul>
+<li>What about a programming language?</li>
+<li>This needs a <em>Turing machine</em>, which can compute anything a computer can compute</li>
+</ul>
+
+<img data-src="graphs/reductions/automata_7.svg" class="center r-stretch"></section>
+<section id="turing-machines" class="slide level2">
+<h2>Turing Machines</h2>
+<p><img data-src="graphs/reductions/automata_7.svg" style="float:right;width:30vw;height:auto"></p>
+<ul>
+<li>A Turing machine has a NFA (or DFA) as it’s “control”
+<ul>
+<li>A computer’s current memory state is, in effect, a DFA state</li>
+</ul></li>
+<li>A infinite tape that it can read and write values to
+<ul>
+<li>Analogous to a computer’s memory</li>
+</ul></li>
+<li>Image from <a href="https://texample.net//tikz/examples/turing-machine-2/">texexample.net</a></li>
+</ul>
+</section>
+<section id="nfa-animation" class="slide level2">
+<h2>NFA Animation</h2>
+
+<img data-src="graphs/reductions/automata_3.svg" style="float:right" class="r-stretch"><ul>
+<li>Back to our NFA to accept UVA userids</li>
+<li>Imagine that this is the NFA in a Turing machine
+<ul>
+<li>Although this one does not use memory</li>
+</ul></li>
+<li>We’ll trace through accepting any valid UVA userid</li>
+</ul>
+</section>
+<section id="nfa-animation-1" class="slide level2">
+<h2>NFA Animation</h2>
+<div class="r-stack" style="width:100%;height:50%">
+<p><img data-src="graphs/reductions/automata_3.svg" class="fragment fade-out" style="height:50vh" data-fragment-index="1"></p>
+<p><img data-src="graphs/reductions/automata_3a.svg" class="fragment" style="height:50vh" data-fragment-index="1"></p>
+<p><img data-src="graphs/reductions/automata_3b.svg" class="fragment" style="height:50vh"></p>
+<p><img data-src="graphs/reductions/automata_3c.svg" class="fragment" style="height:50vh"></p>
+<p><img data-src="graphs/reductions/automata_3d.svg" class="fragment" style="height:50vh"></p>
+<p><img data-src="graphs/reductions/automata_3e.svg" class="fragment" style="height:50vh"></p>
+<p><img data-src="graphs/reductions/automata_3f.svg" class="fragment" style="height:50vh"></p>
+<p><img data-src="graphs/reductions/automata_3g.svg" class="fragment" style="height:50vh"></p>
+<p><img data-src="graphs/reductions/automata_3h.svg" class="fragment" style="height:50vh"></p>
+</div>
+</section>
+<section id="what-state-is-the-nfa-in" class="slide level2">
+<h2>What state is the NFA in?</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th><span class="math inline">\(s_1\)</span></th>
+<th><span class="math inline">\(s_2\)</span></th>
+<th><span class="math inline">\(s_3\)</span></th>
+<th><span class="math inline">\(s_4\)</span></th>
+<th><span class="math inline">\(s_5\)</span></th>
+<th><span class="math inline">\(s_6\)</span></th>
+<th><span class="math inline">\(s_7\)</span></th>
+<th><span class="math inline">\(s_8\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="blue">true</span></td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>false</td>
+<td><span class="blue">true</span></td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>false</td>
+<td>false</td>
+<td><span class="blue">true</span></td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td><span class="blue">true</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td><span class="blue">true</span></td>
+<td><span class="blue">true</span></td>
+<td>false</td>
+<td>false</td>
+<td><span class="blue">true</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td><span class="blue">true</span></td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td><span class="blue">true</span></td>
+<td>false</td>
+<td><span class="blue">true</span></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td><span class="blue">true</span></td>
+<td><span class="blue">true</span></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+<td><span class="blue">true</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-state-is-the-nfa-in-the-tableu" class="slide level2">
+<h2>What state is the NFA in? (the <em>tableu</em>)</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th><span class="math inline">\(s_1\)</span></th>
+<th><span class="math inline">\(s_2\)</span></th>
+<th><span class="math inline">\(s_3\)</span></th>
+<th><span class="math inline">\(s_4\)</span></th>
+<th><span class="math inline">\(s_5\)</span></th>
+<th><span class="math inline">\(s_6\)</span></th>
+<th><span class="math inline">\(s_7\)</span></th>
+<th><span class="math inline">\(s_8\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="blue"><span class="math inline">\(s_1\)</span></span></td>
+<td><span class="math inline">\(\neg s_2\)</span></td>
+<td><span class="math inline">\(\neg s_3\)</span></td>
+<td><span class="math inline">\(\neg s_4\)</span></td>
+<td><span class="math inline">\(\neg s_5\)</span></td>
+<td><span class="math inline">\(\neg s_6\)</span></td>
+<td><span class="math inline">\(\neg s_7\)</span></td>
+<td><span class="math inline">\(\neg s_8\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(\neg s_1\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_2\)</span></span></td>
+<td><span class="math inline">\(\neg s_3\)</span></td>
+<td><span class="math inline">\(\neg s_4\)</span></td>
+<td><span class="math inline">\(\neg s_5\)</span></td>
+<td><span class="math inline">\(\neg s_6\)</span></td>
+<td><span class="math inline">\(\neg s_7\)</span></td>
+<td><span class="math inline">\(\neg s_8\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\(\neg s_1\)</span></td>
+<td><span class="math inline">\(\neg s_2\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_3\)</span></span></td>
+<td><span class="math inline">\(\neg s_4\)</span></td>
+<td><span class="math inline">\(\neg s_5\)</span></td>
+<td><span class="math inline">\(\neg s_6\)</span></td>
+<td><span class="math inline">\(\neg s_7\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_8\)</span></span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">\(\neg s_1\)</span></td>
+<td><span class="math inline">\(\neg s_2\)</span></td>
+<td><span class="math inline">\(\neg s_3\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_4\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_5\)</span></span></td>
+<td><span class="math inline">\(\neg s_6\)</span></td>
+<td><span class="math inline">\(\neg s_7\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_8\)</span></span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><span class="math inline">\(\neg s_1\)</span></td>
+<td><span class="math inline">\(\neg s_2\)</span></td>
+<td><span class="math inline">\(\neg s_3\)</span></td>
+<td><span class="math inline">\(\neg s_4\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_5\)</span></span></td>
+<td><span class="math inline">\(\neg s_6\)</span></td>
+<td><span class="math inline">\(\neg s_7\)</span></td>
+<td><span class="math inline">\(\neg s_8\)</span></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><span class="math inline">\(\neg s_1\)</span></td>
+<td><span class="math inline">\(\neg s_2\)</span></td>
+<td><span class="math inline">\(\neg s_3\)</span></td>
+<td><span class="math inline">\(\neg s_4\)</span></td>
+<td><span class="math inline">\(\neg s_5\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_6\)</span></span></td>
+<td><span class="math inline">\(\neg s_7\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_8\)</span></span></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><span class="math inline">\(\neg s_1\)</span></td>
+<td><span class="math inline">\(\neg s_2\)</span></td>
+<td><span class="math inline">\(\neg s_3\)</span></td>
+<td><span class="math inline">\(\neg s_4\)</span></td>
+<td><span class="math inline">\(\neg s_5\)</span></td>
+<td><span class="math inline">\(\neg s_6\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_7\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_8\)</span></span></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td><span class="math inline">\(\neg s_1\)</span></td>
+<td><span class="math inline">\(\neg s_2\)</span></td>
+<td><span class="math inline">\(\neg s_3\)</span></td>
+<td><span class="math inline">\(\neg s_4\)</span></td>
+<td><span class="math inline">\(\neg s_5\)</span></td>
+<td><span class="math inline">\(\neg s_6\)</span></td>
+<td><span class="math inline">\(\neg s_7\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_8\)</span></span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="adding-in-step-numbers" class="slide level2">
+<h2>Adding in step numbers</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th><span class="math inline">\(s_1\)</span></th>
+<th><span class="math inline">\(s_2\)</span></th>
+<th><span class="math inline">\(s_3\)</span></th>
+<th><span class="math inline">\(s_4\)</span></th>
+<th><span class="math inline">\(s_5\)</span></th>
+<th><span class="math inline">\(s_6\)</span></th>
+<th><span class="math inline">\(s_7\)</span></th>
+<th><span class="math inline">\(s_8\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="blue"><span class="math inline">\(s_{11}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{12}\)</span></td>
+<td><span class="math inline">\(\neg s_{13}\)</span></td>
+<td><span class="math inline">\(\neg s_{14}\)</span></td>
+<td><span class="math inline">\(\neg s_{15}\)</span></td>
+<td><span class="math inline">\(\neg s_{16}\)</span></td>
+<td><span class="math inline">\(\neg s_{17}\)</span></td>
+<td><span class="math inline">\(\neg s_{18}\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(\neg s_{21}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{22}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{23}\)</span></td>
+<td><span class="math inline">\(\neg s_{24}\)</span></td>
+<td><span class="math inline">\(\neg s_{25}\)</span></td>
+<td><span class="math inline">\(\neg s_{26}\)</span></td>
+<td><span class="math inline">\(\neg s_{27}\)</span></td>
+<td><span class="math inline">\(\neg s_{28}\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\(\neg s_{31}\)</span></td>
+<td><span class="math inline">\(\neg s_{32}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{33}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{34}\)</span></td>
+<td><span class="math inline">\(\neg s_{35}\)</span></td>
+<td><span class="math inline">\(\neg s_{36}\)</span></td>
+<td><span class="math inline">\(\neg s_{37}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{38}\)</span></span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">\(\neg s_{41}\)</span></td>
+<td><span class="math inline">\(\neg s_{42}\)</span></td>
+<td><span class="math inline">\(\neg s_{43}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{44}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{45}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{46}\)</span></td>
+<td><span class="math inline">\(\neg s_{47}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{58}\)</span></span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><span class="math inline">\(\neg s_{51}\)</span></td>
+<td><span class="math inline">\(\neg s_{52}\)</span></td>
+<td><span class="math inline">\(\neg s_{53}\)</span></td>
+<td><span class="math inline">\(\neg s_{54}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{55}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{56}\)</span></td>
+<td><span class="math inline">\(\neg s_{57}\)</span></td>
+<td><span class="math inline">\(\neg s_{58}\)</span></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><span class="math inline">\(\neg s_{61}\)</span></td>
+<td><span class="math inline">\(\neg s_{62}\)</span></td>
+<td><span class="math inline">\(\neg s_{63}\)</span></td>
+<td><span class="math inline">\(\neg s_{64}\)</span></td>
+<td><span class="math inline">\(\neg s_{65}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{66}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{67}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{68}\)</span></span></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><span class="math inline">\(\neg s_{71}\)</span></td>
+<td><span class="math inline">\(\neg s_{72}\)</span></td>
+<td><span class="math inline">\(\neg s_{73}\)</span></td>
+<td><span class="math inline">\(\neg s_{74}\)</span></td>
+<td><span class="math inline">\(\neg s_{75}\)</span></td>
+<td><span class="math inline">\(\neg s_{76}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{77}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{78}\)</span></span></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td><span class="math inline">\(\neg s_{81}\)</span></td>
+<td><span class="math inline">\(\neg s_{82}\)</span></td>
+<td><span class="math inline">\(\neg s_{83}\)</span></td>
+<td><span class="math inline">\(\neg s_{84}\)</span></td>
+<td><span class="math inline">\(\neg s_{85}\)</span></td>
+<td><span class="math inline">\(\neg s_{86}\)</span></td>
+<td><span class="math inline">\(\neg s_{87}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{88}\)</span></span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="re-arranging-the-states" class="slide level2">
+<h2>Re-arranging the states</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th><span class="math inline">\(s_1\)</span></th>
+<th><span class="math inline">\(s_2\)</span></th>
+<th><span class="math inline">\(s_3\)</span></th>
+<th><span class="math inline">\(s_4\)</span></th>
+<th><span class="math inline">\(s_5\)</span></th>
+<th><span class="math inline">\(s_6\)</span></th>
+<th><span class="math inline">\(s_7\)</span></th>
+<th><span class="math inline">\(s_8\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="blue"><span class="math inline">\(s_{11}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{12}\)</span></td>
+<td><span class="math inline">\(\neg s_{13}\)</span></td>
+<td><span class="math inline">\(\neg s_{14}\)</span></td>
+<td><span class="math inline">\(\neg s_{15}\)</span></td>
+<td><span class="math inline">\(\neg s_{16}\)</span></td>
+<td><span class="math inline">\(\neg s_{17}\)</span></td>
+<td><span class="math inline">\(\neg s_{18}\)</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="blue"><span class="math inline">\(s_{22}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{21}\)</span></td>
+<td><span class="math inline">\(\neg s_{23}\)</span></td>
+<td><span class="math inline">\(\neg s_{24}\)</span></td>
+<td><span class="math inline">\(\neg s_{25}\)</span></td>
+<td><span class="math inline">\(\neg s_{26}\)</span></td>
+<td><span class="math inline">\(\neg s_{27}\)</span></td>
+<td><span class="math inline">\(\neg s_{28}\)</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="blue"><span class="math inline">\(s_{33}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{38}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{31}\)</span></td>
+<td><span class="math inline">\(\neg s_{32}\)</span></td>
+<td><span class="math inline">\(\neg s_{34}\)</span></td>
+<td><span class="math inline">\(\neg s_{35}\)</span></td>
+<td><span class="math inline">\(\neg s_{36}\)</span></td>
+<td><span class="math inline">\(\neg s_{37}\)</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="blue"><span class="math inline">\(s_{44}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{45}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{58}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{41}\)</span></td>
+<td><span class="math inline">\(\neg s_{42}\)</span></td>
+<td><span class="math inline">\(\neg s_{43}\)</span></td>
+<td><span class="math inline">\(\neg s_{46}\)</span></td>
+<td><span class="math inline">\(\neg s_{47}\)</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><span class="blue"><span class="math inline">\(s_{55}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{51}\)</span></td>
+<td><span class="math inline">\(\neg s_{52}\)</span></td>
+<td><span class="math inline">\(\neg s_{53}\)</span></td>
+<td><span class="math inline">\(\neg s_{54}\)</span></td>
+<td><span class="math inline">\(\neg s_{56}\)</span></td>
+<td><span class="math inline">\(\neg s_{57}\)</span></td>
+<td><span class="math inline">\(\neg s_{58}\)</span></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><span class="blue"><span class="math inline">\(s_{66}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{68}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{61}\)</span></td>
+<td><span class="math inline">\(\neg s_{62}\)</span></td>
+<td><span class="math inline">\(\neg s_{63}\)</span></td>
+<td><span class="math inline">\(\neg s_{64}\)</span></td>
+<td><span class="math inline">\(\neg s_{65}\)</span></td>
+<td><span class="math inline">\(\neg s_{67}\)</span></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><span class="blue"><span class="math inline">\(s_{77}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{78}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{71}\)</span></td>
+<td><span class="math inline">\(\neg s_{72}\)</span></td>
+<td><span class="math inline">\(\neg s_{73}\)</span></td>
+<td><span class="math inline">\(\neg s_{74}\)</span></td>
+<td><span class="math inline">\(\neg s_{75}\)</span></td>
+<td><span class="math inline">\(\neg s_{76}\)</span></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td><span class="blue"><span class="math inline">\(s_{88}\)</span></span></td>
+<td><span class="math inline">\(\neg s_{81}\)</span></td>
+<td><span class="math inline">\(\neg s_{82}\)</span></td>
+<td><span class="math inline">\(\neg s_{83}\)</span></td>
+<td><span class="math inline">\(\neg s_{84}\)</span></td>
+<td><span class="math inline">\(\neg s_{85}\)</span></td>
+<td><span class="math inline">\(\neg s_{86}\)</span></td>
+<td><span class="math inline">\(\neg s_{87}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rephrasing-the-last-slide" class="slide level2">
+<h2>Rephrasing the last slide</h2>
+<ol type="1">
+<li><span class="math inline">\({\color{blue}s_{11}} \wedge \neg s_{12} \wedge \neg s_{13} \wedge \neg s_{14} \wedge \neg s_{15} \wedge \neg s_{16} \wedge \neg s_{17} \wedge \neg s_{18}\)</span></li>
+<li><span class="math inline">\({\color{blue}s_{22}} \wedge \neg s_{21} \wedge \neg s_{23} \wedge \neg s_{24} \wedge \neg s_{25} \wedge \neg s_{26} \wedge \neg s_{27} \wedge \neg s_{28}\)</span></li>
+<li><span class="math inline">\(({\color{blue}s_{33}} \vee {\color{blue}s_{38}}) \wedge \neg s_{31} \wedge \neg s_{32} \wedge \neg s_{34} \wedge \neg s_{35} \wedge \neg s_{36} \wedge \neg s_{37}\)</span></li>
+<li><span class="math inline">\(({\color{blue}s_{44}} \vee {\color{blue}s_{45}} \vee {\color{blue}s_{58}}) \wedge \neg s_{41} \wedge \neg s_{42} \wedge \neg s_{43} \wedge \neg s_{46} \wedge \neg s_{47}\)</span></li>
+<li><span class="math inline">\({\color{blue}s_{55}} \wedge \neg s_{51} \wedge \neg s_{52} \wedge \neg s_{53} \wedge \neg s_{54} \wedge \neg s_{56} \wedge \neg s_{57} \wedge \neg s_{58}\)</span></li>
+<li><span class="math inline">\(({\color{blue}s_{66}} \vee {\color{blue}s_{68}}) \wedge \neg s_{61} \wedge \neg s_{62} \wedge \neg s_{63} \wedge \neg s_{64} \wedge \neg s_{65} \wedge \neg s_{67}\)</span></li>
+<li><span class="math inline">\(({\color{blue}s_{77}} \vee {\color{blue}s_{78}}) \wedge \neg s_{71} \wedge \neg s_{72} \wedge \neg s_{73} \wedge \neg s_{74} \wedge \neg s_{75} \wedge \neg s_{76}\)</span></li>
+<li><span class="math inline">\({\color{blue}s_{88}} \wedge \neg s_{81} \wedge \neg s_{82} \wedge \neg s_{83} \wedge \neg s_{84} \wedge \neg s_{85} \wedge \neg s_{86} \wedge \neg s_{87}\)</span></li>
+</ol>
+</section>
+<section id="a-final-formula" class="slide level2">
+<h2>A final formula</h2>
+<p><span class="math display">\[
+\begin{array}{l}
+accepted = \\
+{\color{blue}s_{11}} \wedge \neg s_{12} \wedge \neg s_{13} \wedge \neg s_{14} \wedge \neg s_{15} \wedge \neg s_{16} \wedge \neg s_{17} \wedge \neg s_{18} \wedge \\
+{\color{blue}s_{22}} \wedge \neg s_{21} \wedge \neg s_{23} \wedge \neg s_{24} \wedge \neg s_{25} \wedge \neg s_{26} \wedge \neg s_{27} \wedge \neg s_{28} \wedge \\
+({\color{blue}s_{33}} \vee {\color{blue}s_{38}}) \wedge \neg s_{31} \wedge \neg s_{32} \wedge \neg s_{34} \wedge \neg s_{35} \wedge \neg s_{36} \wedge \neg s_{37} \wedge \\
+({\color{blue}s_{44}} \vee {\color{blue}s_{45}} \vee {\color{blue}s_{58}}) \wedge \neg s_{41} \wedge \neg s_{42} \wedge \neg s_{43} \wedge \neg s_{46} \wedge \neg s_{47} \wedge \\
+{\color{blue}s_{55}} \wedge \neg s_{51} \wedge \neg s_{52} \wedge \neg s_{53} \wedge \neg s_{54} \wedge \neg s_{56} \wedge \neg s_{57} \wedge \neg s_{58} \wedge \\
+({\color{blue}s_{66}} \vee {\color{blue}s_{68}}) \wedge \neg s_{61} \wedge \neg s_{62} \wedge \neg s_{63} \wedge \neg s_{64} \wedge \neg s_{65} \wedge \neg s_{67} \wedge \\
+({\color{blue}s_{77}} \vee {\color{blue}s_{78}}) \wedge \neg s_{71} \wedge \neg s_{72} \wedge \neg s_{73} \wedge \neg s_{74} \wedge \neg s_{75} \wedge \neg s_{76} \wedge \\
+{\color{blue}s_{88}} \wedge \neg s_{81} \wedge \neg s_{82} \wedge \neg s_{83} \wedge \neg s_{84} \wedge \neg s_{85} \wedge \neg s_{86} \wedge \neg s_{87} \\
+\end{array}
+\]</span></p>
+<p>That’s satisfiability!</p>
+</section>
+<section id="theorem" class="slide level2">
+<h2>Theorem</h2>
+<ul>
+<li>Anything such problem
+<ul>
+<li>…of the type we have seen…</li>
+</ul></li>
+<li>… that can be solved by a Turing machine…
+<ul>
+<li>And thus an automata (DFA or NFA), push-down automata, etc.</li>
+</ul></li>
+<li>… can be reduced to satisfiability</li>
+</ul>
+</section>
+<section id="complexity-classes" class="slide level2">
+<h2>Complexity classes</h2>
+<div class="font-90">
+<p><img data-src="images/reductions/P-NP.svg" style="float:right;margin-left:20px"></p>
+<ul>
+<li><span class="green">P</span>: Any problem that can be solved by a <em>deterministic</em> automata (DFA) in polynomial time
+<ul>
+<li>Can also be <em>verified</em> in polynomial time</li>
+</ul></li>
+<li><span class="blue">NP</span>: Any problem that can be solved by a <em>non-deterministic</em> automata (NFA) in polynomial time
+<ul>
+<li>Might take exponential time on a DFA</li>
+<li>Can be <em>verified</em> in polynomial time</li>
+</ul></li>
+<li>If a problem can be solved by a DFA in polynomial time, then it can be solved by an NFA in polynomial time
+<ul>
+<li>Thus, <span class="math inline">\({\color{forestgreen}P} \subset {\color{blue}NP}\)</span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="complexity-classes-1" class="slide level2">
+<h2>Complexity classes</h2>
+<div class="font-80">
+<p><img data-src="images/reductions/NP-hard.svg" style="float:right;margin-left:20px"></p>
+<ul>
+<li><span class="red">NP-hard</span>
+<ul>
+<li>A problem that is at <em>least</em> as difficult as NP
+<ul>
+<li>Could be more difficult, but not <em>less</em> difficult</li>
+</ul></li>
+</ul></li>
+<li>There are believed to be problems in NP that are not NP-hard (none yet proven)</li>
+<li>There are actually many more complexity classes:</li>
+</ul>
+<p><img data-src="images/reductions/Complexity_classes.svg" style="float:left;width:35vh;margin-left:10vw"></p>
+</div>
+</section>
+<section id="recap-satisfiability-sat" class="slide level2">
+<h2>Recap: Satisfiability (SAT)</h2>
+<ul>
+<li>No efficient solution to SAT has yet been found
+<ul>
+<li>Maybe one exists, though…</li>
+</ul></li>
+<li>We know it’s in <span class="blue">NP</span>
+<ul>
+<li>As we can verify a solution in polynomial time</li>
+</ul></li>
+<li>What if we want to show that some problem <span class="math inline">\(X\)</span> is just as difficult as SAT?</li>
+<li>We would want to show that:
+<ul>
+<li><span class="math inline">\(X\)</span> reduces to SAT, and</li>
+<li>SAT reduces to <span class="math inline">\(X\)</span></li>
+</ul></li>
+<li>That would mean they are (roughly) equivalent in difficulty
+<ul>
+<li>And that likely no efficient solution can be found</li>
+</ul></li>
+</ul>
+</section>
+<section id="complexity-classes-2" class="slide level2">
+<h2>Complexity classes</h2>
+<div class="font-95">
+<p><img data-src="images/reductions/P-NP-NP-complete.svg" style="float:right;margin-left:20px"></p>
+<ul>
+<li><span class="purple">NP-complete</span>
+<ul>
+<li>A set of problems that are of equivalent difficulty as SAT</li>
+</ul></li>
+<li>We show problem <span class="math inline">\(X\)</span> is <span class="purple">NP-complete</span> by:
+<ul>
+<li>Reducing SAT (or another <span class="purple">NP-complete</span> problem) to <span class="math inline">\(X\)</span></li>
+<li>Reducing <span class="math inline">\(X\)</span> to SAT (or another <span class="purple">NP-complete</span> problem)
+<ul>
+<li>But if <span class="math inline">\(X \in {\color{blue}NP}\)</span>, then it reduces to SAT</li>
+<li>So we just have to show <span class="math inline">\(X \in {\color{blue}NP}\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="example-reduction" class="slide level2">
+<h2>Example reduction</h2>
+<p><img data-src="graphs/reductions/vertex_cover-3.svg" style="float:right;margin-left:20px;width:20vw;height:auto"></p>
+<ul>
+<li>Consider the vertex cover problem:
+<ul>
+<li>Given a graph <span class="math inline">\(G=(V,E)\)</span>, find a set of vertices <span class="math inline">\(C\subseteq V\)</span> such that every edge in <span class="math inline">\(E\)</span> has at least one endpoint in <span class="math inline">\(C\)</span></li>
+</ul></li>
+<li>To prove it’s <span class="purple">NP-complete</span>:
+<ul>
+<li>Show it’s in <span class="blue">NP</span> (this means it reduces to SAT)</li>
+<li>Reduce it to SAT (or another <span class="purple">NP-complete</span> problem)</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-reduction-1" class="slide level2">
+<h2>Example reduction</h2>
+<ul>
+<li>Show it’s in <span class="blue">NP</span> (this means it reduces to SAT)
+<ul>
+<li>Given a set of vertices <span class="math inline">\(C\)</span>, we can, in polynomial time, verify all edges in <span class="math inline">\(E\)</span> have at least one endpoint in <span class="math inline">\(C\)</span></li>
+</ul></li>
+<li>Reduce it to SAT (or another <span class="purple">NP-complete</span> problem):
+<ul>
+<li>Let <span class="math inline">\(x_i\)</span> mean that node <span class="math inline">\(i\)</span> is part of the vertex cover set <span class="math inline">\(C\)</span></li>
+<li>For every edge <span class="math inline">\((v,w)\)</span>, add the clause <span class="math inline">\((x_v \vee x_w)\)</span></li>
+<li>Conjoin (AND) those clauses together</li>
+<li>This is now a SAT problem</li>
+</ul></li>
+<li>Thus, the vertex cover problem is <span class="purple">NP-complete</span></li>
+</ul>
+</section>
+<section id="can-we-solve-sat-in-polynomial-time" class="slide level2">
+<h2>Can we solve SAT in polynomial time?</h2>
+<ul>
+<li>Nobody has found an efficient solution
+<ul>
+<li>But that doesn’t mean one doesn’t exist</li>
+</ul></li>
+<li>It has not yet been proven that one can <em>not</em> solve it in polynomial time
+<ul>
+<li>Just that nobody has yet figured out a way to do so</li>
+</ul></li>
+<li>If it can’t be solved in polynomial time, then <span class="math inline">\({\color{forestgreen}P} \ne {\color{blue}NP}\)</span></li>
+<li>If it <em>can</em> be solved in polynomial time, then <span class="math inline">\({\color{forestgreen}P} = {\color{blue}NP}\)</span>
+<ul>
+<li>This would be <em>bad</em> – all modern encryption would be crackable</li>
+</ul></li>
+<li>If you can prove this, one way or the other, you get a <a href="https://www.claymath.org/millennium/p-vs-np/">million dollar prize</a></li>
+</ul>
+</section>
+<section id="complexity-classes-3" class="slide level2">
+<h2>Complexity classes</h2>
+<p>&nbsp;</p>
+<p><img data-src="images/reductions/P_np_np-complete_np-hard.svg" class="center"></p>
 <div class="quarto-auto-generated-content">
 <p><img src="images/quarto.webp" class="slide-logo"></p>
 <div class="footer footer-default">

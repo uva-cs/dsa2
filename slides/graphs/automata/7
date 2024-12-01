@@ -1,0 +1,54 @@
+\begin{tikzpicture}
+\tikzstyle{every path}=[very thick]
+
+\edef\sizetape{0.7cm}
+\tikzstyle{tmtape}=[draw,minimum size=\sizetape]
+\tikzstyle{tmhead}=[arrow box,draw,minimum size=.5cm,arrow box
+arrows={east:.25cm, west:0.25cm}]
+
+%% Draw TM tape
+\begin{scope}[start chain=1 going right,node distance=-0.15mm]
+    \node [on chain=1,tmtape,draw=none] {$\ldots$};
+    \node [on chain=1,tmtape] {};
+    \node [on chain=1,tmtape] (input) {b};
+    \node [on chain=1,tmtape] {b};
+    \node [on chain=1,tmtape] {a};
+    \node [on chain=1,tmtape] {a};
+    \node [on chain=1,tmtape] {a};
+    \node [on chain=1,tmtape] {a};
+    \node [on chain=1,tmtape] {};
+    \node [on chain=1,tmtape,draw=none] {$\ldots$};
+    %\node [on chain=1] {\textbf{Input/Output Tape}};
+\end{scope}
+
+%% Draw TM Finite Control
+\begin{scope}
+[shift={(3cm,-5cm)},start chain=circle placed {at=(-\tikzchaincount*60:1.5)}]
+\foreach \i in {q_0,q_1,q_2,q_3,\ddots,q_n}
+	\node [on chain] {$\i$};
+
+% Arrow to current state
+\node (center) {};
+\draw[->] (center) -- (circle-2);
+
+\node[rounded corners,draw=black,thick,fit=(circle-1) (circle-2) (circle-3) 
+      (circle-4) (circle-5) (circle-6),
+			label=below:\textbf{Finite Control}] (fsbox)
+		{};
+\end{scope}
+
+%% Draw TM head below (input) tape cell
+\node [tmhead,yshift=-.3cm] at (input.south) (head) {$q_1$};
+
+%% Link Finite Control with Head
+\path[->,draw] (fsbox.north) .. controls (4.5,-1) and (0,-2) .. node[right] 
+			(headlinetext)
+ 			{} 
+			(head.south);
+\node[xshift=3cm] at (headlinetext)  
+			{\begin{tabular}{c} 
+				\textbf{Reading and Writing Head} \\  
+				\textbf{(moves in both directions)} 
+			 \end{tabular}};
+
+\end{tikzpicture}

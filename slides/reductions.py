@@ -410,9 +410,12 @@ tex_header = """
 \\documentclass[border=3mm]{standalone}
 \\usepackage[dvipsnames]{xcolor}
 \\usepackage{tikz}
-\\usetikzlibrary{arrows.meta,  % define arrows head styles
-                positioning,  % for nodes positioning
-                shapes.geometric} % for ellipses
+\\usetikzlibrary{automata,
+                arrows.meta,  %% define arrows head styles
+                positioning,  %% for nodes positioning
+                shapes.geometric, %% for ellipses
+                chains,fit,shapes %% for the turing machine image
+                }
 \\newcommand{\\comment}[1]{}
 \\begin{document}
 """
@@ -1177,6 +1180,99 @@ def graph_cut():
 
 
 #--------------------------------------------------
+# make_automata()
+#--------------------------------------------------
+
+def get_automata3 (nodecolors,edgecolors):
+    return f"""
+\\begin{{tikzpicture}}[
+     C/.style = {{circle, draw, very thick, minimum size = 5mm}},
+     every edge/.style = {{draw, ultra thick, -stealth}},
+]
+\\tikzset{{font=\\sffamily}}
+\\node (1) at (0,2) [C,initial,color={nodecolors[0]}] {{1}};
+\\node (2) at (1.4,1.4) [C,color={nodecolors[1]}] {{2}};
+\\node (3) at (2,0) [C,color={nodecolors[2]}] {{3}};
+\\node (4) at (1.4,-1.4) [C,color={nodecolors[3]}] {{4}};
+\\node (5) at (0,-2) [C,color={nodecolors[4]}] {{5}};
+\\node (6) at (-1.4,-1.4) [C,color={nodecolors[5]}] {{6}};
+\\node (7) at (-2,0) [C,color={nodecolors[6]}] {{7}};
+\\node (8) at (-1.4,1.4) [C,double,color={nodecolors[7]}] {{8}};
+\\path
+    (1) edge[color={edgecolors[0]}] node[above] {{\\textcolor{{{edgecolors[0].strip()}}}a-z}} (2)
+    (2) edge[color={edgecolors[1]}] node[right] {{\\textcolor{{{edgecolors[1].strip()}}}a-z}} (3)
+    (2) edge[color={edgecolors[2]}] node[below] {{\\textcolor{{{edgecolors[2].strip()}}}a-z}} (8)
+    (3) edge[color={edgecolors[3]}] node[right] {{\\textcolor{{{edgecolors[3].strip()}}}a-z}} (4)
+    (3) edge[color={edgecolors[4]}] node[left] {{\\textcolor{{{edgecolors[4].strip()}}}0-9}} (5)
+    (3) edge[color={edgecolors[5]}] node[below] {{\\textcolor{{{edgecolors[5].strip()}}}a-z}} (8)
+    (4) edge[color={edgecolors[6]}] node[below] {{\\textcolor{{{edgecolors[6].strip()}}}0-9}} (5)
+    (5) edge[color={edgecolors[7]}] node[below] {{\\textcolor{{{edgecolors[7].strip()}}}a-z}} (6)
+    (5) edge[color={edgecolors[8]}] node[right] {{\\textcolor{{{edgecolors[8].strip()}}}a-z}} (8)
+    (6) edge[color={edgecolors[9]}] node[left] {{\\textcolor{{{edgecolors[9].strip()}}}a-z}} (7)
+    (6) edge[color={edgecolors[10]}] node[below right] {{\\textcolor{{{edgecolors[10].strip()}}}a-z}} (8)
+    (7) edge[color={edgecolors[11]}] node[left] {{\\textcolor{{{edgecolors[11].strip()}}}a-z}} (8);
+\\end{{tikzpicture}}
+"""
+nodecolors = [ # for the animation of automata 3
+    ['red  ','black','black','black','black','black','black','black',],
+    ['black','red  ','black','black','black','black','black','black',],
+    ['black','black','red  ','black','black','black','black','red  ',],
+    ['black','black','black','red  ','red  ','black','black','red  ',],
+    ['black','black','black','black','red  ','black','black','black',],
+    ['black','black','black','black','black','red  ','black','red  ',],
+    ['black','black','black','black','black','black','red  ','red  ',],
+    ['black','black','black','black','black','black','black','red  ',],
+]
+edgecolors = [
+    # 1->2    2->3    2->8    3->4    3->5    3->8    4->5    5->6    5->8    6->7    6->8    7->8
+    ['black','black','black','black','black','black','black','black','black','black','black','black'],
+    ['blue ','black','black','black','black','black','black','black','black','black','black','black'],
+    ['black','blue ','blue ','black','black','black','black','black','black','black','black','black'],
+    ['black','black','black','blue ','blue ','blue ','black','black','black','black','black','black'],
+    ['black','black','black','black','black','black','blue ','black','black','black','black','black'],
+    ['black','black','black','black','black','black','black','blue ','blue ','black','black','black'],
+    ['black','black','black','black','black','black','black','black','black','blue ','blue ','black'],
+    ['black','black','black','black','black','black','black','black','black','black','black','blue '],
+]
+
+def make_automata():
+    files = list(os.walk("graphs/automata"))[0][2]
+    files.sort()
+    for filename in files:
+        if filename[-4:] in [".svg", ".log", ".tex", ".pdf", ".aux"]:
+            print("ignoring",filename)
+            continue
+        print("processing","graphs/automata/"+filename)
+        with open("graphs/automata/"+filename) as f:
+            contents = f.read()
+        tex_file = tex_header + contents + "\n\\end{document}"
+        with open("reductions.tmp.tex","w") as f:
+            f.write(tex_file)
+        os.system ("pdflatex reductions.tmp.tex > /dev/null")
+        os.system ("inkscape reductions.tmp.pdf --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
+        with open("reductions.tmp.svg","r") as f:
+               svg = f.read()
+        where = svg.find("<svg\n")
+        xprint(svg[where:],"automata_"+filename)
+
+    # handle automata 3 (the animated one)
+    for i in range(len(nodecolors)):
+        suffix = chr(97+i)
+        print(f"processing graphs/automata/3{suffix}")
+        contents = get_automata3(nodecolors[i],edgecolors[i])
+        tex_file = tex_header + contents + "\n\\end{document}"
+        with open("reductions.tmp.tex","w") as f:
+            f.write(tex_file)
+        os.system ("pdflatex reductions.tmp.tex > /dev/null")
+        os.system ("inkscape reductions.tmp.pdf --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
+        with open("reductions.tmp.svg","r") as f:
+               svg = f.read()
+        where = svg.find("<svg\n")
+        xprint(svg[where:],f"automata_3{suffix}")
+
+
+
+#--------------------------------------------------
 # main() equivalent
 #--------------------------------------------------
 
@@ -1213,22 +1309,19 @@ if __name__ == "__main__":
         #bipartite_graph(13.69,9.69,3,True,2,False)
         #os.system ("mv graphs/reductions/bipartite_graph-13.69-9.69-3-True-2-False.svg graphs/reductions/bipartite_graph-b.svg")
 
+
+
+        make_automata()
+
+
+        exit()
+        arrows()
         bipartite_graph_tikz(0,False,0)
         bipartite_graph_tikz(1,False,0)
         bipartite_graph_tikz(2,False,0)
         bipartite_graph_tikz(3,False,0)
         bipartite_graph_tikz(0,True,1)
         bipartite_graph_tikz(3,True,2)
-
-        exit()
-        arrows()
-        bipartite_graph(13.69,9.69,0,True,1)
-        bipartite_graph(13.69,9.69,3,True,2)
-        bipartite_graph(8.53,9.64,0)
-        bipartite_graph(8.53,9.64,1)
-        bipartite_graph(8.53,9.64,2)
-        bipartite_graph(8.53,9.64,3)
-
         cpp()
         diamond_flow() # 0,0
         diamond_flow(1,0)

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>uvauserid2.py</title>
+</head>
+<body bgcolor="white">
+<pre><tt><b><font color="#0000FF">def</font></b> <b><font color="#000000">check_uva_userid2</font></b><font color="#990000">(</font>what<font color="#990000">):</font>
+
+	state_table <font color="#990000">=</font> <font color="#990000">[</font> 
+		<i><font color="#9A1900"># from each state, where to go on an 'l', 'd', and 'o', respectively</font></i>
+		<font color="#990000">[],</font> <i><font color="#9A1900"># we numbered our states from 1, so we burn spot 0</font></i>
+		<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">,</font>    None<font color="#990000">,</font> None<font color="#990000">],</font> <i><font color="#9A1900"># state 1 goes to 2 on a letter</font></i>
+		<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">,</font>    None<font color="#990000">,</font> None<font color="#990000">],</font> <i><font color="#9A1900"># state 2 goes to 3 on a letter</font></i>
+		<font color="#990000">[</font><font color="#993399">4</font><font color="#990000">,</font>    <font color="#993399">5</font><font color="#990000">,</font>    None<font color="#990000">],</font> <i><font color="#9A1900"># state 3 goes to 4 on a letter and 5 on a digit</font></i>
+		<font color="#990000">[</font>None<font color="#990000">,</font> <font color="#993399">5</font><font color="#990000">,</font>    None<font color="#990000">],</font> <i><font color="#9A1900"># state 4 goes to 5 on a digit</font></i>
+		<font color="#990000">[</font><font color="#993399">6</font><font color="#990000">,</font>    None<font color="#990000">,</font> None<font color="#990000">],</font> <i><font color="#9A1900"># state 5 goes to 6 on a letter</font></i>
+		<font color="#990000">[</font><font color="#993399">7</font><font color="#990000">,</font>    None<font color="#990000">,</font> None<font color="#990000">],</font> <i><font color="#9A1900"># state 6 goes to 7 on a letter</font></i>
+		<font color="#990000">[</font><font color="#993399">8</font><font color="#990000">,</font>    None<font color="#990000">,</font> None<font color="#990000">],</font> <i><font color="#9A1900"># state 7 goes to 8 on a letter</font></i>
+		<font color="#990000">[</font>None<font color="#990000">,</font> None<font color="#990000">,</font> None<font color="#990000">],</font> <i><font color="#9A1900"># no transitions out of state 8</font></i>
+	<font color="#990000">]</font>
+	final_states <font color="#990000">=</font> <font color="#990000">[</font><font color="#993399">3</font><font color="#990000">,</font> <font color="#993399">4</font><font color="#990000">,</font> <font color="#993399">6</font><font color="#990000">,</font> <font color="#993399">7</font><font color="#990000">,</font> <font color="#993399">8</font><font color="#990000">]</font>
+
+	chars <font color="#990000">=</font> <b><font color="#000000">list</font></b><font color="#990000">(</font>what<font color="#990000">.</font><b><font color="#000000">lower</font></b><font color="#990000">())</font>
+	state <font color="#990000">=</font> <font color="#993399">1</font>
+	<b><font color="#0000FF">while</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>chars<font color="#990000">)</font> <font color="#990000">&gt;</font> <font color="#993399">0</font><font color="#990000">:</font>
+		which <font color="#990000">=</font> <font color="#993399">0</font> <b><font color="#0000FF">if</font></b> chars<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">].</font><b><font color="#000000">isalpha</font></b><font color="#990000">()</font> <b><font color="#0000FF">else</font></b> <font color="#993399">1</font> <b><font color="#0000FF">if</font></b> chars<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">].</font><b><font color="#000000">isdigit</font></b><font color="#990000">()</font> <b><font color="#0000FF">else</font></b> <font color="#993399">2</font>
+		next_state <font color="#990000">=</font> state_table<font color="#990000">[</font>state<font color="#990000">][</font>which<font color="#990000">]</font>
+		<b><font color="#0000FF">if</font></b> next_state <b><font color="#0000FF">is</font></b> None<font color="#990000">:</font> <b><font color="#0000FF">return</font></b> False
+		state <font color="#990000">=</font> next_state
+		chars<font color="#990000">.</font><b><font color="#000000">pop</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font>
+	<b><font color="#0000FF">return</font></b> state <b><font color="#0000FF">in</font></b> final_states
+
+
+
+<b><font color="#0000FF">print</font></b><font color="#990000">(</font><b><font color="#000000">check_uva_userid2</font></b><font color="#990000">(</font><b><font color="#000000">input</font></b><font color="#990000">()))</font>
+</tt></pre>
+</body>
+</html>

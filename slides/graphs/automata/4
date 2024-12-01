@@ -1,0 +1,28 @@
+\begin{tikzpicture}[
+     C/.style = {circle, draw, very thick, minimum size = 5mm},
+     every edge/.style = {draw, ultra thick, -stealth},
+]
+\tikzset{font=\sffamily}
+\node (1) at (0,2) [C,initial] {1};
+\node (2) at (1.4,1.4) [C] {2};
+\node (3) at (2,0) [C] {3};
+\node (4) at (1.4,-1.4) [C] {4};
+\node (5) at (0,-2) [C] {5};
+\node (6) at (-1.4,-1.4) [C] {6};
+\node (7) at (-2,0) [C] {7};
+\node (8) at (-1.4,1.4) [C] {8};
+\node (c) at (0,0) [C,double] {end};
+\path
+    (1) edge node[above] {a-z} (2)
+    (2) edge node[right] {a-z} (3)
+    (3) edge node[right] {a-z} (4)
+    (4) edge node[below] {0-9} (5)
+    (5) edge node[below] {a-z} (6)
+    (6) edge node[left] {a-z} (7)
+    (7) edge node[left] {a-z} (8)
+    (3) edge node[above] {$\epsilon$} (c)
+    (4) edge node[above] {$\epsilon$} (c)
+    (6) edge node[above] {$\epsilon$} (c)
+    (7) edge node[above] {$\epsilon$} (c)
+    (8) edge node[above] {$\epsilon$} (c);
+\end{tikzpicture}
