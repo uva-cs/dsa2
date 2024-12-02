@@ -1,0 +1,27 @@
+\begin{tikzpicture}[
+     C/.style = {circle, draw, very thick, minimum size = 5mm},
+     every edge/.style = {draw, ultra thick, -stealth},
+]
+\tikzset{font=\sffamily}
+\node (1) [C,initial] {1};
+\node (2) [C,right=of 1] {2};
+\node (3) [C,right=of 2,color=purple] {\textcolor{purple}3};
+\node (4) [C,right=of 3,color=red] {\textcolor{red}4};
+\node (5) [C,below=of 4,color=red] {\textcolor{red}5};
+\node (6) [C,left=of 5] {6};
+\node (7) [C,left=of 6] {7};
+\node (8) [C,left=of 7,double,color=red] {\textcolor{red}8};
+\path
+    (1) edge node[above] {a-z} (2)
+    (2) edge node[above] {a-z} (3)
+    (2) edge node[left] {a-z} (8)
+    (3) edge[color=blue] node[above] {\textcolor{blue}a-z} (4)
+    (3) edge[color=blue] node[left] {\textcolor{blue}0-9} (5)
+    (3) edge[color=blue] node[above] {\textcolor{blue}a-z} (8)
+    (4) edge node[right] {0-9} (5)
+    (5) edge node[below] {a-z} (6)
+    (5) edge[bend right=20] node[above] {a-z} (8)
+    (6) edge node[below] {a-z} (7)
+    (6) edge[bend left] node[below] {a-z} (8)
+    (7) edge node[below] {a-z} (8);
+\end{tikzpicture}

@@ -9,19 +9,19 @@
    height="80pt"
    viewBox="0.00 0.00 80.00 80.00"
    version="1.1"
-   id="svg2"
+   id="svg10"
    sodipodi:docname="rarrow-square.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs2" />
+     id="defs14" />
   <sodipodi:namedview
-     id="namedview2"
+     id="namedview12"
      pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
+     bordercolor="#666666"
+     borderopacity="1.0"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
@@ -32,19 +32,19 @@
      class="graph"
      transform="scale(1 1) rotate(0) translate(4 76)">
     <title
-       id="title1">g</title>
+       id="title2">g</title>
     <!-- x -->
     <g
        id="node1"
        class="node">
       <title
-         id="title2">x</title>
+         id="title4">x</title>
       <polygon
          fill="none"
          stroke="#ff0000"
          stroke-width="3"
          points="0,-66 0,-6 54,-6 54,0 72,-36 54,-72 54,-66 "
-         id="polygon2"
+         id="polygon6"
          transform="rotate(90,36.088525,-36)" />
     </g>
   </g>
