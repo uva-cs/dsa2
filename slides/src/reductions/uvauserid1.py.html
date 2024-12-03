@@ -11,41 +11,52 @@ http://www.gnu.org/software/src-highlite">
 <body bgcolor="white">
 <pre><tt><b><font color="#0000FF">def</font></b> <b><font color="#000000">check_uva_userid1</font></b><font color="#990000">(</font>what<font color="#990000">):</font>
 	chars <font color="#990000">=</font> <b><font color="#000000">list</font></b><font color="#990000">(</font>what<font color="#990000">.</font><b><font color="#000000">lower</font></b><font color="#990000">())</font>
+
 	<i><font color="#9A1900"># check first character (must be a letter)</font></i>
 	<b><font color="#0000FF">if</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>chars<font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">:</font> <b><font color="#0000FF">return</font></b> False
 	<b><font color="#0000FF">if</font></b> <b><font color="#0000FF">not</font></b> chars<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">].</font><b><font color="#000000">isalpha</font></b><font color="#990000">():</font> <b><font color="#0000FF">return</font></b> False
 	chars<font color="#990000">.</font><b><font color="#000000">pop</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font>
+
 	<i><font color="#9A1900"># check second character (must be a letter)</font></i>
 	<b><font color="#0000FF">if</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>chars<font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">:</font> <b><font color="#0000FF">return</font></b> False
 	<b><font color="#0000FF">if</font></b> <b><font color="#0000FF">not</font></b> chars<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">].</font><b><font color="#000000">isalpha</font></b><font color="#990000">():</font> <b><font color="#0000FF">return</font></b> False
 	chars<font color="#990000">.</font><b><font color="#000000">pop</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font>
+
 	<i><font color="#9A1900"># return true if of the form ll</font></i>
 	<b><font color="#0000FF">if</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>chars<font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">:</font> <b><font color="#0000FF">return</font></b> True
+
 	<i><font color="#9A1900"># check optional 3rd letter</font></i>
 	<b><font color="#0000FF">if</font></b> chars<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">].</font><b><font color="#000000">isalpha</font></b><font color="#990000">():</font>
 		chars<font color="#990000">.</font><b><font color="#000000">pop</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font>
 		<i><font color="#9A1900"># return true if of the form lll</font></i>
 		<b><font color="#0000FF">if</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>chars<font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">:</font> <b><font color="#0000FF">return</font></b> True
+
 	<i><font color="#9A1900"># check digit</font></i>
 	<b><font color="#0000FF">if</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>chars<font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">:</font> <b><font color="#0000FF">return</font></b> False
 	<b><font color="#0000FF">if</font></b> <b><font color="#0000FF">not</font></b> chars<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">].</font><b><font color="#000000">isdigit</font></b><font color="#990000">():</font> <b><font color="#0000FF">return</font></b> False
 	chars<font color="#990000">.</font><b><font color="#000000">pop</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font>
+
 	<i><font color="#9A1900"># check first letter after the digit</font></i>
 	<b><font color="#0000FF">if</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>chars<font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">:</font> <b><font color="#0000FF">return</font></b> False
 	<b><font color="#0000FF">if</font></b> <b><font color="#0000FF">not</font></b> chars<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">].</font><b><font color="#000000">isalpha</font></b><font color="#990000">():</font> <b><font color="#0000FF">return</font></b> False
 	chars<font color="#990000">.</font><b><font color="#000000">pop</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font>
+
 	<i><font color="#9A1900"># return true if of the form lldl or llldl</font></i>
 	<b><font color="#0000FF">if</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>chars<font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">:</font> <b><font color="#0000FF">return</font></b> True
 	<i><font color="#9A1900"># check second letter after the digit</font></i>
 	<b><font color="#0000FF">if</font></b> <b><font color="#0000FF">not</font></b> chars<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">].</font><b><font color="#000000">isalpha</font></b><font color="#990000">():</font> <b><font color="#0000FF">return</font></b> False
 	chars<font color="#990000">.</font><b><font color="#000000">pop</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font>
+
 	<i><font color="#9A1900"># return true if of the form lldll or llldll</font></i>
 	<b><font color="#0000FF">if</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>chars<font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">:</font> <b><font color="#0000FF">return</font></b> True
 	<i><font color="#9A1900"># check third letter after the digit</font></i>
 	<b><font color="#0000FF">if</font></b> <b><font color="#0000FF">not</font></b> chars<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">].</font><b><font color="#000000">isalpha</font></b><font color="#990000">():</font> <b><font color="#0000FF">return</font></b> False
 	chars<font color="#990000">.</font><b><font color="#000000">pop</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font>
+	
 	<i><font color="#9A1900"># return true if of the form lldlll or llldlll</font></i>
 	<b><font color="#0000FF">if</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>chars<font color="#990000">)</font> <font color="#990000">==</font> <font color="#993399">0</font><font color="#990000">:</font> <b><font color="#0000FF">return</font></b> True
+
+	<i><font color="#9A1900"># if there is more input, then it's not a valid userid</font></i>
 	<b><font color="#0000FF">return</font></b> False
 
 

@@ -2960,11 +2960,11 @@ Map solutions of problem $B$ to solutions of problem $A$
 
 <p class='center'>A "fast" algorithm for <span class='orange'>$B$</span> gives a <span class='bold'>fast algorithm</span> for <span class='red'>$A$</span></p>
 
-<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:bottom">Then $A$ is fast&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:top">&nbsp;If $B$ is fast</td></tr></table>
+<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:bottom">Then $\color{red}A$ is fast&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:top">&nbsp;If $\color{orange}B$ is fast</td></tr></table>
 
 <p class='center'>If we have a worst-case lower bound for <span class='red'>$A$</span>, we also have one for <span class='orange'>$B$</span></p>
 
-<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:top">If $A$ is slow&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:bottom">&nbsp;Then $B$ is slow</td></tr></table>
+<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:top">If $\color{red}A$ is slow&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:bottom">&nbsp;Then $\color{orange}B$ is slow</td></tr></table>
 
 </div>
 
@@ -3463,11 +3463,11 @@ Map solutions of $CPP$ to solutions of problem $A$ in $o(n \log n)$
 
 <p class='center'>A "fast" algorithm for <span class='orange'>$B$</span> gives a <span class='bold'>fast algorithm</span> for <span class='red'>$A$</span></p>
 
-<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:bottom">Then $A$ is fast&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:top">&nbsp;If $B$ is fast</td></tr></table>
+<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:bottom">Then $\color{red}A$ is fast&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:top">&nbsp;If $\color{orange}B$ is fast</td></tr></table>
 
 <p class='center'>If we have a worst-case lower bound for <span class='red'>$A$</span>, we also have one for <span class='orange'>$B$</span></p>
 
-<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:top">If $A$ is slow&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:bottom">&nbsp;Then $B$ is slow</td></tr></table>
+<table class='compact font-80' style="width:100%"><tr><td style="width:37%;text-align:right;vertical-align:top">If $\color{red}A$ is slow&nbsp;</td><td style="width:26%"><img src="graphs/reductions/mini_reduction.svg" style="margin:auto"></td><td style="width:37%;text-align:left;vertical-align:bottom">&nbsp;Then $\color{orange}B$ is slow</td></tr></table>
 
 </div>
 
@@ -3478,7 +3478,8 @@ Map solutions of $CPP$ to solutions of problem $A$ in $o(n \log n)$
 ::: {.r-stack}
 
 <div style="width:100%">
-<table style="width:100%;margin-top:-20px" class='compact'><tr><td style="vertical-align:middle">&nbsp;</td><td class='redtext' style="font-size:85%;width:55%;padding:0;vertical-align:top;opacity:0">Independent set of size 6</td></tr></table>
+<table style="width:100%;margin-top:-20px" class='compact'><tr><td style="vertical-align:middle">&nbsp;</td><td style="font-size:85%;width:55%;padding:0;vertical-align:top"><div class='font-70'>Draw edges between people who don't get along<br>
+Find the maximum number of people who get along</div></td></tr></table>
 <p style="text-align:center"><img src="graphs/reductions/independent_set-1.svg" style="width:65%;margin:auto;margin-top:-15%;margin-left:-5%"></p>
 </div>
 
@@ -3514,7 +3515,7 @@ Map solutions of $CPP$ to solutions of problem $A$ in $o(n \log n)$
 &nbsp;
 
 - Independent set: $S \subseteq V$ is an independent set if no two nodes in $S$ share an edge
-- Maximum Independent Set Problem: Given a graph $G=(V,E)$, find the maximum independent set $S$
+- Maximum Independent Set problem: Given a graph $G=(V,E)$, find the maximum independent set $S$
 
 
 
@@ -4139,7 +4140,7 @@ Readings in CLRS 4th edition: chapter 34
 	- Meaning it's a conjunction (AND'ing) of disjunctions (OR'ing)
 	- We'll keep this as a standard format
 - Nobody yet has found an *efficient* (polynomial-time) algorithm to solve it, only exponential-time algorithms
-- Note that this problem is hard to *solve*, but easy to *verify* (when given an answer)
+- Note that this problem is hard to *solve*, but easy to *verify* when given an answer
 
 
 ## [How would we check for a valid UVA userid?]{.r-fit-text}
@@ -4159,41 +4160,54 @@ Readings in CLRS 4th edition: chapter 34
 #| output: true
 def check_uva_userid1(what):
   chars = list(what.lower())
+  
   # check first character (must be a letter)
   if len(chars) == 0: return False
   if not chars[0].isalpha(): return False
   chars.pop(0)
+  
   # check second character (must be a letter)
   if len(chars) == 0: return False
   if not chars[0].isalpha(): return False
   chars.pop(0)
+  
   # return true if of the form ll
   if len(chars) == 0: return True
+  
   # check optional 3rd letter
   if chars[0].isalpha():
     chars.pop(0)
     # return true if of the form lll
     if len(chars) == 0: return True
+  
   # check digit
   if len(chars) == 0: return False
   if not chars[0].isdigit(): return False
   chars.pop(0)
+  
   # check first letter after the digit
   if len(chars) == 0: return False
   if not chars[0].isalpha(): return False
   chars.pop(0)
+  
   # return true if of the form lldl or llldl
   if len(chars) == 0: return True
+  
   # check second letter after the digit
   if not chars[0].isalpha(): return False
   chars.pop(0)
+  
   # return true if of the form lldll or llldll
   if len(chars) == 0: return True
+  
   # check third letter after the digit
   if not chars[0].isalpha(): return False
   chars.pop(0)
+  
   # return true if of the form lldlll or llldlll
   if len(chars) == 0: return True
+  
+  # if there is more input, then it's not a valid userid
   return False
 ```
 
@@ -4240,11 +4254,14 @@ def check_uva_userid2(what):
   chars = list(what.lower())
   state = 1
   while len(chars) > 0:
+
     # which is whether it's a letter (0), digit (1), or other (2)
     which = 0 if chars[0].isalpha() else 1 if chars[0].isdigit() else 2
+
     # get the state transition, and verify it's not None
     next_state = state_table[state][which]
     if next_state is None: return False
+
     # transition to that state and pop the input character
     state = next_state
     chars.pop(0)
@@ -4270,7 +4287,7 @@ What What if we only have one accepting (aka final) state?
 :::
 
 - But which way to go?
-	- In state 3, on a input of a letter, we could go to two different states: 4 and 8 (likewise for states 5 and 6)
+	- In state 3, on a input of a letter, we could go to two different states: 4 or 8 (likewise for states 5 and 6)
 - This is called *non-determinism*
 
 
@@ -4278,7 +4295,7 @@ What What if we only have one accepting (aka final) state?
 
 ![](graphs/reductions/automata_3.svg){.center style="width:50%"}
 
-- The same automata as last time, but laid out differently
+The same automata as the last slide, but laid out differently
 
 
 ## Why non-determinism
@@ -4294,7 +4311,7 @@ What What if we only have one accepting (aka final) state?
 
 ![](graphs/reductions/automata_4.svg){.center style="width:50%"}
 
-- This has empty ($\epsilon$) transitions; only allowed on NFAs
+This has empty ($\epsilon$) transitions; only allowed on NFAs
 
 
 ## Automata definitions
@@ -4316,12 +4333,16 @@ What What if we only have one accepting (aka final) state?
 
 ## More powerful automata
 
-![](graphs/reductions/automata_6.svg){.fragment style="height:70%;float:right;width:30%"}
+![](graphs/reductions/automata_6.svg){.fragment data-fragment-index=1 style="height:70%;float:right;width:30%"}
 
-- How would you write an automata that can accept strings with *some* positive number of a's followed by **the same number** of b's?
+- How would you write an automata that can accept strings with some positive number of a's followed by **the same number** of b's?
 	- Expressed as $a^nb^n$
-- Answer: you can't.  Any *finite* automata of $n$ states cannot accept a string of $n+1$ a's (and $n+1$ b's)
 
+&nbsp;
+
+::: {.fragment data-fragment-index=1}
+- Answer: you can't.  Any *finite* automata of $n$ states cannot accept a string of $n+1$ a's (and $n+1$ b's)
+:::
 
 ## Accepting $a^nb^n$
 
@@ -4347,12 +4368,11 @@ What What if we only have one accepting (aka final) state?
 
 ## Yet even more powerful automata
 
+![](graphs/reductions/automata_7.svg){.center style="float:right;width:40vw;height:auto;margin-left:20px"}
+
 - What about a programming language?
 - This needs a *Turing machine*, which can compute anything a computer can compute
-
-![](graphs/reductions/automata_7.svg){.center}
-
-
+	- Such languages are called *recursively enumerable* languages
 
 
 ## Turing Machines
@@ -4361,7 +4381,7 @@ What What if we only have one accepting (aka final) state?
 
 - A Turing machine has a NFA (or DFA) as it's "control"
 	- A computer's current memory state is, in effect, a DFA state
-- A infinite tape that it can read and write values to
+- And an infinite tape that it can read and write values to
 	- Analogous to a computer's memory
 - (image from [texexample.net](https://texample.net//tikz/examples/turing-machine-2/))
 
@@ -4418,7 +4438,7 @@ What What if we only have one accepting (aka final) state?
 
 
 
-## What state is the NFA in? (the *tableu*)
+## What state is the NFA in?
 
 
 | Step | $s_1$ | $s_2$ | $s_3$ | $s_4$ | $s_5$ | $s_6$ | $s_7$ | $s_8$ |
@@ -4434,7 +4454,7 @@ What What if we only have one accepting (aka final) state?
 
 
 
-## Adding in step numbers
+## Adding in step numbers (the *tableu*)
 
 
 | Step | $s_1$ | $s_2$ | $s_3$ | $s_4$ | $s_5$ | $s_6$ | $s_7$ | $s_8$ |
@@ -4510,15 +4530,15 @@ $$
 
 ## Complexity classes
 
-<div class="font-90">
+<div class="font-85">
 
 ![](images/reductions/P-NP.svg){style="float:right;margin-left:20px"}
 
 - <span class='green'>P</span>: Any problem that can be solved by a *deterministic* finite automata (DFA) in polynomial time
-	- Can also be *verified* in polynomial time
+	- Solution can be *verified* in polynomial time
 - <span class='blue'>NP</span>: Any problem that can be solved by a *non-deterministic* finite automata (NFA) in polynomial time
 	- Might take exponential time on a DFA
-	- Can be *verified* in polynomial time
+	- Solution can be *verified* in polynomial time
 - If a problem can be solved by a DFA in polynomial time, then it can be solved by an NFA in polynomial time
 	- Thus, ${\color{forestgreen}P} \subset {\color{blue}NP}$
 
@@ -4555,9 +4575,9 @@ $$
 - We know it's in <span class='blue'>NP</span>
 	- As we can verify a solution in polynomial time
 - What if we want to show that some problem $X$ is just as difficult as SAT?
-- We would want to show that:
-	- $X$ reduces to SAT, and
-	- SAT reduces to $X$
+- We would want to show that both:
+	- $X$ reduces to SAT: $X \le_p SAT$
+	- SAT reduces to $X$: $SAT \le_p X$
 - That would mean they are (roughly) equivalent in difficulty
 	- And that likely no efficient solution can be found
 
@@ -4582,12 +4602,12 @@ $$
 - Via a proof we won't show here, it has been shown that:
   - A problem $X$ being in <span class='blue'>NP</span>
   	- Meaning solvable by a NFA in polynomial time
-  - And an answer to $X$ being able to be *verified* in polynomial time
+  - And an solution to $X$ being able to be *verified* in polynomial time
 - Are actually the same thing
 
 &nbsp;
 
-[So we just have to show that we can *verify* a problem's answer in polynomial time to show it is in <span class='blue'>NP</span>]{.fragment}
+[So we just have to show that we can *verify* a problem's solution in polynomial time to show it is in <span class='blue'>NP</span>]{.fragment}
 
 
 
@@ -4599,7 +4619,9 @@ $$
 	- Given a graph $G=(V,E)$, find a set of vertices $C\subseteq V$ such that every edge in $E$ has at least one endpoint in $C$
 - To prove it's <span class='purple'>NP-complete</span>:
 	- Show it's in <span class='blue'>NP</span> (this means it reduces to SAT)
+	  - $VC \in {\color{blue}NP} \equiv VC \le_p SAT$
 	- Reduce a known <span class='purple'>NP-complete</span> problem to it
+	  - $SAT \le_p VC$
 
 
 ## Example reduction: Vertex Cover
@@ -4640,7 +4662,7 @@ Two things tend to be counter-intuitive when trying to prove that problem $X$ is
 <tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
 <tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
 <tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-3.svg"></td><td><table>
+</table></td><td><img src="graphs/reductions/bipartite_graph-1.svg"></td><td><table>
 <tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
 <tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
 <tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
@@ -4650,10 +4672,10 @@ Two things tend to be counter-intuitive when trying to prove that problem $X$ is
 
 <div class="font-85">
 
-- Consider the problem of finding *a* bipartite matching (not necessarily optimal)
+- Consider the problem of finding *a* bipartite matching (not necessarily maximal)
 - Reduce it to SAT:
   - Create a set of clauses for the possible matchings: $bloomfied \wedge husky$, $pettit \wedge labrador$, etc.
-    - But also ensure one match per person:<br> $bloomfied \wedge husky \wedge \neg labrador \wedge \neg dachshund \wedge \neg jonangi$
+    - But also ensure one dog per person:<br> $bloomfied \wedge husky \wedge \neg labrador \wedge \neg dachshund \wedge \neg jonangi$
     - Likewise ensure one human per dog
   - OR all these clauses together
   - Negate, via DeMorgan's Law, into conjunctive normal form
@@ -4670,7 +4692,7 @@ Two things tend to be counter-intuitive when trying to prove that problem $X$ is
 <tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
 <tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
 <tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-3.svg"></td><td><table>
+</table></td><td><img src="graphs/reductions/bipartite_graph-1.svg"></td><td><table>
 <tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
 <tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
 <tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
@@ -4682,10 +4704,10 @@ Two things tend to be counter-intuitive when trying to prove that problem $X$ is
 
 What did we just show?
 
-- That bipartite matching (non-minimal) can be reduced to SAT
-- But non-minimal bipartite matching is much easier than SAT!
-	- A non-minimal matching can be done in $O(V)$ time
-- This doesn't show that non-minimal bipartite matching is as difficult as SAT
+- That bipartite matching (non-maximal) can be reduced to SAT
+- But non-maximal bipartite matching is much easier than SAT!
+	- A non-maximal matching can be done in $O(V)$ time
+- This doesn't show that non-maximal bipartite matching is as difficult as SAT
 
 </div>
 

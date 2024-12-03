@@ -5435,13 +5435,13 @@ A “fast” algorithm for <span class="orange"><span class="math inline">\(B\)<
 <table class="compact font-80" style="width:100%">
 <tbody><tr>
 <td style="width:37%;text-align:right;vertical-align:bottom">
-Then <span class="math inline">\(A\)</span> is fast&nbsp;
+Then <span class="math inline">\(\color{red}A\)</span> is fast&nbsp;
 </td>
 <td style="width:26%">
 <img src="graphs/reductions/mini_reduction.svg" style="margin:auto">
 </td>
 <td style="width:37%;text-align:left;vertical-align:top">
-&nbsp;If <span class="math inline">\(B\)</span> is fast
+&nbsp;If <span class="math inline">\(\color{orange}B\)</span> is fast
 </td>
 </tr>
 </tbody></table>
@@ -5451,13 +5451,13 @@ If we have a worst-case lower bound for <span class="red"><span class="math inli
 <table class="compact font-80" style="width:100%">
 <tbody><tr>
 <td style="width:37%;text-align:right;vertical-align:top">
-If <span class="math inline">\(A\)</span> is slow&nbsp;
+If <span class="math inline">\(\color{red}A\)</span> is slow&nbsp;
 </td>
 <td style="width:26%">
 <img src="graphs/reductions/mini_reduction.svg" style="margin:auto">
 </td>
 <td style="width:37%;text-align:left;vertical-align:bottom">
-&nbsp;Then <span class="math inline">\(B\)</span> is slow
+&nbsp;Then <span class="math inline">\(\color{orange}B\)</span> is slow
 </td>
 </tr>
 </tbody></table>
@@ -6752,13 +6752,13 @@ A “fast” algorithm for <span class="orange"><span class="math inline">\(B\)<
 <table class="compact font-80" style="width:100%">
 <tbody><tr>
 <td style="width:37%;text-align:right;vertical-align:bottom">
-Then <span class="math inline">\(A\)</span> is fast&nbsp;
+Then <span class="math inline">\(\color{red}A\)</span> is fast&nbsp;
 </td>
 <td style="width:26%">
 <img src="graphs/reductions/mini_reduction.svg" style="margin:auto">
 </td>
 <td style="width:37%;text-align:left;vertical-align:top">
-&nbsp;If <span class="math inline">\(B\)</span> is fast
+&nbsp;If <span class="math inline">\(\color{orange}B\)</span> is fast
 </td>
 </tr>
 </tbody></table>
@@ -6768,13 +6768,13 @@ If we have a worst-case lower bound for <span class="red"><span class="math inli
 <table class="compact font-80" style="width:100%">
 <tbody><tr>
 <td style="width:37%;text-align:right;vertical-align:top">
-If <span class="math inline">\(A\)</span> is slow&nbsp;
+If <span class="math inline">\(\color{red}A\)</span> is slow&nbsp;
 </td>
 <td style="width:26%">
 <img src="graphs/reductions/mini_reduction.svg" style="margin:auto">
 </td>
 <td style="width:37%;text-align:left;vertical-align:bottom">
-&nbsp;Then <span class="math inline">\(B\)</span> is slow
+&nbsp;Then <span class="math inline">\(\color{orange}B\)</span> is slow
 </td>
 </tr>
 </tbody></table>
@@ -6789,8 +6789,10 @@ If <span class="math inline">\(A\)</span> is slow&nbsp;
 <td style="vertical-align:middle">
 &nbsp;
 </td>
-<td class="redtext" style="font-size:85%;width:55%;padding:0;vertical-align:top;opacity:0">
-Independent set of size 6
+<td style="font-size:85%;width:55%;padding:0;vertical-align:top">
+<div class="font-70">
+Draw edges between people who don’t get along<br> Find the maximum number of people who get along
+</div>
 </td>
 </tr>
 </tbody></table>
@@ -6817,7 +6819,7 @@ Independent set of size 6
 <p>&nbsp;</p>
 <ul>
 <li>Independent set: <span class="math inline">\(S \subseteq V\)</span> is an independent set if no two nodes in <span class="math inline">\(S\)</span> share an edge</li>
-<li>Maximum Independent Set Problem: Given a graph <span class="math inline">\(G=(V,E)\)</span>, find the maximum independent set <span class="math inline">\(S\)</span></li>
+<li>Maximum Independent Set problem: Given a graph <span class="math inline">\(G=(V,E)\)</span>, find the maximum independent set <span class="math inline">\(S\)</span></li>
 </ul>
 </section>
 <section id="example" class="slide level2">
@@ -7681,7 +7683,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 <li>We’ll keep this as a standard format</li>
 </ul></li>
 <li>Nobody yet has found an <em>efficient</em> (polynomial-time) algorithm to solve it, only exponential-time algorithms</li>
-<li>Note that this problem is hard to <em>solve</em>, but easy to <em>verify</em> (when given an answer)</li>
+<li>Note that this problem is hard to <em>solve</em>, but easy to <em>verify</em> when given an answer</li>
 </ul>
 </section>
 <section id="how-would-we-check-for-a-valid-uva-userid" class="slide level2">
@@ -7698,45 +7700,58 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="programmatically" class="slide level2">
 <h2>Programmatically</h2>
-<div id="1d1cffef" class="cell" data-execution_count="1">
+<div id="bfc78f1a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="kw">def</span> check_uva_userid1(what):</span>
 <span id="cb1-2"><a href=""></a>  chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
-<span id="cb1-3"><a href=""></a>  <span class="co"># check first character (must be a letter)</span></span>
-<span id="cb1-4"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-5"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-6"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-7"><a href=""></a>  <span class="co"># check second character (must be a letter)</span></span>
-<span id="cb1-8"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-9"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-10"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-11"><a href=""></a>  <span class="co"># return true if of the form ll</span></span>
-<span id="cb1-12"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb1-13"><a href=""></a>  <span class="co"># check optional 3rd letter</span></span>
-<span id="cb1-14"><a href=""></a>  <span class="cf">if</span> chars[<span class="dv">0</span>].isalpha():</span>
-<span id="cb1-15"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-16"><a href=""></a>    <span class="co"># return true if of the form lll</span></span>
-<span id="cb1-17"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb1-18"><a href=""></a>  <span class="co"># check digit</span></span>
-<span id="cb1-19"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-20"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isdigit(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-21"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-22"><a href=""></a>  <span class="co"># check first letter after the digit</span></span>
-<span id="cb1-23"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-24"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-25"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-26"><a href=""></a>  <span class="co"># return true if of the form lldl or llldl</span></span>
-<span id="cb1-27"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb1-28"><a href=""></a>  <span class="co"># check second letter after the digit</span></span>
-<span id="cb1-29"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-30"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-31"><a href=""></a>  <span class="co"># return true if of the form lldll or llldll</span></span>
-<span id="cb1-32"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb1-33"><a href=""></a>  <span class="co"># check third letter after the digit</span></span>
-<span id="cb1-34"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-35"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-36"><a href=""></a>  <span class="co"># return true if of the form lldlll or llldlll</span></span>
-<span id="cb1-37"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb1-38"><a href=""></a>  <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href=""></a>  </span>
+<span id="cb1-4"><a href=""></a>  <span class="co"># check first character (must be a letter)</span></span>
+<span id="cb1-5"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-6"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-7"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-8"><a href=""></a>  </span>
+<span id="cb1-9"><a href=""></a>  <span class="co"># check second character (must be a letter)</span></span>
+<span id="cb1-10"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-11"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-12"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-13"><a href=""></a>  </span>
+<span id="cb1-14"><a href=""></a>  <span class="co"># return true if of the form ll</span></span>
+<span id="cb1-15"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-16"><a href=""></a>  </span>
+<span id="cb1-17"><a href=""></a>  <span class="co"># check optional 3rd letter</span></span>
+<span id="cb1-18"><a href=""></a>  <span class="cf">if</span> chars[<span class="dv">0</span>].isalpha():</span>
+<span id="cb1-19"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-20"><a href=""></a>    <span class="co"># return true if of the form lll</span></span>
+<span id="cb1-21"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-22"><a href=""></a>  </span>
+<span id="cb1-23"><a href=""></a>  <span class="co"># check digit</span></span>
+<span id="cb1-24"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-25"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isdigit(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-26"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-27"><a href=""></a>  </span>
+<span id="cb1-28"><a href=""></a>  <span class="co"># check first letter after the digit</span></span>
+<span id="cb1-29"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-30"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-31"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-32"><a href=""></a>  </span>
+<span id="cb1-33"><a href=""></a>  <span class="co"># return true if of the form lldl or llldl</span></span>
+<span id="cb1-34"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-35"><a href=""></a>  </span>
+<span id="cb1-36"><a href=""></a>  <span class="co"># check second letter after the digit</span></span>
+<span id="cb1-37"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-38"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-39"><a href=""></a>  </span>
+<span id="cb1-40"><a href=""></a>  <span class="co"># return true if of the form lldll or llldll</span></span>
+<span id="cb1-41"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-42"><a href=""></a>  </span>
+<span id="cb1-43"><a href=""></a>  <span class="co"># check third letter after the digit</span></span>
+<span id="cb1-44"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-45"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-46"><a href=""></a>  </span>
+<span id="cb1-47"><a href=""></a>  <span class="co"># return true if of the form lldlll or llldlll</span></span>
+<span id="cb1-48"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-49"><a href=""></a>  </span>
+<span id="cb1-50"><a href=""></a>  <span class="co"># if there is more input, then it's not a valid userid</span></span>
+<span id="cb1-51"><a href=""></a>  <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Source: <a href="src/reductions/uvauserid1.py.html">uvauserid1.py</a></p>
 </section>
@@ -7756,7 +7771,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="as-code" class="slide level2">
 <h2>As code</h2>
-<div id="5299550c" class="cell" data-execution_count="2">
+<div id="21c4415d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> check_uva_userid2(what):</span>
 <span id="cb2-2"><a href=""></a>  <span class="co"># returns True if the passed parameter is a valid UVA userid, else False</span></span>
 <span id="cb2-3"><a href=""></a></span>
@@ -7777,17 +7792,20 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 <span id="cb2-18"><a href=""></a>  chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
 <span id="cb2-19"><a href=""></a>  state <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb2-20"><a href=""></a>  <span class="cf">while</span> <span class="bu">len</span>(chars) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb2-21"><a href=""></a>    <span class="co"># which is whether it's a letter (0), digit (1), or other (2)</span></span>
-<span id="cb2-22"><a href=""></a>    which <span class="op">=</span> <span class="dv">0</span> <span class="cf">if</span> chars[<span class="dv">0</span>].isalpha() <span class="cf">else</span> <span class="dv">1</span> <span class="cf">if</span> chars[<span class="dv">0</span>].isdigit() <span class="cf">else</span> <span class="dv">2</span></span>
-<span id="cb2-23"><a href=""></a>    <span class="co"># get the state transition, and verify it's not None</span></span>
-<span id="cb2-24"><a href=""></a>    next_state <span class="op">=</span> state_table[state][which]</span>
-<span id="cb2-25"><a href=""></a>    <span class="cf">if</span> next_state <span class="kw">is</span> <span class="va">None</span>: <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb2-26"><a href=""></a>    <span class="co"># transition to that state and pop the input character</span></span>
-<span id="cb2-27"><a href=""></a>    state <span class="op">=</span> next_state</span>
-<span id="cb2-28"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
-<span id="cb2-29"><a href=""></a></span>
-<span id="cb2-30"><a href=""></a>  <span class="co"># we should have ended in a final state</span></span>
-<span id="cb2-31"><a href=""></a>  <span class="cf">return</span> state <span class="kw">in</span> final_states</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-21"><a href=""></a></span>
+<span id="cb2-22"><a href=""></a>    <span class="co"># which is whether it's a letter (0), digit (1), or other (2)</span></span>
+<span id="cb2-23"><a href=""></a>    which <span class="op">=</span> <span class="dv">0</span> <span class="cf">if</span> chars[<span class="dv">0</span>].isalpha() <span class="cf">else</span> <span class="dv">1</span> <span class="cf">if</span> chars[<span class="dv">0</span>].isdigit() <span class="cf">else</span> <span class="dv">2</span></span>
+<span id="cb2-24"><a href=""></a></span>
+<span id="cb2-25"><a href=""></a>    <span class="co"># get the state transition, and verify it's not None</span></span>
+<span id="cb2-26"><a href=""></a>    next_state <span class="op">=</span> state_table[state][which]</span>
+<span id="cb2-27"><a href=""></a>    <span class="cf">if</span> next_state <span class="kw">is</span> <span class="va">None</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb2-28"><a href=""></a></span>
+<span id="cb2-29"><a href=""></a>    <span class="co"># transition to that state and pop the input character</span></span>
+<span id="cb2-30"><a href=""></a>    state <span class="op">=</span> next_state</span>
+<span id="cb2-31"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
+<span id="cb2-32"><a href=""></a></span>
+<span id="cb2-33"><a href=""></a>  <span class="co"># we should have ended in a final state</span></span>
+<span id="cb2-34"><a href=""></a>  <span class="cf">return</span> state <span class="kw">in</span> final_states</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Source: <a href="src/reductions/uvauserid2.py.html">uvauserid2.py</a></p>
 </section>
@@ -7803,7 +7821,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 <ul>
 <li>But which way to go?
 <ul>
-<li>In state 3, on a input of a letter, we could go to two different states: 4 and 8 (likewise for states 5 and 6)</li>
+<li>In state 3, on a input of a letter, we could go to two different states: 4 or 8 (likewise for states 5 and 6)</li>
 </ul></li>
 <li>This is called <em>non-determinism</em></li>
 </ul>
@@ -7811,9 +7829,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 <section id="automata-2" class="slide level2">
 <h2>Automata</h2>
 
-<img data-src="graphs/reductions/automata_3.svg" class="center r-stretch" style="width:50%"><ul>
-<li>The same automata as last time, but laid out differently</li>
-</ul>
+<img data-src="graphs/reductions/automata_3.svg" class="center r-stretch" style="width:50%"><p>The same automata as the last slide, but laid out differently</p>
 </section>
 <section id="why-non-determinism" class="slide level2">
 <h2>Why non-determinism</h2>
@@ -7832,9 +7848,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 <section id="automata-3" class="slide level2">
 <h2>Automata</h2>
 
-<img data-src="graphs/reductions/automata_4.svg" class="center r-stretch" style="width:50%"><ul>
-<li>This has empty (<span class="math inline">\(\epsilon\)</span>) transitions; only allowed on NFAs</li>
-</ul>
+<img data-src="graphs/reductions/automata_4.svg" class="center r-stretch" style="width:50%"><p>This has empty (<span class="math inline">\(\epsilon\)</span>) transitions; only allowed on NFAs</p>
 </section>
 <section id="automata-definitions" class="slide level2">
 <h2>Automata definitions</h2>
@@ -7863,14 +7877,19 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="more-powerful-automata" class="slide level2">
 <h2>More powerful automata</h2>
-<p><img data-src="graphs/reductions/automata_6.svg" class="fragment" style="height:70%;float:right;width:30%"></p>
+<p><img data-src="graphs/reductions/automata_6.svg" class="fragment" style="height:70%;float:right;width:30%" data-fragment-index="1"></p>
 <ul>
-<li>How would you write an automata that can accept strings with <em>some</em> positive number of a’s followed by <strong>the same number</strong> of b’s?
+<li>How would you write an automata that can accept strings with some positive number of a’s followed by <strong>the same number</strong> of b’s?
 <ul>
 <li>Expressed as <span class="math inline">\(a^nb^n\)</span></li>
 </ul></li>
+</ul>
+<p>&nbsp;</p>
+<div class="fragment" data-fragment-index="1">
+<ul>
 <li>Answer: you can’t. Any <em>finite</em> automata of <span class="math inline">\(n\)</span> states cannot accept a string of <span class="math inline">\(n+1\)</span> a’s (and <span class="math inline">\(n+1\)</span> b’s)</li>
 </ul>
+</div>
 </section>
 <section id="accepting-anbn" class="slide level2">
 <h2>Accepting <span class="math inline">\(a^nb^n\)</span></h2>
@@ -7901,12 +7920,15 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="yet-even-more-powerful-automata" class="slide level2">
 <h2>Yet even more powerful automata</h2>
+<p><img data-src="graphs/reductions/automata_7.svg" class="center" style="float:right;width:40vw;height:auto;margin-left:20px"></p>
 <ul>
 <li>What about a programming language?</li>
-<li>This needs a <em>Turing machine</em>, which can compute anything a computer can compute</li>
+<li>This needs a <em>Turing machine</em>, which can compute anything a computer can compute
+<ul>
+<li>Such languages are called <em>recursively enumerable</em> languages</li>
+</ul></li>
 </ul>
-
-<img data-src="graphs/reductions/automata_7.svg" class="center r-stretch"></section>
+</section>
 <section id="turing-machines" class="slide level2">
 <h2>Turing Machines</h2>
 <p><img data-src="graphs/reductions/automata_7.svg" style="float:right;width:30vw;height:auto"></p>
@@ -7915,7 +7937,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 <ul>
 <li>A computer’s current memory state is, in effect, a DFA state</li>
 </ul></li>
-<li>A infinite tape that it can read and write values to
+<li>And an infinite tape that it can read and write values to
 <ul>
 <li>Analogous to a computer’s memory</li>
 </ul></li>
@@ -8068,8 +8090,8 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </tbody>
 </table>
 </section>
-<section id="what-state-is-the-nfa-in-the-tableu" class="slide level2">
-<h2>What state is the NFA in? (the <em>tableu</em>)</h2>
+<section id="what-state-is-the-nfa-in-1" class="slide level2">
+<h2>What state is the NFA in?</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 9%">
@@ -8187,8 +8209,8 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </tbody>
 </table>
 </section>
-<section id="adding-in-step-numbers" class="slide level2">
-<h2>Adding in step numbers</h2>
+<section id="adding-in-step-numbers-the-tableu" class="slide level2">
+<h2>Adding in step numbers (the <em>tableu</em>)</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 9%">
@@ -8471,17 +8493,17 @@ accepted = \\
 </section>
 <section id="complexity-classes" class="slide level2">
 <h2>Complexity classes</h2>
-<div class="font-90">
+<div class="font-85">
 <p><img data-src="images/reductions/P-NP.svg" style="float:right;margin-left:20px"></p>
 <ul>
 <li><span class="green">P</span>: Any problem that can be solved by a <em>deterministic</em> finite automata (DFA) in polynomial time
 <ul>
-<li>Can also be <em>verified</em> in polynomial time</li>
+<li>Solution can be <em>verified</em> in polynomial time</li>
 </ul></li>
 <li><span class="blue">NP</span>: Any problem that can be solved by a <em>non-deterministic</em> finite automata (NFA) in polynomial time
 <ul>
 <li>Might take exponential time on a DFA</li>
-<li>Can be <em>verified</em> in polynomial time</li>
+<li>Solution can be <em>verified</em> in polynomial time</li>
 </ul></li>
 <li>If a problem can be solved by a DFA in polynomial time, then it can be solved by an NFA in polynomial time
 <ul>
@@ -8523,10 +8545,10 @@ accepted = \\
 <li>As we can verify a solution in polynomial time</li>
 </ul></li>
 <li>What if we want to show that some problem <span class="math inline">\(X\)</span> is just as difficult as SAT?</li>
-<li>We would want to show that:
+<li>We would want to show that both:
 <ul>
-<li><span class="math inline">\(X\)</span> reduces to SAT, and</li>
-<li>SAT reduces to <span class="math inline">\(X\)</span></li>
+<li><span class="math inline">\(X\)</span> reduces to SAT: <span class="math inline">\(X \le_p SAT\)</span></li>
+<li>SAT reduces to <span class="math inline">\(X\)</span>: <span class="math inline">\(SAT \le_p X\)</span></li>
 </ul></li>
 <li>That would mean they are (roughly) equivalent in difficulty
 <ul>
@@ -8564,12 +8586,12 @@ accepted = \\
 <ul>
 <li>Meaning solvable by a NFA in polynomial time</li>
 </ul></li>
-<li>And an answer to <span class="math inline">\(X\)</span> being able to be <em>verified</em> in polynomial time</li>
+<li>And an solution to <span class="math inline">\(X\)</span> being able to be <em>verified</em> in polynomial time</li>
 </ul></li>
 <li>Are actually the same thing</li>
 </ul>
 <p>&nbsp;</p>
-<p><span class="fragment">So we just have to show that we can <em>verify</em> a problem’s answer in polynomial time to show it is in <span class="blue">NP</span></span></p>
+<p><span class="fragment">So we just have to show that we can <em>verify</em> a problem’s solution in polynomial time to show it is in <span class="blue">NP</span></span></p>
 </section>
 <section id="example-reduction-vertex-cover" class="slide level2">
 <h2>Example reduction: Vertex Cover</h2>
@@ -8581,8 +8603,14 @@ accepted = \\
 </ul></li>
 <li>To prove it’s <span class="purple">NP-complete</span>:
 <ul>
-<li>Show it’s in <span class="blue">NP</span> (this means it reduces to SAT)</li>
-<li>Reduce a known <span class="purple">NP-complete</span> problem to it</li>
+<li>Show it’s in <span class="blue">NP</span> (this means it reduces to SAT)
+<ul>
+<li><span class="math inline">\(VC \in {\color{blue}NP} \equiv VC \le_p SAT\)</span></li>
+</ul></li>
+<li>Reduce a known <span class="purple">NP-complete</span> problem to it
+<ul>
+<li><span class="math inline">\(SAT \le_p VC\)</span></li>
+</ul></li>
 </ul></li>
 </ul>
 </section>
@@ -8671,7 +8699,7 @@ accepted = \\
 </tbody></table>
 </td>
 <td>
-<img src="graphs/reductions/bipartite_graph-3.svg">
+<img src="graphs/reductions/bipartite_graph-1.svg">
 </td>
 <td>
 <table>
@@ -8716,12 +8744,12 @@ accepted = \\
 </tbody></table>
 <div class="font-85">
 <ul>
-<li>Consider the problem of finding <em>a</em> bipartite matching (not necessarily optimal)</li>
+<li>Consider the problem of finding <em>a</em> bipartite matching (not necessarily maximal)</li>
 <li>Reduce it to SAT:
 <ul>
 <li>Create a set of clauses for the possible matchings: <span class="math inline">\(bloomfied \wedge husky\)</span>, <span class="math inline">\(pettit \wedge labrador\)</span>, etc.
 <ul>
-<li>But also ensure one match per person:<br> <span class="math inline">\(bloomfied \wedge husky \wedge \neg labrador \wedge \neg dachshund \wedge \neg jonangi\)</span></li>
+<li>But also ensure one dog per person:<br> <span class="math inline">\(bloomfied \wedge husky \wedge \neg labrador \wedge \neg dachshund \wedge \neg jonangi\)</span></li>
 <li>Likewise ensure one human per dog</li>
 </ul></li>
 <li>OR all these clauses together</li>
@@ -8775,7 +8803,7 @@ accepted = \\
 </tbody></table>
 </td>
 <td>
-<img src="graphs/reductions/bipartite_graph-3.svg">
+<img src="graphs/reductions/bipartite_graph-1.svg">
 </td>
 <td>
 <table>
@@ -8821,12 +8849,12 @@ accepted = \\
 <div class="font-90">
 <p>What did we just show?</p>
 <ul>
-<li>That bipartite matching (non-minimal) can be reduced to SAT</li>
-<li>But non-minimal bipartite matching is much easier than SAT!
+<li>That bipartite matching (non-maximal) can be reduced to SAT</li>
+<li>But non-maximal bipartite matching is much easier than SAT!
 <ul>
-<li>A non-minimal matching can be done in <span class="math inline">\(O(V)\)</span> time</li>
+<li>A non-maximal matching can be done in <span class="math inline">\(O(V)\)</span> time</li>
 </ul></li>
-<li>This doesn’t show that non-minimal bipartite matching is as difficult as SAT</li>
+<li>This doesn’t show that non-maximal bipartite matching is as difficult as SAT</li>
 </ul>
 </div>
 </section>
