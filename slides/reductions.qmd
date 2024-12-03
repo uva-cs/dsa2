@@ -3791,7 +3791,7 @@ We must show (prove):<br>
 
 
 ## Proof: &lArr;
-$S$ is an independent set of $G$ iff $V-S$ is a vertex cover of $G$
+$\color{red}S$ is an independent set of $G$ iff $V-S$ is a vertex cover of $G$
 
 <img src="graphs/reductions/independent_set-5.svg" style="float:right;width:20vw;height:auto">
 
@@ -3801,7 +3801,7 @@ Consider any <span class='magenta'>edge</span> ${\color{magenta}(x,y)} \in E$
 
 If $\color{red}x\in S$, then $y \notin S$ because otherwise $\color{red}S$ would not be an independent set
 
-Therefore $y \in V-S$, so edge $(x,y)$ is covered by $V-S$
+Therefore $y \in V-S$, so <span class='magenta'>edge</span> ${\color{magenta}(x,y)}$ is covered by $V-S$
 
 
 
@@ -4274,7 +4274,7 @@ Source: [uvauserid2.py](src/reductions/uvauserid2.py.html)
 
 ## Automata
 
-What What if we only have one accepting (aka final) state?
+What if we only have one accepting (aka final) state?
 
 ::: {.r-stack}
 ![](graphs/reductions/automata_2.svg){.center style="width:50vw"}
@@ -4284,10 +4284,12 @@ What What if we only have one accepting (aka final) state?
 ![](graphs/reductions/automata_9.svg){.center style="width:50vw" .fragment}
 
 ![](graphs/reductions/automata_10.svg){.center style="width:50vw" .fragment}
+
+![](graphs/reductions/automata_11.svg){.center style="width:50vw" .fragment}
 :::
 
 - But which way to go?
-	- In state 3, on a input of a letter, we could go to two different states: 4 or 8 (likewise for states 5 and 6)
+	- In state 2, on a input of a letter, we could go to two different states: 3 or 8 (likewise for states 3, 5, and 6)
 - This is called *non-determinism*
 
 

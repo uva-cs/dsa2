@@ -7155,12 +7155,12 @@ Take the complement
 </section>
 <section id="proof" class="slide level2">
 <h2>Proof: ⇐</h2>
-<p><span class="math inline">\(S\)</span> is an independent set of <span class="math inline">\(G\)</span> iff <span class="math inline">\(V-S\)</span> is a vertex cover of <span class="math inline">\(G\)</span></p>
+<p><span class="math inline">\(\color{red}S\)</span> is an independent set of <span class="math inline">\(G\)</span> iff <span class="math inline">\(V-S\)</span> is a vertex cover of <span class="math inline">\(G\)</span></p>
 <p><img src="graphs/reductions/independent_set-5.svg" style="float:right;width:20vw;height:auto"></p>
 <p>Let <span class="math inline">\(\color{red}S\)</span> be an independent set</p>
 <p>Consider any <span class="magenta">edge</span> <span class="math inline">\({\color{magenta}(x,y)} \in E\)</span></p>
 <p>If <span class="math inline">\(\color{red}x\in S\)</span>, then <span class="math inline">\(y \notin S\)</span> because otherwise <span class="math inline">\(\color{red}S\)</span> would not be an independent set</p>
-<p>Therefore <span class="math inline">\(y \in V-S\)</span>, so edge <span class="math inline">\((x,y)\)</span> is covered by <span class="math inline">\(V-S\)</span></p>
+<p>Therefore <span class="math inline">\(y \in V-S\)</span>, so <span class="magenta">edge</span> <span class="math inline">\({\color{magenta}(x,y)}\)</span> is covered by <span class="math inline">\(V-S\)</span></p>
 </section>
 <section id="proof-1" class="slide level2">
 <h2>Proof: ⇒</h2>
@@ -7700,7 +7700,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="programmatically" class="slide level2">
 <h2>Programmatically</h2>
-<div id="bfc78f1a" class="cell" data-execution_count="1">
+<div id="c01939d1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="kw">def</span> check_uva_userid1(what):</span>
 <span id="cb1-2"><a href=""></a>  chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
 <span id="cb1-3"><a href=""></a>  </span>
@@ -7771,7 +7771,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="as-code" class="slide level2">
 <h2>As code</h2>
-<div id="21c4415d" class="cell" data-execution_count="2">
+<div id="cf17d14c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> check_uva_userid2(what):</span>
 <span id="cb2-2"><a href=""></a>  <span class="co"># returns True if the passed parameter is a valid UVA userid, else False</span></span>
 <span id="cb2-3"><a href=""></a></span>
@@ -7811,17 +7811,18 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="automata-1" class="slide level2">
 <h2>Automata</h2>
-<p>What What if we only have one accepting (aka final) state?</p>
+<p>What if we only have one accepting (aka final) state?</p>
 <div class="r-stack">
 <p><img data-src="graphs/reductions/automata_2.svg" class="center" style="width:50vw"></p>
 <p><img data-src="graphs/reductions/automata_8.svg" class="center fragment" style="width:50vw"></p>
 <p><img data-src="graphs/reductions/automata_9.svg" class="center fragment" style="width:50vw"></p>
 <p><img data-src="graphs/reductions/automata_10.svg" class="center fragment" style="width:50vw"></p>
+<p><img data-src="graphs/reductions/automata_11.svg" class="center fragment" style="width:50vw"></p>
 </div>
 <ul>
 <li>But which way to go?
 <ul>
-<li>In state 3, on a input of a letter, we could go to two different states: 4 or 8 (likewise for states 5 and 6)</li>
+<li>In state 2, on a input of a letter, we could go to two different states: 3 or 8 (likewise for states 3, 5, and 6)</li>
 </ul></li>
 <li>This is called <em>non-determinism</em></li>
 </ul>

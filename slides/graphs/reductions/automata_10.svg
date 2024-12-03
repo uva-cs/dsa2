@@ -228,7 +228,7 @@
                id="g126">
               <path
                  d="m 150.09671,-47.1051 c 0,4.84988 -3.93151,8.78138 -8.78139,8.78138 -4.8499,0 -8.7814,-3.9315 -8.7814,-8.78138 0,-4.84989 3.9315,-8.78139 8.7814,-8.78139 4.84988,0 8.78139,3.9315 8.78139,8.78139 z"
-                 style="fill:none;stroke:#000000;stroke-width:1.19553;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+                 style="fill:none;stroke:#bf0040;stroke-width:1.19553;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
                  id="path128" />
             </g>
             <g
@@ -242,7 +242,7 @@
                   <text
                      xml:space="preserve"
                      transform="matrix(1,0,0,-1,195.941,33.195)"
-                     style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                     style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#bf0040;fill-opacity:1;fill-rule:nonzero;stroke:none"
                      id="text138"><tspan
                        x="0"
                        y="0"
@@ -263,7 +263,7 @@
                id="g146">
               <path
                  d="m 102.99161,-47.1051 c 0,4.84988 -3.93151,8.78138 -8.78141,8.78138 -4.84988,0 -8.78138,-3.9315 -8.78138,-8.78138 0,-4.84989 3.9315,-8.78139 8.78138,-8.78139 4.8499,0 8.78141,3.9315 8.78141,8.78139 z"
-                 style="fill:none;stroke:#bf0040;stroke-width:1.19553;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+                 style="fill:none;stroke:#ff0000;stroke-width:1.19553;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
                  id="path148" />
             </g>
             <g
@@ -277,7 +277,7 @@
                   <text
                      xml:space="preserve"
                      transform="matrix(1,0,0,-1,148.837,33.195)"
-                     style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#bf0040;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                     style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none"
                      id="text158"><tspan
                        x="0"
                        y="0"
@@ -298,7 +298,7 @@
                id="g166">
               <path
                  d="m 55.88649,-47.1051 c 0,4.84988 -3.9315,8.78138 -8.78139,8.78138 -4.84988,0 -8.78138,-3.9315 -8.78138,-8.78138 0,-4.84989 3.9315,-8.78139 8.78138,-8.78139 4.84989,0 8.78139,3.9315 8.78139,8.78139 z"
-                 style="fill:none;stroke:#ff0000;stroke-width:1.19553;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+                 style="fill:none;stroke:#000000;stroke-width:1.19553;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
                  id="path168" />
             </g>
             <g
@@ -312,7 +312,7 @@
                   <text
                      xml:space="preserve"
                      transform="matrix(1,0,0,-1,101.732,33.195)"
-                     style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                     style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
                      id="text178"><tspan
                        x="0"
                        y="0"
@@ -477,12 +477,12 @@
             <g
                id="g268">
               <path
-                 d="m 103.58936,0 h 24.56098"
+                 d="M 40.47304,-6.63205 9.30904,-37.79607"
                  style="fill:none;stroke:#000000;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
                  id="path270" />
               <g
                  id="g272"
-                 transform="translate(128.15034)">
+                 transform="matrix(-0.7071,-0.7071,0.7071,-0.7071,9.30905,-37.79605)">
                 <g
                    id="g274">
                   <path
@@ -495,15 +495,15 @@
                  id="g278">
                 <g
                    id="g280"
-                   transform="translate(111.542,4.118)">
+                   transform="translate(17.333,-19.435)">
                   <g
                      id="g282">
                     <g
                        id="g284"
-                       transform="translate(-168.66,-87.683)">
+                       transform="translate(-74.451,-64.13)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,168.66,87.683)"
+                         transform="matrix(1,0,0,-1,74.451,64.13)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text288"><tspan
                            x="0 4.7880254 8.1085606"
@@ -512,12 +512,12 @@
                            id="tspan286">a-z</tspan></text>
                       <g
                          id="g290"
-                         transform="translate(168.66,87.683)" />
+                         transform="translate(74.451,64.13)" />
                     </g>
                   </g>
                   <g
                      id="g292"
-                     transform="translate(-111.542,-4.118)" />
+                     transform="translate(-17.333,19.435)" />
                 </g>
               </g>
             </g>
@@ -527,12 +527,12 @@
             <g
                id="g296">
               <path
-                 d="m 100.84227,-6.63205 31.16402,-31.16402"
+                 d="m 103.58936,0 h 24.56098"
                  style="fill:none;stroke:#000000;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
                  id="path298" />
               <g
                  id="g300"
-                 transform="matrix(0.7071,-0.7071,0.7071,0.7071,132.00627,-37.79605)">
+                 transform="translate(128.15034)">
                 <g
                    id="g302">
                   <path
@@ -545,29 +545,29 @@
                  id="g306">
                 <g
                    id="g308"
-                   transform="translate(100.361,-26.818)">
+                   transform="translate(111.542,4.118)">
                   <g
                      id="g310">
                     <g
                        id="g312"
-                       transform="translate(-157.479,-56.747)">
+                       transform="translate(-168.66,-87.683)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,157.479,56.747)"
+                         transform="matrix(1,0,0,-1,168.66,87.683)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text316"><tspan
-                           x="0 4.9812999 8.3018341"
+                           x="0 4.7880254 8.1085606"
                            y="0"
                            sodipodi:role="line"
-                           id="tspan314">0-9</tspan></text>
+                           id="tspan314">a-z</tspan></text>
                       <g
                          id="g318"
-                         transform="translate(157.479,56.747)" />
+                         transform="translate(168.66,87.683)" />
                     </g>
                   </g>
                   <g
                      id="g320"
-                     transform="translate(-100.361,26.818)" />
+                     transform="translate(-111.542,-4.118)" />
                 </g>
               </g>
             </g>
@@ -577,12 +577,12 @@
             <g
                id="g324">
               <path
-                 d="M 85.82185,-4.19409 11.77425,-41.2181"
+                 d="m 100.84227,-6.63205 31.16402,-31.16402"
                  style="fill:none;stroke:#000000;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
                  id="path326" />
               <g
                  id="g328"
-                 transform="matrix(-0.89436,-0.44717,0.44717,-0.89436,11.77426,-41.21808)">
+                 transform="matrix(0.7071,-0.7071,0.7071,0.7071,132.00627,-37.79605)">
                 <g
                    id="g330">
                   <path
@@ -595,29 +595,29 @@
                  id="g334">
                 <g
                    id="g336"
-                   transform="translate(40.885,-19.435)">
+                   transform="translate(100.361,-26.818)">
                   <g
                      id="g338">
                     <g
                        id="g340"
-                       transform="translate(-98.003,-64.13)">
+                       transform="translate(-157.479,-56.747)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,98.003,64.13)"
+                         transform="matrix(1,0,0,-1,157.479,56.747)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text344"><tspan
-                           x="0 4.7880254 8.1085606"
+                           x="0 4.9812999 8.3018341"
                            y="0"
                            sodipodi:role="line"
-                           id="tspan342">a-z</tspan></text>
+                           id="tspan342">0-9</tspan></text>
                       <g
                          id="g346"
-                         transform="translate(98.003,64.13)" />
+                         transform="translate(157.479,56.747)" />
                     </g>
                   </g>
                   <g
                      id="g348"
-                     transform="translate(-40.885,19.435)" />
+                     transform="translate(-100.361,26.818)" />
                 </g>
               </g>
             </g>
@@ -627,12 +627,12 @@
             <g
                id="g352">
               <path
-                 d="M 141.31532,-9.37914 V -33.94012"
+                 d="M 85.82185,-4.19409 11.77425,-41.2181"
                  style="fill:none;stroke:#000000;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
                  id="path354" />
               <g
                  id="g356"
-                 transform="rotate(-90,53.6876,-87.62772)">
+                 transform="matrix(-0.89436,-0.44717,0.44717,-0.89436,11.77426,-41.21808)">
                 <g
                    id="g358">
                   <path
@@ -645,29 +645,29 @@
                  id="g362">
                 <g
                    id="g364"
-                   transform="translate(145.431,-26.818)">
+                   transform="translate(40.885,-19.435)">
                   <g
                      id="g366">
                     <g
                        id="g368"
-                       transform="translate(-202.549,-56.747)">
+                       transform="translate(-98.003,-64.13)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,202.549,56.747)"
+                         transform="matrix(1,0,0,-1,98.003,64.13)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text372"><tspan
-                           x="0 4.9812999 8.3018341"
+                           x="0 4.7880254 8.1085606"
                            y="0"
                            sodipodi:role="line"
-                           id="tspan370">0-9</tspan></text>
+                           id="tspan370">a-z</tspan></text>
                       <g
                          id="g374"
-                         transform="translate(202.549,56.747)" />
+                         transform="translate(98.003,64.13)" />
                     </g>
                   </g>
                   <g
                      id="g376"
-                     transform="translate(-145.431,26.818)" />
+                     transform="translate(-40.885,19.435)" />
                 </g>
               </g>
             </g>
@@ -677,12 +677,12 @@
             <g
                id="g380">
               <path
-                 d="M 131.93617,-47.1051 H 107.37518"
+                 d="M 141.31532,-9.37914 V -33.94012"
                  style="fill:none;stroke:#000000;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
                  id="path382" />
               <g
                  id="g384"
-                 transform="rotate(180,53.68759,-23.55255)">
+                 transform="rotate(-90,53.6876,-87.62772)">
                 <g
                    id="g386">
                   <path
@@ -695,29 +695,29 @@
                  id="g390">
                 <g
                    id="g392"
-                   transform="translate(111.542,-55.65)">
+                   transform="translate(145.431,-26.818)">
                   <g
                      id="g394">
                     <g
                        id="g396"
-                       transform="translate(-168.66,-27.915)">
+                       transform="translate(-202.549,-56.747)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,168.66,27.915)"
+                         transform="matrix(1,0,0,-1,202.549,56.747)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text400"><tspan
-                           x="0 4.7880254 8.1085606"
+                           x="0 4.9812999 8.3018341"
                            y="0"
                            sodipodi:role="line"
-                           id="tspan398">a-z</tspan></text>
+                           id="tspan398">0-9</tspan></text>
                       <g
                          id="g402"
-                         transform="translate(168.66,27.915)" />
+                         transform="translate(202.549,56.747)" />
                     </g>
                   </g>
                   <g
                      id="g404"
-                     transform="translate(-111.542,55.65)" />
+                     transform="translate(-145.431,26.818)" />
                 </g>
               </g>
             </g>
@@ -727,17 +727,17 @@
             <g
                id="g408">
               <path
-                 d="M 132.5019,-43.89735 C 87.1757,-27.39978 54.1396,-27.39978 12.37086,-42.60257"
-                 style="fill:none;stroke:#000000;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+                 d="M 131.93617,-47.1051 H 107.37518"
+                 style="fill:none;stroke:#0000ff;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
                  id="path410" />
               <g
                  id="g412"
-                 transform="matrix(-0.93968,-0.34201,0.34201,-0.93968,12.37086,-42.60255)">
+                 transform="rotate(180,53.68759,-23.55255)">
                 <g
                    id="g414">
                   <path
                      d="M 3.78581,0 -2.27148,3.02866 0,0 -2.27148,-3.02866"
-                     style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                     style="fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
                      id="path416" />
                 </g>
               </g>
@@ -745,135 +745,135 @@
                  id="g418">
                 <g
                    id="g420"
-                   transform="translate(64.437,-27.406)">
+                   transform="translate(111.542,-55.65)">
                   <g
                      id="g422">
                     <g
                        id="g424"
+                       transform="translate(-168.66,-27.915)">
+                      <text
+                         xml:space="preserve"
+                         transform="matrix(1,0,0,-1,168.66,27.915)"
+                         style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                         id="text430"><tspan
+                           x="0"
+                           y="0"
+                           id="tspan426">a</tspan><tspan
+                           x="4.7880254 8.1085606"
+                           y="0"
+                           sodipodi:role="line"
+                           id="tspan428">-z</tspan></text>
+                      <g
+                         id="g432"
+                         transform="translate(168.66,27.915)" />
+                    </g>
+                  </g>
+                  <g
+                     id="g434"
+                     transform="translate(-111.542,55.65)" />
+                </g>
+              </g>
+            </g>
+          </g>
+          <g
+             id="g436">
+            <g
+               id="g438">
+              <path
+                 d="M 132.5019,-43.89735 C 87.1757,-27.39978 54.1396,-27.39978 12.37086,-42.60257"
+                 style="fill:none;stroke:#0000ff;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+                 id="path440" />
+              <g
+                 id="g442"
+                 transform="matrix(-0.93968,-0.34201,0.34201,-0.93968,12.37086,-42.60255)">
+                <g
+                   id="g444">
+                  <path
+                     d="M 3.78581,0 -2.27148,3.02866 0,0 -2.27148,-3.02866"
+                     style="fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                     id="path446" />
+                </g>
+              </g>
+              <g
+                 id="g448">
+                <g
+                   id="g450"
+                   transform="translate(64.437,-27.406)">
+                  <g
+                     id="g452">
+                    <g
+                       id="g454"
                        transform="translate(-121.555,-56.159)">
                       <text
                          xml:space="preserve"
                          transform="matrix(1,0,0,-1,121.555,56.159)"
-                         style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-                         id="text428"><tspan
-                           x="0 4.7880254 8.1085606"
+                         style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                         id="text460"><tspan
+                           x="0"
+                           y="0"
+                           id="tspan456">a</tspan><tspan
+                           x="4.7880254 8.1085606"
                            y="0"
                            sodipodi:role="line"
-                           id="tspan426">a-z</tspan></text>
+                           id="tspan458">-z</tspan></text>
                       <g
-                         id="g430"
+                         id="g462"
                          transform="translate(121.555,56.159)" />
                     </g>
                   </g>
                   <g
-                     id="g432"
+                     id="g464"
                      transform="translate(-64.437,27.406)" />
                 </g>
               </g>
             </g>
           </g>
           <g
-             id="g434">
+             id="g466">
             <g
-               id="g436">
+               id="g468">
               <path
                  d="M 84.83105,-47.1051 H 60.27008"
-                 style="fill:none;stroke:#0000ff;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                 id="path438" />
+                 style="fill:none;stroke:#000000;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+                 id="path470" />
               <g
-                 id="g440"
+                 id="g472"
                  transform="rotate(180,30.13504,-23.55255)">
                 <g
-                   id="g442">
+                   id="g474">
                   <path
                      d="M 3.78581,0 -2.27148,3.02866 0,0 -2.27148,-3.02866"
-                     style="fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-                     id="path444" />
+                     style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                     id="path476" />
                 </g>
               </g>
               <g
-                 id="g446">
+                 id="g478">
                 <g
-                   id="g448"
+                   id="g480"
                    transform="translate(64.437,-55.65)">
                   <g
-                     id="g450">
+                     id="g482">
                     <g
-                       id="g452"
+                       id="g484"
                        transform="translate(-121.555,-27.915)">
                       <text
                          xml:space="preserve"
                          transform="matrix(1,0,0,-1,121.555,27.915)"
-                         style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-                         id="text458"><tspan
-                           x="0"
-                           y="0"
-                           id="tspan454">a</tspan><tspan
-                           x="4.7880254 8.1085606"
+                         style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                         id="text488"><tspan
+                           x="0 4.7880254 8.1085606"
                            y="0"
                            sodipodi:role="line"
-                           id="tspan456">-z</tspan></text>
+                           id="tspan486">a-z</tspan></text>
                       <g
-                         id="g460"
+                         id="g490"
                          transform="translate(121.555,27.915)" />
                     </g>
                   </g>
                   <g
-                     id="g462"
-                     transform="translate(-64.437,55.65)" />
-                </g>
-              </g>
-            </g>
-          </g>
-          <g
-             id="g464">
-            <g
-               id="g466">
-              <path
-                 d="M 86.08777,-51.79453 C 59.75685,-66.99664 34.45334,-66.99664 11.401,-53.68738"
-                 style="fill:none;stroke:#0000ff;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
-                 id="path468" />
-              <g
-                 id="g470"
-                 transform="matrix(-0.86601,0.49998,-0.49998,-0.86601,11.401,-53.68738)">
-                <g
-                   id="g472">
-                  <path
-                     d="M 3.78581,0 -2.27148,3.02866 0,0 -2.27148,-3.02866"
-                     style="fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-                     id="path474" />
-                </g>
-              </g>
-              <g
-                 id="g476">
-                <g
-                   id="g478"
-                   transform="translate(40.885,-71.741)">
-                  <g
-                     id="g480">
-                    <g
-                       id="g482"
-                       transform="translate(-98.003,-11.824)">
-                      <text
-                         xml:space="preserve"
-                         transform="matrix(1,0,0,-1,98.003,11.824)"
-                         style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-                         id="text488"><tspan
-                           x="0"
-                           y="0"
-                           id="tspan484">a</tspan><tspan
-                           x="4.7880254 8.1085606"
-                           y="0"
-                           sodipodi:role="line"
-                           id="tspan486">-z</tspan></text>
-                      <g
-                         id="g490"
-                         transform="translate(98.003,11.824)" />
-                    </g>
-                  </g>
-                  <g
                      id="g492"
-                     transform="translate(-40.885,71.741)" />
+                     transform="translate(-64.437,55.65)" />
                 </g>
               </g>
             </g>
@@ -883,12 +883,12 @@
             <g
                id="g496">
               <path
-                 d="M 37.72595,-47.1051 H 13.16496"
+                 d="M 86.08777,-51.79453 C 59.75685,-66.99664 34.45334,-66.99664 11.401,-53.68738"
                  style="fill:none;stroke:#000000;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
                  id="path498" />
               <g
                  id="g500"
-                 transform="rotate(180,6.58248,-23.55255)">
+                 transform="matrix(-0.86601,0.49998,-0.49998,-0.86601,11.401,-53.68738)">
                 <g
                    id="g502">
                   <path
@@ -901,15 +901,15 @@
                  id="g506">
                 <g
                    id="g508"
-                   transform="translate(17.333,-55.65)">
+                   transform="translate(40.885,-71.741)">
                   <g
                      id="g510">
                     <g
                        id="g512"
-                       transform="translate(-74.451,-27.915)">
+                       transform="translate(-98.003,-11.824)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,74.451,27.915)"
+                         transform="matrix(1,0,0,-1,98.003,11.824)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text516"><tspan
                            x="0 4.7880254 8.1085606"
@@ -918,11 +918,61 @@
                            id="tspan514">a-z</tspan></text>
                       <g
                          id="g518"
-                         transform="translate(74.451,27.915)" />
+                         transform="translate(98.003,11.824)" />
                     </g>
                   </g>
                   <g
                      id="g520"
+                     transform="translate(-40.885,71.741)" />
+                </g>
+              </g>
+            </g>
+          </g>
+          <g
+             id="g522">
+            <g
+               id="g524">
+              <path
+                 d="M 37.72595,-47.1051 H 13.16496"
+                 style="fill:none;stroke:#000000;stroke-width:1.59404;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+                 id="path526" />
+              <g
+                 id="g528"
+                 transform="rotate(180,6.58248,-23.55255)">
+                <g
+                   id="g530">
+                  <path
+                     d="M 3.78581,0 -2.27148,3.02866 0,0 -2.27148,-3.02866"
+                     style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                     id="path532" />
+                </g>
+              </g>
+              <g
+                 id="g534">
+                <g
+                   id="g536"
+                   transform="translate(17.333,-55.65)">
+                  <g
+                     id="g538">
+                    <g
+                       id="g540"
+                       transform="translate(-74.451,-27.915)">
+                      <text
+                         xml:space="preserve"
+                         transform="matrix(1,0,0,-1,74.451,27.915)"
+                         style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                         id="text544"><tspan
+                           x="0 4.7880254 8.1085606"
+                           y="0"
+                           sodipodi:role="line"
+                           id="tspan542">a-z</tspan></text>
+                      <g
+                         id="g546"
+                         transform="translate(74.451,27.915)" />
+                    </g>
+                  </g>
+                  <g
+                     id="g548"
                      transform="translate(-17.333,55.65)" />
                 </g>
               </g>

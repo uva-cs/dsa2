@@ -969,6 +969,7 @@ def get_automata3 (nodecolors,edgecolors,step):
 \\path
     (1) edge[color={edgecolors[0]}] node[above] {{\\textcolor{{{edgecolors[0].strip()}}}a-z}} (2)
     (2) edge[color={edgecolors[1]}] node[right] {{\\textcolor{{{edgecolors[1].strip()}}}a-z}} (3)
+    (2) edge[color={edgecolors[2]}] node[below] {{\\textcolor{{{edgecolors[2].strip()}}}a-z}} (8)
     (3) edge[color={edgecolors[3]}] node[right] {{\\textcolor{{{edgecolors[3].strip()}}}a-z}} (4)
     (3) edge[color={edgecolors[4]}] node[left] {{\\textcolor{{{edgecolors[4].strip()}}}0-9}} (5)
     (3) edge[color={edgecolors[5]}] node[below] {{\\textcolor{{{edgecolors[5].strip()}}}a-z}} (8)
@@ -984,7 +985,7 @@ nodecolors = [ # for the animation of automata 3
     ['black', 'black', 'black', 'black', 'black', 'black', 'black', 'black',], # step 0
     ['red  ', 'black', 'black', 'black', 'black', 'black', 'black', 'black',], # step 1
     ['yellow','red  ', 'black', 'black', 'black', 'black', 'black', 'black',], # step 2
-    ['black', 'yellow','red  ', 'black', 'black', 'black', 'black', 'black',], # step 3
+    ['black', 'yellow','red  ', 'black', 'black', 'black', 'black', 'red  ',], # step 3
     ['black', 'black', 'yellow','red  ', 'red  ', 'black', 'black', 'red  ',], # step 4
     ['black', 'black', 'black', 'yellow','orange','red  ', 'black', 'orange',], # step 5
     ['black', 'black', 'black', 'black', 'yellow','orange','red  ', 'orange',], # step 6
@@ -1007,15 +1008,14 @@ edgecolors = [
 def make_automata():
     files = list(os.walk("graphs/automata"))[0][2]
     files.sort()
-    if False:
-        for filename in files:
-            if filename[-4:] in [".svg", ".log", ".tex", ".pdf", ".aux"]:
-                print("ignoring",filename)
-                continue
-            with open("graphs/automata/"+filename) as f:
-                contents = f.read()
-            svg = get_svg_from_tex_tikz(contents)
-            xprint(svg,"automata_"+filename)
+    for filename in files:
+        if filename[-4:] in [".svg", ".log", ".tex", ".pdf", ".aux"]:
+            print("ignoring",filename)
+            continue
+        with open("graphs/automata/"+filename) as f:
+            contents = f.read()
+        svg = get_svg_from_tex_tikz(contents)
+        xprint(svg,"automata_"+filename)
 
     # handle automata 3 (the animated one)
     for i in range(len(nodecolors)):
@@ -1036,7 +1036,7 @@ if __name__ == "__main__":
         flow_graph(1)
         exit()
 
-    independent_set()
+    make_automata()
     exit()
 
     os.system("mkdir -p graphs/reductions")
