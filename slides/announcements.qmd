@@ -3,6 +3,29 @@ title: "Announcements, Fall 2024"
 ---
 
 ::: {.announcements}
+# Tuesday, December 3rd
+
+- Quizzes 3&4 before Thanksgiving
+	- Quiz 3 will be returned today
+	- Quiz 4 should be back on Thursday
+	- Regrades only open for one week!
+- Upcoming assignments
+	- [PS9](../ps/ps9.pdf) is due tomorrow, Wednesday, Dec 4th
+	- [PA5](../pa/pa5/index.html) is due Friday, Dec 6th
+	  - The submission will open up by tomorrow
+- Office hours (reminder)
+	- Prof Bloomfield Office Hours: Tue 1:00-2:30 and Thu 2:00-3:00 in Rice 402
+	- Prof Pettit Office Hours: Mon 2:30-4:00 and Wed 1:30-3:00 in Rice 212
+	- TA office hours: Sunday through Thursday from 5 pm to 9 pm
+	- Sun/Tue/Thu in Rice 032, Mon/Wed in Rice 540
+- We are aiming to hold office hours during finals week; details TBA
+- Today's lecture: continue with [Reductions](reductions.html)
+	- Reminder: slide sets are now in the [course repository](https://uva-cs.github.io/dsa2/)
+:::
+
+
+
+::: {.announcements}
 # Tuesday, November 19th
 
 - Quizzes 3&4 this Thursday (Thu, 11/21)
