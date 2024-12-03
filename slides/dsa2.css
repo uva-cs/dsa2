@@ -543,7 +543,7 @@ table.table-of-boxes tbody tr td table tbody tr td{
 .magenta { color:magenta; }
 .orange { color:orange; }
 .grey { color:grey; }
-.navy { color:navy; }
+.navy, .navyblue { color:navy; }
 
 td.red { background-color:red; color:black; }
 td.orange { background-color:orange; color:black; }
@@ -798,4 +798,18 @@ div.no-svg-margins > div > div > div > figure > div > svg {
 table.minsize4em tbody tr td {
 	height:4em;
 	min-width:4em;
+}
+
+/* columns and rows */
+
+.row {
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items:center;
+	align-content:flex-start;
+}
+
+.row p, .row img, .row div {
+	flex-grow:1;
 }

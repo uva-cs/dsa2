@@ -623,20 +623,23 @@ def cpp():
 def independent_set():
     tikz1 = f"""
 \\begin{{tikzpicture}}[
-     C/.style = {{circle, draw, very thick, minimum size = 3mm,scale=0.1}},
+     S/.style = {{circle, draw, very thick, minimum size=3mm,scale=0.1,fill=red,color=red}},
+     C/.style = {{circle, draw, very thick, minimum size=3mm,scale=0.1,fill=black,color=black}},
      every edge/.style = {{draw, ultra thick, -stealth, -}},
 ]
 \\tikzset{{font=\\sffamily}}
-\\node (c) [C] {{}}; % kc3
+\\node (c) [S] {{}}; % kc3
 \\node (b) [C,above left=of c] {{}}; % pm
 \\node (d) [C,left=of c] {{}}; % me
 \\node (e) [C,below left=of c] {{}}; % ej
 \\node (f) [C,below=of c] {{}}; % cpm
-\\node (g) [C,below left=of d] {{}}; % bpm
-\\node (h) [C,above left=of g] {{}}; % ???
+\\node (g) [S,below left=of d] {{}}; % bpm
+\\node (h) [S,above left=of g] {{}}; % ???
 \\node (i) [C,below left=of g] {{}}; % ???
-\\node (j) [C,above=of i] {{}}; % rs
-\\node (a) [C,above left=of h] {{}}; % a
+\\node (j) [S,above=of i] {{}}; % rs
+\\node (a) [S,above left=of h] {{}}; % a
+\\node (y) [S,above=of a] {{}};
+\\node (z) [C,right=of y] {{}};
 \\path
     (a) edge (b)
     (b) edge (c)
@@ -646,25 +649,23 @@ def independent_set():
     (c) edge (d)
     (d) edge (h)
     (c) edge (e)
-    (e) edge (g);
+    (e) edge (g)
+    (y) edge (z);
 \\end{{tikzpicture}}
 """
-    tikz2 = f"""
-\\begin{{tikzpicture}}[
-     C/.style = {{circle, draw, very thick, minimum size = 3mm,scale=0.1}},
-     every edge/.style = {{draw, ultra thick, -stealth, -}},
-]
-\\tikzset{{font=\\sffamily}}
-\\node (a) [C] {{}}; % kc3
-\\node (b) [C,left=of a] {{}};
-\\path
-    (a) edge (b);
-\\end{{tikzpicture}}
-"""
+    # with no nodes present
     svg = get_svg_from_tex_tikz(tikz1)
     xprint(svg,f"independent_set-1")
-    svg = get_svg_from_tex_tikz(tikz2)
+    # with all black nodes present
+    svg = get_svg_from_tex_tikz(tikz1.replace("=red","=black").replace("minimum size=3mm,","minimum size=30mm,"))
     xprint(svg,f"independent_set-2")
+    svg = get_svg_from_tex_tikz(tikz1.replace("minimum size=3mm,","minimum size=30mm,"))
+    xprint(svg,f"independent_set-3")
+    svg = get_svg_from_tex_tikz(tikz1.replace("fill=black,color=black","fill=red,color=red").replace("fill=red,color=red","fill=black,color=black",1).replace("minimum size=3mm,","minimum size=30mm,"))
+    xprint(svg,f"independent_set-4")
+    svg = get_svg_from_tex_tikz(tikz1.replace("minimum size=3mm,","minimum size=30mm,").replace("(d) edge (h)","(d) edge[color=magenta] (h)"))
+    xprint(svg,f"independent_set-5")
+
 
 
 def vertex_cover():
@@ -743,6 +744,17 @@ graph g {{
     g = graphviz.Source(vc3_dot,format='svg')
     svg = g.pipe(format='svg').decode('utf-8')
     xprint(svg,output_filename)
+    output_filename = "vertex_cover-4"
+    dot_source = vc3_dot.replace("CornflowerBlue","12345").replace("red","CornflowerBlue").replace("12345","red")
+    g = graphviz.Source(dot_source,format='svg')
+    svg = g.pipe(format='svg').decode('utf-8')
+    xprint(svg,output_filename)
+    output_filename = "vertex_cover-5"
+    dot_source = vc3_dot.replace("1 -- 3","1 -- 3 [color=magenta]")
+    g = graphviz.Source(dot_source,format='svg')
+    svg = g.pipe(format='svg').decode('utf-8')
+    xprint(svg,output_filename)
+
 
 
 #--------------------------------------------------
@@ -923,13 +935,15 @@ def graph_cut():
 # make_automata()
 #--------------------------------------------------
 
-def get_automata3 (nodecolors,edgecolors):
+def get_automata3 (nodecolors,edgecolors,step):
     return f"""
 \\begin{{tikzpicture}}[
      C/.style = {{circle, draw, very thick, minimum size = 5mm}},
      every edge/.style = {{draw, ultra thick, -stealth}},
+     T/.style = {{rectangle,align=left,text width=1.6in,minimum width=1.5in}}
 ]
 \\tikzset{{font=\\sffamily}}
+\\node (text) at (0,3) [fill=white] {{{f"Step {step}"}}};
 \\node (1) at (0,2) [C,initial,color={nodecolors[0]}] {{1}};
 \\node (2) at (1.4,1.4) [C,color={nodecolors[1]}] {{2}};
 \\node (3) at (2,0) [C,color={nodecolors[2]}] {{3}};
@@ -938,10 +952,23 @@ def get_automata3 (nodecolors,edgecolors):
 \\node (6) at (-1.4,-1.4) [C,color={nodecolors[5]}] {{6}};
 \\node (7) at (-2,0) [C,color={nodecolors[6]}] {{7}};
 \\node (8) at (-1.4,1.4) [C,double,color={nodecolors[7]}] {{8}};
+% legend
+\\node (a) at (3.5,2) [C,color=red] {{x}};
+\\node (b)[T] at (6,2) {{possible state in current step}};
+\\node (c) at (3.5,1) [C,color=yellow] {{x}};
+\\node (d)[T] at (6,1) [] {{possible state from last step}};
+\\node (e) at (3.5,0) [C,color=orange] {{x}};
+\\node (f)[T] at (6,0) [] {{possible state for both previous and current steps}};
+
+\\node (y) at (3,-1) {{}};
+\\node (z) at (4,-1) {{}};
+\\path (y) edge[color=blue] node[below] {{\\textcolor{{blue}}a-z}} (z);
+
+\\node (g)[T] at (6,-1) [] {{possible transition into current step}};
+% edges
 \\path
     (1) edge[color={edgecolors[0]}] node[above] {{\\textcolor{{{edgecolors[0].strip()}}}a-z}} (2)
     (2) edge[color={edgecolors[1]}] node[right] {{\\textcolor{{{edgecolors[1].strip()}}}a-z}} (3)
-    (2) edge[color={edgecolors[2]}] node[below] {{\\textcolor{{{edgecolors[2].strip()}}}a-z}} (8)
     (3) edge[color={edgecolors[3]}] node[right] {{\\textcolor{{{edgecolors[3].strip()}}}a-z}} (4)
     (3) edge[color={edgecolors[4]}] node[left] {{\\textcolor{{{edgecolors[4].strip()}}}0-9}} (5)
     (3) edge[color={edgecolors[5]}] node[below] {{\\textcolor{{{edgecolors[5].strip()}}}a-z}} (8)
@@ -954,46 +981,48 @@ def get_automata3 (nodecolors,edgecolors):
 \\end{{tikzpicture}}
 """
 nodecolors = [ # for the animation of automata 3
-    ['red  ','black','black','black','black','black','black','black',],
-    ['black','red  ','black','black','black','black','black','black',],
-    ['black','black','red  ','black','black','black','black','red  ',],
-    ['black','black','black','red  ','red  ','black','black','red  ',],
-    ['black','black','black','black','red  ','black','black','black',],
-    ['black','black','black','black','black','red  ','black','red  ',],
-    ['black','black','black','black','black','black','red  ','red  ',],
-    ['black','black','black','black','black','black','black','red  ',],
+    ['black', 'black', 'black', 'black', 'black', 'black', 'black', 'black',], # step 0
+    ['red  ', 'black', 'black', 'black', 'black', 'black', 'black', 'black',], # step 1
+    ['yellow','red  ', 'black', 'black', 'black', 'black', 'black', 'black',], # step 2
+    ['black', 'yellow','red  ', 'black', 'black', 'black', 'black', 'black',], # step 3
+    ['black', 'black', 'yellow','red  ', 'red  ', 'black', 'black', 'red  ',], # step 4
+    ['black', 'black', 'black', 'yellow','orange','red  ', 'black', 'orange',], # step 5
+    ['black', 'black', 'black', 'black', 'yellow','orange','red  ', 'orange',], # step 6
+    ['black', 'black', 'black', 'black', 'black', 'yellow','orange','orange',], # step 7
+    ['black', 'black', 'black', 'black', 'black', 'black', 'yellow','orange',], # step 8
 ]
 edgecolors = [
     # 1->2    2->3    2->8    3->4    3->5    3->8    4->5    5->6    5->8    6->7    6->8    7->8
-    ['black','black','black','black','black','black','black','black','black','black','black','black'],
-    ['blue ','black','black','black','black','black','black','black','black','black','black','black'],
-    ['black','blue ','blue ','black','black','black','black','black','black','black','black','black'],
-    ['black','black','black','blue ','blue ','blue ','black','black','black','black','black','black'],
-    ['black','black','black','black','black','black','blue ','black','black','black','black','black'],
-    ['black','black','black','black','black','black','black','blue ','blue ','black','black','black'],
-    ['black','black','black','black','black','black','black','black','black','blue ','blue ','black'],
-    ['black','black','black','black','black','black','black','black','black','black','black','blue '],
+    ['black','black','black','black','black','black','black','black','black','black','black','black'], # step 0
+    ['black','black','black','black','black','black','black','black','black','black','black','black'], # step 1
+    ['blue ','black','black','black','black','black','black','black','black','black','black','black'], # step 2
+    ['black','blue ','blue ','black','black','black','black','black','black','black','black','black'], # step 3
+    ['black','black','black','blue ','blue ','blue ','black','black','black','black','black','black'], # step 4
+    ['black','black','black','black','black','black','blue ','blue ','blue ','black','black','black'], # step 5
+    ['black','black','black','black','black','black','black','blue ','blue ','blue ','blue ','black'], # step 6
+    ['black','black','black','black','black','black','black','black','black','blue ','blue ','blue '], # step 7
+    ['black','black','black','black','black','black','black','black','black','black','black','blue '], # step 8
 ]
 
 def make_automata():
     files = list(os.walk("graphs/automata"))[0][2]
     files.sort()
-    for filename in files:
-        if filename[-4:] in [".svg", ".log", ".tex", ".pdf", ".aux"]:
-            print("ignoring",filename)
-            continue
-        with open("graphs/automata/"+filename) as f:
-            contents = f.read()
-        svg = get_svg_from_tex_tikz(contents)
-        xprint(svg,"automata_"+filename)
+    if False:
+        for filename in files:
+            if filename[-4:] in [".svg", ".log", ".tex", ".pdf", ".aux"]:
+                print("ignoring",filename)
+                continue
+            with open("graphs/automata/"+filename) as f:
+                contents = f.read()
+            svg = get_svg_from_tex_tikz(contents)
+            xprint(svg,"automata_"+filename)
 
     # handle automata 3 (the animated one)
     for i in range(len(nodecolors)):
         suffix = chr(97+i)
-        contents = get_automata3(nodecolors[i],edgecolors[i])
+        contents = get_automata3(nodecolors[i],edgecolors[i],i)
         svg = get_svg_from_tex_tikz(contents)
         xprint(svg,f"automata_3{suffix}")
-
 
 
 #--------------------------------------------------
@@ -1007,9 +1036,11 @@ if __name__ == "__main__":
         flow_graph(1)
         exit()
 
+    independent_set()
+    exit()
+
     os.system("mkdir -p graphs/reductions")
     make_automata()
-    #exit()
     arrows()
     handle_all_bipartite_graphs()
     cpp()

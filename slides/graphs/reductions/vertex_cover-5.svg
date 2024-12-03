@@ -56,7 +56,7 @@
 <!-- 1&#45;&#45;3 -->
 <g id="edge4" class="edge">
 <title>1&#45;&#45;3</title>
-<path fill="none" stroke="black" stroke-width="4" d="M102.99,-105.18C95.41,-102.62 84.84,-99.05 77.27,-96.49"/>
+<path fill="none" stroke="magenta" stroke-width="4" d="M102.99,-105.18C95.41,-102.62 84.84,-99.05 77.27,-96.49"/>
 </g>
 <!-- 2&#45;&#45;3 -->
 <g id="edge6" class="edge">

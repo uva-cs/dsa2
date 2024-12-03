@@ -1,4 +1,5 @@
 def check_uva_userid2(what):
+	# returns True if the passed parameter is a valid UVA userid, else False
 
 	state_table = [ 
 		# from each state, where to go on an 'l', 'd', and 'o', respectively
@@ -17,11 +18,16 @@ def check_uva_userid2(what):
 	chars = list(what.lower())
 	state = 1
 	while len(chars) > 0:
+		# which is whether it's a letter (0), digit (1), or other (2)
 		which = 0 if chars[0].isalpha() else 1 if chars[0].isdigit() else 2
+		# get the state transition, and verify it's not None
 		next_state = state_table[state][which]
 		if next_state is None: return False
+		# transition to that state and pop the input character
 		state = next_state
 		chars.pop(0)
+
+	# we should have ended in a final state
 	return state in final_states
 
 

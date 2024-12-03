@@ -11,12 +11,12 @@
 <!-- h -->
 <g id="node1" class="node">
 <title>h</title>
-<polygon fill="red" stroke="black" points="163.14,-103.62 145.14,-103.62 145.14,-85.62 163.14,-85.62 163.14,-103.62"/>
+<polygon fill="CornflowerBlue" stroke="black" points="163.14,-103.62 145.14,-103.62 145.14,-85.62 163.14,-85.62 163.14,-103.62"/>
 </g>
 <!-- 1 -->
 <g id="node2" class="node">
 <title>1</title>
-<polygon fill="CornflowerBlue" stroke="black" points="121.45,-117.38 103.45,-117.38 103.45,-99.38 121.45,-99.38 121.45,-117.38"/>
+<polygon fill="red" stroke="black" points="121.45,-117.38 103.45,-117.38 103.45,-99.38 121.45,-99.38 121.45,-117.38"/>
 </g>
 <!-- h&#45;&#45;1 -->
 <g id="edge1" class="edge">
@@ -26,7 +26,7 @@
 <!-- 8 -->
 <g id="node3" class="node">
 <title>8</title>
-<polygon fill="red" stroke="black" points="138.65,-66.73 120.65,-66.73 120.65,-48.73 138.65,-48.73 138.65,-66.73"/>
+<polygon fill="CornflowerBlue" stroke="black" points="138.65,-66.73 120.65,-66.73 120.65,-48.73 138.65,-48.73 138.65,-66.73"/>
 </g>
 <!-- h&#45;&#45;8 -->
 <g id="edge2" class="edge">
@@ -41,7 +41,7 @@
 <!-- 2 -->
 <g id="node4" class="node">
 <title>2</title>
-<polygon fill="red" stroke="black" points="64.78,-146.76 46.78,-146.76 46.78,-128.76 64.78,-128.76 64.78,-146.76"/>
+<polygon fill="CornflowerBlue" stroke="black" points="64.78,-146.76 46.78,-146.76 46.78,-128.76 64.78,-128.76 64.78,-146.76"/>
 </g>
 <!-- 1&#45;&#45;2 -->
 <g id="edge3" class="edge">
@@ -51,7 +51,7 @@
 <!-- 3 -->
 <g id="node5" class="node">
 <title>3</title>
-<polygon fill="red" stroke="black" points="76.82,-102.3 58.82,-102.3 58.82,-84.3 76.82,-84.3 76.82,-102.3"/>
+<polygon fill="CornflowerBlue" stroke="black" points="76.82,-102.3 58.82,-102.3 58.82,-84.3 76.82,-84.3 76.82,-102.3"/>
 </g>
 <!-- 1&#45;&#45;3 -->
 <g id="edge4" class="edge">
@@ -66,7 +66,7 @@
 <!-- 6 -->
 <g id="node6" class="node">
 <title>6</title>
-<polygon fill="CornflowerBlue" stroke="black" points="18,-111.21 0,-111.21 0,-93.21 18,-93.21 18,-111.21"/>
+<polygon fill="red" stroke="black" points="18,-111.21 0,-111.21 0,-93.21 18,-93.21 18,-111.21"/>
 </g>
 <!-- 2&#45;&#45;6 -->
 <g id="edge7" class="edge">
@@ -76,7 +76,7 @@
 <!-- 4 -->
 <g id="node7" class="node">
 <title>4</title>
-<polygon fill="CornflowerBlue" stroke="black" points="78.32,-70.34 60.32,-70.34 60.32,-52.34 78.32,-52.34 78.32,-70.34"/>
+<polygon fill="red" stroke="black" points="78.32,-70.34 60.32,-70.34 60.32,-52.34 78.32,-52.34 78.32,-70.34"/>
 </g>
 <!-- 3&#45;&#45;4 -->
 <g id="edge8" class="edge">
@@ -86,7 +86,7 @@
 <!-- 5 -->
 <g id="node8" class="node">
 <title>5</title>
-<polygon fill="red" stroke="black" points="36.42,-65.26 18.42,-65.26 18.42,-47.26 36.42,-47.26 36.42,-65.26"/>
+<polygon fill="CornflowerBlue" stroke="black" points="36.42,-65.26 18.42,-65.26 18.42,-47.26 36.42,-47.26 36.42,-65.26"/>
 </g>
 <!-- 3&#45;&#45;5 -->
 <g id="edge9" class="edge">
@@ -106,7 +106,7 @@
 <!-- 7 -->
 <g id="node9" class="node">
 <title>7</title>
-<polygon fill="CornflowerBlue" stroke="black" points="87.39,-25.2 74.79,-12.6 87.39,0 99.99,-12.6 87.39,-25.2"/>
+<polygon fill="red" stroke="black" points="87.39,-25.2 74.79,-12.6 87.39,0 99.99,-12.6 87.39,-25.2"/>
 </g>
 <!-- 5&#45;&#45;7 -->
 <g id="edge12" class="edge">

@@ -10,6 +10,7 @@ http://www.gnu.org/software/src-highlite">
 </head>
 <body bgcolor="white">
 <pre><tt><b><font color="#0000FF">def</font></b> <b><font color="#000000">check_uva_userid2</font></b><font color="#990000">(</font>what<font color="#990000">):</font>
+	<i><font color="#9A1900"># returns True if the passed parameter is a valid UVA userid, else False</font></i>
 
 	state_table <font color="#990000">=</font> <font color="#990000">[</font> 
 		<i><font color="#9A1900"># from each state, where to go on an 'l', 'd', and 'o', respectively</font></i>
@@ -28,11 +29,16 @@ http://www.gnu.org/software/src-highlite">
 	chars <font color="#990000">=</font> <b><font color="#000000">list</font></b><font color="#990000">(</font>what<font color="#990000">.</font><b><font color="#000000">lower</font></b><font color="#990000">())</font>
 	state <font color="#990000">=</font> <font color="#993399">1</font>
 	<b><font color="#0000FF">while</font></b> <b><font color="#000000">len</font></b><font color="#990000">(</font>chars<font color="#990000">)</font> <font color="#990000">&gt;</font> <font color="#993399">0</font><font color="#990000">:</font>
+		<i><font color="#9A1900"># which is whether it's a letter (0), digit (1), or other (2)</font></i>
 		which <font color="#990000">=</font> <font color="#993399">0</font> <b><font color="#0000FF">if</font></b> chars<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">].</font><b><font color="#000000">isalpha</font></b><font color="#990000">()</font> <b><font color="#0000FF">else</font></b> <font color="#993399">1</font> <b><font color="#0000FF">if</font></b> chars<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">].</font><b><font color="#000000">isdigit</font></b><font color="#990000">()</font> <b><font color="#0000FF">else</font></b> <font color="#993399">2</font>
+		<i><font color="#9A1900"># get the state transition, and verify it's not None</font></i>
 		next_state <font color="#990000">=</font> state_table<font color="#990000">[</font>state<font color="#990000">][</font>which<font color="#990000">]</font>
 		<b><font color="#0000FF">if</font></b> next_state <b><font color="#0000FF">is</font></b> None<font color="#990000">:</font> <b><font color="#0000FF">return</font></b> False
+		<i><font color="#9A1900"># transition to that state and pop the input character</font></i>
 		state <font color="#990000">=</font> next_state
 		chars<font color="#990000">.</font><b><font color="#000000">pop</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">)</font>
+
+	<i><font color="#9A1900"># we should have ended in a final state</font></i>
 	<b><font color="#0000FF">return</font></b> state <b><font color="#0000FF">in</font></b> final_states
 
 

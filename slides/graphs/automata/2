@@ -14,7 +14,6 @@
 \path
     (1) edge node[above] {a-z} (2)
     (2) edge node[above] {a-z} (3)
-    (2) edge node[left] {a-z} (8)
     (3) edge node[above] {a-z} (4)
     (3) edge node[left] {0-9} (5)
     (3) edge node[above] {a-z} (8)

@@ -445,7 +445,7 @@
 <ul>
 <li>Graph <span class="math inline">\(G=(V,E)\)</span></li>
 <li><span class="purple">Start node</span> <span class="math inline">\({\color{purple}s}\in V\)</span></li>
-<li><span class="navy">Sink node</span> <span class="math inline">\({\color{navy}t}\in V\)</span></li>
+<li><span class="navyblue">Sink node</span> <span class="math inline">\({\color{Blue}t}\in V\)</span></li>
 <li><span class="green">Edge capacities</span> <span class="math inline">\({\color{green}c(e)} \in \mathbb{R}^+\)</span></li>
 </ul>
 </div>
@@ -457,7 +457,7 @@
 </td>
 </tr>
 </tbody></table>
-<p><strong>Max flow intuition:</strong> If <span class="math inline">\(\color{purple}s\)</span> is a faucet, <span class="math inline">\(\color{navy}t\)</span> is a drain, and <span class="math inline">\(\color{purple}s\)</span> connects to <span class="math inline">\(\color{navy}t\)</span> through a network of pipes <span class="math inline">\(E\)</span> with capacities <span class="math inline">\(\color{green}c(e)\)</span>, what is the <span class="und">maximum</span> amount of water which can flow from the faucet to the drain?</p>
+<p><strong>Max flow intuition:</strong> If <span class="math inline">\(\color{purple}s\)</span> is a faucet, <span class="math inline">\(\color{Blue}t\)</span> is a drain, and <span class="math inline">\(\color{purple}s\)</span> connects to <span class="math inline">\(\color{Blue}t\)</span> through a network of pipes <span class="math inline">\(E\)</span> with capacities <span class="math inline">\(\color{green}c(e)\)</span>, what is the <span class="und">maximum</span> amount of water which can flow from the faucet to the drain?</p>
 </section>
 <section id="network-flow-2" class="slide level2">
 <h2>Network Flow</h2>
@@ -481,7 +481,7 @@
 </ul></li>
 <li>Flow constraint
 <ul>
-<li><span class="math inline">\(\forall v \in V - \{ {\color{purple}s},{\color{navy}t}\}\)</span>, <span class="math inline">\(\text{inflow}(v)=\text{outflow}(v)\)</span></li>
+<li><span class="math inline">\(\forall v \in V - \{ {\color{purple}s},{\color{Blue}t}\}\)</span>, <span class="math inline">\(\text{inflow}(v)=\text{outflow}(v)\)</span></li>
 <li><span class="math inline">\(\text{inflow}(v)=\sum_{x \in V}f(x,v)\)</span></li>
 <li><span class="math inline">\(\text{outflow}(v)=\sum_{x \in V}f(v,x)\)</span></li>
 <li>Water going in must match water coming out</li>
@@ -690,13 +690,13 @@ Residual Graph
 </tr>
 </tbody></table>
 </section>
-<section id="residual-graphsx" class="slide level2">
-<h2>Residual Graphsx</h2>
+<section id="residual-graphs-2" class="slide level2">
+<h2>Residual Graphs</h2>
 <!-- day20 slide 23 -->
 <table>
 <tbody><tr>
 <td colspan="2" class="font-75 zero-bottom">
-<p>Consider a path from <span class="math inline">\({\color{purple}s} \rightarrow {\color{navy}t}\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span> using only edges with positive (non-zero) weight Consider the minimum-weight edge along the path: we can increase the flow by <span class="math inline">\(w(e)\)</span></p>
+<p>Consider a path from <span class="math inline">\({\color{purple}s} \rightarrow {\color{Blue}t}\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span> using only edges with positive (non-zero) weight Consider the minimum-weight edge along the path: we can increase the flow by <span class="math inline">\(w(e)\)</span></p>
 </td>
 </tr>
 <tr>
@@ -726,13 +726,13 @@ Residual Graph
 </tr>
 </tbody></table>
 </section>
-<section id="residual-graphs-2" class="slide level2">
+<section id="residual-graphs-3" class="slide level2">
 <h2>Residual Graphs</h2>
 <!-- day20 slide 24 -->
 <table>
 <tbody><tr>
 <td colspan="2" class="font-75 zero-bottom">
-<p>Consider a path from <span class="math inline">\({\color{purple}s} \rightarrow {\color{navy}t}\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span> using only edges with positive (non-zero) weight Consider the minimum-weight edge along the path: we can increase the flow by <span class="math inline">\(w(e)\)</span></p>
+<p>Consider a path from <span class="math inline">\({\color{purple}s} \rightarrow {\color{Blue}t}\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span> using only edges with positive (non-zero) weight Consider the minimum-weight edge along the path: we can increase the flow by <span class="math inline">\(w(e)\)</span></p>
 </td>
 </tr>
 <tr>
@@ -762,13 +762,13 @@ Residual Graph
 </tr>
 </tbody></table>
 </section>
-<section id="residual-graphs-3" class="slide level2">
+<section id="residual-graphs-4" class="slide level2">
 <h2>Residual Graphs</h2>
 <!-- day20 slide 25 -->
 <table>
 <tbody><tr>
 <td colspan="2" class="font-75 zero-bottom">
-<p>Consider a path from <span class="math inline">\({\color{purple}s} \rightarrow {\color{navy}t}\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span> using only edges with positive (non-zero) weight Consider the minimum-weight edge along the path: we can increase the flow by <span class="math inline">\(w(e)\)</span></p>
+<p>Consider a path from <span class="math inline">\({\color{purple}s} \rightarrow {\color{Blue}t}\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span> using only edges with positive (non-zero) weight Consider the minimum-weight edge along the path: we can increase the flow by <span class="math inline">\(w(e)\)</span></p>
 </td>
 </tr>
 <tr>
@@ -800,12 +800,10 @@ Residual Graph
 </section>
 <section id="ford-fulkerson-algorithm" class="slide level2">
 <h2>Ford-Fulkerson Algorithm</h2>
-<p class="font-75">
-Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{navy}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
+<div class="font-85">
+<p>
+Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{Blue}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
 </p>
-<table class="width-100 font-75">
-<tbody><tr>
-<td style="padding-left:0;padding-top:0" colspan="2">
 <p>
 Ford-Fulkerson max-flow algorithm:
 </p>
@@ -831,9 +829,6 @@ Update the residual network <span class="math inline">\(G_{\color{red}f}\)</span
 </ul>
 </li>
 </ul>
-</td>
-</tr>
-</tbody></table>
 <p>&nbsp;</p>
 <div class="fragment">
 <table class="navynote font-75">
@@ -843,6 +838,7 @@ Update the residual network <span class="math inline">\(G_{\color{red}f}\)</span
 </td>
 </tr>
 </tbody></table>
+</div>
 </div>
 </section>
 <section id="ford-fulkerson-example" class="slide level2">
@@ -1341,7 +1337,7 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <section id="ford-fulkerson-running-time" class="slide level2">
 <h2>Ford-Fulkerson Running Time</h2>
 <p class="font-75">
-Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{navy}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
+Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{Blue}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
 </p>
 <table class="width-100 font-75">
 <tbody><tr>
@@ -1444,7 +1440,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <section id="ford-fulkerson-running-time-1" class="slide level2">
 <h2>Ford-Fulkerson Running Time</h2>
 <p class="font-75">
-Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{navy}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
+Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{Blue}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
 </p>
 <table class="width-100 font-75">
 <tbody><tr>
@@ -1549,7 +1545,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <section id="ford-fulkerson-running-time-2" class="slide level2">
 <h2>Ford-Fulkerson Running Time</h2>
 <p class="font-75">
-Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{navy}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
+Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{Blue}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
 </p>
 <table class="width-100 font-75">
 <tbody><tr>
@@ -1654,7 +1650,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <section id="ford-fulkerson-running-time-3" class="slide level2">
 <h2>Ford-Fulkerson Running Time</h2>
 <p class="font-75">
-Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{navy}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
+Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{Blue}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
 </p>
 <table class="width-100 font-75">
 <tbody><tr>
@@ -1761,7 +1757,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <section id="ford-fulkerson-running-time-4" class="slide level2">
 <h2>Ford-Fulkerson Running Time</h2>
 <p class="font-75">
-Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{navy}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
+Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{Blue}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
 </p>
 <table class="width-100 font-75">
 <tbody><tr>
@@ -2084,7 +2080,7 @@ Increase flow by 1 unit
 <section id="ford-fulkerson-running-time-5" class="slide level2">
 <h2>Ford-Fulkerson Running Time</h2>
 <p class="font-75">
-Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{navy}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
+Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{Blue}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
 </p>
 <table class="width-100 font-75">
 <tbody><tr>
@@ -2187,7 +2183,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <section id="ford-fulkerson-running-time-6" class="slide level2">
 <h2>Ford-Fulkerson Running Time</h2>
 <p class="font-75">
-Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{navy}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
+Define an augmenting path to be an <span class="math inline">\({\color{purple}s} \rightarrow {\color{Blue}t}\)</span> path in the residual graph <span class="math inline">\(G_{\color{red}f}\)</span> (using edges of non-zero weight)
 </p>
 <table class="width-100 font-75">
 <tbody><tr>
@@ -2390,9 +2386,9 @@ An edge <span class="math inline">\(\color{green}(v_1,v_2) \in E\)</span> <span 
 <!-- day 21 slide 8 -->
 <div class="font-80">
 <ul>
-<li>Consider cuts which separate nodes <span class="math inline">\(\color{purple}s\)</span> and <span class="math inline">\(\color{navy}t\)</span>
+<li>Consider cuts which separate nodes <span class="math inline">\(\color{purple}s\)</span> and <span class="math inline">\(\color{Blue}t\)</span>
 <ul>
-<li>Let <span class="math inline">\({\color{purple}s} \in {\color{magenta}S}, {\color{navy}t} \in {\color{skyblue}T}\)</span> such that <span class="math inline">\(V={\color{magenta}S} \bigcup {\color{skyblue}T}\)</span></li>
+<li>Let <span class="math inline">\({\color{purple}s} \in {\color{magenta}S}, {\color{Blue}t} \in {\color{skyblue}T}\)</span> such that <span class="math inline">\(V={\color{magenta}S} \bigcup {\color{skyblue}T}\)</span></li>
 </ul></li>
 <li>Cost of cut <span class="math inline">\(({\color{magenta}S}, {\color{skyblue}T}) = ||{\color{magenta}S}, {\color{skyblue}T} ||\)</span>
 <ul>
@@ -2416,11 +2412,11 @@ An edge <span class="math inline">\(\color{green}(v_1,v_2) \in E\)</span> <span 
 <!-- day 21 slide 9 -->
 <div class="font-80">
 <ul>
-<li>Max flow upper bounded by any cut separating <span class="math inline">\(\color{purple}s\)</span> and <span class="math inline">\(\color{navy}t\)</span></li>
+<li>Max flow upper bounded by any cut separating <span class="math inline">\(\color{purple}s\)</span> and <span class="math inline">\(\color{Blue}t\)</span></li>
 <li>Why? “Conservation of flow”
 <ul>
-<li>All flow exiting <span class="math inline">\(\color{purple}s\)</span> must eventually get to <span class="math inline">\(\color{navy}t\)</span></li>
-<li>To get from <span class="math inline">\(\color{purple}s\)</span> to <span class="math inline">\(\color{navy}t\)</span>, all “pipes” must cross the cut</li>
+<li>All flow exiting <span class="math inline">\(\color{purple}s\)</span> must eventually get to <span class="math inline">\(\color{Blue}t\)</span></li>
+<li>To get from <span class="math inline">\(\color{purple}s\)</span> to <span class="math inline">\(\color{Blue}t\)</span>, all “pipes” must cross the cut</li>
 </ul></li>
 <li>Conclusion: if we find the minimum-cost cut, we’ve found the max flow
 <ul>
@@ -2513,7 +2509,7 @@ Idea: When there are no more augmenting paths, there<br>exists a cut in the grap
 <li>Define <span class="math inline">\({\color{magenta}S}=\)</span> nodes reachable from source node <span class="math inline">\(\color{purple}s\)</span> by positive-weight edges in the residual graph
 <ul>
 <li><span class="math inline">\({\color{skyblue}T}=V-{\color{magenta}S}\)</span></li>
-<li><span class="math inline">\({\color{magenta}S}\)</span> separates <span class="math inline">\({\color{purple}s},{\color{navy}t}\)</span> (otherwise there’s an augmenting path)</li>
+<li><span class="math inline">\({\color{magenta}S}\)</span> separates <span class="math inline">\({\color{purple}s},{\color{Blue}t}\)</span> (otherwise there’s an augmenting path)</li>
 </ul></li>
 </ul>
 </div>
@@ -2584,7 +2580,7 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <section id="proof-summary" class="slide level2">
 <h2>Proof Summary</h2>
 <ol type="1">
-<li>The flow <span class="math inline">\(|f|\)</span> of <span class="math inline">\(G\)</span> is upper-bounded by the sum of capacities of edges crossing any cut separating source <span class="math inline">\({\color{purple}s}\)</span> and sink <span class="math inline">\({\color{navy}t}\)</span></li>
+<li>The flow <span class="math inline">\(|f|\)</span> of <span class="math inline">\(G\)</span> is upper-bounded by the sum of capacities of edges crossing any cut separating source <span class="math inline">\({\color{purple}s}\)</span> and sink <span class="math inline">\({\color{Blue}t}\)</span></li>
 <li>When Ford-Fulkerson terminates, there are no more augmenting paths in <span class="math inline">\(G_{\color{red}f}\)</span></li>
 <li>When there are no more augmenting paths in <span class="math inline">\(G_{\color{red}f}\)</span> then we can define a cut <span class="math inline">\({\color{magenta}S}=\)</span> nodes reachable from source node <span class="math inline">\({\color{purple}s}\)</span> by positive-weight edges in the residual graph</li>
 <li>The sum of edge capacities crossing this cut must match the flow of the graph</li>
@@ -2600,14 +2596,14 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 </section>
 <section id="edge-disjoint-paths" class="slide level2">
 <h2>Edge-Disjoint Paths</h2>
-<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{navy}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{navy}t}\)</span> which share no edges</p>
+<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{Blue}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{Blue}t}\)</span> which share no edges</p>
 <div class="svg-100 bottom" style="width:75%;left:12.5%">
 <p><img src="graphs/reductions/edge_disjoint_graph.svg"></p>
 </div>
 </section>
 <section id="edge-disjoint-paths-1" class="slide level2">
 <h2>Edge-Disjoint Paths</h2>
-<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{navy}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{navy}t}\)</span> which share no edges</p>
+<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{Blue}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{Blue}t}\)</span> which share no edges</p>
 <ul>
 <li>Set of edge-disjoint paths of size 3:</li>
 </ul>
@@ -2617,7 +2613,7 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 </section>
 <section id="edge-disjoint-paths-2" class="slide level2">
 <h2>Edge-Disjoint Paths</h2>
-<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{navy}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{navy}t}\)</span> which share no edges</p>
+<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{Blue}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{Blue}t}\)</span> which share no edges</p>
 <div class="width-100 left" style="text-align:left !important">
 <div class="r-stack">
 <div class="fragment fade-out width-100" data-fragment-index="1">
@@ -2638,7 +2634,7 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 </section>
 <section id="edge-disjoint-paths-3" class="slide level2">
 <h2>Edge-Disjoint Paths</h2>
-<p>Make <span class="math inline">\({\color{purple}s}\)</span> and <span class="math inline">\({\color{navy}t}\)</span> the source and sink, give each edge capacity 1, find the max flow.</p>
+<p>Make <span class="math inline">\({\color{purple}s}\)</span> and <span class="math inline">\({\color{Blue}t}\)</span> the source and sink, give each edge capacity 1, find the max flow.</p>
 <div style="opacity:0">
 <ul>
 <li>Set of edge-disjoint paths of size 4</li>
@@ -2651,7 +2647,7 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 </section>
 <section id="edge-disjoint-paths-4" class="slide level2">
 <h2>Edge-Disjoint Paths</h2>
-<p>Make <span class="math inline">\({\color{purple}s}\)</span> and <span class="math inline">\({\color{navy}t}\)</span> the source and sink, give each edge capacity 1, find the max flow.</p>
+<p>Make <span class="math inline">\({\color{purple}s}\)</span> and <span class="math inline">\({\color{Blue}t}\)</span> the source and sink, give each edge capacity 1, find the max flow.</p>
 <div>
 <ul>
 <li>Set of edge-disjoint paths of size 4</li>
@@ -2664,14 +2660,14 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 </section>
 <section id="vertex-disjoint-paths" class="slide level2">
 <h2>Vertex-Disjoint Paths</h2>
-<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{navy}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{navy}t}\)</span> which share no vertices</p>
+<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{Blue}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{Blue}t}\)</span> which share no vertices</p>
 <div class="svg-100 bottom" style="width:75%;left:12.5%">
 <p><img src="graphs/reductions/edge_disjoint_graph.svg"></p>
 </div>
 </section>
 <section id="vertex-disjoint-paths-1" class="slide level2">
 <h2>Vertex-Disjoint Paths</h2>
-<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{navy}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{navy}t}\)</span> which share no vertices</p>
+<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{Blue}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{Blue}t}\)</span> which share no vertices</p>
 <div class="r-stack">
 <div class="width-100">
 <ul>
@@ -2685,7 +2681,7 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 </section>
 <section id="vertex-disjoint-paths-2" class="slide level2">
 <h2>Vertex-Disjoint Paths</h2>
-<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{navy}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{navy}t}\)</span> which share no vertices</p>
+<p>Given a graph <span class="math inline">\(G=(V,E)\)</span>, a start node <span class="math inline">\({\color{purple}s}\)</span> and a destination node <span class="math inline">\({\color{Blue}t}\)</span>, give the maximum number of paths from <span class="math inline">\({\color{purple}s}\)</span> to <span class="math inline">\({\color{Blue}t}\)</span> which share no vertices</p>
 <div class="width-100 left" style="text-align:left !important">
 <div class="r-stack">
 <div class="fragment fade-out width-100" data-fragment-index="1">
@@ -3301,11 +3297,11 @@ How could<br>we solve<br>this?
 <ul>
 <li>Adding in a <span class="purple">source</span> and <span class="navy">sink</span> to the set of nodes:
 <ul>
-<li><span class="math inline">\(V'=L \bigcup R \bigcup \{ {\color{purple}s},{\color{navy}t}\}\)</span></li>
+<li><span class="math inline">\(V'=L \bigcup R \bigcup \{ {\color{purple}s},{\color{Blue}t}\}\)</span></li>
 </ul></li>
 <li>Adding an edge from <span class="purple">source</span> to <span class="math inline">\(L\)</span> and from <span class="math inline">\(R\)</span> to <span class="navy">sink</span>:
 <ul>
-<li><span class="math inline">\(E'=E \bigcup \{u \in L | ({\color{purple}s},u)\}\)</span> <span class="math inline">\(\bigcup \{v \in R | (v,{\color{navy}t})\}\)</span></li>
+<li><span class="math inline">\(E'=E \bigcup \{u \in L | ({\color{purple}s},u)\}\)</span> <span class="math inline">\(\bigcup \{v \in R | (v,{\color{Blue}t})\}\)</span></li>
 </ul></li>
 <li>Make each edge cap 1:
 <ul>
@@ -3598,7 +3594,7 @@ MOVIE&nbsp;TIME!
 </td>
 <td colspan="2" style="vertical-align:top">
 <div class="r-stack">
-<table class="compact fragment" style="width:100%;height:100%">
+<table class="compact fragment" style="width:100%;height:50vh">
 <tbody><tr>
 <td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">
 Reduction
@@ -4754,7 +4750,7 @@ Ford-Fulkerson
 <td style="vertical-align:top;width:37%;padding-right:10px !important">
 <table class="allcenter">
 <tbody><tr>
-<td colspan="2" class="und">
+<td class="und">
 <span class="font-70">Problem we don’t know how to solve</span>
 </td>
 </tr>
@@ -4804,7 +4800,7 @@ Ford-Fulkerson
 </tr>
 </tbody></table>
 </td>
-<td colspan="2" style="vertical-align:top;width:30%">
+<td style="vertical-align:top;width:30%">
 <table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
 <tbody><tr>
 <td class="font-90" style="border-top:2px solid black">
@@ -4851,7 +4847,7 @@ Reduction
 <td style="vertical-align:top;width:33%">
 <table class="compact">
 <tbody><tr>
-<td colspan="2" class="und">
+<td class="und">
 <span class="font-70">Problem we do know how to solve</span>
 </td>
 </tr>
@@ -4946,7 +4942,7 @@ Suppose I know a worst-case lower-bound of <span class="math inline">\(\Omega(f(
 </tr>
 </tbody></table>
 </td>
-<td colspan="2" style="vertical-align:top;width:30%">
+<td style="vertical-align:top;width:30%">
 <table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
 <tbody><tr>
 <td class="font-90" style="border-top:2px solid black">
@@ -5638,7 +5634,7 @@ If <span class="math inline">\(A\)</span> is slow&nbsp;
 </tbody></table>
 </td>
 <td>
-<img src="graphs/reductions/bipartite_graph-0.svg">
+<img src="graphs/reductions/bipartite_graph-3.svg">
 </td>
 <td>
 <table>
@@ -5687,7 +5683,7 @@ If <span class="math inline">\(A\)</span> is slow&nbsp;
 </td>
 <td colspan="2" style="vertical-align:top">
 <div class="r-stack">
-<table class="compact" style="width:100%;height:100%">
+<table class="compact" style="width:100%;height:60vh">
 <tbody><tr>
 <td style="width:30%;border:2px solid black;background-color:plum;vertical-align:bottom;text-align:center">
 &nbsp;
@@ -5807,7 +5803,17 @@ If <span class="math inline">\(A\)</span> is slow&nbsp;
 </tr>
 <tr>
 <td style="opacity:1;z-index:6">
+&nbsp;
+</td>
+</tr>
+<tr>
+<td style="opacity:1;z-index:6">
 Reduction
+</td>
+</tr>
+<tr>
+<td style="opacity:1;z-index:6">
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -6002,7 +6008,7 @@ Ford-Fulkerson
 </td>
 </tr>
 </tbody></table>
-<table class="fragment" data-fragment-index="1" style="position:absolute;top:50%;right:0;z-index:3">
+<table class="fragment" data-fragment-index="1" style="position:absolute;top:50%;right:0;z-index:5">
 <tbody><tr>
 <td>
 <table class="bluenote fragment fade-out" data-fragment-index="3'">
@@ -6015,7 +6021,7 @@ If this is fast
 </td>
 </tr>
 </tbody></table>
-<table class="fragment" data-fragment-index="2" style="position:absolute;top:50%;left:0;z-index:3">
+<table class="fragment" data-fragment-index="2" style="position:absolute;top:50%;left:0;z-index:5">
 <tbody><tr>
 <td>
 <table class="bluenote fragment fade-out" data-fragment-index="3'">
@@ -6028,7 +6034,7 @@ Then this is fast
 </td>
 </tr>
 </tbody></table>
-<table class="fragment" data-fragment-index="4" style="position:absolute;top:50%;left:0;z-index:3">
+<table class="fragment" data-fragment-index="4" style="position:absolute;top:50%;left:0;z-index:5">
 <tbody><tr>
 <td>
 <table class="bluenote fragment fade-out" data-fragment-index="6'">
@@ -6041,7 +6047,7 @@ If this is slow
 </td>
 </tr>
 </tbody></table>
-<table class="fragment" data-fragment-index="5" style="position:absolute;top:50%;right:0;z-index:3">
+<table class="fragment" data-fragment-index="5" style="position:absolute;top:50%;right:0;z-index:5">
 <tbody><tr>
 <td>
 <table class="bluenote fragment fade-out" data-fragment-index="6'">
@@ -6075,7 +6081,7 @@ Then this is slow
 <td style="vertical-align:top;width:37%;padding-right:10px !important">
 <table class="allcenter">
 <tbody><tr>
-<td colspan="2" class="und">
+<td class="und">
 <span class="font-70">Problem we know is “hard”</span>
 </td>
 </tr>
@@ -6133,7 +6139,7 @@ and this must be slow,
 </tr>
 </tbody></table>
 </td>
-<td colspan="2" style="vertical-align:top;width:30%">
+<td style="vertical-align:top;width:30%">
 <table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
 <tbody><tr>
 <td class="font-90" style="border-top:2px solid black">
@@ -6196,7 +6202,7 @@ and this is quick
 <td style="vertical-align:top;width:33%">
 <table class="compact">
 <tbody><tr>
-<td colspan="2" class="und">
+<td class="und">
 <span class="font-70">Problem we want to show is “hard”</span>
 </td>
 </tr>
@@ -6254,7 +6260,7 @@ Some algorithm for <span class="math inline">\(B\)</span>
 <td style="vertical-align:top;width:37%;padding-right:10px !important">
 <table class="allcenter">
 <tbody><tr>
-<td colspan="2" class="und">
+<td class="und">
 <span class="font-70">Problem we know is <span class="math inline">\(\Omega(n \log n)\)</span></span>
 </td>
 </tr>
@@ -6307,7 +6313,7 @@ Then this can be done in <span class="math inline">\(o(n\log n)\)</span>
 </tr>
 </tbody></table>
 </td>
-<td colspan="2" style="vertical-align:top;width:30%">
+<td style="vertical-align:top;width:30%">
 <table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
 <tbody><tr>
 <td class="font-90" style="border-top:2px solid black">
@@ -6358,7 +6364,7 @@ Reduction
 <td style="vertical-align:top;width:33%">
 <table class="compact">
 <tbody><tr>
-<td colspan="2" class="und">
+<td class="und">
 <span class="font-70">Problem we want to show is <span class="math inline">\(\Omega(n \log n)\)</span></span>
 </td>
 </tr>
@@ -6516,7 +6522,7 @@ Some algorithm for <span class="math inline">\(CPP\)</span>
 <td style="vertical-align:top;width:37%;padding-right:10px !important">
 <table class="allcenter">
 <tbody><tr>
-<td colspan="2" class="und">
+<td class="und">
 <span class="font-70">Problem we know is <span class="math inline">\(\Omega(n \log n)\)</span></span>
 </td>
 </tr>
@@ -6609,7 +6615,7 @@ Then this can be done in <span class="math inline">\(o(n\log n)\)</span>
 </tr>
 </tbody></table>
 </td>
-<td colspan="2" style="vertical-align:top;width:30%">
+<td style="vertical-align:top;width:30%">
 <table class="font-75" style="z-index:1;background-color:plum;border-left:2px solid black;border-right:2px solid black">
 <tbody><tr>
 <td class="font-90" style="border-top:2px solid black">
@@ -6660,7 +6666,7 @@ Reduction
 <td style="vertical-align:top;width:33%">
 <table class="compact">
 <tbody><tr>
-<td colspan="2" class="und">
+<td class="und">
 <span class="font-70">Problem we want to show is <span class="math inline">\(\Omega(n \log n)\)</span></span>
 </td>
 </tr>
@@ -6778,33 +6784,32 @@ If <span class="math inline">\(A\)</span> is slow&nbsp;
 <h2>Party Problem</h2>
 <div class="r-stack">
 <div style="width:100%">
-<table style="width:100%" class="compact">
+<table style="width:100%;margin-top:-20px" class="compact">
 <tbody><tr>
 <td style="vertical-align:middle">
 &nbsp;
 </td>
-<td style="font-size:65%;width:55%;padding:0">
-Draw edges between people who don’t get along<br>Find the maximum number of people who get along
+<td class="redtext" style="font-size:85%;width:55%;padding:0;vertical-align:top;opacity:0">
+Independent set of size 6
 </td>
 </tr>
 </tbody></table>
 <p style="text-align:center">
-<img src="graphs/reductions/independent_set-1.svg" style="width:70%;margin:auto">
+<img src="graphs/reductions/independent_set-1.svg" style="width:65%;margin:auto;margin-top:-15%;margin-left:-5%">
 </p>
 </div>
-<p><img src="graphs/reductions/independent_set-2.svg" style="max-width: 400% !important;max-height: 400% !important;width: 400%;margin-bottom:1000%;margin-left:-500%"></p>
-<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/The_Grinch_Merry_Christmas_-By_LOPDesigns.png/192px-The_Grinch_Merry_Christmas_-By_LOPDesigns.png" class="ispic" style="margin-left:400%;margin-top:-75%"> <!-- the grinch --></p>
-<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" class="ispic" style="margin-top:250%;margin-left:25%"> <!-- floryan --></p>
-<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp" class="ispic" style="margin-left:175%;margin-bottom:425%"> <!-- robbie --></p>
-<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&amp;itok=jvoP0ymk" class="ispic" style="margin-left:-200%;margin-top:-75%"> <!-- ray --></p>
-<p><img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg" class="ispic" style="margin-left:150%;margin-top:-75%"> <!-- me --></p>
-<p><img data-src="https://www.cs.virginia.edu/~nn4pj/rich2017.jpg" class="ispic" style="margin-left:150%;margin-top:200%"> <!-- rich --></p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/The_Grinch_Merry_Christmas_-By_LOPDesigns.png/192px-The_Grinch_Merry_Christmas_-By_LOPDesigns.png" class="ispic" style="margin-left:350%;margin-top:-150%"> <!-- the grinch --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" class="ispic" style="margin-top:175%;margin-left:-20%"> <!-- floryan --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp" class="ispic" style="margin-left:125%;margin-bottom:425%"> <!-- robbie --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&amp;itok=jvoP0ymk" class="ispic" style="margin-left:-175%;margin-top:-75%"> <!-- ray --></p>
+<p><img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg" class="ispic" style="margin-left:100%;margin-top:-75%"> <!-- me --></p>
+<p><img data-src="https://www.cs.virginia.edu/~nn4pj/rich2017.jpg" class="ispic" style="margin-left:150%;margin-top:125%"> <!-- rich --></p>
 <p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/selfie%2520-%2520Paul%2520McBurney%5B1%5D.webp?h=1914eaad&amp;itok=wEQ3K-_-" class="ispic" style="margin-left:-150%;margin-top:200%"> <!-- mcburney --></p>
-<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/MarkSherriff_headshot.webp?itok=VIFy0Ysc" class="ispic" style="margin-top:465%;margin-left:-150%"> <!-- sherriff --></p>
-<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/horton-tom.webp?itok=hFBeCUQC" class="ispic" style="margin-left:300%;margin-top:275%"> <!-- tom --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/MarkSherriff_headshot.webp?itok=VIFy0Ysc" class="ispic" style="margin-top:465%;margin-left:-170%"> <!-- sherriff --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/horton-tom.webp?itok=hFBeCUQC" class="ispic" style="margin-left:260%;margin-top:230%"> <!-- tom --></p>
 <p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Morrison03.JPG?h=863c5a9e&amp;itok=JkOfG3kH" class="ispic" style="margin-bottom:400%;margin-left:-325%"> <!-- briana --></p>
-<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-05/Nada_BASIT_Headshot.JPG?h=d416eee1&amp;itok=xsIfZg10" class="ispic" style="margin-bottom: 625%;margin-left: -150%;"> <!-- nada --></p>
-<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/Sandhya-Dwarkadas_TWZ-3_sq.webp?itok=PRTWNtgX" class="ispic" style="margin-bottom: 625%;margin-left: -300%;"> <!-- sandhya --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-05/Nada_BASIT_Headshot.JPG?h=d416eee1&amp;itok=xsIfZg10" class="ispic" style="margin-bottom: 700%;margin-left: -150%;"> <!-- nada --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/Sandhya-Dwarkadas_TWZ-3_sq.webp?itok=PRTWNtgX" class="ispic" style="margin-bottom: 700%;margin-left: -300%"> <!-- sandhya --></p>
 </div>
 </section>
 <section id="maximum-independent-set" class="slide level2">
@@ -6830,19 +6835,18 @@ Independent set of size 6
 </tr>
 </tbody></table>
 <p style="text-align:center">
-<img src="graphs/reductions/independent_set-1.svg" style="width:70%;margin:auto">
+<img src="graphs/reductions/independent_set-1.svg" style="width:65%;margin:auto;margin-top:-15%;margin-left:-5%">
 </p>
 </div>
-<p><img src="graphs/reductions/independent_set-2.svg" style="max-width: 400% !important;max-height: 400% !important;width: 400%;margin-bottom:1000%;margin-left:-500%"></p>
-<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/The_Grinch_Merry_Christmas_-By_LOPDesigns.png/192px-The_Grinch_Merry_Christmas_-By_LOPDesigns.png" class="ispic" style="margin-left:375%;margin-top:-75%;border:5px solid red"> <!-- the grinch --></p>
-<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" class="ispic" style="margin-top:225%;margin-left:25%;border:5px solid red"> <!-- floryan --></p>
-<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp" class="ispic" style="margin-left:175%;margin-bottom:425%"> <!-- robbie --></p>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/The_Grinch_Merry_Christmas_-By_LOPDesigns.png/192px-The_Grinch_Merry_Christmas_-By_LOPDesigns.png" class="ispic" style="margin-left:275%;margin-top:-100%;border:5px solid red"> <!-- the grinch --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya" class="ispic" style="margin-top:175%;margin-left:-20%;border:5px solid red"> <!-- floryan --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp" class="ispic" style="margin-left:125%;margin-bottom:425%"> <!-- robbie --></p>
 <p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&amp;itok=jvoP0ymk" class="ispic" style="margin-left:-175%;margin-top:-75%;border:5px solid red"> <!-- ray --></p>
-<p><img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg" class="ispic" style="margin-left:150%;margin-top:-75%"> <!-- me --></p>
-<p><img data-src="https://www.cs.virginia.edu/~nn4pj/rich2017.jpg" class="ispic" style="margin-left:150%;margin-top:175%"> <!-- rich --></p>
+<p><img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg" class="ispic" style="margin-left:100%;margin-top:-75%"> <!-- me --></p>
+<p><img data-src="https://www.cs.virginia.edu/~nn4pj/rich2017.jpg" class="ispic" style="margin-left:150%;margin-top:125%"> <!-- rich --></p>
 <p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/selfie%2520-%2520Paul%2520McBurney%5B1%5D.webp?h=1914eaad&amp;itok=wEQ3K-_-" class="ispic" style="margin-left:-150%;margin-top:200%;border:5px solid red"> <!-- mcburney --></p>
-<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/MarkSherriff_headshot.webp?itok=VIFy0Ysc" class="ispic" style="margin-top:465%;margin-left:-150%"> <!-- sherriff --></p>
-<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/horton-tom.webp?itok=hFBeCUQC" class="ispic" style="margin-left:300%;margin-top:275%"> <!-- tom --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/MarkSherriff_headshot.webp?itok=VIFy0Ysc" class="ispic" style="margin-top:465%;margin-left:-170%"> <!-- sherriff --></p>
+<p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/horton-tom.webp?itok=hFBeCUQC" class="ispic" style="margin-left:260%;margin-top:230%"> <!-- tom --></p>
 <p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Morrison03.JPG?h=863c5a9e&amp;itok=JkOfG3kH" class="ispic" style="margin-bottom:400%;margin-left:-325%;border:5px solid red"> <!-- briana --></p>
 <p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-05/Nada_BASIT_Headshot.JPG?h=d416eee1&amp;itok=xsIfZg10" class="ispic" style="margin-bottom: 700%;margin-left: -150%;"> <!-- nada --></p>
 <p><img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-02/Sandhya-Dwarkadas_TWZ-3_sq.webp?itok=PRTWNtgX" class="ispic" style="margin-bottom: 625%;margin-left: -300%;border:5px solid red"> <!-- sandhya --></p>
@@ -6885,6 +6889,727 @@ Vertex cover of size 5
 </td>
 </tr>
 </tbody></table>
+</section>
+<section id="maxindset-le_v-minvertcover" class="slide level2">
+<h2>MaxIndSet <span class="math inline">\(\le_V\)</span> MinVertCover</h2>
+<div class="font-90">
+<div class="row">
+<p>
+<img src="graphs/reductions/independent_set-2.svg" style="width:200%">
+</p>
+<p class="center">
+<img src="graphs/reductions/red_A_cylinder.svg" style="height:10vh;margin-bottom:-40px"><br>Problem <span class="math inline">\(A\)</span>
+</p>
+<div class="r-stack">
+<p>
+<img src="graphs/reductions/rarrow.svg" style="width:20vw">
+</p>
+<p><span class="math inline">\(O(V)\)</span> reduces to&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</div>
+<p class="center">
+<img src="graphs/reductions/yellow_B_box.svg" style="height:10vh;margin-bottom:-40px"><br>Problem <span class="math inline">\(B\)</span>
+</p>
+<p><img data-src="graphs/reductions/vertex_cover-2.svg"></p>
+</div>
+<div class="row">
+<p><img data-src="graphs/reductions/vertex_cover-3.svg"></p>
+<p class="center">
+<img src="graphs/reductions/yellow_Y_box.svg" style="height:10vh;margin-bottom:-40px"><br>Algorithm for <span class="math inline">\(B\)</span>
+</p>
+<div class="r-stack">
+<p>
+<img src="graphs/reductions/rarrow.svg" style="width:20vw">
+</p>
+<p><span class="font-70">can be used to make&nbsp;&nbsp;&nbsp;</span></p>
+</div>
+<p class="center">
+<img src="graphs/reductions/red_X_cylinder.svg" style="height:10vh;margin-bottom:-40px"><br>Algorithm for <span class="math inline">\(A\)</span>
+</p>
+<p>
+<img src="graphs/reductions/independent_set-3.svg" style="width:200%">
+</p>
+</div>
+<p class="center">
+If <span class="math inline">\(A\)</span> <span class="magenta">requires <span class="math inline">\(\Omega(f(n))\)</span> time</span>, then <span class="math inline">\(B\)</span> also <span class="magenta">requires <span class="math inline">\(\Omega(f(n))\)</span> time</span>
+</p>
+<p><span class="math display">\[A \le_V B\]</span></p>
+</div>
+</section>
+<section id="reduction-idea" class="slide level2">
+<h2>Reduction Idea</h2>
+<p class="center">
+<span class="math inline">\(S\)</span> is an independent set of <span class="math inline">\(G\)</span> iff <span class="math inline">\(V-S\)</span> is a vertex cover of <span class="math inline">\(G\)</span>
+</p>
+<p>&nbsp;</p>
+<div class="row">
+<p class="center">
+Independent Set<br><img src="graphs/reductions/independent_set-3.svg" style="width:20vw">
+</p>
+<p class="center">
+Vertex Cover<br><img src="graphs/reductions/independent_set-4.svg" style="width:20vw">
+</p>
+</div>
+</section>
+<section id="reduction-idea-1" class="slide level2">
+<h2>Reduction Idea</h2>
+<p class="center">
+<span class="math inline">\(S\)</span> is an independent set of <span class="math inline">\(G\)</span> iff <span class="math inline">\(V-S\)</span> is a vertex cover of <span class="math inline">\(G\)</span>
+</p>
+<p>&nbsp;</p>
+<div class="row">
+<p class="center">
+Independent Set<br><img src="graphs/reductions/vertex_cover-4.svg" style="width:20vw">
+</p>
+<p class="center">
+Vertex Cover<br><img src="graphs/reductions/vertex_cover-3.svg" style="width:20vw">
+</p>
+</div>
+</section>
+<section id="minvertcov-v-time-reducible-to-maxindset" class="slide level2">
+<h2><span class="r-fit-text">MinVertCov <span class="math inline">\(V\)</span>-time reducible to MaxIndSet</span></h2>
+<table class="font-70 allcenter compact" style="vertical-align:top;height:90%">
+<tbody><tr class="font-70" style="height:0">
+<td colspan="2" class="und">
+<span>Problem we don’t know how to solve</span>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2" class="und">
+<span>Problem we do know how to solve</span>
+</td>
+</tr>
+<tr>
+<!-- this td contains the "A" cylinder and the final cylinder -->
+<td style="vertical-align:top;width:10%">
+<table class="" style="height:100%">
+<tbody><tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/red_A_cylinder.svg"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/red_X_cylinder.svg"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+
+<!-- this td is the left column that contains the original problem and the final solution -->
+<td style="vertical-align:top;width:25%;padding-right:10px !important">
+<!-- this table contains the image on the left (the "source" problem) -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<span>MinVertCov</span>
+</td>
+</tr>
+<tr>
+<td>
+<!-- the "source" image in the upper left -->
+<img src="graphs/reductions/vertex_cover-2.svg">
+</td>
+</tr>
+</tbody></table>
+<!-- this table has the bottom-left image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for MinVertCov:</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;text-align:center">
+<img src="graphs/reductions/vertex_cover-3.svg">
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this column contains the middle purple column and its contents -->
+<td colspan="2" style="vertical-align:top;border:2px solid black;background-color:plum">
+<!-- this table contains the center top right arrow and image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins"></p>
+</div>
+<p>
+Do nothing
+</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table class="bluenote fragment">
+<tbody><tr>
+<td>
+<div style="padding-left:20px;padding-right:20px">
+<p>We must show (prove):<br> 1) how to make the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;construction<br> 2) Why it works</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<!-- this table contains the center bottom left arrow and image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:30%">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins"></p>
+</div>
+<p>
+Take the complement
+</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this contains the yellow problem-B box(es) -->
+<td style="vertical-align:top;width:10%;padding-left:10px !important">
+<table class="" style="height:100%">
+<tbody><tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/yellow_B_box.svg"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/yellow_Y_box.svg"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this td is the right column that reduced-to problem the reduced-to solution -->
+<td style="vertical-align:top;width:25%">
+<!-- this table contains both the upper-right image and the down arrow on the right -->
+<table class="compact">
+<tbody><tr>
+<td>
+<span>MaxIndSet</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-90">
+<p style="style=" margin-top:0;margin-bottom:0"=""><img src="graphs/reductions/independent_set-2.svg" style="margin-top:0;margin-bottom:0"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+<p style="z-index:5">
+(any MaxIndSet alg)
+</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<!-- this table has the bottom-right image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<span>MaxIndSet solution:</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-90">
+<p style="style=" margin-top:0;margin-bottom:0"=""><img src="graphs/reductions/independent_set-3.svg" style="margin-top:0;margin-bottom:0"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="proof" class="slide level2">
+<h2>Proof: ⇐</h2>
+<p><span class="math inline">\(S\)</span> is an independent set of <span class="math inline">\(G\)</span> iff <span class="math inline">\(V-S\)</span> is a vertex cover of <span class="math inline">\(G\)</span></p>
+<p><img src="graphs/reductions/independent_set-5.svg" style="float:right;width:20vw;height:auto"></p>
+<p>Let <span class="math inline">\(\color{red}S\)</span> be an independent set</p>
+<p>Consider any <span class="magenta">edge</span> <span class="math inline">\({\color{magenta}(x,y)} \in E\)</span></p>
+<p>If <span class="math inline">\(\color{red}x\in S\)</span>, then <span class="math inline">\(y \notin S\)</span> because otherwise <span class="math inline">\(\color{red}S\)</span> would not be an independent set</p>
+<p>Therefore <span class="math inline">\(y \in V-S\)</span>, so edge <span class="math inline">\((x,y)\)</span> is covered by <span class="math inline">\(V-S\)</span></p>
+</section>
+<section id="proof-1" class="slide level2">
+<h2>Proof: ⇒</h2>
+<p><span class="math inline">\(S\)</span> is an independent set of <span class="math inline">\(G\)</span> iff <span class="math inline">\(V-S\)</span> is a vertex cover of <span class="math inline">\(G\)</span></p>
+<p><img src="graphs/reductions/vertex_cover-5.svg" style="float:right;width:20vw;height:auto"></p>
+<p>Let <span class="math inline">\(\color{red}V-S\)</span> be a vertex cover</p>
+<p>Consider any <span class="magenta">edge</span> <span class="math inline">\({\color{magenta}(x,y)} \in E\)</span></p>
+<p>At least one of <span class="math inline">\(\color{red}x\)</span> and <span class="math inline">\(\color{cornflowerblue}y\)</span> belong to <span class="math inline">\(\color{red}V-S\)</span> because <span class="math inline">\(\color{red}V-S\)</span> is a vertex cover of <span class="math inline">\(G\)</span></p>
+<p>Therefore <span class="math inline">\(\color{red}x\)</span> and <span class="math inline">\(\color{cornflowerblue}y\)</span> are not both in <span class="math inline">\(\color{cornflowerblue}S\)</span></p>
+<p>No edge has both end nodes in <span class="math inline">\(\color{cornflowerblue}S\)</span>, thus <span class="math inline">\(\color{cornflowerblue}S\)</span> is an independent set</p>
+</section>
+<section id="maxindset-v-time-reducible-to-minvertcov" class="slide level2">
+<h2><span class="r-fit-text">MaxIndSet <span class="math inline">\(V\)</span>-time reducible to MinVertCov</span></h2>
+<table class="font-70 allcenter compact" style="vertical-align:top;height:90%">
+<tbody><tr class="font-70" style="height:0">
+<td colspan="2" class="und">
+<span>Problem we don’t know how to solve</span>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2" class="und">
+<span>Problem we do know how to solve</span>
+</td>
+</tr>
+<tr>
+<!-- this td contains the "A" cylinder and the final cylinder -->
+<td style="vertical-align:top;width:10%">
+<table class="" style="height:100%">
+<tbody><tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/red_A_cylinder.svg"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/red_X_cylinder.svg"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+
+<!-- this td is the left column that contains the original problem and the final solution -->
+<td style="vertical-align:top;width:25%;padding-right:10px !important">
+<!-- this table contains the image on the left (the "source" problem) -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<span>MaxIndSet</span>
+</td>
+</tr>
+<tr>
+<td>
+<!-- the "source" image in the upper left -->
+<img src="graphs/reductions/independent_set-2.svg">
+</td>
+</tr>
+</tbody></table>
+<!-- this table has the bottom-left image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for MaxIndSet:</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;text-align:center">
+<img src="graphs/reductions/independent_set-3.svg">
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this column contains the middle purple column and its contents -->
+<td colspan="2" style="vertical-align:top;border:2px solid black;background-color:plum">
+<!-- this table contains the center top right arrow and image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins"></p>
+</div>
+<p>
+Do nothing
+</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table class="bluenote" style="opacity:0">
+<tbody><tr>
+<td>
+<div style="padding-left:20px;padding-right:20px">
+<p>We must show (prove):<br> 1) how to make the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;construction<br> 2) Why it works</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<!-- this table contains the center bottom left arrow and image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:30%">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins"></p>
+</div>
+<p>
+Take the complement
+</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this contains the yellow problem-B box(es) -->
+<td style="vertical-align:top;width:10%;padding-left:10px !important">
+<table class="" style="height:100%">
+<tbody><tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/yellow_B_box.svg"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/yellow_Y_box.svg"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this td is the right column that reduced-to problem the reduced-to solution -->
+<td style="vertical-align:top;width:25%">
+<!-- this table contains both the upper-right image and the down arrow on the right -->
+<table class="compact">
+<tbody><tr>
+<td>
+<span>MinVertCov</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100">
+<p style="style=" margin-top:0;margin-bottom:0"=""><img src="graphs/reductions/vertex_cover-2.svg" style="margin-top:0;margin-bottom:0"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+<p style="z-index:5">
+(any MinVertCov alg)
+</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<!-- this table has the bottom-right image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<span>MinVertCov solution:</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100">
+<p style="style=" margin-top:0;margin-bottom:0"=""><img src="graphs/reductions/vertex_cover-3.svg" style="margin-top:0;margin-bottom:0"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table class="fragment" style="position:absolute;top:50%;left:0;z-index:5">
+<tbody><tr>
+<td>
+<table class="bluenote">
+<tbody><tr>
+<td>
+If solving <span class="math inline">\(A\)</span> was<br>always slow
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table class="fragment" style="position:absolute;top:50%;right:0;z-index:5">
+<tbody><tr>
+<td>
+<table class="bluenote">
+<tbody><tr>
+<td>
+Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="minvertcov-v-time-reducible-to-maxindset-1" class="slide level2">
+<h2><span class="r-fit-text">MinVertCov <span class="math inline">\(V\)</span>-time reducible to MaxIndSet</span></h2>
+<table class="font-70 allcenter compact" style="vertical-align:top;height:90%">
+<tbody><tr class="font-70" style="height:0">
+<td colspan="2" class="und">
+<span>Problem we don’t know how to solve</span>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td colspan="2" class="und">
+<span>Problem we do know how to solve</span>
+</td>
+</tr>
+<tr>
+<!-- this td contains the "A" cylinder and the final cylinder -->
+<td style="vertical-align:top;width:10%">
+<table class="" style="height:100%">
+<tbody><tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/red_A_cylinder.svg"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/red_X_cylinder.svg"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+
+<!-- this td is the left column that contains the original problem and the final solution -->
+<td style="vertical-align:top;width:25%;padding-right:10px !important">
+<!-- this table contains the image on the left (the "source" problem) -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<span>MinVertCov</span>
+</td>
+</tr>
+<tr>
+<td>
+<!-- the "source" image in the upper left -->
+<img src="graphs/reductions/vertex_cover-2.svg">
+</td>
+</tr>
+</tbody></table>
+<!-- this table has the bottom-left image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<span>Solution for MinVertCov:</span>
+</td>
+</tr>
+<tr>
+<td style="vertical-align:top;text-align:center">
+<img src="graphs/reductions/vertex_cover-3.svg">
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this column contains the middle purple column and its contents -->
+<td colspan="2" style="vertical-align:top;border:2px solid black;background-color:plum">
+<!-- this table contains the center top right arrow and image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/rarrow.svg" class="svg-100 no-svg-margins"></p>
+</div>
+<p>
+Do nothing
+</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table class="bluenote" style="opacity:0">
+<tbody><tr>
+<td>
+<div style="padding-left:20px;padding-right:20px">
+<p>We must show (prove):<br> 1) how to make the<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;construction<br> 2) Why it works</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<!-- this table contains the center bottom left arrow and image -->
+<table class="compact allcenter" style="position:absolute;bottom:0;width:30%">
+<tbody><tr>
+<td>
+<div class="r-stack">
+<div class="svg-100 no-svg-margins" style="margin:0;z-index:2">
+<p><img src="graphs/reductions/larrow.svg" class="svg-100 no-svg-margins"></p>
+</div>
+<p>
+Take the complement
+</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this contains the yellow problem-B box(es) -->
+<td style="vertical-align:top;width:10%;padding-left:10px !important">
+<table class="" style="height:100%">
+<tbody><tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/yellow_B_box.svg"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-100 no-svg-margins">
+<p><img src="graphs/reductions/yellow_Y_box.svg"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<!-- this td is the right column that reduced-to problem the reduced-to solution -->
+<td style="vertical-align:top;width:25%">
+<!-- this table contains both the upper-right image and the down arrow on the right -->
+<table class="compact">
+<tbody><tr>
+<td>
+<span>MaxIndSet</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-90">
+<p style="style=" margin-top:0;margin-bottom:0"=""><img src="graphs/reductions/independent_set-2.svg" style="margin-top:0;margin-bottom:0"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="r-stack">
+<p style="text-align:center">
+<img src="graphs/reductions/darrow.svg" class="svg-60 no-svg-margins" style="margin:auto !important">
+</p>
+<p style="z-index:5">
+(any MaxIndSet alg)
+</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+<!-- this table has the bottom-right image -->
+<table class="compact allcenter">
+<tbody><tr>
+<td>
+<span>MaxIndSet solution:</span>
+</td>
+</tr>
+<tr>
+<td>
+<div class="svg-90">
+<p style="style=" margin-top:0;margin-bottom:0"=""><img src="graphs/reductions/independent_set-3.svg" style="margin-top:0;margin-bottom:0"></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table class="fragment" style="position:absolute;top:50%;left:0;z-index:5">
+<tbody><tr>
+<td>
+<table class="bluenote">
+<tbody><tr>
+<td>
+If solving <span class="math inline">\(A\)</span> was<br>always slow
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table class="fragment" style="position:absolute;top:50%;right:0;z-index:5">
+<tbody><tr>
+<td>
+<table class="bluenote">
+<tbody><tr>
+<td>
+Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p>&nbsp;</p>
+<ul>
+<li>MaxIndSet and MinVertCov are either both fast, or both slow</li>
+<li>Spoiler alert: We don’t know which!
+<ul>
+<li>(But we think they’re both slow)</li>
+</ul></li>
+<li>Both problems are <span class="purple">NP-Complete</span></li>
+</ul>
 </section></section>
 <section>
 <section id="np-completeness" class="title-slide slide level1 center">
@@ -6898,7 +7623,8 @@ Vertex cover of size 5
 <ul>
 <li>What we could prove that some problems are (most likely) hard?
 <ul>
-<li>Here, “hard” means runs in exponential time</li>
+<li>Here, “hard” means that it runs in exponential time</li>
+<li>“easy” means that it runs in polynomial time</li>
 </ul></li>
 <li>We <em>want</em> there to be “hard” problems
 <ul>
@@ -6913,9 +7639,10 @@ Vertex cover of size 5
 </section>
 <section id="dmt-1-review" class="slide level2">
 <h2>DMT 1 review</h2>
+<p>&nbsp;</p>
 <ul>
-<li>An AND operation is called a <em>conjunction</em></li>
-<li>An OR operation is called a <em>disjunction</em></li>
+<li>An AND <span class="math inline">\((\wedge)\)</span> operation is called a <em>conjunction</em></li>
+<li>An OR <span class="math inline">\((\vee)\)</span> operation is called a <em>disjunction</em></li>
 <li>DeMorgan’s law:
 <ul>
 <li><span class="math inline">\(\neg(a \vee b) == \neg a \wedge \neg b\)</span></li>
@@ -6923,8 +7650,8 @@ Vertex cover of size 5
 </ul></li>
 </ul>
 </section>
-<section id="background-satisfiability" class="slide level2">
-<h2>Background: Satisfiability</h2>
+<section id="background-satisfiability-sat" class="slide level2">
+<h2>Background: Satisfiability (SAT)</h2>
 <ul>
 <li>Given a boolean expression, can we find an assignment of true/false values to the variables such that the entire expression is true?</li>
 <li>Examples:
@@ -6940,8 +7667,8 @@ Vertex cover of size 5
 </ul></li>
 </ul>
 </section>
-<section id="background-satisfiability-1" class="slide level2">
-<h2>Background: Satisfiability</h2>
+<section id="background-satisfiability-sat-1" class="slide level2">
+<h2>Background: Satisfiability (SAT)</h2>
 <ul>
 <li>The equations presented so far:
 <ul>
@@ -6951,12 +7678,9 @@ Vertex cover of size 5
 <li>… are in <em>conjunctive normal form</em>
 <ul>
 <li>Meaning it’s a conjunction (AND’ing) of disjunctions (OR’ing)</li>
-</ul></li>
 <li>We’ll keep this as a standard format</li>
-<li>Nobody yet has found an <em>efficient</em> (polynomial-time) algorithm to solve it
-<ul>
-<li>Only exponential-time algorithms</li>
 </ul></li>
+<li>Nobody yet has found an <em>efficient</em> (polynomial-time) algorithm to solve it, only exponential-time algorithms</li>
 <li>Note that this problem is hard to <em>solve</em>, but easy to <em>verify</em> (when given an answer)</li>
 </ul>
 </section>
@@ -6967,102 +7691,119 @@ Vertex cover of size 5
 <ul>
 <li>Starts with 2 or 3 letters</li>
 <li>Optional digit</li>
-<li>1-3 letters if there was a digit</li>
+<li>1-3 more letters if there was a digit</li>
 </ul></li>
-<li>Of the forms: ll, lll, lldl, llldl, lldll, llldll, lldlll, llldlll</li>
+<li>Valid forms: ll, lll, lldl, llldl, lldll, llldll, lldlll, llldlll</li>
 </ul>
 </section>
 <section id="programmatically" class="slide level2">
 <h2>Programmatically</h2>
-<div id="2cab9708" class="cell" data-execution_count="1">
+<div id="1d1cffef" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="kw">def</span> check_uva_userid1(what):</span>
-<span id="cb1-2"><a href=""></a>    chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
-<span id="cb1-3"><a href=""></a>    <span class="co"># check first character (must be a letter)</span></span>
-<span id="cb1-4"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-5"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-6"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-7"><a href=""></a>    <span class="co"># check second character (must be a letter)</span></span>
-<span id="cb1-8"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-9"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-10"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-11"><a href=""></a>    <span class="co"># return true if of the form ll</span></span>
-<span id="cb1-12"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb1-13"><a href=""></a>    <span class="co"># check optional 3rd letter</span></span>
-<span id="cb1-14"><a href=""></a>    <span class="cf">if</span> chars[<span class="dv">0</span>].isalpha():</span>
-<span id="cb1-15"><a href=""></a>        chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-16"><a href=""></a>        <span class="co"># return true if of the form lll</span></span>
-<span id="cb1-17"><a href=""></a>        <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb1-18"><a href=""></a>    <span class="co"># check digit</span></span>
-<span id="cb1-19"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-20"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isdigit(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-21"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-22"><a href=""></a>    <span class="co"># check first letter after the digit</span></span>
-<span id="cb1-23"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-24"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-25"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-26"><a href=""></a>    <span class="co"># return true if of the form lldl or llldl</span></span>
-<span id="cb1-27"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb1-28"><a href=""></a>    <span class="co"># check second letter after the digit</span></span>
-<span id="cb1-29"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-30"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-31"><a href=""></a>    <span class="co"># return true if of the form lldll or llldll</span></span>
-<span id="cb1-32"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb1-33"><a href=""></a>    <span class="co"># check third letter after the digit</span></span>
-<span id="cb1-34"><a href=""></a>    <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-35"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
-<span id="cb1-36"><a href=""></a>    <span class="co"># return true if of the form lldlll or llldlll</span></span>
-<span id="cb1-37"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb1-38"><a href=""></a>    <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href=""></a>  chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
+<span id="cb1-3"><a href=""></a>  <span class="co"># check first character (must be a letter)</span></span>
+<span id="cb1-4"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-5"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-6"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-7"><a href=""></a>  <span class="co"># check second character (must be a letter)</span></span>
+<span id="cb1-8"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-9"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-10"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-11"><a href=""></a>  <span class="co"># return true if of the form ll</span></span>
+<span id="cb1-12"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-13"><a href=""></a>  <span class="co"># check optional 3rd letter</span></span>
+<span id="cb1-14"><a href=""></a>  <span class="cf">if</span> chars[<span class="dv">0</span>].isalpha():</span>
+<span id="cb1-15"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-16"><a href=""></a>    <span class="co"># return true if of the form lll</span></span>
+<span id="cb1-17"><a href=""></a>    <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-18"><a href=""></a>  <span class="co"># check digit</span></span>
+<span id="cb1-19"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-20"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isdigit(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-21"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-22"><a href=""></a>  <span class="co"># check first letter after the digit</span></span>
+<span id="cb1-23"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-24"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-25"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-26"><a href=""></a>  <span class="co"># return true if of the form lldl or llldl</span></span>
+<span id="cb1-27"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-28"><a href=""></a>  <span class="co"># check second letter after the digit</span></span>
+<span id="cb1-29"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-30"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-31"><a href=""></a>  <span class="co"># return true if of the form lldll or llldll</span></span>
+<span id="cb1-32"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-33"><a href=""></a>  <span class="co"># check third letter after the digit</span></span>
+<span id="cb1-34"><a href=""></a>  <span class="cf">if</span> <span class="kw">not</span> chars[<span class="dv">0</span>].isalpha(): <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb1-35"><a href=""></a>  chars.pop(<span class="dv">0</span>)</span>
+<span id="cb1-36"><a href=""></a>  <span class="co"># return true if of the form lldlll or llldlll</span></span>
+<span id="cb1-37"><a href=""></a>  <span class="cf">if</span> <span class="bu">len</span>(chars) <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb1-38"><a href=""></a>  <span class="cf">return</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Source: <a href="src/reductions/uvauserid1.py.html">uvauserid1.py</a></p>
 </section>
 <section id="automata" class="slide level2">
 <h2>Automata</h2>
-
-<img data-src="graphs/reductions/automata_1.svg" class="center r-stretch" style="width:75%"><ul>
-<li>Double circled states are final states</li>
-<li>Each arrow assumes that it pops one input character</li>
+<div class="font-90">
+<p>Let’s phrase this using a <em>finite state machine</em></p>
+<p><img data-src="graphs/reductions/automata_1.svg" class="center" style="width:75%"></p>
+<ul>
+<li>Each arrow assumes that it pops (consumes) one character</li>
+<li>Double circled states are final states
+<ul>
+<li>If the end of input is in a final state, the string is <em>accepted</em></li>
+</ul></li>
 </ul>
+</div>
 </section>
 <section id="as-code" class="slide level2">
 <h2>As code</h2>
-<div id="b10b46bf" class="cell" data-execution_count="2">
+<div id="5299550c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> check_uva_userid2(what):</span>
-<span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a>    state_table <span class="op">=</span> [ </span>
-<span id="cb2-4"><a href=""></a>        <span class="co"># from each state, where to go on an 'l', 'd', and 'o', respectively</span></span>
-<span id="cb2-5"><a href=""></a>        [], <span class="co"># we numbered our states from 1, so we burn spot 0</span></span>
-<span id="cb2-6"><a href=""></a>        [<span class="dv">2</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 1 goes to 2 on a letter</span></span>
-<span id="cb2-7"><a href=""></a>        [<span class="dv">3</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 2 goes to 3 on a letter</span></span>
-<span id="cb2-8"><a href=""></a>        [<span class="dv">4</span>,    <span class="dv">5</span>,    <span class="va">None</span>], <span class="co"># state 3 goes to 4 on a letter and 5 on a digit</span></span>
-<span id="cb2-9"><a href=""></a>        [<span class="va">None</span>, <span class="dv">5</span>,    <span class="va">None</span>], <span class="co"># state 4 goes to 5 on a digit</span></span>
-<span id="cb2-10"><a href=""></a>        [<span class="dv">6</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 5 goes to 6 on a letter</span></span>
-<span id="cb2-11"><a href=""></a>        [<span class="dv">7</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 6 goes to 7 on a letter</span></span>
-<span id="cb2-12"><a href=""></a>        [<span class="dv">8</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 7 goes to 8 on a letter</span></span>
-<span id="cb2-13"><a href=""></a>        [<span class="va">None</span>, <span class="va">None</span>, <span class="va">None</span>], <span class="co"># no transitions out of state 8</span></span>
-<span id="cb2-14"><a href=""></a>    ]</span>
-<span id="cb2-15"><a href=""></a>    final_states <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>]</span>
-<span id="cb2-16"><a href=""></a></span>
-<span id="cb2-17"><a href=""></a>    chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
-<span id="cb2-18"><a href=""></a>    state <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb2-19"><a href=""></a>    <span class="cf">while</span> <span class="bu">len</span>(chars) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb2-20"><a href=""></a>        which <span class="op">=</span> <span class="dv">0</span> <span class="cf">if</span> chars[<span class="dv">0</span>].isalpha() <span class="cf">else</span> <span class="dv">1</span> <span class="cf">if</span> chars[<span class="dv">0</span>].isdigit() <span class="cf">else</span> <span class="dv">2</span></span>
-<span id="cb2-21"><a href=""></a>        next_state <span class="op">=</span> state_table[state][which]</span>
-<span id="cb2-22"><a href=""></a>        <span class="cf">if</span> next_state <span class="kw">is</span> <span class="va">None</span>: <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb2-23"><a href=""></a>        state <span class="op">=</span> next_state</span>
-<span id="cb2-24"><a href=""></a>        chars.pop(<span class="dv">0</span>)</span>
-<span id="cb2-25"><a href=""></a>    <span class="cf">return</span> state <span class="kw">in</span> final_states</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href=""></a>  <span class="co"># returns True if the passed parameter is a valid UVA userid, else False</span></span>
+<span id="cb2-3"><a href=""></a></span>
+<span id="cb2-4"><a href=""></a>  state_table <span class="op">=</span> [ </span>
+<span id="cb2-5"><a href=""></a>    <span class="co"># from each state, where to go on an 'l', 'd', and 'o', respectively</span></span>
+<span id="cb2-6"><a href=""></a>    [], <span class="co"># we numbered our states from 1, so we burn spot 0</span></span>
+<span id="cb2-7"><a href=""></a>    [<span class="dv">2</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 1 goes to 2 on a letter</span></span>
+<span id="cb2-8"><a href=""></a>    [<span class="dv">3</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 2 goes to 3 on a letter</span></span>
+<span id="cb2-9"><a href=""></a>    [<span class="dv">4</span>,    <span class="dv">5</span>,    <span class="va">None</span>], <span class="co"># state 3 goes to 4 on a letter and 5 on a digit</span></span>
+<span id="cb2-10"><a href=""></a>    [<span class="va">None</span>, <span class="dv">5</span>,    <span class="va">None</span>], <span class="co"># state 4 goes to 5 on a digit</span></span>
+<span id="cb2-11"><a href=""></a>    [<span class="dv">6</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 5 goes to 6 on a letter</span></span>
+<span id="cb2-12"><a href=""></a>    [<span class="dv">7</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 6 goes to 7 on a letter</span></span>
+<span id="cb2-13"><a href=""></a>    [<span class="dv">8</span>,    <span class="va">None</span>, <span class="va">None</span>], <span class="co"># state 7 goes to 8 on a letter</span></span>
+<span id="cb2-14"><a href=""></a>    [<span class="va">None</span>, <span class="va">None</span>, <span class="va">None</span>], <span class="co"># no transitions out of state 8</span></span>
+<span id="cb2-15"><a href=""></a>  ]</span>
+<span id="cb2-16"><a href=""></a>  final_states <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>]</span>
+<span id="cb2-17"><a href=""></a></span>
+<span id="cb2-18"><a href=""></a>  chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
+<span id="cb2-19"><a href=""></a>  state <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-20"><a href=""></a>  <span class="cf">while</span> <span class="bu">len</span>(chars) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb2-21"><a href=""></a>    <span class="co"># which is whether it's a letter (0), digit (1), or other (2)</span></span>
+<span id="cb2-22"><a href=""></a>    which <span class="op">=</span> <span class="dv">0</span> <span class="cf">if</span> chars[<span class="dv">0</span>].isalpha() <span class="cf">else</span> <span class="dv">1</span> <span class="cf">if</span> chars[<span class="dv">0</span>].isdigit() <span class="cf">else</span> <span class="dv">2</span></span>
+<span id="cb2-23"><a href=""></a>    <span class="co"># get the state transition, and verify it's not None</span></span>
+<span id="cb2-24"><a href=""></a>    next_state <span class="op">=</span> state_table[state][which]</span>
+<span id="cb2-25"><a href=""></a>    <span class="cf">if</span> next_state <span class="kw">is</span> <span class="va">None</span>: <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb2-26"><a href=""></a>    <span class="co"># transition to that state and pop the input character</span></span>
+<span id="cb2-27"><a href=""></a>    state <span class="op">=</span> next_state</span>
+<span id="cb2-28"><a href=""></a>    chars.pop(<span class="dv">0</span>)</span>
+<span id="cb2-29"><a href=""></a></span>
+<span id="cb2-30"><a href=""></a>  <span class="co"># we should have ended in a final state</span></span>
+<span id="cb2-31"><a href=""></a>  <span class="cf">return</span> state <span class="kw">in</span> final_states</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Source: <a href="src/reductions/uvauserid2.py.html">uvauserid1.py</a></p>
+<p>Source: <a href="src/reductions/uvauserid2.py.html">uvauserid2.py</a></p>
 </section>
 <section id="automata-1" class="slide level2">
 <h2>Automata</h2>
-
-<img data-src="graphs/reductions/automata_2.svg" class="center r-stretch" style="width:75%"><ul>
-<li>What if we only have one accepting (aka final) state?</li>
+<p>What What if we only have one accepting (aka final) state?</p>
+<div class="r-stack">
+<p><img data-src="graphs/reductions/automata_2.svg" class="center" style="width:50vw"></p>
+<p><img data-src="graphs/reductions/automata_8.svg" class="center fragment" style="width:50vw"></p>
+<p><img data-src="graphs/reductions/automata_9.svg" class="center fragment" style="width:50vw"></p>
+<p><img data-src="graphs/reductions/automata_10.svg" class="center fragment" style="width:50vw"></p>
+</div>
+<ul>
 <li>But which way to go?
 <ul>
-<li>In state 3, on a input of a letter, we could go to <em>three</em> different states: 4, 5, and 8</li>
+<li>In state 3, on a input of a letter, we could go to two different states: 4 and 8 (likewise for states 5 and 6)</li>
 </ul></li>
 <li>This is called <em>non-determinism</em></li>
 </ul>
@@ -7076,13 +7817,23 @@ Vertex cover of size 5
 </section>
 <section id="why-non-determinism" class="slide level2">
 <h2>Why non-determinism</h2>
-<p>(to fill in)</p>
+<ul>
+<li>Easier to model many “things”
+<ul>
+<li>Regular expressions, for example</li>
+</ul></li>
+<li>All non-deterministic finite automata (NFAs) can be converted into <em>deterministic</em> finite automata (DFAs)
+<ul>
+<li>And they have to be for our (deterministic) computers to use them</li>
+</ul></li>
+<li>Sometimes converting an polynomial-time NFA yields an <em>exponential</em> time DFA</li>
+</ul>
 </section>
 <section id="automata-3" class="slide level2">
 <h2>Automata</h2>
 
 <img data-src="graphs/reductions/automata_4.svg" class="center r-stretch" style="width:50%"><ul>
-<li>This has empty (<span class="math inline">\(\epsilon\)</span>) transitions</li>
+<li>This has empty (<span class="math inline">\(\epsilon\)</span>) transitions; only allowed on NFAs</li>
 </ul>
 </section>
 <section id="automata-definitions" class="slide level2">
@@ -7102,8 +7853,8 @@ Vertex cover of size 5
 </section>
 <section id="automata-and-languages" class="slide level2">
 <h2>Automata and languages</h2>
-
-<img data-src="graphs/reductions/automata_5.svg" style="width:25%;float:right" class="r-stretch"><ul>
+<p><img data-src="graphs/reductions/automata_5.svg" class="fragment" style="width:25%;height:auto;float:right"></p>
+<ul>
 <li>How would you write an automata that can accept strings with <em>some</em> positive number of a’s followed by some positive number of b’s?
 <ul>
 <li>Expressed as <span class="math inline">\(a^+b^+\)</span></li>
@@ -7112,7 +7863,7 @@ Vertex cover of size 5
 </section>
 <section id="more-powerful-automata" class="slide level2">
 <h2>More powerful automata</h2>
-<p><img data-src="graphs/reductions/automata_6.svg" style="height:70%;float:right;width:30%"></p>
+<p><img data-src="graphs/reductions/automata_6.svg" class="fragment" style="height:70%;float:right;width:30%"></p>
 <ul>
 <li>How would you write an automata that can accept strings with <em>some</em> positive number of a’s followed by <strong>the same number</strong> of b’s?
 <ul>
@@ -7168,33 +7919,34 @@ Vertex cover of size 5
 <ul>
 <li>Analogous to a computer’s memory</li>
 </ul></li>
-<li>Image from <a href="https://texample.net//tikz/examples/turing-machine-2/">texexample.net</a></li>
+<li>(image from <a href="https://texample.net//tikz/examples/turing-machine-2/">texexample.net</a>)</li>
 </ul>
 </section>
 <section id="nfa-animation" class="slide level2">
 <h2>NFA Animation</h2>
-
-<img data-src="graphs/reductions/automata_3.svg" style="float:right" class="r-stretch"><ul>
+<p><img data-src="graphs/reductions/automata_3.svg" style="float:right;width:40%;height:auto"></p>
+<ul>
 <li>Back to our NFA to accept UVA userids</li>
 <li>Imagine that this is the NFA in a Turing machine
 <ul>
 <li>Although this one does not use memory</li>
 </ul></li>
 <li>We’ll trace through accepting any valid UVA userid</li>
+<li>Goal: what states can the NFA be in at any step?</li>
 </ul>
 </section>
 <section id="nfa-animation-1" class="slide level2">
 <h2>NFA Animation</h2>
 <div class="r-stack" style="width:100%;height:50%">
-<p><img data-src="graphs/reductions/automata_3.svg" class="fragment fade-out" style="height:50vh" data-fragment-index="1"></p>
-<p><img data-src="graphs/reductions/automata_3a.svg" class="fragment" style="height:50vh" data-fragment-index="1"></p>
-<p><img data-src="graphs/reductions/automata_3b.svg" class="fragment" style="height:50vh"></p>
-<p><img data-src="graphs/reductions/automata_3c.svg" class="fragment" style="height:50vh"></p>
-<p><img data-src="graphs/reductions/automata_3d.svg" class="fragment" style="height:50vh"></p>
-<p><img data-src="graphs/reductions/automata_3e.svg" class="fragment" style="height:50vh"></p>
-<p><img data-src="graphs/reductions/automata_3f.svg" class="fragment" style="height:50vh"></p>
-<p><img data-src="graphs/reductions/automata_3g.svg" class="fragment" style="height:50vh"></p>
-<p><img data-src="graphs/reductions/automata_3h.svg" class="fragment" style="height:50vh"></p>
+<p><img data-src="graphs/reductions/automata_3a.svg" style="height:60vh"></p>
+<p><img data-src="graphs/reductions/automata_3b.svg" class="fragment" style="height:60vh"></p>
+<p><img data-src="graphs/reductions/automata_3c.svg" class="fragment" style="height:60vh"></p>
+<p><img data-src="graphs/reductions/automata_3d.svg" class="fragment" style="height:60vh"></p>
+<p><img data-src="graphs/reductions/automata_3e.svg" class="fragment" style="height:60vh"></p>
+<p><img data-src="graphs/reductions/automata_3f.svg" class="fragment" style="height:60vh"></p>
+<p><img data-src="graphs/reductions/automata_3g.svg" class="fragment" style="height:60vh"></p>
+<p><img data-src="graphs/reductions/automata_3h.svg" class="fragment" style="height:60vh"></p>
+<p><img data-src="graphs/reductions/automata_3i.svg" class="fragment" style="height:60vh"></p>
 </div>
 </section>
 <section id="what-state-is-the-nfa-in" class="slide level2">
@@ -7276,9 +8028,9 @@ Vertex cover of size 5
 <td>false</td>
 <td>false</td>
 <td><span class="blue">true</span></td>
+<td><span class="blue">true</span></td>
 <td>false</td>
-<td>false</td>
-<td>false</td>
+<td><span class="blue">true</span></td>
 </tr>
 <tr class="even">
 <td>6</td>
@@ -7288,7 +8040,7 @@ Vertex cover of size 5
 <td>false</td>
 <td>false</td>
 <td><span class="blue">true</span></td>
-<td>false</td>
+<td><span class="blue">true</span></td>
 <td><span class="blue">true</span></td>
 </tr>
 <tr class="odd">
@@ -7395,9 +8147,9 @@ Vertex cover of size 5
 <td><span class="math inline">\(\neg s_3\)</span></td>
 <td><span class="math inline">\(\neg s_4\)</span></td>
 <td><span class="blue"><span class="math inline">\(s_5\)</span></span></td>
-<td><span class="math inline">\(\neg s_6\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_6\)</span></span></td>
 <td><span class="math inline">\(\neg s_7\)</span></td>
-<td><span class="math inline">\(\neg s_8\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_8\)</span></span></td>
 </tr>
 <tr class="even">
 <td>6</td>
@@ -7407,7 +8159,7 @@ Vertex cover of size 5
 <td><span class="math inline">\(\neg s_4\)</span></td>
 <td><span class="math inline">\(\neg s_5\)</span></td>
 <td><span class="blue"><span class="math inline">\(s_6\)</span></span></td>
-<td><span class="math inline">\(\neg s_7\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_7\)</span></span></td>
 <td><span class="blue"><span class="math inline">\(s_8\)</span></span></td>
 </tr>
 <tr class="odd">
@@ -7505,7 +8257,7 @@ Vertex cover of size 5
 <td><span class="blue"><span class="math inline">\(s_{45}\)</span></span></td>
 <td><span class="math inline">\(\neg s_{46}\)</span></td>
 <td><span class="math inline">\(\neg s_{47}\)</span></td>
-<td><span class="blue"><span class="math inline">\(s_{58}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{48}\)</span></span></td>
 </tr>
 <tr class="odd">
 <td>5</td>
@@ -7514,9 +8266,9 @@ Vertex cover of size 5
 <td><span class="math inline">\(\neg s_{53}\)</span></td>
 <td><span class="math inline">\(\neg s_{54}\)</span></td>
 <td><span class="blue"><span class="math inline">\(s_{55}\)</span></span></td>
-<td><span class="math inline">\(\neg s_{56}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{56}\)</span></span></td>
 <td><span class="math inline">\(\neg s_{57}\)</span></td>
-<td><span class="math inline">\(\neg s_{58}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{58}\)</span></span></td>
 </tr>
 <tr class="even">
 <td>6</td>
@@ -7526,7 +8278,7 @@ Vertex cover of size 5
 <td><span class="math inline">\(\neg s_{64}\)</span></td>
 <td><span class="math inline">\(\neg s_{65}\)</span></td>
 <td><span class="blue"><span class="math inline">\(s_{66}\)</span></span></td>
-<td><span class="math inline">\(\neg s_{67}\)</span></td>
+<td><span class="blue"><span class="math inline">\(s_{67}\)</span></span></td>
 <td><span class="blue"><span class="math inline">\(s_{68}\)</span></span></td>
 </tr>
 <tr class="odd">
@@ -7619,7 +8371,7 @@ Vertex cover of size 5
 <td>4</td>
 <td><span class="blue"><span class="math inline">\(s_{44}\)</span></span></td>
 <td><span class="blue"><span class="math inline">\(s_{45}\)</span></span></td>
-<td><span class="blue"><span class="math inline">\(s_{58}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{48}\)</span></span></td>
 <td><span class="math inline">\(\neg s_{41}\)</span></td>
 <td><span class="math inline">\(\neg s_{42}\)</span></td>
 <td><span class="math inline">\(\neg s_{43}\)</span></td>
@@ -7629,24 +8381,24 @@ Vertex cover of size 5
 <tr class="odd">
 <td>5</td>
 <td><span class="blue"><span class="math inline">\(s_{55}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{56}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{58}\)</span></span></td>
 <td><span class="math inline">\(\neg s_{51}\)</span></td>
 <td><span class="math inline">\(\neg s_{52}\)</span></td>
 <td><span class="math inline">\(\neg s_{53}\)</span></td>
 <td><span class="math inline">\(\neg s_{54}\)</span></td>
-<td><span class="math inline">\(\neg s_{56}\)</span></td>
 <td><span class="math inline">\(\neg s_{57}\)</span></td>
-<td><span class="math inline">\(\neg s_{58}\)</span></td>
 </tr>
 <tr class="even">
 <td>6</td>
 <td><span class="blue"><span class="math inline">\(s_{66}\)</span></span></td>
+<td><span class="blue"><span class="math inline">\(s_{67}\)</span></span></td>
 <td><span class="blue"><span class="math inline">\(s_{68}\)</span></span></td>
 <td><span class="math inline">\(\neg s_{61}\)</span></td>
 <td><span class="math inline">\(\neg s_{62}\)</span></td>
 <td><span class="math inline">\(\neg s_{63}\)</span></td>
 <td><span class="math inline">\(\neg s_{64}\)</span></td>
 <td><span class="math inline">\(\neg s_{65}\)</span></td>
-<td><span class="math inline">\(\neg s_{67}\)</span></td>
 </tr>
 <tr class="odd">
 <td>7</td>
@@ -7679,9 +8431,9 @@ Vertex cover of size 5
 <li><span class="math inline">\({\color{blue}s_{11}} \wedge \neg s_{12} \wedge \neg s_{13} \wedge \neg s_{14} \wedge \neg s_{15} \wedge \neg s_{16} \wedge \neg s_{17} \wedge \neg s_{18}\)</span></li>
 <li><span class="math inline">\({\color{blue}s_{22}} \wedge \neg s_{21} \wedge \neg s_{23} \wedge \neg s_{24} \wedge \neg s_{25} \wedge \neg s_{26} \wedge \neg s_{27} \wedge \neg s_{28}\)</span></li>
 <li><span class="math inline">\(({\color{blue}s_{33}} \vee {\color{blue}s_{38}}) \wedge \neg s_{31} \wedge \neg s_{32} \wedge \neg s_{34} \wedge \neg s_{35} \wedge \neg s_{36} \wedge \neg s_{37}\)</span></li>
-<li><span class="math inline">\(({\color{blue}s_{44}} \vee {\color{blue}s_{45}} \vee {\color{blue}s_{58}}) \wedge \neg s_{41} \wedge \neg s_{42} \wedge \neg s_{43} \wedge \neg s_{46} \wedge \neg s_{47}\)</span></li>
-<li><span class="math inline">\({\color{blue}s_{55}} \wedge \neg s_{51} \wedge \neg s_{52} \wedge \neg s_{53} \wedge \neg s_{54} \wedge \neg s_{56} \wedge \neg s_{57} \wedge \neg s_{58}\)</span></li>
-<li><span class="math inline">\(({\color{blue}s_{66}} \vee {\color{blue}s_{68}}) \wedge \neg s_{61} \wedge \neg s_{62} \wedge \neg s_{63} \wedge \neg s_{64} \wedge \neg s_{65} \wedge \neg s_{67}\)</span></li>
+<li><span class="math inline">\(({\color{blue}s_{44}} \vee {\color{blue}s_{45}} \vee {\color{blue}s_{48}}) \wedge \neg s_{41} \wedge \neg s_{42} \wedge \neg s_{43} \wedge \neg s_{46} \wedge \neg s_{47}\)</span></li>
+<li><span class="math inline">\(({\color{blue}s_{55}} \vee  {\color{blue}s_{56}} \vee {\color{blue}s_{58}}) \wedge \neg s_{51} \wedge \neg s_{52} \wedge \neg s_{53} \wedge \neg s_{54} \wedge \neg s_{57}\)</span></li>
+<li><span class="math inline">\(({\color{blue}s_{66}} \vee {\color{blue}s_{67}} \vee {\color{blue}s_{68}}) \wedge \neg s_{61} \wedge \neg s_{62} \wedge \neg s_{63} \wedge \neg s_{64} \wedge \neg s_{65}\)</span></li>
 <li><span class="math inline">\(({\color{blue}s_{77}} \vee {\color{blue}s_{78}}) \wedge \neg s_{71} \wedge \neg s_{72} \wedge \neg s_{73} \wedge \neg s_{74} \wedge \neg s_{75} \wedge \neg s_{76}\)</span></li>
 <li><span class="math inline">\({\color{blue}s_{88}} \wedge \neg s_{81} \wedge \neg s_{82} \wedge \neg s_{83} \wedge \neg s_{84} \wedge \neg s_{85} \wedge \neg s_{86} \wedge \neg s_{87}\)</span></li>
 </ol>
@@ -7694,19 +8446,19 @@ accepted = \\
 {\color{blue}s_{11}} \wedge \neg s_{12} \wedge \neg s_{13} \wedge \neg s_{14} \wedge \neg s_{15} \wedge \neg s_{16} \wedge \neg s_{17} \wedge \neg s_{18} \wedge \\
 {\color{blue}s_{22}} \wedge \neg s_{21} \wedge \neg s_{23} \wedge \neg s_{24} \wedge \neg s_{25} \wedge \neg s_{26} \wedge \neg s_{27} \wedge \neg s_{28} \wedge \\
 ({\color{blue}s_{33}} \vee {\color{blue}s_{38}}) \wedge \neg s_{31} \wedge \neg s_{32} \wedge \neg s_{34} \wedge \neg s_{35} \wedge \neg s_{36} \wedge \neg s_{37} \wedge \\
-({\color{blue}s_{44}} \vee {\color{blue}s_{45}} \vee {\color{blue}s_{58}}) \wedge \neg s_{41} \wedge \neg s_{42} \wedge \neg s_{43} \wedge \neg s_{46} \wedge \neg s_{47} \wedge \\
-{\color{blue}s_{55}} \wedge \neg s_{51} \wedge \neg s_{52} \wedge \neg s_{53} \wedge \neg s_{54} \wedge \neg s_{56} \wedge \neg s_{57} \wedge \neg s_{58} \wedge \\
-({\color{blue}s_{66}} \vee {\color{blue}s_{68}}) \wedge \neg s_{61} \wedge \neg s_{62} \wedge \neg s_{63} \wedge \neg s_{64} \wedge \neg s_{65} \wedge \neg s_{67} \wedge \\
+({\color{blue}s_{44}} \vee {\color{blue}s_{45}} \vee {\color{blue}s_{48}}) \wedge \neg s_{41} \wedge \neg s_{42} \wedge \neg s_{43} \wedge \neg s_{46} \wedge \neg s_{47} \wedge \\
+({\color{blue}s_{55}} \vee  {\color{blue}s_{56}} \vee {\color{blue}s_{58}}) \wedge \neg s_{51} \wedge \neg s_{52} \wedge \neg s_{53} \wedge \neg s_{54} \wedge \neg s_{57} \wedge \\
+({\color{blue}s_{66}} \vee {\color{blue}s_{67}} \vee {\color{blue}s_{68}}) \wedge \neg s_{61} \wedge \neg s_{62} \wedge \neg s_{63} \wedge \neg s_{64} \wedge \neg s_{65} \wedge \\
 ({\color{blue}s_{77}} \vee {\color{blue}s_{78}}) \wedge \neg s_{71} \wedge \neg s_{72} \wedge \neg s_{73} \wedge \neg s_{74} \wedge \neg s_{75} \wedge \neg s_{76} \wedge \\
 {\color{blue}s_{88}} \wedge \neg s_{81} \wedge \neg s_{82} \wedge \neg s_{83} \wedge \neg s_{84} \wedge \neg s_{85} \wedge \neg s_{86} \wedge \neg s_{87} \\
 \end{array}
 \]</span></p>
-<p>That’s satisfiability!</p>
+<p><span class="fragment">That’s satisfiability!</span></p>
 </section>
-<section id="theorem" class="slide level2">
-<h2>Theorem</h2>
+<section id="cook-levin-theorem-1971" class="slide level2">
+<h2>Cook-Levin Theorem (1971)</h2>
 <ul>
-<li>Anything such problem
+<li>Any such problem
 <ul>
 <li>…of the type we have seen…</li>
 </ul></li>
@@ -7722,11 +8474,11 @@ accepted = \\
 <div class="font-90">
 <p><img data-src="images/reductions/P-NP.svg" style="float:right;margin-left:20px"></p>
 <ul>
-<li><span class="green">P</span>: Any problem that can be solved by a <em>deterministic</em> automata (DFA) in polynomial time
+<li><span class="green">P</span>: Any problem that can be solved by a <em>deterministic</em> finite automata (DFA) in polynomial time
 <ul>
 <li>Can also be <em>verified</em> in polynomial time</li>
 </ul></li>
-<li><span class="blue">NP</span>: Any problem that can be solved by a <em>non-deterministic</em> automata (NFA) in polynomial time
+<li><span class="blue">NP</span>: Any problem that can be solved by a <em>non-deterministic</em> finite automata (NFA) in polynomial time
 <ul>
 <li>Might take exponential time on a DFA</li>
 <li>Can be <em>verified</em> in polynomial time</li>
@@ -7751,9 +8503,12 @@ accepted = \\
 </ul></li>
 </ul></li>
 <li>There are believed to be problems in NP that are not NP-hard (none yet proven)</li>
-<li>There are actually many more complexity classes:</li>
 </ul>
-<p><img data-src="images/reductions/Complexity_classes.svg" style="float:left;width:35vh;margin-left:10vw"></p>
+<p><span class="fragment" data-fragment-index="1">There are actually many more complexity classes:</span></p>
+<div class="r-stack">
+<p><img data-src="images/reductions/Complexity_classes.svg" class="fragment" style="float:left;width:35vh;margin-left:10vw" data-fragment-index="1"></p>
+<p><img data-src="images/reductions/Complexity_classes-2.svg" class="fragment" style="float:left;width:35vh;margin-left:10vw" data-fragment-index="2"></p>
+</div>
 </div>
 </section>
 <section id="recap-satisfiability-sat" class="slide level2">
@@ -7793,47 +8548,290 @@ accepted = \\
 <li>Reducing SAT (or another <span class="purple">NP-complete</span> problem) to <span class="math inline">\(X\)</span></li>
 <li>Reducing <span class="math inline">\(X\)</span> to SAT (or another <span class="purple">NP-complete</span> problem)
 <ul>
-<li>But if <span class="math inline">\(X \in {\color{blue}NP}\)</span>, then it reduces to SAT</li>
+<li>But if <span class="math inline">\(X \in {\color{blue}NP}\)</span>, then it reduces to SAT via the Cook-Levin theorem</li>
 <li>So we just have to show <span class="math inline">\(X \in {\color{blue}NP}\)</span></li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 </section>
-<section id="example-reduction" class="slide level2">
-<h2>Example reduction</h2>
+<section id="showing-x-in-np" class="slide level2">
+<h2>Showing <span class="math inline">\(X \in NP\)</span></h2>
+<ul>
+<li>Via a proof we won’t show here, it has been shown that:
+<ul>
+<li>A problem <span class="math inline">\(X\)</span> being in <span class="blue">NP</span>
+<ul>
+<li>Meaning solvable by a NFA in polynomial time</li>
+</ul></li>
+<li>And an answer to <span class="math inline">\(X\)</span> being able to be <em>verified</em> in polynomial time</li>
+</ul></li>
+<li>Are actually the same thing</li>
+</ul>
+<p>&nbsp;</p>
+<p><span class="fragment">So we just have to show that we can <em>verify</em> a problem’s answer in polynomial time to show it is in <span class="blue">NP</span></span></p>
+</section>
+<section id="example-reduction-vertex-cover" class="slide level2">
+<h2>Example reduction: Vertex Cover</h2>
 <p><img data-src="graphs/reductions/vertex_cover-3.svg" style="float:right;margin-left:20px;width:20vw;height:auto"></p>
 <ul>
-<li>Consider the vertex cover problem:
+<li>Consider the minimum vertex cover problem:
 <ul>
 <li>Given a graph <span class="math inline">\(G=(V,E)\)</span>, find a set of vertices <span class="math inline">\(C\subseteq V\)</span> such that every edge in <span class="math inline">\(E\)</span> has at least one endpoint in <span class="math inline">\(C\)</span></li>
 </ul></li>
 <li>To prove it’s <span class="purple">NP-complete</span>:
 <ul>
 <li>Show it’s in <span class="blue">NP</span> (this means it reduces to SAT)</li>
-<li>Reduce it to SAT (or another <span class="purple">NP-complete</span> problem)</li>
+<li>Reduce a known <span class="purple">NP-complete</span> problem to it</li>
 </ul></li>
 </ul>
 </section>
-<section id="example-reduction-1" class="slide level2">
-<h2>Example reduction</h2>
+<section id="example-reduction-vertex-cover-1" class="slide level2">
+<h2>Example reduction: Vertex Cover</h2>
 <ul>
 <li>Show it’s in <span class="blue">NP</span> (this means it reduces to SAT)
 <ul>
-<li>Given a set of vertices <span class="math inline">\(C\)</span>, we can, in polynomial time, verify all edges in <span class="math inline">\(E\)</span> have at least one endpoint in <span class="math inline">\(C\)</span></li>
-</ul></li>
-<li>Reduce it to SAT (or another <span class="purple">NP-complete</span> problem):
+<li>Given a set of vertices <span class="math inline">\(C\)</span>, we can, in polynomial time, verify all edges in <span class="math inline">\(E\)</span> have at least one endpoint in <span class="math inline">\(C\)</span>
 <ul>
-<li>Let <span class="math inline">\(x_i\)</span> mean that node <span class="math inline">\(i\)</span> is part of the vertex cover set <span class="math inline">\(C\)</span></li>
-<li>For every edge <span class="math inline">\((v,w)\)</span>, add the clause <span class="math inline">\((x_v \vee x_w)\)</span></li>
-<li>Conjoin (AND) those clauses together</li>
-<li>This is now a SAT problem</li>
+<li>We just check each edge has at least one end point in <span class="math inline">\(C\)</span>, which takes <span class="math inline">\(\Theta(E)\)</span> time</li>
+</ul></li>
+</ul></li>
+<li>Reduce another <span class="purple">NP-complete</span> problem to it
+<ul>
+<li>Maximum Independent Set is <span class="purple">NP-complete</span></li>
+<li>So we reduce Maximum Independent Set to Minimum Vertex Cover</li>
+<li>(shown a few slides ago: just take the complement graph)</li>
 </ul></li>
 <li>Thus, the vertex cover problem is <span class="purple">NP-complete</span></li>
 </ul>
 </section>
-<section id="can-we-solve-sat-in-polynomial-time" class="slide level2">
-<h2>Can we solve SAT in polynomial time?</h2>
+<section id="counter-intuitiveness" class="slide level2">
+<h2>Counter-intuitiveness</h2>
+<div class="font-85">
+<p>Two things tend to be counter-intuitive when trying to prove that problem <span class="math inline">\(X\)</span> is <span class="purple">NP-complete</span>:</p>
+<ol type="1">
+<li>You are not <em>solving</em> the problem, or giving a direct algorithm to solve it
+<ul>
+<li>You are only showing that it reduces to and from another <span class="purple">NP-complete</span> problem</li>
+</ul></li>
+<li>You reduce another <span class="purple">NP-complete</span> problem <strong><em>to</em></strong> problem <span class="math inline">\(X\)</span>
+<ul>
+<li>Recall that we want to show both:
+<ul>
+<li><span class="math inline">\(X \le_p SAT\)</span> (or another <span class="purple">NP-complete</span> instead of SAT)</li>
+<li><span class="math inline">\(SAT \le_p X\)</span> (or another <span class="purple">NP-complete</span> instead of SAT)</li>
+</ul></li>
+<li>But the first one is already proven (assuming it’s in <span class="blue">NP</span>)</li>
+<li>So you only have to show #2</li>
+</ul></li>
+</ol>
+</div>
+</section>
+<section id="why-we-cant-just-reduce-x-to-sat" class="slide level2">
+<h2>Why we can’t just reduce <span class="math inline">\(X\)</span> to SAT</h2>
+<table class="bipart" style="width:30%;float:right;margin-left:20px">
+<tbody><tr>
+<td>
+<table>
+<tbody><tr>
+<td>
+<svg viewbox="0 0 80 20">
+<text x="0" y="15">Professors</text>
+</svg>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&amp;itok=jvoP0ymk">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg">
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<img src="graphs/reductions/bipartite_graph-3.svg">
+</td>
+<td>
+<table>
+<tbody><tr>
+<td>
+<svg viewbox="0 0 80 20">
+<text x="16" y="15">Dogs</text>
+</svg>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg">
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<div class="font-85">
+<ul>
+<li>Consider the problem of finding <em>a</em> bipartite matching (not necessarily optimal)</li>
+<li>Reduce it to SAT:
+<ul>
+<li>Create a set of clauses for the possible matchings: <span class="math inline">\(bloomfied \wedge husky\)</span>, <span class="math inline">\(pettit \wedge labrador\)</span>, etc.
+<ul>
+<li>But also ensure one match per person:<br> <span class="math inline">\(bloomfied \wedge husky \wedge \neg labrador \wedge \neg dachshund \wedge \neg jonangi\)</span></li>
+<li>Likewise ensure one human per dog</li>
+</ul></li>
+<li>OR all these clauses together</li>
+<li>Negate, via DeMorgan’s Law, into conjunctive normal form</li>
+<li>Solve using SAT</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="why-we-cant-just-reduce-x-to-sat-1" class="slide level2">
+<h2>Why we can’t just reduce <span class="math inline">\(X\)</span> to SAT</h2>
+<table class="bipart" style="width:30%;float:right;margin-left:20px">
+<tbody><tr>
+<td>
+<table>
+<tbody><tr>
+<td>
+<svg viewbox="0 0 80 20">
+<text x="0" y="15">Professors</text>
+</svg>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&amp;itok=kpjw11sp">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&amp;itok=jvoP0ymk">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://www.cs.virginia.edu/~asb/images/me.jpg">
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<img src="graphs/reductions/bipartite_graph-3.svg">
+</td>
+<td>
+<table>
+<tbody><tr>
+<td>
+<svg viewbox="0 0 80 20">
+<text x="16" y="15">Dogs</text>
+</svg>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg">
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg">
+</div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<div class="font-90">
+<p>What did we just show?</p>
+<ul>
+<li>That bipartite matching (non-minimal) can be reduced to SAT</li>
+<li>But non-minimal bipartite matching is much easier than SAT!
+<ul>
+<li>A non-minimal matching can be done in <span class="math inline">\(O(V)\)</span> time</li>
+</ul></li>
+<li>This doesn’t show that non-minimal bipartite matching is as difficult as SAT</li>
+</ul>
+</div>
+</section>
+<section id="can-sat-be-solved-in-polynomial-time" class="slide level2">
+<h2><span class="r-fit-text">Can SAT be solved in polynomial time?</span></h2>
 <ul>
 <li>Nobody has found an efficient solution
 <ul>
