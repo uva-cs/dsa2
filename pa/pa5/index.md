@@ -78,7 +78,7 @@ This file is available as [sample.in](sample.in):
 3 0 1 2
 3 1 2 3
 2 2 3
-2 2 4
+2 1 3
 ```
 
 
