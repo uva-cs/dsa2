@@ -7700,7 +7700,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="programmatically" class="slide level2">
 <h2>Programmatically</h2>
-<div id="811bf4c2" class="cell" data-execution_count="1">
+<div id="7c58cb85" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="kw">def</span> check_uva_userid1(what):</span>
 <span id="cb1-2"><a href=""></a>  chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
 <span id="cb1-3"><a href=""></a>  </span>
@@ -7771,7 +7771,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="as-code" class="slide level2">
 <h2>As code</h2>
-<div id="28c32a44" class="cell" data-execution_count="2">
+<div id="fc4c0ddc" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> check_uva_userid2(what):</span>
 <span id="cb2-2"><a href=""></a>  <span class="co"># returns True if the passed parameter is a valid UVA userid, else False</span></span>
 <span id="cb2-3"><a href=""></a></span>
@@ -8622,7 +8622,7 @@ accepted = \\
 <ul>
 <li>Given a set of vertices <span class="math inline">\(C\)</span>, we can, in polynomial time, verify all edges in <span class="math inline">\(E\)</span> have at least one endpoint in <span class="math inline">\(C\)</span>
 <ul>
-<li>We just check each edge has at least one end point in <span class="math inline">\(C\)</span>, which takes <span class="math inline">\(\Theta(E)\)</span> time</li>
+<li>We just check each edge has at least one end point in <span class="math inline">\(C\)</span> which takes <span class="math inline">\(\Theta(E)\)</span> time</li>
 </ul></li>
 </ul></li>
 <li>Reduce another <span class="purple">NP-complete</span> problem to it
@@ -8641,7 +8641,7 @@ accepted = \\
 <ol type="1">
 <li>You are not <em>solving</em> the problem, or giving a direct algorithm to solve it
 <ul>
-<li>You are only showing that it reduces to and from another <span class="purple">NP-complete</span> problem</li>
+<li>You are only showing that it reduces to and from another <span class="purple">NP-complete</span> problem (for which you may not know a algorithm for)</li>
 </ul></li>
 <li>You reduce another <span class="purple">NP-complete</span> problem <strong><em>to</em></strong> problem <span class="math inline">\(X\)</span>
 <ul>
@@ -8650,15 +8650,15 @@ accepted = \\
 <li><span class="math inline">\(X \le_p SAT\)</span> (or another <span class="purple">NP-complete</span> instead of SAT)</li>
 <li><span class="math inline">\(SAT \le_p X\)</span> (or another <span class="purple">NP-complete</span> instead of SAT)</li>
 </ul></li>
-<li>But the first one is already proven (assuming it’s in <span class="blue">NP</span>)</li>
-<li>So you only have to show #2</li>
+<li>But the first one is already proven (assuming you show it’s in <span class="blue">NP</span>)</li>
+<li>So you only have to show the second of those <span class="math inline">\((SAT \le_p X)\)</span></li>
 </ul></li>
 </ol>
 </div>
 </section>
 <section id="why-we-cant-just-reduce-x-to-sat" class="slide level2">
 <h2>Why we can’t just reduce <span class="math inline">\(X\)</span> to SAT</h2>
-<table class="bipart" style="width:30%;float:right;margin-left:20px">
+<table class="bipart" style="width:25%;float:right;margin-left:20px">
 <tbody><tr>
 <td>
 <table>
@@ -8743,7 +8743,7 @@ accepted = \\
 </td>
 </tr>
 </tbody></table>
-<div class="font-85">
+<div class="font-80">
 <ul>
 <li>Consider the problem of finding <em>a</em> bipartite matching (not necessarily maximal)</li>
 <li>Reduce it to SAT:
@@ -8755,14 +8755,15 @@ accepted = \\
 </ul></li>
 <li>OR all these clauses together</li>
 <li>Negate, via DeMorgan’s Law, into conjunctive normal form</li>
-<li>Solve using SAT</li>
 </ul></li>
+<li>Solve using SAT</li>
+<li>Solution: DeMorgan-ize it again out of conjunctive normal form, and examine the clauses with the correct pairings</li>
 </ul>
 </div>
 </section>
 <section id="why-we-cant-just-reduce-x-to-sat-1" class="slide level2">
 <h2>Why we can’t just reduce <span class="math inline">\(X\)</span> to SAT</h2>
-<table class="bipart" style="width:30%;float:right;margin-left:20px">
+<table class="bipart" style="width:25%;float:right;margin-left:20px">
 <tbody><tr>
 <td>
 <table>
@@ -8850,12 +8851,15 @@ accepted = \\
 <div class="font-90">
 <p>What did we just show?</p>
 <ul>
-<li>That bipartite matching (non-maximal) can be reduced to SAT</li>
+<li>That non-maximal bipartite matching can be reduced to SAT</li>
 <li>But non-maximal bipartite matching is much easier than SAT!
 <ul>
-<li>A non-maximal matching can be done in <span class="math inline">\(O(V)\)</span> time</li>
+<li>A non-maximal matching can be done in <span class="math inline">\(O(V)\)</span> time: go through the left nodes, and assign them to an arbitrary right node that is not yet assigned</li>
 </ul></li>
-<li>This doesn’t show that non-maximal bipartite matching is as difficult as SAT</li>
+<li>This doesn’t show that non-maximal bipartite matching is as difficult as SAT
+<ul>
+<li>Only that SAT is more difficult than non-maximal bipartite matching</li>
+</ul></li>
 </ul>
 </div>
 </section>

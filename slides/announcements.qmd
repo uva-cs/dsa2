@@ -20,7 +20,7 @@ title: "Announcements, Fall 2024"
   - Monday, December 16th, from 7-10
   - In Gilmer 301 (Pettit) and Rice 130 (Bloomfield)
 - We are aiming to hold office hours during finals week; details TBA
-- Today's lecture: finish [Reductions](reductions.html), go over Machine Learning part 2, then the course finale
+- Today's lecture: finish [Reductions](reductions.html), go over ML part 2, then the course finale
 	- Reminder: some slide sets are now in the [course repository](https://uva-cs.github.io/dsa2/)
 :::
 

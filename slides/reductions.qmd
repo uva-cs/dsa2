@@ -4630,7 +4630,7 @@ $$
 
 - Show it's in <span class='blue'>NP</span> (this means it reduces to SAT)
 	- Given a set of vertices $C$, we can, in polynomial time, verify all edges in $E$ have at least one endpoint in $C$
-		- We just check each edge has at least one end point in $C$, which takes $\Theta(E)$ time
+		- We just check each edge has at least one end point in $C$ which takes $\Theta(E)$ time
 - Reduce another <span class='purple'>NP-complete</span> problem to it
 	- Maximum Independent Set is <span class='purple'>NP-complete</span>
 	- So we reduce Maximum Independent Set to Minimum Vertex Cover
@@ -4645,20 +4645,20 @@ $$
 Two things tend to be counter-intuitive when trying to prove that problem $X$ is <span class='purple'>NP-complete</span>:
 
 1. You are not *solving* the problem, or giving a direct algorithm to solve it
-   - You are only showing that it reduces to and from another <span class='purple'>NP-complete</span> problem
+   - You are only showing that it reduces to and from another <span class='purple'>NP-complete</span> problem (for which you may not know a algorithm for)
 2. You reduce another <span class='purple'>NP-complete</span> problem ***to*** problem $X$
 	 - Recall that we want to show both:
 	   - $X \le_p SAT$ (or another <span class='purple'>NP-complete</span> instead of SAT)
 	   - $SAT \le_p X$ (or another <span class='purple'>NP-complete</span> instead of SAT)
-	 - But the first one is already proven (assuming it's in <span class='blue'>NP</span>)
-	 - So you only have to show #2
+	 - But the first one is already proven (assuming you show it's in <span class='blue'>NP</span>)
+	 - So you only have to show the second of those $(SAT \le_p X)$
 
 </div>
 
 
 ## Why we can't just reduce $X$ to SAT
 
-<table class="bipart" style="width:30%;float:right;margin-left:20px"><tr><td><table>
+<table class="bipart" style="width:25%;float:right;margin-left:20px"><tr><td><table>
 <tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
 <tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
 <tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
@@ -4672,7 +4672,7 @@ Two things tend to be counter-intuitive when trying to prove that problem $X$ is
 <tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
 </table></td></tr></table>
 
-<div class="font-85">
+<div class="font-80">
 
 - Consider the problem of finding *a* bipartite matching (not necessarily maximal)
 - Reduce it to SAT:
@@ -4681,14 +4681,16 @@ Two things tend to be counter-intuitive when trying to prove that problem $X$ is
     - Likewise ensure one human per dog
   - OR all these clauses together
   - Negate, via DeMorgan's Law, into conjunctive normal form
-  - Solve using SAT
+- Solve using SAT
+- Solution: DeMorgan-ize it again out of conjunctive normal form, and examine the clauses with the correct pairings
+
 </div>
 
 
 
 ## Why we can't just reduce $X$ to SAT
 
-<table class="bipart" style="width:30%;float:right;margin-left:20px"><tr><td><table>
+<table class="bipart" style="width:25%;float:right;margin-left:20px"><tr><td><table>
 <tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
 <tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
 <tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
@@ -4706,10 +4708,11 @@ Two things tend to be counter-intuitive when trying to prove that problem $X$ is
 
 What did we just show?
 
-- That bipartite matching (non-maximal) can be reduced to SAT
+- That non-maximal bipartite matching can be reduced to SAT
 - But non-maximal bipartite matching is much easier than SAT!
-	- A non-maximal matching can be done in $O(V)$ time
+	- A non-maximal matching can be done in $O(V)$ time: go through the left nodes, and assign them to an arbitrary right node that is not yet assigned
 - This doesn't show that non-maximal bipartite matching is as difficult as SAT
+	- Only that SAT is more difficult than non-maximal bipartite matching
 
 </div>
 
