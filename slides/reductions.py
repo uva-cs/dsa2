@@ -277,10 +277,10 @@ def flow_graph_tikz(labels, res, revres, revlabels, highlights, cut_graph): # la
     (c) edge[{tch('c','s','b',highlights)} {tec(labels,2,res,cut_graph)} bend left=15] node[below] {{{str(labels[2])}}} (s)
     (c) edge[{tch('c','a','b',highlights)} {"Bittersweet," if cut_graph==3 else tec(labels,3,res,cut_graph)}] node[right] {{{str(labels[3])}}} (a)
     (a) edge[{tch('a','b','b',highlights)} {"ForestGreen," if cut_graph==3 else tec(labels,4,res,cut_graph)}] node[above] {{{str(labels[4])}}} (b)
-    (b) edge[{tch('b','c','b',highlights)} {tec(labels,5,res,cut_graph)}] node[above] {{{str(labels[5])}}} (c)
+    (b) edge[{tch('b','c','b',highlights)} {tec(labels,5,res,cut_graph)}] node[above] {{{str(labels[5])}\\ \\ \\ }} (c)
     (c) edge[{tch('c','d','b',highlights)} {tec(labels,6,res,cut_graph)}] node[below] {{{str(labels[6])}}} (d)
-    (d) edge[{tch('d','b','b',highlights)} {tec(labels,7,res,cut_graph)} bend left=15] node[left] {{{str(labels[7])}}} (b)
-    (b) edge[{tch('b','d','b',highlights)} {tec(labels,8,res,cut_graph)} bend left=15] node[above right] {{{str(labels[8])}}} (d)
+    (d) edge[{tch('d','b','b',highlights)} {tec(labels,7,res,cut_graph)} bend left=15] node[left] {{{str(labels[7])}\\ \\ }} (b)
+    (b) edge[{tch('b','d','b',highlights)} {tec(labels,8,res,cut_graph)} bend left=15] node[right] {{{str(labels[8])}}} (d)
     (b) edge[{tch('b','t','b',highlights)} {tec(labels,9,res,cut_graph)}] node[above] {{{str(labels[9])}}} (t)
     (d) edge[{tch('d','t','b',highlights)} {tec(labels,10,res,cut_graph)}] node[below right] {{{str(labels[10])}}} (t);
 """
@@ -330,6 +330,7 @@ all_label_sets = [
     ["2/3","0/2","0/1","0/3","2/2","1/1","1/3","0/3","0/2","1/3","1/2"], # 6: flow graph with flow 2
     ["2/3","1/2","0/1","0/3","2/2","0/1","1/3","0/3","0/2","2/3","1/2"], # 7: flow graph with flow 3
     ["2/3","2/2","0/1","0/3","2/2","0/1","2/3","0/3","0/2","2/3","2/2"], # 8: flow graph with flow 4 (same as 3)
+    ['5/5','3/9','1/3','2/9','7/7','3/6','3/7','1/5','4/8','1/5','6/8'], # 9: for the fall 2024 final exam
 ]
 
 all_highlights = [
@@ -407,6 +408,8 @@ def flow_graph(label_set,residual=False,highlight_set=0,revresidual=True,cut_gra
 
 
 def handle_all_flow_graphs():
+    flow_graph(9,False) # fall 2024 final exam question
+    flow_graph(9,True)  # fall 2024 final exam question
     flow_graph(1)
     flow_graph(2)
     flow_graph(2,False,1)
@@ -1036,7 +1039,7 @@ if __name__ == "__main__":
         flow_graph(1)
         exit()
 
-    make_automata()
+    handle_all_flow_graphs()
     exit()
 
     os.system("mkdir -p graphs/reductions")

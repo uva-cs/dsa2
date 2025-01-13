@@ -8,6 +8,22 @@ title: "Reductions"
 Readings in CLRS 4th edition: chapter 24
 :::
 
+```{python}
+def print_bipartite_graph(width,which,style=""):
+	print(f"""<table class="bipart" style="width:{width}%;{style}"><tr><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
+<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
+<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
+</table></td><td><img src="graphs/reductions/bipartite_graph-{which}.svg"></td><td><table>
+<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
+<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
+</table></td></tr></table>""")
+```
 
 ## Network Flow
 
@@ -1572,78 +1588,34 @@ Compute <span class='bold'>Edge-Disjoint Paths</span> on new graph
 
 ## Maximum Bipartite Matching
 
-<table class="bipart" style="width:50%"><tr><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
-<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-0.svg"></td><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
-</table></td></tr></table>
-
-
+```{python}
+#| output: asis
+print_bipartite_graph(50,0)
+```
 
 
 ## Maximum Bipartite Matching
 
-<table class="bipart" style="width:50%"><tr><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
-<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-1.svg"></td><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
-</table></td></tr></table>
-
-
+```{python}
+#| output: asis
+print_bipartite_graph(50,1)
+```
 
 
 ## Maximum Bipartite Matching
 
-<table class="bipart" style="width:50%"><tr><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
-<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-2.svg"></td><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
-</table></td></tr></table>
-
-
+```{python}
+#| output: asis
+print_bipartite_graph(50,2)
+```
 
 
 ## Maximum Bipartite Matching
 
-<table class="bipart" style="width:50%"><tr><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
-<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-3.svg"></td><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
-</table></td></tr></table>
-
-
+```{python}
+#| output: asis
+print_bipartite_graph(50,3)
+```
 
 
 ## Maximum Bipartite Matching
@@ -1660,20 +1632,10 @@ Compute <span class='bold'>Edge-Disjoint Paths</span> on new graph
 
 <table style="width:100%"><tr><td style="width:62.5%;height:100%">
 
-<table class="bipart" style="width:80%"><tr><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
-<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-0.svg"></td><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
-</table></td></tr></table>
-
+```{python}
+#| output: asis
+print_bipartite_graph(80,0)
+```
 
 </td><td style="vertical-align:middle"><p style="text-align:center">How could<br>we solve</br>this?</p></td></tr></table>
 
@@ -1923,19 +1885,10 @@ Readings in CLRS 4th edition: N/A (reductions are covered<br>in CLRS, but not in
 <tr><td> 
 
 ::: {.fragment data-fragment-index=1}
-<table class="bipart" style="width:80%"><tr><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
-<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-0.svg"></td><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
-</table></td></tr></table>
+```{python}
+#| output: asis
+print_bipartite_graph(80,0)
+```
 :::
 
 <tr><td>&nbsp;</td></tr>
@@ -1943,19 +1896,10 @@ Readings in CLRS 4th edition: N/A (reductions are covered<br>in CLRS, but not in
 <tr><td style="vertical-align:top;text-align:center">
 
 ::: {.fragment data-fragment-index=7}
-<table class="bipart" style="width:80%"><tr><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
-<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-0.svg"></td><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
-</table></td></tr></table>
+```{python}
+#| output: asis
+print_bipartite_graph(80,3)
+```
 :::
 
 </td></tr></table>
@@ -2989,38 +2933,20 @@ Map solutions of problem $B$ to solutions of problem $A$
 <tr><td><span>Bipartite Matching</span></td></tr>
 <tr><td> 
 
-<table class="bipart" style="width:80%"><tr><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
-<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-0.svg"></td><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
-</table></td></tr></table>
+```{python}
+#| output: asis
+print_bipartite_graph(80,0)
+```
 
 </td></tr>
 <tr><td>&nbsp;</td></tr>
 <tr><td><span>Solution for $A$:</span></td></tr>
 <tr><td style="vertical-align:top;text-align:center">
 
-<table class="bipart" style="width:80%"><tr><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
-<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-3.svg"></td><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
-</table></td></tr></table>
+```{python}
+#| output: asis
+print_bipartite_graph(80,3)
+```
 
 </td></tr></table>
 
@@ -4658,19 +4584,10 @@ Two things tend to be counter-intuitive when trying to prove that problem $X$ is
 
 ## Why we can't just reduce $X$ to SAT
 
-<table class="bipart" style="width:25%;float:right;margin-left:20px"><tr><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
-<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-1.svg"></td><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
-</table></td></tr></table>
+```{python}
+#| output: asis
+print_bipartite_graph(25,1,"float:right;margin-left:20px")
+```
 
 <div class="font-80">
 
@@ -4690,19 +4607,10 @@ Two things tend to be counter-intuitive when trying to prove that problem $X$ is
 
 ## Why we can't just reduce $X$ to SAT
 
-<table class="bipart" style="width:25%;float:right;margin-left:20px"><tr><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="0" y="15">Professors</text></svg></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Headshot.webp?itok=5IwaFPya) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/2024-07/RobbieHott-2023.JPG?h=83d1c70a&itok=kpjw11sp) </div></td></tr>
-<tr><td><div> ![](https://engineering.virginia.edu/sites/default/files/styles/square_xxsml/public/Pettit3.JPG?h=7d5d1757&itok=jvoP0ymk) </div></td></tr>
-<tr><td><div> ![](https://www.cs.virginia.edu/~asb/images/me.jpg) </div></td></tr>
-</table></td><td><img src="graphs/reductions/bipartite_graph-1.svg"></td><td><table>
-<tr><td><svg viewBox="0 0 80 20"><text x="16" y="15">Dogs</text></svg></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sobaka_Husky.JPG/940px-Sobaka_Husky.JPG) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Labrador_Retriever_snow.jpg/1196px-Labrador_Retriever_snow.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/MiniDachshund1_wb.jpg) </div></td></tr>
-<tr><td><div> ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Jonangi.jpg/1280px-Jonangi.jpg) </div></td></tr>
-</table></td></tr></table>
+```{python}
+#| output: asis
+print_bipartite_graph(25,1,"float:right;margin-left:20px")
+```
 
 <div class="font-90">
 
