@@ -15,6 +15,7 @@ Repository Contents
 
 - [Course syllabus](syllabus.html) ([md](syllabus.md)) (not yet updated for spring 2025)
 - [SDAC Accommodations](sdac.html) ([md](sdac.md))
+- [Readings](readings.html) ([md](readings.md))
 - Slide sets:
 	- [Daily announcement slides](slides/announcements.html#/)
     - [Dynamic Programming](slides/dp.html#/)
