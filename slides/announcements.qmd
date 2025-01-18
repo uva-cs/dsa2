@@ -1,0 +1,11 @@
+---
+title: "Announcements, Spring 2025"
+---
+
+::: {.announcements}
+# Thursday, January 16th
+
+- ...
+
+
+:::

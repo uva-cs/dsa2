@@ -1,5 +1,5 @@
 ---
-title: "DSA2: Syllabus"
+title: "DSA2: Syllabus, spring 2025"
 ---
 
 DSA2: Syllabus
@@ -15,8 +15,8 @@ Please use our course email for the fastest response time with the course staff.
 
 #### Instructors
 
-- Aaron Bloomfield (aaron_at_virginia.edu).  Office: Rice 402.  Office hours: TBA.  Lecture: Tu/Th 11:00-12:15 in Rice Hall 130.
-- Raymond Pettit (rp6zr_at_virginia.edu).  Office: Rice 212.  Office hours: TBA.  Lecture: Tu/Th 9:30-10:45 in Nau Hall 101.
+- Aaron Bloomfield (aaron_at_virginia.edu).  Office: Rice 402.  Office hours: TBA.  Lecture: Tu/Th 9:30-10:$5 in Warner 209.
+- Raymond Pettit (rp6zr_at_virginia.edu).  Office: Rice 212.  Office hours: TBA.  Lecture: Tu/Th 2:00-3:15 in MEC 205.
 
 The best way to get in touch with an instructor is to use the course email address.  We are very slow at responding to our personal emails, and all course-related content should go to the one above.
 
@@ -95,12 +95,13 @@ We *expect* that grades will follow the standard decade curve: 90 and above is a
 
 Assignments turned in after the due date are penalized 25% per day (or fraction thereof) late; this means a maximum of 3 days (i.e. 72 hours) late.  For example, anywhere from 1 second late to 24 hours late receives 25% percent off.
 
-You may request an extension on any assignment (PA or PS) for any reason.  That extension is 4 days.  To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page.  You can assume that the extension will be automatically provided by filling out the form; most requests will not receive a reply.  An extension will delay the onset of the late penalty -- so if you get an extension, then the late penalty does not kick in until the 5th day after the due date.
+You may request an extension on any assignment (PA or PS) for any reason.  That extension is 4 days.  HOWEVER, you only have 8 such "free late passes" during the semester -- once they are used up, there will not be any more.  To do so, you will have to fill out an extension request form, the link to which will be provided on the Canvas landing page.  You can assume that the extension will be automatically provided by filling out the form; most requests will not receive a reply.  An extension will delay the onset of the late penalty -- so if you get an extension, then the late penalty does not kick in until the 5th day after the due date.
 
 This extension rule does not apply to quizzes, exams, or any in-class activities.  It only applies to programming assignments (PAs) and written assignments (PSs).
 
 However, there are a few specifics to this extension rule:
 
+- As mentioned above, you only have 8 such free late passes to use throughout the semester
 - The extension request must be in *before* the due date; you can't request an extension after the due date.
     - Note that the Google Forms form will allow submissions at any time, and does not know the due date for the assignment you are requesting an extension for.  We will filter out late extension requests ourselves. 
 - This extension time covers any and all situations -- being sick, busy, exam or homework congestion, your dog ate your homework, etc.
