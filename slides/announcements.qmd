@@ -2,10 +2,35 @@
 title: "Announcements, Spring 2025"
 ---
 
+
+::: {.announcements}
+# Tuesday, January 21st
+
+- PS0 is due tomorrow (Wednesday, Jan 22) by 11:59 pm
+	- It's in Canvas' assignments
+	- Submit via Gradescope
+- PS1 will be out late this week, due Wednesday of next week
+- Office hours:
+	- TA OH: M/Tu/W/Th from 5-9 in Olsson 009
+	  - We may add a Sunday shift
+	- Prof Bloomfield: M 9-11, W 2-3 in Rice 402
+	- Prof Pettit: TBA in Rice 212
+- Course textbook link is on the Canvas landing page
+- Today we start graphs
+	- This will take about 4 lectures
+	- The slides are in Canvas' files
+:::
+
+
 ::: {.announcements}
 # Thursday, January 16th
 
-- ...
-
-
+- PS0 (out today) due next Wednesday (Jan 22) by 11:59 pm
+	- It will be in Canvas' Assignments
+- PS1 out next week, due the following Wednesday
+- Course textbook link is on the Canvas landing page
+- TA office hours coming soon (we are targeting Sun-Thu, 5pm-9pm)
+- Prof. Bloomfield office hours TBA
+- Prof. Pettit office hours TBA
 :::
+
