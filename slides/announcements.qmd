@@ -4,6 +4,27 @@ title: "Announcements, Spring 2025"
 
 
 ::: {.announcements}
+# Thursday, January 30th
+
+- PS1 was due yesterday
+- PS2 will be out today, due next Wednesday
+- PA1 will be out today
+	- It's on Dijkstra's shorted path algorithm; we'll go over it today
+	- Due date not yet set, but likely the week after next
+- Office hours:
+	- TA office hours are moving to **Rice 109**
+	- TA OH: M/Tu/W/Th from 5-9 in Olsson 009
+	- Prof Bloomfield: M 10-11:30, W 1:30-3 in Rice 402 (note the change)
+	- Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
+- Course textbook link is on the Canvas landing page
+- Today we continue with graphs
+	- This will take about ~~4~~ 5 lectures total
+	- The slides are in Canvas' files
+:::
+
+
+
+::: {.announcements}
 # Tuesday, January 28th
 
 - PS1 will is due tomorrow by midnight
