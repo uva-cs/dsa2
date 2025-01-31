@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>PA1.java</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// PA1 Skeleton Code</font></i>
+<i><font color="#9A1900">// DSA2, spring 2025</font></i>
+
+<i><font color="#9A1900">// This code will read in the input, and put the values into lists.  It is up</font></i>
+<i><font color="#9A1900">// to you to properly represent this as a graph -- this code only reads in the</font></i>
+<i><font color="#9A1900">// input properly.</font></i>
+
+
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>util<font color="#990000">.*;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">Node</font> <b><font color="#0000FF">implements</font></b> Comparable<font color="#990000">&lt;</font>Node<font color="#990000">&gt;</font> <font color="#FF0000">{</font>
+	<i><font color="#9A1900">// a node in the graph</font></i>
+	<b><font color="#0000FF">public</font></b> <font color="#009900">int</font> x<font color="#990000">,</font> y<font color="#990000">;</font>
+	<b><font color="#0000FF">public</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font><font color="#009900">int</font> _x<font color="#990000">,</font> <font color="#009900">int</font> _y<font color="#990000">)</font> <font color="#FF0000">{</font>
+		x<font color="#990000">=</font>_x<font color="#990000">;</font>y<font color="#990000">=</font>_y<font color="#990000">;</font>
+	<font color="#FF0000">}</font>
+    <b><font color="#0000FF">public</font></b> <font color="#009900">int</font> <b><font color="#000000">compareTo</font></b><font color="#990000">(</font><font color="#008080">Node</font> other<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>x <font color="#990000">!=</font> other<font color="#990000">.</font>x<font color="#990000">)</font> <b><font color="#0000FF">return</font></b> Integer<font color="#990000">.</font><b><font color="#000000">compare</font></b><font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>x<font color="#990000">,</font> other<font color="#990000">.</font>x<font color="#990000">);</font>
+        <b><font color="#0000FF">return</font></b> Integer<font color="#990000">.</font><b><font color="#000000">compare</font></b><font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>y<font color="#990000">,</font> other<font color="#990000">.</font>y<font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">Edge</font> <b><font color="#0000FF">implements</font></b> Comparable<font color="#990000">&lt;</font>Edge<font color="#990000">&gt;</font> <font color="#FF0000">{</font>
+	<i><font color="#9A1900">// The edge goes from (x1,y1) to (x2,y2), and has weight (cost) w</font></i>
+	<i><font color="#9A1900">// Note that the edges are bi-directional, and this only represents it in one direction</font></i>
+	<b><font color="#0000FF">public</font></b> <font color="#009900">int</font> x1<font color="#990000">,</font> y1<font color="#990000">,</font> x2<font color="#990000">,</font> y2<font color="#990000">,</font> w<font color="#990000">;</font>
+	<b><font color="#0000FF">public</font></b> <b><font color="#000000">Edge</font></b><font color="#990000">(</font><font color="#009900">int</font> _x1<font color="#990000">,</font> <font color="#009900">int</font> _y1<font color="#990000">,</font> <font color="#009900">int</font> _x2<font color="#990000">,</font> <font color="#009900">int</font> _y2<font color="#990000">,</font> <font color="#009900">int</font> _w<font color="#990000">)</font> <font color="#FF0000">{</font>
+		x1<font color="#990000">=</font>_x1<font color="#990000">;</font> y1<font color="#990000">=</font>_y1<font color="#990000">;</font> x2<font color="#990000">=</font>_x2<font color="#990000">;</font> y2<font color="#990000">=</font>_y2<font color="#990000">;</font> w<font color="#990000">=</font>_w<font color="#990000">;</font>
+	<font color="#FF0000">}</font>
+    <b><font color="#0000FF">public</font></b> <font color="#009900">int</font> <b><font color="#000000">compareTo</font></b><font color="#990000">(</font><font color="#008080">Edge</font> other<font color="#990000">)</font> <font color="#FF0000">{</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>x1 <font color="#990000">!=</font> other<font color="#990000">.</font>x1<font color="#990000">)</font> <b><font color="#0000FF">return</font></b> Integer<font color="#990000">.</font><b><font color="#000000">compare</font></b><font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>x1<font color="#990000">,</font> other<font color="#990000">.</font>x1<font color="#990000">);</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>y1 <font color="#990000">!=</font> other<font color="#990000">.</font>y1<font color="#990000">)</font> <b><font color="#0000FF">return</font></b> Integer<font color="#990000">.</font><b><font color="#000000">compare</font></b><font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>y1<font color="#990000">,</font> other<font color="#990000">.</font>y1<font color="#990000">);</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>x2 <font color="#990000">!=</font> other<font color="#990000">.</font>x2<font color="#990000">)</font> <b><font color="#0000FF">return</font></b> Integer<font color="#990000">.</font><b><font color="#000000">compare</font></b><font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>x2<font color="#990000">,</font> other<font color="#990000">.</font>x2<font color="#990000">);</font>
+        <b><font color="#0000FF">if</font></b> <font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>y2 <font color="#990000">!=</font> other<font color="#990000">.</font>y2<font color="#990000">)</font> <b><font color="#0000FF">return</font></b> Integer<font color="#990000">.</font><b><font color="#000000">compare</font></b><font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>y2<font color="#990000">,</font> other<font color="#990000">.</font>y2<font color="#990000">);</font>
+        <b><font color="#0000FF">return</font></b> Integer<font color="#990000">.</font><b><font color="#000000">compare</font></b><font color="#990000">(</font><b><font color="#0000FF">this</font></b><font color="#990000">.</font>w<font color="#990000">,</font> other<font color="#990000">.</font>w<font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">TestCase</font> <font color="#FF0000">{</font>
+	<i><font color="#9A1900">// a test case, which is two nodes</font></i>
+	<b><font color="#0000FF">public</font></b> <font color="#008080">Node</font> from<font color="#990000">,</font> to<font color="#990000">;</font>
+	<b><font color="#0000FF">public</font></b> <b><font color="#000000">TestCase</font></b><font color="#990000">(</font><font color="#009900">int</font> x1<font color="#990000">,</font> <font color="#009900">int</font> y1<font color="#990000">,</font> <font color="#009900">int</font> x2<font color="#990000">,</font> <font color="#009900">int</font> y2<font color="#990000">)</font> <font color="#FF0000">{</font>
+		from <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>x1<font color="#990000">,</font>y1<font color="#990000">);</font>
+		to <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>x2<font color="#990000">,</font>y2<font color="#990000">);</font>
+	<font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+
+<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">PA1</font> <font color="#FF0000">{</font>
+	<b><font color="#0000FF">static</font></b> <font color="#009900">int</font> s<font color="#990000">,</font> m<font color="#990000">,</font> h<font color="#990000">;</font>
+	<b><font color="#0000FF">static</font></b> <font color="#008080">ArrayList&lt;Edge&gt;</font> side_road_edges<font color="#990000">,</font> main_road_edges<font color="#990000">,</font> highway_edges<font color="#990000">;</font>
+	<b><font color="#0000FF">static</font></b> <font color="#008080">ArrayList&lt;Node&gt;</font> side_road_nodes<font color="#990000">,</font> main_road_nodes<font color="#990000">,</font> highway_nodes<font color="#990000">,</font> all_nodes<font color="#990000">;</font>
+
+
+	<i><font color="#9A1900">// output() function -- given a list of coordinates (as an ArrayList of</font></i>
+	<i><font color="#9A1900">// Node objects) and the(integer) distance, this function will output the</font></i>
+	<i><font color="#9A1900">// result in the correct format for the auto-grader</font></i>
+	<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">output</font></b><font color="#990000">(</font><font color="#008080">ArrayList&lt;Node&gt;</font> path<font color="#990000">,</font> <font color="#009900">int</font> dist<font color="#990000">)</font> <font color="#FF0000">{</font>
+		System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>dist<font color="#990000">);</font>
+		System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>path<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">());</font>
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#008080">Node</font> n<font color="#990000">:</font> path <font color="#990000">)</font>
+			System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>n<font color="#990000">.</font>x <font color="#990000">+</font> <font color="#FF0000">" "</font> <font color="#990000">+</font> n<font color="#990000">.</font>y<font color="#990000">);</font>
+		System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">();</font>
+	<font color="#FF0000">}</font>
+
+
+	<i><font color="#9A1900">// this will read in the input</font></i>
+	<b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">read_input</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+		<font color="#008080">Scanner</font> stdin <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Scanner</font></b><font color="#990000">(</font>System<font color="#990000">.</font>in<font color="#990000">);</font>
+
+		<i><font color="#9A1900">// Read in the values for the number of side roads, main roads, and highways</font></i>
+		s <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+		m <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+		h <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+
+		<i><font color="#9A1900">// Read in the side road edges</font></i>
+		side_road_edges <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>Edge<font color="#990000">&gt;();</font>
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> s<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+			side_road_edges<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Edge</font></b><font color="#990000">(</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">()));</font>
+		Collections<font color="#990000">.</font><b><font color="#000000">sort</font></b><font color="#990000">(</font>side_road_edges<font color="#990000">);</font>
+
+		<i><font color="#9A1900">// Read in the main road edges</font></i>
+		main_road_edges <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>Edge<font color="#990000">&gt;();</font>
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> m<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+			main_road_edges<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Edge</font></b><font color="#990000">(</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">()));</font>
+		Collections<font color="#990000">.</font><b><font color="#000000">sort</font></b><font color="#990000">(</font>main_road_edges<font color="#990000">);</font>
+
+		<i><font color="#9A1900">// Read in the highway edges</font></i>
+		highway_edges <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>Edge<font color="#990000">&gt;();</font>
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> h<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+			highway_edges<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Edge</font></b><font color="#990000">(</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">()));</font>
+		Collections<font color="#990000">.</font><b><font color="#000000">sort</font></b><font color="#990000">(</font>highway_edges<font color="#990000">);</font>
+
+		<i><font color="#9A1900">// Read in how many test cases there will be</font></i>
+		<font color="#009900">int</font> num_test_cases <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+
+		<i><font color="#9A1900">// Read in each test case</font></i>
+		<font color="#008080">ArrayList&lt;TestCase&gt;</font> test_cases <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>TestCase<font color="#990000">&gt;();</font>
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> num_test_cases<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+			test_cases<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">TestCase</font></b><font color="#990000">(</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font>stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">()));</font>
+
+		<i><font color="#9A1900">// Generate the lists of the nodes of the various graphs</font></i>
+		<font color="#008080">Set&lt;Node&gt;</font> side_road_nodes_set <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> HashSet<font color="#990000">&lt;</font>Node<font color="#990000">&gt;();</font>
+		<font color="#008080">Set&lt;Node&gt;</font> main_road_nodes_set <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> HashSet<font color="#990000">&lt;</font>Node<font color="#990000">&gt;();</font>
+		<font color="#008080">Set&lt;Node&gt;</font> highway_nodes_set <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> HashSet<font color="#990000">&lt;</font>Node<font color="#990000">&gt;();</font>
+		<font color="#008080">Set&lt;Node&gt;</font> all_nodes_set <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> HashSet<font color="#990000">&lt;</font>Node<font color="#990000">&gt;();</font>
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#008080">Edge</font> e<font color="#990000">:</font> side_road_edges <font color="#990000">)</font> <font color="#FF0000">{</font>
+			side_road_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x1<font color="#990000">,</font>e<font color="#990000">.</font>y1<font color="#990000">));</font>
+			side_road_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x2<font color="#990000">,</font>e<font color="#990000">.</font>y2<font color="#990000">));</font>
+			all_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x1<font color="#990000">,</font>e<font color="#990000">.</font>y1<font color="#990000">));</font>
+			all_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x2<font color="#990000">,</font>e<font color="#990000">.</font>y2<font color="#990000">));</font>
+		<font color="#FF0000">}</font>
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#008080">Edge</font> e<font color="#990000">:</font> main_road_edges <font color="#990000">)</font> <font color="#FF0000">{</font>
+			main_road_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x1<font color="#990000">,</font>e<font color="#990000">.</font>y1<font color="#990000">));</font>
+			main_road_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x2<font color="#990000">,</font>e<font color="#990000">.</font>y2<font color="#990000">));</font>
+			all_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x1<font color="#990000">,</font>e<font color="#990000">.</font>y1<font color="#990000">));</font>
+			all_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x2<font color="#990000">,</font>e<font color="#990000">.</font>y2<font color="#990000">));</font>
+		<font color="#FF0000">}</font>
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#008080">Edge</font> e<font color="#990000">:</font> highway_edges <font color="#990000">)</font> <font color="#FF0000">{</font>
+			highway_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x1<font color="#990000">,</font>e<font color="#990000">.</font>y1<font color="#990000">));</font>
+			highway_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x2<font color="#990000">,</font>e<font color="#990000">.</font>y2<font color="#990000">));</font>
+			all_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x1<font color="#990000">,</font>e<font color="#990000">.</font>y1<font color="#990000">));</font>
+			all_nodes_set<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Node</font></b><font color="#990000">(</font>e<font color="#990000">.</font>x2<font color="#990000">,</font>e<font color="#990000">.</font>y2<font color="#990000">));</font>
+		<font color="#FF0000">}</font>
+		side_road_nodes <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>Node<font color="#990000">&gt;(</font>side_road_nodes_set<font color="#990000">);</font>
+		Collections<font color="#990000">.</font><b><font color="#000000">sort</font></b><font color="#990000">(</font>side_road_nodes<font color="#990000">);</font>
+		main_road_nodes <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>Node<font color="#990000">&gt;(</font>main_road_nodes_set<font color="#990000">);</font>
+		Collections<font color="#990000">.</font><b><font color="#000000">sort</font></b><font color="#990000">(</font>main_road_nodes<font color="#990000">);</font>
+		highway_nodes <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>Node<font color="#990000">&gt;(</font>highway_nodes_set<font color="#990000">);</font>
+		Collections<font color="#990000">.</font><b><font color="#000000">sort</font></b><font color="#990000">(</font>highway_nodes<font color="#990000">);</font>
+		all_nodes <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>Node<font color="#990000">&gt;(</font>all_nodes_set<font color="#990000">);</font>
+		Collections<font color="#990000">.</font><b><font color="#000000">sort</font></b><font color="#990000">(</font>all_nodes<font color="#990000">);</font>
+	<font color="#FF0000">}</font>
+
+
+	<i><font color="#9A1900">/*</font></i>
+<i><font color="#9A1900">	 * At this point, the data structures are as follows.  You may not need</font></i>
+<i><font color="#9A1900">	 * all of these in your code.</font></i>
+<i><font color="#9A1900">	 *</font></i>
+<i><font color="#9A1900">	 * - ints `s`, `m`, and `h` contain the (integer) number of side road</font></i>
+<i><font color="#9A1900">	 *   edges, main road edges, and highway edges, respectively</font></i>
+<i><font color="#9A1900">	 *</font></i>
+<i><font color="#9A1900">	 * - Edge data structures:</font></i>
+<i><font color="#9A1900">	 *   - `side_road_edges` contains a list of Edge objects that represent</font></i>
+<i><font color="#9A1900">	 *     the edges of the side roads.  All values are integers.  This list</font></i>
+<i><font color="#9A1900">	 *     is sorted.  Note that this only has the edges in one direction,</font></i>
+<i><font color="#9A1900">	 *     but they are bi-directional edges.</font></i>
+<i><font color="#9A1900">	 *   - `main_road_edges` has the edges for the main roads, in the same</font></i>
+<i><font color="#9A1900">	 *     form as the edges for the side roads</font></i>
+<i><font color="#9A1900">	 *   - `highway_edges` has the edges for the main roads, in the same form</font></i>
+<i><font color="#9A1900">	 *     as the edges for the side roads</font></i>
+<i><font color="#9A1900">	 *</font></i>
+<i><font color="#9A1900">	 * - Node data structures:</font></i>
+<i><font color="#9A1900">	 *   - `side_road_nodes` contain all the nodes that connect to a side road</font></i>
+<i><font color="#9A1900">	 *     as an ArrayList of Nodes; this list is sorted</font></i>
+<i><font color="#9A1900">	 *   - `main_road_nodes` contain all the nodes that connect to a main road</font></i>
+<i><font color="#9A1900">	 *     as an ArrayList of Nodes; this list is sorted</font></i>
+<i><font color="#9A1900">	 *   - `highway_nodes` contain all the nodes that connect to a highway as</font></i>
+<i><font color="#9A1900">	 *     an ArrayList of Nodes; this list is sorted</font></i>
+<i><font color="#9A1900">	 *   - `all_nodes` contain all the nodes in the graph as an ArrayList of</font></i>
+<i><font color="#9A1900">	 *     Nodes; this list is sorted</font></i>
+<i><font color="#9A1900">	 *</font></i>
+<i><font color="#9A1900">	 * - Test case data structures:</font></i>
+<i><font color="#9A1900">	 *   - `num_test_cases` is how many test cases there are</font></i>
+<i><font color="#9A1900">	 *   - `test_cases` is the test cases themselves, as a list of TestCase</font></i>
+<i><font color="#9A1900">	 *     objects.  The tuples in this list are in the order they occur in</font></i>
+<i><font color="#9A1900">	 *     the input file.</font></i>
+<i><font color="#9A1900">	 */</font></i>
+
+
+	<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font>String<font color="#990000">[]</font> args<font color="#990000">)</font> <font color="#FF0000">{</font>
+		<b><font color="#000000">read_input</font></b><font color="#990000">();</font>
+		System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"Hello, world"</font><font color="#990000">);</font>
+
+		<i><font color="#9A1900">// YOUR CODE HERE (or called from here)</font></i>
+	<font color="#FF0000">}</font>
+
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

@@ -20,6 +20,8 @@ Repository Contents
 	- [Daily announcement slides](slides/announcements.html#/)
     - [Dynamic Programming](slides/dp.html#/)
     - [Reductions](slides/reductions.html#/)
+- Spring 2025 assignments:
+    - [PA1: Driving Directions](pa/pa1/index.html) ([md](pa/pa1/index.md))
 - [Old course content](old.html) from previous semesters
 
 License

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>pa1.py</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900"># PA1 Skeleton Code</font></i>
+<i><font color="#9A1900"># DSA2, spring 2025</font></i>
+
+<i><font color="#9A1900"># This code will read in the input, and put the values into lists.  It is up</font></i>
+<i><font color="#9A1900"># to you to properly represent this as a graph -- this code only reads in the</font></i>
+<i><font color="#9A1900"># input properly.</font></i>
+
+<i><font color="#9A1900"># Read in the values for the number of side roads, main roads, and highways</font></i>
+<font color="#990000">[</font>s<font color="#990000">,</font>m<font color="#990000">,</font>h<font color="#990000">]</font> <font color="#990000">=</font> <font color="#990000">[</font><b><font color="#000000">int</font></b><font color="#990000">(</font>x<font color="#990000">)</font> <b><font color="#0000FF">for</font></b> x <b><font color="#0000FF">in</font></b> <b><font color="#000000">input</font></b><font color="#990000">().</font><b><font color="#000000">split</font></b><font color="#990000">(</font><font color="#FF0000">" "</font><font color="#990000">)]</font>
+<i><font color="#9A1900"># Read in the side road edges</font></i>
+tmp <font color="#990000">=</font> <b><font color="#000000">input</font></b><font color="#990000">().</font><b><font color="#000000">split</font></b><font color="#990000">(</font><font color="#FF0000">" "</font><font color="#990000">)</font>
+side_road_edges <font color="#990000">=</font> <b><font color="#000000">sorted</font></b><font color="#990000">([(</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">2</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">3</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">4</font><font color="#990000">]))</font> <b><font color="#0000FF">for</font></b> i <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font><font color="#993399">5</font><font color="#990000">*</font>s<font color="#990000">,</font><font color="#993399">5</font><font color="#990000">)])</font>
+<i><font color="#9A1900"># Read in the main road edges</font></i>
+tmp <font color="#990000">=</font> <b><font color="#000000">input</font></b><font color="#990000">().</font><b><font color="#000000">split</font></b><font color="#990000">(</font><font color="#FF0000">" "</font><font color="#990000">)</font>
+main_road_edges <font color="#990000">=</font> <b><font color="#000000">sorted</font></b><font color="#990000">([(</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">2</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">3</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">4</font><font color="#990000">]))</font> <b><font color="#0000FF">for</font></b> i <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font><font color="#993399">5</font><font color="#990000">*</font>m<font color="#990000">,</font><font color="#993399">5</font><font color="#990000">)])</font>
+<i><font color="#9A1900"># Read in the highway edges</font></i>
+tmp <font color="#990000">=</font> <b><font color="#000000">input</font></b><font color="#990000">().</font><b><font color="#000000">split</font></b><font color="#990000">(</font><font color="#FF0000">" "</font><font color="#990000">)</font>
+highway_edges <font color="#990000">=</font> <b><font color="#000000">sorted</font></b><font color="#990000">([(</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">2</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">3</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font>i<font color="#990000">+</font><font color="#993399">4</font><font color="#990000">]))</font> <b><font color="#0000FF">for</font></b> i <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font><font color="#993399">5</font><font color="#990000">*</font>h<font color="#990000">,</font><font color="#993399">5</font><font color="#990000">)])</font>
+<i><font color="#9A1900"># Read in how many test cases there will be</font></i>
+num_test_cases <font color="#990000">=</font> <b><font color="#000000">int</font></b><font color="#990000">(</font><b><font color="#000000">input</font></b><font color="#990000">())</font>
+<i><font color="#9A1900"># Read in each test case</font></i>
+test_cases <font color="#990000">=</font> <font color="#990000">[]</font>
+<b><font color="#0000FF">for</font></b> _ <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font>num_test_cases<font color="#990000">):</font>
+	tmp <font color="#990000">=</font> <b><font color="#000000">input</font></b><font color="#990000">().</font><b><font color="#000000">split</font></b><font color="#990000">(</font><font color="#FF0000">" "</font><font color="#990000">)</font>
+	test_cases<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">((</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>tmp<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">])))</font>
+
+<i><font color="#9A1900"># Generate a list of the nodes fron the edges read in</font></i>
+side_road_nodes <font color="#990000">=</font> <font color="#990000">[]</font>
+main_road_nodes <font color="#990000">=</font> <font color="#990000">[]</font>
+highway_nodes <font color="#990000">=</font> <font color="#990000">[]</font>
+all_nodes <font color="#990000">=</font> <font color="#990000">[]</font>
+<b><font color="#0000FF">for</font></b> <font color="#990000">(</font>x1<font color="#990000">,</font>y1<font color="#990000">,</font>x2<font color="#990000">,</font>y2<font color="#990000">,</font>w<font color="#990000">)</font> <b><font color="#0000FF">in</font></b> side_road_edges<font color="#990000">:</font>
+	side_road_nodes<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">((</font>x1<font color="#990000">,</font>y1<font color="#990000">))</font>
+	side_road_nodes<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">((</font>x2<font color="#990000">,</font>y2<font color="#990000">))</font>
+side_road_nodes <font color="#990000">=</font> <b><font color="#000000">sorted</font></b><font color="#990000">(</font><b><font color="#000000">list</font></b><font color="#990000">(</font><b><font color="#000000">set</font></b><font color="#990000">(</font>side_road_nodes<font color="#990000">)))</font> <i><font color="#9A1900"># remove duplicates</font></i>
+<b><font color="#0000FF">for</font></b> <font color="#990000">(</font>x1<font color="#990000">,</font>y1<font color="#990000">,</font>x2<font color="#990000">,</font>y2<font color="#990000">,</font>w<font color="#990000">)</font> <b><font color="#0000FF">in</font></b> main_road_edges<font color="#990000">:</font>
+	main_road_nodes<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">((</font>x1<font color="#990000">,</font>y1<font color="#990000">))</font>
+	main_road_nodes<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">((</font>x2<font color="#990000">,</font>y2<font color="#990000">))</font>
+main_road_nodes <font color="#990000">=</font> <b><font color="#000000">sorted</font></b><font color="#990000">(</font><b><font color="#000000">list</font></b><font color="#990000">(</font><b><font color="#000000">set</font></b><font color="#990000">(</font>main_road_nodes<font color="#990000">)))</font> <i><font color="#9A1900"># remove duplicates</font></i>
+<b><font color="#0000FF">for</font></b> <font color="#990000">(</font>x1<font color="#990000">,</font>y1<font color="#990000">,</font>x2<font color="#990000">,</font>y2<font color="#990000">,</font>w<font color="#990000">)</font> <b><font color="#0000FF">in</font></b> highway_edges<font color="#990000">:</font>
+	highway_nodes<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">((</font>x1<font color="#990000">,</font>y1<font color="#990000">))</font>
+	highway_nodes<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">((</font>x2<font color="#990000">,</font>y2<font color="#990000">))</font>
+highway_nodes <font color="#990000">=</font> <b><font color="#000000">sorted</font></b><font color="#990000">(</font><b><font color="#000000">list</font></b><font color="#990000">(</font><b><font color="#000000">set</font></b><font color="#990000">(</font>highway_nodes<font color="#990000">)))</font> <i><font color="#9A1900"># remove duplicates</font></i>
+all_nodes <font color="#990000">=</font> <b><font color="#000000">sorted</font></b><font color="#990000">(</font><b><font color="#000000">list</font></b><font color="#990000">(</font><b><font color="#000000">set</font></b><font color="#990000">(</font>side_road_nodes<font color="#990000">+</font>main_road_nodes<font color="#990000">+</font>highway_nodes<font color="#990000">)))</font> <i><font color="#9A1900"># combine and remove duplicates</font></i>
+
+<i><font color="#9A1900"># At this point, the data structures are as follows.  You may not need all of</font></i>
+<i><font color="#9A1900"># these in your code.</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># - `s`, `m`, and `h` contain the (integer) number of side road edges, main</font></i>
+<i><font color="#9A1900">#   road edges, and highway edges, respectively</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># - Edge data structures:</font></i>
+<i><font color="#9A1900">#   - `side_road_edges` contains a list of 5-tuples that represent the edges</font></i>
+<i><font color="#9A1900">#     of the side roads.  Example: [(0, 0, 0, 1, 1), (0, 0, 1, 0, 1), ...].</font></i>
+<i><font color="#9A1900">#     The 5-tuple is (x1,y1,x2,y2,2), where (x1,y1) is one end of the edge,</font></i>
+<i><font color="#9A1900">#     (x2,y2) is the other end, and w is the weight of the edge.  All values</font></i>
+<i><font color="#9A1900">#     are integers.  This list is sorted.  Note that this only has the edges</font></i>
+<i><font color="#9A1900">#     in one direction, but they are bi-directional edges.</font></i>
+<i><font color="#9A1900">#   - `main_road_edges` has the edges for the main roads, in the same form as</font></i>
+<i><font color="#9A1900">#     the edges for the side roads</font></i>
+<i><font color="#9A1900">#   - `highway_edges` has the edges for the main roads, in the same form as</font></i>
+<i><font color="#9A1900">#     the edges for the side roads</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># - Node data structures:</font></i>
+<i><font color="#9A1900">#   - `side_road_nodes` contain all the nodes that connect to a side road as a</font></i>
+<i><font color="#9A1900">#     list of 2-tuples; this list is sorted</font></i>
+<i><font color="#9A1900">#   - `main_road_nodes` contain all the nodes that connect to a main road as a</font></i>
+<i><font color="#9A1900">#     list of 2-tuples; this list is sorted</font></i>
+<i><font color="#9A1900">#   - `highway_nodes` contain all the nodes that connect to a highway as a</font></i>
+<i><font color="#9A1900">#     list of 2-tuples; this list is sorted</font></i>
+<i><font color="#9A1900">#   - `all_nodes` contain all the nodes in the graph as a list of 2-tuples;</font></i>
+<i><font color="#9A1900">#     this list is sorted</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># - Test case data structures:</font></i>
+<i><font color="#9A1900">#   - `num_test_cases` is how many test cases there are</font></i>
+<i><font color="#9A1900">#   - `test_cases` is the test cases themselves, as a list of 4-tuples.</font></i>
+<i><font color="#9A1900">#     Example: [(4, 0, 3, 8), (1, 1, 3, 7), (5, 1, 8, 3)].  Each tuple is of</font></i>
+<i><font color="#9A1900">#     the form (x1,y1,x2,y2), which means that the test case is to find the</font></i>
+<i><font color="#9A1900">#     route from (x1,y1) to (x2,y2).  The tuples in this list are in the</font></i>
+<i><font color="#9A1900">#     order they occur in the input file.</font></i>
+
+
+<i><font color="#9A1900"># output() function -- given a list of coordinates (as 2-tuples) and the</font></i>
+<i><font color="#9A1900"># (integer) distance, this function will output the result in the correct</font></i>
+<i><font color="#9A1900"># format for the auto-grader</font></i>
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">output</font></b><font color="#990000">(</font>path<font color="#990000">,</font>dist<font color="#990000">):</font>
+	<b><font color="#0000FF">print</font></b><font color="#990000">(</font>dist<font color="#990000">)</font>
+	<b><font color="#0000FF">print</font></b><font color="#990000">(</font><b><font color="#000000">len</font></b><font color="#990000">(</font>path<font color="#990000">))</font>
+	<b><font color="#0000FF">for</font></b> <font color="#990000">(</font>x<font color="#990000">,</font>y<font color="#990000">)</font> <b><font color="#0000FF">in</font></b> path<font color="#990000">:</font>
+		<b><font color="#0000FF">print</font></b><font color="#990000">(</font>x<font color="#990000">,</font>y<font color="#990000">)</font>
+	<b><font color="#0000FF">print</font></b><font color="#990000">()</font>
+
+
+
+<i><font color="#9A1900"># YOUR CODE HERE</font></i>
+</tt></pre>
+</body>
+</html>
