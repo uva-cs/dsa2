@@ -62,7 +62,7 @@ All input is read in from standard input (not a file).
 
 Each run of the program will have only one graph, but will have multiple test cases.
 
-The first line of the input will contain three integers: $s$, $m$, and $h$, which are the number of nodes, side road edges, main road edges, and highway edges, respectively.
+The first line of the input will contain three integers: $s$, $m$, and $h$, which are the number of side road edges, main road edges, and highway edges, respectively.
 
 The next line will contain $s$ side road edges.  Each edge is a 5-tuple: $(x_1,y_1,x_2,y_2,w)$, where $(x_1,y_1)$ is the starting coordinate of the edge, $(x_2,y_2)$ is the ending coordinate, and $w$ is the weight (cost) of traversing that edge.  All edges in this assignment are bi-directional.  As before, these values are all on one line, so consecutive sets of five integers form one edge.
 
