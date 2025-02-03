@@ -7,6 +7,10 @@ Given a graph with the edge weights representing distance, Dijkstra's shorted pa
 
 This homework builds upon the material taught in lecture on slides 86-89 of the graphs slide set.  You will need to be familiar with that material -- both through the slide set and the video recordings -- in order to proceed with this homework.
 
+### Changelog
+
+- Feb 3: added an Execution section at the bottom
+
 ### Example
 
 <img src='example.webp' style='float:right;padding-left:20px;padding-right:20px;width:33vw'>
@@ -175,6 +179,16 @@ There are some assumptions that you may and may not make:
 - There will never be more than one edge between any two nodes.
 - No path length will be greater than $10^6$
 - When determining your running time, you can (and should) ignore the setup in the code we provide
+
+### Execution
+
+We will run your program as follows:
+
+```
+cat example.in | python pa1.py
+```
+
+This takes the output of what is on the left (`cat example.in`, whose output is the contents of example.in) and uses it as the input to what is on the right.  This version should work in all platforms (Windows, MacOS, and Linux).
 
 ### Submission
 

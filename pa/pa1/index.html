@@ -30,6 +30,10 @@
 </header>
 <p>Given a graph with the edge weights representing distance, Dijkstra’s shorted path algorithm will always find the shortest path. However, this may not be the <em>fastest</em> path if one’s speed over each edge can vary. And it’s not going to be very quick for an extremely large graph. This assignment will examine an adaptation of Dijkstra’s that chooses a path that uses more of the faster roads (highways) over the slower roads (side roads).</p>
 <p>This homework builds upon the material taught in lecture on slides 86-89 of the graphs slide set. You will need to be familiar with that material – both through the slide set and the video recordings – in order to proceed with this homework.</p>
+<h3 id="changelog">Changelog</h3>
+<ul>
+<li>Feb 3: added an Execution section at the bottom</li>
+</ul>
 <h3 id="example">Example</h3>
 <p><img src='example.webp' style='float:right;padding-left:20px;padding-right:20px;width:33vw'></p>
 <p>Consider the weighted graph image to the right. The green dotted lines are the side roads; there is a side road between every set of orthogonally adjacent nodes in that diagram. Main roads – red dashed lines in the figure – connect every set of nodes that are distance 2 apart. Highways, shown as solid purple lines, connect every set of nodes that are distance 6 apart. In this graph, the weight of an edge is just the distance between the nodes. <strong><em>HOWEVER this isn’t always true.</em></strong> The graph has weights provided for each edge.</p>
@@ -69,12 +73,12 @@
 <p>All input is read in from standard input (not a file).</p>
 <p>Each run of the program will have only one graph, but will have multiple test cases.</p>
 <p>The first line of the input will contain three integers: <span class="math inline"><em>s</em></span>, <span class="math inline"><em>m</em></span>, and <span class="math inline"><em>h</em></span>, which are the number of side road edges, main road edges, and highway edges, respectively.</p>
-<p>The next line will contain <span class="math inline"><em>s</em></span> side road edges. Each edge is a 5-tuple: <span class="math inline">(<em>x</em><sub>1</sub>, <em>y</em><sub>1</sub>, <em>x</em><sub>2</sub>, <em>y</em><sub>2</sub>, <em>w</em>)</span>, where <span class="math inline">(<em>x</em><sub>1</sub>, <em>y</em><sub>1</sub>)</span> is the starting coordinate of the edge, <span class="math inline">(<em>x</em><sub>2</sub>, <em>y</em><sub>2</sub>)</span> is the ending coordinate, and <span class="math inline"><em>w</em></span> is the weight (cost) of traversing that edge. All edges in this assignment are bi-directional. As before, these values are all on one line, so consecutive sets of five integers form one edge.</p>
+<p>The next line will contain <span class="math inline"><em>s</em></span> side road edges. Each edge is a 5-tuple: <span class="math inline">(<em>x</em><sub>1</sub>,<em>y</em><sub>1</sub>,<em>x</em><sub>2</sub>,<em>y</em><sub>2</sub>,<em>w</em>)</span>, where <span class="math inline">(<em>x</em><sub>1</sub>,<em>y</em><sub>1</sub>)</span> is the starting coordinate of the edge, <span class="math inline">(<em>x</em><sub>2</sub>,<em>y</em><sub>2</sub>)</span> is the ending coordinate, and <span class="math inline"><em>w</em></span> is the weight (cost) of traversing that edge. All edges in this assignment are bi-directional. As before, these values are all on one line, so consecutive sets of five integers form one edge.</p>
 <p>The next line will contain <span class="math inline"><em>m</em></span> main road edges. These are formatted the same as with the side roads. All edges in this assignment are bi-directional.</p>
 <p>The next line will contain <span class="math inline"><em>h</em></span> highway edges. These are formatted the same as with the side roads. All edges in this assignment are bi-directional.</p>
 <p>Note that the nodes themselves can be determined from the edges.</p>
 <p>The next line will contain an integer <span class="math inline"><em>n</em></span>, the number of test cases to run on this map.</p>
-<p>Each test case will consist of a single line of four values, space separated: <span class="math inline">(<em>x</em><sub>1</sub>, <em>y</em><sub>1</sub>, <em>x</em><sub>2</sub>, <em>y</em><sub>2</sub>)</span>, where <span class="math inline">(<em>x</em><sub>1</sub>, <em>y</em><sub>1</sub>)</span> is the starting coordinate, and <span class="math inline">(<em>x</em><sub>2</sub>, <em>y</em><sub>2</sub>)</span> is the ending coordinate.</p>
+<p>Each test case will consist of a single line of four values, space separated: <span class="math inline">(<em>x</em><sub>1</sub>,<em>y</em><sub>1</sub>,<em>x</em><sub>2</sub>,<em>y</em><sub>2</sub>)</span>, where <span class="math inline">(<em>x</em><sub>1</sub>,<em>y</em><sub>1</sub>)</span> is the starting coordinate, and <span class="math inline">(<em>x</em><sub>2</sub>,<em>y</em><sub>2</sub>)</span> is the ending coordinate.</p>
 <h3 id="output">Output</h3>
 <p>There are <span class="math inline"><em>n</em></span> test cases in each input file. The output for each test case will consist of two lines. The first line contains a single integer, which is the distance of the computed path. The second line contains a single integer, <span class="math inline"><em>l</em></span>, which is the length of the path (including both the start node and end node). The next <span class="math inline"><em>l</em></span> lines contain the coordinates of the nodes in the path, space separated (no parenthesis or commas).</p>
 <p>There is a blank line between test case outputs.</p>
@@ -162,6 +166,10 @@
 <li>No path length will be greater than <span class="math inline">10<sup>6</sup></span></li>
 <li>When determining your running time, you can (and should) ignore the setup in the code we provide</li>
 </ul>
+<h3 id="execution">Execution</h3>
+<p>We will run your program as follows:</p>
+<pre><code>cat example.in | python pa1.py</code></pre>
+<p>This takes the output of what is on the left (<code>cat example.in</code>, whose output is the contents of example.in) and uses it as the input to what is on the right. This version should work in all platforms (Windows, MacOS, and Linux).</p>
 <h3 id="submission">Submission</h3>
 <p>You will submit your completed <code>pa1.py</code> or <code>PA1.java</code> to Gradescope. There will be a <em>small set</em> of acceptance tests that are <em>NOT COMPREHENSIVE</em>. It’s up to you to comprehensively test your code. The acceptance tests just verify that you are reading the input correctly and providing the expected output.</p>
 </body>
