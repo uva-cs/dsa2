@@ -1,0 +1,79 @@
+%---------change this every homework
+\def\yourid{your name here}
+\def\collabs{list your collaborators}
+\def\sources{list your sources}
+% -----------------------------------------------------
+\def\duedate{October 30, 2024 at 11:59p}
+\def\pnumber{6}
+%-------------------------------------
+
+\RequirePackage[2020-02-02]{latexrelease}
+\documentclass[10pt]{article}
+\usepackage{dsa2}
+
+\usepackage{tikz-cd}
+
+\begin{document}
+\thispagestyle{empty}
+\handout
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem} Bring on the Skittles \end{problem}
+
+After trick-or-treating, Prof. Bloomfield's children each come home with huge amounts of Skittles candies. As the amount of candy seems excessive, he decides that each child can only keep up to a certain number of pieces of candy, $n$, and the rest will be donated to the neighborhood emergency candy fund. The children love all Skittles, but have preferences for certain colors more than others. Each child counts the number of Skittles of each color they have collected as well as deciding how much they like each color. They each produce a list of tuples $(c, p, a)$  where $c$ indicates the color, $p$ indicates the preference for that color (higher is better), and $a$ indicates the amount of candies of that color. Given this list and a maximum number of candies that can be kept, $n$, create an algorithm that will maximize the sum of $p$ for the candies that are kept.
+
+\begin{enumerate}
+\item Describe an optimal algorithm for maximizing the sum of $p$ given the constraints. 
+    
+\solution{
+% your solution here
+}
+    
+\item Explain the runtime of your algorithm.
+
+\solution{
+% your solution here
+}
+
+\item Construct a brief proof to show that your algorithm is optimal. Use an exchange argument.
+
+\solution{
+% your solution here
+}
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Building Bridges\end{problem}
+
+You have discovered a set of previously undiscovered islands (uninhabited and unclaimed) and claim the land as your own. You quickly declare your land a sovereign country and install yourself as leader. For you country to grow and prosper, you know that you need to make it easy to travel from one island to the next. You bring in a bridge builder to give you an estimate on what it would cost to connect all of your islands together via bridges. Given that you have $n$ islands in your kingdom, there are $\frac{1}{2} \cdot n \cdot (n-1)$ possible bridges that you could build (the combination of $n$ items taken two at a time). The bridge builder gives you an estimate for each bridge of the form $(a,b,c)$ where $a$ is one island, $b$ is the connected island, and $c$ is the cost of that bridge. There is an estimate for every possible pair of islands and you know that the bridges work equally well traveling in either direction (from $a$ to $b$ or from $b$ to $a$). Given these estimates, what is the least amount you can spend (sum of all $c$ values) to connect all of your islands together?
+
+\begin{enumerate}
+\item Describe an optimal greedy algorithm that can solve this problem?
+
+\solution{
+% your solution here
+}
+
+\item Explain the runtime of your algorithm?
+
+\solution{
+% your solution here
+}
+
+\item Construct a brief proof to show that your algorithm is optimal.
+
+\solution{
+% your solution here
+}
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\end{document}
