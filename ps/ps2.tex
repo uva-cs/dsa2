@@ -1,133 +1,177 @@
 %---------change this every homework
-\def\yourid{mst3k}
-\def\collabs{list your collaborators here}
-\def\sources{list your sources here}
+\def\yourid{mst3k}  % substitute your userED
+\def\collabs{collaborators} % substitute your collaborators
+\def\sources{sources} % substitute your sources
 % -----------------------------------------------------
-\def\duedate{May 18, 2024 at 11:59p}
+\def\duedate{February 5, 2025 at 11:59p}
 \def\pnumber{2}
 %-------------------------------------
 
 \documentclass[10pt]{article}
 \usepackage{dsa2}
-\usepackage{tikz-cd}
+\usepackage{float}
 
 \begin{document}
 \thispagestyle{empty}
 \handout
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{problem} Proving Quicksort \end{problem}
-
-For this problem, we'll be reviewing how a \textbf{proof by induction} works.  More specifically, we will be using strong induction.  For a refresher on induction, a few good sources are:
-\begin{itemize}    
-    \item A summary from an offering of our CS2120 course: \\
-    \url {https://www.cs.virginia.edu/~emo7bf/cs2120/s2023/techniques.html#proof-by-induction}
-
-    \item A free online textbook (see Chapter 5): \\ 
-    \url {https://people.csail.mit.edu/meyer/mcs.pdf}
-
-    \item Wikipedia has a good description and a few example proofs: \\
-    \url{https://en.wikipedia.org/wiki/Mathematical_induction}.  
-\end{itemize}
-
-To prove the correctness of an algorithm using induction, we must consider the parts of the proof: the base case, the inductive hypothesis, and the inductive step.
-
-We will use induction to prove that Quicksort is correct.  We will let you assume that the \texttt{partition} operation works correctly.  Recall that \texttt{partition(list,first,last)} returns the location $p$ of an item in the sublist \texttt{list[first:last]}, where all items in positions before $p$ are $< \texttt{list[p]}$, and all items after position $p$ are $> \texttt{list[p]}$.  The item at location $p$ is the pivot-value, and \texttt{partition} puts it into its correct position but does not sort what's before it or after it.  After \texttt{partition} is done, Quicksort is called recursively on the sublists before and after the pivot-value.
-
-\begin{enumerate}
-    \item In induction we start with the \textbf{base case}.  If $n=1$ (i.e., there is one item in the list), explain why \texttt{partition} and Quicksort produce the correct answer for a list of size $1$.
-
-    \solution{ 
-    % Your solution here 
-    }
-    
-    \item We must next make an assumption: our \textbf{inductive hypothesis}.  Describe briefly this assumption.  \textit{For any list of size less than $n$, ...}
-        
-    \solution{ 
-    % Your solution here 
-    }
-        
-    \item \textbf{Inductive step}.  Now we need to use this \textbf{inductive hypothesis} to make an argument that, for a list of size $n$, Quicksort correctly produces a list that's sorted.  Namely, assuming that \texttt{partition} works correctly and the \textbf{inductive hypothesis} is true, write an argument below that shows, for a list of size $n$, the call to \texttt{partition} and the recursive calls to Quicksort correctly sorts that list.
-    
-    \solution{
-    % Your solution here
-    }
-        
-\end{enumerate}
+%----Begin your modifications here
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{problem} Sorry-Oh \end{problem}
 
-You are playing a new video game about a character named "Sorry-Oh". Sorry-Oh is currently at a point in the game where he needs to find a way to get from one corner of a rectangular room to the opposite corner. The rectangular room can be of any size $x$ by $y$, where $x$ and $y$ are positive integers greater than $1$. Unfortunately, some cells contain lava. When Sorry-Oh steps into a cell containing lava, he says "Sorry" and takes a certain amount of damage. The room can be visualized as a rectangular grid of cells whose size is $x$ by $y$. For each move, Sorry-Oh can only step to a cell that is either horizontally or vertically adjacent to his current cell. To get from the starting corner to the opposite corner, Sorry-Oh is only allowed to make a total of ($x + y$ - 2) moves. For example, in the grid shown below (which is 3x3), Sorry-Oh would only be allowed to make 4 (3 + 3 - 2) moves.   
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % Define nodes
+        \node (A) at (0,2) {A};
+        \node (B) at (2,3) {B};
+        \node (C) at (4,2) {C};
+        \node (D) at (2,0) {D};
+        \node (E) at (6,3) {E};
+        \node (F) at (8,5) {F};
+        \node (G) at (6,0) {G};
+        \node (H) at (4,-1) {H};
 
-Sorry-Oh starts in the top-left corner cell with a damage value of $0$. Each cell contains a number representing a certain amount of damage specific to that cell. Cells that do not contain lava have a value of $0$. Cells that do contain lava have a positive integer value. When moving from one cell to the next, Sorry-Oh's damage will increase when he arrives in the new cell (assuming the new cell has a value greater than 0).
+        % Draw directed edges
+        \draw[->] (A) -- (B);
+        \draw[->] (C) -- (B);
+        \draw[->] (C) -- (D);
+        \draw[->] (D) -- (A);
+        \draw[->] (A) -- (C);
+        \draw[->] (C) -- (E);
+        \draw[->] (E) -- (F);
+        \draw[->] (F) -- (G);
+        \draw[->] (G) -- (H);
+        \draw[->] (H) -- (D);
+        \draw[->] (B) -- (F);
+        \draw[->] (E) -- (G);
+    \end{tikzpicture}
+    \caption{Graph used for Problems 1 and 2}
+    \label{fig:graph_1_2}
+\end{figure}
 
-Your goal is to get Sorry-Oh from the starting cell on the top-left (the starting cell will always be the top-left cell and be designated by $S$) to the ending cell on the bottom-right (the ending cell will always be on the bottom-right), and to have the lowest total damage value after arriving at that ending cell.
 
-Given the following example grid - 
-
-\begin{tabularx}{0.4\textwidth} { 
-  | >{\centering\arraybackslash}X 
-  | >{\centering\arraybackslash}X 
-  | >{\centering\arraybackslash}X | }
- \hline
- S & 2 & 4 \\
- \hline
- 2  & 3  & 0  \\
-\hline
- 2  & 2  & 1  \\
-\hline
-\end{tabularx}
-
-\vspace{5mm}
-\noindent An example path could be computed as follows:
-\begin{enumerate}
-\item Start cell, damage = 0
-\item move Right, d = 2 (0 + 2)
-\item move Right, d = 6 (2 + 4))
-\item move Down, d = 6 (6 + 0))
-\item move Down, d = 7 (6 + 1))
-\item Total damage from the moves R-R-D-D is 7.
-\end{enumerate}
-
-\noindent Another example path:
-\begin{enumerate}
-\item Start cell, damage = 0
-\item move Down, d = 2 (0 + 2)
-\item move Right, d = 5 (2 + 3) 
-\item move Down, d = 7 (5 + 2))
-\item move Right, d = 8 (7 + 1))
-\item Total damage from the moves D-R-D-R is 8.
-\end{enumerate}
-
-You are given a grid, but will solve the problem by converting the grid to a graph, then using an algorithm that works on graphs.
-\begin{enumerate}
-    \item Give a brief description of how you would translate the grid to a weighted, directed graph suitable to solve the problem. 
-    \solution{ 
-    % Your solution here 
-    }
-
-    \item Describe an algorithm that can find a path through the graph resulting in the lowest possible damage. 
-    \solution{ 
-    % Your solution here 
-    }
-
-    \item The runtime of your algorithm must be no worse than $O(|E| log |V|)$. Explain the time complexity of your algorithm.
-    \solution{ 
-    % Your solution here 
-    }
-
-\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{problem} Bipartite \end{problem}
+\begin{problem} Using Depth First Search \end{problem}
 
-A graph is bipartite if each vertex can be assigned to one of two sets, such that for every edge in the graph $(v_i,v_j)$, the vertices $v_i$ and $v_j$ do not belong to the same set. 
+Apply depth first search starting at Node $A$ on the graph shown in Figure~\ref{fig:graph_1_2}. Use Table~\ref{tab:dfs_times} to record the seen and done timestamps (starting with 0). Note: When multiple nodes could be chosen at a given step, pick the one that comes first alphabetically (i.e. If either node F or node H could follow node C, choose node F because F is alphabetically before H.
 
-Write an algorithm that takes a connected undirected graph $G = (V,E)$ and returns a list of edges $E'$ than can be removed from $G$ to make it bipartite, i.e., the graph $G = (V, E-E')$ is bipartite. If $G$ is bipartite to begin with, the list you return will be empty.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c}
+        \toprule
+        \textbf{Node} & \textbf{Seen (Discovery Time)} & \textbf{Done (Finish Time)} \\
+        \midrule
+        A & ?  & ? \\ %%% Student, replace these question marks
+        B & ?  & ? \\
+        C & ?  & ? \\
+        D & ?  & ? \\
+        E & ?  & ? \\
+        F & ?  & ? \\
+        G & ?  & ? \\
+        H & ?  & ? \\
+        \bottomrule
+    \end{tabular}
+    \caption{DFS Seen and Done Timestamps}
+    \label{tab:dfs_times}
+\end{table}
 
-\solution{
-% Your solution here 
-}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem} Classifying Edges \end{problem}
+
+Refer to the graph shown in Figure~\ref{fig:graph_1_2}. Use the seen and done times that you calculated above to classify the edges. For each edge choose between: Tree Edge, Back Edge, Forward Edge, Cross Edge. Use Table~\ref{tab:dfs_edges} to record your answers.
+
+\vspace{0.3in}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c}
+        \toprule
+        \textbf{Edge} & \textbf{Edge Type} \\
+        \midrule
+        (A → B) & ? Edge \\ %%% Student, replace the question marks with one of:
+        (C → B) & ? Edge \\ %%%    Tree, Back, Forward, Cross
+        (C → D) & ? Edge \\
+        (D → A) & ? Edge \\
+        (A → C) & ? Edge \\
+        (C → E) & ? Edge \\
+        (E → F) & ? Edge \\
+        (F → G) & ? Edge \\
+        (G → H) & ? Edge \\
+        (H → D) & ? Edge \\
+        (B → F) & ? Edge \\
+        (E → G) & ? Edge \\
+
+        \bottomrule
+    \end{tabular}
+    \caption{DFS Edge Types}
+    \label{tab:dfs_edges}
+\end{table}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem} Using Dijkstra's Algorith \end{problem}
+
+Given the following graph:
+
+\begin{center}
+\begin{tikzpicture}[shorten >=1pt, node distance=2cm, auto]
+
+    % Nodes
+    \node (A) {A};
+    \node (B) [right of=A] {B};
+    \node (C) [below of=A] {C};
+    \node (D) [right of=C] {D};
+    \node (E) [right of=B] {E};
+    \node (F) [below of=D] {F};
+    \node (G) [right of=F] {G};
+
+    % Edges with weights
+    \draw[->] (A) -- (B) node[midway, above] {4};
+    \draw[->] (A) -- (C) node[midway, left] {2};
+    \draw[->] (B) -- (E) node[midway, above] {3};
+    \draw[->] (B) -- (D) node[midway, above right] {3};
+    \draw[->] (C) -- (D) node[midway, below] {6};
+    \draw[->] (C) -- (B) node[midway, left] {7};
+    \draw[->] (D) -- (F) node[midway, below left] {8};
+    \draw[->] (D) -- (G) node[midway, above right] {9};
+    \draw[->] (E) -- (G) node[midway, right] {3};
+    \draw[->] (F) -- (G) node[midway, below] {2};
+\end{tikzpicture}
+\end{center}
+\vspace{0.2in}
+Apply Dijkstra's Algorithm starting at node A. Each time a decreaseKey call is made, record that in Table~\ref{tab:decreaseKey} below. Record the vertex and the value assigned. For some vertices, decreaseKey will only be called once; others might have more than one call. If decreaseKey is called more than once for a given node, there should be multiple entries in the table. There are 15 rows provided in the table, but you may not need them all, just leave the extra rows at the end of the table as they are if not needed. Note: When multiple nodes could be chosen at a given step, pick the one that comes first alphabetically (i.e. If either node F or node H could be chosen next because they have equally minimum values in the priority queue, choose node F because F is alphabetically before H).
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{decreaseKey is called} & \textbf{Vertex} & \textbf{Value} \\
+        \hline
+        1 & A & 0 \\
+        2 & ? & ? \\ %%% Student, replace the question marks with your answers
+        3 & ? & ? \\
+        4 & ? & ? \\
+        5 & ? & ? \\
+        6 & ? & ? \\
+        7 & ? & ? \\
+        8 & ? & ? \\
+        9 & ? & ? \\
+        10 & ? & ? \\
+        11 & ? & ? \\
+        12 & ? & ? \\
+        13 & ? & ? \\
+        14 & ? & ? \\
+        15 & ? & ? \\ %%% Student, leave unneeded rows at the end as they are
+        \hline
+    \end{tabular}
+    \caption{DecreaseKey Calls}
+    \label{tab:decreaseKey}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
