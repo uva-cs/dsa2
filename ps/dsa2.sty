@@ -1,0 +1,73 @@
+\def\course{{data structures and algorithms 2 - spring 2025}}%------
+\def\assigntype{Problem Set~}
+
+\usepackage[colorlinks,urlcolor=blue]{hyperref}
+\usepackage[osf]{mathpazo}
+\usepackage{amsmath,amsfonts,graphicx}
+\usepackage{latexsym}
+\usepackage[top=1in,bottom=1.4in,left=1.25in,right=1.25in,centering,letterpaper]{geometry}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{xcolor}
+\definecolor{mdb}{rgb}{0.1,0.6,0.7}
+\definecolor{cit}{rgb}{0.05,0.35,0.05}
+\pagestyle{myheadings}
+\markboth{\yourid}{\yourid}
+\usepackage{clrscode}
+\usepackage{tabularx,booktabs}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcommand{\twopartdef}[3]
+{
+	\left\{
+		\begin{array}{ll}
+			#1 & \mbox{if } #2 \\
+			#3 & \mbox{otherwise}
+		\end{array}
+	\right.
+}
+
+\newenvironment{proof}{\par\noindent{\it Proof.}\hspace*{1em}}{$\Box$\bigskip}
+\newcommand{\handout}{
+   \renewcommand{\thepage}{PS \pnumber~-~\arabic{page}}
+   \noindent
+   \begin{center}
+       \vbox{
+           \hbox to \columnwidth {\textbf{\sc{\assigntype\pnumber}} \hfill {\Huge\color{mdb}\yourid}}
+           %\hbox to \columnwidth {\textbf{\sc{\course}} \hfill {\Huge\color{mdb}PA0}}
+           \hbox to \columnwidth {\sc{\course} \hfill due \MakeLowercase{\duedate}}
+           %\hbox to \columnwidth {\sc due \MakeLowercase{\duedate} \duelocation\hfill \yourid}
+       }
+   \end{center}
+   \vspace*{1mm}
+   \hrule
+   \vspace*{1mm}
+    {\footnotesize \textbf{Collaboration Policy:} You are encouraged to collaborate with up to 4 other students, but all work submitted must be your own {\em independently} written solution. List the computing ids of all of your collaborators in the \texttt{collabs} command at the top of the tex file. Do not share written notes, documents (including Google docs, Overleaf docs, discussion notes, PDFs), or code.  Do not seek published or online solutions for any assignments. If you use any published or online resources (which may not include solutions) when completing this assignment, be sure to cite them. Do not submit a solution that you are unable to explain orally to a member of the course staff. Any solutions that share similar text/code will be considered in breach of this policy. Please refer to the syllabus for a complete description of the collaboration policy.
+   \vspace*{1mm}
+    \hrule
+    \vspace*{2mm}
+    \noindent
+    \textbf{Collaborators}: \collabs\\
+    \textbf{Sources}: \sources}
+    \vspace*{2mm}
+    \hrule
+    \vskip 2em
+}
+%\newcommand{\solution}[1]{{\color{red} \medskip\noindent\textbf{Solution:}#1}}
+\newcommand{\bit}[1]{\{0,1\}^{ #1 }}
+%\dontprintsemicolon
+%\linesnumbered
+\newtheorem{problem}{\sc\color{cit}problem}
+\newtheorem{practice}{\sc\color{cit}practice}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\solution}{
+\vskip 1em
+{\textbf{Solution:}
+
+\noindent}}
+
+\newcommand{\Z}{\mathbb{Z}} % This might be useful for Integers!
+
