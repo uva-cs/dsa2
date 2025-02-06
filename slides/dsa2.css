@@ -842,3 +842,9 @@ div.reduction-col div, div.reduction-col table, div.reduction-col span, div.redu
 	width:100%;
 	text-align:center;
 }
+
+table.trominoes tr, table.trominoes tr td {
+	border:2px solid black;
+	border-collapse: collapse;
+	height:2vh;
+}
