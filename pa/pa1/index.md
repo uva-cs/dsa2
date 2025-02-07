@@ -36,7 +36,7 @@ That image is really showing three different graphs overlaid on each other, that
 <img src='example-highways.webp' style='width:25vw;border:1px solid black;margin:10px;padding:10px'>
 
 
-The starting node may already be a node that connects a highway.  In this case, you would skip the necessary steps.  For example, if the start node in the above diagram was $y$ (at (7,1)), and the end node was $d$ (at (3,7)), it would proceed as follows:
+The starting node may already be a node that connects a highway.  In this case, the output would skip the necessary steps.  However, you do not need to do anything different in your code -- the first thing you do is delete the minimum node, then check it for membership in the next highest set (if you are doing side roads, you check if the removed node is in the main road set).  And since the start node will be so, it will immediately terminate.  For example, if the start node in the above diagram was $y$ (at (7,1)), and the end node was $d$ (at (3,7)), it would proceed as follows:
 
 - Side roads to main road: not necessary, as we are on a node that connects main roads
 - Main roads to highways: not necessary, as we are on a node that connects highways
@@ -46,7 +46,7 @@ The starting node may already be a node that connects a highway.  In this case, 
 
 The path taken would be: (7,1) -> (1,7) -> (3,7), with distance 14.
 
-Similarly, if you are traveling from $x$ (5,1) to $u$ (8,3), you would skip many of the steps:
+Similarly, if you are traveling from $x$ (5,1) to $u$ (8,3), the output would skip many of the steps:
 
 - Side roads to main road: not necessary, as we are on a node that connects main roads
 - Main roads to highways: this takes the edge from $x$ to $y$

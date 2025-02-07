@@ -49,7 +49,7 @@
 <p>That image is really showing three different graphs overlaid on each other, that of side roads, main roads, and highways, respectively:</p>
 <p><br clear='all'></p>
 <p><img src='example-side-roads.webp' style='width:25vw;border:1px solid black;margin:10px;padding:10px'> <img src='example-main-roads.webp' style='width:25vw;border:1px solid black;margin:10px;padding:10px'> <img src='example-highways.webp' style='width:25vw;border:1px solid black;margin:10px;padding:10px'></p>
-<p>The starting node may already be a node that connects a highway. In this case, you would skip the necessary steps. For example, if the start node in the above diagram was <span class="math inline"><em>y</em></span> (at (7,1)), and the end node was <span class="math inline"><em>d</em></span> (at (3,7)), it would proceed as follows:</p>
+<p>The starting node may already be a node that connects a highway. In this case, the output would skip the necessary steps. However, you do not need to do anything different in your code – the first thing you do is delete the minimum node, then check it for membership in the next highest set (if you are doing side roads, you check if the removed node is in the main road set). And since the start node will be so, it will immediately terminate. For example, if the start node in the above diagram was <span class="math inline"><em>y</em></span> (at (7,1)), and the end node was <span class="math inline"><em>d</em></span> (at (3,7)), it would proceed as follows:</p>
 <ul>
 <li>Side roads to main road: not necessary, as we are on a node that connects main roads</li>
 <li>Main roads to highways: not necessary, as we are on a node that connects highways</li>
@@ -58,7 +58,7 @@
 <li>Side roads to destination: not necessary, as we are at our destination</li>
 </ul>
 <p>The path taken would be: (7,1) -&gt; (1,7) -&gt; (3,7), with distance 14.</p>
-<p>Similarly, if you are traveling from <span class="math inline"><em>x</em></span> (5,1) to <span class="math inline"><em>u</em></span> (8,3), you would skip many of the steps:</p>
+<p>Similarly, if you are traveling from <span class="math inline"><em>x</em></span> (5,1) to <span class="math inline"><em>u</em></span> (8,3), the output would skip many of the steps:</p>
 <ul>
 <li>Side roads to main road: not necessary, as we are on a node that connects main roads</li>
 <li>Main roads to highways: this takes the edge from <span class="math inline"><em>x</em></span> to <span class="math inline"><em>y</em></span></li>
