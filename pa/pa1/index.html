@@ -32,6 +32,7 @@
 <p>This homework builds upon the material taught in lecture on slides 86-89 of the graphs slide set. You will need to be familiar with that material – both through the slide set and the video recordings – in order to proceed with this homework.</p>
 <h3 id="changelog">Changelog</h3>
 <ul>
+<li>Feb 10: there was a typo in the second test case. It went from <span class="math inline"><em>y</em></span> to <span class="math inline"><em>d</em></span>, as stated, but the coordinates of <span class="math inline"><em>y</em></span> were listed as (1,1) instead of (7,1), both in the input below and the <a href="example.in">example.in</a> test case file (and the auto-grader). All are now consistent that the coordinates of <span class="math inline"><em>y</em></span> are (7,1). This also affected the output for that test case, which has been updated both below and in the <a href="example.out">example.out</a> file.</li>
 <li>Feb 3: added an Execution section at the bottom</li>
 </ul>
 <h3 id="example">Example</h3>
@@ -73,12 +74,12 @@
 <p>All input is read in from standard input (not a file).</p>
 <p>Each run of the program will have only one graph, but will have multiple test cases.</p>
 <p>The first line of the input will contain three integers: <span class="math inline"><em>s</em></span>, <span class="math inline"><em>m</em></span>, and <span class="math inline"><em>h</em></span>, which are the number of side road edges, main road edges, and highway edges, respectively.</p>
-<p>The next line will contain <span class="math inline"><em>s</em></span> side road edges. Each edge is a 5-tuple: <span class="math inline">(<em>x</em><sub>1</sub>,<em>y</em><sub>1</sub>,<em>x</em><sub>2</sub>,<em>y</em><sub>2</sub>,<em>w</em>)</span>, where <span class="math inline">(<em>x</em><sub>1</sub>,<em>y</em><sub>1</sub>)</span> is the starting coordinate of the edge, <span class="math inline">(<em>x</em><sub>2</sub>,<em>y</em><sub>2</sub>)</span> is the ending coordinate, and <span class="math inline"><em>w</em></span> is the weight (cost) of traversing that edge. All edges in this assignment are bi-directional. As before, these values are all on one line, so consecutive sets of five integers form one edge.</p>
+<p>The next line will contain <span class="math inline"><em>s</em></span> side road edges. Each edge is a 5-tuple: <span class="math inline">(<em>x</em><sub>1</sub>, <em>y</em><sub>1</sub>, <em>x</em><sub>2</sub>, <em>y</em><sub>2</sub>, <em>w</em>)</span>, where <span class="math inline">(<em>x</em><sub>1</sub>, <em>y</em><sub>1</sub>)</span> is the starting coordinate of the edge, <span class="math inline">(<em>x</em><sub>2</sub>, <em>y</em><sub>2</sub>)</span> is the ending coordinate, and <span class="math inline"><em>w</em></span> is the weight (cost) of traversing that edge. All edges in this assignment are bi-directional. As before, these values are all on one line, so consecutive sets of five integers form one edge.</p>
 <p>The next line will contain <span class="math inline"><em>m</em></span> main road edges. These are formatted the same as with the side roads. All edges in this assignment are bi-directional.</p>
 <p>The next line will contain <span class="math inline"><em>h</em></span> highway edges. These are formatted the same as with the side roads. All edges in this assignment are bi-directional.</p>
 <p>Note that the nodes themselves can be determined from the edges.</p>
 <p>The next line will contain an integer <span class="math inline"><em>n</em></span>, the number of test cases to run on this map.</p>
-<p>Each test case will consist of a single line of four values, space separated: <span class="math inline">(<em>x</em><sub>1</sub>,<em>y</em><sub>1</sub>,<em>x</em><sub>2</sub>,<em>y</em><sub>2</sub>)</span>, where <span class="math inline">(<em>x</em><sub>1</sub>,<em>y</em><sub>1</sub>)</span> is the starting coordinate, and <span class="math inline">(<em>x</em><sub>2</sub>,<em>y</em><sub>2</sub>)</span> is the ending coordinate.</p>
+<p>Each test case will consist of a single line of four values, space separated: <span class="math inline">(<em>x</em><sub>1</sub>, <em>y</em><sub>1</sub>, <em>x</em><sub>2</sub>, <em>y</em><sub>2</sub>)</span>, where <span class="math inline">(<em>x</em><sub>1</sub>, <em>y</em><sub>1</sub>)</span> is the starting coordinate, and <span class="math inline">(<em>x</em><sub>2</sub>, <em>y</em><sub>2</sub>)</span> is the ending coordinate.</p>
 <h3 id="output">Output</h3>
 <p>There are <span class="math inline"><em>n</em></span> test cases in each input file. The output for each test case will consist of two lines. The first line contains a single integer, which is the distance of the computed path. The second line contains a single integer, <span class="math inline"><em>l</em></span>, which is the length of the path (including both the start node and end node). The next <span class="math inline"><em>l</em></span> lines contain the coordinates of the nodes in the path, space separated (no parenthesis or commas).</p>
 <p>There is a blank line between test case outputs.</p>
@@ -92,7 +93,7 @@
 1 1 1 7 6 1 1 7 1 6 1 7 7 7 6 7 1 7 7 6
 3
 4 0 3 8
-1 1 3 7
+7 1 3 7
 5 1 8 3</code></pre>
 <h3 id="example-output">Example output</h3>
 <p>This output is contained in the <a href="example.out">example.out</a> file.</p>
@@ -106,8 +107,9 @@
 3 7
 3 8
 
-8
-3
+14
+4
+7 1
 1 1
 1 7
 3 7

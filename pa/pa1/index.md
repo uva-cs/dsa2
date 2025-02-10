@@ -9,6 +9,7 @@ This homework builds upon the material taught in lecture on slides 86-89 of the 
 
 ### Changelog
 
+- Feb 10: there was a typo in the second test case.  It went from $y$ to $d$, as stated, but the coordinates of $y$ were listed as (1,1) instead of (7,1), both in the input below and the [example.in](example.in) test case file (and the auto-grader).  All are now consistent that the coordinates of $y$ are (7,1).  This also affected the output for that test case, which has been updated both below and in the [example.out](example.out) file.
 - Feb 3: added an Execution section at the bottom
 
 ### Example
@@ -101,7 +102,7 @@ Note that the example input below has the data truncated to make it fit in this 
 1 1 1 7 6 1 1 7 1 6 1 7 7 7 6 7 1 7 7 6
 3
 4 0 3 8
-1 1 3 7
+7 1 3 7
 5 1 8 3
 ```
 
@@ -120,8 +121,9 @@ This output is contained in the [example.out](example.out) file.
 3 7
 3 8
 
-8
-3
+14
+4
+7 1
 1 1
 1 7
 3 7
