@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>PA2.java</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// PA2 Skeleton Code</font></i>
+<i><font color="#9A1900">// DSA2, spring 2025</font></i>
+
+<i><font color="#9A1900">// This code will read in the input, and put the values into variables and an array.</font></i>
+
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>util<font color="#990000">.*;</font>
+
+<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">PA2</font> <font color="#FF0000">{</font>
+
+	<i><font color="#9A1900">// this will read in the input</font></i>
+	<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font>String<font color="#990000">[]</font> args<font color="#990000">)</font> <font color="#FF0000">{</font>
+		<font color="#008080">Scanner</font> stdin <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Scanner</font></b><font color="#990000">(</font>System<font color="#990000">.</font>in<font color="#990000">);</font>
+
+		<i><font color="#9A1900">// how many test cases in the file?</font></i>
+		<font color="#009900">int</font> test_cases <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font> <i><font color="#9A1900">// max of 10^5 test cases per file</font></i>
+
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> test_cases<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+
+			<i><font color="#9A1900">// read in the data for the test case</font></i>
+			<font color="#009900">int</font> s <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font> <i><font color="#9A1900">// number of shifts (int)</font></i>
+			<font color="#009900">int</font> t <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font> <i><font color="#9A1900">// number of TAs (int)</font></i>
+			<font color="#009900">long</font><font color="#990000">[]</font> weights <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <font color="#009900">long</font><font color="#990000">[</font>s<font color="#990000">];</font> <i><font color="#9A1900">// weights can be longs</font></i>
+			<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> j <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> j <font color="#990000">&lt;</font> s<font color="#990000">;</font> j<font color="#990000">++</font> <font color="#990000">)</font>
+				weights<font color="#990000">[</font>j<font color="#990000">]</font> <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextLong</font></b><font color="#990000">();</font>
+
+			<i><font color="#9A1900">// print out the values read in -- this has to be deleted prior to submission!</font></i>
+			System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>s<font color="#990000">+</font><font color="#FF0000">" "</font><font color="#990000">+</font>t<font color="#990000">);</font>
+			<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">long</font> x<font color="#990000">:</font> weights <font color="#990000">)</font>
+				System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">print</font></b><font color="#990000">(</font>x <font color="#990000">+</font> <font color="#FF0000">" "</font><font color="#990000">);</font>
+			System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">();</font>
+		<font color="#FF0000">}</font>
+	<font color="#FF0000">}</font>
+
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

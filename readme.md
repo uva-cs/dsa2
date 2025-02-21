@@ -21,6 +21,7 @@ Repository Contents
     - [Dynamic Programming](slides/dp.html#/)
     - [Reductions](slides/reductions.html#/)
 - Spring 2025 assignments:
+    - [PA2: Office Hours](pa/pa2/index.html) ([md](pa/pa2/index.md))
     - [PA1: Driving Directions](pa/pa1/index.html) ([md](pa/pa1/index.md))
 - [Old course content](old.html) from previous semesters
 
