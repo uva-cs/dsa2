@@ -3,6 +3,27 @@ title: "Announcements, Spring 2025"
 ---
 
 
+::: {.announcements}
+## Tuesday, February 25th: Warm-up
+
+
+**Imagine a world without computerized cash registers!**
+
+*The problem:* Given unlimited quantities of pennies, nickles, dimes, and quarters (worth 1, 5, 10, and 25 cents, respectively), design an algorithm to determine a set of coins (the *change*) for a given value $x$ using the fewest number of coins.
+
+<table><tr>
+<td style="vertical-align:middle">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/US_One_Cent_Obv.png/480px-US_One_Cent_Obv.png" style="width:191px">
+</td><td style="vertical-align:middle">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Jefferson-Nickel-Unc-Obv.jpg/487px-Jefferson-Nickel-Unc-Obv.jpg" style="width:212px">
+</td><td style="vertical-align:middle">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Dime_Obverse_13.png/480px-Dime_Obverse_13.png" style="width:179px">
+</td><td style="vertical-align:middle">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/United_States_quarter%2C_obverse%2C_2004.jpg/485px-United_States_quarter%2C_obverse%2C_2004.jpg" style="width:243px">
+</td></tr></table>
+
+:::
+
 
 ::: {.announcements}
 # Tuesday, February 25th
