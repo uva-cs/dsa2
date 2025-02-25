@@ -5,6 +5,32 @@ title: "Announcements, Spring 2025"
 
 
 ::: {.announcements}
+# Tuesday, February 25th
+
+- Assignments
+  - PA2 is out, and due a week from Friday
+  - PS5 will be out late this week, due next Wednesday; on Greedy algorithms
+- Grading
+  - PS3 has been returned, PA1 should be back this weekend
+  - for PS assignments, regrade requests need to be submitted, via Gradescope, within a week of when it was returned
+- Quizzes 1&2 are this Thursday
+  - Topic list and past quizzes are in Canvas' Files
+- Office hours:
+	- TA OH in Rice 109: Sun 5-7 and M/Tu/W/Th from 5-9 in Rice 109
+		- No TA office hours this Thursday
+	- Prof Bloomfield: M 10-11:30, W 1:30-3 in Rice 402 (note the change)
+		- But not this Wednesday
+	- Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
+- Course textbook link is on the Canvas landing page
+- Today we start on Greedy algorithms
+	- The slides are in Canvas' files
+:::
+
+
+
+
+
+::: {.announcements}
 # Tuesday, February 18th
 
 - Assignments
@@ -24,6 +50,7 @@ title: "Announcements, Spring 2025"
 - Today we continue with divide and conquer, which we will wrap up on Thursday
 	- The slides are in Canvas' files
 :::
+
 
 
 
