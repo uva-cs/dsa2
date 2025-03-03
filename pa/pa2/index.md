@@ -6,7 +6,7 @@ title: "PA2: Office Hours"
 
 ### Introduction
 
-The TA's have revolted, and want a new office hours schedule!  Rather than having a fixed time in the evenings, they want to start holding office hours 24/7.  They have a few demands for their new office hours shifts.  
+The TAs have revolted, and want a new office hours schedule!  Rather than having a fixed time in the evenings, they want to start holding office hours 24/7.  They have a few demands for their new office hours shifts.  
 
 1. Some office hours are busier than others, some are less busy.  So each office hour shift has a positive integer *weight* indicating how busy it is.  The sum of the shift weights should be split, as evenly as possible, among the TAs, so that each TA is carrying a (roughly equal) load of shift weights (called the *total weight* for that TA).
 2. The TAs do not want to keep having to come back to Rice Hall for their different shifts.  Thus, any one TA's shifts must be *consecutive*.
@@ -118,19 +118,19 @@ If we had an as many TAs as shifts, then the minimum total weight for any one TA
 
 A binary search takes a sorted array, and looks at the middle value to see how it compares to the value being searched for.  Assuming it isn't that value, the algorithm either looks in the upper half or the lower half, depending on the result of that comparison.
 
-The algorithm for this problem is going to do a binary search on the *allowed total weight* until we find the minimum allowed total weight that allows $k$ TAs (here, $k=3$) to staff those shifts.  We already know, from above, that the answer to this example is 34.  We know that the minimum total weight is 31 and the maximum is 85, so those are the initial bounds of our binary search.  The middle of those two values, then, is $(31+85)/2=55$, which is our first take at the allowed total weight.  The first iteration will determine if 3 TAs can staff those shifts when the allowed total weight of any TA is 55 (see below for how).  
+The algorithm for this problem is going to do a binary search on the *allowed total weight* until we find the minimum allowed total weight that allows $k$ TAs (here, $k=3$) to staff those shifts.  We already know, from above, that the answer to this example is 34.  We know that the minimum total weight is 31 and the maximum is 85, so those are the initial bounds of our binary search.  The middle of those two values, then, is $(31+85)/2=58$, which is our first take at the allowed total weight.  The first iteration will determine if 3 TAs can staff those shifts when the allowed total weight of any TA is 58 (see below for how).  
 
-- If 3 TAs *can* staff those shifts when the allowed total weight is 55 or less, then that value (of 55) is a potential answer for the allowed total weight, but it could be lower -- in this example, we know the final answer is 34, so the value is actually lower in this case.  Thus, we would search in the lower half of the results (31-55), and we would include the current value (of 55) in that search.
-- If 3 TAs can *NOT* staff those shifts -- we would need 4 or more TAs, for example -- then the current allowed total weight is too low, and we have to search for a higher allowed total weight.  We would then search in the upper half (56-85).
+- If 3 TAs *can* staff those shifts when the allowed total weight is 58 or less, then that value (of 58) is a potential answer for the allowed total weight, but it could be lower -- in this example, we know the final answer is 34, so the value is actually lower in this case.  Thus, we would search in the lower half of the results (31-58), and we would include the current value (of 58) in that search.
+- If 3 TAs can *NOT* staff those shifts -- we would need 4 or more TAs, for example -- then the current allowed total weight is too low, and we have to search for a higher allowed total weight.  We would then search in the upper half (59-85).
 
 Thus, we are binary searching on the *allowed total weight*, not on an array of values.
 
-The last problem is how to count how many TAs can staff a given shift.  If we know the allowed total weight that we are considering, we just keep adding consecutive shifts until the next one would cause us to go over, and then we proceed onto the next TA.  For the shifts above, if the allowed total weight being considered is 55, then we would add up $8+12+31=51$ (as adding the next shift, with weight 19, would go over 55) for the first TA, and $19+15=34$ for the second TA.  Thus, with an allowed total weight of 55, we only need 2 TAs.
+The last problem is how to count how many TAs can staff a given shift.  If we know the allowed total weight that we are considering, we just keep adding consecutive shifts until the next one would cause us to go over, and then we proceed onto the next TA.  For the shifts above, if the allowed total weight being considered is 58, then we would add up $8+12+31=51$ (as adding the next shift, with weight 19, would go over 58) for the first TA, and $19+15=34$ for the second TA.  Thus, with an allowed total weight of 58, we only need 2 TAs.
 
 
 ### Requirements
 
-***This must be a divide-and-conquer solution!***  To ensure this, we have a few test cases that will cause all other potential solutions to either time out or cause a stack overflow due to recursion depth.  One such test case has one thousand TAs and one million shifts, and is available in Canvas's files (named `pa2-example-1M.in`, but stored in a .zip file named `example-1M.in.zip`).  The output from that test case is 500,814.
+***This must be a divide-and-conquer solution!***  To ensure this, we have a few test cases that will cause all other potential solutions to either time out or cause a stack overflow due to recursion depth.  One such test case has one thousand TAs and one million shifts, and is available in Canvas's files (named `pa2-example-1M.in`, but stored in a .zip file named `pa2-example-1M.in.zip`).  The output from that test case is 500,814.
 
 There are some assumptions that you may and may not make:
 
