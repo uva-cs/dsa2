@@ -4,6 +4,34 @@ title: "Announcements, Spring 2025"
 
 
 ::: {.announcements}
+# Lecture 15: Tuesday, March 4th
+
+<div class="font-90">
+
+- Assignments
+  - PA2 is out, and due this Friday
+  - PA3 will be out late this week, due the Friday after spring break; on Greedy algorithms
+  - PS5 is out, due this Wednesday; on Greedy algorithms
+  - PS6 will be out late this week, due the Friday after spring break; also on Greedy algorithms
+- Quizzes 1&2 last week: how were they?
+- Grading
+  - PS1 through PS3 have been returned; PA1 is delayed, and PS4 is being graded
+  - Midterms should be back late this week
+  - For PS assignments, regrade requests need to be submitted, via Gradescope, within a week of when it was returned
+- Office hours:
+	- TA OH in Rice 109: Sun 5-7 and M/Tu/W/Th from 5-9 in Rice 109
+	- Prof Bloomfield: M 10-11:30, W 1:30-3 in Rice 402 (note the change)
+	- Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
+- Course textbook link is on the Canvas landing page
+- Today we continue with Greedy algorithms
+	- The slides are in Canvas' files
+
+</div>
+:::
+
+
+
+::: {.announcements}
 ## Tuesday, February 25th: Warm-up
 
 
