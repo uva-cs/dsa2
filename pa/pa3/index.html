@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>PA3: Office Hours Redux</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">PA3: Office Hours Redux</h1>
+</header>
+<p><img src="../pa2/office-hours-sign.jpg" style="float:right;max-width:40vw;border-radius:40px;padding-left:10px;border:3px solid black"></p>
+<h3 id="introduction">Introduction</h3>
+<p>The TAs tried out the previous office hours scheduling idea (from <a href="../pa2/index.html">PA2: Office Hours</a>), and ended up not liking it all that much. So they have revolted again! This time they want to create a new and different office hours schedule.</p>
+<p>In the new version, each TA will hold one shift each, and will specify when they will start and when they will end. Any given TA’s shift may overlap with one (or more) other shifts, or they may be alone. Given a series of such TA shift requests, they need to be combined into a single set of times when there are TAs in office hours.</p>
+<p>For example:</p>
+<ul>
+<li>TA A wants to work from 1 pm to 3 pm</li>
+<li>TA B wants to work from 2 pm to 4 pm</li>
+<li>TA C wants to work from 8 pm to 10 pm</li>
+</ul>
+<p>Given these, the shifts of TAs A and B would combine to form one longer streak of office hours from 1 pm to 4 pm. Thus, the final office hours schedule would list from 1 pm to 4 pm and then from 8 pm to 10 pm.</p>
+<p>To make life easier, we will present the times as numbers. The above example would list TA A’s request as 1-3, TA B’s from 2-4, and TA C’s from 8-10. The final answer would be 1-4 and 8-10. Times in this assignment can be any non-negative integer within the range described in the input section below.</p>
+<p>Note that a shift from 1-3 and another shift from 3-5 overlaps, as there is a TA present from 1 pm to 5 pm. But a shift from 1-3 and another from 4-6 do <em>not</em> overlap – a TA is present from 1 pm to 3 pm and then from 4 pm to 6 pm, but not from 3 pm to 4 pm.</p>
+<p>Given a set of requests of this form, create a <em>greedy</em> algorithm that can combine the TA shift requests into a single TA office hours schedule.</p>
+<h3 id="changelog">Changelog</h3>
+<p>Any changes to this page will be put here for easy reference. Typo fixes and minor clarifications are not listed here. So far there aren’t any significant changes to report.</p>
+<h3 id="input-format">Input format</h3>
+<p><strong>For this homework, we are <em>NOT</em> providing you with skeleton code that handles reading in of the input.</strong> You should look at the previous two homeworks for examples how to do so: <a href="../pa1/index.html">PA1: Driving Directions</a> (<a href="../pa1/index.md">md</a>) and <a href="../pa2/index.html">PA2: Office Hours</a> (<a href="../pa2/index.md">md</a>).</p>
+<p>All input is read in from standard input (not a file).</p>
+<p>The first line of the file will contain the single positive integer <span class="math inline">1 ≤ <em>c</em> ≤ 10<sup>5</sup></span>, the number of test cases in the file.</p>
+<p>Each test case will start with a line containing a single positive integer <span class="math inline">1 ≤ <em>r</em> ≤ 10<sup>9</sup></span>, which is the number of shift requests in the file. The next <span class="math inline"><em>r</em></span> lines will consist of a single ordered pair each, the start and end times of each shift request. A shift request is two integers <span class="math inline">(0 ≤ <em>s</em> ≤ 10<sup>9</sup>, 0 ≤ <em>t</em> ≤ 10<sup>9</sup>)</span>, with <span class="math inline"><em>t</em> &gt; <em>s</em></span>, the start time (<span class="math inline"><em>s</em></span>) and end time (<span class="math inline"><em>t</em></span>) of the shift request. These two values are space separated.</p>
+<p>All input values will fit into a signed <code>int</code> variable.</p>
+<h3 id="output-format">Output format</h3>
+<p><strong>The output format is very precise. Extra spaces, extra lines, or different punctuation will cause the answer to be judged as incorrect.</strong></p>
+<p>Each test case will output a single line that contains all of the combined shifts, in <code>x-y</code> form (a dash between the start and end times), with each range separated by a comma and a space. The example above would have the output: <code>1-4, 8-10</code>.</p>
+<p>All output values will fit into a signed <code>int</code> variable.</p>
+<h3 id="example-input">Example input</h3>
+<p>This file is available as <a href="example.in">example.in</a>.</p>
+<pre><code>4
+4
+7 8
+1 5
+2 4
+4 6
+1
+1 2
+5
+1 2
+3 4
+5 6
+7 8
+9 10
+5
+8 22
+48 50
+16 22
+31 43
+30 45</code></pre>
+<h3 id="example-output">Example output</h3>
+<p>This file is available as <a href="example.out">example.out</a>.</p>
+<pre><code>1-6, 7-8
+1-2
+1-2, 3-4, 5-6, 7-8, 9-10
+8-22, 30-45, 48-50</code></pre>
+<h3 id="notes">Notes</h3>
+<p>This assignment must be a <em>greedy solution</em>. Specifically, it needs to be a <span class="math inline"><em>Θ</em>(<em>n</em>log <em>n</em>)</span> solution – a <span class="math inline"><em>Θ</em>(<em>n</em><sup>2</sup>)</span> solution will time out with our larger test cases. To ensure this, we have a few test cases that will cause all other potential solutions to time out. Some of those test cases are given below.</p>
+<p>There are some assumptions that you may and may not make:</p>
+<ul>
+<li>All values, both input and output, are non-negative integer values that will fit into a signed <code>int</code> variable</li>
+<li>The input provided will always be valid</li>
+<li>There will be at least one shift request in each test case</li>
+<li>The end time for a shift request will always be strictly greater than the start time of that shift request</li>
+</ul>
+<p>There are two large test cases available in Canvas’ Files. They are contained in a zip file named <code>pa3-examples.zip</code>. The files therein are:</p>
+<ul>
+<li><code>pa3-example-1M.in</code>: this has 1 million randomly generated shifts. The solution for this problem is: <code>20-4317505, 4317530-53367411, 53367771-67213730, 67213768-89410658, 89410677-100000000</code></li>
+<li><code>pa3-example-1M-exclusive.in</code>: this has 1 million shifts are are all mutually exclusive (there is no overlap). The solution will be 1 million ranges, that will start with: <code>0-1, 2-3, 4-5, 6-7, 8-9, 10-11, ...</code></li>
+</ul>
+<p>If your program does not implement a greedy algorithm, at least one of those cases will time out when we run it.</p>
+<h3 id="execution">Execution</h3>
+<p>We will run your program as follows:</p>
+<pre><code>cat example.in | python3 pa3.py</code></pre>
+<p>or:</p>
+<pre><code>cat example.in | java PA3</code></pre>
+<p>This takes the output of what is on the left (<code>cat example.in</code>, whose output is the contents of the example.in file) and uses it as the input to what is on the right. This version should work in all platforms (Windows, MacOS, and Linux).</p>
+<h3 id="submission">Submission</h3>
+<p>You will submit your completed <code>pa3.py</code> or <code>PA3.java</code> file to Gradescope. There will be a <em>small set</em> of acceptance tests that are <em>NOT COMPREHENSIVE</em>. These acceptance tests are the test cases in <a href="example.in">example.in</a> file. It’s up to you to comprehensively test your code. The acceptance tests just verify that you are reading the input correctly and providing the expected output.</p>
+</body>
+</html>
