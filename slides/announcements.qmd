@@ -4,6 +4,46 @@ title: "Announcements, Spring 2025"
 
 
 ::: {.announcements}
+# Python
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/python.png){title="I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I&#39;m leaving you." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 353](https://xkcd.com/353)
+:::
+:::
+
+::: {.announcements}
+
+## Lecture 15: Tuesday, March 4th
+
+<div class="font-90">
+
+- Assignments
+  - PS5 was due yesterday -- how did it go?
+  - [PA2](../pa/pa2/index.html) is out, and due this Friday
+  - [PA3](../pa/pa3/index.html) is out, due two weeks from this Friday; submission opens up this Saturday
+  - PS6 will be out late this week, due the Friday after spring break; also on Greedy algorithms
+- Quizzes 1&2 last week: should be returned tomorrow
+  - We will go over them after spring break, at which point regrades will open
+- Grading
+  - PS1 through PS3 have been returned; PA1 is delayed, and PS4 is being graded
+  - For PS assignments, regrade requests need to be submitted, via Gradescope, within a week of when it was returned
+- Office hours:
+	- TA OH in Rice 109: Sun 5-7 and M/Tu/W/Th from 5-9 in Rice 109
+	- Prof Bloomfield: M 10-11:30, W 1:30-3 in Rice 402 (note the change)
+	- Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
+	- None over spring break
+- Course textbook link is on the Canvas landing page
+- Today we continue with Greedy algorithms
+	- The slides are in Canvas' files
+
+</div>
+:::
+
+
+
+::: {.announcements}
 # Lecture 15: Tuesday, March 4th
 
 <div class="font-90">

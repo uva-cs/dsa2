@@ -2,6 +2,11 @@
 .announcements {
 	font-size:70%;
 }
+.announcements h1 {
+	text-align:center;
+}
+
+
 /* slide formatting */
 .reveal p, .reveal ul li, .reveal ol li, .reveal table th td, .reveal table tr td {
 	text-align:justify;
