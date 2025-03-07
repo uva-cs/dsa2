@@ -22,7 +22,7 @@ To make life easier, we will present the times as numbers.  The above example wo
 
 Note that a shift from 1-3 and another shift from 3-5 overlaps, as there is a TA present from 1 pm to 5 pm.  But a shift from 1-3 and another from 4-6 do *not* overlap -- a TA is present from 1 pm to 3 pm and then from 4 pm to 6 pm, but not from 3 pm to 4 pm.
 
-Given a set of requests of this form, create a *greedy* algorithm that can combine the TA shift requests into a single TA office hours schedule.
+Given a set of requests of this form, create a *greedy* algorithm that can combine the TA shift requests into a single TA office hours schedule.  This algorithm must run in $\Theta(n \log n)$ time.
 
 ### Changelog
 
@@ -38,7 +38,7 @@ All input is read in from standard input (not a file).
 
 The first line of the file will contain the single positive integer $1 \le c \le 10^5$, the number of test cases in the file.
 
-Each test case will start with a line containing a single positive integer $1 \le r \le 10^9$, which is the number of shift requests in the file.  The next $r$ lines will consist of a single ordered pair each, the start and end times of each shift request.  A shift request is two integers $(0 \le s \le 10^9, 0 \le t \le 10^9)$, with $t > s$, the start time ($s$) and end time ($t$) of the shift request.  These two values are space separated.
+Each test case will start with a line containing a single positive integer $1 \le r \le 10^9$, which is the number of shift requests in the file.  The next $r$ lines will consist of a single ordered pair each, the start and end times of each shift request.  A shift request is two integers $(0 \le s \le 10^9, 0 \le t \le 10^9)$, with $t > s$, the start time ($s$) and end (terminating) time ($t$) of the shift request.  These two values are space separated.
 
 All input values will fit into a signed `int` variable.
 
@@ -91,7 +91,7 @@ This file is available as [example.out](example.out).
 
 ### Notes
 
-This assignment must be a *greedy solution*.  Specifically, it needs to be a $\Theta(n \log n)$ solution -- a $\Theta(n^2)$ solution will time out with our larger test cases.  To ensure this, we have a few test cases that will cause all other potential solutions to time out.  Some of those test cases are given below.
+This assignment must be a *greedy solution*.  Specifically, it needs to be a $\Theta(n \log n)$ solution.  A $\Theta(n^2)$ solution will time out with larger test cases.  To ensure this, we have a few test cases that will cause all $\omega(n \log n)$ solutions to time out.  Some of those test cases are given below.
 
 There are some assumptions that you may and may not make:
 
