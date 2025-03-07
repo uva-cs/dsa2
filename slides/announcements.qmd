@@ -23,7 +23,7 @@ title: "Announcements, Spring 2025"
   - PS5 was due yesterday -- how did it go?
   - [PA2](../pa/pa2/index.html) is out, and due this Friday
   - [PA3](../pa/pa3/index.html) is out, due two weeks from this Friday; submission opens up this Saturday
-  - PS6 will be out late this week, due the Friday after spring break; also on Greedy algorithms
+  - PS6 will be out late this week, due the Wednesday after spring break; also on Greedy algorithms
 - Quizzes 1&2 last week: should be returned tomorrow
   - We will go over them after spring break, at which point regrades will open
 - Grading
@@ -52,7 +52,7 @@ title: "Announcements, Spring 2025"
   - PA2 is out, and due this Friday
   - PA3 will be out late this week, due the Friday after spring break; on Greedy algorithms
   - PS5 is out, due this Wednesday; on Greedy algorithms
-  - PS6 will be out late this week, due the Friday after spring break; also on Greedy algorithms
+  - PS6 will be out late this week, due the Wednesday after spring break; also on Greedy algorithms
 - Quizzes 1&2 last week: how were they?
 - Grading
   - PS1 through PS3 have been returned; PA1 is delayed, and PS4 is being graded
