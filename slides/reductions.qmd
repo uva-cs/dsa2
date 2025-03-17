@@ -64,9 +64,10 @@ def print_bipartite_graph(width,which,style=""):
 
 ::: {.svg-50-right-flow-graph}
 
+<p class="font-75 center"><span class='red'>flow</span> / <span class='green'>capacity</span></p>
+
 <img src="graphs/reductions/flow_graph-2.svg">
 
-<p class="font-75 center"><span class='red'>flow</span> / <span class='green'>capacity</span></p>
 
 :::
 
@@ -708,16 +709,14 @@ No more augmenting paths
 </ul>
 </div>
 
-<table class="navynote" style="height:325px;opacity:0"><tr><td>
-<p>&nbsp;</p>
-<p>How many iterations are needed?</p>
+<table class="navynote reduction-center-message" style="opacity:0"><tr><td>
+<p>How many iterations are needed??</p>
 - For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
 - For rational-valued capacities, can scale to make capacities integer
 - For irrational-valued capacities, algorithm may never terminate!
 </td></tr></table>
 
-<table class="navynote" style="height:325px;opacity:0"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:0"><tr><td>
 <p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
@@ -762,16 +761,14 @@ No more augmenting paths
 </ul>
 </div>
 
-<table class="navynote" style="height:325px;opacity:0"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:0"><tr><td>
 <p>How many iterations are needed?</p>
 - For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
 - For rational-valued capacities, can scale to make capacities integer
 - For irrational-valued capacities, algorithm may never terminate!
 </td></tr></table>
 
-<table class="navynote" style="height:325px;opacity:0"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:0"><tr><td>
 <p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
@@ -819,16 +816,14 @@ No more augmenting paths
 </ul>
 </div>
 
-<table class="navynote" style="height:325px;opacity:0"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:0"><tr><td>
 <p>How many iterations are needed?</p>
 - For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
 - For rational-valued capacities, can scale to make capacities integer
 - For irrational-valued capacities, algorithm may never terminate!
 </td></tr></table>
 
-<table class="navynote" style="height:325px;opacity:0"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:0"><tr><td>
 <p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
@@ -876,16 +871,14 @@ No more augmenting paths
 </ul>
 </div>
 
-<table class="navynote" style="height:325px;opacity:0"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:0"><tr><td>
 <p>How many iterations are needed?</p>
 - For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
 - For rational-valued capacities, can scale to make capacities integer
 - For irrational-valued capacities, algorithm may never terminate!
 </td></tr></table>
 
-<table class="navynote" style="height:325px;opacity:0"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:0"><tr><td>
 <p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
@@ -940,14 +933,12 @@ No more augmenting paths
 </ul>
 </div>
 
-<table class="navynote" style="height:325px;opacity:1"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:1"><tr><td>
 <p>How many iterations are needed?</p>
 - For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
 </td></tr></table>
 
-<table class="navynote" style="height:325px;opacity:0"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:0"><tr><td>
 <p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
@@ -1117,16 +1108,14 @@ No more augmenting paths
 </ul>
 </div>
 
-<table class="navynote" style="height:325px;opacity:1"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:1"><tr><td>
 <p>How many iterations are needed?</p>
 - For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
 - For rational-valued capacities, can scale to make capacities integer
 - For irrational-valued capacities, algorithm may never terminate!
 </td></tr></table>
 
-<table class="navynote" style="height:325px;opacity:0"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:0"><tr><td>
 <p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
@@ -1171,16 +1160,14 @@ No more augmenting paths
 </ul>
 </div>
 
-<table class="navynote" style="height:325px;opacity:0"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:0"><tr><td>
 <p>How many iterations are needed?</p>
 - For integer-valued capacities, min-weight of each augmenting path is 1, so number of iterations is bounded by $|f^*|$, where $|f^*|$ is max-flow in $G$
 - For rational-valued capacities, can scale to make capacities integer
 - For irrational-valued capacities, algorithm may never terminate!
 </td></tr></table>
 
-<table class="navynote" style="height:325px;opacity:1"><tr><td>
-<p>&nbsp;</p>
+<table class="navynote reduction-center-message" style="opacity:1"><tr><td>
 <p>For graphs with integer capacities, running time of Ford-Fulkerson is</p><p>$$O(|f^*| \cdot |E|)$$</p>
 <p>Highly undesirable if $|f^*| >> |E|$ (e.g., graph is small, but capacities are $\approx 2^{32}$)</p>
 <p>As described, algorithm is <span class="und">not</span> polynomial-time!</p>
@@ -1302,7 +1289,7 @@ Readings in CLRS 4th edition: chapter 24
 </div>
 
 
-<table class="compact bottom width-100" style="height:50%"><tr><td>
+<table class="compact width-100" style="height:50%"><tr><td>
 <p style="text-align:center;margin:0"><img src="graphs/reductions/flow_graph-1-False-0-True-1.svg" style="width:65%;margin:0"></p>
 </td></tr></table>
 
@@ -1322,7 +1309,7 @@ Readings in CLRS 4th edition: chapter 24
 
 </div>
 
-<table class="compact bottom width-100" style="height:50%"><tr><td>
+<table class="compact width-100" style="height:50%;margin-top:-47px"><tr><td>
 <p style="text-align:center;margin:0"><img src="graphs/reductions/flow_graph-1-False-0-True-1.svg" style="width:65%;margin:0"></p>
 </td></tr></table>
 
@@ -1380,11 +1367,11 @@ Readings in CLRS 4th edition: chapter 24
 <tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-<img src="graphs/reductions/flow_graph-3-False-0-True-4.svg" style="width:80%;margin:0 auto 0 auto" class="center">
+<img src="graphs/reductions/flow_graph-3-False-0-True-4.svg" style="width:100%;margin:0 auto 0 auto" class="center">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-<img src="graphs/reductions/flow_graph-3-True-0-True-4.svg" style="width:80%;margin:0 auto 0 auto" class="center">
+<img src="graphs/reductions/flow_graph-3-True-0-True-4.svg" style="width:100%;margin:0 auto 0 auto" class="center">
 :::
 </td></tr></table>
 
@@ -1407,11 +1394,11 @@ Readings in CLRS 4th edition: chapter 24
 <tr><td style="text-align:center">Flow Graph $G$</td><td style="text-align:center">Residual graph $G_{\color{red}f}$</td></tr>
 <tr><td class="compact" style="width:50%">
 ::: {.svg-100}
-<img src="graphs/reductions/flow_graph-3-False-0-True-3.svg" style="width:80%;margin:0 auto 0 auto" class="center">
+<img src="graphs/reductions/flow_graph-3-False-0-True-3.svg" style="width:100%;margin:0 auto 0 auto" class="center">
 :::
 </td><td class="compact">
 ::: {.svg-100}
-<img src="graphs/reductions/flow_graph-3-True-0-True-3.svg" style="width:80%;margin:0 auto 0 auto" class="center">
+<img src="graphs/reductions/flow_graph-3-True-0-True-3.svg" style="width:100%;margin:0 auto 0 auto" class="center">
 :::
 </td></tr></table>
 
@@ -1436,6 +1423,8 @@ Readings in CLRS 4th edition: chapter 25
 ## Edge-Disjoint Paths
 
 Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{Blue}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{Blue}t}$ which share no edges
+
+<p>&nbsp;</p>
 
 ::: {.svg-100 .bottom style="width:75%;left:12.5%"}
 <img src="graphs/reductions/edge_disjoint_graph.svg">
@@ -1512,6 +1501,8 @@ Make ${\color{purple}s}$ and ${\color{Blue}t}$ the source and sink, give each ed
 
 Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{Blue}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{Blue}t}$ which share no vertices
 
+<p>&nbsp;</p>
+
 ::: {.svg-100 .bottom style="width:75%;left:12.5%"}
 <img src="graphs/reductions/edge_disjoint_graph.svg">
 :::
@@ -1563,6 +1554,12 @@ Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node
 
 Idea: Convert an instance of the vertex-disjoint paths problem into an instance of edge-disjoint paths
 
+::: {.fragment fragment-index=2}
+::: {.svg-100 .bottom style="float:right"}
+<img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg" style="margin-top:-100px;margin-bottom:-100px">
+:::
+:::
+
 ::: {.fragment fragment-index=1}
 Make two copies of each node, one connected to incoming edges, the other to outgoing edges
 :::
@@ -1578,11 +1575,6 @@ Compute <span class='bold'>Edge-Disjoint Paths</span> on new graph
 :::
 
 
-::: {.fragment fragment-index=2}
-::: {.svg-100 .bottom style="position:fixed;right:-100px;bottom:175px"}
-<img src="graphs/reductions/vertex_disjoint_to_edge_disjoint.svg">
-:::
-:::
 
 
 

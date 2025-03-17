@@ -54,8 +54,6 @@ div.no-bullets-left ul, div.no-bullets-left ul ul {
 }
 .titlereading {
 	font-size:x-large;
-	position:fixed;
-	bottom:0;
 }
 span.math {
 	font-size:90%;
@@ -124,9 +122,8 @@ table.border3px th td, table.border3px tr td, td.border3px, tr.border3px td {
 }
 
 /* table at bottom of page */
+/* this causes problems with the slide, as the image appears on the first slide */
 table.bottom, div.bottom {
-	position:fixed;
-	bottom:-50px;
 }
 
 /* ... */
@@ -716,14 +713,9 @@ div.svg-80 svg, div.svg-80 p img {
 	width:80%;
 	height:auto;
 }
-div.svg-50-right-flow-graph {
-	/* this is for the network flow graphs that are not diamond-shaped (1/2) */
-	width:100%;
-	height:auto;
-}
 div.svg-50-right-flow-graph, div.svg-50-right-flow-graph p img {
-	/* this is for the network flow graphs that are not diamond-shaped (2/2) */
-	width:50%;
+	/* this is for the network flow graphs that are not diamond-shaped */
+	width:40vw;
 	float:right;
 }
 td.svg-table-right {
@@ -735,6 +727,9 @@ td.svg-table-right svg {
 	height:auto;
 }
 
+table.reduction-center-message {
+	height:250px;
+}
 
 div.svg-40-right svg, div.svg-40-right p img {
 	width:40%;
