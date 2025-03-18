@@ -4,6 +4,45 @@ title: "Announcements, Spring 2025"
 
 
 ::: {.announcements}
+# Ineffective Sorts
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/ineffective_sorts.png){title="StackSort connects to StackOverflow, searches for &#39;sort a list&#39;, and downloads and runs code snippets until the list is sorted." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/ineffective_sorts_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1185](https://xkcd.com/1185)
+:::
+:::
+
+::: {.announcements}
+
+## Lecture 17: Tuesday, March 18th
+
+<div class="font-85">
+
+- Assignments
+  - PS6 is due tomorrow
+  - PS7 will be out late this week
+  - [PA3](../pa/pa3/index.html) is out, due this Friday
+  - PA4 will be out (hopefully) late this week
+- Quizzes 1&2 last week: will be returned today
+  - We will go over them on Thursday, at which point regrades will open
+- Grading
+  - Grades returned through PS4
+  - Grades for PA1 and PA2 returned; READ THE PA1/PA2 DISCLAIMER ON PIAZZA!
+  - For PS assignments, regrade requests need to be submitted, via Gradescope, within a week of when it was returned
+- Office hours:
+	- TA OH in Rice 109: Sun 5-7 and M/Tu/W/Th from 5-9 in Rice 109
+	- Prof Bloomfield: M 10-11:30, W 2-3 in Rice 402 (note the change)
+	- Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
+- Course textbook link is on the Canvas landing page
+- Today we continue will finish Greedy algorithms, and start on [Dynamic Programming](../slides/dp.html)
+	- The slides are in Canvas' files
+
+</div>
+:::
+
+
+::: {.announcements}
 # Python
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/python.png){title="I wrote 20 short programs in Python yesterday.  It was wonderful.  Perl, I&#39;m leaving you." style='border:10px solid white'  }
@@ -15,7 +54,7 @@ title: "Announcements, Spring 2025"
 
 ::: {.announcements}
 
-## Lecture 15: Tuesday, March 4th
+## Lecture 16: Thursday, March 6th
 
 <div class="font-90">
 
