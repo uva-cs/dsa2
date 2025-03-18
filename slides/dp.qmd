@@ -379,7 +379,7 @@ Tile(n):
 &nbsp;
     - &nbsp;
     - return <span class='purple'>solution</span>
-  - for <span class='green'>subproblem</span> of <span class='red'>problem</span>: <span class='grey'># After dividing</span>
+  - for <span class='green'>subproblem</span> of <span class='red'>problem</span>:
     - <span class='blue'>subsolutions</span>.append(<b>myDCalgo</b>(<span class='green'>subproblem</span>))
   - <span class='purple'>solution</span> = Combine(<span class='blue'>subsolutions</span>)
   - &nbsp;
@@ -391,7 +391,7 @@ Tile(n):
 
 ::: {.no-bullets style="font-size:90%"}
 - &nbsp;
-- def <b>myDCalgo</b>(<span class='red'>problem</span>):
+- def <b>myDPalgo</b>(<span class='red'>problem</span>):
   - &nbsp;
     - &nbsp;
   - if baseCase(<span class='red'>problem</span>):
@@ -410,7 +410,7 @@ Tile(n):
 ## Generic Top-Down DP Solution
 ::: {.no-bullets style="font-size:90%"}
 - mem = {}
-- def <b>myDCalgo</b>(<span class='red'>problem</span>):
+- def <b>myDPalgo</b>(<span class='red'>problem</span>):
   - if mem[<span class='red'>problem</span>] not blank:
     - return mem[<span class='red'>problem</span>]
   - if baseCase(<span class='red'>problem</span>):
@@ -418,7 +418,7 @@ Tile(n):
 &nbsp;
     - mem[<span class='red'>problem</span>] = <span class='purple'>solution</span>
     - return <span class='purple'>solution</span>
-  - for <span class='green'>subproblem</span> of <span class='red'>problem</span>: <span class='grey'># After dividing</span>
+  - for <span class='green'>subproblem</span> of <span class='red'>problem</span>:
     - <span class='blue'>subsolutions</span>.append(<b>myDPalgo</b>(<span class='green'>subproblem</span>))
   - <span class='purple'>solution</span> = OptimalSubstructure(<span class='blue'>subsolutions</span>)
   - mem[<span class='red'>problem</span>] = <span class='purple'>solution</span>
