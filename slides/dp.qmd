@@ -580,7 +580,7 @@ a list (of length $n$) of prices <span class='blue'>$P$</span> where <span class
 
 <table><tr><td>
 <table>
-<tr class='border2px'><td class='noborder bluetext' style='border-bottom:0 !important'>Price:</td><td class='tdbottom'>1</td><td class='tdbottom'>18</td><td class='tdbottom'>24</td><td class='tdbottom'>36</td><td class='tdbottom'>50</td><td class='tdbottom'>50</td></tr>
+<tr class='border2px'><td class='noborder bluetext' style='border-bottom:0 !important'>Price:</td><td class='tdbottom'>1</td><td class='tdbottom'>18</td><td class='tdbottom'>19</td><td class='tdbottom'>30</td><td class='tdbottom'>50</td><td class='tdbottom'>50</td></tr>
 <tr class='magenta noborder'><td>Length:</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
 </table>
 
@@ -590,11 +590,11 @@ a list (of length $n$) of prices <span class='blue'>$P$</span> where <span class
 
 </td><td>
 ::: {.fragment}
-<p><span class="red" style="font-size:xx-large">Greedy: Lengths: 5, 1</span></p>
+<p><span class="red" style="font-size:xx-large">Greedy: Lengths: 5,1</span></p>
 <p><span class="red" style="font-size:xx-large">Profit: 51</span></p>
 :::
 ::: {.fragment}
-<p><span class="blue" style="font-size:xx-large">Better: Lengths: 2, 4</span></p>
+<p><span class="blue" style="font-size:xx-large">Better: Lengths: 2,2,2</span></p>
 <p><span class="blue" style="font-size:xx-large">Profit: 54</span></p>
 :::
 </td></tr></table>

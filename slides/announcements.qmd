@@ -4,6 +4,46 @@ title: "Announcements, Spring 2025"
 
 
 ::: {.announcements}
+# Complexity Analysis
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/complexity_analysis.png){title="PERPETUALLY OPTIMISTIC CASE: Early in the execution, our research group makes a breakthrough on proving P=NP." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/complexity_analysis_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2939](https://xkcd.com/2939)
+:::
+:::
+
+::: {.announcements}
+
+## Lecture 18: Thursday, March 20th
+
+<div class="font-85">
+
+- Assignments
+  - PS6 was due yesterday -- how was it?
+  - PS7 will be out tomorrow, due next Wednesday
+  - [PA3](../pa/pa3/index.html) is out, due tomorrow (Friday)
+  - PA4 will be out this weekend
+- Quizzes 1&2 last week were returned
+	- See Prof. Pettit's announcement from Tuesday
+	- We'll talk a bit about the curve, regrades, etc; regrades will open later today
+- Grading: grades returned through PS4
+  - Grades for PA1 and PA2 returned; there are unhandled concerns that will be addressed (see Piazza posts @191 and @192); this will take some time
+  - For PS assignments, regrade requests need to be submitted, via Gradescope, within a week of when it was returned
+- Office hours:
+	- TA OH in Rice 109: Sun 5-7 and M/Tu/W/Th from 5-9 in Rice 109
+	- Prof Bloomfield: M 10-11:30, W 2-3 in Rice 402 (note the change)
+	- Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
+- Course textbook link is on the Canvas landing page
+- Today we continue will continue with [Dynamic Programming](../slides/dp.html)
+	- The slides are in Canvas' files
+
+</div>
+:::
+
+
+
+::: {.announcements}
 # Ineffective Sorts
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/ineffective_sorts.png){title="StackSort connects to StackOverflow, searches for &#39;sort a list&#39;, and downloads and runs code snippets until the list is sorted." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/ineffective_sorts_2x.png 2x" }
