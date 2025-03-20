@@ -1309,7 +1309,7 @@ $Best(1,n)$ = cheapest way to mult together $M_1$ through $M_n$
 	- $k$ represents the $\times$ symbol *after* matrix $M_k$
 - For $Best(1,10)$, if $k=5$, then:
   - We first multiply $M_1$ through $M_5$ together
-  - We then multiply $M_6$ through $M_10$ together
+  - We then multiply $M_6$ through $M_{10}$ together
   - Lastly, we multiply those two results together
 - Formally, for $Best(i,j)$:
 	- We multiply $M_i$ through $M_k$
