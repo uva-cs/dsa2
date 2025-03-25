@@ -4,6 +4,45 @@ title: "Announcements, Spring 2025"
 
 
 ::: {.announcements}
+# Watson Medical Algorithm
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/watson_medical_algorithm.png){title="Due to a minor glitch, &#39;discharge patient&#39; does not cause the algorithm to exit, but instead leads back to &#39;hunt down and capture patient&#39;." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/watson_medical_algorithm_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1619](https://xkcd.com/1619)
+:::
+:::
+
+::: {.announcements}
+
+## Lecture 19: Tuesday, March 25th
+
+<div class="font-85">
+
+- Assignments
+  - PS7, on DP, is due tomorrow
+  - [PA3](../pa/pa3/index.html) was due last Friday -- how did it go?
+  - [PA4](../pa/pa4/index.html), on DP, is out; due date TBA
+- Quizzes 1&2 last week were returned last week
+	- See Prof. Pettit's announcement from Tuesday, 3/18
+	- Regrades open for one week
+- Grading: grades returned through PS4
+  - Grades for PA1 and PA2 returned; there are unhandled concerns that will be addressed (see Piazza posts @191 and @192); this will take some time
+  - For PS assignments, regrade requests need to be submitted, via Gradescope, within a week of when it was returned
+- Office hours:
+	- TA OH in Rice 109: Sun 5-7 and M/Tu/W/Th from 5-9 in Rice 109
+	- Prof Bloomfield: M 10-11:30, W 2-3 in Rice 402 (note the change)
+	- Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
+- Course textbook link is on the Canvas landing page
+- Today we continue will continue with [Dynamic Programming](../slides/dp.html)
+	- The slides are in Canvas' files
+
+</div>
+:::
+
+
+
+::: {.announcements}
 # Complexity Analysis
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/complexity_analysis.png){title="PERPETUALLY OPTIMISTIC CASE: Early in the execution, our research group makes a breakthrough on proving P=NP." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/complexity_analysis_2x.png 2x" }
