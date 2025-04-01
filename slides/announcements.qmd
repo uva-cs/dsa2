@@ -4,6 +4,48 @@ title: "Announcements, Spring 2025"
 
 
 ::: {.announcements}
+# Travelling Salesman Problem
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/travelling_salesman_problem.png){title="What&#39;s the complexity class of the best linear programming cutting-plane techniques?  I couldn&#39;t find it anywhere.  Man, the Garfield guy doesn&#39;t have these problems ..." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 399](https://xkcd.com/399)
+:::
+:::
+
+::: {.announcements}
+
+## Lecture 21: Tuesday, April 1st
+
+<div class="font-80">
+
+- Assignments
+  - PS8 is out and due tomorrow (April 2nd)
+  - [PA4](../pa/pa4/index.html), on DP, is out; due date April 18th
+  - PS9 and PS10 will be due April 15th & 22nd, respectively
+  - PA5 will be due Tue, April 28th (the last day of classes)
+- Quizzes 3&4 next Thursday (4/10)
+	- We'll release a sample quiz and topic coverage late this week
+- Grading: 
+  - PS5 grades were returned yesterday (March 31st)
+  - All PA1 auto-grader concerns on Piazza have been handled
+  - PA2 auto-grader concerns are up next to be dealt with
+  - PA3 grades returned on Saturday (March 29th); please post auto-grader concerns on [Piazza post @220](https://piazza.com/class/m5wi2lblfgd528/post/220)
+  - For PS assignments, regrade requests need to be submitted, via Gradescope, within a week of when it was returned
+- Office hours:
+	- TA OH in Rice 109: Sun 5-7 and M/Tu/W/Th from 5-9 in Rice 109
+	- Prof Bloomfield: M 10-11:30, W 2-3 in Rice 402 (note the change)
+	- Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
+- Course textbook link is on the Canvas landing page
+- Today we will finish with [Dynamic Programming](../slides/dp.html); slides are in Canvas' files
+  - Next up: [Reductions](../slides/reductions.html) (slides also in Canvas' Files)
+
+</div>
+:::
+
+
+
+::: {.announcements}
 # Tree
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/tree.png){title="Not only is that terrible in general, but you just KNOW Billy&#39;s going to open the root present first, and then everyone will have to wait while the heap is rebuilt." style='border:10px solid white'  }
@@ -35,10 +77,11 @@ title: "Announcements, Spring 2025"
 	- Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
 - Course textbook link is on the Canvas landing page
 - We'll talk about some anonymous feedback today
-- Today we continue will continue with [Dynamic Programming](../slides/dp.html); slides are in Canvas' files
+- Today we will continue with [Dynamic Programming](../slides/dp.html); slides are in Canvas' files
 
 </div>
 :::
+
 
 
 ::: {.announcements}
