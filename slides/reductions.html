@@ -283,8 +283,8 @@
 <li>Flow constraint
 <ul>
 <li><span class="math inline">\(\forall v \in V - \{ {\color{purple}s},{\color{Blue}t}\}\)</span>, <span class="math inline">\(\text{inflow}(v)=\text{outflow}(v)\)</span></li>
-<li><span class="math inline">\(\text{inflow}(v)=\sum_{x \in V}f(x,v)\)</span></li>
-<li><span class="math inline">\(\text{outflow}(v)=\sum_{x \in V}f(v,x)\)</span></li>
+<li><span class="math inline">\(\text{inflow}(v)=\sum_{v \in V}f(x,v)\)</span></li>
+<li><span class="math inline">\(\text{outflow}(v)=\sum_{v \in V}f(v,x)\)</span></li>
 <li>Water going in must match water coming out</li>
 </ul></li>
 <li>Flow of <span class="math inline">\(G\)</span>: <span class="math inline">\(|f|=\text{outflow}({\color{purple}s})-\text{inflow}({\color{purple}s})\)</span></li>
@@ -299,7 +299,7 @@
 <h2>Maximum Flow Problem</h2>
 <!-- day20 slide 15 -->
 <p class="font-90 center">
-Of all valid flows through the graph, find the one that maximizes:
+Of all valid flows through the graph, find one that maximizes:
 </p>
 <p><span class="math display">\[|f|=\text{outflow}({\color{purple}s})-\text{inflow}({\color{purple}s})\]</span></p>
 <table class="width-100">
@@ -1226,7 +1226,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <tr>
 <td colspan="2" style="padding-left:0;padding-top:0px">
 <p style="margin-top:0">
-<span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
+<span style="opacity:0"><span class="bold">Finding <em>one</em> augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
 </p>
 </td>
 </tr>
@@ -1325,7 +1325,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <tr>
 <td colspan="2" style="padding-left:0;padding-top:0px">
 <p style="margin-top:0">
-<span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
+<span style="opacity:0"><span class="bold">Finding <em>one</em> augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
 </p>
 </td>
 </tr>
@@ -1424,7 +1424,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <tr>
 <td colspan="2" style="padding-left:0;padding-top:0px">
 <p style="margin-top:0">
-<span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
+<span style="opacity:0"><span class="bold">Finding <em>one</em> augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
 </p>
 </td>
 </tr>
@@ -1524,7 +1524,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <td colspan="2" style="padding-left:0;padding-top:0px">
 <div class="fragment" data-fragment-index="1">
 <p style="margin-top:0">
-<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
+<span style="opacity:1"><span class="bold">Finding <em>one</em> augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
 </p>
 </div>
 </td>
@@ -1620,7 +1620,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <tr>
 <td colspan="2" style="padding-left:0;padding-top:0px">
 <p style="margin-top:0">
-<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
+<span style="opacity:1"><span class="bold">Finding <em>one</em> augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
 </p>
 </td>
 </tr>
@@ -1939,7 +1939,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <tr>
 <td colspan="2" style="padding-left:0;padding-top:0px">
 <p style="margin-top:0">
-<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
+<span style="opacity:1"><span class="bold">Finding <em>one</em> augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
 </p>
 </td>
 </tr>
@@ -2036,7 +2036,7 @@ We only care about nodes reachable from the source <span class="math inline">\(s
 <tr>
 <td colspan="2" style="padding-left:0;padding-top:0px">
 <p style="margin-top:0">
-<span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
+<span style="opacity:1"><span class="bold">Finding <em>one</em> augmenting path in residual network:</span> <span class="math inline">\(O(|E|)\)</span> using BFS/DFS</span>
 </p>
 </td>
 </tr>
@@ -2303,11 +2303,11 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <ul>
 <li>Weight of the cut matches the flow across the cut</li>
 </ul></li>
-<li>Consider edge <span class="math inline">\(\color{forestgreen}(u,v)\)</span> with <span class="math inline">\(u \in {\color{magenta}S},v \in {\color{skyblue}T}\)</span>
+<li>Consider “forward” edge <span class="math inline">\(\color{forestgreen}(u,v)\)</span> with <span class="math inline">\(u \in {\color{magenta}S},v \in {\color{skyblue}T}\)</span>
 <ul>
 <li><span class="math inline">\({\color{red}f(u,v)}={\color{forestgreen}c(u,v)}\)</span> because otherwise <span class="math inline">\({\color{forestgreen}w(u,v)}&gt;0\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span>, which would mean <span class="math inline">\(v \in {\color{magenta}S}\)</span></li>
 </ul></li>
-<li>Consider edge <span class="math inline">\(\color{brown}(y,x)\)</span> with <span class="math inline">\(y \in {\color{skyblue}T}, x \in {\color{magenta}S}\)</span>
+<li>Consider “reverse” edge <span class="math inline">\(\color{brown}(y,x)\)</span> with <span class="math inline">\(y \in {\color{skyblue}T}, x \in {\color{magenta}S}\)</span>
 <ul>
 <li><span class="math inline">\({\color{red}f(y,x)}=0\)</span> because otherwise the back edge <span class="math inline">\({\color{brown}w(y,x)}&gt;0\)</span> in <span class="math inline">\(G_{\color{red}f}\)</span>, which would mean <span class="math inline">\(y \in {\color{magenta}S}\)</span></li>
 </ul></li>
@@ -2341,7 +2341,7 @@ Residual graph <span class="math inline">\(G_{\color{red}f}\)</span>
 <ol type="1">
 <li>The flow <span class="math inline">\(|f|\)</span> of <span class="math inline">\(G\)</span> is upper-bounded by the sum of capacities of edges crossing any cut separating source <span class="math inline">\({\color{purple}s}\)</span> and sink <span class="math inline">\({\color{Blue}t}\)</span></li>
 <li>When Ford-Fulkerson terminates, there are no more augmenting paths in <span class="math inline">\(G_{\color{red}f}\)</span></li>
-<li>When there are no more augmenting paths in <span class="math inline">\(G_{\color{red}f}\)</span> then we can define a cut <span class="math inline">\({\color{magenta}S}=\)</span> nodes reachable from source node <span class="math inline">\({\color{purple}s}\)</span> by positive-weight edges in the residual graph</li>
+<li>When there are no more augmenting paths in <span class="math inline">\(G_{\color{red}f}\)</span> then we can define a cut <span class="math inline">\({\color{magenta}S}=\{\)</span> nodes reachable from source node <span class="math inline">\({\color{purple}s}\}\)</span> by positive-weight edges in the residual graph</li>
 <li>The sum of edge capacities crossing this cut must match the flow of the graph</li>
 <li>Therefore this flow is maximal</li>
 </ol>
@@ -7465,7 +7465,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="programmatically" class="slide level2">
 <h2>Programmatically</h2>
-<div id="5e6f33d5" class="cell" data-execution_count="11">
+<div id="cc163da3" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="kw">def</span> check_uva_userid1(what):</span>
 <span id="cb1-2"><a href=""></a>  chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
 <span id="cb1-3"><a href=""></a>  </span>
@@ -7536,7 +7536,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="as-code" class="slide level2">
 <h2>As code</h2>
-<div id="df9764fc" class="cell" data-execution_count="12">
+<div id="2b487d66" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> check_uva_userid2(what):</span>
 <span id="cb2-2"><a href=""></a>  <span class="co"># returns True if the passed parameter is a valid UVA userid, else False</span></span>
 <span id="cb2-3"><a href=""></a></span>

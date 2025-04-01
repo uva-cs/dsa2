@@ -80,8 +80,8 @@ def print_bipartite_graph(width,which,style=""):
 	- "Flow cannot exceed capacity"
 - Flow constraint
 	- $\forall v \in V - \{ {\color{purple}s},{\color{Blue}t}\}$, $\text{inflow}(v)=\text{outflow}(v)$
-	- $\text{inflow}(v)=\sum_{x \in V}f(x,v)$
-	- $\text{outflow}(v)=\sum_{x \in V}f(v,x)$
+	- $\text{inflow}(v)=\sum_{v \in V}f(x,v)$
+	- $\text{outflow}(v)=\sum_{v \in V}f(v,x)$
 	- Water going in must match water coming out
 - Flow of $G$: $|f|=\text{outflow}({\color{purple}s})-\text{inflow}({\color{purple}s})$
 - Net outflow of $\color{purple}s$
@@ -93,7 +93,7 @@ def print_bipartite_graph(width,which,style=""):
 ## Maximum Flow Problem
 <!-- day20 slide 15 -->
 
-<p class="font-90 center">Of all valid flows through the graph, find the one that maximizes:</p>
+<p class="font-90 center">Of all valid flows through the graph, find one that maximizes:</p>
 
 $$|f|=\text{outflow}({\color{purple}s})-\text{inflow}({\color{purple}s})$$
 
@@ -735,7 +735,7 @@ No more augmenting paths
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<p style="margin-top:0"><span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
+<p style="margin-top:0"><span style="opacity:0"><span class="bold">Finding *one* augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -789,7 +789,7 @@ No more augmenting paths
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<p style="margin-top:0"><span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
+<p style="margin-top:0"><span style="opacity:0"><span class="bold">Finding *one* augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -844,7 +844,7 @@ No more augmenting paths
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<p style="margin-top:0"><span style="opacity:0"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
+<p style="margin-top:0"><span style="opacity:0"><span class="bold">Finding *one* augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -904,7 +904,7 @@ No more augmenting paths
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
 ::: {.fragment fragment-index=1}
-<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
+<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding *one* augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 :::
 
 </td></tr>
@@ -957,7 +957,7 @@ No more augmenting paths
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
+<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding *one* augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -1134,7 +1134,7 @@ No more augmenting paths
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
+<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding *one* augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -1186,7 +1186,7 @@ No more augmenting paths
 </td><td class="zero-bottom"> <table class="navynote" style="opacity:0"><tr><td class="font-70">We only care about nodes reachable from the source $s$, so the number of nodes that are "relevant" is at most $|E|$</td></tr></table> </td></tr>
 
 <tr><td colspan='2' style="padding-left:0;padding-top:0px">
-<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
+<p style="margin-top:0"><span style="opacity:1"><span class="bold">Finding *one* augmenting path in residual network:</span> $O(|E|)$ using BFS/DFS</span></p>
 
 </td></tr>
 </table>
@@ -1383,9 +1383,9 @@ Readings in CLRS 4th edition: chapter 24
 
 - To show: $||{\color{magenta}S},{\color{skyblue}T}||=|f|$
     - Weight of the cut matches the flow across the cut
-- Consider edge $\color{forestgreen}(u,v)$ with $u \in {\color{magenta}S},v \in {\color{skyblue}T}$
+- Consider "forward" edge $\color{forestgreen}(u,v)$ with $u \in {\color{magenta}S},v \in {\color{skyblue}T}$
     - ${\color{red}f(u,v)}={\color{forestgreen}c(u,v)}$ because otherwise ${\color{forestgreen}w(u,v)}>0$ in $G_{\color{red}f}$, which would mean $v \in {\color{magenta}S}$
-- Consider edge $\color{brown}(y,x)$ with $y \in {\color{skyblue}T}, x \in {\color{magenta}S}$
+- Consider "reverse" edge $\color{brown}(y,x)$ with $y \in {\color{skyblue}T}, x \in {\color{magenta}S}$
     - ${\color{red}f(y,x)}=0$ because otherwise the back edge ${\color{brown}w(y,x)}>0$ in $G_{\color{red}f}$, which would mean $y \in {\color{magenta}S}$
 
 </div>
@@ -1408,7 +1408,7 @@ Readings in CLRS 4th edition: chapter 24
 
 1. The flow $|f|$ of $G$ is upper-bounded by the sum of capacities of edges crossing any cut separating source ${\color{purple}s}$ and sink ${\color{Blue}t}$
 2. When Ford-Fulkerson terminates, there are no more augmenting paths in $G_{\color{red}f}$
-3. When there are no more augmenting paths in $G_{\color{red}f}$ then we can define a cut ${\color{magenta}S}=$ nodes reachable from source node ${\color{purple}s}$ by positive-weight edges in the residual graph
+3. When there are no more augmenting paths in $G_{\color{red}f}$ then we can define a cut ${\color{magenta}S}=\{$ nodes reachable from source node ${\color{purple}s}\}$ by positive-weight edges in the residual graph
 4. The sum of edge capacities crossing this cut must match the flow of the graph
 5. Therefore this flow is maximal
 
