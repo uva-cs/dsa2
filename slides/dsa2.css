@@ -672,6 +672,7 @@ table.magentabox {
 	margin-left:0;
 	margin-right:0;
 	width:100%;
+	background-color:magenta;
 }
 table.magentabox tr td {
 	background-color:magenta;
@@ -685,9 +686,24 @@ table.greenbox {
 	margin-left:0;
 	margin-right:0;
 	width:100%;
+	background-color:green;
 }
 table.greenbox tr td {
 	background-color:green;
+	color:white;
+	border-radius:20px;
+}
+table.navybox {
+	border:3px solid black;
+	border-radius:25px;
+	border-collapse:separate;
+	margin-left:0;
+	margin-right:0;
+	width:100%;
+	background-color:navy;
+}
+table.navybox tr td {
+	background-color:navy;
 	color:white;
 	border-radius:20px;
 }

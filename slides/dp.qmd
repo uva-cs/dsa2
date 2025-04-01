@@ -4067,10 +4067,11 @@ Readings in CLRS 4th edition: chapter 14
   - Total of $m \cdot n$ voters
 - Output:
 	- Districts ${\color{magenta}D_1}, {\color{green}D_2} \subset \{ p_1,p_2,\ldots,p_{n} \}$
-	- Where $|{\color{magenta}D_1}| = |{\color{green}D_2}|$
+	- Where $|{\color{magenta}D_1}| = |{\color{green}D_2}| = \frac{m \cdot n}{2}$
 	- $S({\color{magenta}D_1})>\frac{m \cdot n}{4}$ and $S({\color{green}D_2})>\frac{m \cdot n}{4}$
-		- $S(D_i)$ is the number (size) of voters of your party in $D_i$
-		- $S(D_i)>\frac{m \cdot n}{4}$ means $D_i$ is majority your party
+		- $S(D_i)$ is the number (size) of voters of your party in district $D_i$
+		- $S(D_i)>\frac{m \cdot n}{4}$ means district $D_i$ is majority your party
+			- As there are $\frac{m \cdot n}{2}$ voters per district
 	- "Failure" if no possible solution
 
 </td><td style="vertical-align:bottom">
@@ -4143,7 +4144,7 @@ After&nbsp;assigning&nbsp;first<br>$n-1$ precincts<br>$p_1,p_2,\ldots,p_{n-1}$
 If&nbsp;we<br>assign<br>$p_n \text{ to } D_1$
 :::
 </td></tr><tr><td style="padding-left:0;padding-right:0">
-<table class='greenbox' style="border-radius:15px;width:unset;margin:auto"><tr><td style="background-color:navy;border-radius:10px">$p_n$</td></tr></table>
+<table class='navybox' style="border-radius:15px;width:unset;margin:auto"><tr><td>$p_n$</td></tr></table>
 </td></tr><tr><td style="padding-left:0;padding-right:0">
 ::: {.fragment fragment-index=2}
 If&nbsp;we<br>assign<br>$p_n \text{ to } D_2$
@@ -4286,7 +4287,7 @@ $\color{red}n \times n \times mn \times mn$
 
 <table style='compact'><tr><td style="padding-left:0;padding-right:0">
 ::: {.fragment fragment-index=1}
-<table class='greenbox' style="border-radius:15px;width:unset;margin:auto"><tr><td style="background-color:navy;border-radius:10px">$p_j$</td></tr></table>
+<table class='navybox' style="border-radius:15px;width:unset;margin:auto"><tr><td>$p_j$</td></tr></table>
 :::
 </td></tr><tr><td style="padding-left:0;padding-right:0">
 ::: {.fragment fragment-index=1}
@@ -4298,7 +4299,7 @@ Then&nbsp;assign<br>$p_j$ to $D_1$
 :::
 </td></tr><tr><td style="padding-left:0;padding-right:0">
 ::: {.fragment fragment-index=3}
-<table class='greenbox' style="border-radius:15px;width:unset;margin:auto"><tr><td style="background-color:navy;border-radius:10px">$p_j$</td></tr></table>
+<table class='navybox' style="border-radius:15px;width:unset;margin:auto"><tr><td>$p_j$</td></tr></table>
 :::
 </td></tr><tr><td style="padding-left:0;padding-right:0">
 ::: {.fragment fragment-index=3}
