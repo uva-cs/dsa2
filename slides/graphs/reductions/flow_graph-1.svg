@@ -14,8 +14,8 @@
   <sodipodi:namedview
      id="namedview4"
      pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
+     bordercolor="#000000"
+     borderopacity="0.25"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
@@ -510,15 +510,15 @@
                  id="g288">
                 <g
                    id="g290"
-                   transform="translate(103.809,32.464)">
+                   transform="translate(100.488,32.464)">
                   <g
                      id="g292">
                     <g
                        id="g294"
-                       transform="translate(-124.249,-62.718)">
+                       transform="translate(-120.928,-62.718)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,124.249,62.718)"
+                         transform="matrix(1,0,0,-1,120.928,62.718)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text298"><tspan
                            x="0"
@@ -526,12 +526,12 @@
                            id="tspan296">1</tspan></text>
                       <g
                          id="g300"
-                         transform="translate(124.249,62.718)" />
+                         transform="translate(120.928,62.718)" />
                     </g>
                   </g>
                   <g
                      id="g302"
-                     transform="translate(-103.809,-32.464)" />
+                     transform="translate(-100.488,-32.464)" />
                 </g>
               </g>
             </g>
@@ -608,15 +608,15 @@
                  id="g344">
                 <g
                    id="g346"
-                   transform="translate(134.345,21.049)">
+                   transform="translate(131.024,21.049)">
                   <g
                      id="g348">
                     <g
                        id="g350"
-                       transform="translate(-154.785,-51.303)">
+                       transform="translate(-151.464,-51.303)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,154.785,51.303)"
+                         transform="matrix(1,0,0,-1,151.464,51.303)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text354"><tspan
                            x="0"
@@ -624,12 +624,12 @@
                            id="tspan352">3</tspan></text>
                       <g
                          id="g356"
-                         transform="translate(154.785,51.303)" />
+                         transform="translate(151.464,51.303)" />
                     </g>
                   </g>
                   <g
                      id="g358"
-                     transform="translate(-134.345,-21.049)" />
+                     transform="translate(-131.024,-21.049)" />
                 </g>
               </g>
             </g>
@@ -657,15 +657,15 @@
                  id="g372">
                 <g
                    id="g374"
-                   transform="translate(158.312,36.495)">
+                   transform="translate(158.312,29.112)">
                   <g
                      id="g376">
                     <g
                        id="g378"
-                       transform="translate(-178.752,-66.749)">
+                       transform="translate(-178.752,-59.366)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,178.752,66.749)"
+                         transform="matrix(1,0,0,-1,178.752,59.366)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text382"><tspan
                            x="0"
@@ -673,12 +673,12 @@
                            id="tspan380">2</tspan></text>
                       <g
                          id="g384"
-                         transform="translate(178.752,66.749)" />
+                         transform="translate(178.752,59.366)" />
                     </g>
                   </g>
                   <g
                      id="g386"
-                     transform="translate(-158.312,-36.495)" />
+                     transform="translate(-158.312,-29.112)" />
                 </g>
               </g>
             </g>

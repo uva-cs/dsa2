@@ -26,7 +26,7 @@ title: "Announcements, Spring 2025"
   - PS9 and PS10 will be due April 15th & 22nd, respectively
   - PA5 will be due Tue, April 28th (the last day of classes)
 - Quizzes 3&4 next Thursday (4/10)
-	- We'll release a sample quiz and topic coverage late this week
+	- We'll release a sample quiz and topic coverage late this week, as well as solutions through PS7
 - Grading: 
   - PS5 grades were returned yesterday (March 31st)
   - All PA1 auto-grader concerns on Piazza have been handled

@@ -1436,7 +1436,13 @@ Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node
 
 Given a graph $G=(V,E)$, a start node ${\color{purple}s}$ and a destination node ${\color{Blue}t}$, give the maximum number of paths from ${\color{purple}s}$ to ${\color{Blue}t}$ which share no edges
 
+::: {.r-stack}
+
+::: {.width-100}
 - Set of edge-disjoint paths of size 3:
+:::
+
+:::
 
 ::: {.svg-100 .bottom style="width:75%;left:12.5%"}
 <img src="graphs/reductions/edge_disjoint_graph-1.svg">
