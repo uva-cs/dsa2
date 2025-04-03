@@ -610,15 +610,15 @@
                  id="g348">
                 <g
                    id="g350"
-                   transform="translate(98.827,34.955)">
+                   transform="translate(95.507,34.955)">
                   <g
                      id="g352">
                     <g
                        id="g354"
-                       transform="translate(-133.287,-88.412)">
+                       transform="translate(-129.967,-88.412)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,133.287,88.412)"
+                         transform="matrix(1,0,0,-1,129.967,88.412)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#159b52;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text362"><tspan
                            x="0"
@@ -632,12 +632,12 @@
                            id="tspan360">1</tspan></text>
                       <g
                          id="g364"
-                         transform="translate(133.287,88.412)" />
+                         transform="translate(129.967,88.412)" />
                     </g>
                   </g>
                   <g
                      id="g366"
-                     transform="translate(-98.827,-34.955)" />
+                     transform="translate(-95.507,-34.955)" />
                 </g>
               </g>
             </g>
@@ -720,15 +720,15 @@
                  id="g412">
                 <g
                    id="g414"
-                   transform="translate(124.383,21.824)">
+                   transform="translate(121.062,21.824)">
                   <g
                      id="g416">
                     <g
                        id="g418"
-                       transform="translate(-158.843,-75.281)">
+                       transform="translate(-155.522,-75.281)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,158.843,75.281)"
+                         transform="matrix(1,0,0,-1,155.522,75.281)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#159b52;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text426"><tspan
                            x="0"
@@ -742,12 +742,12 @@
                            id="tspan424">3</tspan></text>
                       <g
                          id="g428"
-                         transform="translate(158.843,75.281)" />
+                         transform="translate(155.522,75.281)" />
                     </g>
                   </g>
                   <g
                      id="g430"
-                     transform="translate(-124.383,-21.824)" />
+                     transform="translate(-121.062,-21.824)" />
                 </g>
               </g>
             </g>
@@ -775,20 +775,20 @@
                  id="g444">
                 <g
                    id="g446"
-                   transform="translate(158.312,38.986)">
+                   transform="translate(158.312,29.887)">
                   <g
                      id="g448">
                     <g
                        id="g450"
-                       transform="translate(-192.772,-92.443)">
+                       transform="translate(-192.772,-83.344)">
                       <text
                          xml:space="preserve"
-                         transform="matrix(1,0,0,-1,192.772,92.443)"
+                         transform="matrix(1,0,0,-1,192.772,83.344)"
                          style="font-variant:normal;font-weight:normal;font-size:9.9626px;font-family:CMSS10;-inkscape-font-specification:CMSS10;writing-mode:lr-tb;fill:#159b52;fill-opacity:1;fill-rule:nonzero;stroke:none"
                          id="text458"><tspan
                            x="0"
                            y="0"
-                           id="tspan452">0</tspan><tspan
+                           id="tspan452">1</tspan><tspan
                            x="4.9812999"
                            y="0"
                            id="tspan454">/</tspan><tspan
@@ -797,12 +797,12 @@
                            id="tspan456">2</tspan></text>
                       <g
                          id="g460"
-                         transform="translate(192.772,92.443)" />
+                         transform="translate(192.772,83.344)" />
                     </g>
                   </g>
                   <g
                      id="g462"
-                     transform="translate(-158.312,-38.986)" />
+                     transform="translate(-158.312,-29.887)" />
                 </g>
               </g>
             </g>
@@ -843,7 +843,7 @@
                          id="text490"><tspan
                            x="0"
                            y="0"
-                           id="tspan484">2</tspan><tspan
+                           id="tspan484">3</tspan><tspan
                            x="4.9812999"
                            y="0"
                            id="tspan486">/</tspan><tspan
@@ -898,7 +898,7 @@
                          id="text522"><tspan
                            x="0"
                            y="0"
-                           id="tspan516">2</tspan><tspan
+                           id="tspan516">1</tspan><tspan
                            x="4.9812999"
                            y="0"
                            id="tspan518">/</tspan><tspan

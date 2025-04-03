@@ -83,7 +83,7 @@ def get_svg_from_tex_tikz(contents): # contents does not include tex_header or \
     with open("reductions.tmp.tex","w") as f:
         f.write(tex_file)
     os.system ("pdflatex reductions.tmp.tex > /dev/null")
-    os.system ("inkscape reductions.tmp.pdf --export-type=svg --export-filename=reductions.tmp.svg >& /dev/null")
+    os.system ("inkscape reductions.tmp.pdf --export-type=svg --export-filename=reductions.tmp.svg > /dev/null")
     with open("reductions.tmp.svg","r") as f:
            svg = f.read()
     where = svg.find("<svg\n")
@@ -324,7 +324,7 @@ all_label_sets = [
     ["1/2","1/2","1/2","1/3","1/2","1/2","2/3","2/3","1/2","2/3","1/2"], # 0: flow graph with flow 3/4
     [3,2,1,3,2,1,3,3,2,3,2],                                             # 1: first graph showing only capacity
     ["1/3","2/2","0/1","1/3","2/2","1/1","2/3","2/3","1/2","2/3","1/2"], # 2: flow graph with flow 3/4
-    ["2/3","2/2","0/1","0/3","2/2","0/1","2/3","2/3","0/2","2/3","2/2"], # 3: flow graph with maxflow = 4 (same as 8)
+    ["2/3","2/2","0/1","0/3","2/2","0/1","2/3","2/3","1/2","3/3","1/2"], # 3: flow graph with maxflow = 4 (same as 8)
     ["0/3","0/2","0/1","0/3","0/2","0/1","0/3","0/3","0/2","0/3","0/2"], # 4: flow graph with flow 0
     ["1/3","0/2","0/1","0/3","1/2","1/1","1/3","0/3","0/2","0/3","1/2"], # 5: flow graph with flow 1
     ["2/3","0/2","0/1","0/3","2/2","1/1","1/3","0/3","0/2","1/3","1/2"], # 6: flow graph with flow 2
