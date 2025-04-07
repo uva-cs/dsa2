@@ -4,6 +4,46 @@ title: "Announcements, Spring 2025"
 
 
 ::: {.announcements}
+# Wisdom of the Ancients
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/wisdom_of_the_ancients.png){title="All long help threads should have a sticky globally-editable post at the top saying &#39;DEAR PEOPLE FROM THE FUTURE: Here&#39;s what we&#39;ve figured out so far ...&#39;" style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 979](https://xkcd.com/979)
+:::
+:::
+
+::: {.announcements}
+
+## Lecture 23: Tuesday, April 8th
+
+<div class="font-80">
+
+- Assignments
+  - PS9 due next week, so will be released late this week
+  - [PA4](../pa/pa4/index.html), on DP, is out; due date April 18th
+  - PS9 and PS10 will be due April 15th & 22nd, respectively
+  - PA5 will be due Tue, April 28th (the last day of classes)
+- Quizzes 3&4 this Thursday (4/10)
+	- Sample quizzes and topic coverage are available in Canvas' Files
+- Grading: 
+  - Grades returned through PS5
+  - All PA1 auto-grader concerns on Piazza have been handled
+  - PA2 auto-grader concerns are up next to be dealt with
+  - PA3 grades returned on Saturday (March 29th); please post auto-grader concerns on [Piazza post @220](https://piazza.com/class/m5wi2lblfgd528/post/220)
+  - For PS assignments, regrade requests need to be submitted, via Gradescope, within a week of when it was returned
+- Office hours:
+	- TA OH in Rice 109: Sun 5-7 and M/Tu/W/Th from 5-9 in Rice 109
+	- Prof Bloomfield: M 10-11:30, W 2-3 in Rice 402 (note the change)
+	- Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
+- Course textbook link is on the Canvas landing page
+- Today we will continue with [Reductions](../slides/reductions.html) (slides also in Canvas' Files)
+
+</div>
+:::
+
+
+::: {.announcements}
 # Tech Support Cheat Sheet
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/tech_support_cheat_sheet.png){title="&#39;Hey Megan, it&#39;s your father. How do I print out a flowchart?&#39;" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/tech_support_cheat_sheet_2x.png 2x" }
