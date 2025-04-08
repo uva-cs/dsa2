@@ -5005,7 +5005,7 @@ The name “reduces” is confusing: it is in the <i>opposite</i> direction of t
 <tbody><tr>
 <td colspan="3">
 <p class="und center fragment" data-fragment-index="1">
-To show: <span class="math inline">\(Y\)</span> is slow
+Proof by contradiction: assume <span class="math inline">\(Y\)</span> is quick
 </p>
 </td>
 </tr>
@@ -6281,6 +6281,7 @@ Some algorithm for <span class="math inline">\(CPP\)</span>
 <li>Can this be solved in <span class="math inline">\(o(n \log n)\)</span> time?
 <ul>
 <li>No! (we’re going to skip this <a href="https://en.wikipedia.org/wiki/Element_distinctness_problem">proof</a>)</li>
+<li>But we can assume it’s proven that this is <span class="math inline">\(\Omega(n \log n)\)</span></li>
 </ul></li>
 </ul>
 </section>
@@ -7469,7 +7470,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="programmatically" class="slide level2">
 <h2>Programmatically</h2>
-<div id="d7a73f60" class="cell" data-execution_count="11">
+<div id="b568ab1a" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="kw">def</span> check_uva_userid1(what):</span>
 <span id="cb1-2"><a href=""></a>  chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
 <span id="cb1-3"><a href=""></a>  </span>
@@ -7540,7 +7541,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="as-code" class="slide level2">
 <h2>As code</h2>
-<div id="47ab2e99" class="cell" data-execution_count="12">
+<div id="83233468" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> check_uva_userid2(what):</span>
 <span id="cb2-2"><a href=""></a>  <span class="co"># returns True if the passed parameter is a valid UVA userid, else False</span></span>
 <span id="cb2-3"><a href=""></a></span>

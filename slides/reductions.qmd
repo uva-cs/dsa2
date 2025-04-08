@@ -2731,7 +2731,7 @@ Map solutions of problem $B$ to solutions of problem $A$
 ## Proof of Lower Bound by Reduction
 
 <table class='compact allcenter font-80'>
-<tr><td colspan='3'><p class='und center fragment' data-fragment-index=1>To show: $Y$ is slow</p></td></tr>
+<tr><td colspan='3'><p class='und center fragment' data-fragment-index=1>Proof by contradiction: assume $Y$ is quick</p></td></tr>
 
 <tr class="fragment" data-fragment-index=2><td style="width:15%">
 
@@ -3283,6 +3283,7 @@ Map solutions of problem $B$ to solutions of problem $A$
     - Yes! Sort, then check if any adjacent elements match
 - Can this be solved in $o(n \log n)$ time?
     - No! (we're going to skip this [proof](https://en.wikipedia.org/wiki/Element_distinctness_problem))
+    - But we can assume it's proven that this is $\Omega(n \log n)$
 
 
 
