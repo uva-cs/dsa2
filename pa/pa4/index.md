@@ -151,8 +151,8 @@ We give the times so you can see, relatively, how long they might take -- obviou
 - `pa4-example-1k-10.in`: 1,000 TAs and 10 questions, which means 100 teams; the answer is 64, and it took about 0.05 seconds to compute.
 - `pa4-example-10k-100.in`: 10,000 TAs and 100 questions, which means 100 teams; the answer is 739, and it took about 0.1 seconds to compute.
 - `pa4-example-100k-1k.in`: 100,000 TAs and 1,000 questions, which means 100 teams; the answer is 7362, and it took about 1 second to compute.
-- `pa4-example-1M-1k.in`: 1 million TAs and 1,000 questions, which means 1,000 teams; the answer is 73511, and it took about 8 seconds to compute.
-- `pa4-example-1M-10k.in`: 1 million TAs and 10,000 questions, which means 100 teams; the answer is 6754, and it took about 80 seconds to compute.
+- `pa4-example-1M-10k.in`: 1 million TAs and 10,000 questions, which means 100 teams; the answer is 73511, and it took about 8 seconds to compute.
+- `pa4-example-1M-1k.in`: 1 million TAs and 1,000 questions, which means 1,000 teams; the answer is 6754, and it took about 80 seconds to compute.
 	- We aren't going to test a test case of this size on Gradescope!
 
 If your program does not implement a dynamic programming algorithm, at least one of those cases will time out when we run it (not counting the last one).
