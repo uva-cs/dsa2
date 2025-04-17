@@ -21,6 +21,7 @@ Repository Contents
     - [Dynamic Programming](slides/dp.html#/)
     - [Reductions](slides/reductions.html#/)
 - Spring 2025 assignments:
+    - [PA5: Edge- and Vertex-disjoint Paths](pa/pa5/index.html) ([md](pa/pa5/index.md))
     - [PA4: Exam Grading Optimization](pa/pa4/index.html) ([md](pa/pa4/index.md))
     - [PA3: Office Hours Redux](pa/pa2/index.html) ([md](pa/pa2/index.md))
     - [PA2: Office Hours](pa/pa2/index.html) ([md](pa/pa2/index.md))

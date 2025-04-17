@@ -449,12 +449,18 @@ def handle_all_flow_graphs():
 # Edge disjoint graphs
 #--------------------------------------------------
 
-forestg = "ForestGreen"
+forestg = "ForestGreen, style=loosely dashdotted"
+blue = "blue, style=densely dashed"
+teal = "teal, style=dashdotdotted"
+magenta = "magenta, style=densely dotted"
+black = 'black, style=solid'
+
+
 edge_disjoint_graph_color_sets = [
     # s->g     g->t     h->g     s->h     h->f     f->t     f->e     s->e       e->t      e->c       s->b     b->c     c->t       b->a     a->c
-    ['black', 'black', 'black', 'black', 'black', 'black', 'black', 'black',   'black',   'black',   'black', 'black', 'black',   'black', 'black'],
-    ['teal',  'teal',  'black', 'blue',  'blue',  'black', 'blue',  'magenta', 'blue',    'magenta', 'black', 'black', 'magenta', 'black', 'black'],
-    ['teal',  'teal',  'black', 'blue',  'blue',  'blue',  'black', 'magenta', 'magenta', 'black',   forestg, forestg, forestg,   'black', 'black'],
+    [black, black, black, black, black, black, black, black,   black,   black,   black, black, black,   black, black],
+    [teal,  teal,  black, blue,  blue,  black, blue,  magenta, blue,    magenta, black, black, magenta, black, black],
+    [teal,  teal,  black, blue,  blue,  blue,  black, magenta, magenta, black,   forestg, forestg, forestg,   black, black],
 ]
 edge_disjoint_graph_label_sets = [
     ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -472,31 +478,31 @@ def edge_disjoint_graph_tikz(color_set,label_set,color_e_red):
      every edge/.style = {{->, draw, ultra thick, -stealth}},
 ]
 \\tikzset{{font=\\sffamily}}
-\\node (g) [C] {{g}};
-\\node (f) [C, below left=of g] {{f}};
-\\node (h) [C, left=of f] {{h}};
-\\node (s) [C, fill=Plum, text=white, below left=of h] {{s}};
-\\node (e) [C, below right=of f, fill={"red" if color_e_red else "orange"}] {{e}};
-\\node (c) [C, below right=of e] {{c}};
-\\node (t) [C, fill=Blue, text=white, above right=of c] {{t}};
-\\node (a) [C, below left=of c] {{a}};
-\\node (b) [C, above left=of a] {{b}};
+\\node (6) [C] {{6}};
+\\node (5) [C, below left=of 6] {{5}};
+\\node (7) [C, left=of 5] {{7}};
+\\node (0) [C, fill=Plum, text=white, below left=of 7] {{0}};
+\\node (4) [C, below right=of 5, fill={"red" if color_e_red else "orange"}] {{4}};
+\\node (3) [C, below right=of 4] {{3}};
+\\node (8) [C, fill=Blue, text=white, above right=of 3] {{8}};
+\\node (1) [C, below left=of 3] {{1}};
+\\node (2) [C, above left=of 1] {{2}};
 \\path
-    (s) edge [bend left=30, color={colors[0]}]  node[text=black,above] {{{labels[0]}}}  (g)
-    (g) edge [bend left=20, color={colors[1]}]  node[text=black,above] {{{labels[1]}}}  (t)
-    (h) edge [bend left=10, color={colors[2]}]  node[text=black,above] {{{labels[2]}}}  (g)
-    (s) edge [bend left=10, color={colors[3]}]  node[text=black,below] {{{labels[3]}}}  (h)
-    (h) edge [              color={colors[4]}]  node[text=black,below] {{{labels[4]}}}  (f)
-    (f) edge [bend left=10, color={colors[5]}]  node[text=black,above] {{{labels[5]}}}  (t)
-    (f) edge [bend left=10, color={colors[6]}]  node[text=black,below] {{{labels[6]}}}  (e)
-    (s) edge [              color={colors[7]}]  node[text=black,below] {{{labels[7]}}}  (e)
-    (e) edge [              color={colors[8]}]  node[text=black,above] {{{labels[8]}}}  (t)
-    (e) edge [bend left=10, color={colors[9]}]  node[text=black,below] {{{labels[9]}}}  (c)
-    (s) edge [bend right=10,color={colors[10]}] node[text=black,above] {{{labels[10]}}} (b)
-    (b) edge [              color={colors[11]}] node[text=black,above] {{{labels[11]}}} (c)
-    (c) edge [bend right=10,color={colors[12]}] node[text=black,above] {{{labels[12]}}} (t)
-    (b) edge [bend right=20,color={colors[13]}] node[text=black,above] {{{labels[13]}}} (a)
-    (a) edge [bend right=20,color={colors[14]}] node[text=black,above] {{{labels[14]}}} (c)
+    (0) edge [bend left=30, color={colors[0]}]  node[text=black,above] {{{labels[0]}}}  (6)
+    (6) edge [bend left=20, color={colors[1]}]  node[text=black,above] {{{labels[1]}}}  (8)
+    (7) edge [bend left=10, color={colors[2]}]  node[text=black,above] {{{labels[2]}}}  (6)
+    (0) edge [bend left=10, color={colors[3]}]  node[text=black,below] {{{labels[3]}}}  (7)
+    (7) edge [              color={colors[4]}]  node[text=black,below] {{{labels[4]}}}  (5)
+    (5) edge [bend left=10, color={colors[5]}]  node[text=black,above] {{{labels[5]}}}  (8)
+    (5) edge [bend left=10, color={colors[6]}]  node[text=black,below] {{{labels[6]}}}  (4)
+    (0) edge [              color={colors[7]}]  node[text=black,below] {{{labels[7]}}}  (4)
+    (4) edge [              color={colors[8]}]  node[text=black,above] {{{labels[8]}}}  (8)
+    (4) edge [bend left=10, color={colors[9]}]  node[text=black,below] {{{labels[9]}}}  (3)
+    (0) edge [bend right=10,color={colors[10]}] node[text=black,above] {{{labels[10]}}} (2)
+    (2) edge [              color={colors[11]}] node[text=black,above] {{{labels[11]}}} (3)
+    (3) edge [bend right=10,color={colors[12]}] node[text=black,above] {{{labels[12]}}} (8)
+    (2) edge [bend right=20,color={colors[13]}] node[text=black,above] {{{labels[13]}}} (1)
+    (1) edge [bend right=20,color={colors[14]}] node[text=black,above] {{{labels[14]}}} (3)
     ;
 \\end{{tikzpicture}}
 """
@@ -1039,7 +1045,7 @@ if __name__ == "__main__":
         flow_graph(1)
         exit()
 
-    handle_all_flow_graphs()
+    handle_all_diamond_edge_disjoint_graphs()
     exit()
 
     os.system("mkdir -p graphs/reductions")
