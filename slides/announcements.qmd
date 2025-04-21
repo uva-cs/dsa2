@@ -4,6 +4,46 @@ title: "Announcements, Spring 2025"
 
 
 ::: {.announcements}
+# NP-Complete
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/np_complete.png){title="General solutions get you a 50% tip." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 287](https://xkcd.com/287)
+:::
+:::
+
+::: {.announcements}
+
+## Lecture 27: Tuesday, April 22nd
+
+<div class="font-80">
+
+- Assignments
+  - PS10 is due tomorrow, Wednesday, April 23rd
+  - [PA4](../pa/pa4/index.html), on DP was due last Friday; how was it?
+  - [PA5](../pa/pa5/index.html), on reductions, is out; due Tuesday, April 29th (the last day of classes)
+- Quizzes 3&4 last Thursday
+  - It's currently 83% graded
+- Grading: 
+  - Grades returned through PS6
+  - PA2 auto-grader concerns are yet to be dealt with
+  - PA3 grades returned on Saturday (March 29th); please post auto-grader concerns on [Piazza post @220](https://piazza.com/class/m5wi2lblfgd528/post/220)
+  - For PS assignments, regrade requests need to be submitted, via Gradescope, within a week of when it was returned
+- Office hours:
+  - TA OH in Rice 109: Sun 5-7 and M/Tu/W/Th from 5-9 in Rice 109
+  - Prof Bloomfield: M 10-11:30, W 2-3 in Rice 402 (note the change)
+  - Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
+- Course textbook link is on the Canvas landing page
+- Today we will finish with [Reductions](../slides/reductions.html) (slides also in Canvas' Files)
+  - Next up: machine learning
+
+</div>
+:::
+
+
+
+::: {.announcements}
 # Here to Help
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/here_to_help.png){title="&quot;We TOLD you it was hard.&quot; &quot;Yeah, but now that I&#39;VE tried, we KNOW it&#39;s hard.&quot;" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/here_to_help_2x.png 2x" }
