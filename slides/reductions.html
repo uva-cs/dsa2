@@ -7470,7 +7470,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="programmatically" class="slide level2">
 <h2>Programmatically</h2>
-<div id="b568ab1a" class="cell" data-execution_count="11">
+<div id="83fd6eba" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="kw">def</span> check_uva_userid1(what):</span>
 <span id="cb1-2"><a href=""></a>  chars <span class="op">=</span> <span class="bu">list</span>(what.lower())</span>
 <span id="cb1-3"><a href=""></a>  </span>
@@ -7541,7 +7541,7 @@ Then this shows<br>solving <span class="math inline">\(B\)</span> is also slow
 </section>
 <section id="as-code" class="slide level2">
 <h2>As code</h2>
-<div id="83233468" class="cell" data-execution_count="12">
+<div id="dee72fd5" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="kw">def</span> check_uva_userid2(what):</span>
 <span id="cb2-2"><a href=""></a>  <span class="co"># returns True if the passed parameter is a valid UVA userid, else False</span></span>
 <span id="cb2-3"><a href=""></a></span>
@@ -8262,6 +8262,30 @@ accepted = \\
 <li>… can be reduced to satisfiability</li>
 </ul>
 </section>
+<section id="consider-this" class="slide level2">
+<h2>Consider this…</h2>
+<div class="font-90">
+<ul>
+<li>Consider a <em>non-deterministic</em> finite automata
+<ul>
+<li>And an associated input</li>
+</ul></li>
+<li>There is one path that, on the associated input, will yield a final state
+<ul>
+<li>But there are <em>many</em> other possible paths one could traverse with the same input</li>
+<li>Exponentially many other paths</li>
+</ul></li>
+<li>We have:
+<ul>
+<li>A polynomial time algorithm if we allow non-deterministic movement through the automata</li>
+<li>An exponential time algorithm if we allow only deterministic movement through the automata
+<ul>
+<li>As we have to try each of the (expoentially many) possible paths</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</section>
 <section id="complexity-classes" class="slide level2">
 <h2>Complexity classes</h2>
 <div class="font-85">
@@ -8269,12 +8293,12 @@ accepted = \\
 <ul>
 <li><span class="green">P</span>: Any problem that can be solved by a <em>deterministic</em> finite automata (DFA) in polynomial time
 <ul>
-<li>Solution can be <em>verified</em> in polynomial time</li>
+<li>Solution can be <em>computed</em> and also <em>verified</em> in (deterministic) polynomial time</li>
 </ul></li>
 <li><span class="blue">NP</span>: Any problem that can be solved by a <em>non-deterministic</em> finite automata (NFA) in polynomial time
 <ul>
 <li>Might take exponential time on a DFA</li>
-<li>Solution can be <em>verified</em> in polynomial time</li>
+<li>Solution can be <em>verified</em> in (deterministic) polynomial time</li>
 </ul></li>
 <li>If a problem can be solved by a DFA in polynomial time, then it can be solved by an NFA in polynomial time
 <ul>
@@ -8295,7 +8319,10 @@ accepted = \\
 <li>Could be more difficult, but not <em>less</em> difficult</li>
 </ul></li>
 </ul></li>
-<li>There are believed to be problems in NP that are not NP-hard (none yet proven)</li>
+<li>There are believed to be problems in NP that are not NP-hard (none yet proven)
+<ul>
+<li>These are called <em>NP-Intermediate</em></li>
+</ul></li>
 </ul>
 <p><span class="fragment" data-fragment-index="1">There are actually many more complexity classes:</span></p>
 <div class="r-stack">
@@ -8376,7 +8403,7 @@ accepted = \\
 <ul>
 <li>Show it’s in <span class="blue">NP</span> (this means it reduces to SAT)
 <ul>
-<li><span class="math inline">\(VC \in {\color{blue}NP} \equiv VC \le_p SAT\)</span></li>
+<li><span class="math inline">\(VC \in {\color{blue}NP}\)</span> means that <span class="math inline">\(VC \le_p SAT\)</span></li>
 </ul></li>
 <li>Reduce a known <span class="purple">NP-complete</span> problem to it
 <ul>

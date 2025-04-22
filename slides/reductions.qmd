@@ -4455,6 +4455,21 @@ $$
 - ... can be reduced to satisfiability
 
 
+## Consider this...
+
+::: {.font-90}
+
+- Consider a *non-deterministic* finite automata
+  - And an associated input
+- There is one path that, on the associated input, will yield a final state
+	- But there are *many* other possible paths one could traverse with the same input
+	- Exponentially many other paths
+- We have:
+  - A polynomial time algorithm if we allow non-deterministic movement through the automata
+  - An exponential time algorithm if we allow only deterministic movement through the automata
+  	- As we have to try each of the (expoentially many) possible paths
+:::
+
 ## Complexity classes
 
 <div class="font-85">
@@ -4462,10 +4477,10 @@ $$
 ![](images/reductions/P-NP.svg){style="float:right;margin-left:20px"}
 
 - <span class='green'>P</span>: Any problem that can be solved by a *deterministic* finite automata (DFA) in polynomial time
-	- Solution can be *verified* in polynomial time
+	- Solution can be *computed* and also *verified* in (deterministic) polynomial time
 - <span class='blue'>NP</span>: Any problem that can be solved by a *non-deterministic* finite automata (NFA) in polynomial time
 	- Might take exponential time on a DFA
-	- Solution can be *verified* in polynomial time
+	- Solution can be *verified* in (deterministic) polynomial time
 - If a problem can be solved by a DFA in polynomial time, then it can be solved by an NFA in polynomial time
 	- Thus, ${\color{forestgreen}P} \subset {\color{blue}NP}$
 
@@ -4483,6 +4498,7 @@ $$
 	- A problem that is at *least* as difficult as NP
 		- Could be more difficult, but not *less* difficult
 - There are believed to be problems in NP that are not NP-hard (none yet proven)
+  - These are called *NP-Intermediate*
 
 [There are actually many more complexity classes:]{.fragment data-fragment-index=1}
 
@@ -4546,7 +4562,7 @@ $$
 	- Given a graph $G=(V,E)$, find a set of vertices $C\subseteq V$ such that every edge in $E$ has at least one endpoint in $C$
 - To prove it's <span class='purple'>NP-complete</span>:
 	- Show it's in <span class='blue'>NP</span> (this means it reduces to SAT)
-	  - $VC \in {\color{blue}NP} \equiv VC \le_p SAT$
+	  - $VC \in {\color{blue}NP}$ means that $VC \le_p SAT$
 	- Reduce a known <span class='purple'>NP-complete</span> problem to it
 	  - $SAT \le_p VC$
 
