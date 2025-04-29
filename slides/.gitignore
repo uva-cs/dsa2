@@ -4,3 +4,4 @@
 graphdev.*
 .graph-cache
 reductions.tmp.*
+tmp/
