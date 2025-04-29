@@ -4,6 +4,47 @@ title: "Announcements, Spring 2025"
 
 
 ::: {.announcements}
+# Final Exam
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/final_exam.png){title="For those of you also taking Game Theory, your grade in that class will be based on how close your grade on this exam is to 80% of the average." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/final_exam_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2385](https://xkcd.com/2385)
+:::
+:::
+
+::: {.announcements}
+
+## Lecture 29: Tuesday, April 29th
+
+<div class="font-80">
+
+- Assignments
+  - [PA5](../pa/pa5/index.html), on reductions, is due today, Tuesday, April 29th (the last day of classes)
+- Quizzes 3&4 are graded and returned
+  - Quiz 3 average was 86.1, quiz 4: average was 62.5
+  - There was some grade modifications to bring the two sections into balance
+  - Regrades will open up later today
+- Grading: 
+  - Grades returned through PS6
+  - We are now working on PS7+
+  - PA grades, and auto-grader fixes, will be happening over the next week or so
+  - For PS assignments, regrade requests need to be submitted, via Gradescope, within a week of when it was returned
+- Final exam: this Friday from 7-10pm
+  - In Gilmer 301 (for Bloomfield’s 9:30 am section) and Gilmer 390 (for Pettit’s 2 pm section)
+  - PS solutions through PS9, and quiz 5 from last semester, are on Canvas' Files
+- Office hours:
+  - TA OH in Rice 109: Sun 5-7 and M/Tu/W/Th from 5-9 in Rice 109
+    - TA OH follow the regular schedule today; TA OH are 5-7 Wed and Thu of this week
+  - Prof Bloomfield: M 10-11:30, W 2-3 in Rice 402 (note the change)
+  - Prof Pettit: M 2:30-4:00, F 1:30-3:00 in Rice 212
+- Today we will work through a course conclusion and a review session
+</div>
+:::
+
+
+
+::: {.announcements}
 # Machine Learning
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/machine_learning.png){title="The pile gets soaked with data and starts to get mushy over time, so it&#39;s technically recurrent." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/machine_learning_2x.png 2x" }
