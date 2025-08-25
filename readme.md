@@ -13,7 +13,7 @@ The primary authors of this repository are [Mark Floryan](https://markfloryan.gi
 Repository Contents
 -------------------
 
-- [Course syllabus](syllabus.html) ([md](syllabus.md)) (not yet updated for spring 2025)
+- [Course syllabus](syllabus.html) ([md](syllabus.md))
 - [SDAC Accommodations](sdac.html) ([md](sdac.md))
 - [Readings](readings.html) ([md](readings.md))
 - Slide sets: other than the daily announcements, the slide sets are kept in PDF form on Canvas
