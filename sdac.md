@@ -2,9 +2,6 @@
 title: "DSA2: SDAC Accommodations"
 ---
 
-SDAC Accommodations
-===================
-
 [Go up to the main page](readme.html) ([md](readme.md))
 
 Some students will have SDAC ([Student Disabilities Access Center](https://www.studenthealth.virginia.edu/SDAC)) accommodations.  Below is how I handle these accommodations in this course.  Obviously, only the accommodations determined by SDAC apply to you.

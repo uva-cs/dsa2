@@ -2,16 +2,23 @@
 title: "Announcements, Fall 2025"
 ---
 
+# Algorithms
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/algorithms.png){title="There was a schism in 2007, when a sect advocating OpenOffice created a fork of Sunday.xlsx and maintained it independently for several months. The efforts to reconcile the conflicting schedules led to the reinvention, within the cells of the spreadsheet, of modern version control." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 1667](https://xkcd.com/1667)
+:::
 
 ::: {.announcements}
-# Lecture 2: Thursday, August 28th
+## Lecture 2: Thursday, August 28th
 
-- PS0 (out today) due next Wednesday (Sep 6) by 11:59 pm
-	- It will be in Canvas' Assignments
+- PS0 is out in Canvas' Assignments, and due next Wednesday (Sep 3) by 11:59 pm
+	- Gradescope submission opens up 72 hours before the due date
 - PS1 out next week, due the following Wednesday
 - Course textbook link is on the Canvas landing page
-- TA office hours coming soon (we are targeting Sun-Thu, 5pm-9pm)
-- Prof. Bloomfield office hours TBA
-- Prof. Floryan office hours TBA
+- TA office hours coming soon (we are targeting Mon-Thu, 5pm-9pm)
+- Prof. Bloomfield's office hours TBA, and start next week
+- Prof. Floryan's office hours start next week, and are Wed 12:30-2 and Thu 12:30-2 in room 203
 :::
 

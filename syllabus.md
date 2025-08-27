@@ -44,7 +44,7 @@ Normal lectures will be recorded, though the instructors reserve the right to di
 - See the schedule (Canvas calendar) for the dates.  Note that Quiz 5 will be given during the final exam period.
 - Also during the final exam period, students will have the opportunity to make up some number of points that were missed on the first four quizzes. This opportunity will only be available if the student made a reasonable first attempt on the quiz.
 - A quiz's retake will consist of a few questions worth 10 points total.  The points earned will replace up to 10 missing points from the first attempt on that quiz.  ("Missing points" means no quiz score can be greater than 100.)
- - Our final exam period is set to be **Monday, December 16th, from 7pm to 10pm**.  We recognize that this is a very early exam time, but it was not our choice.  Do not make travel plans that would prevent you from attending the final exam period. We will not give quizzes scheduled for the final exam period early for travel reasons.
+ - Our final exam period is set to be **Thursday, December 11th, from 7pm to 10pm**.  We recognize that this is a very early exam time, but it was not our choice.  Do not make travel plans that would prevent you from attending the final exam period. We will not give quizzes scheduled for the final exam period early for travel reasons.
     - That exam time conflicts with exams from: APMA 2130, COMM 1800, CS 2100 (which you should not be taking, since it's a pre-req), and LATI 1030, 2010, and 2020
     - We will determine how best to handle this once the withdrawal period ends (October 21).  Note that any make-up will be *after* the normal exam time (meaning no earlier than the regularly scheduled final exam time).
 
