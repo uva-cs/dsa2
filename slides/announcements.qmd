@@ -2,6 +2,32 @@
 title: "Announcements, Fall 2025"
 ---
 
+# Complexity Analysis
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/complexity_analysis.png){title="PERPETUALLY OPTIMISTIC CASE: Early in the execution, our research group makes a breakthrough on proving P=NP." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/complexity_analysis_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2939](https://xkcd.com/2939)
+:::
+
+::: {.announcements}
+## Lecture 3: Tuesday, September 2nd
+
+- PS0 is out in Canvas' Assignments, and due tomorrow, Wednesday Sep 3, by 11:59 pm
+	- Gradescope submissions open up 72 hours before the due date
+	- The extension system is linked to from the Canvas landing page
+- PS1 will be out this Thursday, and due next Wednesday (Sep 10)
+- Course textbook link is on the Canvas landing page
+- Office hours have started:
+	- Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wednesdays 12:30-2 and Thursdays 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442
+		- TA pictures linked to from the Canvas landing page
+	- This is all on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+- Today we will start on graphs, which will takes us 4-5 lectures
+:::
+
+
 # Algorithms
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/algorithms.png){title="There was a schism in 2007, when a sect advocating OpenOffice created a fork of Sunday.xlsx and maintained it independently for several months. The efforts to reconcile the conflicting schedules led to the reinvention, within the cells of the spreadsheet, of modern version control." style='border:10px solid white'  }
