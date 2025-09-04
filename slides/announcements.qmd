@@ -2,6 +2,34 @@
 title: "Announcements, Fall 2025"
 ---
 
+# Weird Unicode Math Symbols
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/weird_unicode_math_symbols.png){title="U+2A0B ⨋ Mathematicians need to calm down" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/weird_unicode_math_symbols_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2606](https://xkcd.com/2606)
+:::
+
+::: {.announcements}
+## Lecture 4: Thursday, September 4th
+
+- PS0 was due yesterday by 11:59 pm
+	- The extension system is linked to from the Canvas landing page
+	- Extensions can be submitted up to 3 days after the (original) due date
+- PS1 will be out today, due next Wednesday (by 11:59 pm)
+	- Gradescope submissions open up 72 hours before the due date
+- PA1 will be out... soon
+- Course textbook link is on the Canvas landing page
+- Office hours have started, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+	- Prof. Bloomfield's office hours are Mondays 11-12, Tuesdays 1-2, and Thursdays 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wednesdays 12:30-2 and Thursdays 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442
+		- But only 5-7 today!
+		- TA pictures linked to from the Canvas landing page
+- Today we will continue with graphs, which will takes us 4-5 lectures
+:::
+
+
 # Complexity Analysis
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/complexity_analysis.png){title="PERPETUALLY OPTIMISTIC CASE: Early in the execution, our research group makes a breakthrough on proving P=NP." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/complexity_analysis_2x.png 2x" }
