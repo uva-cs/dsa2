@@ -2,6 +2,38 @@
 title: "Announcements, Fall 2025"
 ---
 
+# Ineffective Sorts
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/ineffective_sorts.png){title="StackSort connects to StackOverflow, searches for &#39;sort a list&#39;, and downloads and runs code snippets until the list is sorted." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/ineffective_sorts_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1185](https://xkcd.com/1185)
+:::
+
+::: {.announcements}
+## Lecture 5: Tuesday, September 6th
+
+- PS1 is due tomorrow by 11:59 pm
+	- The extension system is linked to from the Canvas landing page
+	- Extensions can be submitted up to 3 days after the (original) due date
+- PS2 will be out Thursday, due next Wednesday (by 11:59 pm)
+	- Gradescope submissions open up 72 hours before the due date
+- PA1 is out today, due next Friday (Sep 19) by 11:59 pm
+    - Gradescope will open up later this week
+    - Note that acceptance tests are not the same as the grading tests!
+- Course textbook link is on the Canvas landing page
+- Office hours have started, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442
+		- TA pictures linked to from the Canvas landing page
+- Today we will continue with graphs, which will takes us into next week
+:::
+
+
+
+
+
 # Weird Unicode Math Symbols
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/weird_unicode_math_symbols.png){title="U+2A0B ⨋ Mathematicians need to calm down" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/weird_unicode_math_symbols_2x.png 2x" }
