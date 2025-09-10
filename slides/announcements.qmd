@@ -2,6 +2,38 @@
 title: "Announcements, Fall 2025"
 ---
 
+
+# Dependencies
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/dependencies.png){title="The prereqs for CPSC 357, the class on package management, are CPSC 432, CPSC 357, and glibc2.5 or later." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 754](https://xkcd.com/754)
+:::
+
+::: {.announcements}
+## Lecture 6: Thursday, September 11th
+
+- PS1 is was due yesterday by 11:59 pm
+	- The extension system is linked to from the Canvas landing page
+	- Extensions can be submitted up to 3 days after the (original) due date
+- PS2 will be out today, due next Wednesday, Sep 17th, by 11:59 pm
+	- Gradescope submissions open up 72 hours before the due date
+- PA1 is out, due next Friday (Sep 19) by 11:59 pm
+    - Gradescope will open up later this week
+    - Note that acceptance tests are not the same as the grading tests!
+    - You cannot use GenAI for the code you write (but can use it as a reference for, say, how to call a given function)
+- Course textbook link is on the Canvas landing page
+- Office hours have started, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442
+		- TA pictures linked to from the Canvas landing page
+- Today we will continue with graphs, which will take us into next week
+:::
+
+
+
 # Ineffective Sorts
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/ineffective_sorts.png){title="StackSort connects to StackOverflow, searches for &#39;sort a list&#39;, and downloads and runs code snippets until the list is sorted." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/ineffective_sorts_2x.png 2x" }
@@ -11,7 +43,7 @@ title: "Announcements, Fall 2025"
 :::
 
 ::: {.announcements}
-## Lecture 5: Tuesday, September 6th
+## Lecture 5: Tuesday, September 9th
 
 - PS1 is due tomorrow by 11:59 pm
 	- The extension system is linked to from the Canvas landing page
@@ -27,7 +59,7 @@ title: "Announcements, Fall 2025"
 	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
 	- TA office hours are 5-9, Monday through Thursday, in Rice 442
 		- TA pictures linked to from the Canvas landing page
-- Today we will continue with graphs, which will takes us into next week
+- Today we will continue with graphs, which will take us into next week
 :::
 
 
