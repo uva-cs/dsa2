@@ -18,7 +18,8 @@ Repository Contents
 - [Readings](readings.html) ([md](readings.md))
 - Slide sets: other than the daily announcements, the slide sets are kept in PDF form on Canvas
 	- [Daily announcement slides](slides/announcements.html#/)
-- Programming assignments: none yet assigned
+- Programming assignments: 
+  - [PA 1: Monday-itis Contact Tracing](pa/pa1/index.html) ([md](pa/pa1/index.md))
 - [Old course content](old.html) from previous semesters
 
 License

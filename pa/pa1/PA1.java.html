@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>PA1.java</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// PA1 Skeleton Code</font></i>
+<i><font color="#9A1900">// DSA2, fall 2025</font></i>
+
+<i><font color="#9A1900">// This code will read in the input, and put the values into lists.  It is up</font></i>
+<i><font color="#9A1900">// to you to properly represent this as a graph -- this code only reads in the</font></i>
+<i><font color="#9A1900">// input properly.</font></i>
+
+
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>util<font color="#990000">.*;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">Pair</font> <font color="#FF0000">{</font>
+	<b><font color="#0000FF">public</font></b> <font color="#008080">String</font> s<font color="#990000">,</font> t<font color="#990000">;</font>
+	<b><font color="#000000">Pair</font></b><font color="#990000">(</font><font color="#008080">String</font> s<font color="#990000">,</font> <font color="#008080">String</font> t<font color="#990000">)</font> <font color="#FF0000">{</font> <b><font color="#0000FF">this</font></b><font color="#990000">.</font>s<font color="#990000">=</font>s<font color="#990000">;</font> <b><font color="#0000FF">this</font></b><font color="#990000">.</font>t<font color="#990000">=</font>t<font color="#990000">;</font> <font color="#FF0000">}</font>
+	<b><font color="#0000FF">public</font></b> <font color="#008080">String</font> <b><font color="#000000">toString</font></b><font color="#990000">()</font> <font color="#FF0000">{</font> <b><font color="#0000FF">return</font></b> s <font color="#990000">+</font> <font color="#FF0000">"-&gt;"</font> <font color="#990000">+</font> t<font color="#990000">;</font> <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">PA1</font> <font color="#FF0000">{</font>
+
+	<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font>String<font color="#990000">[]</font> args<font color="#990000">)</font> <font color="#FF0000">{</font>
+		System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"Hello, world"</font><font color="#990000">);</font>
+
+		<font color="#008080">Scanner</font> stdin <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Scanner</font></b><font color="#990000">(</font>System<font color="#990000">.</font>in<font color="#990000">);</font>
+		<font color="#009900">int</font> test_cases <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> test_cases<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+			<i><font color="#9A1900">// read in the weights for the different pathogen loads</font></i>
+			<font color="#009900">int</font> wt <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font> wf <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font> wb <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font> wc <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+			<i><font color="#9A1900">// read in the number of vertices and edges</font></i>
+			<font color="#009900">int</font> v <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">(),</font> e <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+			<i><font color="#9A1900">// read in the edges</font></i>
+			<font color="#008080">ArrayList&lt;Pair&gt;</font> edges <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>Pair<font color="#990000">&gt;();</font>
+			<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> j <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> j <font color="#990000">&lt;</font> e<font color="#990000">;</font> j<font color="#990000">++</font> <font color="#990000">)</font>
+				edges<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Pair</font></b><font color="#990000">(</font>stdin<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">(),</font> stdin<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">()));</font>
+			<i><font color="#9A1900">// read in the start node and node to print the pathogen load for</font></i>
+			<font color="#008080">String</font> source <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">(),</font> node <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">();</font>
+
+			<i><font color="#9A1900">/** At this point, the data strcutres are as follows:</font></i>
+<i><font color="#9A1900">			 * </font></i>
+<i><font color="#9A1900">			 * The integers wt, wf, wb, and wc are the weights of the edges</font></i>
+<i><font color="#9A1900">			 * for tree, forward, back, and cross edges</font></i>
+<i><font color="#9A1900">			 * </font></i>
+<i><font color="#9A1900">			 * The number of vertices and edges are in the integers v and e</font></i>
+<i><font color="#9A1900">			 * </font></i>
+<i><font color="#9A1900">			 * The edges themselves are in an ArrayList of Pairs; printing it</font></i>
+<i><font color="#9A1900">			 * out might look like:</font></i>
+<i><font color="#9A1900">			 * [A-&gt;B, B-&gt;C, C-&gt;D, D-&gt;E, A-&gt;C, A-&gt;F, E-&gt;C, E-&gt;D, F-&gt;C, F-&gt;D]</font></i>
+<i><font color="#9A1900">			 * </font></i>
+<i><font color="#9A1900">			 * The start node is in the String source, the node to print the</font></i>
+<i><font color="#9A1900">			 * pathogen load is in the String node</font></i>
+<i><font color="#9A1900">			 */</font></i>
+
+			<i><font color="#9A1900">// REMOVE THESE LINES from your final version -- this is just to</font></i>
+			<i><font color="#9A1900">// show the data read in</font></i>
+			System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">test case "</font> <font color="#990000">+</font> i <font color="#990000">+</font> <font color="#FF0000">":"</font><font color="#990000">);</font>
+			System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"weights (tree, forward, back, and cross): "</font> <font color="#990000">+</font> wt<font color="#990000">+</font><font color="#FF0000">" "</font><font color="#990000">+</font>wf<font color="#990000">+</font><font color="#FF0000">" "</font><font color="#990000">+</font>wb<font color="#990000">+</font><font color="#FF0000">" "</font><font color="#990000">+</font>wc<font color="#990000">);</font>
+			System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>v <font color="#990000">+</font> <font color="#FF0000">" vertices and "</font> <font color="#990000">+</font> e <font color="#990000">+</font> <font color="#FF0000">" edges"</font><font color="#990000">);</font>
+			System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"the edges themselves: "</font> <font color="#990000">+</font> edges<font color="#990000">);</font>
+			System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"start node: "</font> <font color="#990000">+</font> source <font color="#990000">+</font> <font color="#FF0000">", node to print the pathogen load for: "</font> <font color="#990000">+</font> node<font color="#990000">);</font>
+
+		<font color="#FF0000">}</font>
+
+		<i><font color="#9A1900">// YOUR CODE HERE (or called from here)</font></i>
+	<font color="#FF0000">}</font>
+
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

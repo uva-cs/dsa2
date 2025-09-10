@@ -1,0 +1,34 @@
+// make with: dot -Tsvg -O pa1.dot
+
+digraph G1 {
+  rankdir=LR;
+  node [shape=circle, style=filled, fillcolor=white];
+  A -> B;
+  B -> C;
+  C -> D;
+  D -> E;
+  A -> C;
+  E -> C;
+  A -> F;
+  F -> C;
+  E -> D;
+  F -> D;
+  G -> H;
+}
+
+digraph G2 {
+  graph [stylesheet="dashdot.css"];   // this will be applied in SVG output
+  rankdir=LR;
+  node [shape=circle, style=filled, fillcolor=white];
+  A -> B [color="black:white:black"];
+  B -> C [color="black:white:black"];
+  C -> D [color="black:white:black"];
+  D -> E [color="black:white:black"];
+  A -> C [style=dotted];
+  E -> C [style=dashed];
+  A -> F [color="black:white:black"];
+  F -> C [style=bold];
+  E -> D [style=dashed];
+  F -> D [style=bold];
+  G -> H;
+}
