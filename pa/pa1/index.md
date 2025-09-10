@@ -28,7 +28,7 @@ We will assume, for simplicity sake, that the DFS always proceeds in alphabetica
 
 ### Example
 
-Consider the following contacts trace graph:
+Consider the following contact trace graph:
 
 ![](pa1.dot.svg)
 
@@ -112,6 +112,7 @@ We are providing skeleton code for this assignment.  You should start with [pa1.
 - You need to implement DFS yourself -- you cannot use a library function for DFS.
 - We will never provide you with invalid input, so you do not need to error check the input values provided.
 - Although you are not graded on the speed of your program's execution, it has to run in the expected DFS running time of $\Theta(V+E)$, else it will time out with some of the larger test cases.
+- The values for each contact given (10, 5, 3, and 4) are not the ones used in the grading tests, so be sure to use the values provided by the input, and do not hard code the 10/5/3/4 values.
 
 ### Submission
 
@@ -123,3 +124,5 @@ The submission system can handle four different programming languages, although 
 - C++: pa1.cpp
 
 You will submit your completed source code file to Gradescope.  There will be a *small set* of acceptance tests that are ***NOT COMPREHENSIVE***.  These acceptance tests are the test cases in the [example.in](example.in) file.  It's up to you to comprehensively test your code.  The acceptance tests just verify that you are reading the input correctly and providing the expected output.
+
+Note that when you submit, Gradescope will report your grade as "-/10" or "0/10" -- that's a quirk of Gradescope, and is because the grading tests have not been run (and won't be run until after all submissions are in).  YOu can look at the results of the individual test cases to see how your program worked

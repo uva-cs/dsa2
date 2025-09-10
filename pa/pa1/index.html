@@ -44,11 +44,11 @@
 <p>These types of contacts can be represented as the edges of a depth-first search – the edge types are listed in the list above. Each type of contact provides a different (integer) pathogen load to the individual. The amount of those pathogen loads are provided in each test case.</p>
 <p>We will assume, for simplicity sake, that the DFS always proceeds in alphabetical order of the possible adjacent nodes.</p>
 <h3 id="example">Example</h3>
-<p>Consider the following contacts trace graph:</p>
+<p>Consider the following contact trace graph:</p>
 <p><img src="pa1.dot.svg" /></p>
 <p>If we run DFS on it, starting at A, we get the following result. In the graph below, double edges are tree edges, dotted are forward edges, dashed are back edges, and bold edges are cross edges. Regular edges (the one from G to H) were not encountered in the DFS, which started at node A. Recall that when in a given node, we always process the outgoing edges alphabetically.</p>
 <p><img src="pa1.dot.2.svg" /></p>
-<p>Assume that the pathogen load for each type of contact is <span class="math inline">(10, 5, 3, 4)</span> – this means 10 for an incoming tree edge, 5 for an incoming forward edge, 3 for an incoming back edge, and 4 for an incoming cross edge. The various nodes would have the following pathogen load:</p>
+<p>Assume that the pathogen load for each type of contact is <span class="math inline">(10,5,3,4)</span> – this means 10 for an incoming tree edge, 5 for an incoming forward edge, 3 for an incoming back edge, and 4 for an incoming cross edge. The various nodes would have the following pathogen load:</p>
 <ul>
 <li>Node A: 0 (no incoming edges)</li>
 <li>Node B: 10 (one incoming tree edge)</li>
@@ -110,7 +110,8 @@ A H</code></pre>
 <li>Some of the values above will require a <code>long</code> type for some programming languages (C, C++, Java, etc.). Other languages (Python) will not need to worry about this.</li>
 <li>You need to implement DFS yourself – you cannot use a library function for DFS.</li>
 <li>We will never provide you with invalid input, so you do not need to error check the input values provided.</li>
-<li>Although you are not graded on the speed of your program’s execution, it has to run in the expected DFS running time of <span class="math inline"><em>Θ</em>(<em>V</em> + <em>E</em>)</span>, else it will time out with some of the larger test cases.</li>
+<li>Although you are not graded on the speed of your program’s execution, it has to run in the expected DFS running time of <span class="math inline"><em>Θ</em>(<em>V</em>+<em>E</em>)</span>, else it will time out with some of the larger test cases.</li>
+<li>The values for each contact given (10, 5, 3, and 4) are not the ones used in the grading tests, so be sure to use the values provided by the input, and do not hard code the 10/5/3/4 values.</li>
 </ul>
 <h3 id="submission">Submission</h3>
 <p>The submission system can handle four different programming languages, although only two have skeleton code provided (Python and Java). For each programming language, the name of the submitted file is listed below (you have to have it named that exact name, else it will not compile properly). If you want to program in a different language, email the course email at least three days before it is due (as we have to reconfigure the autograder).</p>
@@ -121,5 +122,6 @@ A H</code></pre>
 <li>C++: pa1.cpp</li>
 </ul>
 <p>You will submit your completed source code file to Gradescope. There will be a <em>small set</em> of acceptance tests that are <strong><em>NOT COMPREHENSIVE</em></strong>. These acceptance tests are the test cases in the <a href="example.in">example.in</a> file. It’s up to you to comprehensively test your code. The acceptance tests just verify that you are reading the input correctly and providing the expected output.</p>
+<p>Note that when you submit, Gradescope will report your grade as “-/10” or “0/10” – that’s a quirk of Gradescope, and is because the grading tests have not been run (and won’t be run until after all submissions are in). YOu can look at the results of the individual test cases to see how your program worked</p>
 </body>
 </html>
