@@ -1,177 +1,1 @@
-%---------change this every homework
-\def\yourid{mst3k}  % substitute your userED
-\def\collabs{collaborators} % substitute your collaborators
-\def\sources{sources} % substitute your sources
-% -----------------------------------------------------
-\def\duedate{February 5, 2025 at 11:59p}
-\def\pnumber{2}
-%-------------------------------------
-
-\documentclass[10pt]{article}
-\usepackage{dsa2}
-\usepackage{float}
-
-\begin{document}
-\thispagestyle{empty}
-\handout
-
-%----Begin your modifications here
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{figure}[h]
-    \centering
-    \begin{tikzpicture}
-        % Define nodes
-        \node (A) at (0,2) {A};
-        \node (B) at (2,3) {B};
-        \node (C) at (4,2) {C};
-        \node (D) at (2,0) {D};
-        \node (E) at (6,3) {E};
-        \node (F) at (8,5) {F};
-        \node (G) at (6,0) {G};
-        \node (H) at (4,-1) {H};
-
-        % Draw directed edges
-        \draw[->] (A) -- (B);
-        \draw[->] (C) -- (B);
-        \draw[->] (C) -- (D);
-        \draw[->] (D) -- (A);
-        \draw[->] (A) -- (C);
-        \draw[->] (C) -- (E);
-        \draw[->] (E) -- (F);
-        \draw[->] (F) -- (G);
-        \draw[->] (G) -- (H);
-        \draw[->] (H) -- (D);
-        \draw[->] (B) -- (F);
-        \draw[->] (E) -- (G);
-    \end{tikzpicture}
-    \caption{Graph used for Problems 1 and 2}
-    \label{fig:graph_1_2}
-\end{figure}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{problem} Using Depth First Search \end{problem}
-
-Apply depth first search starting at Node $A$ on the graph shown in Figure~\ref{fig:graph_1_2}. Use Table~\ref{tab:dfs_times} to record the seen and done timestamps (starting with 0). Note: When multiple nodes could be chosen at a given step, pick the one that comes first alphabetically (i.e. If either node F or node H could follow node C, choose node F because F is alphabetically before H.
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{c|c|c}
-        \toprule
-        \textbf{Node} & \textbf{Seen (Discovery Time)} & \textbf{Done (Finish Time)} \\
-        \midrule
-        A & ?  & ? \\ %%% Student, replace these question marks
-        B & ?  & ? \\
-        C & ?  & ? \\
-        D & ?  & ? \\
-        E & ?  & ? \\
-        F & ?  & ? \\
-        G & ?  & ? \\
-        H & ?  & ? \\
-        \bottomrule
-    \end{tabular}
-    \caption{DFS Seen and Done Timestamps}
-    \label{tab:dfs_times}
-\end{table}
-
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{problem} Classifying Edges \end{problem}
-
-Refer to the graph shown in Figure~\ref{fig:graph_1_2}. Use the seen and done times that you calculated above to classify the edges. For each edge choose between: Tree Edge, Back Edge, Forward Edge, Cross Edge. Use Table~\ref{tab:dfs_edges} to record your answers.
-
-\vspace{0.3in}
-
-\begin{table}[h]
-    \centering
-    \begin{tabular}{c|c}
-        \toprule
-        \textbf{Edge} & \textbf{Edge Type} \\
-        \midrule
-        (A → B) & ? Edge \\ %%% Student, replace the question marks with one of:
-        (C → B) & ? Edge \\ %%%    Tree, Back, Forward, Cross
-        (C → D) & ? Edge \\
-        (D → A) & ? Edge \\
-        (A → C) & ? Edge \\
-        (C → E) & ? Edge \\
-        (E → F) & ? Edge \\
-        (F → G) & ? Edge \\
-        (G → H) & ? Edge \\
-        (H → D) & ? Edge \\
-        (B → F) & ? Edge \\
-        (E → G) & ? Edge \\
-
-        \bottomrule
-    \end{tabular}
-    \caption{DFS Edge Types}
-    \label{tab:dfs_edges}
-\end{table}
-
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{problem} Using Dijkstra's Algorith \end{problem}
-
-Given the following graph:
-
-\begin{center}
-\begin{tikzpicture}[shorten >=1pt, node distance=2cm, auto]
-
-    % Nodes
-    \node (A) {A};
-    \node (B) [right of=A] {B};
-    \node (C) [below of=A] {C};
-    \node (D) [right of=C] {D};
-    \node (E) [right of=B] {E};
-    \node (F) [below of=D] {F};
-    \node (G) [right of=F] {G};
-
-    % Edges with weights
-    \draw[->] (A) -- (B) node[midway, above] {4};
-    \draw[->] (A) -- (C) node[midway, left] {2};
-    \draw[->] (B) -- (E) node[midway, above] {3};
-    \draw[->] (B) -- (D) node[midway, above right] {3};
-    \draw[->] (C) -- (D) node[midway, below] {6};
-    \draw[->] (C) -- (B) node[midway, left] {7};
-    \draw[->] (D) -- (F) node[midway, below left] {8};
-    \draw[->] (D) -- (G) node[midway, above right] {9};
-    \draw[->] (E) -- (G) node[midway, right] {3};
-    \draw[->] (F) -- (G) node[midway, below] {2};
-\end{tikzpicture}
-\end{center}
-\vspace{0.2in}
-Apply Dijkstra's Algorithm starting at node A. Each time a decreaseKey call is made, record that in Table~\ref{tab:decreaseKey} below. Record the vertex and the value assigned. For some vertices, decreaseKey will only be called once; others might have more than one call. If decreaseKey is called more than once for a given node, there should be multiple entries in the table. There are 15 rows provided in the table, but you may not need them all, just leave the extra rows at the end of the table as they are if not needed. Note: When multiple nodes could be chosen at a given step, pick the one that comes first alphabetically (i.e. If either node F or node H could be chosen next because they have equally minimum values in the priority queue, choose node F because F is alphabetically before H).
-
-\begin{table}[h]
-    \centering
-    \begin{tabular}{|c|c|c|}
-        \hline
-        \textbf{decreaseKey is called} & \textbf{Vertex} & \textbf{Value} \\
-        \hline
-        1 & A & 0 \\
-        2 & ? & ? \\ %%% Student, replace the question marks with your answers
-        3 & ? & ? \\
-        4 & ? & ? \\
-        5 & ? & ? \\
-        6 & ? & ? \\
-        7 & ? & ? \\
-        8 & ? & ? \\
-        9 & ? & ? \\
-        10 & ? & ? \\
-        11 & ? & ? \\
-        12 & ? & ? \\
-        13 & ? & ? \\
-        14 & ? & ? \\
-        15 & ? & ? \\ %%% Student, leave unneeded rows at the end as they are
-        \hline
-    \end{tabular}
-    \caption{DecreaseKey Calls}
-    \label{tab:decreaseKey}
-\end{table}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\end{document}
+%---------change this every homework\def\yourid{mst3k}  % substitute your userED\def\collabs{collaborators} % substitute your collaborators\def\sources{sources} % substitute your sources% -----------------------------------------------------\def\duedate{September 17, 2025 at 11:59p}\def\pnumber{2}%-------------------------------------\documentclass[10pt]{article}\usepackage{dsa2}\usepackage{clrscode}\usepackage{multicol}\begin{document}\thispagestyle{empty}\handout%----Begin your modifications here%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\begin{problem} DFS \end{problem}    Consider the following graph:    %%%%%%%%%%% START GRAPH    \vskip 2em    \begin{center}    \resizebox{.45\textwidth}{!}{\begin{tikzpicture}    [->,>=stealth',shorten >=1pt,auto,node distance=3cm,thick,main     node/.style={circle,fill=gray!10,draw,font=\sffamily\Large\bfseries,minimum size=10mm},    dashdotted/.style={dash pattern = on 1 pt off 2 pt on 3 pt off 2 pt}]% ---- Nodes (placed for readability) ----\node[main node] (v1) at (0,3) {v1};\node[main node] (v5) at (3,3) {v5};\node[main node] (v7) at (6,3) {v7};\node[main node] (v8) at (0,6) {v8};\node[main node] (v2) at (3,6) {v2};\node[main node] (v10) at (6,6) {v10};\node[main node] (v6) at (3,0) {v6};\node[main node] (v3) at (0,0) {v3};\node[main node] (v9) at (6,0) {v9};\node[main node] (v4) at (-3,3) {v4};\path[every node/.style={->,    fill=white,inner sep=2pt}]    (v1) edge[] node[below right,near end] {a} (v2)         edge[] node[] {b} (v3)         edge[] node[] {c} (v8)    (v2) edge[bend right=10] node[above left,near end] {d} (v4)         edge[] node[] {e} (v5)         edge[] node[near start] {f} (v7)    (v3) edge[bend right=10] node[below] {g} (v6)         edge[] node[] {h} (v7)    (v4) edge[] node[below] {i} (v1)         edge[bend right=10] node[near start] {j} (v2)    (v5) edge[] node[above left] {k} (v3)         edge[] node[] {l} (v9)    (v6) edge[bend right=10] node[above] {m} (v3)    (v7) edge[] node[] {n} (v10)    (v8) edge[] node[near end] {o} (v5)    (v9) edge[] node[] {p} (v7)    (v10) edge[] node[above left] {q} (v6)    ;\end{tikzpicture}    }\hfill    \end{center}    \hspace{2.2 in} Graph $G$ \vspace{1em}    %%%%%%%%%%% END GRAPH    Perform DFS on the graph, using the recursive DFS algorithm.  Start at vertex $v_1$.  When processing a given node, and there are multiple potential outgoing edges (i.e., adjacent nodes), always choose the one that is {\em earlier} alphabetically.  Below you will need to fill in the tables to indicate the start and finish time for each node, as well as classify each edge as one of the four types: tree, back, descendant, and cross.    \solution{        % your solution here        % For this table, the second to last cell (for the start time) is        % between the two '&' characters -- in the v1 row, that has 'ST' in        % the cell.  The last cell (for the end time) is between the '&' and        % the '\\' -- in the v1 row, that has 'ET' in the cell.        \vspace{1em}        \begin{tabular}{|c|c|c|}\hline        Node & Start time & End time \\ \hline\hline        v1 & (ST) & (ET) \\ \hline        v2 & & \\ \hline        v3 & & \\ \hline        v4 & & \\ \hline        v5 & & \\ \hline        v6 & & \\ \hline        v7 & & \\ \hline        v8 & & \\ \hline        v9 & & \\ \hline        v10 & & \\ \hline        \end{tabular}        % for this table, the last cell on each row -- where you have to fill        % in the edge type -- is between the '&' and the '\\'.  The '        % (type here)' is in thhat cell on the 'a' row        \vspace{1em}		\begin{tabular}{|c|c|c|c|}\hline        Edge & Start node & End node & Edge type \\ \hline\hline        a & v1 & v2 & (type here) \\ \hline        b & v1 & v3 & \\ \hline        c & v1 & v8 & \\ \hline        d & v2 & v4 & \\ \hline        e & v2 & v5 & \\ \hline        f & v2 & v7 & \\ \hline        g & v3 & v6 & \\ \hline        h & v3 & v7 & \\ \hline        i & v4 & v1 & \\ \hline        j & v4 & v2 & \\ \hline        k & v5 & v3 & \\ \hline        l & v5 & v9 & \\ \hline        m & v6 & v3 & \\ \hline        n & v7 & v10 & \\ \hline        o & v8 & v5 & \\ \hline        p & v9 & v7 & \\ \hline        q & v10 & v6 & \\ \hline        \end{tabular}    }    \vspace{0.5 in}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\begin{problem} Dijkstra's Shortest Path \end{problem}    Consider the following graph:    %%%%%%%%%%% START GRAPH    \vskip 2em    \begin{center}    \resizebox{.45\textwidth}{!}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,thick,main node/.style={circle,fill=gray!10,draw,      font=\sffamily\Large\bfseries,minimum size=10mm}]      \node[main node] (v3) {v3};      \node[main node] (v1) [above left of=v3] {v1};      \node[main node] (v0) [above right of=v3] {v0};      \node[main node] (v4) [left of=v3] {v4};      \node[main node] (v2) [right of=v3] {v2};      \node[main node] (v6) [below left of=v3] {v6};      \node[main node] (v5) [below right of=v3] {v5};      \path[every node/.style={            fill=white,inner sep=2pt}]        (v0) edge [] node[] {E} (v2)             edge [] node[] {D} (v3)        (v1) edge [] node[] {A} (v0)        (v2) edge [] node[] {G} (v3)             edge [] node[] {K} (v5)        (v3) edge [] node[] {C} (v1)             edge [] node[] {F} (v4)             edge [] node[] {I} (v6)             edge [] node[] {J} (v5)        (v4) edge [] node[] {B} (v1)        (v5) edge [] node[] {L} (v6)        (v6) edge [] node[] {H} (v4)        ;    \end{tikzpicture}}\hfill    \end{center}    \hspace{2.6 in} Graph $G$\vspace{1em}    %%%%%%%%%%% END GRAPH    You are to perform Dijkstra's shortest path algorithm on the graph.  The graph above does not list weights -- to get the weights for the graph, see the URL listed on the Canvas landing page.  Note that you will have different edge weights and a different starting node than others, and you must answer the question using the weights assigned to you.    \begin{enumerate}        \item Edit the above graph, and put the weights in for each edge.        \solution{            % your solution here            (the solution is the edited graph above)        }        \item Perform Dijkstra's shortest path, filling in the table below.        \solution{            % your solution here            \begin{tabular}{|c|c|c|c|}\hline            Node & Found? & Distance & Path \\ \hline\hline            a &  &  & (type here) \\ \hline            b &  &  & \\ \hline            c &  &  & \\ \hline            d &  &  & \\ \hline            e &  &  & \\ \hline            f &  &  & \\ \hline            g &  &  & \\ \hline            \end{tabular}        }        \item List which vertex had their path updated more than once -- meaning that vertex's distance was updated again after being set the first time.  For each of those vertices, list each value it had.        \solution{            % your solution here        }    \end{enumerate}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\begin{problem} Algorithm Creation \end{problem}Consider a graph $G=(V,E)$ that is a standard binary tree.  Each node, other than the root node, has indegree of 1 (an edge coming in from the parent), and up two two outgoing edges to the children, which we'll call $left$ and $right$.  As this is a tree, there are no cycles.  In fact, it's a DAG (directed acyclic graph); it's is also (weakly) connected.Consider the recursive DFS algorithm presented in class, and found in CLRS:\begin{multicols}{2}\begin{codebox}\Procname{$\proc{DFS}(G)$}\li \For each vertex $u \in G.V$ \li \Do    \li $u.color=$ WHITE    \li $u.\pi=$ NIL \End\li $time=0$\li \For each vertex $u \in G.V$ \li \Do    \li \If $u.color==$ WHITE    \li \Then        \li $\proc{DFS-Visit}(G,u)$ \End \End\end{codebox}\columnbreak\begin{codebox}\Procname{$\proc{DFS-Visit}(G,u)$}\li $time=time+1$\li $u.d=time$\li $u.color=$ GRAY\li \For each $v \in G.Adj[u]$ \li \Do    \li \If $v.color==$ WHITE    \li \Then        \li $v.\pi=u$        \li $\proc{DFS-Visit}(G,v)$    \End\End\li $u.color=$ BLACK\li $time=time+1$\li $u.f=time$\end{codebox}\end{multicols}Suppose we want to change the location of where we set $u.d = time$ so that the discovery times increase in a pre-order, in-order, or post-order traversal orders. How would you modify the $\proc{DFS}(G)$ and/or the $\proc{DFS-Visit}(G,v)$ algorithms above to have these discovery times increase in a pre-order traversal of the tree? Similarly, how would you modify the code for an in-order traversal?  Also, post-order?  Your explanation can be in English prose -- you do not have to use the formal notation shown above.\solution{    % your solution here}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\end{document}
