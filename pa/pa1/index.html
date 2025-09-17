@@ -48,7 +48,7 @@
 <p><img src="pa1.dot.svg" /></p>
 <p>If we run DFS on it, starting at A, we get the following result. In the graph below, double edges are tree edges, dotted are forward edges, dashed are back edges, and bold edges are cross edges. Regular edges (the one from G to H) were not encountered in the DFS, which started at node A. Recall that when in a given node, we always process the outgoing edges alphabetically.</p>
 <p><img src="pa1.dot.2.svg" /></p>
-<p>Assume that the pathogen load for each type of contact is <span class="math inline">(10,5,3,4)</span> – this means 10 for an incoming tree edge, 5 for an incoming forward edge, 3 for an incoming back edge, and 4 for an incoming cross edge. The various nodes would have the following pathogen load:</p>
+<p>Assume that the pathogen load for each type of contact is <span class="math inline">(10, 5, 3, 4)</span> – this means 10 for an incoming tree edge, 5 for an incoming forward edge, 3 for an incoming back edge, and 4 for an incoming cross edge. The various nodes would have the following pathogen load:</p>
 <ul>
 <li>Node A: 0 (no incoming edges)</li>
 <li>Node B: 10 (one incoming tree edge)</li>
@@ -69,7 +69,7 @@
 <ul>
 <li>NOTE: the value for <span class="math inline"><em>e</em></span> can exceed the maximum size of a typical <code>int</code>, so use a <code>long</code> (if appropriate for your programming language).</li>
 </ul></li>
-<li>The next line will contain all of the edges in the graph. Each edge will contain a space separated pair of node names. Each pair will also be separated by a space. Thus, there will be <span class="math inline">2<em>v</em></span> strings on this line.
+<li>The next line will contain all of the edges in the graph. Each edge will contain a space separated pair of node names. Each pair will also be separated by a space. Thus, there will be <span class="math inline">2<em>e</em></span> strings on this line.
 <ul>
 <li>All node names are alpha-numeric strings of length <span class="math inline">1 ≤ <em>l</em> ≤ 32</span>.</li>
 </ul></li>
@@ -110,7 +110,7 @@ A H</code></pre>
 <li>Some of the values above will require a <code>long</code> type for some programming languages (C, C++, Java, etc.). Other languages (Python) will not need to worry about this.</li>
 <li>You need to implement DFS yourself – you cannot use a library function for DFS.</li>
 <li>We will never provide you with invalid input, so you do not need to error check the input values provided.</li>
-<li>Although you are not graded on the speed of your program’s execution, it has to run in the expected DFS running time of <span class="math inline"><em>Θ</em>(<em>V</em>+<em>E</em>)</span>, else it will time out with some of the larger test cases.</li>
+<li>Although you are not graded on the speed of your program’s execution, it has to run in the expected DFS running time of <span class="math inline"><em>Θ</em>(<em>V</em> + <em>E</em>)</span>, else it will time out with some of the larger test cases.</li>
 <li>The values for each contact given (10, 5, 3, and 4) are not the ones used in the grading tests, so be sure to use the values provided by the input, and do not hard code the 10/5/3/4 values.</li>
 </ul>
 <h3 id="submission">Submission</h3>

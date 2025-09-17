@@ -59,7 +59,7 @@ Each test case will have exactly four lines:
 - The first line will list the values for the pathogen load for each type of incoming edge, in the order: tree, forward, back, cross.  These values will be positive integers $1 \le w_t,w_f,w_b,w_c \le 10^6$.
 - The second line will list the number of vertices $2 \le v \le 10^9$, and the number of edges $1 \le e \le 10^{15}$.  
 	- NOTE: the value for $e$ can exceed the maximum size of a typical `int`, so use a `long` (if appropriate for your programming language).
-- The next line will contain all of the edges in the graph.  Each edge will contain a space separated pair of node names.  Each pair will also be separated by a space.  Thus, there will be $2v$ strings on this line.
+- The next line will contain all of the edges in the graph.  Each edge will contain a space separated pair of node names.  Each pair will also be separated by a space.  Thus, there will be $2e$ strings on this line.
 	- All node names are alpha-numeric strings of length $1 \le l \le 32$.
 - The last line will contain two nodes: the first, $s$, is the start node (aka patient zero), and the second is the node for which the pathogen load will be output.
 
