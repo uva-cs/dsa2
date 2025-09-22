@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>PA2.java</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// PA2.java skeleton code</font></i>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>util<font color="#990000">.*;</font>
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>io<font color="#990000">.*;</font>
+
+<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">PA2</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">// object for each usage period</font></i>
+    <b><font color="#0000FF">static</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">Period</font> <font color="#FF0000">{</font>
+        <font color="#009900">int</font> left<font color="#990000">,</font> right<font color="#990000">,</font> height<font color="#990000">;</font>
+        <font color="#008080">String</font> deviceName<font color="#990000">;</font>
+
+        <b><font color="#000000">Period</font></b><font color="#990000">(</font><font color="#008080">String</font> deviceName<font color="#990000">,</font> <font color="#009900">int</font> left<font color="#990000">,</font> <font color="#009900">int</font> right<font color="#990000">,</font> <font color="#009900">int</font> height<font color="#990000">)</font> <font color="#FF0000">{</font>
+            <b><font color="#0000FF">this</font></b><font color="#990000">.</font>deviceName <font color="#990000">=</font> deviceName<font color="#990000">;</font>
+            <b><font color="#0000FF">this</font></b><font color="#990000">.</font>left <font color="#990000">=</font> left<font color="#990000">;</font>
+            <b><font color="#0000FF">this</font></b><font color="#990000">.</font>right <font color="#990000">=</font> right<font color="#990000">;</font>
+            <b><font color="#0000FF">this</font></b><font color="#990000">.</font>height <font color="#990000">=</font> height<font color="#990000">;</font>
+        <font color="#FF0000">}</font>
+
+        <b><font color="#0000FF">public</font></b> <font color="#008080">String</font> <b><font color="#000000">toString</font></b><font color="#990000">()</font><font color="#FF0000">{</font>
+            <b><font color="#0000FF">return</font></b> <font color="#990000">(</font>deviceName <font color="#990000">+</font> <font color="#FF0000">" "</font> <font color="#990000">+</font> left <font color="#990000">+</font> <font color="#FF0000">" "</font> <font color="#990000">+</font> right <font color="#990000">+</font> <font color="#FF0000">" "</font> <font color="#990000">+</font> height<font color="#990000">);</font>
+        <font color="#FF0000">}</font>
+    <font color="#FF0000">}</font>
+
+    <b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">main</font></b><font color="#990000">(</font>String<font color="#990000">[]</font> args<font color="#990000">)</font> <b><font color="#0000FF">throws</font></b> IOException <font color="#FF0000">{</font>
+        <font color="#008080">Scanner</font> scanner <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Scanner</font></b><font color="#990000">(</font>System<font color="#990000">.</font>in<font color="#990000">);</font>
+        <font color="#008080">List&lt;String&gt;</font> names <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;&gt;();</font>
+        <font color="#008080">List&lt;Period&gt;</font> periods <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;&gt;();</font>
+
+        <i><font color="#9A1900">//Read in d and c</font></i>
+        <font color="#009900">int</font> d <font color="#990000">=</font> scanner<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+        <font color="#009900">int</font> u <font color="#990000">=</font> scanner<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+        scanner<font color="#990000">.</font><b><font color="#000000">nextLine</font></b><font color="#990000">();</font>
+
+        <i><font color="#9A1900">/* Read in the names */</font></i>
+        <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#009900">int</font> i<font color="#990000">=</font><font color="#993399">0</font><font color="#990000">;</font> i<font color="#990000">&lt;</font>d<font color="#990000">;</font> i<font color="#990000">++)</font><font color="#FF0000">{</font>
+            names<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font>scanner<font color="#990000">.</font><b><font color="#000000">nextLine</font></b><font color="#990000">());</font>
+        <font color="#FF0000">}</font>
+
+        <i><font color="#9A1900">// Read input</font></i>
+        <b><font color="#0000FF">while</font></b> <font color="#990000">(</font>scanner<font color="#990000">.</font><b><font color="#000000">hasNextLine</font></b><font color="#990000">())</font> <font color="#FF0000">{</font>
+            <font color="#008080">String</font> line <font color="#990000">=</font> scanner<font color="#990000">.</font><b><font color="#000000">nextLine</font></b><font color="#990000">().</font><b><font color="#000000">trim</font></b><font color="#990000">();</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>line<font color="#990000">.</font><b><font color="#000000">isEmpty</font></b><font color="#990000">())</font> <b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
+
+            String<font color="#990000">[]</font> parts <font color="#990000">=</font> line<font color="#990000">.</font><b><font color="#000000">split</font></b><font color="#990000">(</font><font color="#FF0000">"</font><font color="#CC33CC">\\</font><font color="#FF0000">s+"</font><font color="#990000">);</font>
+            <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>parts<font color="#990000">.</font>length <font color="#990000">!=</font> <font color="#993399">4</font><font color="#990000">)</font> <b><font color="#0000FF">continue</font></b><font color="#990000">;</font>
+
+            <font color="#008080">String</font> name <font color="#990000">=</font> parts<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">];</font>
+            <font color="#009900">int</font> left <font color="#990000">=</font> Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>parts<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]);</font>
+            <font color="#009900">int</font> right <font color="#990000">=</font> Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>parts<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]);</font>
+            <font color="#009900">int</font> height <font color="#990000">=</font> Integer<font color="#990000">.</font><b><font color="#000000">parseInt</font></b><font color="#990000">(</font>parts<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">]);</font>
+
+            periods<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font><b><font color="#0000FF">new</font></b> <b><font color="#000000">Period</font></b><font color="#990000">(</font>name<font color="#990000">,</font> left<font color="#990000">,</font> right<font color="#990000">,</font> height<font color="#990000">));</font>
+        <font color="#FF0000">}</font>
+
+
+        <i><font color="#9A1900">/* SOLUTION (AT LEAST PART OF IT) GOES HERE */</font></i>
+
+
+        <i><font color="#9A1900">/* Print input back to you. Make sure to delete this */</font></i>
+        System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>d <font color="#990000">+</font> <font color="#FF0000">" "</font> <font color="#990000">+</font> u<font color="#990000">);</font>
+        <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#008080">String</font> name <font color="#990000">:</font> names<font color="#990000">)</font> System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>name<font color="#990000">);</font>
+        <b><font color="#0000FF">for</font></b><font color="#990000">(</font><font color="#008080">Period</font> period <font color="#990000">:</font> periods<font color="#990000">)</font> System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font>period<font color="#990000">);</font>
+
+
+    <font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

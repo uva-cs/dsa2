@@ -1,0 +1,19 @@
+<!-- Generator: GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><i><font color="#9A1900"># PA2 Skeleton Code</font></i>
+<i><font color="#9A1900"># DSA2, fall 2025</font></i>
+
+<i><font color="#9A1900"># This code will read in the input, and put the values into data structures.</font></i>
+<i><font color="#9A1900"># This skeleton code only reads in the input.</font></i>
+
+devices <font color="#990000">=</font> <font color="#990000">{}</font>
+<font color="#990000">[</font>num_devices<font color="#990000">,</font>num_usages<font color="#990000">]</font> <font color="#990000">=</font> <font color="#990000">[</font><b><font color="#000000">int</font></b><font color="#990000">(</font>x<font color="#990000">)</font> <b><font color="#0000FF">for</font></b> x <b><font color="#0000FF">in</font></b> <b><font color="#000000">input</font></b><font color="#990000">().</font><b><font color="#000000">split</font></b><font color="#990000">(</font><font color="#FF0000">" "</font><font color="#990000">)]</font>
+<b><font color="#0000FF">for</font></b> _ <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font>num_devices<font color="#990000">):</font>
+	devices<font color="#990000">[</font><b><font color="#000000">input</font></b><font color="#990000">().</font><b><font color="#000000">strip</font></b><font color="#990000">()]</font> <font color="#990000">=</font> <font color="#990000">[]</font>
+<b><font color="#0000FF">for</font></b> _ <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font>num_usages<font color="#990000">):</font>
+	<font color="#990000">[</font>device_name<font color="#990000">,</font>start_time<font color="#990000">,</font>finish_time<font color="#990000">,</font>usage_load<font color="#990000">]</font> <font color="#990000">=</font> <b><font color="#000000">input</font></b><font color="#990000">().</font><b><font color="#000000">split</font></b><font color="#990000">(</font><font color="#FF0000">" "</font><font color="#990000">)</font>
+	devices<font color="#990000">[</font>device_name<font color="#990000">].</font><b><font color="#000000">append</font></b><font color="#990000">(</font> <font color="#990000">(</font><b><font color="#000000">int</font></b><font color="#990000">(</font>start_time<font color="#990000">),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>finish_time<font color="#990000">),</font><b><font color="#000000">int</font></b><font color="#990000">(</font>usage_load<font color="#990000">))</font> <font color="#990000">)</font>
+<b><font color="#0000FF">print</font></b><font color="#990000">(</font>devices<font color="#990000">)</font> <i><font color="#9A1900"># REMOVE THIS LINE when submitting, as it will cause output checking problems otherwise</font></i>
+</tt></pre>

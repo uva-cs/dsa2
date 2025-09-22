@@ -20,6 +20,7 @@ Repository Contents
 	- [Daily announcement slides](slides/announcements.html#/)
 - Programming assignments: 
   - [PA 1: Monday-itis Contact Tracing](pa/pa1/index.html) ([md](pa/pa1/index.md))
+  - [PA 2: Server Load](pa/pa2/index.html) ([md](pa/pa2/index.md))
 - [Old course content](old.html) from previous semesters
 
 License

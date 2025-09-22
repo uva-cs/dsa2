@@ -1,3 +1,4 @@
+*.class
 *.aux
 *.log
 *.out
