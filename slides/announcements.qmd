@@ -3,6 +3,36 @@ title: "Announcements, Fall 2025"
 ---
 
 
+# Pillow Talk
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/pillow_talk.jpg){title="Maybe I should&#39;ve tried Wexler?" style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 69](https://xkcd.com/69)
+:::
+
+::: {.announcements}
+## Lecture 8: Tuesday, September 23rd
+
+- Assignments:
+	- PS3 is out, and due tomorrow (Wed, Sep 24)
+	- PS4 will be out on Thursday
+		- Gradescope submissions open up 72 hours before the due date
+	- PA1 was due last week -- how was it?
+	    - Note that acceptance tests are not the same as the grading tests!
+	    - You cannot use GenAI for the code you write (but can use it as a reference for, say, how to call a given function)
+    - PA2, due next Friday (Sep 29), is out
+      - Gradescope will open in a day or two
+- Course textbook link is on the Canvas landing page
+- Office hours have started, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442
+		- TA pictures linked to from the Canvas landing page
+- Today we will continue with divide & conquer
+:::
+
+
 # Linear Sort
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/linear_sort.png){title="The best case is O(n), and the worst case is that someone checks why." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/linear_sort_2x.png 2x" }
@@ -12,7 +42,7 @@ title: "Announcements, Fall 2025"
 :::
 
 ::: {.announcements}
-## Lecture 8: Tuesday, September 18th
+## Lecture 8: Thursday, September 18th
 
 - Assignments:
 	- PS2 was due yesterday by 11:59 pm; how did it go?
