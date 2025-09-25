@@ -3,6 +3,35 @@ title: "Announcements, Fall 2025"
 ---
 
 
+# Flow Charts
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/flow_charts.png){title="At 8 drinks, you switch the torrent from FreeBSD to Microsoft Bob.  C&#39;mon, it&#39;ll be fun!" style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 518](https://xkcd.com/518)
+:::
+
+
+::: {.announcements}
+## Lecture 10: Thursday, September 25th
+
+- Assignments:
+	- PS4 will be out today
+		- Gradescope submissions open up 72 hours before the due date
+    - PA2, due next Friday (Sep 29), is out
+      - Gradescope submission is open
+- Course textbook link is on the Canvas landing page
+- Office hours have started, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442
+		- TA pictures linked to from the Canvas landing page
+- Midterm 1 (aka quizzes 1 & 2) is the week after next, on Thursday
+- Today we will continue with divide & conquer
+:::
+
+
+
 # Pillow Talk
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/pillow_talk.jpg){title="Maybe I should&#39;ve tried Wexler?" style='border:10px solid white'  }
@@ -12,7 +41,7 @@ title: "Announcements, Fall 2025"
 :::
 
 ::: {.announcements}
-## Lecture 8: Tuesday, September 23rd
+## Lecture 9: Tuesday, September 23rd
 
 - Assignments:
 	- PS3 is out, and due tomorrow (Wed, Sep 24)
