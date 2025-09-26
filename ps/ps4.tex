@@ -1,0 +1,109 @@
+%---------change this every homework
+\def\yourid{mst3k}  % substitute your userED
+\def\collabs{collaborators} % substitute your collaborators
+\def\sources{sources} % substitute your sources
+% -----------------------------------------------------
+\def\duedate{October 1, 2025 at 11:59p}
+\def\pnumber{4}
+%-------------------------------------
+
+\documentclass[10pt]{article}
+%\documentclass[tikz,border=10pt]{standalone}
+\usepackage{dsa2}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{listings}
+
+\usepackage{xcolor}
+
+\begin{document}
+\thispagestyle{empty}
+\handout
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem} Master Theorem \end{problem}
+
+Use the master theorem to solve the following recurrence relations. State which case of the theorem you are using and why.
+
+\begin{enumerate}
+
+  \item $T(n)=2T(\frac{n}{4})+1$
+
+\solution{
+  % put your solution here
+}
+
+
+  \item $T(n)=2T(\frac{n}{4})+\sqrt{n}$
+
+\solution{
+  % put your solution here
+}
+
+
+  \item $T(n)=2T(\frac{n}{4})+n$
+
+\solution{
+  % put your solution here
+}
+
+
+  \item $T(n)=2T(\frac{n}{4})+n^2$
+
+\solution{
+  % put your solution here
+}
+
+
+\end{enumerate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Median Salaries \end{problem}
+
+You are interested in finding the median salary in \emph{Polarized County}. The county has two towns, \emph{Happyville} and \emph{Sadtown}. Each town mantains a database of all of the salaries for that particular town, but there is no central database.\\
+\\
+Each town has given you the ability to access their particular data by executing \emph{queries}. For each query, you provide a particular database with a value $k$ such that $1 \leq k \leq n$, and the database returns to you the $k^{th}$ smallest salary in that town.
+\\
+You may assume the following:
+
+\begin{itemize}
+\item Each town has exactly $n$ residents (so $2n$ total residents across both towns)
+\item Every salary is unique (i.e., no two residents, regardless of town, have the same salary) 
+\item We define the \emph{median} as the $n^{th}$ highest salary across both towns
+\end{itemize}
+
+Design an algorithm that finds the median salary across both towns in $\Theta(log(n))$ total queries.
+
+\solution{
+ % put your solution here
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Password Sharing \end{problem}
+
+\emph{Netflix} is worried about account sharing and comes to you with $n$ total login instances. \emph{Netflix} also provides you with the means only to compare the login info of two of the items in the list. By this, we mean that you can select any two logins from the list and pass them into a \emph{login analyzer} which tells you, in constant time, if the logins were produced from the same account. However, you DO NOT have access to the account data itself (account numbers, etc.). Netflix does not want to share that private information with you directly.\\
+\\
+You are asked to find out if there exists a set of at least $\frac{n}{2}$ logins that were from the same account. Design an algorithm that solves this problem in $\Theta(nlog(n))$ total invocations of the \emph{login analyzer}.
+
+
+\solution{
+  % put your solution here
+}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\end{document}
