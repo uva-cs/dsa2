@@ -3,6 +3,40 @@ title: "Announcements, Fall 2025"
 ---
 
 
+# Coordinate Plane Closure
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/coordinate_plane_closure.png){title="3D graphs that don&#39;t contact the plane in the closure area may proceed as scheduled, but be alert for possible collisions with 2D graph lines that reach the hole and unexpectedly enter 3D space." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/coordinate_plane_closure_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2735](https://xkcd.com/2735)
+:::
+
+
+
+::: {.announcements}
+## Lecture 11: Tuesday, September 30th
+
+- Assignments:
+	- PS4 is due tomorrow, Wednesday, October 1st
+    - PA2, due this Friday (Oct 3), is out; Gradescope submission is open
+- Course textbook link is on the Canvas landing page
+- Office hours have started, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442
+		- TA pictures linked to from the Canvas landing page
+- Grading: most things are graded (PS0, PS1, PS2, PA1), but we are working to ensure that the extensions and late penalties are computed properly before returning them.  Expect them all this week.
+- Midterm 1 (aka quizzes 1 & 2) next week on Thursday
+	- Solutions to most/all problem sets will be made available
+	- PS4 solutions may not because of the late due date
+	- Old quizzes are in Canvas' Files
+- Today we will continue with divide & conquer
+:::
+
+
+
+
+
 # Flow Charts
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/flow_charts.png){title="At 8 drinks, you switch the torrent from FreeBSD to Microsoft Bob.  C&#39;mon, it&#39;ll be fun!" style='border:10px solid white'  }
@@ -17,7 +51,7 @@ title: "Announcements, Fall 2025"
 
 - Assignments:
 	- PS4 will be out today
-    - PA2, due next Friday (Sep 29), is out; Gradescope submission is open
+    - PA2, due next Friday (Oct 3), is out; Gradescope submission is open
 - Course textbook link is on the Canvas landing page
 - Office hours have started, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
 	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402

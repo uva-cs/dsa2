@@ -10,14 +10,14 @@ title: "DSA2: Syllabus, fall 2025"
 
 Please use our course email for the fastest response time with the course staff.  This email is monitored by our TAs and professors in a help-desk ticketing system and will allow us to more quickly resolve any issues.
 
-#### Instructors
+### Instructors
 
 - Mark Floryan (mrf8t_at_virginia.edu).  Office: Rice 203.  Office hours: listed on the Canvas landing page.  Lecture: Tu/Th 11:00-12:15 in Warner 209.
 - Aaron Bloomfield (aaron_at_virginia.edu).  Office: Rice 402.  Office hours: listed on the Canvas landing page.  Lecture: Tu/Th 9:30-10:45 in Wilson 402.
 
 The best way to get in touch with an instructor is to use the course email address.  We are very slow at responding to our personal emails, and all course-related content should go to the one above.
 
-#### Teaching Assistants
+### Teaching Assistants
 
 Our teaching assistants -- their pictures, bios, and office hours -- are shown on the Canvas landing page.
 
@@ -54,7 +54,7 @@ Normal lectures will be recorded, though the instructors reserve the right to di
 
 **LaTeX Warm-up:** PS0 will be designed to help learn how to use the LaTeX typesetting system.
 
-**Textbook and Readings:** We will assign readings from the "CLRS" textbook:  Introduction to Algorithms, by Cormen, Leiserson, Rivest and Stein, 4th Edition. (3rd edition is OK, but is missing some new material.) The book is available for free for UVA users in an online format through the UVA Library at [this link](https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615).  There may be additional readings from online sources.
+**Textbook and Readings:** We will assign readings from the "CLRS" textbook:  Introduction to Algorithms, by Cormen, Leiserson, Rivest and Stein, 4th Edition. (3rd edition is OK, but is missing some new material.) The book is available for free for UVA users in an online format [through the UVA Library](https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615).  There may be additional readings from online sources.
 
 
 ### Coding
@@ -245,7 +245,7 @@ Please do not wait until the end of the semester to ask for help!
 
 At UVA, you have many resources available to you when you experience academic or personal stress, and we understand that it's hard to know where to go, especially for CS students as our undergraduates span both the College of Arts and Sciences (BACS) and SEAS (BSCS). 
 
- In addition to your professor, the Computer Science department has staff members located in Rice Hall who you can contact to help talk through your academic or personal challenges and get you connected to the right resources. You may reach out directly to either SJ Jimenez-Calhoun ([smj4z@virginia.edu](mailto:smj4z@virginia.edu)) or Sheri Grimes ([prk2zq@virginia.edu](mailto:prk2zq@virginia.edu)), or visit during walk-in advising hours posted here: [https://uvacsadvising.org/](https://uvacsadvising.org/).
+ In addition to your professor, the Computer Science department has staff members located in Rice Hall who you can contact to help talk through your academic or personal challenges and get you connected to the right resources. You may reach out directly to either SJ Jimenez-Calhoun ([smj4z@virginia.edu](mailto:smj4z@virginia.edu)) or Sheri Grimes ([prk2zq@virginia.edu](mailto:prk2zq@virginia.edu)), or visit during walk-in advising hours shown on the [online UVA CS Advising Guide](https://uvacsadvising.org/).
 
 
 #### Academic Support
@@ -256,7 +256,7 @@ At UVA, you have many resources available to you when you experience academic or
 
 #### Mental Health
 
-- You may schedule time with the CAPS counselors at [this link](https://sites.studenthealth.virginia.edu/mental-health/getting-started-scheduling).
+- You may schedule time with the CAPS counselors at [CAPS scheduling page](https://sites.studenthealth.virginia.edu/mental-health/getting-started-scheduling).
 - If you need immediate assistance, call (434) 243-5150 to speak with an on-call clinician. 
  Accommodations
 - [Learn about the process of applying for Student Disability Access Center (SDAC)](https://disabilityservices.studenthealth.virginia.edu/application-process) services, completing an online application, submitting documentation, undergoing a review, and attending an appointment to establish accommodations
