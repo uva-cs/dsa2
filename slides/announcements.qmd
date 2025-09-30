@@ -16,21 +16,33 @@ title: "Announcements, Fall 2025"
 ::: {.announcements}
 ## Lecture 11: Tuesday, September 30th
 
+<div style="font-size:70%">
+
 - Assignments:
-	- PS4 is due tomorrow, Wednesday, October 1st
-    - PA2, due this Friday (Oct 3), is out; Gradescope submission is open
+	- PS4 is due tomorrow (Wednesday, October 1st)
+    - PA2, due this Friday (October 3rd), is out; Gradescope submission is open
+    - No assignments due next week because of the midterm
 - Course textbook link is on the Canvas landing page
-- Office hours have started, all listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744)
+- Office hours are listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744), and are:
 	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
 	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
 	- TA office hours are 5-9, Monday through Thursday, in Rice 442
 		- TA pictures linked to from the Canvas landing page
 - Grading: most things are graded (PS0, PS1, PS2, PA1), but we are working to ensure that the extensions and late penalties are computed properly before returning them.  Expect them all this week.
-- Midterm 1 (aka quizzes 1 & 2) next week on Thursday
-	- Solutions to most/all problem sets will be made available
-	- PS4 solutions may not because of the late due date
+	- Gradescope will hold the grades, as will Canvas' gradebook
+	- HOWEVER, Canvas' gradebook does not always sync immediately with Gradescope
+- Regrades:
+  - PSs and quizzes: once it is returned and announced, there is a 1 week window to submit a regrade through Gradescope
+  - PAs: because it is auto-graded, there will be a Piazza thread for each PA to work through grading concerns
+- Midterm 1 (aka quizzes 1 & 2) are Thursday of next week (Oct 9th)
 	- Old quizzes are in Canvas' Files
+	- Solutions to PS1 and PS2 are now in Canvas' files
+	- Solutions to PS3 can be released on Thursday
+	- Solutions to PS4 will not be released before the exam because they can be turned in up until the day before
 - Today we will continue with divide & conquer
+
+</div>
+
 :::
 
 
