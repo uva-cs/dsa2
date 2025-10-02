@@ -3,6 +3,52 @@ title: "Announcements, Fall 2025"
 ---
 
 
+# Here to Help
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/here_to_help.png){title="&quot;We TOLD you it was hard.&quot; &quot;Yeah, but now that I&#39;VE tried, we KNOW it&#39;s hard.&quot;" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/here_to_help_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1831](https://xkcd.com/1831)
+:::
+
+
+
+::: {.announcements}
+## Lecture 12: Thursday, October 2nd
+
+<div style="font-size:70%">
+
+- Assignments:
+	- PS4 was due yesterday -- how did it go?
+	- PA2 is due tomorrow (Friday, October 3rd); Gradescope submission is open
+	- No assignments due next week because of the midterm
+- Course textbook link is on the Canvas landing page
+- Office hours are listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744), and are:
+	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442
+		- TA pictures linked to from the Canvas landing page
+- Grading: PS0, PS1, and PS2 returned, as was PA1
+	- Gradescope will hold the grades, including any late penalties, as will Canvas' gradebook
+	- HOWEVER, Canvas' gradebook does not always sync immediately with Gradescope
+- Regrades:
+  - PSs and quizzes: once it is returned and announced, there is a 1 week window to submit a regrade through Gradescope
+  - PAs: because it is auto-graded, there will be a Piazza thread for each PA to work through grading concerns
+- Midterm 1 (aka quizzes 1 & 2) is/are Thursday of next week (Oct 9th)
+	- Old quizzes are in Canvas' Files
+	- Solutions to PS1 and PS2 are now in Canvas' files
+	- Solutions to PS3 can be released today
+	- Solutions to PS4 will be released next Wednesday (most likely)
+- Today we will continue, and possibly finish, with divide & conquer
+
+</div>
+
+:::
+
+
+
+
+
 # Coordinate Plane Closure
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/coordinate_plane_closure.png){title="3D graphs that don&#39;t contact the plane in the closure area may proceed as scheduled, but be alert for possible collisions with 2D graph lines that reach the hole and unexpectedly enter 3D space." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/coordinate_plane_closure_2x.png 2x" }
@@ -20,8 +66,8 @@ title: "Announcements, Fall 2025"
 
 - Assignments:
 	- PS4 is due tomorrow (Wednesday, October 1st)
-    - PA2, due this Friday (October 3rd), is out; Gradescope submission is open
-    - No assignments due next week because of the midterm
+	- PA2, due this Friday (October 3rd), is out; Gradescope submission is open
+	- No assignments due next week because of the midterm
 - Course textbook link is on the Canvas landing page
 - Office hours are listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744), and are:
 	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
