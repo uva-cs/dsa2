@@ -3,6 +3,50 @@ title: "Announcements, Fall 2025"
 ---
 
 
+
+# Good Code
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/good_code.png){title="You can either hang out in the Android Loop or the HURD loop." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 844](https://xkcd.com/844)
+:::
+
+
+::: {.announcements}
+## Lecture 13: Tuesday, October 7th
+
+<div style="font-size:70%">
+
+- Office hours are listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744), and are:
+	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442
+		- TA pictures linked to from the Canvas landing page
+	- No OH Thursday (exam grading), nor Monday (fall break); some OH will be held next Tuesday (details TBA)
+- Midterm 1 (aka quizzes 1 & 2) is/are Thursday of next week (Oct 9th)
+	- Old quizzes are in Canvas' Files
+	- Solutions to PS1 and PS2 are now in Canvas' files
+	- Solutions to PS3 can be released today
+	- Solutions to PS4 will be released next Wednesday (most likely)
+- Assignments:
+	- PS5 will be out Thursday, due next week
+	- PA3 should be out early next week, due two weeks from this Friday
+- Course textbook link is on the Canvas landing page
+- Grading: PS0, PS1, and PS2 returned, as was PA1
+	- Gradescope will hold the grades, including any late penalties, as will Canvas' gradebook
+	- HOWEVER, Canvas' gradebook does not always sync immediately with Gradescope
+- Regrades:
+  - PSs and quizzes: once it is returned and announced, there is a 1 week window to submit a regrade through Gradescope
+  - PAs: because it is auto-graded, there will be a Piazza thread for each PA to work through grading concerns
+- Today we will start on greedy algorithms
+
+</div>
+
+:::
+
+
+
 # Here to Help
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/here_to_help.png){title="&quot;We TOLD you it was hard.&quot; &quot;Yeah, but now that I&#39;VE tried, we KNOW it&#39;s hard.&quot;" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/here_to_help_2x.png 2x" }
