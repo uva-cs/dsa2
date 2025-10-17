@@ -1,0 +1,97 @@
+%---------change this every homework
+\def\yourid{mst3k}  % substitute your userED
+\def\collabs{collaborators} % substitute your collaborators
+\def\sources{sources} % substitute your sources
+% -----------------------------------------------------
+\def\duedate{October 22, 2025 at 11:59p}
+\def\pnumber{5}
+%-------------------------------------
+
+\documentclass[10pt]{article}
+%\documentclass[tikz,border=10pt]{standalone}
+\usepackage{dsa2}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{listings}
+
+\usepackage{xcolor}
+
+\begin{document}
+\thispagestyle{empty}
+\handout
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Prim's MST Algorithm \end{problem}
+
+Consider Prim's algorithm for finding a minimal spanning tree for a graph $G=(V,E)$; Prim's is the one that works much like Dijkstra's.  Although we learned it in the graphs section, it is a greedy algorithm.  For this problem, assume the graph is connected and undirected.
+
+\begin{enumerate}
+
+\item State the greedy choice made at each step of the algorithm.
+
+\solution{
+  % Your solution here
+
+}
+
+\item Prove that Prim's algorithm has {\em optimal substructure}.  Hint: this is a proof by contradiction, using an exchange argument (the proof of the greedy choice for interval scheduling used an exchange argument of $i_1$ and $o_1$).
+
+\solution{
+  % Your solution here
+
+}
+
+\item Prove that Prim's algorithm's greedy choice produces an optimal solution.  Hint: this is a proof by induction, and uses a proof by contradiction to show the inductive step.
+
+\solution{
+  % Your solution here
+
+}
+
+\end{enumerate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Matrix Maximization \end{problem}
+
+You have a matrix $M$, of size $r \times c$, of integers (positive, negative, or zero).  The goal is to make the total sum of the matrix values as high as possible. However, your only operation is multiplying {\em all} the elements of an entire row by -1, or multiplying {\em all} the elements of an entire entire column by -1. 
+
+\begin{enumerate}
+
+\item Describe a greedy algorithm that makes the total sum as high as possible and argue briefly why it works.
+
+\solution{
+  % Your solution here
+
+}
+
+\item What is the runtime of your algorithm?  Why?
+
+\solution{
+  % Your solution here
+
+}
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Weighted Interval Scheduling \end{problem}
+
+
+In class we saw the interval scheduling problem, where the goal is to select as many intervals as possible.  Consider the {\em weighted} version: each interval has a weight (or reward, profit, etc.).  Given a series of intervals with weights, the goal in this version of the problem is to find the maximum profit (sum of the selected intervals' weights) from the intervals provided.  As with the unweighted version, you cannot have two intervals that overlap in the solution.
+
+
+Show that the greedy algorithm for the unweighted version presented in class -- choosing the next interval based on the earliest finish time -- is not optimal by providing a counter-example.
+
+\solution{
+  % Your solution here
+
+}
+
+
+\end{document}
