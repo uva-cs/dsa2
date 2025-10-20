@@ -30,7 +30,9 @@ Let's look at an example. Suppose the daycare has four rooms A, B, C, and D with
 
 ### Input description
 
-The input file contains several test cases, each in the following format: The input begins with a line containing one integer $n \ (1 \leq n \leq 106)$, which is the number of rooms in your daycare. Following this are $n$ lines, each describing a room as two integers $C_i$ and $N_i$, the capacity of each room currently and the capacity of that room after remodeling.
+The first line of the input will be the number of test cases in the file.  ***THIS IS AN UPDATE***
+
+Each test case begins with a line containing one integer $n \ (1 \leq n \leq 106)$, which is the number of rooms in your daycare. Following this are $n$ lines, each describing a room as two integers $C_i$ and $N_i$, the capacity of each room currently and the capacity of that room after remodeling.
 
 &nbsp;  
 
@@ -46,6 +48,7 @@ This input is available as [example.in](example.in).
 
 
 ```
+2
 4
 6 6
 1 7
