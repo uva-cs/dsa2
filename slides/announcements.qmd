@@ -3,6 +3,47 @@ title: "Announcements, Fall 2025"
 ---
 
 
+# AI Hiring Algorithm
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/ai_hiring_algorithm.png){title="So glad Kate over in R&amp;D pushed for using the AlgoMaxAnalyzer to look into this. Hiring her was a great decisio- waaaait." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/ai_hiring_algorithm_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2237](https://xkcd.com/2237)
+:::
+
+
+::: {.announcements}
+## Lecture 16: Tuesday, October 21st
+
+<div style="font-size:80%">
+
+- Office hours are listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744), and are:
+	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442; pics on the Canvas landing page
+- Midterm 1 (aka quizzes 1 & 2): grades were returned, regrades open for a week or so
+	- Quiz 1 avg was 58.6% (min score 1%, max score 100%), with a standard deviation of 19.6
+	- Quiz 2 avg was 55.6% (min score 9%, max score 100%), with a standard deviation of 18.8
+- Assignments:
+	- PS5 is out, due tomorrow
+	- PS6 will be out on Thursday
+	- [PA3](../pa/pa3/index.html) is out, due a week from Friday (Oct 31)
+- Course textbook link is on the Canvas landing page
+- Grading: PS0, PS1, and PS2 returned, as was PA1
+	- Gradescope will hold the grades, including any late penalties, as will Canvas' gradebook
+	- HOWEVER, Canvas' gradebook does not always sync immediately with Gradescope
+	- PA2 should be returned in a few days, PS4 in a week or so
+- Regrades:
+  - PSs and quizzes: once it is returned and announced, there is a 1 week window to submit a regrade through Gradescope
+  - PAs: because it is auto-graded, there will be a Piazza thread for each PA to work through grading concerns
+- Today we will continue with greedy algorithms
+
+</div>
+
+:::
+
+
+
 
 # Tech Support Cheat Sheet
 ::: {.stretch}
