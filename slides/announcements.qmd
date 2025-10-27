@@ -2,6 +2,47 @@
 title: "Announcements, Fall 2025"
 ---
 
+# Watson Medical Algorithm
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/watson_medical_algorithm.png){title="Due to a minor glitch, &#39;discharge patient&#39; does not cause the algorithm to exit, but instead leads back to &#39;hunt down and capture patient&#39;." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/watson_medical_algorithm_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1619](https://xkcd.com/1619)
+:::
+
+
+
+::: {.announcements}
+## Lecture 18: Tuesday, October 28th
+
+<div style="font-size:80%">
+
+- Office hours are listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744), and are:
+	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442; pics on the Canvas landing page
+- Midterm 1 (aka quizzes 1 & 2): grades were returned, regrades open for a week or so
+- Midterm 2 (aka quizzes 3&4) is 2.5 weeks from today (Thu, Nov 13)
+- No class next Tuesday (UVA classes cancelled for election day)
+- Assignments:
+	- PS6 (Greedy II) is due tomorrow
+	- PS7 (DP I) will be out this Thursday
+	- [PA3](../pa/pa3/index.html) (Greedy) is out, due this Friday (Oct 31)
+- Course textbook link is on the Canvas landing page
+- Grading: grades returned through PS4 and PA2
+	- Gradescope will hold the grades, including any late penalties, as will Canvas' gradebook
+	- HOWEVER, Canvas' gradebook does not always sync immediately with Gradescope
+- Regrades:
+  - PSs and quizzes: once it is returned and announced, there is a 1 week window to submit a regrade through Gradescope
+  - PAs: because it is auto-graded, there will be a Piazza thread for each PA to work through grading concerns
+- Today we will work through dynamic programming
+
+</div>
+
+:::
+
+
+
 
 # Recipes
 ::: {.stretch}
@@ -30,7 +71,8 @@ title: "Announcements, Fall 2025"
 	- PS6 will be out today
 	- [PA3](../pa/pa3/index.html) is out, due a week from Friday (Oct 31)
 - Course textbook link is on the Canvas landing page
-- Grading: PS4 just returned; PS3 and PA2 about to be returned
+- Grading: PS3 & PS4 just returned
+  - PA2 about to be returned (we're having trouble with a grading test case)
 	- Gradescope will hold the grades, including any late penalties, as will Canvas' gradebook
 	- HOWEVER, Canvas' gradebook does not always sync immediately with Gradescope
 - Regrades:
