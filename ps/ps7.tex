@@ -1,0 +1,194 @@
+%---------change this every homework
+\def\yourid{mst3k}  % substitute your userED
+\def\collabs{collaborators} % substitute your collaborators
+\def\sources{sources} % substitute your sources
+% -----------------------------------------------------
+\def\duedate{November 5, 2025 at 11:59p}
+\def\pnumber{7}
+%-------------------------------------
+
+\documentclass[10pt]{article}
+\usepackage{dsa2}
+\usepackage{listings}
+
+
+\begin{document}
+\thispagestyle{empty}
+\handout
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Easier DP \end{problem}
+
+Consider a Galton board (see one at \url{https://en.wikipedia.org/wiki/Galton_board)}.  If you are unfamiliar with a Galton board, read that article.  In that board, each grid spot has either a peg or is empty.
+
+The question is, how many possible paths are there in such a board from a given starting location to a given ending location?
+
+You are given a two-dimensional array $M$, of dimensions $w \times h$, which contains whether or not there is a peg.  For example, the Galton board shown in the Wikipedia article is of size $23 \times 10$, and would be represented as:
+
+$$M=
+\noindent\begin{tabular}{cccccccccccccccccccccccc}
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & {\bf 1} & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 \\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 \\
+1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 \\
+1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 \\
+1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\
+0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 \\
+1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\
+\end{tabular}
+$$
+
+We define the lower-left corner as $(0,0)$ (aka {\tt [0][0]}).  You are given a starting location $(s_x,s_y)$, which will be on the top row.  In this example, the starting location is $(11,9)$, since we are indexing from 0 -- the $1$ in this cell is bolded in the array above.  You are given an ending location $(e_x,e_y)$.  The ending location will always be in the bottom row, so $e_y=0$.
+
+Given such a setup, the algorithm is to determine how many possible paths there are from $(s_x,s_y)$ to $(e_x,e_y)$.
+
+For this problem, we will be following the four steps of developing a dynamic programming solution as presented in lecture.
+
+\begin{enumerate}
+
+  \item Step 1: {\em Recognize what the sub-problems are.}  Explain what the sub-problems are for this problem.  This can be in pseudo-code, as explained below, or as an English explanation.
+
+  \solution{
+    % your solution here, but lstlisting environments have to go AFTER the closing '}' of this block
+  }
+  
+
+  \item Step 2: {\em Identify the recursive structure of the problem in terms of its sub-problems (At the top level, what is the "last thing" done?).}  Show the recursive structure -- this is likely done by showing the recursive calls.  This can be in pseudo-code, as explained below, or as an English explanation.
+
+  \solution{
+    % your solution here, but lstlisting environments have to go AFTER the closing '}' of this block
+  }
+  
+
+
+  \item Step 3: {\em Formulate a data structure (array, table) that can look-up solution to any sub-problem in constant time.}  Explain the array size and what it holds.
+
+  \solution{
+    % your solution here, but lstlisting environments have to go AFTER the closing '}' of this block
+  }
+
+
+
+  \item Step 4a: {\em Develop an algorithm that loops through data structure solving each sub-problem one at a time.}  This should be a {\em\bf top-down (i.e., recursive)} algorithm.  
+
+  You should write it in Python-like pseudo-code -- an example of how to write pseudo-code in LaTeX is shown below.  Note that the {\tt lstlisting} environment cannot be inside the {\tt {\textbackslash}solution\{\}} block, and must be outside it.
+
+  \solution{
+    % your solution here, but lstlisting environments have to go AFTER the closing '}' of this block
+  }
+
+\begin{lstlisting}
+def fib(n):
+  # this is just a sample to show the lstlisting environment; 
+  # replace it with your pseudo-code
+  if n <= 1:
+    return 1
+  else
+    return fib(n-1) + fib(n-2)
+\end{lstlisting}
+
+
+
+  \item Step 4b: {\em Develop an algorithm that loops through data structure solving each sub-problem one at a time.}  This should be a {\em\bf bottom-up (i.e., iterative)} algorithm.  You should write it in pseudo-code.
+
+  \solution{
+    % your solution here, but lstlisting environments have to go AFTER the closing '}' of this block
+    }
+
+\begin{lstlisting}
+def fib(n):
+  # this is just a sample to show the lstlisting environment; 
+  # replace it with your pseudo-code
+  if n <= 1:
+    return 1
+  else
+    return fib(n-1) + fib(n-2)
+\end{lstlisting}
+
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Airplane loading \end{problem}
+
+When loading aircraft, one has to ensure that the weight on the left side of the plane is roughly the same as the weight on the right side of the aircraft.  This is true for both passengers and cargo.  Consider the problem of loading cargo pallets into an aircraft.  Each cargo pallet has a {\em weight}, which we will represent as a positive integer.  Your task is to see if the pallets can be split into two parts of equal weight -- one for the left side of the aircraft and one for the right side.  (For this problem, we will ignore the finite capacity of how many actual pallets can fit inside an airplane).
+
+Given a series of positive integer pallet weights ${w_1, w_2, \ldots, w_n}$, check if you can split them into two parts such that the weight of each is the same.
+
+As an example, pallets of weights ${5,10,2,1,2}$ can be split into two parts, both of weight $10$: ${1,2,2,5}$ and ${10}$.  Conversely, pallets of weights ${2,7,4}$ cannot be split into two parts of equal weight.
+
+For this problem, we will be following the four steps of developing a dynamic programming solution as presented in lecture.
+
+\begin{enumerate}
+
+  \item Step 1: {\em Recognize what the sub-problems are.}  Explain what the sub-problems are for this problem.  This can be in pseudo-code, as explained below, or as an English explanation.
+
+  \solution{
+    % your solution here, but lstlisting environments have to go AFTER the closing '}' of this block
+  }
+  
+
+  \item Step 2: {\em Identify the recursive structure of the problem in terms of its sub-problems (At the top level, what is the "last thing" done?).}  Show the recursive structure -- this is likely done by showing the recursive calls.  This can be in pseudo-code, as explained below, or as an English explanation.
+
+  \solution{
+    % your solution here, but lstlisting environments have to go AFTER the closing '}' of this block
+  }
+  
+
+
+  \item Step 3: {\em Formulate a data structure (array, table) that can look-up solution to any sub-problem in constant time.}  Explain the array size and what it holds.
+
+  \solution{
+    % your solution here, but lstlisting environments have to go AFTER the closing '}' of this block
+  }
+
+
+
+  \item Step 4a: {\em Develop an algorithm that loops through data structure solving each sub-problem one at a time.}  This should be a {\em\bf top-down (i.e., recursive)} algorithm.  
+
+  You should write it in Python-like pseudo-code -- an example of how to write pseudo-code in LaTeX is shown below.  Note that the {\tt lstlisting} environment cannot be inside the {\tt {\textbackslash}solution\{\}} block, and must be outside it.
+
+  \solution{
+    % your solution here, but lstlisting environments have to go AFTER the closing '}' of this block
+    }
+
+\begin{lstlisting}
+def fib(n):
+  # this is just a sample to show the lstlisting environment; 
+  # replace it with your pseudo-code
+  if n <= 1:
+    return 1
+  else
+    return fib(n-1) + fib(n-2)
+\end{lstlisting}
+
+
+
+  \item Step 4b: {\em Develop an algorithm that loops through data structure solving each sub-problem one at a time.}  This should be a {\em\bf bottom-up (i.e., iterative)} algorithm.  You should write it in pseudo-code.
+
+  \solution{
+    % your solution here, but lstlisting environments have to go AFTER the closing '}' of this block
+  }
+
+\begin{lstlisting}
+def fib(n):
+  # this is just a sample to show the lstlisting environment; 
+  # replace it with your pseudo-code
+  if n <= 1:
+    return 1
+  else
+    return fib(n-1) + fib(n-2)
+\end{lstlisting}
+
+\end{enumerate}
+
+
+
+
+\end{document}
