@@ -1,0 +1,62 @@
+%---------change this every homework
+\def\yourid{mst3k}  % substitute your userED
+\def\collabs{collaborators} % substitute your collaborators
+\def\sources{sources} % substitute your sources
+% -----------------------------------------------------
+\def\duedate{November 19, 2025 at 11:59p}
+\def\pnumber{8}
+%-------------------------------------
+
+\documentclass[10pt]{article}
+\usepackage{dsa2}
+
+
+\begin{document}
+\thispagestyle{empty}
+\handout
+
+
+{\noindent \color{red} For this problem set, you will be given two problems. For each, it can either be solved using a \textbf{Greedy Algorithm} or with \textbf{Dynamic Programming}. Read each problem and provide an algorithm for each. Part of the challenge this time around is that you do not know which problem should utilize which technique, so you should think carefully about which approach works best in each scenario.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Skiing (again!) \end{problem}
+
+You are going skiing this weekend and wish to ski once down every unique run the mountain has to offer. The mountain has $n$ runs given to you in a list called $R = \{r_1,r_2,...,r_n\}$ where each $r_i$ is a positive integer denoting the number of minutes it will take to ski that run and get back up the lift to the top of the mountain. You want to ski each run in the minimum number of days possible. Each day has $L$ minutes of skiing available. Obviously, you must fit each run into a single day (you can't split a run over two days) and because your favorite celebrity on TikTok recommended to, you wish to ski the runs in order.\\
+\\
+In addition to this, you have preferences regarding the amount of unused time at the end of each day. If, at the end of a day, you have $m$ minutes (e.g., only 10 mins) left in the day or less, than you are happy to stop skiing (you have a little time to get home, change, etc.). If, however, you have more than $m$ minutes left in the day and not enough time for another run, you'll feel like you wasted valuable time. We will model your time wasted dissatisfaction ($twd$) as follows:
+
+\begin{displaymath}
+twd(t) = \left\{
+    \begin{array}{lr}
+    0 & t=0\\
+    -C & 1 \leq t \leq m\\
+    (t-m)^2 & \text{otherwise}
+    \end{array}
+    \right.
+\end{displaymath}
+
+Where $C$ is some constant. Develop an algorithm that minimizes the number of days needed to ski. If multiple optimal schedules exist, then pick the one that minimizes the sum of the $twd(t)$ values for all days.
+
+\solution{
+    % your solution here
+}
+
+\vspace{0.25in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Word Layouts \end{problem}
+
+You are given an ordered list of $n$ words (some text), and you want to lay them out in a document (the layout) in such a way that the lines are visually pleasing (the length of each line is approximately the same). The length of the $i$th word is $w_i$, that is the $i$th word takes up $w_i$ spaces on its line. (For simplicity assume that there are is exactly one space betweeen each word.). The goal is to break this ordered list of words into lines, this is called a layout.\\
+\\
+You can not reorder the words. The length of a line is the sum of the lengths of the words (plus the one space in between each) on that line. The ideal line length is $L$. No line may be longer than $L$, although it may be shorter. The penalty for having a line of length $K < L$ is $L-K$. The total penalty of the layout is the \textbf{sum of all the line penalties}. Provide an algorithm that minimizes the the \textbf{sum of all the line penalties}.
+
+\solution{
+    % your solution here
+}
+
+
+
+\end{document}
