@@ -15,7 +15,7 @@ title: "Announcements, Fall 2025"
 ::: {.announcements}
 ## Lecture 23: Tuesday, November 18th
 
-<div style="font-size:80%">
+<div style="font-size:70%">
 
 - Office hours are listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744), and are:
 	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
@@ -30,6 +30,9 @@ title: "Announcements, Fall 2025"
 		- PS9 will be due two weeks from Wednesday (tomorrow)
 		- PA5 will be due two weeks from Friday
 - Course textbook link is on the Canvas landing page
+- Exams last week have been graded and returned; regrades open for about a week
+  - Quiz 3: average was 69.5, stdev was 19.3
+  - Quiz 4: average was 56.1, stdev was 19.1
 - Grading: grades returned through PS4 and PA2
 	- Gradescope will hold the grades, including any late penalties, as will Canvas' gradebook
 	- HOWEVER, Canvas' gradebook does not always sync immediately with Gradescope
