@@ -21,8 +21,8 @@ title: "Announcements, Fall 2025"
 	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
 	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
 	- TA office hours are 5-9, Monday through Thursday, in Rice 442; pics on the Canvas landing page
-- Office hours next week: TAs have it Mon 5-7 and Tue 5-7; none for Bloomfield; XXX for Floryan
-- Midterm 2 is graded and returned; we'll go over it today
+- Office hours next week: TAs have it Mon 5-7 and Tue 5-7; none for Bloomfield; none for Floryan
+- Yes, there will be lecture on Tuesday
 - Assignments:
 	- [PA4: Football Tickets](../pa/pa4/index.html) is out, due this Friday (Nov 21)
 	- PS8 is out, due yesterday -- how was it?
