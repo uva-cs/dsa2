@@ -1,0 +1,210 @@
+%---------change this every homework
+\def\yourid{solution}
+\def\collabs{list your collaborators}
+\def\sources{list your sources}
+% -----------------------------------------------------
+\def\duedate{December 3, 2025 at 11:59p}
+\def\pnumber{9}
+%-------------------------------------
+
+
+\documentclass[10pt]{article}
+\usepackage{dsa2}
+
+\usepackage{tikz-cd}
+
+\begin{document}
+\thispagestyle{empty}
+\handout
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Max Flow \end{problem}
+
+Given the following Flow Network $G$ and the beginning of the Residual Graph $G'$:
+
+\vskip 2em
+\begin{center}
+\resizebox{.45\textwidth}{!}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+  thick,main node/.style={circle,fill=gray!10,draw,
+  font=\sffamily\Large\bfseries,minimum size=10mm}]
+
+  \node[main node] (s) {s};
+  \node[main node] (a) [above right of=s] {a};
+  \node[main node] (b) [below right of=a] {b};
+  \node[main node] (c) [above right of=b] {c};
+  \node[main node] (t) [below right of=c] {t};
+  \node[main node] (f) [below right of=s] {f};
+  \node[main node] (e) [below right of=b] {e};
+
+  \path[every node/.style={
+        fill=white,inner sep=2pt}]
+
+    % Right-hand-side arrows rendered from top to bottom to
+    % achieve proper rendering of labels over arrows.
+    
+    (s) edge [] node[] {1/3} (a)
+        edge [] node[] {5/8} (f)
+    (a) edge [] node[] {1/2} (b)
+    (b) edge [] node[] {0/4} (c)
+        edge [] node[] {0/2} (f)
+        edge [] node[] {1/3} (e)
+    (c) edge [] node[] {4/4} (t)
+        edge [] node[] {0/3} (a)
+    (e) edge [] node[] {4/4} (c)
+        edge [] node[] {2/6} (t)
+    (f) edge [] node[] {5/6} (e);
+\end{tikzpicture}}\hfill
+\resizebox{.45\textwidth}{!}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+  thick,main node/.style={circle,fill=gray!10,draw,
+  font=\sffamily\Large\bfseries,minimum size=10mm}]
+
+  % These are the nodes.  Note that they are labelled 'a' to 'f' (and 's' and 't') 
+  % in LaTeX.  These labels are used when specifying the edges, below.
+
+  \node[main node] (s) {s};
+  \node[main node] (a) [above right of=s] {a};
+  \node[main node] (b) [below right of=a] {b};
+  \node[main node] (c) [above right of=b] {c};
+  \node[main node] (t) [below right of=c] {t};
+  \node[main node] (f) [below right of=s] {f};
+  \node[main node] (e) [below right of=b] {e};
+
+  \path[every node/.style={
+        fill=white,inner sep=0pt,outer sep=0pt}]
+    
+    % These are the edges.  We've provided you a few to get started.
+
+    (s) edge [bend left=10] node[] {2/3} (a)
+    (a) edge [bend left=10] node[] {1/3} (s)
+    
+    (s) edge [bend left=10] node[] {3/8} (f)
+    (f) edge [bend left=10] node[] {5/8} (s)
+
+    % Continue the edges below following the examples above.  Do NOT upload an image.
+
+    % Your solution here
+
+
+    ; % this semi-colon comes after the last of the edges
+
+\end{tikzpicture}}
+\end{center}
+\hspace{0.95in} Flow Network $G$ \hspace{2in} Residual Graph $G'$
+
+
+
+\begin{enumerate}
+    \item Complete the Residual Graph $G'$ above.  You \textbf{must} edit the graph in \LaTeX~above (do not upload a picture).
+
+    \solution{
+        % your solution is the graph above -- you don't need to add anything here
+        See graph above. It's okay if edges with 0 values are not drawn.
+    }
+
+    
+    \item Find an augmenting path in the graph $G'$ using BFS. List the nodes in the path you found in order (e.g., $s\rightarrow a \rightarrow b \rightarrow c \rightarrow d \rightarrow e \rightarrow f \rightarrow t$).
+
+    \solution{
+        % Your solution here
+    }
+    
+
+    \item Update the Flow Network $G$ above.  You \textbf{must} edit the graph below (do not upload a picture).
+    
+    \solution{
+
+        % Below is the graph that is shown above, as the initial state of the flow network.  
+        % You should modify this graph with the updated flow.
+
+        \begin{center}
+        \resizebox{.45\textwidth}{!}{\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+          thick,main node/.style={circle,fill=gray!10,draw,
+          font=\sffamily\Large\bfseries,minimum size=10mm}]
+
+          \node[main node] (s) {s};
+          \node[main node] (a) [above right of=s] {a};
+          \node[main node] (b) [below right of=a] {b};
+          \node[main node] (c) [above right of=b] {c};
+          \node[main node] (t) [below right of=c] {t};
+          \node[main node] (f) [below right of=s] {f};
+          \node[main node] (e) [below right of=b] {e};
+
+          \path[every node/.style={
+                fill=white,inner sep=2pt}]
+
+            % Right-hand-side arrows rendered from top to bottom to
+            % achieve proper rendering of labels over arrows.
+            
+            (s) edge [] node[] {1/3} (a)
+                edge [] node[] {5/8} (f)
+            (a) edge [] node[] {1/2} (b)
+            (b) edge [] node[] {0/4} (c)
+                edge [] node[] {0/2} (f)
+                edge [] node[] {1/3} (e)
+            (c) edge [] node[] {4/4} (t)
+                edge [] node[] {0/3} (a)
+            (e) edge [] node[] {4/4} (c)
+                edge [] node[] {2/6} (t)
+            (f) edge [] node[] {5/6} (e);
+        \end{tikzpicture}}
+        \end{center}
+
+
+    }
+    
+    \item Find the min cut of the graph.  List the nodes on each side of the cut.
+
+    \solution{
+        % Your solution here
+    }
+    
+    
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem} Tripartite Matching \end{problem}
+
+After graduating from UVA, you are working for a software development firm, and they are having problems organizing their developers.  Each developer can work on at most one project, but certain developers can only work on certain projects (for example, developer $D_1$ may not know C, so cannot work on a C project, but could work on a Python project).  Each project needs to be overseen by an advisor.  Like developers, advisors can only advise one project, and is capable of that one project being from a list of certain projects.
+
+Assume you are given a list of developers ($D$), a list of projects ($P$), and a list of advisors ($A$).  You are also given a list of which projects each developer can work on, as well as a list of projects that each advisor can advise. 
+
+As an example, assume you have 4 developers, 4 projects, and 4 advisors.  Developer 1, which we will call $D_1$, can work on projects $\{P_1, P_2, P_3\}$.  Developers 2 through 4 can work on projects $\{P_1, P_3\}$, $\{P_1, P_2, P_3, P_4\}$, and $\{P_1, P_3\}$, respectively.  The four advisors can advise projects $\{P_2, P_4\}$, $\{P_1, P_3\}$, $\{P_1, P_3, P_4\}$, and $\{P_1, P_2, P_3, P_4\}$, respectively.
+
+\begin{enumerate}
+
+
+    \item Describe, in prose (English) how you would reduce this to Max Flow.  You can use a bulleted list, if that's easier.
+
+    \solution{
+        % Your solution here
+    }
+
+
+    \item The lecture slides discuss how the running time of such a reduction is $\Theta(R_{AB}+B_n+RS_{BA})$, where $\Theta(R_{AB})$ is the running time to do the reduction from $A$ to $B$ (here, the running time to convert from the tripartitie problem to max flow), $\Theta(B_n)$ is the running time of problem B with input size $n$ (here, the running time of max flow), and $\Theta(RS_{AB})$, the time to convert the solution back (here, the running time to convert the max flow solution back to the tripartitie solution).  Define exactly what each of these values is, as well as what the final running time is.  You can assume that the number of developers, projects, and advisors are all about the same, which we can represent by $v=|D| \approx |P| \approx |A|$.
+
+    \solution{
+        % Your solution here
+    }
+
+
+    \item Given this particular problem, in the worst case, which algorithm would be better to use for max flow: Edonds-Karp or Ford-Fulkerson?
+
+    \solution{
+        % Your solution here
+    }
+
+
+    \item Find a perfect tripartite matching for this problem (meaning each developer is matched to a project, and each project is matched to an advisor).  This should be explained in English prose or as a bulleted list; you do not have to draw a graph.
+
+    \solution{
+        % Your solution here
+    }
+
+\end{enumerate}
+
+
+\end{document}
