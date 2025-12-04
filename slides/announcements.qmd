@@ -3,6 +3,48 @@ title: "Announcements, Fall 2025"
 ---
 
 
+# Travelling Salesman Problem
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/travelling_salesman_problem.png){title="What&#39;s the complexity class of the best linear programming cutting-plane techniques?  I couldn&#39;t find it anywhere.  Man, the Garfield guy doesn&#39;t have these problems ..." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 399](https://xkcd.com/399)
+:::
+
+
+::: {.announcements}
+## Lecture 27: Thursday, December 4th
+
+<div style="font-size:70%">
+
+- Office hours are listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744), and are:
+	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442; pics on the Canvas landing page
+- Assignments:
+	- PS9: Reductions was due yesterday -- how did it go?
+	- [PA5: Home Renovations](../pa/pa5/index.html) is out and due this Friday
+- Course textbook link is on the Canvas landing page
+- Grading status
+	- PA3 has an auto-grader issue (60% of the class gets it wrong, so it may be a problem on our end)
+	- PA4, PS6, and PS7 should be back this week
+	- PS8 just released for grading
+	- Gradescope will hold the grades, including any late penalties, as will Canvas' gradebook
+	- HOWEVER, Canvas' gradebook does not always sync immediately with Gradescope
+- Final exam will consist of quiz 5 and the "make-up" quiz
+	- The "make-up" quiz will be a selection of problems from Quizzes 1-4, but you have to figure out which is which, similar to PS8
+- Regrades:
+  - PSs and quizzes: once it is returned and announced, there is a 1 week window to submit a regrade through Gradescope
+  - PAs: because it is auto-graded, there will be a Piazza thread for each PA to work through grading concerns
+- Today we will continue with reductions
+
+</div>
+
+:::
+
+
+
+
 # NP-Complete
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/np_complete.png){title="General solutions get you a 50% tip." style='border:10px solid white'  }
