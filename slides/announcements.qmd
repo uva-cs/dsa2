@@ -16,7 +16,7 @@ title: "Announcements, Fall 2025"
 ::: {.announcements}
 ## Lecture 28: Tuesday, December 9th
 
-<div style="font-size:90%">
+<div style="font-size:85%">
 
 - Office hours are listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744), and are:
 	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
@@ -24,15 +24,17 @@ title: "Announcements, Fall 2025"
 	- TA office hours are 5-9, Monday through Thursday, in Rice 442; pics on the Canvas landing page
 	- Office hours end with the end of classes
 - Assignments: no more left!
+	- Solutions through PS8 are on Canvas; PS9's solutions will be posted tomorrow morning
 - Course textbook link is on the Canvas landing page
 - Grading status: we are working on them
 - Final exam is this Thursday from 7pm - 10pm in the lecture classroom
 	- It will consist of quiz 5 and the "make-up" quiz
 	- The "make-up" quiz will be a selection of problems from Quizzes 1-4, but you have to figure out which is which, similar to PS8
+	- If you have gotten permission to take make-up quizzes 1/2 or 3/4 -- and ONLY if you already have such permission -- you HAVE to go to Warner 209; they will not be available in Wilson 402
 - Regrades:
   - PSs and quizzes: once it is returned and announced, there is a 1 week window to submit a regrade through Gradescope
   - PAs: because it is auto-graded, there will be a Piazza thread for each PA to work through grading concerns
-- Today we will finish with reductions
+- Today we will finish with reductions and with the course!
 
 </div>
 
