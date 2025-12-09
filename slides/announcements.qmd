@@ -3,6 +3,43 @@ title: "Announcements, Fall 2025"
 ---
 
 
+# Final Exam
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/final_exam.png){title="For those of you also taking Game Theory, your grade in that class will be based on how close your grade on this exam is to 80% of the average." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/final_exam_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2385](https://xkcd.com/2385)
+:::
+
+
+
+::: {.announcements}
+## Lecture 28: Tuesday, December 9th
+
+<div style="font-size:90%">
+
+- Office hours are listed on the [Canvas landing page](https://canvas.its.virginia.edu/courses/146744), and are:
+	- Prof. Bloomfield's office hours are Mon 11-12, Tue 1-2, and Thu 2-3 in Rice 402
+	- Prof. Floryan's office hours are Wed 12:30-2 and Thu 12:30-2 in room 203
+	- TA office hours are 5-9, Monday through Thursday, in Rice 442; pics on the Canvas landing page
+	- Office hours end with the end of classes
+- Assignments: no more left!
+- Course textbook link is on the Canvas landing page
+- Grading status: we are working on them
+- Final exam is this Thursday from 7pm - 10pm in the lecture classroom
+	- It will consist of quiz 5 and the "make-up" quiz
+	- The "make-up" quiz will be a selection of problems from Quizzes 1-4, but you have to figure out which is which, similar to PS8
+- Regrades:
+  - PSs and quizzes: once it is returned and announced, there is a 1 week window to submit a regrade through Gradescope
+  - PAs: because it is auto-graded, there will be a Piazza thread for each PA to work through grading concerns
+- Today we will finish with reductions
+
+</div>
+
+:::
+
+
+
 # Travelling Salesman Problem
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/travelling_salesman_problem.png){title="What&#39;s the complexity class of the best linear programming cutting-plane techniques?  I couldn&#39;t find it anywhere.  Man, the Garfield guy doesn&#39;t have these problems ..." style='border:10px solid white'  }
