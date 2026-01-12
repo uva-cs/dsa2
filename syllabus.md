@@ -1,5 +1,5 @@
 ---
-title: "DSA2: Syllabus, fall 2025"
+title: "DSA2: Syllabus, spring 2026"
 ---
 
 [Go up to the main page](readme.html) ([md](readme.md))
@@ -12,8 +12,8 @@ Please use our course email for the fastest response time with the course staff.
 
 ### Instructors
 
-- Mark Floryan (mrf8t_at_virginia.edu).  Office: Rice 203.  Office hours: listed on the Canvas landing page.  Lecture: Tu/Th 11:00-12:15 in Warner 209.
-- Aaron Bloomfield (aaron_at_virginia.edu).  Office: Rice 402.  Office hours: listed on the Canvas landing page.  Lecture: Tu/Th 9:30-10:45 in Wilson 402.
+- Mark Floryan (mrf8t_at_virginia.edu).  Office: Rice 203.  Office hours: listed on the Canvas landing page.  Lecture: Tu/Th 9:30-10:45 in Wilson 402.
+- Aaron Bloomfield (aaron_at_virginia.edu).  Office: Rice 402.  Office hours: listed on the Canvas landing page.  Lecture: Tu/Th 11:00-12:15 in Olsson 120.
 
 The best way to get in touch with an instructor is to use the course email address.  We are very slow at responding to our personal emails, and all course-related content should go to the one above.
 
@@ -32,6 +32,16 @@ Most often CS 3100 class meetings will follow a lecture format.  But this semest
 
 Normal lectures will be recorded, though the instructors reserve the right to discontinue this if class attendance gets too low.
 
+### Succeeding
+
+We want you to succeed.  We want you to learn.  This is a difficult course, but it is a manageable course.
+
+The two instructors have taught this course a combined 10 semesters.  In that time, we have seen three primary factors that can improve student success.
+
+- Attending lecture: those that attend lecture do far better on the quizzes than those who do not.  Watching the lecture recordings afterward is not a sufficient substitute.  Needless to say, attending lecture also means paying attention.
+- Working on the problem sets: as described below, you can use generative AI on the problem sets.  However, doing the problem sets yourself (or in a group) is the primary way to learn the material.  You can only learn by doing.  Having generative AI solve it, and then reading the solution, is not a good substitute.  Students who worked out the problem sets themselves did far better on the quizzes than those who did not.
+- Putting time into the course: this is a difficult course, and you will need to put in some time outside of lecture to ensure you learn the material.  UVA suggests that each course should have 3 hours _outside_ of lecture per credit -- which means 9 hours beyond lecture.  We don't think you necessarily need to put in that much time, but if you skip work outside of lecture, you will not learn the material.  Cramming for an exam in this type of course does not work well.
+
 
 ----
 
@@ -44,11 +54,14 @@ Normal lectures will be recorded, though the instructors reserve the right to di
 - See the schedule (Canvas calendar) for the dates.  Note that Quiz 5 will be given during the final exam period.
 - Also during the final exam period, students will have the opportunity to make up some number of points that were missed on the first four quizzes. This opportunity will only be available if the student made a reasonable first attempt on the quiz.
 - A quiz's retake will consist of a few questions worth 10 points total.  The points earned will replace up to 10 missing points from the first attempt on that quiz.  ("Missing points" means no quiz score can be greater than 100.)
- - Our final exam period is set to be **Thursday, December 11th, from 7pm to 10pm**.  We recognize that this is a very early exam time, but it was not our choice.  Do not make travel plans that would prevent you from attending the final exam period. We will not give quizzes scheduled for the final exam period early for travel reasons.
-    - That exam time conflicts with exams from: APMA 2130, COMM 1800, CS 2100 (which you should not be taking, since it's a pre-req), and LATI 1030, 2010, and 2020
-    - We will determine how best to handle this once the withdrawal period ends (October 21).  Note that any make-up will be *after* the normal exam time (meaning no earlier than the regularly scheduled final exam time).
+ - Our final exam period is set to be **Saturday, May 2nd, from 7pm to 10pm**.  Do not make travel plans that would prevent you from attending the final exam period. We will not give quizzes scheduled for the final exam period early for any reason.
+    - That exam time conflicts with exams from: APMA 1110, COMM 2700, CS 2100 (which you should not be taking, since it's a pre-req), FREN 1020 & 1050, and STAT 2020
+    - We will determine how best to handle this once the withdrawal period ends.  Note that any make-up will be *after* the normal exam time (meaning no earlier than the regularly scheduled final exam time).
+- If you miss one of the quizzes _for a valid reason_, then you will have to retake it during the final exam period.  The one you retake will not be the same as the one the rest of the class took
 
-**Programming Assignments (PAs):** The goal of Programming assignments (PAs) is to explore one or more topics from a unit by applying an algorithm to a problem, implementing it Java and Python, and showing it works correctly by passing a set of test-cases.  Grading will be primarily based on passing test-cases on GradeScope.  Some PAs may require a short write-up. Submissions must include information about sources, collaborators, etc.   For more information, see sections below on "Collaboration and Outside Sources" for PAs.
+Quizzes may not be taken late (or early) without special-case permission.
+
+**Programming Assignments (PAs):** The goal of Programming assignments (PAs) is to explore one or more topics from a unit by applying an algorithm to a problem, implementing it Java and Python, and showing it works correctly by passing a set of test-cases.  Grading will be primarily based on passing test-cases on GradeScope.  Some PAs may require a short write-up. Submissions must include information about sources, collaborators, etc.   For more information, see sections below on "Collaboration and Outside Sources" for PAs.  You can use other languages as well, but must check with us first, as we have to reconfigure the submission system.
 
 **Problem Sets (PSs):** Each _weekly_ Problem Set (PS) will be approximately 2 to 3 questions. Some may be simple questions on concepts or details of what's be taught, but most will require students to design an algorithm, analyze it's complexity, make proofs or other logical arguments about its complexity, correctness, etc.  For information on collaboration on PSs, see the section below on "Collaboration and Outside Sources" for PSs.
 
@@ -57,12 +70,23 @@ Normal lectures will be recorded, though the instructors reserve the right to di
 **Textbook and Readings:** We will assign readings from the "CLRS" textbook:  Introduction to Algorithms, by Cormen, Leiserson, Rivest and Stein, 4th Edition. (3rd edition is OK, but is missing some new material.) The book is available for free for UVA users in an online format [through the UVA Library](https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615).  There may be additional readings from online sources.
 
 
+### Computer-Based Testing Facility
+
+We hope to start using a Computer-Based Testing Facility (CBTF) this semester.  We are aiming for quizzes 3 & 4.  There will be significant changes to the testing procedure if this happens, and we will make sure everybody is informed about these changes:
+
+- You will have to take a practice test (worth no points) in the CBTF so that you know how the process works -- we don't want you getting stuck figuring out how to log in, etc., when you are in a timed test
+- The taking of tests in the CBTF is NOT during lecture -- instead, you will schedule a time that works with your schedule over a three day period
+  - This means that the date specified as the second quiz day may end up being a lecture period instead
+
+More details will follow as we near the use of the CBTF.
+
+
 ### Coding
 
 > "If you really want to understand something, the best way is to try and explain it to someone else. That forces you to sort it out in your own mind. And the more slow and dim-witted your pupil, the more you have to break things down into more and more simple ideas. And that's really the essence of programming. By the time you've sorted out a complicated idea into little steps that even a stupid machine can deal with, you've certainly learned something about it yourself."  
 > \-Douglas Adams
 
-In this course, you are welcome to use Python or Java to complete your PAs.  We will provide starter code for both languages.  You can use other languages, but (1) we will not be providing starter code, and (2) you have to speak to us about it at least 2 days before you submit it so that we can configure the submission system to use that language.  Please choose an IDE that you are comfortable working with (Eclipse, IntelliJ, PyCharm, VSCode, vim, etc).  For each PA, you should thoroughly test your algorithms; we will provide some example test cases in the assignment descriptions, but you should devise your own tests to check edge and corner cases.
+In this course, you are welcome to use Python or Java to complete your PAs.  We will provide starter code for both languages.  You can use other languages, but (1) we will not be providing starter code, and (2) you have to speak to us about it at least 3 days before you submit it so that we can configure the submission system to use that language.  Please choose an IDE that you are comfortable working with (Eclipse, IntelliJ, PyCharm, VSCode, vim, etc).  For each PA, you should thoroughly test your algorithms; we will provide some example test cases in the assignment descriptions, but you should devise your own tests to check edge and corner cases.
 
 You will be asked to submit your code to Gradescope.  It is important to use a version of Python or Java that is compatible with our grading system.  Therefore, we **strongly suggest** using either:
 
@@ -88,49 +112,44 @@ We *expect* that grades will follow the standard decade curve: 90 and above is a
 
 ### Extensions and late submissions
 
-Assignments turned in after the due date are penalized 25% per day (or fraction thereof) late; this means a maximum of 3 days (i.e. 72 hours) late.  For example, anywhere from 1 second late to 24 hours late receives 25% percent off.
+Assignments turned in after the due date are penalized 25% per day (or fraction thereof) late; this means a maximum of just under 4 days (i.e. just under 96 hours) late.  For example, anywhere from 1 second late to 24 hours late receives 25% percent off.
 
-You may request an extension on any assignment (PA or PS) for any reason -- there is an automated system, linked to from the Canvas landing page, for this.  That extension is 4 days.  HOWEVER, you only have 8 such "free late passes" during the semester -- once they are used up, there will not be any more.  An extension will delay the onset of the late penalty -- so if you get an extension, then the late penalty does not kick in until the 5th day after the due date.
+You may request an extension on any assignment (PA or PS) for any reason -- there is an automated system, linked to from the Canvas landing page, for this.  That extension is 4 days.  HOWEVER, you only have 8 such "free late passes" during the semester -- once they are used up, there will not be any more.  An extension will delay the onset of the late penalty by 4 days -- so if you get an extension, then the late penalty does not kick in until the 5th day after the due date.
 
 This extension rule does not apply to quizzes, exams, or any in-class activities.  It only applies to programming assignments (PAs) and written assignments (PSs).
 
 However, there are a few specifics to this extension rule:
 
 - As mentioned above, you only have 8 such free late passes to use throughout the semester
-- The extension request must be submitted no later than 3 days after the (regular) due date.  We will not consider anybody that misses this date (it actually should be in before the due date itself, but we are giving you 3 days to submit after that point).
-- This extension time covers any and all situations:     travel, holidays, being busy, family emergencies, SDAC (generally), dog ate your homework, religious observances, interviews, thunderstorms, power outages, temporal dislocation, etc.
+- The extension request must be submitted no later than 4 days after the (regular) due date.  We will not consider anybody that misses this date (it actually should be in before the due date itself, but we are giving you 4 days to submit after that point).
+- You may add an extension as early as you would like -- even on class day 1, for example.  You may remove an extension, up to 4 days after the original due date.  After 4 days post the due date, you may not make any modifications to that extension.
+- This extension time covers any and all situations: travel, holidays, being busy, family emergencies, SDAC (generally), dog ate your homework, religious observances, interviews, thunderstorms, power outages, temporal dislocation, etc.
 - We are not expecting to allow any further extensions beyond this 4 days, unless there are considerable extenuating circumstances -- basically, something that would have granted an extension for more than 4 days in the first place.  If you get busy or sick at the end of your 4 day extension request, then that's your tough luck.
-- After you extension ends, the late penalty (above) kicks in for the next three days.
+- After you extension ends, the late penalty (above) kicks in for the next four days.
 - This policy *already includes* SDAC accommodations less than 4 days (we are just extending these accommodations to everybody).  Likewise, religious accommodations of a short time (a few days) are handled by this policy as well.  
 - If there is a valid need for an extended accommodation -- SDAC, religious, health, etc. -- please chat with one of the instructors, and we'd be happy to discuss it with you.
-- For written assignments, if you turn your assignment in on time, then that will be the version graded -- you can't turn it in on time, then file an extension, then submit it later, and expect the later version to be graded.  We will have already started grading the on-time submissions, and we just don't have the staffing capacity to grade multiple submissions from students.
-- This means that any written assignment turned in after the due date, whether late or via an extension, will end up taking much longer to be graded.
+- For written assignments, if you turn your assignment in on time, then that will be the version graded -- you can't turn it in on time, then file an extension, then submit it later, and expect the later version to be graded.
 - TA and instructor office hours are optimized for the actual due date -- if you file for an extension, there may not be sufficient office hours available for when you plan to submit it.  Also, the next week's office hours will have to focus on the assignment due that week.
 
 
 ### Grading
 
-Programming assignments (PAs) are auto-graded, and will be returned after the end of the extension and late period -- which means after 8 days after the due date.  The provided input and required output will be clearly specified in the assignment write-up.  When you submit your assignment, a few *acceptance* tests will be run.  These tests are meant to ensure that your program works with the required input and output.  They will test the provided examples in the assignment write-up, but they are ***NOT*** meant to be comprehensive.  Your grade will ***NOT*** be based on the acceptance tests -- instead, there will be a separate battery of comprehensive tests that will be used to determine your grade -- otherwise you could get full credit with just `print()` statements.  These tests (and their results) will not be revealed until the homework is returned.  There will be a reasonable amount of time for you to analyze the grading test cases, and let us know if there is a mistake in them.
+Programming assignments (PAs) are auto-graded, and will be returned after the end of the extension and late period -- which means after 8-10 days after the due date.  The provided input and required output will be clearly specified in the assignment write-up.  When you submit your assignment, a few *acceptance* tests will be run.  These tests are meant to ensure that your program works with the required input and output.  They will test the provided examples in the assignment write-up, but they are ***NOT*** meant to be comprehensive.  Your grade will ***NOT*** be based on the acceptance tests -- instead, there will be a separate battery of comprehensive tests that will be used to determine your grade -- otherwise you could get full credit with just `print()` statements.  These tests (and their results) will not be revealed until the homework is returned.  There will be a reasonable amount of time for you to analyze the grading test cases, and let us know if there is a mistake in them.
 
-Problem sets (PSs) will be graded differently.  Only one or two of the problems will be graded in full, and the majority of the grade for that problem set will be based on that one question (we don't have the staffing capacity to grade each question for each student).  The other questions will be graded via a quick spot-check to see if work was done.  There is no use asking which question is going to be graded, as that will be randomly determined right before the grading starts (and after the due date).
+Problem sets (PSs) will be graded differently.  We may only grade one or two of the problems will be graded in full, and the majority of the grade for that problem set will be based on that one question (we don't always have the staffing capacity to grade each question for each student).  The other questions will be graded via a quick spot-check to see if work was done.  There is no use asking which question is going to be graded, as that will be randomly determined right before the grading starts (and after the due date).
 
-Any PS assignments turned in by the due date / time will be returned in the first wave.  Any assignments turned in after the due date -- whether because of an extension, being late, or SDAC accommodations -- will be graded in a second wave.  We will do our best to get the first wave grading done in a reasonable amount of time so that you have reasonably rapid feedback.  The second wave will take much longer to return, as that grading can't start until 8 days after the original due date.  We will re-determine which question is to be graded in the second wave -- this will be randomly determined as well, and could be the originally graded question with equal probability as any other question in the problem set.
+We are aiming to return PS assignments two weeks after the due date (we can't start grading until about a week after it is due because of the extensions and lateness).  We will do our best to get the assignment grading done in a reasonable amount of time so that you have reasonably rapid feedback.
 
-**Note:** If you submit on time -- and thus your assignment will be graded in the first wave -- then we will ***not*** grade a submission submitted by you later (extension or not) in the second wave.  We just don't have the staffing capacity to grade multiple submissions from students.  If you are unsure whether to submit in the first wave, you can get an extension and take some time to think about it, and have it graded in the second wave.
-
-
-### Quizzes
-
-Quizzes may not be taken late (or early) without special-case permission.
-
-Although quizzes are only 60% of your final grade, we feel it is an accurate representation of your knowledge in the class.  It also is more resistant to various forms of cheating than PAs and PSs.  **Thus, your final average cannot be higher than 10% more than your quiz average.**  For example, if your quiz average is 75%, but your overall course average is 90%, this rule means that your final course average would be 85% (which is 10% more than the quiz average of 75%).
+Quizzes are worth 60% of your final grade, and we feel it is an accurate representation of your knowledge in the class.  It also is more resistant to various forms of cheating than PAs and PSs.  **Thus, your final average cannot be higher than 10% more than your quiz average.**  For example, if your quiz average is 75%, but your overall course average is 90%, this rule means that your final course average would be 85% (which is 10% more than the quiz average of 75%).
 
 
 ### Grading Mistakes
 
-Much of the grading in this course is done by hand with the help of teaching assistants. Some of the grading is done directly by hand by the instructors. The course staff occasionally also use tools to help with initial clustering of student answers in to similarity groups. In all of these cases, we realize that sometimes the grading of a problem ends up being incorrect. If you think a grading mistake has been made, but it is in your favor, you are not required to communicate that with the course staff. If you think there is a grading mistake that scores your answer with fewer points than it should have been scored, you may submit a regrade request through Gradescope.  
+Much of the grading in this course is done by hand with the help of teaching assistants. Some of the grading is done directly by hand by the instructors. The course staff occasionally also use tools to help with initial clustering of student answers in to similarity groups. In all of these cases, we realize that sometimes the grading of a problem ends up being incorrect. If you think a grading mistake on a PS has been made, but it is in your favor, you are not required to communicate that with the course staff. If you think there is a grading mistake on a PS that scores your answer with fewer points than it should have been scored, you may submit a regrade request through Gradescope.  
 
-Regrade requests will be accepted for 7 days after the graded assignment is released to the student. For PS assignments, within Gradescope, you will see the option to make a regrade request for an individual problem. Gradescope does not allow regrade requests with auto-graded assignments; thus, for PA regrade requests, you should email the course staff.  If the regrade request time period is past (it's more than 7 days since the assignment was graded and released to the student), you will not have an opportunity to request a regrade and you will see that Gradescope will not provide a regrade request button. When you request a regrade, our primary goal is to make sure that the grading was accurate, and change the grading if it wasn't. In the course of regrading a problem, we usually need to look at the entire problem, not just a small piece of it. If we notice grading mistakes other than the one you describe, we will fix all of the ones that we notice. This includes any grading mistake we happen to notice in other problems. We don't go out of our way to find more mistakes, but if we happen to see one, we fix it. After the regrade is completed, your corrected grade may be higher, lower, or the same as your previous grade. Before making a regrade request, make sure that you understand what the question was asking and reassess your answer. Please be specific in what rubric(s) you think were mis-graded. Regrade requests of the type, "I only got 10 out of 25 points and I think I should have received more" aren't as helpful to us as a more specific statement such as, "I didn't receive points for the first rubric, but I think I did address that issue in the second sentence of my explanation".     
+PAs are auto-graded, and regrades are handled differently.  We will strictly follow the auto-grader's result in each and every case.  However, there are times when the auto-grader has bugs, doesn't handle certain cases, etc.  For each PA, a Piazza post will be created where one can put comments and suggestions for how to modify the auto-grader.  Those comments need to be submitted within a reasonable period (one week after the post is made).
+
+Regrade requests for PS assignments will be accepted for 7 days after the graded assignment is released to the student. For PS assignments, within Gradescope, you will see the option to make a regrade request for an individual problem. If the regrade request time period is past (it's more than 7 days since the assignment was graded and released to the student), you will not have an opportunity to request a regrade and you will see that Gradescope will not provide a regrade request button. When you request a regrade, our primary goal is to make sure that the grading was accurate, and change the grading if it wasn't. In the course of regrading a problem, we usually need to look at the entire problem, not just a small piece of it. If we notice grading mistakes other than the one you describe, we will fix all of the ones that we notice. This includes any grading mistake we happen to notice in other problems. We don't go out of our way to find more mistakes, but if we happen to see one, we will fix it. After the regrade is completed, your corrected grade may be higher, lower, or the same as your previous grade. Before making a regrade request, make sure that you understand what the question was asking and reassess your answer. Please be specific in what rubric(s) you think were mis-graded. Regrade requests of the type, "I only got 10 out of 25 points and I think I should have received more" aren't as helpful to us as a more specific statement such as, "I didn't receive points for the first rubric, but I think I did address that issue in the second sentence of my explanation".     
 
 If this regrade policy is abused during the semester (many students are submitting frivolous regrades), then we reserve the right to start applying a frivolous regrade penalty.  We will clearly communicate this if it is to occur.
 
@@ -149,6 +168,17 @@ In this course, there will be a focus on working well together and learning. Stu
 Behave professionally.  Never abuse anyone, including the emotional abuse of blaming others for your mistakes. Kindness is more important than correctness. Let our TAs be students when they are not on the clock as TAs.
 
 **Consequences of Unprofessional Behavior**: Unprofessional behavior, such as misbehavior towards instructors, classmates, or TAs, or causing distractions for other students, can be held against a student when final grades are calculated.  The penalty is up to 20% of the final course grade.  Multiple infractions can incur multiple such penalties.
+
+
+### Use of Generative AI Tools
+
+You may use generative AI tools in certain contexts in this class:
+
+- Problem sets: you may use generative AI on the problem sets.  HOWEVER, working through the problem sets is the main way to learn how to solve these types of problems, and you will need to learn how to solve the problems for the quizzes, which are 60% of your grade (each problem set is only 2% of your grade).  If you do not learn how to do the problem sets, you will not do well on the quizzes.
+   - You ***MUST*** cite what source you used, such as: `Intelligent Sage 3, version 3.1. Accessed from http://intelligentsage.com`.  Failure to cite the use of the tool as a source is a serious violation of academic integrity.
+   - Additionally, please include a brief description of how you used the tool. Please include the prompt or prompts you gave the tool. 
+- PA assignments: you may ONLY use genAI in lieu of a manual or a Google search.  For example, asking how to call a certain function, or the syntax of a `for` loop.  You may ***NOT*** use it to generate any other code.  As a specific threshold, your genAI usage should not provide more than two lines of code -- if it generates more, then you are in violation of this policy.
+- Quizzes: these are written, and thus no generative AI will be available
 
 ### Honesty and Collaboration
 
@@ -173,7 +203,7 @@ Our TAs have been trained to provide help that does not undermine the primary pu
 
 ### Problem Sets: Collaboration and Outside Sources
 
-On Problem Sets you are allowed (and encouraged) to collaborate with up to 4 other students, but all work submitted must be your own **independently** written solution. List the computing ids of all of your collaborators in the __collabs__ command at the top of the .tex file you submit. 
+On Problem Sets you are allowed (and encouraged) to collaborate with up to 4 other students, but all work submitted must be your own **independently** written solution. List the computing ids of all of your collaborators in the __collabs__ command at the top of the .tex file you submit.  If you used genAI, then you should cite that as well.
 
 Our intention is that collaborators can discuss the problems and possible solutions in a way that helps each member of the group to learn more effectively. We do not allow collaborative activities that make it easier for each individual to write-up a solution for submission. To avoid this, you are not allowed to share written notes, documents (including Google docs, Overleaf docs, discussion notes, PDFs), or code. Talk to increase your understanding of the problem and how to solve it, then take what you've learned from that collaboration and write-up your own solution.
 
@@ -185,16 +215,6 @@ Do not submit a solution that you are unable to explain orally to a member of th
 ### No help on quizzes or exams
 
 It would probably go without saying if we didn't say it, but no assistance may be given or received on any supervised evaluation or online quiz unless specifically announced otherwise by the professor (or another proctor of the evaluation).
-
-### Use of Generative AI Tools
-
-You may use generative AI tools in certain contexts in this class:
-
-- Problem sets: you may use generative AI on the problem sets.  HOWEVER, working through the problem sets is the main way to learn how to solve these types of problems, and you will need to learn how to solve the problems for the quizzes, which are 60% of your grade (each problem set is only 2% of your grade).  If you do not learn how to do the problem sets, you will not do well on the quizzes.
-   - You ***MUST*** cite what source you used, such as: `Intelligent Sage 3, version 3.1. Accessed from http://intelligentsage.com`.  Failure to cite the use of the tool as a source is a serious violation of academic integrity.
-   - Additionally, please include a brief description of how you used the tool. Please include the prompt or prompts you gave the tool. 
-- Programming assignments: similar to to problem sets, you will not learn the material unless you work through it.  There will also be questions on the quizzes to check this!
-- Quizzes: these are written, and thus no generative AI will be available
 
 ### Consequences of Dishonesty
 
@@ -215,7 +235,7 @@ Bad things happen. People forget things and make mistakes. Bad days coincide wit
 
 It is my goal to create a learning experience that is as accessible as possible. If you anticipate any issues related to the format, materials, or requirements of this course, please meet with me outside of class so we can explore potential options. Students with disabilities may also wish to work with the Student Disability Access Center (SDAC) to discuss a range of options to removing barriers in this course, including official accommodations. We are fortunate to have an SDAC advisor, Courtney MacMasters, physically located in Engineering. You may email her at [cmacmasters@virginia.edu](mailto:cmacmasters@virginia.edu) to schedule an appointment. For general questions please visit the [SDAC website](https://sdac.studenthealth.virginia.edu). If you have already been approved for accommodations through SDAC, please send me your accommodation letter and meet with me so we can develop an implementation plan together.
 
-Note that we expect most (or perhaps all) accommodation requests will be handled by our extension policy, above.
+Note that we expect most (or perhaps all) accommodation requests will be handled by our extension policy, above.  You can also see how we handle specific accommodations on our [DSA2 SDAC accommodation webpage](https://uva-cs.github.io/dsa2/sdac.html).
 
 ### Religious accommodations
 
@@ -272,4 +292,4 @@ The Connect features an open study area, a flexible event space, and on-site sta
 
 ## Additional Notes
 
-**Syllabus Note**: This syllabus is to be considered a reference document that may be adjusted throughout the course of the semester to address necessary changes. This syllabus can be changed at any time without notification; we will announce any major changes. Final authority on any decision in this course rests with the professors, not with this document.
+**Syllabus Note**: This syllabus is to be considered a reference document that may be adjusted throughout the course of the semester to address necessary changes. This syllabus can be updated at any time; we will announce any major changes. Final authority on any decision in this course rests with the professors, not with this document.
