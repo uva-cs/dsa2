@@ -1,0 +1,20 @@
+body > div{
+  background-image: url("images/slide-background.webp");
+  background-size: cover !important;
+}
+.reveal h1, .reveal h2, .reveal p, .reveal li {
+  color: white;
+}
+.reveal h2 {
+  margin-top:20px;
+}
+h2:not(.subtitle):before, h2:not(.subtitle) {
+    background-color:transparent !important;
+    margin-bottom:0;
+}
+.reveal a, .reveal a:visited {
+  color: rgb(152, 189, 239);
+}
+div.orangetitle, div.orangetitle:before {
+  background-color: transparent;
+}
