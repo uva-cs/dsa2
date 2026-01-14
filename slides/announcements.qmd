@@ -13,7 +13,7 @@ css: announcements.css
 :::
 
 ::: {.announcements}
-## Lecture 2: Thursday, August 28th
+## Lecture 2: Thursday, January 15th
 
 - PS0 is out in Canvas' Assignments, and due next Wednesday (Jan 21) by 11:59 pm
 	- Gradescope submission opens up 72 hours before the due date
@@ -23,7 +23,7 @@ css: announcements.css
 	- Quizzes 3&4 are Thursday, April 9th, in lecture
 	- If we use a CBTF, quizzes 3&4 may have a different format, time, and location
 - Course textbook link is on the Canvas landing page
-- TA office hours coming soon (we are targeting Mon-Thu, 5pm-9pm)
+- TA office hours coming soon, and will start next week (we are targeting Mon-Thu, 5pm-9pm)
 - Prof. Bloomfield's office hours TBA, in Rice 402, and start next week
 - Prof. Floryan's office hours are TBA, in Rice 203, and start next week
 :::
