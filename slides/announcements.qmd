@@ -1,6 +1,7 @@
 ---
 title: "Announcements, Spring 2026"
 css: announcements.css
+toc: false
 ---
 
 
@@ -17,14 +18,17 @@ css: announcements.css
 
 - PS0 is out in Canvas' Assignments, and due next Wednesday (Jan 21) by 11:59 pm
 	- Gradescope submission opens up 72 hours before the due date
-- PS1 out next week, due the following Wednesday
+- PS1 will be out next week, due the following Wednesday (1/28)
 - Midterms (aka quizzes): there was some confusion on our end about when
 	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
 	- Quizzes 3&4 are Thursday, April 9th, in lecture
-	- If we use a CBTF, quizzes 3&4 may have a different format, time, and location
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+	- If we use a CBTF, quizzes 3&4 and/or the final may have a different format, time, and location
 - Course textbook link is on the Canvas landing page
-- TA office hours coming soon, and will start next week (we are targeting Mon-Thu, 5pm-9pm)
-- Prof. Bloomfield's office hours TBA, in Rice 402, and start next week
-- Prof. Floryan's office hours are TBA, in Rice 203, and start next week
+- Office hours
+	- TA office hours coming soon, and will start next week (we are targeting Mon-Thu, 5pm-9pm); likely in Rice 442
+	- Prof. Bloomfield's office hours TBA, in Rice 402, and start next week
+	- Prof. Floryan's office hours are TBA, in Rice 203, and start next week
+	- All will be posted on the Canvas landing page
 :::
 
