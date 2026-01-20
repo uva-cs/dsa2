@@ -5,6 +5,45 @@ toc: false
 ---
 
 
+# Complexity Analysis
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/complexity_analysis.png){title="PERPETUALLY OPTIMISTIC CASE: Early in the execution, our research group makes a breakthrough on proving P=NP." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/complexity_analysis_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2939](https://xkcd.com/2939)
+:::
+
+
+::: {.announcements}
+## Lecture 3: Tuesday, January 20th
+
+<div style="font-size:90%">
+
+- PS0 is out in Canvas' Assignments, and due tomorrow (Wed, Jan 21) by 11:59 pm
+	- Gradescope submission opens up 72 hours before the due date
+	- If you don't see the course, we need to re-sync the roster; email the course email about this
+- PS1 will be out Thursday afternoon, due next Wednesday (Jan 28)
+- PA1 will be out this Friday, due two weeks later (Feb 6)
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4 are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+	- If we use a CBTF, quizzes 3&4 and/or the final may have a different format, time, and location
+- Course textbook link is on the Canvas landing page
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start next week
+	- Prof. Floryan's office hours are Mon 1-2 and Wed 12-2 in Rice 203, and start next week
+	- All will be posted on the Canvas landing page
+
+</div>
+
+:::
+
+
+
+
+
 # Algorithms
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/algorithms.png){title="There was a schism in 2007, when a sect advocating OpenOffice created a fork of Sunday.xlsx and maintained it independently for several months. The efforts to reconcile the conflicting schedules led to the reinvention, within the cells of the spreadsheet, of modern version control." style='border:10px solid white'  }
