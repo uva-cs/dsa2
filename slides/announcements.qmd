@@ -5,6 +5,44 @@ toc: false
 ---
 
 
+# Weird Unicode Math Symbols
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/weird_unicode_math_symbols.png){title="U+2A0B ⨋ Mathematicians need to calm down" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/weird_unicode_math_symbols_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2606](https://xkcd.com/2606)
+:::
+
+
+::: {.announcements}
+## Lecture 4: Thursday, January 22nd
+
+<div style="font-size:90%">
+
+- PS0 was due yesterday -- how did it go?
+- PS1 is out and due next Wednesday (Jan 28) by midnight
+	- Gradescope submission opens up 72 hours before the due date
+	- If you don't see the course, we need to re-sync the roster; email the course email about this
+- PA1 will be out this Friday, due two weeks later (Feb 6)
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4 are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+	- If we use a CBTF, quizzes 3&4 and/or the final may have a different format, time, and location
+- Course textbook link is on the Canvas landing page
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2 and Wed 12-2 in Rice 203, and start this week
+	- All will be posted on the Canvas landing page
+- Today we will continue with graphs
+
+</div>
+
+:::
+
+
+
 # Complexity Analysis
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/complexity_analysis.png){title="PERPETUALLY OPTIMISTIC CASE: Early in the execution, our research group makes a breakthrough on proving P=NP." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/complexity_analysis_2x.png 2x" }
@@ -32,8 +70,8 @@ toc: false
 - Course textbook link is on the Canvas landing page
 - Office hours
 	- TA office hours are Mon through Thu, from 5-9 in Rice 442
-	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start next week
-	- Prof. Floryan's office hours are Mon 1-2 and Wed 12-2 in Rice 203, and start next week
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2 and Wed 12-2 in Rice 203, and start this week
 	- All will be posted on the Canvas landing page
 
 </div>
