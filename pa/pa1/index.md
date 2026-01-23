@@ -58,7 +58,7 @@ This input corresponds to the following two graphs:
 ![](example1.svg){style="border:1px solid black;border-radius:10px"}
 ![](example2.svg){style="border:1px solid black;border-radius:10px"}
 
-For the second graph, note that one of the queries ("v2 v7") is from a node that has no adjacent edges.  Other queries, such as "v1 v4" do not have a path between them.
+For the second graph, note that at least one of the queries ("v2 v4") is from a node that has no adjacent edges.  Other queries, such as "v1 v5" do not have a path between them.
 
 
 ### Sample Output
