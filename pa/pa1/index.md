@@ -47,10 +47,10 @@ This input is available as [example.in](example.in).  The first test case has 7 
 2
 7 10 10
 v1 v2 v0 v3 v4 v6 v3 v6 v3 v4 v4 v5 v0 v6 v3 v5 v0 v2 v2 v5
-v1 v2 v6 v1 v4 v3 v2 v0 v4 v2 v0 v3 v6 v4 v3 v1 v5 v4 v3 v4
+v1 v0 v3 v5 v1 v5 v0 v2 v6 v1 v0 v3 v4 v3 v3 v6 v2 v0 v5 v0
 10 7 10
 v5 v7 v3 v7 v1 v9 v6 v8 v0 v9 v4 v6 v4 v5
-v4 v8 v3 v1 v9 v4 v6 v3 v3 v6 v4 v6 v8 v7 v3 v4 v7 v8 v9 v6
+v1 v5 v8 v5 v3 v9 v4 v2 v1 v3 v2 v4 v5 v6 v8 v3 v1 v9 v3 v2
 ```
 
 This input corresponds to the following two graphs:
@@ -67,27 +67,27 @@ This output is available as [example.out](example.out).
 
 
 ```
-v5 v4 1 v4
-v6 v4 1 v4
-v6 v3 1 v3
-v0 v2 1 v2
-v2 v0 1 v0
-v4 v2 2 v5
+v1 v0 2 v2
 v3 v5 1 v5
-v4 v5 1 v5
+v1 v5 2 v2
+v0 v2 1 v2
 v6 v1 3 v0
-v3 v2 2 v0
+v0 v3 1 v3
+v4 v3 1 v3
+v3 v6 1 v6
+v2 v0 1 v0
+v5 v0 2 v3
 
-v8 v1 None None
-v6 v5 2 v4
-v2 v5 None None
-v2 v6 None None
-v9 v1 1 v1
-v4 v6 1 v6
-v5 v4 1 v4
+v1 v5 None None
+v8 v5 3 v6
+v3 v9 None None
+v4 v2 None None
+v1 v3 None None
 v2 v4 None None
-v3 v0 None None
-v6 v3 4 v4
+v5 v6 2 v4
+v8 v3 5 v6
+v1 v9 1 v9
+v3 v2 None None
 ```
 
 ### Hints
