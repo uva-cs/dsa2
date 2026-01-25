@@ -19,7 +19,7 @@ Repository Contents
 - Slide sets: other than the daily announcements, the slide sets are kept in PDF form on Canvas
 	- [Daily announcement slides](slides/announcements.html#/)
 - Programming assignments: 
-  - None yet!
+  - [PA1: Internet Routing](pa/pa1/index.html)
 - [Problem sets](ps/index.html)
 - [Old course content](old.html) from previous semesters
 
