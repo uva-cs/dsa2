@@ -97,7 +97,7 @@ We are providing skeleton code to read in the input.  The code is [pa1.py](pa1.p
 We also have additional test cases to use:
 
 - [example3.in](example3.in) has 10 edges, 20 nodes, and 30 queries, and the output is in [example3.out](example3.out); an image of the graph can be seen [here](example3.svg)
-- [example4.in](example4.in) has 200 edges, 400 nodes, and 1000 queries, and the output is in [example4.out](example3.out); an image of the graph can be seen [here](example4.svg), but that image won't be of much use due to its complexity
+- [example4.in](example4.in) has 200 edges, 400 nodes, and 1000 queries, and the output is in [example4.out](example4.out); an image of the graph can be seen [here](example4.svg), but that image won't be of much use due to its complexity
 
 Those files are examples 3 and 4 because examples 1 and 2 were provided in the [example.in](example.in) and [example.out](example.out) file, above.
 
