@@ -33,7 +33,7 @@ toc: false
 - Office hours
 	- TA office hours are Mon through Thu, from 5-9 in Rice 442
 	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
-	- Prof. Floryan's office hours are Mon 1-2 and Wed 12-2 in Rice 203, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
 	- All will be posted on the Canvas landing page
 - Today we will continue with graphs
 
@@ -71,7 +71,7 @@ toc: false
 - Office hours
 	- TA office hours are Mon through Thu, from 5-9 in Rice 442
 	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
-	- Prof. Floryan's office hours are Mon 1-2 and Wed 12-2 in Rice 203, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
 	- All will be posted on the Canvas landing page
 
 </div>
