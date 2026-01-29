@@ -5,6 +5,55 @@ toc: false
 ---
 
 
+# Ineffective Sorts
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/ineffective_sorts.png){title="StackSort connects to StackOverflow, searches for &#39;sort a list&#39;, and downloads and runs code snippets until the list is sorted." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/ineffective_sorts_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1185](https://xkcd.com/1185)
+:::
+
+
+::: {.announcements}
+## Lecture 6: Thursday, January 29th
+
+<div style="font-size:90%">
+
+- PS1 is out and now due this Friday (Jan 30) by midnight
+- PS2 will be out today, and due next Wednesday (Feb 4) by midnight
+	- Gradescope submission opens up 72 hours before the due date
+- PA1 is out, due Fri, Feb 6
+	- Gradescope submissions are open
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4 are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+	- If we use a CBTF, quizzes 3&4 and/or the final may have a different format, time, and location
+- Course textbook link is on the Canvas landing page
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+	- All will be posted on the Canvas landing page
+- Today we will continue with graphs
+
+</div>
+
+:::
+
+
+<section>
+
+::: {.announcements}
+## Lecture 5: Tuesday, January 27th
+
+Snow day!
+:::
+
+</section>
+
+
+
 # Weird Unicode Math Symbols
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/weird_unicode_math_symbols.png){title="U+2A0B ⨋ Mathematicians need to calm down" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/weird_unicode_math_symbols_2x.png 2x" }
