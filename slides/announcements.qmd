@@ -5,6 +5,44 @@ toc: false
 ---
 
 
+# Linear Sort
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/linear_sort.png){title="The best case is O(n), and the worst case is that someone checks why." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/linear_sort_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 3026](https://xkcd.com/3026)
+:::
+
+
+::: {.announcements}
+## Lecture 8 Thursday, February 5th
+
+<div style="font-size:90%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+	- All will be posted on the Canvas landing page
+- Assignments
+  - PS2 is due tomorrow
+  - PA1 is due this Friday
+  - Upcoming: PS3 will be released today, PA2 released on Friday
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4: we are expecting to move to a CBTF; details to follow
+		- If on paper,then they are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+- Course textbook link is on the Canvas landing page
+- Today we will continue with divide and conquer
+
+</div>
+
+:::
+
+
+
+
 # Dependencies
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/dependencies.png){title="The prereqs for CPSC 357, the class on package management, are CPSC 432, CPSC 357, and glibc2.5 or later." style='border:10px solid white'  }
@@ -15,7 +53,7 @@ toc: false
 
 
 ::: {.announcements}
-## Lecture 67 Tuesday, February 3rd
+## Lecture 7 Tuesday, February 3rd
 
 <div style="font-size:90%">
 
@@ -40,6 +78,7 @@ toc: false
 </div>
 
 :::
+
 
 
 
