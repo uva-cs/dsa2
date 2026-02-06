@@ -20,6 +20,7 @@ Repository Contents
 	- [Daily announcement slides](slides/announcements.html#/)
 - Programming assignments: 
   - [PA1: Internet Routing](pa/pa1/index.html)
+  - [PA2: Sorting Train Cars](pa/pa2/index.html)
 - [Problem sets](ps/index.html)
 - [Old course content](old.html) from previous semesters
 
