@@ -5,6 +5,44 @@ toc: false
 ---
 
 
+# Flow Charts
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/flow_charts.png){title="At 8 drinks, you switch the torrent from FreeBSD to Microsoft Bob.  C&#39;mon, it&#39;ll be fun!" style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 518](https://xkcd.com/518)
+:::
+
+
+::: {.announcements}
+## Lecture 9: Tuesday, February 10th
+
+<div style="font-size:90%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+- Assignments
+  - PA1 was due last Friday -- how did it go?
+  - PS3 is out, due tomorrow (Wed, Feb 11th)
+  - PA2 is out, due next Friday (Fri, Feb 20th)
+  - PS4 will be out Thursday, due next Wednesday
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4: we are expecting to move to a CBTF; details to follow
+		- If on paper,then they are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+- Course textbook link is on the Canvas landing page
+- Today we will continue with divide and conquer
+
+</div>
+
+:::
+
+
+
+
 # Linear Sort
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/linear_sort.png){title="The best case is O(n), and the worst case is that someone checks why." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/linear_sort_2x.png 2x" }
@@ -15,7 +53,7 @@ toc: false
 
 
 ::: {.announcements}
-## Lecture 8 Thursday, February 5th
+## Lecture 8: Thursday, February 5th
 
 <div style="font-size:90%">
 
@@ -53,7 +91,7 @@ toc: false
 
 
 ::: {.announcements}
-## Lecture 7 Tuesday, February 3rd
+## Lecture 7: Tuesday, February 3rd
 
 <div style="font-size:90%">
 
