@@ -5,6 +5,42 @@ toc: false
 ---
 
 
+# Coordinate Plane Closure
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/coordinate_plane_closure.png){title="3D graphs that don&#39;t contact the plane in the closure area may proceed as scheduled, but be alert for possible collisions with 2D graph lines that reach the hole and unexpectedly enter 3D space." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/coordinate_plane_closure_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2735](https://xkcd.com/2735)
+:::
+
+
+::: {.announcements}
+## Lecture 10: Thursday, February 12th
+
+<div style="font-size:90%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+- Assignments
+  - PS3 was due yesterday -- how did it go?
+  - PA2 is out, due next Friday (Fri, Feb 20th)
+  - PS4 will be out today, due next Wednesday
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4: we are expecting to move to a CBTF; details to follow
+		- If on paper,then they are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+- Course textbook link is on the Canvas landing page
+- Today we will continue with divide and conquer
+
+</div>
+
+:::
+
+
+
 # Flow Charts
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/flow_charts.png){title="At 8 drinks, you switch the torrent from FreeBSD to Microsoft Bob.  C&#39;mon, it&#39;ll be fun!" style='border:10px solid white'  }
