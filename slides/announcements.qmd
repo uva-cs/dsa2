@@ -5,6 +5,47 @@ toc: false
 ---
 
 
+# Here to Help
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/here_to_help.png){title="&quot;We TOLD you it was hard.&quot; &quot;Yeah, but now that I&#39;VE tried, we KNOW it&#39;s hard.&quot;" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/here_to_help_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1831](https://xkcd.com/1831)
+:::
+
+
+::: {.announcements}
+## Lecture 11: Tuesday, February 17th
+
+<div style="font-size:85%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+- Assignments
+  - PS4 is due tomorrow (Feb 18)
+  - PA2 is due this Friday (Feb 20)
+  - PS5 will be out *next* week
+  - No OH for some of next week due to exam and the upcoming spring break
+- Grades
+  - PS0 was returned
+  - PS1 should be back today
+  - PS2 and PS3 should be back next week
+  - PA1 is being graded (auto-grader issues are delaying it)
+  - PA2 can be graded starting later this week
+- Quizzes next Tuesday (Feb 24) in lecture
+  - Old quizzes in Canvas' files
+- Course textbook link is on the Canvas landing page
+- Today we will start on greedy algorithms
+
+</div>
+
+:::
+
+
+
+
 # Coordinate Plane Closure
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/coordinate_plane_closure.png){title="3D graphs that don&#39;t contact the plane in the closure area may proceed as scheduled, but be alert for possible collisions with 2D graph lines that reach the hole and unexpectedly enter 3D space." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/coordinate_plane_closure_2x.png 2x" }
