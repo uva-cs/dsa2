@@ -23,19 +23,20 @@ toc: false
 	- TA office hours are Mon through Thu, from 5-9 in Rice 442
 	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
 	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+  - No OH for some of next week due to exam and the upcoming spring break
 - Assignments
   - PS4 is due tomorrow (Feb 18)
   - PA2 is due this Friday (Feb 20)
   - PS5 will be out *next* week
-  - No OH for some of next week due to exam and the upcoming spring break
 - Grades
-  - PS0 was returned
+  - PS0 and PA1 have been returned
   - PS1 should be back today
   - PS2 and PS3 should be back next week
-  - PA1 is being graded (auto-grader issues are delaying it)
   - PA2 can be graded starting later this week
-- Quizzes next Tuesday (Feb 24) in lecture
-  - Old quizzes in Canvas' files
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Quizzes next Tuesday (Feb 24) in lecture; old quizzes in Canvas' files
 - Course textbook link is on the Canvas landing page
 - Today we will start on greedy algorithms
 
