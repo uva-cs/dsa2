@@ -5,6 +5,50 @@ toc: false
 ---
 
 
+# Good Code
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/good_code.png){title="You can either hang out in the Android Loop or the HURD loop." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 844](https://xkcd.com/844)
+:::
+
+
+
+::: {.announcements}
+## Lecture 12: Thursday, February 19th
+
+<div style="font-size:80%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+  - No OH for some of next week due to exam and the upcoming spring break
+- Assignments
+  - PS4 was due yesterday -- how did it go?
+  - PA2 is due tomorrow (Friday, Feb 20)
+  - PS5 will be out *next* week, due the week after spring break
+- Grades
+  - PS0 and PA1 have been returned
+  - PS1 and PS2 should be back today -- then we are caught up!
+  - PA2 can be graded starting next week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF: we are expecting our first use the week after spring break
+  - It's to get used to the system -- as long as you complete it, you will not get a penalty
+- Quizzes 1&2 next Tuesday (Feb 24) in lecture; old quizzes in Canvas' files
+- Course textbook link is on the Canvas landing page
+- Today we will continue with greedy algorithms
+
+</div>
+
+:::
+
+
+
+
 # Here to Help
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/here_to_help.png){title="&quot;We TOLD you it was hard.&quot; &quot;Yeah, but now that I&#39;VE tried, we KNOW it&#39;s hard.&quot;" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/here_to_help_2x.png 2x" }
