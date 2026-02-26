@@ -5,6 +5,74 @@ toc: false
 ---
 
 
+
+# Tech Support Cheat Sheet
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/tech_support_cheat_sheet.png){title="&#39;Hey Megan, it&#39;s your father. How do I print out a flowchart?&#39;" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/tech_support_cheat_sheet_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 627](https://xkcd.com/627)
+:::
+
+
+
+
+::: {.announcements}
+## Lecture 14: Thursday, February 26th
+
+<div style="font-size:75%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+		- Today: there are OH 5-7, but not 7-9
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+  - No OH for some of next week due to exam and the upcoming spring break
+- Assignments
+  - PS5 should be out today, due Wednesday after spring break
+  - PA3 will be out within a week, due three weeks from tomorrow (Fri, Mar 20)
+- Quizzes 1&2
+	- They are graded, but...
+	- There was a problem with the second section, and there may be a statistical discrepancy between the grades; we want to get that sorted out before we return the exams
+- Grades
+  - Grades through PS2 and PA1 have been returned
+  - We expect PS3, PS4, and PA2 to be back right after spring break
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF: next slide
+- Course textbook link is on the Canvas landing page
+- Today we will continue with greedy algorithms
+
+</div>
+
+:::
+
+::: {.announcements}
+## CBTF Info
+
+<div style="font-size:75%">
+
+- We will be using a Computer-Based Testing Facility (CBTF) for the rest of the exams in this course
+- There is a *practice* exam the week after spring break
+	- Everybody has to take it!
+  - We are going to "grade" it to practice the auto-grading, but as long as you complete it, you will get full credit (counts as a homework)
+- It is a 50 minute slot, taken in Gilmer 490A
+- Login info will be provided right after spring break
+- The current schedule is:
+	- 3/17 - 4PM, 5:30PM
+	- 3/18 - 4PM, 5:30PM, 7PM
+	- 3/19 - 2:30PM, 4PM, 5:30PM, 7PM
+- You will be given a link to a system to register for ONE of those sections
+- Further quizzes in this course will follow a similar pattern
+- More information about this will be posted in Piazza in the next few days
+
+</div>
+
+:::
+
+
+
 # Good Code
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/good_code.png){title="You can either hang out in the Android Loop or the HURD loop." style='border:10px solid white'  }
