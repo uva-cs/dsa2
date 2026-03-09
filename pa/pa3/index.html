@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>PA3: Zombie Containment</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">PA3: Zombie Containment</h1>
+</header>
+<p><a href="..."><img src="https://upload.wikimedia.org/wikipedia/en/c/c6/The_Night_King_at_Hardhome.jpg" style="float:right;max-width:40vw;border-radius:40px;margin-left:10px;width:500px"></a></p>
+<p>The situation has gotten a little out of hand.</p>
+<p>After a mysterious outbreak, the city has been overrun with zombies. Emergency containment teams have managed to isolate the infected within a large quarantine zone, but there are still far too many roaming around. For research purposes, the scientists studying the outbreak need a small number of zombies to remain intact, but the rest must be eliminated as quickly and cheaply as possible.</p>
+<p>Several containment companies have offered their services. Each company provides two methods for dealing with zombies:</p>
+<ul>
+<li>They can neutralize a single zombie using standard equipment.</li>
+<li>They can deploy a containment gas device that spreads through the area and eliminates about half of the zombies at once. For simplicity, we will assume it always rounds in favor of eliminating more zombies. For example, if there are 9 zombies, the device will remove 5.</li>
+</ul>
+<p>You currently have <span class="math inline"><em>x</em></span> zombies trapped in the containment zone, and researchers require exactly <span class="math inline"><em>y</em></span> zombies to remain for study. Your task is to determine the minimum cost each company would charge to reduce the zombie population from <span class="math inline"><em>x</em></span> down to <span class="math inline"><em>y</em></span>, using any sequence of the two available operations.</p>
+<p>Once you determine the cost for each company, you must list them in order of increasing cost so the city council can choose the most economical containment strategy.</p>
+<p>This <strong><em>MUST</em></strong> be a greedy algorithm. It must not be a brute-force algorithm (i.e., try all possibilities).</p>
+<h3 id="example">Example</h3>
+<p>Consider a situation where you have 75 zombies roaming around, and you must leave exactly 10 for the researchers. There are 6 elimination companies. Thus, <span class="math inline"><em>x</em> = 75</span>, <span class="math inline"><em>y</em> = 10</span>, and <span class="math inline"><em>z</em> = 6</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Company name</th>
+<th>remove<br>1 (<span class="math inline"><em>c</em></span>)</th>
+<th>remove<br>half (<span class="math inline"><em>d</em></span>)</th>
+<th>Lowest<br>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Afterlife Cleanup Systems</td>
+<td>5</td>
+<td>3</td>
+<td>46</td>
+</tr>
+<tr class="even">
+<td>Biohazard Consulting</td>
+<td>3</td>
+<td>5</td>
+<td>34</td>
+</tr>
+<tr class="odd">
+<td>Global Undead Solutions</td>
+<td>3</td>
+<td>2</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td>Omniexterminate</td>
+<td>1</td>
+<td>2</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>Undead Management Corp</td>
+<td>9</td>
+<td>9</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td>Zombie Remediation Group</td>
+<td>1</td>
+<td>20</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p>For most of these, the best option is to cut in half twice (75 -&gt; 37 -&gt; 18) to start. We can’t cut in half a third time, as we would be less than the 10 that we need to save. Then we have to do 8 separate individual removals.</p>
+<p>However, that is not the case for the Zombie Remediation Group. It’s best to cut in half once to start (75 -&gt; 37) for $20. But then cutting in half a second time, which would reduce the zombies from 37 -&gt; 18, is more expensive than 19 individual elimination costs of $1 each.</p>
+<h3 id="input">Input</h3>
+<p>The first line of the input will contain a single number which is the number of test cases in the input.</p>
+<p>The first line in each test case will contain three numbers: the number of zombies there are, how many you must must leave for the researchers, and the number of available zombie elimination companies, in that order. We will designate these numbers as <span class="math inline"><em>x</em></span>, <span class="math inline"><em>y</em></span>, and <span class="math inline"><em>z</em></span>.</p>
+<p>Each of the following <span class="math inline"><em>z</em></span> lines in the test case will contain the information for one of the zombie elimination companies. Each line will contain, space separated, the following values: the company name (alphanumeric – no spaces, but underscores and dashes are allowed), their charge <span class="math inline"><em>c</em></span> for the first service (eliminating one zombie), and their charge <span class="math inline"><em>d</em></span> for the second service (eliminating half of the zombies).</p>
+<p>All numeric values will be non-negative integers, and all will be less than <span class="math inline">2<sup>31</sup></span>.</p>
+<h3 id="output">Output</h3>
+<p>For each test case, your output should start with the line <code>Case #</code>, where <code>#</code> is the case number, starting from 1.</p>
+<p>Each case will contain <span class="math inline"><em>z</em></span> additional output lines, one for each agency. Each line should list the agency name, a single space, and the <em>minimum</em> cost of using that company. The list should be sorted by cost (increasing); ties are resolved by the normal alphabetical sorting of the company names.</p>
+<p>All numeric output values will be less than <span class="math inline">2<sup>31</sup></span>.</p>
+<h3 id="sample-input">Sample Input</h3>
+<p>This input is available as <a href="example.in">example.in</a>.</p>
+<pre><code>2
+75 10 6
+Afterlife_Cleanup_Systems 5 3
+Undead_Management_Corp 9 9
+Global_Undead_Solutions 3 2
+Biohazard_Consulting 3 5
+Zombie_Remediation_Group 2 7
+Omniexterminate 1 2
+2246 2245 5
+Apocalypse_Control 100 600
+Skullcrack_Command 2 2000
+The_Zombie_Terminators 20 20
+Brain_Blast_Industries 2 100
+Chainsaw_Response_Team 0 0</code></pre>
+<h3 id="sample-output">Sample Output</h3>
+<p>This output is available as <a href="example.out">example.out</a>.</p>
+<pre><code>Case 1
+Omniexterminate 12
+Global_Undead_Solutions 28
+Biohazard_Consulting 34
+Afterlife_Cleanup_Systems 46
+Zombie_Remediation_Group 47
+Undead_Management_Corp 90
+Case 2
+Chainsaw_Response_Team 0
+Brain_Blast_Industries 2
+Skullcrack_Command 2
+The_Zombie_Terminators 20
+Apocalypse_Control 100</code></pre>
+<h3 id="requirements">Requirements</h3>
+<p>This <strong><em>MUST</em></strong> be a greedy algorithm. It must not be a brute-force algorithm (i.e., try all possibilities).</p>
+<h3 id="submission">Submission</h3>
+<p>The submission system can handle four different programming languages. For each programming language, the name of the submitted file is listed below – you have to have it named that exact name, else it will not compile properly. If you want to program in a different language, email the course email at least three days before it is due, as we have to reconfigure the submission system to handle that language.</p>
+<ul>
+<li>Python 3: pa3.py</li>
+<li>Java: PA3.java</li>
+<li>C: pa3.c</li>
+<li>C++: pa3.cpp</li>
+</ul>
+<p>You will submit your completed source code file to Gradescope. There will be a <em>small set</em> of acceptance tests that are <strong><em>NOT COMPREHENSIVE</em></strong>. These acceptance tests are the test cases in the <a href="example.in">example.in</a> file. It’s up to you to comprehensively test your code. The acceptance tests just verify that you are reading the input correctly and providing the expected output.</p>
+<p>Note that when you submit, Gradescope will report your grade as “-/10” or “0/10” – that’s a quirk of Gradescope, and is because the grading tests have not been run (and won’t be run until after all submissions are in). YOu can look at the results of the individual test cases to see how your program worked.</p>
+</body>
+</html>

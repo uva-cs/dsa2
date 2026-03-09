@@ -21,6 +21,7 @@ Repository Contents
 - Programming assignments: 
   - [PA1: Internet Routing](pa/pa1/index.html)
   - [PA2: Sorting Train Cars](pa/pa2/index.html)
+  - [PA3: Zombie Containment](pa/pa3/index.html)
 - [Problem sets](ps/index.html)
 - [Old course content](old.html) from previous semesters
 
