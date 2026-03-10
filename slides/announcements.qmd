@@ -4,6 +4,73 @@ css: announcements.css
 toc: false
 ---
 
+# Google Maps
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/google_maps.png){title="Apparently Google assumes you&#39;re traveling during the ferry&#39;s normal operating hours.  We lost two hours circling that damn lake (to say nothing of the Straw Man)." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 461](https://xkcd.com/461)
+:::
+
+
+::: {.announcements}
+## Lecture 14: Thursday, February 26th
+
+<div style="font-size:75%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS5 is out, due tomorrow (March 11th)
+  - PA3 is out, due next Friday (March 20th)
+  - PS6 will be out on Thursday
+- Quizzes 1&2
+	- They are graded and returned
+	  - See [Piazza post @88](https://piazza.com/class/mk9sfeici024z/post/88) about a small curve to make up for the typo
+	- Beyond that, we are not expecting to curve the examns
+	- A note about regrades, then they will open up for approximately one week
+- Grades
+  - Grades through PS2 and PA1 have been returned
+  - We expect PS3, PS4, and PA2 to be back this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF: next slide; it's NEXT week, not this week
+- Course textbook link is on the Canvas landing page
+- Today we will continue with greedy algorithms
+
+</div>
+
+:::
+
+::: {.announcements}
+## CBTF Info
+
+<div style="font-size:75%">
+
+- We will be using a Computer-Based Testing Facility (CBTF) for the rest of the exams in this course
+- There is a *practice* exam the week after spring break
+	- Everybody has to take it!
+  - We are going to "grade" it to practice the auto-grading, but as long as you complete it, you will get full credit (counts as a homework)
+- It is a 50 minute slot, taken in Gilmer 490A
+- Login info will be provided right after spring break
+- The current schedule is:
+	- 3/17 - 4PM, 5:30PM
+	- 3/18 - 4PM, 5:30PM, 7PM
+	- 3/19 - 2:30PM, 4PM, 5:30PM, 7PM
+- You will be given a link to a system to register for ONE of those sections
+- Further quizzes in this course will follow a similar pattern
+- More information about this will be posted in Piazza in the next few days
+
+</div>
+
+:::
+
+
+
+
 
 
 # Tech Support Cheat Sheet
@@ -13,8 +80,6 @@ toc: false
 ::: {.r-stack}
 [xkcd \# 627](https://xkcd.com/627)
 :::
-
-
 
 
 ::: {.announcements}
