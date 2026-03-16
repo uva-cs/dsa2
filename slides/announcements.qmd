@@ -5,6 +5,72 @@ toc: false
 ---
 
 
+# Recipes
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/recipes.png){title="To be fair, the braised and confused newt on a bed of crushed Doritos turned out to be delicious." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 720](https://xkcd.com/720)
+:::
+
+
+::: {.announcements}
+## Lecture 16: Thursday, March 16th
+
+<div style="font-size:75%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS6 is out, and due tomorrow
+  - PA3 is out, due this Friday (March 20th)
+- Quizzes 1&2
+	- They are graded and returned; see [Piazza post @88](https://piazza.com/class/mk9sfeici024z/post/88) about a small curve to make up for the typo
+	- Beyond that, we are not expecting to curve the examns
+	- Regrades are open for about a week
+- Grades
+  - Grades through PS4 and PA1 have been returned
+  - We expect PA2 to be back this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF: next slide; it's THIS week
+- Course textbook link is on the Canvas landing page
+- Today we will continue with greedy algorithms
+
+</div>
+
+:::
+
+::: {.announcements}
+## CBTF Info
+
+<div style="font-size:75%">
+
+- We will be using a Computer-Based Testing Facility (CBTF) for the rest of the exams in this course
+- There is a *practice* exam this week (March 17-19)
+	- Everybody has to take it!
+  - We are going to "grade" it to practice the auto-grading, but as long as you complete it, you will get full credit (counts as a homework)
+	- It is a 50 minute slot, taken in Gilmer 490A
+- To register for a slot, see [Piazza post @95](https://piazza.com/class/mk9sfeici024z/post/95)
+	- As of last night, only 20% of the class has registered
+	- If you have a legitimate conflict (out of town, etc.), send an email to the course email
+	- Otherwise, there will not be a make-up
+- The current schedule for the practice quiz is:
+	- Tuesday, 3/17 - 4 pm, 5:30 pm
+	- Wednesday, 3/18 - 4 pm, 5:30 pm, 7 pm
+	- Thursday, 3/19 - 2:30 pm, 4 pm, 5:30 pm, 7 pm
+- The real quiz 3 will be next week
+  - Wednesday, 3/25 through Friday, 3/27
+  - Details to follow later this week
+</div>
+
+:::
+
+
+
 
 # AI Hiring Algorithm
 ::: {.stretch}
