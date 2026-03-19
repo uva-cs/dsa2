@@ -5,6 +5,49 @@ toc: false
 ---
 
 
+# Watson Medical Algorithm
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/watson_medical_algorithm.png){title="Due to a minor glitch, &#39;discharge patient&#39; does not cause the algorithm to exit, but instead leads back to &#39;hunt down and capture patient&#39;." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/watson_medical_algorithm_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1619](https://xkcd.com/1619)
+:::
+
+
+::: {.announcements}
+## Lecture 18: Thursday, March 19th
+
+<div style="font-size:75%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS6 was due yesterday
+  - PA3 is out, due this Friday (March 20th)
+  - No PA7 released this week, because next week is quiz 3
+- Grades
+  - Grades through PS4 and PA1 have been returned
+  - We expect PA2 to be back this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF
+  - Status:
+    - Wednesday's practice quiz sessions: complete failure
+    - Thursday's practice quiz sessions: it (almost) worked
+  - On Friday we will release, on Piazza, info about next week's quiz 3
+    - We are waiting until the practice quiz finishes
+- Course textbook link is on the Canvas landing page
+- Today we will continue with dynamic programming algorithms
+
+</div>
+
+:::
+
+
+
 # Recipes
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/recipes.png){title="To be fair, the braised and confused newt on a bed of crushed Doritos turned out to be delicious." style='border:10px solid white'  }
@@ -15,7 +58,7 @@ toc: false
 
 
 ::: {.announcements}
-## Lecture 16: Thursday, March 16th
+## Lecture 17: Thursday, March 16th
 
 <div style="font-size:75%">
 
