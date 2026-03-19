@@ -17,16 +17,17 @@ toc: false
 ::: {.announcements}
 ## Lecture 18: Thursday, March 19th
 
-<div style="font-size:75%">
+<div style="font-size:70%">
 
 - Office hours
 	- TA office hours are Mon through Thu, from 5-9 in Rice 442
-	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
 	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
 - Assignments
-  - PS6 was due yesterday
-  - PA3 is out, due this Friday (March 20th)
-  - No PA7 released this week, because next week is quiz 3
+  - PS6 (greedy II) was due yesterday; how did it go?
+  - PA3 (greedy) is out, due this Friday (March 20th)
+  - No PA7 (DP I) released this week, because next week is quiz 3
+  - PA4 (DP) is due in 3 weeks, so will be out next week
 - Grades
   - Grades through PS4 and PA1 have been returned
   - We expect PA2 to be back this week
@@ -34,13 +35,12 @@ toc: false
   - If it's a PA, then via the dedicated Piazza post
   - If it's a PS, then submit it through Gradescope within one week
 - CBTF
-  - Status:
-    - Wednesday's practice quiz sessions: complete failure
-    - Thursday's practice quiz sessions: it (almost) worked
+  - Wednesday's practice quiz sessions: a complete failure
+  - Thursday's practice quiz sessions: it (almost) worked
   - On Friday we will release, on Piazza, info about next week's quiz 3
     - We are waiting until the practice quiz finishes
 - Course textbook link is on the Canvas landing page
-- Today we will continue with dynamic programming algorithms
+- Today we will continue with dynamic programming
 
 </div>
 
