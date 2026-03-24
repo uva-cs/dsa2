@@ -5,6 +5,68 @@ toc: false
 ---
 
 
+# Genetic Algorithms
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/genetic_algorithms.png){title="Just make sure you don&#39;t have it maximize instead of minimize." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 534](https://xkcd.com/534)
+:::
+
+::: {.announcements}
+## Lecture 19: Tuesday, March 24th (1/2)
+
+<div style="font-size:80%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - Nothing due this week; PS7 (DP I) and PA4 (DP) will be out later this week
+- Grades
+  - Grades through PS4 and PA1 have been returned
+  - We expect PA2 to be back this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF
+	- Most people took the practice quiz
+	- Quiz 3 sign-ups are available; see Piazza post [@125](https://piazza.com/class/mk9sfeici024z/post/125)
+	- We do not want the early sessions to have a disadvantage, so we are providing more info on the next slide
+- Course textbook link is on the Canvas landing page
+- Today we will continue with dynamic programming
+
+</div>
+
+:::
+
+
+::: {.announcements}
+## Quiz 3 format
+
+<div style="font-size:90%">
+
+The questions on quiz 3 are:
+
+1. Perform Dijkstra's shortest path
+   - Hint: create a table like on slide 14 of the 03-2-DijkstraAndPrim.pdf slide set
+2. Find an MST in a graph (either Kruskal's or Prim's)
+	 - A note about scratch paper: copy the NODES only, and the fill in the edges in the MST
+3. Proofs:
+   - Prove optimal substructure of one of the algorithms we have seen (randomly chosen)
+   - Prove the greedy choice property of one of the algorithms we have seen (randomly chosen)
+   - This will be by *proof blocks* (given a number of steps of the proof, including incorrect steps, select the correct ones and assemble them in the correct order)
+   - 6 possible algorithms: coin change, Dijkstra's, MST (both Prim's and Kruskal's), activity selection, fractional knapsack
+ 4. Some number (5-10) of true/false questions from a *very* large question bank
+
+</div>
+
+:::
+
+
+
+
 # Watson Medical Algorithm
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/watson_medical_algorithm.png){title="Due to a minor glitch, &#39;discharge patient&#39; does not cause the algorithm to exit, but instead leads back to &#39;hunt down and capture patient&#39;." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/watson_medical_algorithm_2x.png 2x" }
