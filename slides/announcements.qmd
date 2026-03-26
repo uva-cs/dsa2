@@ -5,6 +5,45 @@ toc: false
 ---
 
 
+
+# Machine Learning
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/machine_learning.png){title="The pile gets soaked with data and starts to get mushy over time, so it&#39;s technically recurrent." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/machine_learning_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1838](https://xkcd.com/1838)
+:::
+
+::: {.announcements}
+## Lecture 20: Thursday, March 26th
+
+<div style="font-size:80%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - Nothing due this week; PS7 (DP I) and PA4 (DP) will be out later this week
+- Grades
+  - Grades through PS4 and PA1 have been returned
+  - We expect PA2, PA3, and PS5 to be back by next Tuesday
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF for quiz 3
+	- We do not want the early sessions to have a disadvantage, so we are providing more information (see [last Tuesday's slide](announcements.html#/quiz-3-format))
+	- We will debrief and get feedback on Tuesday
+- Course textbook link is on the Canvas landing page
+- Today we will continue with dynamic programming
+
+</div>
+
+:::
+
+
+
+
 # Genetic Algorithms
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/genetic_algorithms.png){title="Just make sure you don&#39;t have it maximize instead of minimize." style='border:10px solid white'  }
