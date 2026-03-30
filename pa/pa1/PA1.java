@@ -40,7 +40,7 @@ public class PA1 {
 
 			// read in the queries
 			ArrayList<Pair> queries = new ArrayList<Pair>();
-			for ( int j = 0; j < e; j++ )
+			for ( int j = 0; j < q; j++ )
 				queries.add(new Pair(stdin.next(),stdin.next()));
 
 			System.out.println("test case " + i + ":");

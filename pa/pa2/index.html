@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>PA2: Sorting Train Cars</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">PA2: Sorting Train Cars</h1>
+</header>
+<p><a href="..."><img src="http://images.fineartamerica.com/images-medium-large-5/corwith-intermodal-rail-yard-chicago-steve-gadomski.jpg" style="float:right;max-width:40vw;border-radius:40px;margin-left:10px"></a></p>
+<p>You have been hired by a train yard to help get their train cars in order. Delivery freight trains leave the train yard for a route with a number of destination factories. At each stop the train detaches the appropriate cars – dropping them off – so that the train does not have to wait while the destination factory unpacks the cars. On the return trip, the train picks up all the cars to return to the train yard.</p>
+<p>To make this work efficiently, the first destination must have their trains at the end, so they can quickly be detached and the train can then move onward. Similarly, the second destination must have their trains just in front of those. The last destination must have their cars right behind the locomotive.</p>
+<p>The problem is that when the train comes into the yard, the cars are not in the proper order. The task of the yard is to re-arrange the train cars so that they are in the necessary order for delivery. The train yard gets to bill for how out of order a car is on the incoming train.</p>
+<p>Your task is to help the train yard figure this out. Given a list of train cars, and a required order, determine how out of order the train cars are. To make this problem easier, each of the <span class="math inline"><em>n</em></span> trains car will have a unique integer that indicates its order – car 0 is right behind the locomotive, and car <span class="math inline"><em>n</em> − 1</span> is at the very back. Here, “out of order” means one or more higher numbered cars are in front of a lowered number car.</p>
+<p>This <strong><em>MUST</em></strong> be a divde-and-conquer algorithm. It must run in <span class="math inline"><em>Θ</em>(<em>n</em>log <em>n</em>)</span> time, else it will timeout with some of the grading execution runs.</p>
+<h3 id="example">Example</h3>
+<p>Consider a train with 4 cars numbered 0 through 3 (the locomotive is in front of car 0). The expected order, of course, is:</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>The locomotive is to the left of car 0, and the rear of the train is to the right in that diagram. In this correct ordering, no car has a higher-numbered car to its left – all the higher numbered cars are to its right.</p>
+<p>But the order they arrive is:</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>And “out of order” car means that one or more higher numbered cars are in front of (to the left of) a lowered number car. To determine how many cars are out of order:</p>
+<ul>
+<li>Car 0 has no higher-numbered cars to its left</li>
+<li>Car 1 has two higher-numbered cars to its left</li>
+<li>Car 2 has one higher-numbered car to its left</li>
+<li>Car 3 has no higher numbered cars (and thus no higher-numbered cars to its left)</li>
+</ul>
+<p>This case would have three mis-orderings.</p>
+<h3 id="input">Input</h3>
+<p>An input file will start with a line containing a single integer <span class="math inline">1 ≤ <em>t</em> ≤ 10<sup>5</sup></span>, which is the number of test cases in the file.</p>
+<p>Each of the <span class="math inline"><em>t</em></span> test cases will be on exactly one line. The first value on the line will have <span class="math inline"><em>n</em></span>, the number of cars in that train. The next <span class="math inline">1 ≤ <em>n</em> ≤ 2 * *31</span> values will be the order of the train cars; these are all unique integers from <span class="math inline">0</span> to <span class="math inline"><em>n</em> − 1</span>. All values on this line will be space separated</p>
+<p>All input is provided via standard input. All values will fit into a 32-bit singed integer (i.e., a standard <code>int</code> variable).</p>
+<h3 id="output">Output</h3>
+<p>Each test case will output a single integer variable, on its own line, which is the number of mis-orderings of the incoming train.</p>
+<p>All output is to be printed to standard output.</p>
+<h3 id="sample-input">Sample Input</h3>
+<p>This input is available as <a href="example.in">example.in</a>. The first test case is the example shown above.</p>
+<pre><code>4
+4 0 3 2 1
+5 4 0 3 1 2
+10 5 2 7 1 8 4 3 6 0 9
+40 35 8 9 26 6 3 39 28 32 23 22 14 24 33 18 19 12 21 4 34 37 11 7 38 10 15 16 1 5 25 20 17 31 29 13 0 30 27 2 36</code></pre>
+<h3 id="sample-output">Sample Output</h3>
+<p>This output is available as <a href="example.out">example.out</a>.</p>
+<pre><code>3
+6
+21
+407</code></pre>
+<h3 id="requirements">Requirements</h3>
+<p>This can be done via two nested for loops, but that yields a <span class="math inline"><em>Θ</em>(<em>n</em><sup>2</sup>)</span> algorithm. Your algorithm must be a <strong>divide and conquer</strong> algorithm, as discussed in class – we are going to check this. You cannot use parallelization – your program will be limited to one thread/process.</p>
+<p>Your algorithm must run in <span class="math inline"><em>Θ</em>(<em>n</em> log <em>n</em>)</span> time. We are going to check this with a <em>very</em> large test case provided via standard input. If your algorithm is not <span class="math inline"><em>O</em>(<em>n</em> log <em>n</em>)</span>, Gradescope will time out on your submission.</p>
+<p><strong>You will need to name your recursive function <code>solve()</code> (not <code>Solve()</code>, not <code>solver()</code>, not anything else).</strong></p>
+<p>We are NOT providing skeleton code to read in the input. You can look at the skeleton code from <a href="../pa1/index.html">PA1</a>, if that would help.</p>
+<h3 id="submission">Submission</h3>
+<p>The submission system can handle four different programming languages. For each programming language, the name of the submitted file is listed below – you have to have it named that exact name, else it will not compile properly. If you want to program in a different language, email the course email at least three days before it is due, as we have to reconfigure the submission system to handle that language.</p>
+<ul>
+<li>Python 3: pa2.py</li>
+<li>Java: PA2.java</li>
+<li>C: pa2.c</li>
+<li>C++: pa2.cpp</li>
+</ul>
+<p>You will submit your completed source code file to Gradescope. There will be a <em>small set</em> of acceptance tests that are <strong><em>NOT COMPREHENSIVE</em></strong>. These acceptance tests are the test cases in the <a href="example.in">example.in</a> file. It’s up to you to comprehensively test your code. The acceptance tests just verify that you are reading the input correctly and providing the expected output.</p>
+<p>Note that when you submit, Gradescope will report your grade as “-/10” or “0/10” – that’s a quirk of Gradescope, and is because the grading tests have not been run (and won’t be run until after all submissions are in). YOu can look at the results of the individual test cases to see how your program worked.</p>
+</body>
+</html>
