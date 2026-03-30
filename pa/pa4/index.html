@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>---</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../markdown.css" />
+</head>
+<body>
+<hr />
+<h2 id="pa4-water-drainage">PA4: Water Drainage</h2>
+<p><a href="..."><img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/A_stream_on_a_track_between_Sabine_Hut_and_Speargrass_Hut%2C_Nelson_Lakes_National_Park%2C_New_Zealand.jpg" style="float:right;max-width:40vw;border-radius:40px;margin-left:10px;width:500px"></a></p>
+<p>You decide to give up computer science, and instead pursue a career in environmental engineering. Fortunately, your algorithmic skills still prove useful! Your first assignment is to model water runoff — or <em>drainage</em> — across a terrain. The terrain is represented as a two-dimensional grid of elevations. Water flows across this landscape according to strict physical rules, and your task is to determine how far it can travel.</p>
+<p>You are given:</p>
+<ul>
+<li>A set of terrain grids, each with a unique title</li>
+<li>Each grid has <span class="math inline"><em>r</em></span> rows and <span class="math inline"><em>c</em></span> columns</li>
+<li>Each cell contains an integer elevation</li>
+</ul>
+<p>Water flows according to the following rules:</p>
+<ul>
+<li>Water flows only from <strong>higher elevation to lower elevation</strong></li>
+<li>Water <strong>cannot</strong> flow to equal elevation</li>
+<li>Water <strong>cannot</strong> flow uphill</li>
+<li>Water can only move to <strong>adjacent cells</strong> (up, down, left, right (no diagonals))</li>
+</ul>
+<p>Your goal is to determine the <strong>length of the longest possible drainage path</strong> in each grid.</p>
+<hr />
+<h3 id="example">Example</h3>
+<p>Consider the following <span class="math inline">5 × 5</span> grid:</p>
+<pre><code>66 78 41 3 77
+4 90 41 8 68
+12 11 29 24 53
+0 51 58 9 28
+97 99 96 58 92</code></pre>
+<p>There are many valid drainage paths. For example:</p>
+<ul>
+<li>One path starts at 90 and flows: <code>90 - 78 - 41 - 3</code></li>
+<li>Note that <code>90 - 41 - 41 - 3</code> is <strong>invalid</strong>, since water cannot flow between equal elevations</li>
+</ul>
+<p>The <strong>longest drainage path</strong> in this grid has length <strong>7</strong>:</p>
+<pre><code>99 - 96 - 58 - 29 - 24 - 8 - 3</code></pre>
+<hr />
+<h3 id="theory">Theory</h3>
+<p>This problem <strong><em>MUST</em></strong> be solved using <strong>dynamic programming</strong>. A brute-force solution (recursive or otherwise) will not complete in time for large inputs.</p>
+<hr />
+<h3 id="input">Input</h3>
+<p>The input begins with a single integer:</p>
+<ul>
+<li><span class="math inline">1 ≤ <em>t</em> ≤ 100</span>: the number of test cases</li>
+</ul>
+<p>Each test case consists of:</p>
+<ul>
+<li>A single line containing:
+<ul>
+<li>A title string (no spaces or punctuation)</li>
+<li>Two integers <span class="math inline"><em>r</em></span> and <span class="math inline"><em>c</em></span> (<span class="math inline">1 ≤ <em>r</em>, <em>c</em> ≤ 100</span>)</li>
+</ul></li>
+<li>Followed by <span class="math inline"><em>r</em></span> lines, each containing <span class="math inline"><em>c</em></span> integers:
+<ul>
+<li>Each integer represents a height between <span class="math inline">0</span> and <span class="math inline">100</span></li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="output">Output</h3>
+<p>For each test case, output a single line:</p>
+<pre><code>&lt;city&gt;: &lt;length&gt;</code></pre>
+<p>Where:</p>
+<ul>
+<li><code>&lt;city&gt;</code> is the name of the test case</li>
+<li><code>&lt;length&gt;</code> is the length of the longest drainage path</li>
+</ul>
+<hr />
+<h3 id="sample-input">Sample Input</h3>
+<pre><code>4
+Charlottesville 5 5
+66 78 41 3 77
+4 90 41 8 68
+12 11 29 24 53
+0 51 58 9 28
+97 99 96 58 92
+Richmond 3 3
+1 1 1
+1 1 1
+1 1 1
+WashingtonDC 5 5
+10 81 28 2 49
+64 59 61 85 82
+77 14 81 6 76
+37 86 99 11 92
+85 95 78 13 57
+Wintergreen 5 5
+1 2 3 4 5
+10 9 8 7 6
+11 12 13 14 15
+20 19 18 17 16
+21 22 23 24 25</code></pre>
+<hr />
+<h3 id="sample-output">Sample Output</h3>
+<pre><code>Charlottesville: 7
+Richmond: 1
+WashingtonDC: 5
+Wintergreen: 25</code></pre>
+<hr />
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Think about defining a subproblem for each grid cell:
+<ul>
+<li>What is the longest path starting (or ending) at this cell?</li>
+</ul></li>
+<li>Use memoization (top-down) or tabulation (bottom-up)</li>
+<li>Each cell depends on its neighbors in some way</li>
+</ul>
+<hr />
+<h3 id="submission">Submission</h3>
+<p>The submission system can handle four different programming languages. For each programming language, the name of the submitted file is listed below – you have to have it named that exact name, else it will not compile properly. If you want to program in a different language, email the course email at least three days before it is due, as we have to reconfigure the submission system to handle that language.</p>
+<ul>
+<li>Python 3: pa4.py</li>
+<li>Java: PA4.java</li>
+<li>C: pa4.c</li>
+<li>C++: pa4.cpp</li>
+</ul>
+<p>You will submit your completed source code file to Gradescope. There will be a <em>small set</em> of acceptance tests that are <strong><em>NOT COMPREHENSIVE</em></strong>. These acceptance tests are the test cases in the <a href="example.in">example.in</a> file. It’s up to you to comprehensively test your code. The acceptance tests just verify that you are reading the input correctly and providing the expected output.</p>
+<p>Note that when you submit, Gradescope will report your grade as “-/10” or “0/10” – that’s a quirk of Gradescope, and is because the grading tests have not been run (and won’t be run until after all submissions are in). YOu can look at the results of the individual test cases to see how your program worked.</p>
+</body>
+</html>
