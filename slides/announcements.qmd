@@ -5,6 +5,59 @@ toc: false
 ---
 
 
+# Scientist Tech Help
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/scientist_tech_help.png){title="I vaguely and irrationally resent how useful WebPlotDigitizer is." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/scientist_tech_help_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2341](https://xkcd.com/2341)
+:::
+
+::: {.announcements}
+## Lecture 21: Tuesday, March 31st (p 1/2)
+
+<div style="font-size:75%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS7 (DP I) due tomorrow
+  - PS8 (DP II) out Thursday, due next Wednesday
+  - PA4 (DP) is out, due next Friday (4/10)
+- Grades
+  - Grades through PS5 and PA2 have been returned
+    - PS5 and PA2 grades returned yesterday
+  - We expect PA3 to be back "soon"
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Updated schedule on next slide
+- CBTF for quiz 3: We will have a debriefing on Thursday
+- CBTF for quiz 4: Wed, Apr 15 to Fri, Apr 17
+- Course textbook link is on the Canvas landing page
+- Today we will continue with dynamic programming
+
+</div>
+
+:::
+
+::: {.announcements}
+## Lecture 21: Tuesday, March 31st (p 2/2)
+
+Upcoming schedule
+
+- Week of Mon, Mar 30 (this week): PA7 (DP I) due Wed (4/1)
+- Week of Mon, Apr 6: (next week): PA8 (DP II) due Wed (4/8), PA4 due Fri (4/10)
+- Week of Mon, Apr 13: CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
+- Week of Mon, Apr 20: PA9 (reductions) due Wed (4/22)
+- Week of Mon, Apr 27: 
+	- PA5 (reductions) due Tue (4/28); but this is SUBJECT TO CHANGE (with sufficient notice, of course)
+	- CBTF final over that weekend (Fri, May 1 to Mon, May 4); exact dates and session time details TBA
+:::
+
+
 
 # Machine Learning
 ::: {.stretch}
