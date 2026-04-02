@@ -65,7 +65,9 @@ toc: false
   - Did you feel the practice quiz prepared you for the process?
   - Did you feel that the description we gave before the quiz was all the information you would have received from somebody who took it?
 - Things we are working on:
-  - A few questions had buts
+  - A few questions had problems:
+    - Greedy proofs saving issues
+    - T/F question issues
   - Some people had submission issues
 :::
 
