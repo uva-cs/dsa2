@@ -5,6 +5,70 @@ toc: false
 ---
 
 
+
+
+# Is It Worth the Time?
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/is_it_worth_the_time.png){title="Don&#39;t forget the time you spend finding the chart to look up what you save. And the time spent reading this reminder about the time spent. And the time trying to figure out if either of those actually make sense. Remember, every second counts toward your life total, including these right now." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/is_it_worth_the_time_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1205](https://xkcd.com/1205)
+:::
+
+::: {.announcements}
+## Lecture 23: Tuesday, April 7th (p 1/3)
+
+<div style="font-size:75%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS8 (DP II) out Thursday, due this Wednesday
+  - PA4 (DP) is out, due this Friday (4/10)
+    - Gradescope will open up later today
+- Grades
+  - Grades through PS6 and PA2 have been returned
+    - PS6 grades returned today
+  - We expect PA3 to be back "soon"
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Updated schedule on next slide
+- Course textbook link is on the Canvas landing page
+- Today we will start on max flow (part of the reductions module)
+
+</div>
+
+:::
+
+::: {.announcements}
+## Upcoming schedule
+
+- ~~Week of Mon, Mar 30: PS7 (DP I) due Wed (4/1)~~
+- Week of Mon, Apr 6: (this week): PS8 (DP II) due Wed (4/8), PA4 due Fri (4/10)
+- Week of Mon, Apr 13 (next week): CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
+  - Sign ups are open!
+- Week of Mon, Apr 20: PA9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
+- Week of Mon, Apr 27: CBTF final over that weekend (Fri, May 1 to Mon, May 4); exact dates and session time details TBA
+:::
+
+::: {.announcements}
+## CBTF Quiz 3 Survey
+
+<img src='cbtf-survey.png' style='float:right;padding-left:20px'>
+
+Please fill out the survey!  You can do it now; we'll wait.
+
+Direct link: [https://forms.office.com/r/ABmkXknyhw](https://forms.office.com/r/ABmkXknyhw)
+
+:::
+
+
+
+
+
 # Scientist Tech Help
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/scientist_tech_help.png){title="I vaguely and irrationally resent how useful WebPlotDigitizer is." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/scientist_tech_help_2x.png 2x" }
