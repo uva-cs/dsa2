@@ -6,6 +6,88 @@ toc: false
 
 
 
+# Tree
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/tree.png){title="Not only is that terrible in general, but you just KNOW Billy&#39;s going to open the root present first, and then everyone will have to wait while the heap is rebuilt." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 835](https://xkcd.com/835)
+:::
+
+::: {.announcements}
+## Lecture 24: Thursday, April 9th (p 1/3)
+
+<div style="font-size:80%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS8 (DP II) due yesterday -- how was it?
+  - PA4 (DP) is out, due this Friday (4/10)
+    - Gradescope will open up later today
+- Grades
+  - Grades through PS6 and PA2 have been returned
+    - PS6 grades returned today
+  - We expect PA3 to be back "soon"
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Updated schedule on next slide
+- Course textbook link is on the Canvas landing page
+- Today we will continue with max flow (part of the reductions module)
+  - After today, only five more lectures left!
+
+</div>
+
+:::
+
+::: {.announcements}
+## Upcoming schedule
+
+- ~~Week of Mon, Mar 30: PS7 (DP I) due Wed (4/1)~~
+- Week of Mon, Apr 6: (this week): PS8 (DP II) due Wed (4/8), PA4 due Fri (4/10)
+- Week of Mon, Apr 13 (next week): CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
+  - Sign ups are open!
+- Week of Mon, Apr 20: PA9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
+- Week of Mon, Apr 27: CBTF final over that weekend (Fri, May 1 to Mon, May 4); exact dates and session time details TBA
+:::
+
+::: {.announcements}
+## Quiz 4 format
+
+<div style="font-size:85%;line-height:1.1em">
+
+Notes:
+
+- This is ***SUBJECT TO CHANGE*** (but we don't think it will change much)
+- We are providing this now so the Wednesday quiz-takers have sufficient advance notice
+- The algorithms studied in lecture are: lcs, log cutting, 0/1 knapsack, weighted activity selection, edit distance, coin change, and seam carving (the latter with slightly less detail)
+
+
+The questions on quiz 4 are:
+
+1. DP design: given a new DP algorithm, reason about it
+   - What is the runtime?  What type of data structure would it need?  That sort of thing.
+   - We currently have about almost 100 such algorithms; aiming for many more
+2. Log cutting: working through the algorithm described in class
+3. Weighted interval scheduling: working through the algorithm described in class
+4. DP question categorization: given various properties, which of the algorithms that we've studied match those properties?  (given type of data structure, given runtime, etc.)
+5. Some number (5-10) of true/false questions from a *very* large question bank
+   - Currently 72 DP questions in the question bank, aiming for at least twice that
+
+Possible changes:
+
+- If the quiz is too long, we'll remove a question (we'll know this by Tuesday)
+
+</div>
+
+:::
+
+
+
+
 
 # Is It Worth the Time?
 ::: {.stretch}
