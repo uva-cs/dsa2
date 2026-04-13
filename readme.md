@@ -23,6 +23,7 @@ Repository Contents
   - [PA2: Sorting Train Cars](pa/pa2/index.html)
   - [PA3: Zombie Containment](pa/pa3/index.html)
   - [PA4: Water Drainage](pa/pa4/index.html)
+  - [PA5: Final Exam Scheduling](pa/pa5/index.html)
 - [Problem sets](ps/index.html)
 - [Old course content](old.html) from previous semesters
 
