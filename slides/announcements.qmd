@@ -26,7 +26,7 @@ toc: false
 - Assignments
   - No assignments due this week
   - PS9 (reductions) is due next Wednesday
-  - PA5 (reductions) is due....
+  - PA5 (reductions) is due next Friday (4/24)
 - Grades
   - Grades through PS6 and PA2 have been returned
   - We expect others to be back "soon"
@@ -46,10 +46,10 @@ toc: false
 ## Upcoming schedule
 
 - ~~Week of Mon, Mar 30: PS7 (DP I) due Wed (4/1)~~
-- ~~Week of Mon, Apr 6: (this week): PS8 (DP II) due Wed (4/8), PA4 due Fri (4/10)~~
-- Week of Mon, Apr 13 (next week): CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
+- ~~Week of Mon, Apr 6: PS8 (DP II) due Wed (4/8), PA4 due Fri (4/10)~~
+- Week of Mon, Apr 13 (this week): CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
   - Sign ups are open!
-- Week of Mon, Apr 20: PS9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
+- Week of Mon, Apr 20 (next week): PS9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
 - Week of Mon, Apr 27: CBTF final over that weekend (Fri, May 1 to Mon, May 4); exact dates and session time details TBA
 :::
 
@@ -60,8 +60,6 @@ toc: false
 
 Notes:
 
-- This is ***SUBJECT TO CHANGE*** (but we don't think it will change much)
-- We are providing this now so the Wednesday quiz-takers have sufficient advance notice
 - The algorithms studied in lecture are: lcs, log cutting, 0/1 knapsack, weighted activity selection, edit distance, coin change, and seam carving (the latter with slightly less detail)
 
 
@@ -74,12 +72,11 @@ The questions on quiz 4 are:
 3. Weighted interval scheduling: working through the algorithm described in class
 4. DP question categorization: given various properties, which of the algorithms that we've studied match those properties?  (given type of data structure, given runtime, etc.)
 5. Some number (5-10) of true/false questions from a *very* large question bank
-   - Currently 72 DP questions in the question bank, aiming for at least twice that
+   - Currently 114 DP questions in the question bank, many more expected by tomorrow
 
-Possible changes:
+The only change from last Thursday:
 
-- If the quiz is too long, we'll remove a question (we'll know this by Tuesday)
-- This would be by having each exam choose one of either (2) or (3)
+- <span style="color:red">If the exam is too long, we would shorten it by having each exam choose one of either (2) or (3)</span>
 
 </div>
 
