@@ -6,6 +6,49 @@ toc: false
 
 
 
+# NP-Complete
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/np_complete.png){title="General solutions get you a 50% tip." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 287](https://xkcd.com/287)
+:::
+
+::: {.announcements}
+## Lecture 26: Thursday, April 16th 
+
+<div style="font-size:75%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+    - But mine are 1:30-3:00 today (4/16)
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - No assignments due this week because of quiz 4; see [here](#/quiz-4-format) for details about what is on the quiz
+  - PS9 (reductions) is out and due next Wednesday
+  - [PA5 (reductions)](../pa/pa5/index.html) is due next Friday (4/24)
+- Grades
+  - Grades through PS6 and PA2 have been returned
+  - We expect others to be back "soon"
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Upcoming schedule
+  - Week of Mon, Apr 13 (this week): CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
+  - Week of Mon, Apr 20 (next week): PS9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
+  - Week of Mon, Apr 27: CBTF final over that weekend (Fri, May 1 to Mon, May 4); full details TBA
+- Course textbook link is on the Canvas landing page
+- Today we will continue with reductions
+  - After today, only three more lectures left!
+
+</div>
+
+:::
+
+
+
+
 # Flowcharts
 ::: {.stretch}
 <a href="https:https://xkcd.com/spiral/">![](https://imgs.xkcd.com/comics/flowcharts.png){title="Whoa, and if you overlay a Fibonacci spiral on a golden spiral it matches up almost perfectly!" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/flowcharts_2x.png 2x" </a>}
