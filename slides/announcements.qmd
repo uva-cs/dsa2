@@ -28,8 +28,9 @@ toc: false
   - [PA5 (reductions)](../pa/pa5/index.html) is due this Friday (4/24)
     - Gradescope submission will open soon
 - Grades
-  - Grades through PS6 and PA2 have been returned
-  - We expect others to be back "soon"
+  - Grades through PS6 and PA2 have been returned; others to be back "soon"
+- Final / quiz 5: reservations to open soon
+  - No "make-up", but a curve instead
 - Regrade concerns?
   - If it's a PA, then via the dedicated Piazza post
   - If it's a PS, then submit it through Gradescope within one week
