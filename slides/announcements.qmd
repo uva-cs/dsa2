@@ -6,6 +6,45 @@ toc: false
 
 
 
+# Pillow Talk
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/pillow_talk.jpg){title="Maybe I should&#39;ve tried Wexler?" style='border:10px solid white'   fig-alt='xkcd comic'}
+:::
+::: {.r-stack}
+[xkcd \# 69](https://xkcd.com/69)
+:::
+
+::: {.announcements}
+## Lecture 28: Thursday, April 23rd
+
+<div style="font-size:75%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS9 (reductions) is out and was due yesterday
+  - [PA5 (reductions)](../pa/pa5/index.html) is due this Friday (4/24)
+- Grades
+  - Grades through PS6 and PA2 have been returned; others to be back "soon"
+- Final / quiz 5: reservations to open soon
+  - No "make-up", but a curve instead
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Upcoming schedule
+  - Week of Mon, Apr 20 (this week): PS9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
+  - Week of Mon, Apr 27 (next week): CBTF final over that weekend (Fri, May 1 to Mon, May 4); full details TBA
+- Course textbook link is on the Canvas landing page
+- Today we will continue with reductions, then onto machine learning
+  - After today, only one more lecture left!
+
+</div>
+
+:::
+
+
 # Travelling Salesman Problem
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/travelling_salesman_problem.png){title="What&#39;s the complexity class of the best linear programming cutting-plane techniques?  I couldn&#39;t find it anywhere.  Man, the Garfield guy doesn&#39;t have these problems ..." style='border:10px solid white'   fig-alt='xkcd comic'}
