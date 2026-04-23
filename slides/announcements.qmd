@@ -33,6 +33,7 @@ toc: false
 - Regrade concerns?
   - If it's a PA, then via the dedicated Piazza post
   - If it's a PS, then submit it through Gradescope within one week
+- Quiz 5 sign-ups have opened
 - Upcoming schedule
   - Week of Mon, Apr 20 (this week): PS9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
   - Week of Mon, Apr 27 (next week): CBTF final over that weekend (Fri, May 1 to Mon, May 4); full details TBA
