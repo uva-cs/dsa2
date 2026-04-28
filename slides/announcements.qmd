@@ -6,6 +6,72 @@ toc: false
 
 
 
+# Final Exam
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/final_exam.png){title="For those of you also taking Game Theory, your grade in that class will be based on how close your grade on this exam is to 80% of the average." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/final_exam_2x.png 2x"  fig-alt='xkcd comic'}
+:::
+::: {.r-stack}
+[xkcd \# 2385](https://xkcd.com/2385)
+:::
+
+::: {.announcements}
+## The End
+
+<div style="font-size:75%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+  - Formal OH end with the end of classes
+    - Bloomfield & Floryan OH will be posted on Piazza
+    - TA OH this week: Wed 7-9
+- Assignments: no more left!
+- Grades
+  - Grades through PS9 should be back today or tomorrow
+  - PA5 can be returned later this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Final / Quiz 5: sign-ups have opened, and then filled up again; more details soon
+  - No "make-up", but a curve instead
+  - Details on the next slide
+- Course textbook link is on the Canvas landing page
+- Today we will go over machine learning, and then the course conclusion
+
+</div>
+
+:::
+
+::: {.announcements}
+## Quiz 5 format
+
+<div style="font-size:85%;line-height:1.1em">
+
+The questions on quiz 5 are:
+
+1. Constructing reductions: given a new problem, construct a reduction to reduce it to a known problem
+   - This is in the proof-blocks format, like the greedy proofs question from quiz 3
+   - We currently have 30 such algorithms; aiming for many more
+2. Max flow: given a graph:
+   - Fill in the adjacency matrix for the (max) flow
+      - Hint: do this from the adjacency matrix, not by looking back to the graph diagram!
+   - Enter the actual max flow
+   - Determine the minimum S-T cut
+5. Some number (5-10) of true/false OR multiple-choice questions from a *very* large question bank
+   - Aiming for 100+ such questions in the question bank
+   - These will be on reductions AND machine learning
+
+
+</div>
+
+:::
+
+
+
+
+
+
 # Pillow Talk
 ::: {.stretch}
 ![](https://imgs.xkcd.com/comics/pillow_talk.jpg){title="Maybe I should&#39;ve tried Wexler?" style='border:10px solid white'   fig-alt='xkcd comic'}
