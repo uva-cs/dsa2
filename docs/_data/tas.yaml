@@ -1,0 +1,162 @@
+- group: Head TAs
+  people:
+    - name: Mikhail Kornilov
+      role: Head Grading and Lab TA
+      picture: images/tas/ta_mikhailk.jpg
+      tagline: Have you tried turning it off and on again
+      askme: C, Memory, Badminton
+      tips: Think like a computer
+    - name: Sonika Modur
+      role: Head Piazza and Office Hours TA
+      tagline: CLI > GUI
+      picture: images/tas/ta_sonikamodur.jpg
+      askme: x86 Assembly, Toy ISA, Git
+      tips: Take command of the command line!
+    - name: Mason Baldwin
+      role: Head Lab TA
+      picture: images/tas/ta_masonbaldwin.jpg
+      tagline: enjoy the test
+      askme: toy isa, memory, and pointers
+      tips: attend each and every lecture.
+    - name: Thomas Kennedy
+      role: Head Office Hours TA
+      askme: Assembly, GDB, C, Hex Editors
+      picture: images/tas/ta_thomaskennedy.jpg
+      tagline: The best way to do well is to write down the correct answer.
+      tips: 
+    - name: Kevin Jiang 
+      role: Head Ticketing TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+    - name: Ayaan Siddiqui
+      role: Head Grading TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+    - name: Vincent Cheng
+      role: Head Piazza TA
+      picture: images/tas/ta_vincentcheng.jpeg
+      tagline:
+      askme: x86 Assembly, ToyISA
+      tips: Start homework early and do the reading
+    - name: Wuji Zhan
+      role: Head Office Hours TA
+      picture: images/tas/ta_wujizhan.jpg
+      tagline: if you're feeling down, remember that time you had to code in binary
+      askme: pointers, stack
+      tips: office hours
+    - name: Brian Choe
+      role: Head Ticketing TA
+      tagline: Consistency is key
+      askme: Circuits, ISA, Assembly
+      tips: Ask yourself questions to test your knowledge
+      picture: images/tas/ta_brianchoe.JPG
+    
+- group: TAs
+  people:
+    - name: Winston Chin
+      role: TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+    - name: Connor Courtney
+      role: TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+    - name: Damir Galimzhanov
+      role: TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+    - name: Akhil Gogineni
+      role: TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+    - name: James Greene
+      role: TA
+      picture: images/tas/ta_jamesgreene.jpeg
+      tagline: Minecraft redstone - the class
+      askme: ISA, assembly, Pokémon
+      tips: The readings on the website are all very informative - try giving them a read!
+    - name: Seth Lifland
+      role: TA
+      tagline: Practice makes perfect
+      askme: Assembly, C
+      tips: Spam previous exam problems until you have a deep understanding
+      picture: images/tas/ta_sethlifland.jpg
+    - name: Sophia Ma
+      role: TA
+      picture: images/tas/ta_sophiama.jpg
+      tagline: practice makes perfect!
+      askme: Assembly, Toy ISA, Boolean algebra
+      tips: study old exams for practice 
+    - name: Huy Nguyen
+      role: TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+    - name: Andrew Otwell
+      role: TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+    - name: Sean Pan
+      role: TA
+      picture: images/tas/ta_default.jpg
+      tagline: Try your best!
+      askme: Circuits, ToyISA, C
+      tips: Do the practice exams and ask questions at OH!
+    - name: Maddox Shrum
+      role: TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+    - name: Alex Smith
+      role: TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+    - name: Zaylie Tamashiro
+      role: TA
+      tagline: Come to OH!
+      askme: Circuits, ISA
+      tips: Do the practice exams!
+      picture: images/tas/ta_zaylietamashiro.jpg
+    - name: Diya Tomar
+      role: TA
+      picture: images/tas/ta_diyatomar.jpg
+      tagline:
+      askme: Toy ISA, Assembly, pointers
+      tips: do the practice exams, and start homework early
+    - name: Chris Weng
+      role: TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+    - name: Thomas Worden
+      role: TA
+      tagline: it came to me in a dream
+      askme: hex coding, assembly, c
+      tips: believe in yourself!
+      picture: images/tas/ta_thomasworden.jpg
+    - name: Bill Zhou
+      role: TA
+      picture: images/tas/ta_default.jpg
+      tagline:
+      askme:
+      tips: 
+      

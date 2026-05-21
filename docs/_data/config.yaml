@@ -1,0 +1,20 @@
+meetingdays: TT 
+labdays: X
+firstday: 2026-08-25
+lastday: 2026-12-08
+holidays:
+  - date: 2026-10-06
+    name: Fall Reading Days
+  - date: 2026-11-03
+    name: Election Day
+  - date: 2026-11-26
+    name: Thanksgiving
+exams:
+assignments:
+  - date: 2026-09-08
+    name: Add deadline
+  - date: 2026-10-13
+    name: Drop deadline
+  - date: 2026-10-20
+    name: Withdraw deadline
+labs:

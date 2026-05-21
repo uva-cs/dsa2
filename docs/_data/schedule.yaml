@@ -1,0 +1,76 @@
+- topic: Welcome, Review
+- topic: Asymptotics, Review proofs
+  readings:
+    - topic: CLRS chapters 2-3 
+- topic: Graphs
+  type: header
+- topic: Graphs, BFS
+  readings:
+    - topic: CLRS chapter 20-1, 20-2 
+- topic: DFS 
+  readings:
+    - topic: CLRS chapter 20-3, 20-4, 20-5 
+- topic: Dijkstra's Algorithm
+  readings:
+    - topic: CLRS chapters 22-3 
+- topic: Topological Sorting, Connected Components
+  readings:
+    - topic: CLRS chapter 20-3, 20-4, 20-5 
+- topic: Divide and Conquer
+  type: header
+- topic: Divide and Conquer, Recurrences
+  readings:
+    - topic: CLRS 4 (intro) and 4.4 
+- topic: Recurrences, Applications
+  readings:
+    - topic: CLRS 4.1-4.2 
+- topic: Master Theorem, Closest Pair of Points
+  readings:
+    - topic: CLRS 4.5
+- topic: CPP, Matrix Multiplication
+  readings:
+    - topic: CPP from CLRS 3rd edn. 
+      link: lectures/clrs3rd-CPP.pdf
+- topic: Quickselect, Median of Medians, MSCS
+  readings:
+    - topic: CLRS 4.1-4.2 
+- topic: Greedy Algorithms 
+  type: header
+- topic: Greedy Algorithms, Change Making
+  readings:
+    - topic: CLRS 15.1-2
+- topic: Original Quiz Day
+- topic: Minimum Spanning Trees
+  readings:
+    - topic: CLRS 21
+- topic: Huffman Coding
+- topic: Huffman Coding, Caching Greedy Algorithm 
+- topic: Dynamic Programming 
+  type: header
+- topic: Dynamic Programming, Log Cutting
+- topic: Matrix Chaining
+- topic: Seam Carving, Longest Common Subsequence
+  readings:
+    - topic: CLRS 14
+- topic: Longest Common Subsequence, Gerrymandering
+  readings:
+    - topic: CLRS 14
+- topic: Network Flow 
+  type: header
+- topic: Max Flow, Min Cut
+  readings:
+    - topic: CLRS 24
+- topic: Reductions
+  readings:
+    - topic: CLRS 24
+- topic: Original Quiz Day 
+- topic: Reductions and Lower Bound Proofs 
+  readings:
+    - topic: CLRS 24
+- topic: Hardness, Completeness
+- topic: Machine Learning 
+  type: header
+- topic: Machine Learning 1
+- topic: Machine Learning 2
+- topic: ML, Ethics, Finale
+- topic: Original Quiz Day 

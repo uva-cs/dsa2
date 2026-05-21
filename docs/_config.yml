@@ -1,0 +1,28 @@
+title: CS 3100 
+description: >
+  Data Structures and Algorithms 2
+copyright: Aaron Bloomfield and John Hott
+baseurl: "/"
+email: "jh2jf@virginia.edu"
+theme: just-the-docs
+search:
+    button: true
+callouts:
+    warning:
+        title: Warning
+        color: red
+    notice:
+        title: Note
+        color: purple
+    aside:
+        title: Aside
+        color: blue
+    hint:
+        title: Hint
+        color: green
+    exercise:
+        title: Exercise
+        color: pink
+    example:
+        title: Example
+        color: blue
