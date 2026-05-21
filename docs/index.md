@@ -26,8 +26,8 @@ nav_order: 1
 
 **Eligibility:** You should take this course if and only if
 
-1. You have credit for CS 2100, CS 2150, or an equivalent data structures course
-1. You have credit for CS 2120, CS 2102, or an equivalent discrete math course
+1. You have credit for CS 2100 or an equivalent data structures course
+1. You have credit for CS 2120 or an equivalent discrete math course
 
 
 ## Background

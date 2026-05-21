@@ -68,10 +68,6 @@ footer p {
     margin-bottom: 5px;
 }
 
-a {
-    color: rgb(0, 94, 134);
-}
-
 h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
     font-size: 1em;
 }
@@ -80,13 +76,17 @@ h2 {
   border-bottom: 1px solid #ccc;
 }
 
+/*
+a {
+    color: rgb(0, 94, 134);
+}
+
 .footnotes {
     margin-top: 1em;
     padding-top: 1em;
     border-top: 1px solid #ddd;
 }
 
-/*
 .side-bar {
     background-image: url(../../images/background.jpg);
     background-repeat: no-repeat;
