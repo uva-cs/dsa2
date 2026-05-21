@@ -40,7 +40,7 @@ The schedule will be flexible as we cover each topic. We might spend some extra 
         </tr>
         {% if site.data.config.meetingdays == 'MWF' and curdayweek == 'Fri' %}
         {% assign curday = curday | plus: skipthree %}
-        {% elsif site.data.config.meetingdays == 'TT' and curdayweek == 'Thu' %}
+        {% elsif site.data.config.meetingdays == 'TR' and curdayweek == 'Thu' %}
         {% assign curday = curday | plus: skipfive %}
         {% else %}
         {% assign curday = curday | plus: skiptwo %}
@@ -64,7 +64,7 @@ The schedule will be flexible as we cover each topic. We might spend some extra 
         {% assign curday = curday | plus: skipone %}
         {% elsif site.data.config.meetingdays == 'MWF' and curdayweek == 'Thu' %}
         {% assign curday = curday | plus: skipone %}
-        {% elsif site.data.config.meetingdays == 'TT' and curdayweek == 'Thu' %}
+        {% elsif site.data.config.meetingdays == 'TR' and curdayweek == 'Thu' %}
         {% assign curday = curday | plus: skipfive %}
         {% else %}
         {% assign curday = curday | plus: skiptwo %}
@@ -86,7 +86,7 @@ The schedule will be flexible as we cover each topic. We might spend some extra 
         {% assign curday = curday | plus: skipone %}
         {% elsif site.data.config.meetingdays == 'MWF' and curdayweek == 'Thu' %}
         {% assign curday = curday | plus: skipone %}
-        {% elsif site.data.config.meetingdays == 'TT' and curdayweek == 'Thu' %}
+        {% elsif site.data.config.meetingdays == 'TR' and curdayweek == 'Thu' %}
         {% assign curday = curday | plus: skipfive %}
         {% else %}
         {% assign curday = curday | plus: skiptwo %}
@@ -110,7 +110,7 @@ The schedule will be flexible as we cover each topic. We might spend some extra 
         {% assign curday = curday | plus: skipone %}
         {% elsif site.data.config.meetingdays == 'MWF' and curdayweek == 'Thu' %}
         {% assign curday = curday | plus: skipone %}
-        {% elsif site.data.config.meetingdays == 'TT' and curdayweek == 'Thu' %}
+        {% elsif site.data.config.meetingdays == 'TR' and curdayweek == 'Thu' %}
         {% assign curday = curday | plus: skipfive %}
         {% else %}
         {% assign curday = curday | plus: skiptwo %}
