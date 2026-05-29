@@ -50,5 +50,4 @@ In particular, we assume knowledge of (with recommended resources for review):
 - Priority Queues ([CS2100](https://markfloryan.github.io/dsa1/slides/07-priorityqueues.html#/), [CS2150](https://aaronbloomfield.github.io/pdr/slides/10-heaps-huffman.html#/cover))
 - Hash Tables ([CS2100](https://markfloryan.github.io/dsa1/slides/06-hashing.html#/), [CS2150](https://aaronbloomfield.github.io/pdr/slides/06-hashes.html#/cover))
 
-For each of the Discrete Math topics, the [Fall 2019 lectures](http://www.cs.virginia.edu/luther/DMT1/F2019/schedule.html) are publicly available.
 
