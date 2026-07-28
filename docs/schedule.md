@@ -6,6 +6,9 @@ nav_order: 5
 
 # Semester Schedule
 
+{: .warning}
+> This schedule is **under construction**.  Until this message is removed, **any date** listed here **may change**.  Do **NOT** consider these dates set until this message is removed.
+
 The schedule will be flexible as we cover each topic. We might spend some extra time on topics, so we will update the schedule as we progress through the semester.
 
 

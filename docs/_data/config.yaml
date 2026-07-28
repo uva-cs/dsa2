@@ -13,8 +13,20 @@ exams:
 assignments:
   - date: 2026-09-08
     name: Add deadline
+  - date: 2026-09-17
+    name: Practice Quiz (Wed-Fri)
+  - date: 2026-10-08
+    name: Graphs Quiz (Wed-Fri)
   - date: 2026-10-13
     name: Drop deadline
   - date: 2026-10-20
     name: Withdraw deadline
+  - date: 2026-10-22
+    name: Divide &amp; Conquer Quiz (Wed-Fri)
+  - date: 2026-11-05
+    name: Greedy Quiz (Wed-Fri)
+  - date: 2026-11-19
+    name: Dynamic Programming Quiz (Wed-Fri)
+  - date: 2026-12-08
+    name: Reductions Quiz (Mon-Tues)
 labs:
