@@ -16,6 +16,7 @@
 - topic: Topological Sorting, Connected Components
   readings:
     - topic: CLRS chapter 20-3, 20-4, 20-5 
+- topic: Additional Graph Topic / ML
 - topic: Divide and Conquer 
   type: header
 - topic: Divide and Conquer, Recurrences
@@ -34,17 +35,18 @@
 - topic: Quickselect, Median of Medians, MSCS
   readings:
     - topic: CLRS 4.1-4.2 
+- topic: Additional Divide and Conquer Algorithm
 - topic: Greedy Algorithms 
   type: header
 - topic: Greedy Algorithms, Change Making
   readings:
     - topic: CLRS 15.1-2
-- topic: Original Quiz Day
 - topic: Minimum Spanning Trees
   readings:
     - topic: CLRS 21
 - topic: Huffman Coding
 - topic: Huffman Coding, Caching Greedy Algorithm 
+- topic: Additional Greedy Algorithm
 - topic: Dynamic Programming 
   type: header
 - topic: Dynamic Programming, Log Cutting
@@ -55,6 +57,7 @@
 - topic: Longest Common Subsequence, Gerrymandering
   readings:
     - topic: CLRS 14
+- topic: Additional DP Algorithm
 - topic: Network Flow and Reductions 
   type: header
 - topic: Max Flow, Min Cut
@@ -63,13 +66,8 @@
 - topic: Reductions
   readings:
     - topic: CLRS 24
-- topic: Original Quiz Day 
 - topic: Reductions and Lower Bound Proofs 
   readings:
     - topic: CLRS 24
 - topic: Hardness, Completeness
-- topic: Machine Learning 
-  type: header
-- topic: Machine Learning 1
-- topic: Machine Learning 2
 - topic: ML, Ethics, Finale
