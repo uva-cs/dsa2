@@ -46,7 +46,6 @@
     - topic: CLRS 21
 - topic: Huffman Coding
 - topic: Huffman Coding, Caching Greedy Algorithm 
-- topic: Additional Greedy Algorithm
 - topic: Dynamic Programming 
   type: header
 - topic: Dynamic Programming, Log Cutting
@@ -70,6 +69,7 @@
   readings:
     - topic: CLRS 24
 - topic: Hardness, Completeness
+- topic: Flex day 
 - topic: ML, Ethics, Finale
 - topic: Quiz 5 tbd
   date: finals
