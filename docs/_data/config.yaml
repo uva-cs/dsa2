@@ -36,25 +36,35 @@ assignments:
     name: PS1 (Graphs I)
   - date: 2026-09-22
     name: PS2 (Graphs II)
+  - date: 2026-09-24
+    name: PA1 (Graphs)
 
   - date: 2026-09-29
     name: PS3 (D&C I)
   - date: 2026-10-13
     name: PS4 (D&C II)
+  - date: 2026-10-15
+    name: PA2 (D&C)
 
   - date: 2026-10-20
-    name: PS3 (Greedy I)
+    name: PS5 (Greedy I)
   - date: 2026-10-27
-    name: PS4 (Greedy II)
+    name: PS6 (Greedy II)
+  - date: 2026-10-29
+    name: PA3 (Greedy)
 
   - date: 2026-11-10
-    name: PS3 (DP I)
+    name: PS7 (DP I)
   - date: 2026-11-17
-    name: PS4 (DP II)
+    name: PS8 (DP II)
+  - date: 2026-11-24
+    name: PA4 (DP)
 
   - date: 2026-12-01
-    name: PS3 (Reductions I)
+    name: PS9 (Reductions I)
   - date: 2026-12-08
-    name: PS4 (Reductions II)
+    name: PS10 (Reductions II)
+  - date: 2026-12-08
+    name: PA5 (Reductions)
 
 labs:
