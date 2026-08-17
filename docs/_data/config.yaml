@@ -29,4 +29,32 @@ assignments:
     name: Dynamic Programming Quiz (Wed-Fri)
   - date: 2026-12-10
     name: Reductions Quiz (tbd)
+  - date: 2026-09-08
+    name: PS0 (LaTeX)
+
+  - date: 2026-09-15
+    name: PS1 (Graphs I)
+  - date: 2026-09-22
+    name: PS2 (Graphs II)
+
+  - date: 2026-09-29
+    name: PS3 (D&C I)
+  - date: 2026-10-13
+    name: PS4 (D&C II)
+
+  - date: 2026-10-20
+    name: PS3 (Greedy I)
+  - date: 2026-10-27
+    name: PS4 (Greedy II)
+
+  - date: 2026-11-10
+    name: PS3 (DP I)
+  - date: 2026-11-17
+    name: PS4 (DP II)
+
+  - date: 2026-12-01
+    name: PS3 (Reductions I)
+  - date: 2026-12-08
+    name: PS4 (Reductions II)
+
 labs:
