@@ -12,9 +12,6 @@ nav_order: 2
 
 Page Last Updated: {{ site.time | date: '%A, %B %d, %Y' }}
 
-1. TOC
-{:toc}
-
 
 ## Logistics
 
