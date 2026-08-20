@@ -42,7 +42,7 @@ If you email a professor, include "DSA2" at the beginning of the subject line to
 
 #### Teaching Assistants
 
-Our TAs are students too, with duties and work outside of their TAing. Please do not ask them to act as your TA except at the scheduled on-the-clock times they have listed as their office hours and lab time. They are also kind people; please don't put them in the position of having to say no or (worse) being nice to you at the expense of their own schooling.
+Our TAs are students too, with duties and work outside of their TAing. Please do not ask them to act as your TA except at the scheduled on-the-clock times they have listed as their office hours. They are also kind people; please don't put them in the position of having to say no or (worse) being nice to you at the expense of their own schooling.
 
 ### Class Meetings
 
@@ -62,16 +62,32 @@ Others are designed to measure what you have learned.
 The primary kinds of tasks are:  Quizzes, Programming Assignments (PAs), Problem Sets (PSs). 
 
 
-#### Quizzes
 
-{: .warning}
-> More information about CBTF coming soon
+#### Quizzes 
+
+There will be five quizzes (exams) this semester, each on a separate module.  The fifth quiz will be during finals week.  There will also be a practice quiz before the other quizzes.
+
+All quizzes will be taken in a dedicated Computer-Based Testing Facility (CBTF), which is located in Gilmer Hall, room 490A.  Each quiz will be 50 minutes long, and can be taken at any time over the 3 day period specified in the course schedule.  While everybody will get similar questions, the questions themselves will be randomized, so that one person's quiz will not be the same as another person's quiz.  That room has a limited capacity (40 seats), and you will need to schedule a time based on your availability.  If you wait until the last minute to schedule an quiz, then you will be stuck with whatever spots are still left.  We will provide scheduling details as the semester progresses.
+
+The practice quiz, "Quiz 0", will be a practice quiz to familiarize you with the CBTF, the quiz taking procedure, and the types of questions you may see.  The answers to this quiz are either obvious or are provided to you -- the goal on this practice quiz is to learn the system, not test your knowledge.
+
+We will make it clear what each quiz entails, and what questions are on each quiz.  The goal is to ensure that those who take it early are not at a disadvantage versus those who took it later and spoke to those who took it early.  We were able to achieve that last semester, and we will achieve that this semester.
+
+If you have a valid reason to miss a quiz, then we will allow a make-up.  Unless it is an emergency, you need to let us know ahead of time.  Missing a quiz due to not realizing that you were supposed to take it will not allow a make-up.
+
+**GRADING WARNING:*** This is the first semester we are using the CBTF for the *entire* semester (we used for half a semester in the past).  Some of the questions will be a choose-1-of-many -- meaning you will be given one randomly chosen algorithm to solve on from a set of four or so.  Each of the questions in this set will have a different grading scheme, since it is a different question, and some algorithms may be harder than others.  As a result, there will be ***GRADING MODIFICATIONS*** to the grade you receive.  The intent is to ensure that those who get a harder algorithm to solve are not at a disadvantage versus those who received an easier algorithm to solve.  These modifications may be positive or they may be negative -- again, the goal is to ensure it is fair across the entire class.  The grading modifications will be based on the mean score for each of the questions, and we will present this math to the entire course.
+
 
 #### Programming Assignments (PAs)
 
 The goal of Programming assignments (PAs) is to explore one or more topics from a unit by applying an algorithm to a problem, implementing it in code, and showing it works correctly by passing a set of test-cases.  Grading will be primarily based on passing test-cases on GradeScope.  Some PAs may require a short write-up. Submissions must include information about sources, collaborators, etc.   For more information, see sections below on "Collaboration and Outside Sources" for PAs.
 
 **Note:** These PAs are intended to help you practice and learn the content, so we ask that you do **not** use generative AI to write the code.  Why?  The process of problem solving and programming will help you build mental models and strategies for solving problems.  Can generative AI write this code for you?  Yes!  But then you're missing outon gaining the experience and knowledge gain of trying it yourself -- you can't replace that with AI.  So do **NOT** use AI to write these for you.
+
+When you submit a PA, the submission system will run a small set of tests on your code to ensure it interacts properly with the grading system (compiles, handles I/O correctly, etc.).  These test cases will be the ones provided in the assignment.  There will be a *separate* set of test cases that your grade will be based on, which will not appear until the assignment's grade is returned to you.  We do it this way because if we revealed the grading test cases at the start, then one could get full credit by just using `print()` statements.
+
+You may write code in any programming language that you would like.  Students most often use Java and Python, and our system handles C and C++.  If you want to use a different language, you need to contact us, at least three days before the due date, so that we can reconfigure the submission system to handle that other language.
+
 
 
 #### Problem Sets (PSs)
@@ -117,7 +133,7 @@ We will use the standard grading scheme for this course.
 
 |  Grade    |  Lower Bound    |
 | :-------: | :-------------: |
-| A+        | 98.0            |
+| A+        | 98.0*           |
 | A         | 93.0            |
 | A-        | 90.0            |
 | B+        | 87.0            |
@@ -131,6 +147,8 @@ We will use the standard grading scheme for this course.
 | D-        | 60.0            |
 | F         | 0               |
 
+* Note that the A+ range is a percentage of students in the course, so the actual cut-off may vary.
+
 ### Points per Activity Type
 
 {: .warning}
@@ -141,58 +159,43 @@ Different tasks and different task types are given different weight, as outlined
 
 | Task        | Weight    |
 |:------------|:---------:|
-| Quizzes     |   50%     |
+| Quizzes     |   60%     |
 | PAs         |   20%     |
-| PSs         |   25%     |
+| PSs         |   20%     |
 
 
-### Early and Late Assignments
+### Extensions and late submissions
 
-#### PA and PS Assignments
+Submissions for the programming assignments will generally open one week (7 days) before the due date/time.  Submissions for problem sets will generally open up 3 days (72 hours) before the due date/time.
 
-{: .warning}
-> Update with Aaron's late policy system.
+Assignments turned in after the due date are penalized 25% per day (or fraction thereof) late; this means a maximum of just under 4 days (i.e. just under 96 hours) late.  For example, anywhere from 1 second late to 24 hours late receives 25% percent off.  Due to how the different grading systems work, that ends up being 2.5 points off for each late day for each problem set, and 25% off per each late day for the programming assignments.
 
-PAs and PSs may be submitted **early**.  A **2%** bonus will be applied to each individual PS in which the _final_ submission occurs **two (2) days** before the deadline.  We will apply these bonuses at the end of the semester when calculating final grades.
+You may request an extension on any assignment (PA or PS) for any reason -- there is an automated system, linked to from the Canvas landing page, for this.  That extension is 4 days.  HOWEVER, you only have 8 such "free late passes" during the semester -- once they are used up, there will not be any more.  An extension will delay the onset of the late penalty by 4 days -- so if you get an extension, then the late penalty does not kick in until the 5th day after the due date.
 
-PAs and PSs may also be submitted **up to 48 hours late, with permission, with no grade penalty**.  However, the following policies apply to late submission:
-1. Requests must be submitted online using our **Extension Request Form** assignment on Gradescope
-1. Requests must include a valid justification (see examples of what counts and what doesn't below)
-1. Extension requests must be made **before** the deadline
-1. Significant work must be submitted in the form to justify the extension
+This extension rule does not apply to quizzes, exams, or any in-class activities.  It only applies to programming assignments (PAs) and written assignments (PSs).
 
-Here are non-exhaustive lists of pre-approved and pre-declined reasons for an extension.
+However, there are a few specifics to this extension rule:
 
-The following reasons are NOT sufficient justification for an extension:
+- As mentioned above, you only have 8 such free late passes to use throughout the semester
+- The extension request must be submitted no later than 4 days after the (regular) due date.  We will not allow anybody to submit it after this date (it actually should be in before the due date itself, but we are giving you 4 days to submit after the original due date).
+- You may add an extension as early as you would like -- even on class day 1, for example.  You may remove an extension, up to 4 days after the original due date.  After 4 days post the due date, you may not make any modifications to that extension.
+- This extension time covers any and all situations: travel, holidays, being busy, family emergencies, SDAC (generally), dog ate your homework, religious observances, interviews, thunderstorms, power outages, temporal dislocation, etc.
+- We are not expecting to allow any further extensions beyond this 4 days, unless there are considerable extenuating circumstances -- essentially, something that would have granted an extension for more than 4 days in the first place.  If you get busy or sick at the end of your 4 day extension request, then that's your tough luck.
+- After you extension ends, the late penalty (above) kicks in for the next four days.
+- This policy *already includes* SDAC accommodations less than 4 days (we are just extending these accommodations to everybody).  Likewise, religious accommodations of a short time (a few days) are handled by this policy as well.  It also covers short-term (less than 4 days) athletic extensions.
+- If there is a valid need for an extended accommodation -- SDAC, religious, health, athletic, etc. -- please chat with one of the instructors, and we'd be happy to discuss it with you.
+- Be aware that TA and instructor office hours are optimized for the actual due date -- if you file for an extension, there may not be sufficient office hours available for when you plan to submit it.  Also, the next week's office hours will have to focus on the assignment due that week.
 
--   Congestion of assignments/exams/projects/etc. with other courses
--   Confusion on course material
--   Mild illness
--   Job Interviews (tasks are released with sufficient lead time that you can plan around it)
--   Club activities or non-varsity sports
--   Non-working code
--   Most other foreseeable circumstances
-
-The following reasons would be acceptable justification for an extension:
-
--   SDAC accommodation
--   Severe Illness
--   Personal or family tragedy
--   Legal obligations
--   Varsity Athletics Competitions
--   Religious Observances
-
-In general, there will be no extensions beyond the 48-hour grace period.  If extensions beyond the 48 hours grace period are needed (for example due to justified travel), please see the professor **before the deadline** to discuss why and if other accommodations are also needed.
-
-#### Quizzes 
-
-{: .warning}
-> Late policy for quizzes.  None?
 
 ### Grading Mistakes
-Much of the grading in this course is done by hand with the help of teaching assistants. Some of the grading is done directly by hand by the instructors. The course staff occasionally also use tools to help with initial clustering of student answers in to similarity groups. In all of these cases, we realize that sometimes the grading of a problem ends up being incorrect. If you think a grading mistake has been made, but it is in your favor, you are not required to communicate that with the course staff. If you think there is a grading mistake that scores your answer with fewer points than it should have been scored, you may make a "regrade request". 
 
-Regrade requests will be accepted for 7 days after the graded assignment is released to the student. Within Gradescope, you will see the option to make a regrade request for an individual problem. If the regrade request time period is past (it's more than 7 days since the assignment was graded and released to the student), you will not have an opportunity to request a regrade and you will see that Gradescope will not provide a regrade request button. When you request a regrade, our primary goal is to make sure that the grading was accurate, and change the grading if it wasn't. In the course of regrading a problem, we usually need to look at the entire problem, not just a small piece of it. If we notice grading mistakes other than the one you describe, we will fix all of the ones that we notice. This includes any grading mistake we happen to notice in other problems. We don't go out of our way to find more mistakes, but if we happen to see one, we fix it. After the regrade is completed, your corrected grade may be higher, lower, or the same as your previous grade. Before making a regrade request, make sure that you understand what the question was asking and reassess your answer. Please be specific in what rubric(s) you think were misgraded. Regrade requests of the type, "I only got 10 out of 25 points and I think I should have received more" aren't as helpful to us as a more specific statement such as, "I didn't receive points for the first rubric, but I think I did address that issue in the second sentence of my explanation".     
+Much of the grading in this course is done by hand with the help of teaching assistants. Some of the grading is done directly by hand by the instructors. The course staff occasionally also use tools to help with initial clustering of student answers in to similarity groups. In all of these cases, we realize that sometimes the grading of a problem ends up being incorrect. If you think a grading mistake on a PS has been made, but it is in your favor, you are not required to communicate that with the course staff. If you think there is a grading mistake on a PS that scores your answer with fewer points than it should have been scored, you may submit a regrade request through Gradescope.  
+
+Regrade requests for problem set (PS) assignments will be accepted for 7 days after the graded assignment is released to the student. For PS assignments, within Gradescope, you will see the option to make a regrade request for an individual problem. If the regrade request time period is past (it's more than 7 days since the assignment was graded and released to the student), you will not have an opportunity to request a regrade and you will see that Gradescope will not provide a regrade request button. When you request a regrade, our primary goal is to make sure that the grading was accurate, and change the grading if it wasn't. In the course of regrading a problem, we usually need to look at the entire problem, not just a small piece of it. If we notice grading mistakes other than the one you describe, we will fix all of the ones that we notice. This includes any grading mistake we happen to notice in other problems. We don't go out of our way to find more mistakes, but if we happen to see one, we will fix it. After the regrade is completed, your corrected grade may be higher, lower, or the same as your previous grade. Before making a regrade request, make sure that you understand what the question was asking and reassess your answer. Please be specific in what rubric(s) you think were mis-graded. Regrade requests of the type, "I only got 10 out of 25 points and I think I should have received more" aren't as helpful to us as a more specific statement such as, "I didn't receive points for the first rubric, but I think I did address that issue in the second sentence of my explanation".     
+
+Programming Assignments (PAs) are auto-graded, and regrades are handled differently.  We will strictly follow the auto-grader's result in each and every case.  However, there are times when the auto-grader has bugs, doesn't handle certain cases, etc.  For each PA, a Piazza post will be created where one can put comments and suggestions for how to modify the auto-grader.  Those comments need to be submitted within a reasonable period (one week after the post is made). Addressing these auto-grader issues takes time, but will occur via that one Piazza post thread.
+
+If this regrade policy is abused during the semester (many students are submitting frivolous regrades), then we reserve the right to start applying a frivolous regrade penalty.  We will clearly communicate this if it is to occur.
 
 
 ## Professionalism
