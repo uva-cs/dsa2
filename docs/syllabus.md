@@ -12,6 +12,22 @@ nav_order: 2
 
 Page Last Updated: {{ site.time | date: '%A, %B %d, %Y' }}
 
+## TL;DR (Too Long; Didn't Read)
+
+We realize not everybody will read through this entire document.  So here are the highlights:
+
+- If you have concerns, please email [cs3100@cshelpdesk.atlassian.net](mailto:cs3100@cshelpdesk.atlassian.net) rather than the instructors (it's a quicker response time).  Please do not emails the TAs directly.
+- There will be five modules taught in the course: graphs, divide and conquer, greedy algorithms, dynamic programming, and reductions
+- There will be five quizzes, one per module, and will be in a dedicated Computer Based Testing Facility (CBTF) -- more information about this is below, and will be discussed when we get to that point.  It's the same CBTF that was used in DSA1 last semester.
+- There will be one programming assignment (PA) per module; any language is fine, but if it's not a currently supported language (Java, Python, C, and C++), you have to let us know in time to configure the submission system.
+- There will be two problem sets (PS) per module -- these have to be typeset using LaTeX, which assignment PS0 will cover.  You can collaborate with up to five other students on the problem sets, but you need to list who you collaborated with in your assignment.
+- Grades will be 60% quizzes, 20% programming assignments, and 20% written (typed) problem sets
+- Late PAs and PSs will receive 25% off per day for each day (or fraction thereof, including 1 second) it is late
+- You have eight extensions that you can use throughout the semester -- these can be added or removed up to 4 days after the original due date using an automated system.  Each extension will delay the onset of the late penalty by 4 days (96 hours)
+- We have a textbook, but it's available online for free through the UVA library: [Introduction to Algorithms](https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615), called "CLRS" after the intials of the authors.
+- If we mess up the grading on anything, there will be an opportunity to submit a regrade; this is typically limited to 7 days after the assignment or quiz was returned
+- Generative AI usage: you can use it for the problem sets, in limited circumstances for the programming assignments, and not at all for the quizzes.
+    - That being said, the material in this course is the primary content used in job interviews.  If you just use generative AI, then you are not going to learn the material, which will tank you in your interviews.  There is a reason that companies fly you out to their location for a full day interview -- it's to see what you really know.  And they aren't going to let you use generative AI during those interviews.
 
 ## Logistics
 
@@ -43,6 +59,8 @@ If you email a professor, include "DSA2" at the beginning of the subject line to
 #### Teaching Assistants
 
 Our TAs are students too, with duties and work outside of their TAing. Please do not ask them to act as your TA except at the scheduled on-the-clock times they have listed as their office hours. They are also kind people; please don't put them in the position of having to say no or (worse) being nice to you at the expense of their own schooling.
+
+TA office hours and location will be posted on the Canvas landing page.
 
 ### Class Meetings
 
