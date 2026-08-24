@@ -170,6 +170,8 @@ Different tasks and different task types are given different weight, as outlined
 | PAs         |   20%     |
 | PSs         |   20%     |
 
+**Note:** Quizzes are worth 60% of your final grade, and we feel it is an accurate representation of your knowledge in the class.  It also is more resistant to various forms of cheating than PAs and PSs.  **Thus, your final average cannot be higher than 10% more than your quiz average.**  For example, if your quiz average is 75%, but your overall course average is 90%, this rule means that your final course average would be 85% (which is 10% more than the quiz average of 75%).
+
 
 ### Extensions and late submissions
 
