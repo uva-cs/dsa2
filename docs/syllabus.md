@@ -32,7 +32,7 @@ We realize not everybody will read through this entire document.  So here are th
 
 #### Course Contact Information
 
-**Course Email: [cs3100@cshelpdesk.atlassian.net](mailto:cs3100@cshelpdesk.atlassian.net){: .btn .btn-primary}**
+**Course Email: [cs3100@cshelpdesk.atlassian.net](mailto:cs3100@cshelpdesk.atlassian.net)**
 
 Please use our course email for the fastest response time with course staff.  This email is monitored by our TAs and professors in a help-desk ticketing system and will allow us to more quickly resolve any issues.
 
