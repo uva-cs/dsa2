@@ -26,7 +26,7 @@ We realize not everybody will read through this entire document.  So here are th
 - You have eight extensions that you can use throughout the semester -- these can be added or removed up to 4 days after the original due date using an automated system.  Each extension will delay the onset of the late penalty by 4 days (96 hours)
 - We have a textbook, but it's available online for free through the UVA library: [Introduction to Algorithms](https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615), called "CLRS" after the intials of the authors.
 - If we mess up the grading on anything, there will be an opportunity to submit a regrade; this is typically limited to 7 days after the assignment or quiz was returned
-- Generative AI usage: you can use it for the problem sets, in limited circumstances for the programming assignments, and not at all for the quizzes.
+- Generative AI usage: you may not use it to generate solutions for the problem sets or programming assignments, but you are encouraged to use it to help study and prepare; you may not use it at all for the quizzes. <!--you can use it for the problem sets, in limited circumstances for the programming assignments, and not at all for the quizzes.-->
     - That being said, the material in this course is the primary content used in job interviews.  If you just use generative AI, then you are not going to learn the material, which will tank you in your interviews.  There is a reason that companies fly you out to their location for a full day interview -- it's to see what you really know.  And they aren't going to let you use generative AI during those interviews.
 
 ## Logistics
@@ -64,10 +64,7 @@ TA office hours and location will be posted on the Canvas landing page.
 
 ### Class Meetings
 
-Most often CS3100 class meetings will follow a lecture format.  But this semester CS3100 may use some part of class time for collaborative learning, which will require students to be present.
-
-- “Collaborative” means interacting with the professor, possibly TAs, and each other.  “Interacting” will primarily be problem-solving.
-- We believe students learn better coming to class and keeping up with lectures, though we recognize the many benefits of recording lectures.
+Most often CS3100 class meetings will follow a lecture format, but we may use some part of class time for collaborative learning, which will benefit from students being present.
 
 Lectures **will not** be recorded this semester.  You are strongly encouraged to come and participate in the discussion and learning activities.
 
@@ -131,12 +128,11 @@ We will assign readings from the "CLRS" textbook:  Introduction to Algorithms, b
 
 In this course, you are welcome to use Python, Java, C/C++, or Rust to complete your PAs.  We will provide starter code for both languages.  Please choose an IDE that you are comfortable working with (Eclipse, IntelliJ, PyCharm, VSCode, vim (if you're like Prof Hott), etc).  For each PA, you should thoroughly test your algorithms; we will provide some example test cases in the assignment descriptions, but you should devise your own tests to check edge and corner cases.
 
-{: .warning}
-> We need to update the requirements here based on the current autograders.
-
-You will be asked to submit your code to Gradescope.  It is important to use a version of Python or Java that is compatible with our grading system.  Therefore, we **strongly suggest** using either:
-- Python 3.10.6
-- Java 19.0.2 (OpenJDK)
+You will be asked to submit your code to Gradescope.  It is important to use a version of a language that is compatible with our grading system.  Therefore, we **strongly suggest** using either:
+- Python 3.10
+- Java 21 (OpenJDK)
+- C/C++
+- Rust
 
 *If you choose to use a different version, please be sure that any classes, methods, language features you use are available in these versions.*
 
@@ -168,9 +164,6 @@ We will use the standard grading scheme for this course.
 * Note that the A+ range is a percentage of students in the course, so the actual cut-off may vary.
 
 ### Points per Activity Type
-
-{: .warning}
-> We need to update the breakdown and quiz grading scheme
 
 Points are awarded per task.
 Different tasks and different task types are given different weight, as outlined below.
@@ -209,9 +202,9 @@ However, there are a few specifics to this extension rule:
 
 Much of the grading in this course is done by hand with the help of teaching assistants. Some of the grading is done directly by hand by the instructors. The course staff occasionally also use tools to help with initial clustering of student answers in to similarity groups. In all of these cases, we realize that sometimes the grading of a problem ends up being incorrect. If you think a grading mistake on a PS has been made, but it is in your favor, you are not required to communicate that with the course staff. If you think there is a grading mistake on a PS that scores your answer with fewer points than it should have been scored, you may submit a regrade request through Gradescope.  
 
-Regrade requests for problem set (PS) assignments will be accepted for 7 days after the graded assignment is released to the student. For PS assignments, within Gradescope, you will see the option to make a regrade request for an individual problem. If the regrade request time period is past (it's more than 7 days since the assignment was graded and released to the student), you will not have an opportunity to request a regrade and you will see that Gradescope will not provide a regrade request button. When you request a regrade, our primary goal is to make sure that the grading was accurate, and change the grading if it wasn't. In the course of regrading a problem, we usually need to look at the entire problem, not just a small piece of it. If we notice grading mistakes other than the one you describe, we will fix all of the ones that we notice. This includes any grading mistake we happen to notice in other problems. We don't go out of our way to find more mistakes, but if we happen to see one, we will fix it. After the regrade is completed, your corrected grade may be higher, lower, or the same as your previous grade. Before making a regrade request, make sure that you understand what the question was asking and reassess your answer. Please be specific in what rubric(s) you think were mis-graded. Regrade requests of the type, "I only got 10 out of 25 points and I think I should have received more" aren't as helpful to us as a more specific statement such as, "I didn't receive points for the first rubric, but I think I did address that issue in the second sentence of my explanation".     
+**Problem Sets**: Regrade requests for problem set (PS) assignments will be accepted for 7 days after the graded assignment is released to the student. For PS assignments, within Gradescope, you will see the option to make a regrade request for an individual problem. If the regrade request time period is past (it's more than 7 days since the assignment was graded and released to the student), you will not have an opportunity to request a regrade and you will see that Gradescope will not provide a regrade request button. When you request a regrade, our primary goal is to make sure that the grading was accurate, and change the grading if it wasn't. In the course of regrading a problem, we usually need to look at the entire problem, not just a small piece of it. If we notice grading mistakes other than the one you describe, we will fix all of the ones that we notice. This includes any grading mistake we happen to notice in other problems. We don't go out of our way to find more mistakes, but if we happen to see one, we will fix it. After the regrade is completed, your corrected grade may be higher, lower, or the same as your previous grade. Before making a regrade request, make sure that you understand what the question was asking and reassess your answer. Please be specific in what rubric(s) you think were mis-graded. Regrade requests of the type, "I only got 10 out of 25 points and I think I should have received more" aren't as helpful to us as a more specific statement such as, "I didn't receive points for the first rubric, but I think I did address that issue in the second sentence of my explanation".     
 
-Programming Assignments (PAs) are auto-graded, and regrades are handled differently.  We will strictly follow the auto-grader's result in each and every case.  However, there are times when the auto-grader has bugs, doesn't handle certain cases, etc.  For each PA, a Piazza post will be created where one can put comments and suggestions for how to modify the auto-grader.  Those comments need to be submitted within a reasonable period (one week after the post is made). Addressing these auto-grader issues takes time, but will occur via that one Piazza post thread.
+**Programming Assignments**: Programming Assignments (PAs) are auto-graded, and regrades are handled differently.  We will strictly follow the auto-grader's result in each and every case.  However, there are times when the auto-grader has bugs, doesn't handle certain cases, etc.  For each PA, a Piazza post will be created where one can put comments and suggestions for how to modify the auto-grader.  Those comments need to be submitted within a reasonable period (one week after the post is made). Addressing these auto-grader issues takes time, but will occur via that one Piazza post thread.
 
 If this regrade policy is abused during the semester (many students are submitting frivolous regrades), then we reserve the right to start applying a frivolous regrade penalty.  We will clearly communicate this if it is to occur.
 
@@ -225,7 +218,7 @@ In this course, there will be a focus on working well together and learning. Stu
 - Promptness for all deadlines and class meetings
 - Quality work
 - Excessive frivolous regrade requests
-- Not following University COVID-19 regulations or being mindful of others
+- Not following University regulations or being mindful of others
 
 Behave professionally.
 
@@ -234,7 +227,6 @@ Kindness is more important than correctness.
 
 Let our TAs be students when they are not on the clock as TAs.
 
-<!--Students can and will be penalized for unprofessional behavior.-->
 **Consequences of Unprofessional Behavior**: Unprofessional behavior, such as misbehavior towards instructors, classmates, or TAs, or causing disctractions for other students, can be held against a student when final grades are calculated.  The penalty is up to 20% of the final course grade.
 
 ## Honesty and Collaboration
@@ -251,9 +243,6 @@ Tell us!
 Put it in a comment in your code or asssignment.
 
 ### Programming Assignments: Collaboration and Outside Sources
-
-{: .warning}
-> Is it okay to collaborate this semester?  I've usually allowed up to 5 people to work together.  
 
 You may discuss the problem and the overall strategy with up to 4 other students, but you **must** list those people in your submission under collaborators.  You may **not** share code, look at others' code, or help others debug their code. You must write your own code.
 Not just type it (though you need to do that too): **compose it yourself**, as your own original work. Please read the sections following this one for more details and clarifications. 
@@ -298,9 +287,9 @@ Do not seek published or online solutions for any assignments. If you use any pu
 Do not submit a solution that you are unable to explain orally to a member of the course staff. Any solutions that share similar text may be carefully examined to see if course policy has been violated, and this process may include interviews with students where they can explain their solutions.
 
 
-### No help on quizzes or exams
+### No help on quizzes
 
-It would probably go without saying if we didn't say it, but no assistance may be given or received on any supervised evaluation or online quiz unless specifically announced otherwise by the professor (or another proctor of the evaluation).
+It would probably go without saying if we didn't say it, but no assistance may be given or received on any supervised evaluation or quiz unless specifically announced otherwise by the professor (or another proctor of the evaluation).
 
 ## Generative AI (LLMs, Copilot, ChatGPT, Claude, etc)
 
@@ -346,10 +335,7 @@ Ultimately, **you are responsible**--not the AI--for ensuring that your work is 
 Failure to cite the use of the tool as a source is a serious violation of academic integrity.  If you use generative AI tools to complete assignments in this course, in ways that we have not explicitly authorized, **we will apply the course's policies on academic integrity** appropriate to your specific case. In addition, you must be wary of unintentional plagiarism or fabrication of data. Please act with integrity, for the sake of both your personal character and your academic record.
 
 
-### Consequences of Dishonesty
-
-{: .warning}
-> Are we good with these?
+## Consequences of Dishonesty
 
 If we believe you have acted dishonestly, including sharing or receiving code, we will communicate this fact to you and propose a penalty.
 If you have information we lack, please share that with us; we may thereafter change our belief and/or proposed penalty.
@@ -417,8 +403,6 @@ Please do not wait until the end of the semester to ask for help!
 
 
 #### Health and Wellbeing
-
-<!--- [Kelly Garrett](mailto:mwu5gs@virginia.edu), Assistant Dean of Students, Student Safety and Support-->
 
 You may schedule time with the CAPS counselors through [Student Health](https://sites.studenthealth.virginia.edu/mental-health/getting-started-scheduling).  You are also urged to use [TimelyCare](https://sites.studenthealth.virginia.edu/mental-health/our-services/timelycare) for either scheduled or on-demand 24/7 mental health care.  If you need immediate assistance, call (434) 243-5150 to speak with an on-call clinician.
 
