@@ -1,8 +1,7 @@
 ---
 layout: default 
 title: Schedule
-nav_order: 5
-nav_exclude: true
+nav_order: 3
 ---
 
 # Semester Schedule

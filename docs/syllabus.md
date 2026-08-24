@@ -7,9 +7,6 @@ nav_order: 2
 # Syllabus
 {: .no_toc }
 
-{: .warning }
-> This document is currently being updated.  **DO NOT rely on the contents until this message is removed.** 
-
 Page Last Updated: {{ site.time | date: '%A, %B %d, %Y' }}
 
 ## TL;DR (Too Long; Didn't Read)
@@ -17,15 +14,15 @@ Page Last Updated: {{ site.time | date: '%A, %B %d, %Y' }}
 We realize not everybody will read through this entire document.  So here are the highlights:
 
 - If you have concerns, please email [cs3100@cshelpdesk.atlassian.net](mailto:cs3100@cshelpdesk.atlassian.net) rather than the instructors (it's a quicker response time).  Please do not emails the TAs directly.
-- There will be five modules taught in the course: graphs, divide and conquer, greedy algorithms, dynamic programming, and reductions
-- There will be five quizzes, one per module, and will be in a dedicated Computer Based Testing Facility (CBTF) -- more information about this is below, and will be discussed when we get to that point.  It's the same CBTF that was used in DSA1 last semester.
-- There will be one programming assignment (PA) per module; any language is fine, but if it's not a currently supported language (Java, Python, C, and C++), you have to let us know in time to configure the submission system.
+- There will be five modules taught in the course: graphs, divide and conquer, greedy algorithms, dynamic programming, and reductions.
+- There will be five quizzes, one per module, and will be in a dedicated Computer Based Testing Facility (CBTF) -- more information about this is below, and will be discussed when we get to that point.  There will also be a practice quiz in the CBTF.  It's the same CBTF that was used in DSA1 last semester.
+- There will be one programming assignment (PA) per module; any language is fine, but if it's not a currently supported language (Java, Python, C, C++, and Rust), you have to let us know in time to configure the submission system.
 - There will be two problem sets (PS) per module -- these have to be typeset using LaTeX, which assignment PS0 will cover.  You can collaborate with up to five other students on the problem sets, but you need to list who you collaborated with in your assignment.
 - Grades will be 60% quizzes, 20% programming assignments, and 20% written (typed) problem sets
 - Late PAs and PSs will receive 25% off per day for each day (or fraction thereof, including 1 second) it is late
-- You have eight extensions that you can use throughout the semester -- these can be added or removed up to 4 days after the original due date using an automated system.  Each extension will delay the onset of the late penalty by 4 days (96 hours)
+- You have eight extensions that you can use throughout the semester -- these can be added or removed up to 4 days after the original due date using an automated system.  Each extension will delay the onset of the late penalty by 4 days (96 hours).
 - We have a textbook, but it's available online for free through the UVA library: [Introduction to Algorithms](https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615), called "CLRS" after the intials of the authors.
-- If we mess up the grading on anything, there will be an opportunity to submit a regrade; this is typically limited to 7 days after the assignment or quiz was returned
+- If we mess up the grading on anything, there will be an opportunity to submit a regrade; this is typically limited to 7 days after the assignment or quiz was returned.
 - Generative AI usage: you may not use it to generate solutions for the problem sets or programming assignments, but you are encouraged to use it to help study and prepare; you may not use it at all for the quizzes. <!--you can use it for the problem sets, in limited circumstances for the programming assignments, and not at all for the quizzes.-->
     - That being said, the material in this course is the primary content used in job interviews.  If you just use generative AI, then you are not going to learn the material, which will tank you in your interviews.  There is a reason that companies fly you out to their location for a full day interview -- it's to see what you really know.  And they aren't going to let you use generative AI during those interviews.
 
@@ -44,14 +41,12 @@ Please use our course email for the fastest response time with course staff.  Th
 Aaron Bloomfield
 - Email: aaron_at_virginia.edu
 - Office: Rice 402
-- Office Hours:
-    - tbd
+- Office Hours: TBD
 
 Robbie Hott
 - Email: jrhott_at_virginia.edu
 - Office: Rice 401
-- Office Hours:
-    - tbd
+- Office Hours: TBD
 
 If you email a professor, include "DSA2" at the beginning of the subject line to help us prioritize your email.
 
@@ -80,7 +75,7 @@ The primary kinds of tasks are:  Quizzes, Programming Assignments (PAs), Problem
 
 #### Quizzes 
 
-There will be five quizzes (exams) this semester, each on a separate module.  The fifth quiz will be during finals week.  There will also be a practice quiz before the other quizzes.
+There will be five quizzes (exams) this semester, each on a separate module.  The fifth quiz will be during finals week.  There will also be a practice quiz before the other quizzes.  There will also be a practice quiz, which will be worth less of the overall quiz grade than the regular quizzes.
 
 All quizzes will be taken in a dedicated Computer-Based Testing Facility (CBTF), which is located in Gilmer Hall, room 490A.  Each quiz will be 50 minutes long, and can be taken at any time over the 3 day period specified in the course schedule.  While everybody will get similar questions, the questions themselves will be randomized, so that one person's quiz will not be the same as another person's quiz.  That room has a limited capacity (40 seats), and you will need to schedule a time based on your availability.  If you wait until the last minute to schedule an quiz, then you will be stuck with whatever spots are still left.  We will provide scheduling details as the semester progresses.
 
@@ -90,18 +85,18 @@ We will make it clear what each quiz entails, and what questions are on each qui
 
 If you have a valid reason to miss a quiz, then we will allow a make-up.  Unless it is an emergency, you need to let us know ahead of time.  Missing a quiz due to not realizing that you were supposed to take it will not allow a make-up.
 
-**GRADING WARNING:*** This is the first semester we are using the CBTF for the *entire* semester (we used for half a semester in the past).  Some of the questions will be a choose-1-of-many -- meaning you will be given one randomly chosen algorithm to solve on from a set of four or so.  Each of the questions in this set will have a different grading scheme, since it is a different question, and some algorithms may be harder than others.  As a result, there will be ***GRADING MODIFICATIONS*** to the grade you receive.  The intent is to ensure that those who get a harder algorithm to solve are not at a disadvantage versus those who received an easier algorithm to solve.  These modifications may be positive or they may be negative -- again, the goal is to ensure it is fair across the entire class.  The grading modifications will be based on the mean score for each of the questions, and we will present this math to the entire course.
+***GRADING WARNING:*** This is the first semester we are using the CBTF for the *entire* semester (we used for half a semester in the past).  Some of the questions will be a choose-1-of-many -- meaning you will be given one randomly chosen algorithm to solve on from a set of four or so.  Each of the questions in this set will have a different grading scheme, since it is a different question, and some algorithms may be harder than others.  As a result, there will be ***GRADING MODIFICATIONS*** to the grade you receive.  The intent is to ensure that those who get a harder algorithm to solve are not at a disadvantage versus those who received an easier algorithm to solve.  These modifications may be positive or they may be negative -- again, the goal is to ensure it is fair across the entire class.  The grading modifications will be based on the mean score for each of the questions, and we will present this math to the entire course.
 
 
 #### Programming Assignments (PAs)
 
 The goal of Programming assignments (PAs) is to explore one or more topics from a unit by applying an algorithm to a problem, implementing it in code, and showing it works correctly by passing a set of test-cases.  Grading will be primarily based on passing test-cases on GradeScope.  Some PAs may require a short write-up. Submissions must include information about sources, collaborators, etc.   For more information, see sections below on "Collaboration and Outside Sources" for PAs.
 
-**Note:** These PAs are intended to help you practice and learn the content, so we ask that you do **not** use generative AI to write the code.  Why?  The process of problem solving and programming will help you build mental models and strategies for solving problems.  Can generative AI write this code for you?  Yes!  But then you're missing outon gaining the experience and knowledge gain of trying it yourself -- you can't replace that with AI.  So do **NOT** use AI to write these for you.
+Generative AI can generally not be used for programming assignments, but see our full [Honesty and Collaboration](#honesty-and-collaboration) and [Generative AI policy](#honesty-and-collaboration) below.
 
 When you submit a PA, the submission system will run a small set of tests on your code to ensure it interacts properly with the grading system (compiles, handles I/O correctly, etc.).  These test cases will be the ones provided in the assignment.  There will be a *separate* set of test cases that your grade will be based on, which will not appear until the assignment's grade is returned to you.  We do it this way because if we revealed the grading test cases at the start, then one could get full credit by just using `print()` statements.
 
-You may write code in any programming language that you would like.  Students most often use Java and Python, and our system handles C and C++.  If you want to use a different language, you need to contact us, at least three days before the due date, so that we can reconfigure the submission system to handle that other language.
+You may write code in any programming language that you would like.  Students most often use Java and Python, and our system handles C, C++, and Rust.  If you want to use a different language, you need to contact us, at least three days before the due date, so that we can reconfigure the submission system to handle that other language.
 
 
 
@@ -109,7 +104,8 @@ You may write code in any programming language that you would like.  Students mo
 
 Each Problem Set (PS) will include some written and thought-provoking questions on the content that we're discussing. Some may be simple questions on concepts or details of what's be taught, but most will require students to design an algorithm, analyze it's complexity, make proofs or other logical arguments about its complexity, correctness, etc.  For information on collaboration on PSs, see the section below on "Collaboration and Outside Sources" for PSs.
 
-**Note:** These PSs are intended to help you practice and learn the content, and they'll include some questions that will help prepare you for the quizzes (and even future job interviews!).  Therefore, like PAs, we're asking that you **not** use generative AI to solve and write them.  Why?  The process of solving these problems and converting those solutions into coherent and cohesive algorithms, arguments, and/or proofs will help you build strategies for future problems.  **We want to build your mind, NOT just get the answers.**  Generative AI may be able to provide good enough answers, but it won't give you an intution.  And... how do you know it gave you the right answer?  Or if it's right, is it good?
+Generative AI can generally not be used for problem sets, but see our full [Honesty and Collaboration](#honesty-and-collaboration) and [Generative AI policy](#honesty-and-collaboration) below.
+
 
 #### LaTeX Warm-up
 
@@ -118,7 +114,7 @@ PS0 will be designed to help learn how to use the LaTeX typesetting system, whic
 
 ### Textbook and Readings
 
-We will assign readings from the "CLRS" textbook:  Introduction to Algorithms, by Cormen, Leiserson, Rivest and Stein, 4th Edition. (3rd edition is OK, but is missing some new material.) The book is available for free for UVA users in an online format through the UVA Library at [this link](https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615).  There may be additional readings from online sources.
+We will assign readings from the "CLRS" textbook:  Introduction to Algorithms, by Cormen, Leiserson, Rivest and Stein, 4th Edition. (3rd edition is OK, but is missing some new material.) The book is available for free for UVA users in an online format through the UVA Library at [this link](https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615).  There may be additional readings from online sources.  The readings for each chapter are shown on the [schedule page](schedule.html).
 
 
 ### Coding
@@ -181,7 +177,7 @@ Submissions for the programming assignments will generally open one week (7 days
 
 Assignments turned in after the due date are penalized 25% per day (or fraction thereof) late; this means a maximum of just under 4 days (i.e. just under 96 hours) late.  For example, anywhere from 1 second late to 24 hours late receives 25% percent off.  Due to how the different grading systems work, that ends up being 2.5 points off for each late day for each problem set, and 25% off per each late day for the programming assignments.
 
-You may request an extension on any assignment (PA or PS) for any reason -- there is an automated system, linked to from the Canvas landing page, for this.  That extension is 4 days.  HOWEVER, you only have 8 such "free late passes" during the semester -- once they are used up, there will not be any more.  An extension will delay the onset of the late penalty by 4 days -- so if you get an extension, then the late penalty does not kick in until the 5th day after the due date.
+You may request an extension on any assignment (PA or PS) for any reason -- there is an automated system, linked to from the Canvas landing page, for this.  That extension is 4 days.  **HOWEVER**, you only have 8 such "free late passes" during the semester -- once they are used up, there will not be any more.  An extension will delay the onset of the late penalty by 4 days -- so if you get an extension, then the late penalty does not kick in until the 5th day after the due date.
 
 This extension rule does not apply to quizzes, exams, or any in-class activities.  It only applies to programming assignments (PAs) and written assignments (PSs).
 
@@ -227,13 +223,15 @@ Kindness is more important than correctness.
 
 Let our TAs be students when they are not on the clock as TAs.
 
-**Consequences of Unprofessional Behavior**: Unprofessional behavior, such as misbehavior towards instructors, classmates, or TAs, or causing disctractions for other students, can be held against a student when final grades are calculated.  The penalty is up to 20% of the final course grade.
+**Consequences of Unprofessional Behavior**: Unprofessional behavior, such as misbehavior towards instructors, classmates, or TAs, or causing distractions for other students, can be held against a student when final grades are calculated.  The penalty is up to 20% of the final course grade.
 
-## Honesty and Collaboration
+## Honesty, Collaboration, and Generative AI Usage
 
 We always hope everyone will behave honestly.
 We know we all are tempted to do what we ought not;
 if you do something you regret, the sooner you tell us the sooner (and more leniently) we can correct it.
+
+Generative AI is the way of the future, especially in computing. While we encourage embracing it, as your instructors and as computer scientists, we believe that a firm foundation in computer science is necessary for efficient and accurate use of these emerging tools. This is a foundation course, so we want to help you build intuition outside of AI for programming so that you will have the background and expertise moving forward when you use generative AI.  **Namely, expert AI use requires expertise.**
 
 ### No plagiarism (nor anything like it)
 
@@ -242,41 +240,39 @@ Talked to a friend, saw an interesting video, consulted a website, had a tutor?
 Tell us!
 Put it in a comment in your code or asssignment.
 
-### Programming Assignments: Collaboration and Outside Sources
-
-You may discuss the problem and the overall strategy with up to 4 other students, but you **must** list those people in your submission under collaborators.  You may **not** share code, look at others' code, or help others debug their code. You must write your own code.
-Not just type it (though you need to do that too): **compose it yourself**, as your own original work. Please read the sections following this one for more details and clarifications. 
-
-Do not seek published or online solutions for any assignments. If you use any published or  
-(which may not include solutions) when completing this assignment, you must cite them by giving a complete citation of each source as a comment at the top of your the program file you submit. Do not submit a solution that you are unable to explain orally to a
-member of the course staff. Failure to cite a source is a serious violation of academic integrity and may result in a grade penalty (perhaps a severe one).
-
-The sections that follow provide more detail about these rules for PAs and PSs.
-
-#### Write your own code
-
-You must write your own code.
-Not just type it (though you need to do that too): **compose it yourself**, as your own original work.
-
-We ask you to program to help you learn the content covered in the programming assignment and to help you demonstrate to us your knowledge.
-This is *unlike* industry, where you program to create a product.
-Because it is your mind we are looking to help develop and measure, it is your mind that must do all the work.
-Working with others is *not* OK.
-
-Our TAs have been trained to provide help that does not undermine the primary purpose of helping you learn. Other people (tutors, fellow students, etc) have not. As such, you should not give help to your peers nor accept help from others besides course staff.
-
 #### Understand what you submit
 
 Your understanding is the primary deliverable of our assignments, not the code itself.
 As such, we may ask you to explain aspects of a solution you turn in,
 and may dock points if it appears you simply copied someone else's ideas (or just guessed a lot of things until one worked) without understanding them.
 
-#### Do NOT share your code
+### Programming Assignments
 
-You should not share any code from an individual assignment.  That means you should not push it to GitHub (or any other site), send a copy to a friend who "just needs help with the last part," turning your screen to your neighbor, coding up solutions together, etc.  We know that sometimes you have good intentions--and we've seen it before--but it may not always go the way you think, so please do NOT share your code with anyone.
+#### Collaboration and Outside Sources
+
+You may discuss the problem and the overall strategy with up to 4 other students, but you **must** list those people in your submission under collaborators.  You may **not** share code, post your code publicly online, look at others' code, or help others debug their code. You must write your own code.
+Not just type it (though you need to do that too): **compose it yourself**, as your own original work. Please read the sections following this one for more details and clarifications. 
+
+Do not seek published or online solutions for any assignments. If you use any published or (which may not include solutions) when completing this assignment, you must cite them by giving a complete citation of each source as a comment at the top of your the program file you submit. Do not submit a solution that you are unable to explain orally to a member of the course staff. Failure to cite a source is a serious violation of academic integrity and may result in a grade penalty (perhaps a severe one).
+
+You must write your own code. Not just type it (though you need to do that too): **compose it yourself**, as your own original work.
+
+#### Generative AI Usage
+
+The PAs are intended to help you practice and learn the content, so you are **not** allowed to use generative AI to write the code.  Why?  The process of problem solving and programming will help you build mental models and strategies for solving problems.  Could generative AI write this code for you?  Yes!  But then you're missing out on gaining the experience and knowledge gain of trying it yourself -- you can't replace that with AI.  So you may **NOT** use AI to write these for you.
+
+You may use generative AI to look up a ***SMALL*** snippet of code, such as how to use a particular function.  That snippet of code can be no more than two lines in length.
+
+That being said, the material in this course is the primary content used in job interviews. If you just use generative AI, then you are not going to learn the material, which will tank you in your interviews. There is a reason that companies fly you out to their location for a full day interview – it's to see what you really know. And they are not going to let you use generative AI during those interviews.
+
+You must write your own code. Not just type it (though you need to do that too): **compose it yourself**, as your own original work.
+
+You must cite all generative AI uses, such as code snippet generation, as described [below](#citing-generative-ai-use).
 
 
-### Problem Sets: Collaboration and Outside Sources
+### Problem Sets
+
+#### Collaboration and Outside Sources
 
 On Problem Sets you are allowed (and encouraged) to collaborate with up to 4 other students, but all work submitted must be your own **independently** written solution. List the computing ids of all of your collaborators in the __collabs__ command at the top of the .tex file you submit. 
 
@@ -284,28 +280,38 @@ Our intention is that collaborators can discuss the problems and possible soluti
 
 Do not seek published or online solutions for any assignments. If you use any published or online resources (which may not include solutions) when completing this assignment, you must cite them by giving a complete citation of each source in the __sources__ command at the top of the .tex file you submit. Failure to cite a source is a serious violation of academic integrity and may result in a grade penalty (perhaps a severe one).
 
-Do not submit a solution that you are unable to explain orally to a member of the course staff. Any solutions that share similar text may be carefully examined to see if course policy has been violated, and this process may include interviews with students where they can explain their solutions.
 
+#### Generative AI Usage
 
-### No help on quizzes
+The problem sets are intended to help you practice and learn the content, and they'll include some questions that will help prepare you for the quizzes (and even future job interviews!).  Therefore, like PAs, you may **not** use generative AI to solve and write them.  Why?  The process of solving these problems and converting those solutions into coherent and cohesive algorithms, arguments, and/or proofs will help you build strategies for future problems.  **We want to build your mind, NOT just get the answers.**  Generative AI may be able to provide good enough answers, but it won't give you an intuition.  And... how do you know it gave you the right answer?  Or if it's right, is it good?
+
+That being said, once you have solved (or fully attempted to solve) the PS problems on your own (or with your group), you may use generative AI to check your answers.  This only applies to PS assignments, not to PA assignments!  Discussing the problems and strategies with the course staff during office hours is typically much better than using generative AI to verify your answers.
+
+You must cite all generative AI uses, including that you checked your answers, as described [below](#citing-generative-ai-use).
+
+### Quizzes
 
 It would probably go without saying if we didn't say it, but no assistance may be given or received on any supervised evaluation or quiz unless specifically announced otherwise by the professor (or another proctor of the evaluation).
 
-## Generative AI (LLMs, Copilot, ChatGPT, Claude, etc)
 
-Generative AI is the way of the future, especially in computing. While we encourage embracing it, as your instructors and as computer scientists, we believe that a firm foundation in computer science is necessary for efficient and accurate use of these emerging tools. This is a foundation course, so we want to help you build intution outside of AI for programming so that you will have the background and expertise moving forward when you use generative AI.  **Namely, expert AI use requires expertise.**
+### Allowed Uses of Generative AI
 
-### Restrictions
 
-Therefore, to help build this firm foundation while also encouraging the use of AI, we have decided to implement the following restrictions around the use of AI in CS 3100 this semester:
+You may use generative AI to:
 
-1. **You may not use generative AI to generate solutions to the PAs and PSs.**  These assignments are designed to practice and experience the material we're covering in this class to help build a foundation of knowledge for the future.  While these assignments may be difficult, that "struggle" is a good experience to build problem-solving skills and a foundation for using these tools in the future.
-2. **You may not use generative AI for Quizzes.** These will check your knowledge gain and they will be taken in the CBTF, so AI will not be provided or allowed.
-2. **You may use generative AI to:** summarize course material, help you study the course content, provide context around the material we're discussing, generate practice problems to help study and prepare, check the work of any practice problems you generate, aid in debugging your solutions (as long as the AI does _not_ create a solution for you), and clean up your (own) wording.  **Note:** _if you use generative AI in connection with any assignment in the course, you **must cite that usage** as noted below._
+1. Verify the answers to the problem sets once you have made a sincere effort to solve them yourself first
+2. Look up small code snippets (no more than 2 lines) in lieu of using a programing language reference
+3. Summarize course material
+4. Help you study the course content
+5. Provide context around the material we're discussing
+6. Generate practice problems to help study and prepare, 
+7. Check the work of any practice problems you generate
+
+**Note:** _if you use generative AI in connection with any assignment in the course, you **must cite that usage** as noted below._
 
 **If you are ever in doubt as to whether a use of generative AI is acceptable or not, please post on Piazza or send an email to the course ticketing system.**  We'll respond as quickly as possible as well as update this section of the syllabus with more details.
 
-### Available Models
+#### Available Models
 
 Three different Generative AI models are available for you to use during this course (within the restrictions above).
 
@@ -313,7 +319,7 @@ Three different Generative AI models are available for you to use during this co
 2. [Microsoft Copilot](https://copilot.cloud.microsoft/) through Office 365.  With UVA's license agreement, your interactions are not used to train the model, providing some privacy guarantees over other paid models.
 3. [Google Gemini](https://gemini.google.com).  With UVA's license agreement, your interactions are not used to train the model, providing some privacy guarantees over other paid models.  *You must [request access from ITS](https://virginia.service-now.com/esc?id=sc_cat_item&sys_id=322248a91bd37254f9b86575624bcb82) before you can use Gemini.
 
-### Risks of Generative AI
+#### Risks of Generative AI
 
 Generative AI tools can be powerful learning aids, but they also come with important limitations and risks. Remember that generative AI can only generate content from their training data, which is out of date, and they may provide incorrect or false information. Therefore, please keep the following in mind:
 
@@ -323,7 +329,7 @@ Generative AI tools can be powerful learning aids, but they also come with impor
 
 Ultimately, **you are responsible**--not the AI--for ensuring that your work is accurate, original, and consistent with the standards of this course. Please carefully evaluate AI responses against course material and, **whenever in doubt, don't hesitate to visit a TA or instructor during office hours**. _We **enjoy** discussing the material with you!_
 
-### Honesty and Generative AI Use
+#### Citing Generative AI Use
 
 **You must properly document and credit the generative AI tools** themselves when your use is connected with any assignment in the course. Cite each tool you used, in the form shown below for Copilot.  **Note:** you must include the **name of the tool**, the **URL for the tool**, and a **brief description of how you used it in relation to the assignment**.
 
@@ -339,9 +345,7 @@ Failure to cite the use of the tool as a source is a serious violation of academ
 
 If we believe you have acted dishonestly, including sharing or receiving code, we will communicate this fact to you and propose a penalty.
 If you have information we lack, please share that with us; we may thereafter change our belief and/or proposed penalty.
-Penalties may be up to and including a failing grade (F) in the course, *independent of and in addition to the operations of the Honor Code*.
-- A typical first offense penalty: A zero (0) on the assignment in which the dishonesty or plagiarism occurred
-- A typical second or later offense penalty: an automatic F in the course.
+Penalties can include modification of the grade on the assignment, modification of the grade in the course, and may be up to and including a failing grade (F) in the course. *This is independent of and in addition to the operations of the Honor Code*.
 
 If the case is particularly egregious and beyond our comfort level handling in-course, we will refer the case to the University Honor System.
 
@@ -389,7 +393,7 @@ Engaging in your career development is an important part of your student experie
 ## Student Support Team 
 
 
-At UVA, you have many resources available to you when you experience academic or personal stress, and we understand that it’s hard to know where to go, especially for CS students as our undergraduates span both the College of Arts and Sciences (BACS) and SEAS (BSCS).
+At UVA, you have many resources available to you when you experience academic or personal stress, and we understand that it's hard to know where to go, especially for CS students as our undergraduates span both the College of Arts and Sciences (BACS) and SEAS (BSCS).
 
 In addition to your professor, the Computer Science department has staff members located in Rice Hall who you can contact to help talk through your academic or personal challenges and get you connected to the right resources. You may reach out directly to either SJ Jimènez-Calhoun ([smj4z@virginia.edu](mailto:smj4z@virginia.edu)) or Sheri Grimes ([prk2zq@virginia.edu](mailto:prk2zq@virginia.edu)), or visit during walk-in advising hours posted on the [CS Advising Site](https://uvacsadvising.org/).
 Please do not wait until the end of the semester to ask for help!
@@ -418,6 +422,6 @@ The Connect features an open study area, a flexible event space, and on-site sta
 
 ## Additional Notes
 
-**Syllabus Note**: This syllabus is to be considered a reference document that may be adjusted throughout the course of the semester to address necessary changes. This syllabus can be changed at any time without notification; it is up to the student to monitor the website for news of any changes. Final authority on any decision in this course rests with the professor, not with this document.
+**Syllabus Note**: This syllabus is to be considered a reference document that may be adjusted throughout the course of the semester to address necessary changes. This syllabus can be changed at any time, and the class will be notified if that is the case. Small changes, such as office hour times or grammatical corrections, will not have a notification issued.  Final authority on any decision in this course rests with the professor, not with this document.
 
-**Research**: Your class work and related data might be used for research purposes. For example, we may use anonymized scores from student assignments to compare to other student performance data. Any student who wishes to opt out can contact the instructor or TA to do so *after* final grades have been issued. This has no impact on your grade in any manner.
+**Research**: Your class work and related data might be used for research purposes in an anonymized form. For example, we may use anonymized scores from student assignments to compare to other student performance data. Any student who wishes to opt out can contact the instructor or TA to do so *after* final grades have been issued. This has no impact on your grade in any manner.
