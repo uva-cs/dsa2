@@ -1,7 +1,13 @@
 - topic: Welcome, Review
+  lectures:
+      - time: PDF
+        link: https://canvas.its.virginia.edu/files/20288573/download?download_frd=1&verifier=ba0faea5-2e35-4601-b525-d048ec843f62 
 - topic: Asymptotics, Review proofs
   readings:
     - topic: CLRS chapters 2-3 
+  lectures:
+      - time: PDF
+        link: https://canvas.its.virginia.edu/files/20290864/download?download_frd=1&verifier=9c0752a9-22d2-4c70-856c-501d9cfd48df 
 - topic: Graphs
   type: header
 - topic: Graphs, BFS
