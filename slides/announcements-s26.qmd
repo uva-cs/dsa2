@@ -1,0 +1,1364 @@
+---
+title: "Announcements, Spring 2026"
+css: announcements.css
+toc: false
+---
+
+
+
+# Final Exam
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/final_exam.png){title="For those of you also taking Game Theory, your grade in that class will be based on how close your grade on this exam is to 80% of the average." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/final_exam_2x.png 2x"  fig-alt='xkcd comic'}
+:::
+::: {.r-stack}
+[xkcd \# 2385](https://xkcd.com/2385)
+:::
+
+::: {.announcements}
+## The End
+
+<div style="font-size:75%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+  - Formal OH end with the end of classes
+    - Bloomfield & Floryan OH will be posted on Piazza
+    - TA OH this week: Wed 7-9
+- Assignments: no more left!
+- Grades
+  - Grades through PS9 should be back today or tomorrow
+  - PA5 can be returned later this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Final / Quiz 5: sign-ups have opened, and then filled up again; more details soon
+  - No "make-up", but a curve instead
+  - Details on the next slide
+- Course textbook link is on the Canvas landing page
+- Today we will go over machine learning, and then the course conclusion
+
+</div>
+
+:::
+
+::: {.announcements}
+## Quiz 5 format
+
+<div style="font-size:85%;line-height:1.1em">
+
+The questions on quiz 5 are:
+
+1. Constructing reductions: given a new problem, construct a reduction to reduce it to a known problem
+   - This is in the proof-blocks format, like the greedy proofs question from quiz 3
+   - We currently have 30 such algorithms; aiming for many more
+2. Max flow: given a graph:
+   - Fill in the adjacency matrix for the (max) flow
+      - Hint: do this from the adjacency matrix, not by looking back to the graph diagram!
+   - Enter the actual max flow
+   - Determine the minimum S-T cut
+5. Some number (5-10) of true/false OR multiple-choice questions from a *very* large question bank
+   - Aiming for 100+ such questions in the question bank
+   - These will be on reductions AND machine learning
+
+
+</div>
+
+:::
+
+
+
+
+
+
+# Pillow Talk
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/pillow_talk.jpg){title="Maybe I should&#39;ve tried Wexler?" style='border:10px solid white'   fig-alt='xkcd comic'}
+:::
+::: {.r-stack}
+[xkcd \# 69](https://xkcd.com/69)
+:::
+
+::: {.announcements}
+## Lecture 28: Thursday, April 23rd
+
+<div style="font-size:75%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS9 (reductions) is out and was due yesterday
+  - [PA5 (reductions)](../pa/pa5/index.html) is due this Friday (4/24)
+- Grades
+  - Grades through PS6 and PA2 have been returned; others to be back "soon"
+- Final / quiz 5: reservations to open soon
+  - No "make-up", but a curve instead
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Quiz 5 sign-ups have opened
+- Upcoming schedule
+  - Week of Mon, Apr 20 (this week): PS9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
+  - Week of Mon, Apr 27 (next week): CBTF final over that weekend (Fri, May 1 to Mon, May 4); full details TBA
+- Course textbook link is on the Canvas landing page
+- Today we will continue with reductions, then onto machine learning
+  - After today, only one more lecture left!
+
+</div>
+
+:::
+
+
+# Travelling Salesman Problem
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/travelling_salesman_problem.png){title="What&#39;s the complexity class of the best linear programming cutting-plane techniques?  I couldn&#39;t find it anywhere.  Man, the Garfield guy doesn&#39;t have these problems ..." style='border:10px solid white'   fig-alt='xkcd comic'}
+:::
+::: {.r-stack}
+[xkcd \# 399](https://xkcd.com/399)
+:::
+
+::: {.announcements}
+## Lecture 27: Tuesday, April 21st 
+
+<div style="font-size:75%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS9 (reductions) is out and due this Wednesday
+  - [PA5 (reductions)](../pa/pa5/index.html) is due this Friday (4/24)
+    - Gradescope submission will open soon
+- Grades
+  - Grades through PS6 and PA2 have been returned; others to be back "soon"
+- Final / quiz 5: reservations to open soon
+  - No "make-up", but a curve instead
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Upcoming schedule
+  - Week of Mon, Apr 20 (this week): PS9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
+  - Week of Mon, Apr 27 (next week): CBTF final over that weekend (Fri, May 1 to Mon, May 4); full details TBA
+- Course textbook link is on the Canvas landing page
+- Today we will continue with reductions
+  - After today, only two more lectures left!
+
+</div>
+
+:::
+
+
+
+
+# NP-Complete
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/np_complete.png){title="General solutions get you a 50% tip." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 287](https://xkcd.com/287)
+:::
+
+::: {.announcements}
+## Lecture 26: Thursday, April 16th 
+
+<div style="font-size:75%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+    - But mine are 1:30-3:00 today (4/16)
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - No assignments due this week because of quiz 4; see [here](#/quiz-4-format) for details about what is on the quiz
+  - PS9 (reductions) is out and due next Wednesday
+  - [PA5 (reductions)](../pa/pa5/index.html) is due next Friday (4/24)
+- Grades
+  - Grades through PS6 and PA2 have been returned
+  - We expect others to be back "soon"
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Upcoming schedule
+  - Week of Mon, Apr 13 (this week): CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
+  - Week of Mon, Apr 20 (next week): PS9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
+  - Week of Mon, Apr 27: CBTF final over that weekend (Fri, May 1 to Mon, May 4); full details TBA
+- Course textbook link is on the Canvas landing page
+- Today we will continue with reductions
+  - After today, only three more lectures left!
+
+</div>
+
+:::
+
+
+
+
+
+# Flowcharts
+::: {.stretch}
+<a href="https:https://xkcd.com/spiral/">![](https://imgs.xkcd.com/comics/flowcharts.png){title="Whoa, and if you overlay a Fibonacci spiral on a golden spiral it matches up almost perfectly!" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/flowcharts_2x.png 2x" </a>}
+:::
+::: {.r-stack}
+[xkcd \# 1488](https://xkcd.com/1488)
+:::
+
+::: {.announcements}
+## Lecture 25: Tuesday, April 14th (p 1/3)
+
+<div style="font-size:80%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - No assignments due this week
+  - PS9 (reductions) is due next Wednesday
+  - PA5 (reductions) is due next Friday (4/24)
+- Grades
+  - Grades through PS6 and PA2 have been returned
+  - We expect others to be back "soon"
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Updated schedule on next slide
+- Course textbook link is on the Canvas landing page
+- Today we will continue with max flow (part of the reductions module)
+  - After today, only four more lectures left!
+
+</div>
+
+:::
+
+::: {.announcements}
+## Upcoming schedule
+
+- ~~Week of Mon, Mar 30: PS7 (DP I) due Wed (4/1)~~
+- ~~Week of Mon, Apr 6: PS8 (DP II) due Wed (4/8), PA4 due Fri (4/10)~~
+- Week of Mon, Apr 13 (this week): CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
+  - Sign ups are open!
+- Week of Mon, Apr 20 (next week): PS9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
+- Week of Mon, Apr 27: CBTF final over that weekend (Fri, May 1 to Mon, May 4); exact dates and session time details TBA
+:::
+
+::: {.announcements}
+## Quiz 4 format
+
+<div style="font-size:85%;line-height:1.1em">
+
+Notes:
+
+- The algorithms studied in lecture are: lcs, log cutting, 0/1 knapsack, weighted activity selection, edit distance, coin change, and seam carving (the latter with slightly less detail)
+
+
+The questions on quiz 4 are:
+
+1. DP design: given a new DP algorithm, reason about it
+   - What is the runtime?  What type of data structure would it need?  That sort of thing.
+   - We currently have about almost 100 such algorithms; aiming for many more
+2. Log cutting: working through the algorithm described in class
+3. Weighted interval scheduling: working through the algorithm described in class
+4. DP question categorization: given various properties, which of the algorithms that we've studied match those properties?  (given type of data structure, given runtime, etc.)
+5. Some number (5-10) of true/false questions from a *very* large question bank
+   - Currently 114 DP questions in the question bank, many more expected by tomorrow
+
+The only change from last Thursday:
+
+- <span style="color:red">If the exam is too long, we would shorten it by having each exam choose one of either (2) or (3)</span>
+
+</div>
+
+:::
+
+
+
+
+
+
+
+# Tree
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/tree.png){title="Not only is that terrible in general, but you just KNOW Billy&#39;s going to open the root present first, and then everyone will have to wait while the heap is rebuilt." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 835](https://xkcd.com/835)
+:::
+
+::: {.announcements}
+## Lecture 24: Thursday, April 9th (p 1/3)
+
+<div style="font-size:80%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS8 (DP II) due yesterday -- how was it?
+  - PA4 (DP) is out, due this Friday (4/10)
+    - Gradescope will open up later today
+- Grades
+  - Grades through PS6 and PA2 have been returned
+    - PS6 grades returned today
+  - We expect PA3 to be back "soon"
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Updated schedule on next slide
+- Course textbook link is on the Canvas landing page
+- Today we will continue with max flow (part of the reductions module)
+  - After today, only five more lectures left!
+
+</div>
+
+:::
+
+::: {.announcements}
+## Upcoming schedule
+
+- ~~Week of Mon, Mar 30: PS7 (DP I) due Wed (4/1)~~
+- Week of Mon, Apr 6: (this week): PS8 (DP II) due Wed (4/8), PA4 due Fri (4/10)
+- Week of Mon, Apr 13 (next week): CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
+  - Sign ups are open!
+- Week of Mon, Apr 20: PS9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
+- Week of Mon, Apr 27: CBTF final over that weekend (Fri, May 1 to Mon, May 4); exact dates and session time details TBA
+:::
+
+::: {.announcements}
+## Quiz 4 format
+
+<div style="font-size:85%;line-height:1.1em">
+
+Notes:
+
+- This is ***SUBJECT TO CHANGE*** (but we don't think it will change much)
+- We are providing this now so the Wednesday quiz-takers have sufficient advance notice
+- The algorithms studied in lecture are: lcs, log cutting, 0/1 knapsack, weighted activity selection, edit distance, coin change, and seam carving (the latter with slightly less detail)
+
+
+The questions on quiz 4 are:
+
+1. DP design: given a new DP algorithm, reason about it
+   - What is the runtime?  What type of data structure would it need?  That sort of thing.
+   - We currently have about almost 100 such algorithms; aiming for many more
+2. Log cutting: working through the algorithm described in class
+3. Weighted interval scheduling: working through the algorithm described in class
+4. DP question categorization: given various properties, which of the algorithms that we've studied match those properties?  (given type of data structure, given runtime, etc.)
+5. Some number (5-10) of true/false questions from a *very* large question bank
+   - Currently 72 DP questions in the question bank, aiming for at least twice that
+
+Possible changes:
+
+- If the quiz is too long, we'll remove a question (we'll know this by Tuesday)
+
+</div>
+
+:::
+
+
+
+
+
+# Is It Worth the Time?
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/is_it_worth_the_time.png){title="Don&#39;t forget the time you spend finding the chart to look up what you save. And the time spent reading this reminder about the time spent. And the time trying to figure out if either of those actually make sense. Remember, every second counts toward your life total, including these right now." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/is_it_worth_the_time_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1205](https://xkcd.com/1205)
+:::
+
+::: {.announcements}
+## Lecture 23: Tuesday, April 7th (p 1/3)
+
+<div style="font-size:75%">
+
+- Office hours
+  - TA office hours are Mon through Thu, from 5-9 in Rice 442
+  - Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+  - Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS8 (DP II) out Thursday, due this Wednesday
+  - PA4 (DP) is out, due this Friday (4/10)
+    - Gradescope will open up later today
+- Grades
+  - Grades through PS6 and PA2 have been returned
+    - PS6 grades returned today
+  - We expect PA3 to be back "soon"
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Updated schedule on next slide
+- Course textbook link is on the Canvas landing page
+- Today we will start on max flow (part of the reductions module)
+
+</div>
+
+:::
+
+::: {.announcements}
+## Upcoming schedule
+
+- ~~Week of Mon, Mar 30: PS7 (DP I) due Wed (4/1)~~
+- Week of Mon, Apr 6: (this week): PS8 (DP II) due Wed (4/8), PA4 due Fri (4/10)
+- Week of Mon, Apr 13 (next week): CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
+  - Sign ups are open!
+- Week of Mon, Apr 20: PS9 (reductions) due Wed (4/22), PA5 (reductions) due Fri (4/24)
+- Week of Mon, Apr 27: CBTF final over that weekend (Fri, May 1 to Mon, May 4); exact dates and session time details TBA
+:::
+
+::: {.announcements}
+## CBTF Quiz 3 Survey
+
+<img src='cbtf-survey.png' style='float:right;padding-left:20px'>
+
+Please fill out the survey!  You can do it now; we'll wait.
+
+Direct link: [https://forms.office.com/r/ABmkXknyhw](https://forms.office.com/r/ABmkXknyhw)
+
+:::
+
+
+
+
+
+# Scientist Tech Help
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/scientist_tech_help.png){title="I vaguely and irrationally resent how useful WebPlotDigitizer is." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/scientist_tech_help_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2341](https://xkcd.com/2341)
+:::
+
+::: {.announcements}
+## Lecture 22: Thursday, April 2nd (p 1/4)
+
+<div style="font-size:75%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS7 (DP I) due yesterday: how was it?
+  - PS8 (DP II) out Thursday, due next Wednesday
+  - PA4 (DP) is out, due next Friday (4/10)
+- Grades
+  - Grades through PS5 and PA2 have been returned
+    - PS5 and PA2 grades returned yesterday
+  - We expect PA3 to be back "soon"
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Updated schedule on next slide
+- Course textbook link is on the Canvas landing page
+- Today we will continue with dynamic programming
+
+</div>
+
+:::
+
+::: {.announcements}
+## Upcoming schedule
+
+- Week of Mon, Mar 30 (this week): PS7 (DP I) due Wed (4/1)
+- Week of Mon, Apr 6: (next week): PS8 (DP II) due Wed (4/8), PA4 due Fri (4/10)
+- Week of Mon, Apr 13: CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
+- Week of Mon, Apr 20: PS9 (reductions) due Wed (4/22)
+- Week of Mon, Apr 27: 
+	- PA5 (reductions) due Fri (4/24) (NOT the following Tuesday)
+	- CBTF final over that weekend (Fri, May 1 to Mon, May 4); exact dates and session time details TBA
+:::
+
+
+
+::: {.announcements}
+## CBTF Quiz 3 Debriefing
+
+- Some questions specific to us:
+  - Overall comments
+  - Did you think the questions were fair?
+  - How easy was the test to take?
+  - Did you feel the practice quiz prepared you for the process?
+  - Did you feel that the description we gave before the quiz was all the information you would have received from somebody who took it?
+- Things we are working on:
+  - A few questions had problems:
+    - Greedy proofs saving issues
+    - T/F question issues
+  - Some people had submission issues
+:::
+
+
+
+
+::: {.announcements}
+## CBTF Quiz 3 Survey
+
+<img src='cbtf-survey.png' style='float:right;padding-left:20px'>
+
+Please fill out the survey!  You can do it now; we'll wait.
+
+Direct link: [https://forms.office.com/r/ABmkXknyhw](https://forms.office.com/r/ABmkXknyhw)
+
+:::
+
+
+
+# Scientist Tech Help
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/scientist_tech_help.png){title="I vaguely and irrationally resent how useful WebPlotDigitizer is." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/scientist_tech_help_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2341](https://xkcd.com/2341)
+:::
+
+::: {.announcements}
+## Lecture 21: Tuesday, March 31st (p 1/2)
+
+<div style="font-size:75%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS7 (DP I) due tomorrow
+  - PS8 (DP II) out Thursday, due next Wednesday
+  - PA4 (DP) is out, due next Friday (4/10)
+- Grades
+  - Grades through PS5 and PA2 have been returned
+    - PS5 and PA2 grades returned yesterday
+  - We expect PA3 to be back "soon"
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Updated schedule on next slide
+- CBTF for quiz 3: We will have a debriefing on Thursday
+- CBTF for quiz 4: Wed, Apr 15 to Fri, Apr 17
+- Course textbook link is on the Canvas landing page
+- Today we will continue with dynamic programming
+
+</div>
+
+:::
+
+
+
+::: {.announcements}
+## Lecture 21: Tuesday, March 31st (p 2/2)
+
+Upcoming schedule
+
+- Week of Mon, Mar 30 (this week): PA7 (DP I) due Wed (4/1)
+- Week of Mon, Apr 6: (next week): PA8 (DP II) due Wed (4/8), PA4 due Fri (4/10)
+- Week of Mon, Apr 13: CBTF quiz 4 on Wed - Fri (4/15 - 4/17)
+- Week of Mon, Apr 20: PS9 (reductions) due Wed (4/22)
+- Week of Mon, Apr 27: 
+	- PA5 (reductions) due Tue (4/28); but this is SUBJECT TO CHANGE (with sufficient notice, of course)
+	- CBTF final over that weekend (Fri, May 1 to Mon, May 4); exact dates and session time details TBA
+:::
+
+
+
+# Machine Learning
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/machine_learning.png){title="The pile gets soaked with data and starts to get mushy over time, so it&#39;s technically recurrent." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/machine_learning_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1838](https://xkcd.com/1838)
+:::
+
+::: {.announcements}
+## Lecture 20: Thursday, March 26th
+
+<div style="font-size:80%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - Nothing due this week; PS7 (DP I) and PA4 (DP) will be out later this week
+- Grades
+  - Grades through PS4 and PA1 have been returned
+  - We expect PA2, PA3, and PS5 to be back by next Tuesday
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF for quiz 3
+	- We do not want the early sessions to have a disadvantage, so we are providing more information (see [last Tuesday's slide](announcements.html#/quiz-3-format))
+	- We will debrief and get feedback on Tuesday
+- Course textbook link is on the Canvas landing page
+- Today we will continue with dynamic programming
+
+</div>
+
+:::
+
+
+
+
+# Genetic Algorithms
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/genetic_algorithms.png){title="Just make sure you don&#39;t have it maximize instead of minimize." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 534](https://xkcd.com/534)
+:::
+
+::: {.announcements}
+## Lecture 19: Tuesday, March 24th (1/2)
+
+<div style="font-size:80%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - Nothing due this week; PS7 (DP I) and PA4 (DP) will be out later this week
+- Grades
+  - Grades through PS4 and PA1 have been returned
+  - We expect PA2 to be back this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF
+	- Most people took the practice quiz
+	- Quiz 3 sign-ups are available; see Piazza post [@125](https://piazza.com/class/mk9sfeici024z/post/125)
+	- We do not want the early sessions to have a disadvantage, so we are providing more info on the next slide
+- Course textbook link is on the Canvas landing page
+- Today we will continue with dynamic programming
+
+</div>
+
+:::
+
+
+::: {.announcements}
+## Quiz 3 format
+
+<div style="font-size:90%">
+
+The questions on quiz 3 are:
+
+1. Perform Dijkstra's shortest path
+   - Hint: create a table like on slide 14 of the 03-2-DijkstraAndPrim.pdf slide set
+2. Find an MST in a graph (either Kruskal's or Prim's)
+	 - A note about scratch paper: copy the NODES only, and the fill in the edges in the MST
+3. Proofs:
+   - Prove optimal substructure of one of the algorithms we have seen (randomly chosen)
+   - Prove the greedy choice property of one of the algorithms we have seen (randomly chosen)
+   - This will be by *proof blocks* (given a number of steps of the proof, including incorrect steps, select the correct ones and assemble them in the correct order)
+   - 6 possible algorithms: coin change, Dijkstra's, MST (both Prim's and Kruskal's), activity selection, fractional knapsack
+ 4. Some number (5-10) of true/false questions from a *very* large question bank
+
+</div>
+
+:::
+
+
+
+
+# Watson Medical Algorithm
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/watson_medical_algorithm.png){title="Due to a minor glitch, &#39;discharge patient&#39; does not cause the algorithm to exit, but instead leads back to &#39;hunt down and capture patient&#39;." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/watson_medical_algorithm_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1619](https://xkcd.com/1619)
+:::
+
+
+::: {.announcements}
+## Lecture 18: Thursday, March 19th
+
+<div style="font-size:70%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, but not today (Thu, 3/19)
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS6 (greedy II) was due yesterday; how did it go?
+  - PA3 (greedy) is out, due this Friday (March 20th)
+  - No PA7 (DP I) released this week, because next week is quiz 3
+  - PA4 (DP) is due in 3 weeks, so will be out next week
+- Grades
+  - Grades through PS4 and PA1 have been returned
+  - We expect PA2 to be back this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF
+  - Wednesday's practice quiz sessions: a complete failure
+  - Thursday's practice quiz sessions: it (almost) worked
+  - On Friday we will release, on Piazza, info about next week's quiz 3
+    - We are waiting until the practice quiz finishes
+- Course textbook link is on the Canvas landing page
+- Today we will continue with dynamic programming
+
+</div>
+
+:::
+
+
+
+# Recipes
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/recipes.png){title="To be fair, the braised and confused newt on a bed of crushed Doritos turned out to be delicious." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 720](https://xkcd.com/720)
+:::
+
+
+::: {.announcements}
+## Lecture 17: Thursday, March 16th
+
+<div style="font-size:75%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS6 is out, and due tomorrow
+  - PA3 is out, due this Friday (March 20th)
+- Quizzes 1&2
+	- They are graded and returned; see [Piazza post @88](https://piazza.com/class/mk9sfeici024z/post/88) about a small curve to make up for the typo
+	- Beyond that, we are not expecting to curve the examns
+	- Regrades are open for about a week
+- Grades
+  - Grades through PS4 and PA1 have been returned
+  - We expect PA2 to be back this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF: next slide; it's THIS week
+- Course textbook link is on the Canvas landing page
+- Today we will continue with greedy algorithms
+
+</div>
+
+:::
+
+::: {.announcements}
+## CBTF Info
+
+<div style="font-size:75%">
+
+- We will be using a Computer-Based Testing Facility (CBTF) for the rest of the exams in this course
+- There is a *practice* exam this week (March 17-19)
+	- Everybody has to take it!
+  - We are going to "grade" it to practice the auto-grading, but as long as you complete it, you will get full credit (counts as a homework)
+	- It is a 50 minute slot, taken in Gilmer 490A
+- To register for a slot, see [Piazza post @95](https://piazza.com/class/mk9sfeici024z/post/95)
+	- As of last night, only 20% of the class has registered
+	- If you have a legitimate conflict (out of town, etc.), send an email to the course email
+	- Otherwise, there will not be a make-up
+- The current schedule for the practice quiz is:
+	- Tuesday, 3/17 - 4 pm, 5:30 pm
+	- Wednesday, 3/18 - 4 pm, 5:30 pm, 7 pm
+	- Thursday, 3/19 - 2:30 pm, 4 pm, 5:30 pm, 7 pm
+- The real quiz 3 will be next week
+  - Wednesday, 3/25 through Friday, 3/27
+  - Details to follow later this week
+</div>
+
+:::
+
+
+
+
+# AI Hiring Algorithm
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/ai_hiring_algorithm.png){title="So glad Kate over in R&amp;D pushed for using the AlgoMaxAnalyzer to look into this. Hiring her was a great decisio- waaaait." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/ai_hiring_algorithm_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2237](https://xkcd.com/2237)
+:::
+
+
+::: {.announcements}
+## Lecture 16: Thursday, March 16th
+
+<div style="font-size:75%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS5 was due yesterday -- how did it go?
+  - PA3 is out, due next Friday (March 20th)
+  - PS6 will be out today
+- Quizzes 1&2
+	- They are graded and returned; see [Piazza post @88](https://piazza.com/class/mk9sfeici024z/post/88) about a small curve to make up for the typo
+	- Beyond that, we are not expecting to curve the examns
+	- Regrades are open for about a week
+- Grades
+  - Grades through PS2 and PA1 have been returned
+  - We expect PS3, PS4, and PA2 to be back this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF: next slide; it's NEXT week, not this week
+- Course textbook link is on the Canvas landing page
+- Today we will continue with greedy algorithms
+
+</div>
+
+:::
+
+::: {.announcements}
+## CBTF Info
+
+<div style="font-size:75%">
+
+- We will be using a Computer-Based Testing Facility (CBTF) for the rest of the exams in this course
+- There is a *practice* exam next week (March 17-19)
+	- Everybody has to take it!
+  - We are going to "grade" it to practice the auto-grading, but as long as you complete it, you will get full credit (counts as a homework)
+	- It is a 50 minute slot, taken in Gilmer 490A
+- To register for a slot, see [Piazza post @95](https://piazza.com/class/mk9sfeici024z/post/95)
+- The current schedule for the practice quiz is:
+	- Tuesday, 3/17 - 4 pm, 5:30 pm
+	- Wednesday, 3/18 - 4 pm, 5:30 pm, 7 pm
+	- Thursday, 3/19 - 2:30 pm, 4 pm, 5:30 pm, 7 pm
+- The real quiz 3 will be the following week
+  - Wednesday, 3/25 through Friday, 3/27
+</div>
+
+:::
+
+
+
+
+
+# Google Maps
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/google_maps.png){title="Apparently Google assumes you&#39;re traveling during the ferry&#39;s normal operating hours.  We lost two hours circling that damn lake (to say nothing of the Straw Man)." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 461](https://xkcd.com/461)
+:::
+
+
+::: {.announcements}
+## Lecture 15: Tuesday, March 10th
+
+<div style="font-size:75%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203
+- Assignments
+  - PS5 is out, due tomorrow (March 11th)
+  - PA3 is out, due next Friday (March 20th)
+  - PS6 will be out on Thursday
+- Quizzes 1&2
+	- They are graded and returned
+	  - See [Piazza post @88](https://piazza.com/class/mk9sfeici024z/post/88) about a small curve to make up for the typo
+	- Beyond that, we are not expecting to curve the examns
+	- A note about regrades, then they will open up for approximately one week
+- Grades
+  - Grades through PS2 and PA1 have been returned
+  - We expect PS3, PS4, and PA2 to be back this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF: next slide; it's NEXT week, not this week
+- Course textbook link is on the Canvas landing page
+- Today we will continue with greedy algorithms
+
+</div>
+
+:::
+
+::: {.announcements}
+## CBTF Info
+
+<div style="font-size:75%">
+
+- We will be using a Computer-Based Testing Facility (CBTF) for the rest of the exams in this course
+- There is a *practice* exam the week after spring break
+	- Everybody has to take it!
+  - We are going to "grade" it to practice the auto-grading, but as long as you complete it, you will get full credit (counts as a homework)
+- It is a 50 minute slot, taken in Gilmer 490A
+- Login info will be provided right after spring break
+- The current schedule is:
+	- 3/17 - 4 pm, 5:30 pm
+	- 3/18 - 4 pm, 5:30 pm, 7 pm
+	- 3/19 - 2:30 pm, 4 pm, 5:30 pm, 7 pm
+- You will be given a link to a system to register for ONE of those sections
+- Further quizzes in this course will follow a similar pattern
+- More information about this will be posted in Piazza in the next few days
+
+</div>
+
+:::
+
+
+
+
+
+
+# Tech Support Cheat Sheet
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/tech_support_cheat_sheet.png){title="&#39;Hey Megan, it&#39;s your father. How do I print out a flowchart?&#39;" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/tech_support_cheat_sheet_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 627](https://xkcd.com/627)
+:::
+
+
+::: {.announcements}
+## Lecture 14: Thursday, February 26th
+
+<div style="font-size:75%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+		- Today: there are OH 5-7, but not 7-9
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+  - No OH for some of next week due to exam and the upcoming spring break
+- Assignments
+  - PS5 should be out today, due Wednesday after spring break
+  - PA3 will be out within a week, due three weeks from tomorrow (Fri, Mar 20)
+- Quizzes 1&2
+	- They are graded, but...
+	- There was a problem with the second section, and there may be a statistical discrepancy between the grades; we want to get that sorted out before we return the exams
+- Grades
+  - Grades through PS2 and PA1 have been returned
+  - We expect PS3, PS4, and PA2 to be back right after spring break
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF: next slide
+- Course textbook link is on the Canvas landing page
+- Today we will continue with greedy algorithms
+
+</div>
+
+:::
+
+::: {.announcements}
+## CBTF Info
+
+<div style="font-size:75%">
+
+- We will be using a Computer-Based Testing Facility (CBTF) for the rest of the exams in this course
+- There is a *practice* exam the week after spring break
+	- Everybody has to take it!
+  - We are going to "grade" it to practice the auto-grading, but as long as you complete it, you will get full credit (counts as a homework)
+- It is a 50 minute slot, taken in Gilmer 490A
+- Login info will be provided right after spring break
+- The current schedule is:
+	- 3/17 - 4 pm, 5:30 pm
+	- 3/18 - 4 pm, 5:30 pm, 7 pm
+	- 3/19 - 2:30 pm, 4 pm, 5:30 pm, 7 pm
+- You will be given a link to a system to register for ONE of those sections
+- Further quizzes in this course will follow a similar pattern
+- More information about this will be posted in Piazza in the next few days
+
+</div>
+
+:::
+
+
+
+# Good Code
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/good_code.png){title="You can either hang out in the Android Loop or the HURD loop." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 844](https://xkcd.com/844)
+:::
+
+
+
+::: {.announcements}
+## Lecture 12: Thursday, February 19th
+
+<div style="font-size:80%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+  - No OH for some of next week due to exam and the upcoming spring break
+- Assignments
+  - PS4 was due yesterday -- how did it go?
+  - PA2 is due tomorrow (Friday, Feb 20)
+  - PS5 will be out *next* week, due the week after spring break
+- Grades
+  - PS0 and PA1 have been returned
+  - PS1 and PS2 should be back today -- then we are caught up!
+  - PA2 can be graded starting next week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- CBTF: we are expecting our first use the week after spring break
+  - It's to get used to the system -- as long as you complete it, you will not get a penalty
+- Quizzes 1&2 next Tuesday (Feb 24) in lecture; old quizzes in Canvas' files
+- Course textbook link is on the Canvas landing page
+- Today we will continue with greedy algorithms
+
+</div>
+
+:::
+
+
+
+
+# Here to Help
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/here_to_help.png){title="&quot;We TOLD you it was hard.&quot; &quot;Yeah, but now that I&#39;VE tried, we KNOW it&#39;s hard.&quot;" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/here_to_help_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1831](https://xkcd.com/1831)
+:::
+
+
+::: {.announcements}
+## Lecture 11: Tuesday, February 17th
+
+<div style="font-size:85%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+  - No OH for some of next week due to exam and the upcoming spring break
+- Assignments
+  - PS4 is due tomorrow (Feb 18)
+  - PA2 is due this Friday (Feb 20)
+  - PS5 will be out *next* week
+- Grades
+  - PS0 and PA1 have been returned
+  - PS1 should be back today
+  - PS2 and PS3 should be back next week
+  - PA2 can be graded starting later this week
+- Regrade concerns?
+  - If it's a PA, then via the dedicated Piazza post
+  - If it's a PS, then submit it through Gradescope within one week
+- Quizzes next Tuesday (Feb 24) in lecture; old quizzes in Canvas' files
+- Course textbook link is on the Canvas landing page
+- Today we will start on greedy algorithms
+
+</div>
+
+:::
+
+
+
+
+# Coordinate Plane Closure
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/coordinate_plane_closure.png){title="3D graphs that don&#39;t contact the plane in the closure area may proceed as scheduled, but be alert for possible collisions with 2D graph lines that reach the hole and unexpectedly enter 3D space." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/coordinate_plane_closure_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2735](https://xkcd.com/2735)
+:::
+
+
+::: {.announcements}
+## Lecture 10: Thursday, February 12th
+
+<div style="font-size:90%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+- Assignments
+  - PS3 was due yesterday -- how did it go?
+  - PA2 is out, due next Friday (Fri, Feb 20th)
+  - PS4 will be out today, due next Wednesday
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4: we are expecting to move to a CBTF; details to follow
+		- If on paper,then they are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+- Course textbook link is on the Canvas landing page
+- Today we will continue with divide and conquer
+
+</div>
+
+:::
+
+
+
+# Flow Charts
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/flow_charts.png){title="At 8 drinks, you switch the torrent from FreeBSD to Microsoft Bob.  C&#39;mon, it&#39;ll be fun!" style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 518](https://xkcd.com/518)
+:::
+
+
+::: {.announcements}
+## Lecture 9: Tuesday, February 10th
+
+<div style="font-size:90%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+- Assignments
+  - PA1 was due last Friday -- how did it go?
+  - PS3 is out, due tomorrow (Wed, Feb 11th)
+  - PA2 is out, due next Friday (Fri, Feb 20th)
+  - PS4 will be out Thursday, due next Wednesday
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4: we are expecting to move to a CBTF; details to follow
+		- If on paper,then they are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+- Course textbook link is on the Canvas landing page
+- Today we will continue with divide and conquer
+
+</div>
+
+:::
+
+
+
+
+# Linear Sort
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/linear_sort.png){title="The best case is O(n), and the worst case is that someone checks why." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/linear_sort_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 3026](https://xkcd.com/3026)
+:::
+
+
+::: {.announcements}
+## Lecture 8: Thursday, February 5th
+
+<div style="font-size:90%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+	- All will be posted on the Canvas landing page
+- Assignments
+  - PS2 is due tomorrow
+  - PA1 is due this Friday
+  - Upcoming: PS3 will be released today, PA2 released on Friday
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4: we are expecting to move to a CBTF; details to follow
+		- If on paper,then they are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+- Course textbook link is on the Canvas landing page
+- Today we will continue with divide and conquer
+
+</div>
+
+:::
+
+
+
+
+# Dependencies
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/dependencies.png){title="The prereqs for CPSC 357, the class on package management, are CPSC 432, CPSC 357, and glibc2.5 or later." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 754](https://xkcd.com/754)
+:::
+
+
+::: {.announcements}
+## Lecture 7: Tuesday, February 3rd
+
+<div style="font-size:90%">
+
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+	- All will be posted on the Canvas landing page
+- Assignments
+  - PS1 was due Friday -- how did it go?
+  - PS2 is due tomorrow
+  - PA1 is due this Friday
+  - Upcoming: PS3 will be released Thursday, PA2 released on Friday
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4: we are expecting to move to a CBTF; details to follow
+		- If on paper,then they are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+- Course textbook link is on the Canvas landing page
+- Today we will continue with divide and conquer
+
+</div>
+
+:::
+
+
+
+
+# Ineffective Sorts
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/ineffective_sorts.png){title="StackSort connects to StackOverflow, searches for &#39;sort a list&#39;, and downloads and runs code snippets until the list is sorted." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/ineffective_sorts_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 1185](https://xkcd.com/1185)
+:::
+
+
+::: {.announcements}
+## Lecture 6: Thursday, January 29th
+
+<div style="font-size:90%">
+
+- PS1 is out and now due this Friday (Jan 30) by midnight
+- PS2 will be out today, and due next Wednesday (Feb 4) by midnight
+	- Gradescope submission opens up 72 hours before the due date
+- PA1 is out, due Fri, Feb 6
+	- Gradescope submissions are open
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4 are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+	- If we use a CBTF, quizzes 3&4 and/or the final may have a different format, time, and location
+- Course textbook link is on the Canvas landing page
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+	- All will be posted on the Canvas landing page
+- Today we will continue with graphs
+
+</div>
+
+:::
+
+
+<section>
+
+::: {.announcements}
+## Lecture 5: Tuesday, January 27th
+
+Snow day!
+:::
+
+</section>
+
+
+
+# Weird Unicode Math Symbols
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/weird_unicode_math_symbols.png){title="U+2A0B ⨋ Mathematicians need to calm down" style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/weird_unicode_math_symbols_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2606](https://xkcd.com/2606)
+:::
+
+
+::: {.announcements}
+## Lecture 4: Thursday, January 22nd
+
+<div style="font-size:90%">
+
+- PS0 was due yesterday -- how did it go?
+- PS1 is out and due next Wednesday (Jan 28) by midnight
+	- Gradescope submission opens up 72 hours before the due date
+	- If you don't see the course, we need to re-sync the roster; email the course email about this
+- PA1 will be out this Friday, due two weeks later (Feb 6)
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4 are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+	- If we use a CBTF, quizzes 3&4 and/or the final may have a different format, time, and location
+- Course textbook link is on the Canvas landing page
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+	- All will be posted on the Canvas landing page
+- Today we will continue with graphs
+
+</div>
+
+:::
+
+
+
+# Complexity Analysis
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/complexity_analysis.png){title="PERPETUALLY OPTIMISTIC CASE: Early in the execution, our research group makes a breakthrough on proving P=NP." style='border:10px solid white' srcset="https://imgs.xkcd.com/comics/complexity_analysis_2x.png 2x" }
+:::
+::: {.r-stack}
+[xkcd \# 2939](https://xkcd.com/2939)
+:::
+
+
+::: {.announcements}
+## Lecture 3: Tuesday, January 20th
+
+<div style="font-size:90%">
+
+- PS0 is out in Canvas' Assignments, and due tomorrow (Wed, Jan 21) by 11:59 pm
+	- Gradescope submission opens up 72 hours before the due date
+	- If you don't see the course, we need to re-sync the roster; email the course email about this
+- PS1 will be out Thursday afternoon, due next Wednesday (Jan 28)
+- PA1 will be out this Friday, due two weeks later (Feb 6)
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4 are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+	- If we use a CBTF, quizzes 3&4 and/or the final may have a different format, time, and location
+- Course textbook link is on the Canvas landing page
+- Office hours
+	- TA office hours are Mon through Thu, from 5-9 in Rice 442
+	- Prof. Bloomfield's office hours Mon 10:30-12 and Thu 12:30-2, in Rice 402, and start this week
+	- Prof. Floryan's office hours are Mon 1-2, Tue 9-10, and Wed 12-1 in Rice 203, and start this week
+	- All will be posted on the Canvas landing page
+
+</div>
+
+:::
+
+
+
+
+
+# Algorithms
+::: {.stretch}
+![](https://imgs.xkcd.com/comics/algorithms.png){title="There was a schism in 2007, when a sect advocating OpenOffice created a fork of Sunday.xlsx and maintained it independently for several months. The efforts to reconcile the conflicting schedules led to the reinvention, within the cells of the spreadsheet, of modern version control." style='border:10px solid white'  }
+:::
+::: {.r-stack}
+[xkcd \# 1667](https://xkcd.com/1667)
+:::
+
+::: {.announcements}
+## Lecture 2: Thursday, January 15th
+
+- PS0 is out in Canvas' Assignments, and due next Wednesday (Jan 21) by 11:59 pm
+	- Gradescope submission opens up 72 hours before the due date
+- PS1 will be out next week, due the following Wednesday (1/28)
+- Midterms (aka quizzes): there was some confusion on our end about when
+	- Quizzes 1&2 are Tuesday, February 24th, in lecture (the Tuesday before spring break)
+	- Quizzes 3&4 are Thursday, April 9th, in lecture
+	- Final: Saturday, May 2nd, from 7pm - 10pm
+	- If we use a CBTF, quizzes 3&4 and/or the final may have a different format, time, and location
+- Course textbook link is on the Canvas landing page
+- Office hours
+	- TA office hours coming soon, and will start next week (we are targeting Mon-Thu, 5pm-9pm); likely in Rice 442
+	- Prof. Bloomfield's office hours TBA, in Rice 402, and start next week
+	- Prof. Floryan's office hours are TBA, in Rice 203, and start next week
+	- All will be posted on the Canvas landing page
+:::
+

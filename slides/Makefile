@@ -1,6 +1,6 @@
 SLIDE_SETS: dp.html announcements.html reductions.html
 .SUFFIXES: .qmd .html
-.PHONY: slides all clean
+.PHONY: slides all clean SLIDE_SETS
 
 slides: $(SLIDE_SETS)
 	@echo conversion done
