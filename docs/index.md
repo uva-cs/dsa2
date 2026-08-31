@@ -11,6 +11,15 @@ nav_order: 1
 **[Gradescope workspace](https://www.gradescope.com/courses/1364881){:.btn .btn-green}**
 **[Piazza workspace](https://piazza.com/class/mt61ocblxlc7g2){:.btn .btn-purple}**
 
+**Office Hours:**
+
+The office hours for this semester are:
+
+- Professor Hott's office hours are TBA in Rice 401
+- Professor Bloomfield's office hours are Wed 10-noon and Thu 2-3 in Rice 402
+- TA office hours are Mondays through Thursdays, from 5pm to 9pm, in Rice 442
+
+
 **Course Overview:** The goal of this course is to build a tool kit to better solve a variety of computational problems, and to evaluate the quality of such solutions. In particular, we will cover:
 
 - Formal metrics for evaluating algorithm complexity (including the asymptotic classes big-oh, big-omega, big-theta, little-oh, and little-omega)
