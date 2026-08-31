@@ -18,7 +18,7 @@ format:
     toc: true
     toc-depth: 1
     toc-title: Contents
-    theme: default
+    theme: dark
     menu: true
     center: false
     link-external-newwindow: true

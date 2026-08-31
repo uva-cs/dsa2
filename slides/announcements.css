@@ -1,7 +1,9 @@
+/*
 body > div{
   background-image: url("images/slide-background.webp");
   background-size: cover !important;
 }
+*/
 .reveal h1, .reveal h2, .reveal p, .reveal li {
   color: white;
 }
