@@ -15,8 +15,8 @@ nav_order: 1
 
 The office hours for this semester are:
 
-- Professor Hott's office hours are TBA in Rice 401
-- Professor Bloomfield's office hours are Wed 10-noon and Thu 2-3 in Rice 402
+- Professor Hott's office hours are Tues &amp; Thurs 2:30-3:30pm and Weds 3-4pm in Rice 401
+- Professor Bloomfield's office hours are Wed 10-noon and Thu 2-3pm in Rice 402
 - TA office hours are Mondays through Thursdays, from 5pm to 9pm, in Rice 442
 
 

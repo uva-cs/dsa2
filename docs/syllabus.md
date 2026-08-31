@@ -41,12 +41,10 @@ Please use our course email for the fastest response time with course staff.  Th
 Aaron Bloomfield
 - Email: aaron_at_virginia.edu
 - Office: Rice 402
-- Office Hours: TBD
 
 Robbie Hott
 - Email: jrhott_at_virginia.edu
 - Office: Rice 401
-- Office Hours: TBD
 
 If you email a professor, include "DSA2" at the beginning of the subject line to help us prioritize your email.
 
