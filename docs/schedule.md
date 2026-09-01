@@ -6,9 +6,6 @@ nav_order: 3
 
 # Semester Schedule
 
-{: .warning}
-> This schedule is **under construction**.  Until this message is removed, **any date** listed here **may change**.  Do **NOT** consider these dates set until this message is removed.
-
 The schedule will be flexible as we cover each topic. We might spend some extra time on topics, so we will update the schedule as we progress through the semester.
 
 
@@ -196,7 +193,7 @@ The schedule will be flexible as we cover each topic. We might spend some extra 
         {% endunless %}
         &nbsp;&nbsp;&nbsp;&nbsp;
         {% if pdf.link %}
-        <a href="{{pdf.link}}" aria-label="{{day.topic}} - {{pdf.title}}">{{day.topic}} - {{pdf.title}}</a> 
+        <a href="{{pdf.link}}" aria-label="{{day.topic}} - {{pdf.title}}">{{day.topic}} ({{pdf.title}})</a> 
         {% else %}
         <span title="{{pdf.alt}}">{{pdf.title}}</span> 
         {% endif %}

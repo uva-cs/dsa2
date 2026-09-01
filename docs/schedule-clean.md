@@ -188,7 +188,7 @@ nav_exclude: true
         {% endunless %}
         &nbsp;&nbsp;&nbsp;&nbsp;
         {% if pdf.link %}
-        <a href="{{pdf.link}}" aria-label="{{day.topic}} - {{pdf.title}}">{{day.topic}} - {{pdf.title}}</a> 
+        <a href="{{pdf.link}}" aria-label="{{day.topic}} - {{pdf.title}}">{{day.topic}} ({{pdf.title}})</a> 
         {% else %}
         <span title="{{pdf.alt}}">{{pdf.title}}</span> 
         {% endif %}
