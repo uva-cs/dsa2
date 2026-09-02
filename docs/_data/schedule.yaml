@@ -5,6 +5,7 @@
 - topic: Asymptotics, Review proofs
   readings:
     - topic: CLRS chapters 2-3 
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
   lectures:
       - title: PDF
         link: https://canvas.its.virginia.edu/files/20290864/download?download_frd=1&verifier=9c0752a9-22d2-4c70-856c-501d9cfd48df 
@@ -13,52 +14,62 @@
 - topic: Graphs
   readings:
     - topic: CLRS chapter 20-1, 20-2 
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
   lectures:
       - title: PDF
         link: https://canvas.its.virginia.edu/files/20371159/download?download_frd=1&verifier=d315e239-1f38-40da-aa9c-32d231b4a8c2 
 - topic: BFS 
   readings:
     - topic: CLRS chapter 20-3, 20-4, 20-5 
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
   lectures:
       - title: PDF
         link: https://canvas.its.virginia.edu/files/20371158/download?download_frd=1&verifier=8f2ad1ca-3a09-44e1-a7f0-c4dbc2a66782
 - topic: DFS 
   readings:
     - topic: CLRS chapters 22-3 
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
   lectures:
       - title: PDF
         link: https://canvas.its.virginia.edu/files/20371157/download?download_frd=1&verifier=6d7809a4-90e9-4e1e-905d-351b43cc5f76
 - topic: Dijkstra's Algorithm
   readings:
     - topic: CLRS chapter 20-3, 20-4, 20-5 
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Topological Sorting, Connected Components
 - topic: Divide and Conquer 
   type: header
 - topic: Divide and Conquer, Recurrences
   readings:
     - topic: CLRS 4 (intro) and 4.4 
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Recurrences, Applications
   readings:
     - topic: CLRS 4.1-4.2 
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Master Theorem, Closest Pair of Points
   readings:
     - topic: CLRS 4.5
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: CPP, Matrix Multiplication
   readings:
     - topic: CPP from CLRS 3rd edn. 
-      link: lectures/clrs3rd-CPP.pdf
+      link: /clrs3rd-CPP.pdf
 - topic: Quickselect, Median of Medians, MSCS
   readings:
     - topic: CLRS 4.1-4.2 
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Additional Divide and Conquer Algorithm
 - topic: Greedy Algorithms 
   type: header
 - topic: Greedy Algorithms, Change Making
   readings:
     - topic: CLRS 15.1-2
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Minimum Spanning Trees
   readings:
     - topic: CLRS 21
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Huffman Coding
 - topic: Huffman Coding, Caching Greedy Algorithm 
 - topic: Dynamic Programming 
@@ -68,21 +79,26 @@
 - topic: Seam Carving, Longest Common Subsequence
   readings:
     - topic: CLRS 14
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Longest Common Subsequence, Gerrymandering
   readings:
     - topic: CLRS 14
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Additional DP Algorithm
 - topic: Network Flow and Reductions 
   type: header
 - topic: Max Flow, Min Cut
   readings:
     - topic: CLRS 24
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Reductions
   readings:
     - topic: CLRS 24
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Reductions and Lower Bound Proofs 
   readings:
     - topic: CLRS 24
+      link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Hardness, Completeness
 - topic: Flex day 
 - topic: ML, Ethics, Finale
