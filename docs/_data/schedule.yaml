@@ -32,11 +32,17 @@
   lectures:
       - title: PDF
         link: https://canvas.its.virginia.edu/files/20371157/download?download_frd=1&verifier=6d7809a4-90e9-4e1e-905d-351b43cc5f76
+- topic: Topological Sorting, Connected Components
+  lectures:
+      - title: PDF
+        link: https://canvas.its.virginia.edu/files/20485108/download?download_frd=1&verifier=24c346e4-d6f2-4ec9-a6ea-567d2307f1f8 
 - topic: Dijkstra's Algorithm
+  lectures:
+      - title: PDF
+        link: https://canvas.its.virginia.edu/files/20485109/download?download_frd=1&verifier=a32b2fe9-b242-4c4e-82aa-d55f8b113bfc 
   readings:
     - topic: CLRS chapter 20-3, 20-4, 20-5 
       link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
-- topic: Topological Sorting, Connected Components
 - topic: Divide and Conquer 
   type: header
 - topic: Divide and Conquer, Recurrences
