@@ -9,6 +9,11 @@ parent: Problem Sets
 
 A `.tex` file is provided with the questions where you'll also enter your answers (see below), but [here's a PDF file with the questions](https://www.cs.virginia.edu/~jh2jf/courses/dsa2/fall2026/ps1.pdf) if you want to see them before you set up the LaTeX project.
 
+{: .notice-title }
+> Updates
+>
+> For problem 4 question 5, list the **cross** edges only.
+
 ## Getting Started
 
 ### Set Up Your LaTeX Project
