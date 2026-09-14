@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>PA1.java</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">// PA1 (fall 2026) Python skeleton code</font></i>
+<i><font color="#9A1900">//</font></i>
+<i><font color="#9A1900">// This file shows how to read and parse the input, which is provided via</font></i>
+<i><font color="#9A1900">// standard input</font></i>
+
+<b><font color="#000080">import</font></b> java<font color="#990000">.</font>util<font color="#990000">.*;</font>
+
+<b><font color="#0000FF">class</font></b> <font color="#008080">Edge</font> <font color="#FF0000">{</font>
+	<b><font color="#0000FF">public</font></b> <font color="#009900">int</font> available_capacity<font color="#990000">,</font> total_capacity<font color="#990000">;</font>
+	<b><font color="#0000FF">public</font></b> <font color="#008080">String</font> start_node<font color="#990000">,</font> end_node<font color="#990000">;</font>
+
+	<b><font color="#000000">Edge</font></b><font color="#990000">(</font><font color="#008080">Scanner</font> stdin<font color="#990000">)</font> <font color="#FF0000">{</font>
+		start_node <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">();</font>
+		end_node <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">();</font>
+		available_capacity <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+		total_capacity <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+	<font color="#FF0000">}</font>
+
+	<b><font color="#0000FF">public</font></b> <font color="#008080">String</font> <b><font color="#000000">toString</font></b><font color="#990000">()</font> <font color="#FF0000">{</font>
+		<b><font color="#0000FF">return</font></b> <font color="#FF0000">"('"</font> <font color="#990000">+</font> start_node <font color="#990000">+</font> <font color="#FF0000">"', '"</font> <font color="#990000">+</font> end_node <font color="#990000">+</font> <font color="#FF0000">"', "</font> <font color="#990000">+</font> available_capacity <font color="#990000">+</font>
+			<font color="#FF0000">", "</font> <font color="#990000">+</font> total_capacity <font color="#990000">+</font> <font color="#FF0000">")"</font><font color="#990000">;</font>
+	<font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+
+<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">class</font></b> <font color="#008080">PA1</font> <font color="#FF0000">{</font>
+	<b><font color="#0000FF">static</font></b> <font color="#008080">ArrayList&lt;String&gt;</font> nodes <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>String<font color="#990000">&gt;();</font>
+	<b><font color="#0000FF">static</font></b> <font color="#008080">ArrayList&lt;Edge&gt;</font> edges <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> ArrayList<font color="#990000">&lt;</font>Edge<font color="#990000">&gt;();</font>
+	<b><font color="#0000FF">static</font></b> <font color="#008080">String</font> start_node<font color="#990000">,</font> end_node<font color="#990000">;</font>
+
+	<b><font color="#0000FF">public</font></b> <b><font color="#0000FF">static</font></b> <font color="#009900">void</font> <b><font color="#000000">main</font></b> <font color="#990000">(</font>String<font color="#990000">[]</font> args<font color="#990000">)</font> <font color="#FF0000">{</font>
+		<font color="#008080">Scanner</font> stdin <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Scanner</font></b><font color="#990000">(</font>System<font color="#990000">.</font>in<font color="#990000">);</font>
+		<font color="#008080">Set&lt;String&gt;</font> nodeset <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> HashSet<font color="#990000">&lt;</font>String<font color="#990000">&gt;();</font>
+		<font color="#009900">int</font> num_edges <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">nextInt</font></b><font color="#990000">();</font>
+		start_node <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">();</font>
+		end_node <font color="#990000">=</font> stdin<font color="#990000">.</font><b><font color="#000000">next</font></b><font color="#990000">();</font>
+		<b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> num_edges<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+			<font color="#008080">Edge</font> e <font color="#990000">=</font> <b><font color="#0000FF">new</font></b> <b><font color="#000000">Edge</font></b><font color="#990000">(</font>stdin<font color="#990000">);</font>
+			nodeset<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font>e<font color="#990000">.</font>start_node<font color="#990000">);</font>
+			nodeset<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font>e<font color="#990000">.</font>end_node<font color="#990000">);</font>
+			edges<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font>e<font color="#990000">);</font>
+		<font color="#FF0000">}</font>
+		nodes<font color="#990000">.</font><b><font color="#000000">addAll</font></b><font color="#990000">(</font>nodeset<font color="#990000">);</font>
+
+		<i><font color="#9A1900">// REMOVE THESE LINES BEFORE SUBMISSION</font></i>
+		<i><font color="#9A1900">// any extra output will cause the program to be marked incorrect</font></i>
+		System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"Start node is "</font> <font color="#990000">+</font> start_node <font color="#990000">+</font> <font color="#FF0000">", end node is "</font> <font color="#990000">+</font> end_node<font color="#990000">);</font>
+		System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"The list of "</font> <font color="#990000">+</font> nodes<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">+</font> <font color="#FF0000">" nodes: "</font> <font color="#990000">+</font> nodes<font color="#990000">);</font>
+		System<font color="#990000">.</font>out<font color="#990000">.</font><b><font color="#000000">println</font></b><font color="#990000">(</font><font color="#FF0000">"The list of "</font> <font color="#990000">+</font> edges<font color="#990000">.</font><b><font color="#000000">size</font></b><font color="#990000">()</font> <font color="#990000">+</font> <font color="#FF0000">" edges: "</font> <font color="#990000">+</font> edges<font color="#990000">);</font>
+	<font color="#FF0000">}</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

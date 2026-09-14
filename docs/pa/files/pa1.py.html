@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.9
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>pa1.py</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900"># PA1 (fall 2026) Python skeleton code</font></i>
+<i><font color="#9A1900">#</font></i>
+<i><font color="#9A1900"># This file shows how to read and parse the input, which is provided via</font></i>
+<i><font color="#9A1900"># standard input</font></i>
+
+
+edges <font color="#990000">=</font> <font color="#990000">[]</font> <i><font color="#9A1900"># will be a list of 4-tuples: source node (string), </font></i>
+		   <i><font color="#9A1900"># dest node (string), available capacity, total capacity</font></i>
+nodes <font color="#990000">=</font> <font color="#990000">[]</font> <i><font color="#9A1900"># will be the string names of the nodes</font></i>
+start_node <font color="#990000">=</font> end_node <font color="#990000">=</font> None
+
+
+<b><font color="#0000FF">def</font></b> <b><font color="#000000">read_input</font></b><font color="#990000">():</font>
+	<b><font color="#0000FF">global</font></b> edges<font color="#990000">,</font> nodes<font color="#990000">,</font> start_node<font color="#990000">,</font> end_node
+	parts <font color="#990000">=</font> <b><font color="#000000">input</font></b><font color="#990000">().</font><b><font color="#000000">strip</font></b><font color="#990000">().</font><b><font color="#000000">split</font></b><font color="#990000">(</font><font color="#FF0000">" "</font><font color="#990000">)</font>
+	num_edges <font color="#990000">=</font> <b><font color="#000000">int</font></b><font color="#990000">(</font>parts<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">])</font>
+	start_node<font color="#990000">,</font> end_node <font color="#990000">=</font> parts<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font> parts<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]</font>
+	nodeset <font color="#990000">=</font> <b><font color="#000000">set</font></b><font color="#990000">()</font>
+	<b><font color="#0000FF">for</font></b> _ <b><font color="#0000FF">in</font></b> <b><font color="#000000">range</font></b><font color="#990000">(</font>num_edges<font color="#990000">):</font>
+		parts <font color="#990000">=</font> <b><font color="#000000">input</font></b><font color="#990000">().</font><b><font color="#000000">split</font></b><font color="#990000">(</font><font color="#FF0000">" "</font><font color="#990000">)</font>
+		nodeset<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font>parts<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">])</font>
+		nodeset<font color="#990000">.</font><b><font color="#000000">add</font></b><font color="#990000">(</font>parts<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">])</font>
+		parts<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]</font> <font color="#990000">=</font> <b><font color="#000000">int</font></b><font color="#990000">(</font>parts<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">])</font>
+		parts<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">]</font> <font color="#990000">=</font> <b><font color="#000000">int</font></b><font color="#990000">(</font>parts<font color="#990000">[</font><font color="#993399">3</font><font color="#990000">])</font>
+		edges<font color="#990000">.</font><b><font color="#000000">append</font></b><font color="#990000">(</font> <b><font color="#000000">tuple</font></b><font color="#990000">(</font>parts<font color="#990000">)</font> <font color="#990000">)</font>
+	nodes <font color="#990000">=</font> <b><font color="#000000">list</font></b><font color="#990000">(</font>nodeset<font color="#990000">)</font>
+
+
+<i><font color="#9A1900"># read the input from standard input</font></i>
+<b><font color="#000000">read_input</font></b><font color="#990000">()</font>
+
+
+<i><font color="#9A1900"># REMOVE THESE LINES BEFORE SUBMISSION</font></i>
+<i><font color="#9A1900"># any extra output will cause the program to be marked incorrect</font></i>
+<b><font color="#0000FF">print</font></b><font color="#990000">(</font>f<font color="#FF0000">"Start node is {start_node}, end node is {end_node}"</font><font color="#990000">)</font>
+<b><font color="#0000FF">print</font></b><font color="#990000">(</font>f<font color="#FF0000">"The list of {len(nodes)} nodes:"</font><font color="#990000">,</font>nodes<font color="#990000">)</font>
+<b><font color="#0000FF">print</font></b><font color="#990000">(</font>f<font color="#FF0000">"The list of {len(edges)} edges:"</font><font color="#990000">,</font>edges<font color="#990000">)</font>
+</tt></pre>
+</body>
+</html>
