@@ -85,7 +85,7 @@ All output must be printed to standard output.
 
 ### Example Input
 
-This input corresponds to the graph shown above.  This is available in the [example.in](files/example.in) file.
+This input corresponds to the graph shown above.  This is available in the [example.in](files/pa1-example.in) file.
 
 ```
 6 CHO ORD
@@ -100,7 +100,7 @@ PHL ORD 16 40
 
 ### Example Output
 
-This input corresponds to the graph shown above.  This is available in the [example.out](files/example.out) file.
+This input corresponds to the graph shown above.  This is available in the [example.out](files/pa1-example.out) file.
 
 ```
 CHO
