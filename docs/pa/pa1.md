@@ -30,7 +30,7 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 ### Example
 
-![](pa1-graph.webp){style="float:right;width:500px;padding-left:20px"}
+<img src="files/pa1-graph.webp" style="float:right;width:500px;padding-left:20px">
 
 Let's imagine that you wanted to ship cargo from Charlottesville (CHO) to Chicago (ORD).  Consider the graph to the right.  The start is at node CHO, and the end is at node ORD.  Each edge is labeled with the available capacity (before the slash) and the total capacity (after the slash).
 
@@ -85,7 +85,7 @@ All output must be printed to standard output.
 
 ### Example Input
 
-This input corresponds to the graph shown above.  This is available in the [example.in](example.in) file.
+This input corresponds to the graph shown above.  This is available in the [example.in](files/example.in) file.
 
 ```
 6 CHO ORD
@@ -100,7 +100,7 @@ PHL ORD 16 40
 
 ### Example Output
 
-This input corresponds to the graph shown above.  This is available in the [example.out](example.out) file.
+This input corresponds to the graph shown above.  This is available in the [example.out](files/example.out) file.
 
 ```
 CHO
@@ -113,7 +113,7 @@ ORD
 - The worst-case asymptotic running time of your program should belong to $O(v \cdot e)$, where $v$ is the number of airports and $e$ is the number of airways.
 - Your algorithm must be work in one of: Python (version 3.10.12), Java (OpenJDK version 25.0.4), C (gcc version 11.4.0), C++ (g++ version 11.4.0), or Rust (version 1.75.0)
     - The file MUST be named pa1.py, PA1.java, pa1.c, pa1.cpp, or pa1.rs, depending on what language you are implementing it in.
-- We are providing skeleton code in Python ([pa1.py](pa1.py.html) ([src](pa1.py))) and Java ([PA1.java](PA1.java.html]) ([src](PA1.java)))
+- We are providing skeleton code in Python ([pa1.py](files/pa1.py.html) ([src](files/pa1.py))) and Java ([PA1.java](files/PA1.java.html]) ([src](files/PA1.java)))
 - Your code will be run as: 
     - `python3 pa1.py < example.in` for Python
     - `java PA1 < example.in` for Java
