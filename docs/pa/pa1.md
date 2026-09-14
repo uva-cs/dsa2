@@ -5,6 +5,8 @@ nav_order: 1
 parent: Programming Assignments
 ---
 
+# Programming Assignment 1: Aircraft Loading
+
 
 ### Rules on Collaboration and Outside Sources
 
