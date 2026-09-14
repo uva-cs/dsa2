@@ -17,11 +17,11 @@ You must follow the rules about Collaboration and Outside Sources [in the syllab
 
 After graduating UVA, you start to work for cargo airline company -- your job is to help route the packages to their destination.  This company already has regular daily flights that are moving between the various cities carrying their overnight packages.  Your task is to determine how to fill the remaining capacity in the aircraft with packages that were shipped using a slower (non-overnight) delivery method.
 
-Your algorithm will be given a graph consisting of airports (vertices) and the already-scheduled flights between them (edges).  Each edge will have an available capacity $a$ and a total capacity $t$.  We can then compute the *load* of the edge as $l = t - a$; that is, how much cargo is *already* on the plane. Additionally, we can compute the *load percentage* by calculating $p = l / t$.
+Your algorithm will be given a graph consisting of airports (vertices) and the already-scheduled flights between them (edges).  Each edge will have an available capacity *a* and a total capacity *t*.  We can then compute the *load* of the edge as *l = t - a*; that is, how much cargo is *already* on the plane. Additionally, we can compute the *load percentage* by calculating *p = l / t*.
 
 Your goal will be to write an algorithm which finds the path from a given start airport to a destination airport which *minimizes the sum of load percentages* across the edges used.  Note that the number of flights used is irrelevant for this assignment, as aircraft are already flying between the cities, we are simply using available capacity, and we do not care about how many days it will take for this package.  We only care to *minimize the sum of load percentages*. At-capacity flights may not be used, since that aircraft cannot handle any more cargo.
 
-Specifically, for a given path from the start airport to the destination, the $p$ values for each edge are summed, and we are looking for the lowest sum of load capacities for all available paths.  An example of this computation is provided in the Example section below.
+Specifically, for a given path from the start airport to the destination, the *p* values for each edge are summed, and we are looking for the lowest sum of load capacities for all available paths.  An example of this computation is provided in the Example section below.
 
 For this assignment, we will assume that all packages weigh the same amount (1 unit), and the capacities of the aircraft use that same unit.
 
@@ -112,7 +112,7 @@ ORD
 
 ### Submission Requirements
 
-- The worst-case asymptotic running time of your program should belong to $O(v \cdot e)$, where $v$ is the number of airports and $e$ is the number of airways.
+- The worst-case asymptotic running time of your program should belong to *O(ve)*, where *v* is the number of airports and *e* is the number of airways.
 - Your algorithm must be work in one of: Python (version 3.10.12), Java (OpenJDK version 25.0.4), C (gcc version 11.4.0), C++ (g++ version 11.4.0), or Rust (version 1.75.0)
     - The file MUST be named pa1.py, PA1.java, pa1.c, pa1.cpp, or pa1.rs, depending on what language you are implementing it in.
 - We are providing skeleton code in Python ([pa1.py](files/pa1.py.html) ([src](files/pa1.py))) and Java ([PA1.java](files/PA1.java.html) ([src](files/PA1.java)))
@@ -123,3 +123,7 @@ ORD
 - Any and all source code must be in the one file that you submit
 - You may **not** use any graph packages for this assignment.
 - Please note that you are responsible for analyzing the running time of any algorithm you use and ensuring that they satisfy the runtime requirements for this assignment.
+
+You will submit your completed source code file to Gradescope.  There will be a *small set* of acceptance tests that are ***NOT COMPREHENSIVE***.  These acceptance tests are the test cases in the [example.in](files/pa1-example.in) file.  It's up to you to comprehensively test your code.  The acceptance tests just verify that you are reading the input correctly and providing the expected output.
+
+Note that when you submit, Gradescope will report your grade as "-/10" or "0/10" -- that's a quirk of Gradescope, and is because the grading tests have not been run (and won't be run until after all submissions are in).  YOu can look at the results of the individual test cases to see how your program worked
