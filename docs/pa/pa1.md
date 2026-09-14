@@ -32,7 +32,7 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 ### Example
 
-<img src="files/pa1-graph.webp" style="float:right;width:500px;padding-left:20px">
+<img src="files/pa1-graph.png" style="float:right;width:500px;padding-left:20px">
 
 Let's imagine that you wanted to ship cargo from Charlottesville (CHO) to Chicago (ORD).  Consider the graph to the right.  The start is at node CHO, and the end is at node ORD.  Each edge is labeled with the available capacity (before the slash) and the total capacity (after the slash).
 
