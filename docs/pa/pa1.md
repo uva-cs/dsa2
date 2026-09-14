@@ -115,7 +115,7 @@ ORD
 - The worst-case asymptotic running time of your program should belong to $O(v \cdot e)$, where $v$ is the number of airports and $e$ is the number of airways.
 - Your algorithm must be work in one of: Python (version 3.10.12), Java (OpenJDK version 25.0.4), C (gcc version 11.4.0), C++ (g++ version 11.4.0), or Rust (version 1.75.0)
     - The file MUST be named pa1.py, PA1.java, pa1.c, pa1.cpp, or pa1.rs, depending on what language you are implementing it in.
-- We are providing skeleton code in Python ([pa1.py](files/pa1.py.html) ([src](files/pa1.py))) and Java ([PA1.java](files/PA1.java.html]) ([src](files/PA1.java)))
+- We are providing skeleton code in Python ([pa1.py](files/pa1.py.html) ([src](files/pa1.py))) and Java ([PA1.java](files/PA1.java.html) ([src](files/PA1.java)))
 - Your code will be run as: 
     - `python3 pa1.py < example.in` for Python
     - `java PA1 < example.in` for Java
