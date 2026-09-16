@@ -1,6 +1,6 @@
 ---
 layout: default 
-title: "DSA2: PA1: Aircraft Loading"
+title: PA1 - Aircraft Loading
 nav_order: 1
 parent: Programming Assignments
 ---
