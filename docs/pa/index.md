@@ -2,7 +2,7 @@
 layout: default
 title: Programming Assignments
 has_children: true
-nav_order: 5
+nav_order: 30
 ---
 
 
