@@ -46,14 +46,23 @@
 - topic: Divide and Conquer 
   type: header
 - topic: Divide and Conquer, Recurrences
+  lectures:
+    - title: PDF
+      link: https://canvas.its.virginia.edu/files/20572469/download?download_frd=1&verifier=0c527096-c30a-4b2d-9f28-0ff77380ebbe
   readings:
     - topic: CLRS 4 (intro) and 4.4 
       link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Recurrences, Applications
+  lectures:
+    - title: PDF
+      link: https://canvas.its.virginia.edu/files/20572568/download?download_frd=1&verifier=270e7ff7-5c76-46e5-94d4-50f1cc7c5cab
   readings:
     - topic: CLRS 4.1-4.2 
       link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Master Theorem, Closest Pair of Points
+  lectures:
+    - title: PDF
+      link: https://canvas.its.virginia.edu/files/20572569/download?download_frd=1&verifier=5c2fbff9-862f-4fbc-9366-4dbbca3c458f
   readings:
     - topic: CLRS 4.5
       link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
