@@ -30,7 +30,7 @@ Quiz 1: Graphs
 		- Determine the Strongly Connected Components
 
 
-### Lecture 11: 
+### Lecture 11: Tuesday, September 29th
 
 - PS3 out, due tomorrow
 - PS4 will be available this week, due October 14, 2026
@@ -40,21 +40,10 @@ Quiz 1: Graphs
 - Reviewing Practice Quiz
 
 
-### Lecture 10: 
+### Lecture 10: Thursday, September 24th
 
 - PA1 due tonight, Thursday, September 24, 2026
 - PS3 out, due Wednesday, September 30, 2026
-- Office hours 
-	- TA office hours Mon-Wed 5-9pm, Sun&Thurs 5-7pm in Rice 442
-	- Posted on Canvas landing page and website home page
-- Quiz 1 (Graphs) coming after Fall Reading Days
-
-
-### Lecture 9: 
-
-- PS2 out, due Wednesday, September 23, 2026
-- PA1 out, due Thursday, September 24, 2026
-- PS3 out today, due Wednesday, Sept 30, 2026
 - Office hours 
 	- TA office hours Mon-Wed 5-9pm, Sun&Thurs 5-7pm in Rice 442
 	- Posted on Canvas landing page and website home page
