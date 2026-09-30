@@ -61,6 +61,17 @@ Quiz 1: Graphs
 - Quiz 1 (Graphs) coming after Fall Reading Days
 
 
+### Lecture 9: Tuesday, September 22th
+
+- PS2 out, due Wednesday, September 23, 2026
+- PA1 out, due Thursday, September 24, 2026
+- PS3 out today, due Wednesday, Sept 30, 2026
+- Office hours 
+	- TA office hours Mon-Wed 5-9pm, Sun&Thurs 5-7pm in Rice 442 
+	- Posted on Canvas landing page and website home page 
+- Quiz 1 (Graphs) coming after Fall Reading Days 
+
+
 ### Lecture 8: Thursday, September 17th
 
 - PS2 out, due Wednesday, September 23, 2026
