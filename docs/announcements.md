@@ -9,6 +9,57 @@ nav_order: 4
 
 This pages holds all the announcements presented at the start of lecture periods.  Note that emails are intentionally removed, since this is a public page.  You can find those emails on the [Canvas landing page]().
 
+### Lecture 12: Thursday, October 1, 2026
+
+- PS4 out today, due next Wednesday
+- PA2 will be available this week, due October 15
+- Graphs Quiz at CBTF next week (Wed-Fri, Oct 7-9, 2026)
+	- Sign up on Prairietest.com now
+
+Quiz 1: Graphs
+
+- Four questions:
+	- Big-Oh function classification
+	- Multiple choice questions (T/F, select-one, select-many)
+		- Likely around 8 (but that number may change
+	- Graph algorithms: using proof blocks, specify an algorithm we've seen
+		- All graph algorithms we've seen are fair game here
+	- Trace one graph algorithm (randomly selected):
+		- Perform DFS and classify the edges
+		- Perform Dijkstra's Shortest Path
+		- Determine the Strongly Connected Components
+
+
+### Lecture 11: 
+
+- PS3 out, due tomorrow
+- PS4 will be available this week, due October 14, 2026
+- PA2 will be available this week, due October 15, 2026
+- Graphs Quiz at CBTF next week (Wed-Fri, Oct 7-9, 2026)
+	- Sign up on Prairietest.com soon (more details when we have them)
+- Reviewing Practice Quiz
+
+
+### Lecture 10: 
+
+- PA1 due tonight, Thursday, September 24, 2026
+- PS3 out, due Wednesday, September 30, 2026
+- Office hours 
+	- TA office hours Mon-Wed 5-9pm, Sun&Thurs 5-7pm in Rice 442
+	- Posted on Canvas landing page and website home page
+- Quiz 1 (Graphs) coming after Fall Reading Days
+
+
+### Lecture 9: 
+
+- PS2 out, due Wednesday, September 23, 2026
+- PA1 out, due Thursday, September 24, 2026
+- PS3 out today, due Wednesday, Sept 30, 2026
+- Office hours 
+	- TA office hours Mon-Wed 5-9pm, Sun&Thurs 5-7pm in Rice 442
+	- Posted on Canvas landing page and website home page
+- Quiz 1 (Graphs) coming after Fall Reading Days
+
 
 ### Lecture 8: Thursday, September 17th
 
