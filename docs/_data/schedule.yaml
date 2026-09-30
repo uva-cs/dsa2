@@ -67,14 +67,23 @@
     - topic: CLRS 4.5
       link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Closest Pair of Points, Matrix Multiplication
+  lectures:
+    - title: PDF
+      link: https://canvas.its.virginia.edu/files/20572569/download?download_frd=1&verifier=5c2fbff9-862f-4fbc-9366-4dbbca3c458f 
   readings:
     - topic: CPP from CLRS 3rd edn. 
       link: /clrs3rd-CPP.pdf
 - topic: Matrix Multiplication, Quickselect, Median of Medians, MSCS
+  lectures:
+    - title: PDF
+      link: https://canvas.its.virginia.edu/files/20700974/download?download_frd=1&verifier=84facbe2-a57a-47f0-b3ac-40d60f8ccb11
   readings:
     - topic: CLRS 4.1-4.2 
       link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Median of Medians, MSCS
+  lectures:
+    - title: PDF
+      link: https://canvas.its.virginia.edu/files/20700975/download?download_frd=1&verifier=82997241-78ea-4e93-8c1c-cae229ba3bbb
 - topic: Greedy Algorithms 
   type: header
 - topic: Greedy Algorithms, Change Making
