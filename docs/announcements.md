@@ -11,7 +11,7 @@ This pages holds all the announcements presented at the start of lecture periods
 
 ### Lecture 12: Thursday, October 1, 2026
 
-- PS4 out today, due next Wednesday
+- PS4 out today, due October 14 
 - PA2 will be available this week, due October 15
 - Graphs Quiz at CBTF next week (Wed-Fri, Oct 7-9, 2026)
 	- Sign up on Prairietest.com now
@@ -21,7 +21,7 @@ Quiz 1: Graphs
 - Four questions:
 	- Big-Oh function classification
 	- Multiple choice questions (T/F, select-one, select-many)
-		- Likely around 8 (but that number may change
+		- Likely around 8 (but that number may change)
 	- Graph algorithms: using proof blocks, specify an algorithm we've seen
 		- All graph algorithms we've seen are fair game here
 	- Trace one graph algorithm (randomly selected):
