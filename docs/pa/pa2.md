@@ -6,7 +6,7 @@ parent: Programming Assignments
 ---
 
 
-<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Icy_morning_encounter.jpg/960px-Icy_morning_encounter.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" style="float:right;max-width:30vw;border-radius:40px;padding-left:10px">
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Icy_morning_encounter.jpg/960px-Icy_morning_encounter.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" style="float:right;max-width:40vw;border-radius:40px;padding-left:10px">
 
 ### Introduction
 
@@ -32,15 +32,14 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 
 <div style="float:left;padding-right:10px">
-
-| Mile # | Time |
-|--------|------|
-| 0      | 8    |
-| 1      | 12   |
-| 2      | 31   |
-| 3      | 19   |
-| 4      | 15   |
-
+<table>
+	<tr><th>Mile #</th><th>Time</th></tr>
+	<tr><td>0</td><td>8</td></tr>
+	<tr><td>1</td><td>12</td></tr>
+	<tr><td>2</td><td>31</td></tr>
+	<tr><td>3</td><td>19</td></tr>
+	<tr><td>4</td><td>15</td></tr>
+</table>
 </div>
 
 Consider the case shown in the table, which is plowing 5 mile segments, 0 through 4.  You have 3 plows.
