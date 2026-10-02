@@ -6,7 +6,7 @@ parent: Programming Assignments
 ---
 
 
-<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Icy_morning_encounter.jpg/960px-Icy_morning_encounter.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" style="float:right;max-width:40vw;border-radius:40px;padding-left:10px">
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Icy_morning_encounter.jpg/960px-Icy_morning_encounter.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" style="float:right;max-width:30vw;border-radius:40px;padding-left:10px">
 
 ### Introduction
 
@@ -34,12 +34,12 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 <div style="float:left;padding-right:10px">
 
 | Mile # | Time |
-|---------|--------|
-| 0 | 8 |
-| 1 | 12 |
-| 2 | 31 |
-| 3 | 19 |
-| 4 | 15 |
+|--------|------|
+| 0      | 8    |
+| 1      | 12   |
+| 2      | 31   |
+| 3      | 19   |
+| 4      | 15   |
 
 </div>
 
@@ -50,8 +50,6 @@ The optimal solution is to schedule these miles is to give the first plow miles 
 In this example, the plow with the highest total time has total time of 34, which would be the answer to this test case.
 
 If we had 5 plows, then we would assign one mile to each plow, and the highest total time of any plow would be 31 (the plow clearing mile 2).  In any example, having as many plows as there are miles will yield the minimum possible time to plow the road.  Likewise, having only one plow will yield the maximum time, as that plow has to handle all of the miles.
-
-<br clear='all'>
 
 ### Input
 
