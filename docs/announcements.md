@@ -9,6 +9,14 @@ nav_order: 4
 
 This pages holds all the announcements presented at the start of lecture periods.  Note that emails are intentionally removed, since this is a public page.  You can find those emails on the [Canvas landing page]().
 
+### Lecture 13: Thursday, October 8, 2026
+
+- PS4 out, due October 14 
+- PA2 out, due October 15
+- Graphs Quiz at CBTF **this** week (Wed-Fri, Oct 7-9, 2026)
+	- Sign up on Prairietest.com now if you haven't already
+- Divide and Conquer Quiz (Quiz 2) at CBTF in two weeks (Wed-Fri, Oct 21-23, 2026) 
+
 ### Lecture 12: Thursday, October 1, 2026
 
 - PS4 out today, due October 14 
