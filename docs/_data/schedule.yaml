@@ -87,10 +87,16 @@
 - topic: Greedy Algorithms 
   type: header
 - topic: Greedy Algorithms, Change Making
+  lectures:
+    - title: PDF
+      link: https://canvas.its.virginia.edu/files/20967507/download?download_frd=1&verifier=42e6869e-b0f2-4fe3-ae5a-e29309ed906b
   readings:
     - topic: CLRS 15.1-2
       link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
-- topic: Minimum Spanning Trees
+- topic: Minimum Spanning Trees, Interval Scheduling
+  lectures:
+    - title: PDF
+      link: https://canvas.its.virginia.edu/files/20967504/download?download_frd=1&verifier=578647d4-ab8d-4af9-b3aa-02c472e12b83
   readings:
     - topic: CLRS 21
       link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
