@@ -9,6 +9,38 @@ nav_order: 4
 
 This pages holds all the announcements presented at the start of lecture periods.  Note that emails are intentionally removed, since this is a public page.  You can find those emails on the [Canvas landing page]().
 
+### Lecture 15: Thursday, October 15, 2026
+
+- PA2 is out, due today, October 15, 2026
+- PS5 (Greedy I) is out, due Wednesday, October 21, 2026
+- Grading progress update
+	- PS0, PS1, PA1 grades have been released
+	- PS2 is 93% graded (should be released later this week)
+	- PS3 is 34% graded (should be released in the next week or so)
+- Quiz 1
+	- Prof Bloomfield will post information on Piazza later today
+- Quiz 2 next week (Wed-Fri) at CBTF!
+	- Schedule a time on prairietest.com
+
+Quiz 2 Information
+
+- Four questions
+	- Master Theorem
+		- Give the case that applies and type runtime
+	- Multiple choice questions
+		- T/F, select one, select many
+	- D&C algorithms from class
+		- Using proof blocks (with indentation)
+		- Specify an algorithm we've seen
+		- All algorithms we've seen are fair game here
+	- Create a new D&C algorithm
+		- Using proof blocks (with indentation)
+		- Specify an algorithm to solve a problem we have not seen
+		- "Proof Blocks" provide indentation:
+- Updated Question Format!
+	- "Proof Blocks" provides indentation: see the 3rd slide from today in the PDF in Canvas Files
+
+
 ### Lecture 14: Tuesday, October 13, 2026
 
 - PS4 out, due tomorrow, October 14 
