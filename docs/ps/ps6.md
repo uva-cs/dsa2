@@ -7,6 +7,9 @@ parent: Problem Sets
 
 # Problem Set 6 - Greedy Algorithms II
 
+{: .notice}
+> If the links below do not work, the PDF and Zip file for PS6 are available on Canvas under Files.
+
 A `.tex` file is provided with the questions where you'll also enter your answers (see below), but [here's a PDF file with the questions](https://www.cs.virginia.edu/~jh2jf/courses/dsa2/fall2026/ps6.pdf) if you want to see them before you set up the LaTeX project.
 
 ## Getting Started
