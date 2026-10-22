@@ -5,6 +5,7 @@ nav_order: 2
 parent: Programming Assignments
 ---
 
+# Programming Assignment 2: Snow Plows
 
 <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Icy_morning_encounter.jpg/960px-Icy_morning_encounter.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" style="float:right;max-width:40vw;border-radius:40px;padding-left:10px">
 

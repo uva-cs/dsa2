@@ -1,9 +1,11 @@
 ---
 layout: default 
-title: "PA3: PHP2Shell Intrusion Monitoring"
+title: "PA3: PHP2Shell Monitoring"
 nav_order: 3
 parent: Programming Assignments
 ---
+
+# Programming Assignment 1: PHP2Shell Monitoring
 
 ### Introduction
 
@@ -66,7 +68,7 @@ All output values will fit into a signed `int` variable.
 
 ### Example input
 
-This file is available as [pa3-example.in](pa3-example.in).
+This file is available as [pa3-example.in](files/pa3-example.in).
 
 ```
 4
@@ -96,7 +98,7 @@ This file is available as [pa3-example.in](pa3-example.in).
 
 ### Example output
 
-This file is available as [pa3-example.out](pa3-example.out).
+This file is available as [pa3-example.out](files/pa3-example.out).
 
 ```
 1-4, 8-10
@@ -142,4 +144,4 @@ This takes the output of what is on the left (`cat pa3-example.in`, whose output
 
 ### Submission
 
-You will submit your completed `pa3.py` or `PA3.java` file to Gradescope.  There will be a *small set* of acceptance tests that are *NOT COMPREHENSIVE*.  These acceptance tests are the test cases in [pa3-example.in](pa3-example.in) file.  It's up to you to comprehensively test your code.  The acceptance tests just verify that you are reading the input correctly and providing the expected output.
+You will submit your completed `pa3.py` or `PA3.java` file to Gradescope.  There will be a *small set* of acceptance tests that are *NOT COMPREHENSIVE*.  These acceptance tests are the test cases in [pa3-example.in](files/pa3-example.in) file.  It's up to you to comprehensively test your code.  The acceptance tests just verify that you are reading the input correctly and providing the expected output.
