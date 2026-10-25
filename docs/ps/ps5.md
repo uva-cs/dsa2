@@ -7,6 +7,10 @@ parent: Problem Sets
 
 # Problem Set 5 - Greedy Algorithms I
 
+
+{: .notice}
+> The CS servers are currently offline.  The tex file for PS5 are on Canvas under Files and PS-files.  Note: you will need the dsa2.sty file from _another_ PS zip file.
+
 A `.tex` file is provided with the questions where you'll also enter your answers (see below), but [here's a PDF file with the questions](https://www.cs.virginia.edu/~jh2jf/courses/dsa2/fall2026/ps5.pdf) if you want to see them before you set up the LaTeX project.
 
 ## Getting Started
