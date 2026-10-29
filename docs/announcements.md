@@ -9,6 +9,68 @@ nav_order: 4
 
 This pages holds all the announcements presented at the start of lecture periods.  Note that emails are intentionally removed, since this is a public page.  You can find those emails on the [Canvas landing page]().
 
+### Lecture 19: Thursday, October 29, 2026
+
+No class Tuesday (election day)
+
+Assignments
+- PA3 out, due November 5, 2026
+- PS7 coming soon, due November 11, 2026
+- Extension request system currently down, updates soon
+
+Quiz 2
+- Raw mean: 76%, std dev: 15%
+- Looking at grading modifications on proof block questions
+- Final grades will be posted to Canvas; view quiz afterwards in OH
+- Please remember to save your answers! (Prairielearn doesn’t save when the timer runs out!)
+- Question: Did our overview match what someone who took the quiz early would have told y
+
+Quiz 3
+- Next week (November 4-6, 2026)
+- Schedule a time on prairietest.com soon!
+- Questions
+    - Greedy proofs using proof blocks – one of the proofs we studied
+        - Any block ending with a colon means the next block(s) should be indented!
+        - Possible proofs: interval scheduling, caching, coin changing, Huffman coding
+    - Multiple choice questions (like before)
+    - Interval scheduling (unweighted)
+        - Given intervals, perform algorithm.  Must specify optimal set of intervals as well as which “round” each interval was included or discarded
+    - Minimum spanning tree
+        - Given a graph, provide its MST using either Prim’s or Kruskal’s
+- Some more notes on Proof Block Questions
+    - The first correct block will always start with "We start by..."
+    - If a block ends in a colon, at least the next block must be indented
+
+### Lecture 18: Tuesday, October 27, 2026
+
+- PS6 out, due tomorrow, October 28, 2026
+- PA3 out, due November 5, 2026
+- PS5 extension update: system available through tonight to request the 4-day extension to be applied
+- PS7 coming later this week, due November 11, 2026
+- Quiz 3 (Greedy) coming next week (November 4-6, 2026)
+- Prof Hott office hours canceled tomorrow (Wednesday)
+
+
+### Lecture 17: Thursday, October 22, 2026
+
+- PS6 out, due October 28, 2026
+- PA3 coming, due November 5, 2026
+- Quiz 2 underway
+- Quiz 3 (Greedy) coming (November 4-6, 2026)
+- No Prof Hott office hours this afternoon
+
+### Lecture 16: Tuesday, October 20, 2026
+
+- PS5 (Greedy I) is out, due tomorrow, October 21, 2026
+- PS6 (Greedy II) will be out soon, due Wed, October 28, 2026
+- Grading progress update
+    - PS0, PS1, PA1 grades have been released
+    - PS2 is graded (should be released shortly)
+    - PS3 is 56% graded (solutions available on Canvas)
+- Quiz 1 statistics: Mean 79.35%, Median 82.42%, Std Dev 17.18
+- Quiz 2 this week (Wed-Fri) at CBTF!
+    - Schedule a time on prairietest.com if you haven't already
+
 ### Lecture 15: Thursday, October 15, 2026
 
 - PA2 is out, due today, October 15, 2026
