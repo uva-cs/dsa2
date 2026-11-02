@@ -17,13 +17,14 @@ Assignments
 - PA3 out, due November 5, 2026
 - PS7 coming soon, due November 11, 2026
 - Extension request system currently down, updates soon
+  - You will be able to submit the extensions late once it comes back online
 
 Quiz 2
 - Raw mean: 76%, std dev: 15%
 - Looking at grading modifications on proof block questions
 - Final grades will be posted to Canvas; view quiz afterwards in OH
 - Please remember to save your answers! (Prairielearn doesn’t save when the timer runs out!)
-- Question: Did our overview match what someone who took the quiz early would have told y
+- Question: Did our overview match what someone who took the quiz early would have told you?
 
 Quiz 3
 - Next week (November 4-6, 2026)
