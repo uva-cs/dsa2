@@ -35,7 +35,7 @@ To simplify the problem, we will represent all times as non-negative integers. E
 
 Your task is to develop a **greedy algorithm** that combines all intrusion detection reports into a minimal set of non-overlapping intervals representing the periods during which suspicious activity was observed.
 
-Your algorithm must run in $\Theta(n \log n)$ time, where n is the number of intrusion detection reports.
+Your algorithm must run in $$\Theta(n \log n)$$ time, where n is the number of intrusion detection reports.
 
 The cybersecurity team is counting on you. The hackers certainly aren't going to wait for your algorithm to finish!
 
