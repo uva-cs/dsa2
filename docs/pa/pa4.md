@@ -97,7 +97,7 @@ Note that the second test case (`cab`) could have also output `b 8`, as doing th
 
 This needs to be a dynamic programming solution.  Brute force solutions will time out with the test cases we are going to provide.
 
-There is no skeleton code being provided for this programming assignment.  You can look at [PA2](../pa2/index.html) for how to read in the input from standard input (but note that the input for this assignment is quite different than that for PA2).
+There is no skeleton code being provided for this programming assignment.  You can look at [PA2](pa2.html) for how to read in the input from standard input (but note that the input for this assignment is quite different than that for PA2).
 
 Your source code file must be named either `pa4.py` or `PA4.java`.
 
