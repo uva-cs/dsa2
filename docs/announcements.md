@@ -9,6 +9,18 @@ nav_order: 4
 
 This pages holds all the announcements presented at the start of lecture periods.  Note that emails are intentionally removed, since this is a public page.  You can find those emails on the [Canvas landing page]().
 
+
+### Lecture 20: Thursday, November 5, 2026
+
+- PA3 due tonight
+- PS7 out, due Wednesday
+- Quiz 2 graded
+    - Stop by office hours to view quiz itself
+    - Send regrade requests to the course ticketing email
+- Quiz 3 (Greedy) currently underway
+    - If you haven’t scheduled on Prairietest.com, do so ASAP
+- Quiz 4 (DP) coming in two weeks
+
 ### Lecture 19: Thursday, October 29, 2026
 
 No class Tuesday (election day)
