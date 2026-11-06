@@ -17,7 +17,7 @@ The office hours for this semester are:
 
 - Professor Hott's office hours are Tues &amp; Thurs 2:30-3:30pm and Weds 3-4pm in Rice 401
 - Professor Bloomfield's office hours are Wed 10-noon and Thu 2-3pm in Rice 402
-- TA office hours are Mondays through Thursdays, from 5pm to 9pm, in Rice 442
+- TA office hours are Sundays and Thursdays from 5pm to 7pm, and Mondays through Wednesdays from 5pm to 9pm, all in Rice 442
 
 
 **Course Overview:** The goal of this course is to build a tool kit to better solve a variety of computational problems, and to evaluate the quality of such solutions. In particular, we will cover:
