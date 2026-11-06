@@ -7,7 +7,7 @@ parent: Programming Assignments
 
 ### Introduction
 
-<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/2023_Intel_Core_i7_12700KF_%284%29.jpg/1280px-2023_Intel_Core_i7_12700KF_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20230315192237" style="float:right;max-width:40vw;border-radius:40px;padding-left:10px;border:3px solid black">
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/2023_Intel_Core_i7_12700KF_%284%29.jpg/1280px-2023_Intel_Core_i7_12700KF_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20230315192237" style="float:right;max-width:40vw;border-radius:40px;padding-left:10px;border:3px solid black;margin-left:20px">
 
 While browsing job postings for summer internships, you come across an interesting opportunity at a startup developing a revolutionary new processor architecture. The company claims that its processors will be faster, more energy-efficient, and cheaper than anything currently on the market. The only problem is that nobody has written a compiler for them yet. Naturally, they have decided that this is the perfect job for an undergraduate intern.
 
