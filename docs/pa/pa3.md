@@ -35,7 +35,7 @@ To simplify the problem, we will represent all times as non-negative integers. E
 
 Your task is to develop a **greedy algorithm** that combines all intrusion detection reports into a minimal set of non-overlapping intervals representing the periods during which suspicious activity was observed.
 
-Your algorithm must run in $\Theta(n \log n)$ time, where n is the number of intrusion detection reports.
+Your algorithm must run in $$\Theta(n \log n)$$ time, where n is the number of intrusion detection reports.
 
 The cybersecurity team is counting on you. The hackers certainly aren't going to wait for your algorithm to finish!
 
@@ -51,9 +51,9 @@ Any changes to this page will be put here for easy reference.  Typo fixes and mi
 
 All input is read in from standard input (not a file).
 
-The first line of the file will contain the single positive integer $1 \le c \le 10^5$, the number of test cases in the file.
+The first line of the file will contain the single positive integer $$1 \le c \le 10^5$$, the number of test cases in the file.
 
-Each test case will start with a line containing a single positive integer $1 \le r \le 10^9$, which is the number of shift requests in the file.  The next $r$ lines will consist of a single ordered pair each, the start and end times of each shift request.  A shift request is two integers $(0 \le s \le 10^9, 0 \le t \le 10^9)$, with $t > s$, the start time ($s$) and end (terminating) time ($t$) of the shift request.  These two values are space separated.
+Each test case will start with a line containing a single positive integer $$1 \le r \le 10^9$$, which is the number of shift requests in the file.  The next $$r$$ lines will consist of a single ordered pair each, the start and end times of each shift request.  A shift request is two integers $$(0 \le s \le 10^9, 0 \le t \le 10^9)$$, with $$t > s$$, the start time ($$s$$) and end (terminating) time ($$t$$) of the shift request.  These two values are space separated.
 
 All input values will fit into a signed `int` variable.
 
@@ -109,7 +109,7 @@ This file is available as [pa3-example.out](files/pa3-example.out).
 
 ### Notes
 
-This assignment must be a *greedy solution*.  Specifically, it needs to be a $\Theta(n \log n)$ solution.  A $\Theta(n^2)$ solution will time out with larger test cases.  To ensure this, we have a few test cases that will cause all $\omega(n \log n)$ solutions to time out.  Some of those test cases are given below.
+This assignment must be a *greedy solution*.  Specifically, it needs to be a $$\Theta(n \log n)$$ solution.  A $$\Theta(n^2)$$ solution will time out with larger test cases.  To ensure this, we have a few test cases that will cause all $$\omega(n \log n)$$ solutions to time out.  Some of those test cases are given below.
 
 There are some assumptions that you may and may not make:
 

@@ -15,13 +15,13 @@ While browsing job postings for summer internships, you come across an interesti
 
 You apply for the position, and somehow get hired. On your first day, you discover that the processor's instruction set was designed by a team of hardware engineers who apparently never consulted anyone who has actually written a compiler. The processor supports a rather unusual feature called instruction fusion, where two instructions can be combined into a single instruction. Your task is to optimize this process so that programs execute as efficiently as possible.
 
-The processor supports $r$ unique instruction types, where $2 \le r \le 26$. We will represent these instruction types using lowercase letters `a` through `z`. You will be given an instruction string, such as `abc`, representing a sequence of three instructions that need to be executed.
+The processor supports $$r$$ unique instruction types, where $$2 \le r \le 26$$. We will represent these instruction types using lowercase letters `a` through `z`. You will be given an instruction string, such as `abc`, representing a sequence of three instructions that need to be executed.
 
-The processor can fuse only two instructions together at a time. Thus, for the instruction string `abc`, you can either fuse the first two instructions and then fuse the result with the third, or fuse the last two instructions and then fuse the result with the first. Effectively, you can choose to perform either $(a + b) + c$ or $a + (b + c)$.
+The processor can fuse only two instructions together at a time. Thus, for the instruction string `abc`, you can either fuse the first two instructions and then fuse the result with the third, or fuse the last two instructions and then fuse the result with the first. Effectively, you can choose to perform either $$(a + b) + c$$ or $$a + (b + c)$$.
 
-Fusing instructions requires computational resources, which we will represent as a cost. Each pair of instruction types has a separate fusion cost, and that cost depends on the order in which the instructions appear. Thus, fusing instruction $a$ with instruction $b$ (i.e., $a + b$) may have a different cost than fusing instruction $b$ with instruction $a$ (i.e., $b + a$).
+Fusing instructions requires computational resources, which we will represent as a cost. Each pair of instruction types has a separate fusion cost, and that cost depends on the order in which the instructions appear. Thus, fusing instruction $$a$$ with instruction $$b$$ (i.e., $$a + b$$) may have a different cost than fusing instruction $$b$$ with instruction $$a$$ (i.e., $$b + a$$).
 
-Furthermore, fusing two instructions produces a new instruction, which will always be one of the $r$ instruction types supported by the processor. The resulting instruction type also depends on the order of the inputs. For example, $a + b$ might produce instruction $a$, while $b + a$ might produce instruction $c$. Apparently, the hardware engineers thought this was a perfectly reasonable design decision.
+Furthermore, fusing two instructions produces a new instruction, which will always be one of the $$r$$ instruction types supported by the processor. The resulting instruction type also depends on the order of the inputs. For example, $$a + b$$ might produce instruction $$a$$, while $$b + a$$ might produce instruction $$c$$. Apparently, the hardware engineers thought this was a perfectly reasonable design decision.
 
 You will be provided with a table that specifies both the cost of fusing two instructions and the resulting instruction type:
 
@@ -31,11 +31,11 @@ You will be provided with a table that specifies both the cost of fusing two ins
 | b | c:3 | a:4 | a:2 |
 | c | b:4 | b:1 | b:8 |
 
-This means that fusing instruction $b$ with instruction $c$ produces instruction $a$ at a cost of 2, while fusing instruction $c$ with instruction $b$ produces instruction $b$ at a cost of 1. In the table, the instruction in the left-hand column is the left operand of the fusion operation, and the instruction in the top row is the right operand.
+This means that fusing instruction $$b$$ with instruction $$c$$ produces instruction $$a$$ at a cost of 2, while fusing instruction $$c$$ with instruction $$b$$ produces instruction $$b$$ at a cost of 1. In the table, the instruction in the left-hand column is the left operand of the fusion operation, and the instruction in the top row is the right operand.
 
 There is, of course, one additional complication. The compiler must preserve the original order of instructions in the program. After all, executing instructions in a different order could cause the program to produce incorrect results, which the hardware engineers assure you would be a minor inconvenience. You may change the order in which adjacent instructions are fused, but you cannot rearrange the instructions themselves.
 
-For example, given the instruction string `abc`, you must determine which of $(a + b) + c$ and $a + (b + c)$ has the lower total cost. You cannot choose $c + (b + a)$, because that would change the original instruction order.
+For example, given the instruction string `abc`, you must determine which of $$(a + b) + c$$ and $$a + (b + c)$$ has the lower total cost. You cannot choose $$c + (b + a)$$, because that would change the original instruction order.
 
 Your task is to write the instruction fusion optimizer for this new compiler. Given a table of fusion costs and resulting instruction types, along with a sequence of instructions, determine the fusion order that minimizes the total cost. You must also determine the type of the final fused instruction.
 
@@ -43,13 +43,13 @@ The startup's investors are expecting a demonstration next week, and the hardwar
 
 ### Input
 
-The first line of the input contains an integer $1 \le t \le 10^3$, the number of test cases.
+The first line of the input contains an integer $$1 \le t \le 10^3$$, the number of test cases.
 
-The first line of each test case contains an integer $2 \le r \le 26$, the number of instructions in this test case.  The instructions always start at lower-case `a` and proceed sequentially through the alphabet (in order).
+The first line of each test case contains an integer $$2 \le r \le 26$$, the number of instructions in this test case.  The instructions always start at lower-case `a` and proceed sequentially through the alphabet (in order).
 
-The next $r$ lines will contain the table.  Each line will contain $r$ pairs; each pair contains the resulting reagent and the cost.  The values in a pair are colon-separated, and the pairs themselves are space separated.  If $r=3$, an example line would be `c:3 a:4 a:2` (the middle row in the table above).  All costs are integers $1 \le c \le 10$.  The resulting instructions will always be one of the $r$ instructions in this test case -- meaning if there are only 5 instructions in a test case, which would be `a` through `e`, you will not get a mixing that yields any instructions `f` through `z`.
+The next $$r$$ lines will contain the table.  Each line will contain $$r$$ pairs; each pair contains the resulting reagent and the cost.  The values in a pair are colon-separated, and the pairs themselves are space separated.  If $$r=3$$, an example line would be `c:3 a:4 a:2` (the middle row in the table above).  All costs are integers $$1 \le c \le 10$$.  The resulting instructions will always be one of the $$r$$ instructions in this test case -- meaning if there are only 5 instructions in a test case, which would be `a` through `e`, you will not get a mixing that yields any instructions `f` through `z`.
 
-After the table is an integer $1 \le m \le 10^3$, the number of mixings of instructions to determine the minimum cost for.  Each such mixing will use the same table, as it is in the same test case.  The next $m$ lines will contain one reagent string per line; each string will be up to $10^3$ reagent letters, and will only contain the letters corresponding to the $r$ instructions available in this test case.
+After the table is an integer $$1 \le m \le 10^3$$, the number of mixings of instructions to determine the minimum cost for.  Each such mixing will use the same table, as it is in the same test case.  The next $$m$$ lines will contain one reagent string per line; each string will be up to $$10^3$$ reagent letters, and will only contain the letters corresponding to the $$r$$ instructions available in this test case.
 
 All input is to be read from standard input.
 
@@ -93,7 +93,7 @@ a 30
 b 11
 ```
 
-Note that the second test case (`cab`) could have also output `b 8`, as doing the two operations in either order yields a cost of 8.  In other words, $c+(a+b)=b$ and $(c+a)+b=a$ both have a cost 8, and either answer is acceptable. 
+Note that the second test case (`cab`) could have also output `b 8`, as doing the two operations in either order yields a cost of 8.  In other words, $$c+(a+b)=b$$ and $$(c+a)+b=a$$ both have a cost 8, and either answer is acceptable. 
 
 ### Requirements
 

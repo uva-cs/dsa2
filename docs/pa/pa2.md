@@ -57,13 +57,13 @@ If we had 5 plows, then we would assign one mile to each plow, and the highest t
 
 All input is read in from standard input (not a file).
 
-The first line of the file will contain the single positive integer $1 \le c \le 10^5$, the number of test cases in the file.
+The first line of the file will contain the single positive integer $$1 \le c \le 10^5$$, the number of test cases in the file.
 
 Each test case will consist of two lines.
 
-The first line will consist of two integers, $2 \le m \le 10^9$, the number of miles, and $2 \le p \le 10^9$, the number of plows.  Furthermore, $m \ge p$ (there will never be more plows than miles).  To simplify mile marker notation, each mile marker will have a number starting from 0.  This, if there are $m$ miles to plow, they are referred to by the consecutive integers 0 to $m-1$.  Likewise, each plow is assigned a consecutive number from 0 to $p-1$.
+The first line will consist of two integers, $$2 \le m \le 10^9$$, the number of miles, and $$2 \le p \le 10^9$$, the number of plows.  Furthermore, $$m \ge p$$ (there will never be more plows than miles).  To simplify mile marker notation, each mile marker will have a number starting from 0.  This, if there are $$m$$ miles to plow, they are referred to by the consecutive integers 0 to $$m-1$$.  Likewise, each plow is assigned a consecutive number from 0 to $$p-1$$.
 
-The second line lists the *times* of each mile to be plowed, space separated.  All times are positive integers $1 \le t \le 10^{15}$.  These values will require being stored in a `long`, not an `int`!  The mile times are listed in order from mile 0 to mile $m-1$.
+The second line lists the *times* of each mile to be plowed, space separated.  All times are positive integers $$1 \le t \le 10^{15}$$.  These values will require being stored in a `long`, not an `int`!  The mile times are listed in order from mile 0 to mile $$m-1$$.
 
 The skeleton code, which just reads in the input and prints it out, is provided in [pa2.py](files/pa2.py.html) ([src](files/pa2.py)) and [PA2.java](files/PA2.java.html) ([src](files/PA2.java)).
 
@@ -106,7 +106,7 @@ This file is available as [example.in](files/pa2-example.out).  This output of t
 
 ### Algorithm
 
-There are two parts to this algorithm: selecting a time to have the road plowed in (which is what we want to optimize), and determining if your $p$ plows can plow the road in that amount of time.  The first part is through a binary search -- rather than searching through an array, you search through the possible times from the minimum time (there are as many plows as there are miles) and the maximum time (only one plow).  For the second part, we start with one plow at the beginning of the mile range, and just keep adding consecutive mile clearing times until the next one would cause us to go over, and then we proceed onto the next plow; this may result in learning that one cannot clear the road with your $p$ plows in a given time.
+There are two parts to this algorithm: selecting a time to have the road plowed in (which is what we want to optimize), and determining if your $$p$$ plows can plow the road in that amount of time.  The first part is through a binary search -- rather than searching through an array, you search through the possible times from the minimum time (there are as many plows as there are miles) and the maximum time (only one plow).  For the second part, we start with one plow at the beginning of the mile range, and just keep adding consecutive mile clearing times until the next one would cause us to go over, and then we proceed onto the next plow; this may result in learning that one cannot clear the road with your $$p$$ plows in a given time.
 
 
 ### Requirements
