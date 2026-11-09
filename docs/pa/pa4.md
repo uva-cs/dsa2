@@ -1,9 +1,11 @@
 ---
 layout: default 
-title: "DSA2: PA4: Compiler Instruction Optimization"
+title: "PA4 - Compiler Instruction Optimization"
 nav_order: 4
 parent: Programming Assignments
 ---
+
+# Programming Assignment 4: Compiler Instruction Optimization 
 
 ### Introduction
 

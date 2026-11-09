@@ -1,6 +1,6 @@
 ---
 layout: default 
-title: "PA3: PHP2Shell Monitoring"
+title: "PA3 - PHP2Shell Monitoring"
 nav_order: 3
 parent: Programming Assignments
 ---
