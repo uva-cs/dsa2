@@ -9,7 +9,7 @@ plugins:
     - jekyll-remote-theme
 search:
     button: true
-latex: katex
+math: mathjax
 callouts:
     warning:
         title: Warning
