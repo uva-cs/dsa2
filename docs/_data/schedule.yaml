@@ -146,15 +146,21 @@
     - topic: CLRS 24
       link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Reductions
+  lectures:
+    - title: PDF
+      link: https://canvas.its.virginia.edu/files/21578226/download?download_frd=1&verifier=d22ae4f7-8700-412a-b182-f7a0d5c4ba62 
   readings:
     - topic: CLRS 24
       link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Reductions and Lower Bound Proofs 
+  lectures:
+    - title: PDF
+      link: https://canvas.its.virginia.edu/files/21578228/download?download_frd=1&verifier=398fdaa4-9a57-4547-b760-3098cac3de45 
   readings:
     - topic: CLRS 24
       link: https://ebookcentral-proquest-com.proxy1.library.virginia.edu/lib/UVA/detail.action?docID=6925615
 - topic: Hardness, Completeness
-- topic: Flex day 
-- topic: ML, Ethics, Finale
-- topic: Quiz 5 tbd
-  date: finals
+- topic: Machine Learning 
+- topic: Machine Learning, Ethics, Finale
+- topic: Quiz 5 
+  date: 12/11/2026
