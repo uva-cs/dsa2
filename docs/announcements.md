@@ -9,6 +9,57 @@ nav_order: 4
 
 This pages holds all the announcements presented at the start of lecture periods.  Note that emails are intentionally removed, since this is a public page.  You can find those emails on the [Canvas landing page]().
 
+### Lecture 23: Tuesday, November 17, 2026
+
+- PS8 out, due Wednesday, November 18, 2026
+- PA4 out, due Tuesday, November 24, 2026
+- PS9 coming later this week, due Wednesday, December 2, 2026
+- Quiz 4 starts tomorrow! Please schedule on PrairieTest if you haven't already!
+- No Prof Hott office hours tomorrow
+
+### Lecture 22: Thursday, November 12, 2026
+
+- PS8 out, due Wednesday, November 18, 2026
+- PA4 out, due Tuesday, November 24, 2026
+- Quiz Updates
+    - Quiz 2 scores updated on Canvas (in Posted Feedback)
+    - Quiz 3 scores released
+        - Average: 82.8; Std dev: 17.0
+        - Unclear if there will be a grading modification (only slight differences)
+        - Once grades are updated (if needed), final grades will be in Canvas
+        - Review tests during office hours
+    - Quiz 4 next week (schedule now!)
+    - Quiz 5 during final exams (December 10-11, 2026) -- details forthcoming
+- Quiz 4 Details: 5 Questions
+    - DP Design: given a new problem to be solved by DP, answer some multiple choice questions abou tit
+        - Ex: What is the base case? What data structure does it go in? What are the recursive calls? Etc.
+    - DP Categorization: given a property of DP algorithms, indicate which of the algorithm(s) we've studied have that property
+        - Ex: Uses 1-D array. Runs in $$O(n^2)$$ time. Etc.
+    - DP Multiple Choice: MC/TF questions on all content we've seen
+    - Two Questions on algorithms from class
+        - For each algorithm, you will need to:
+            - Enter the (recursive) formula using symbolic input
+            - Walk through algorithm using an array (filling values)
+            - Indicate the final answer
+        - 1D DP algorithms
+            - One assigned at random: coin change, log cutting, weighted interval selection
+        - 2D DP algorithms
+            - One assigned at random: matrix chaining, seam carving, longest common subsequence
+        - _The arrays you fill in are what was gone over in lecture, also function values (such as `p[i]` for WIS)_
+
+### Lecture 21: Tuesday, November 10, 2026
+
+- Problem Sets
+    - PS7 out, due tomorrow
+    - PS8 out today, due November 18, 2026
+- PA4 out, due November 24, 2026 (note the day! Tuesday!)
+- Quiz 4 (DP) next week (Wed-Fri)
+    - More details on Thursday
+- Grading updates
+    - PSs through PS5 are graded (PS5 will be returned soon)
+    - Minor modifications to Quiz 2’s Master Theorem question coming
+    - Working on regrade requests through ticketing system and Gradescope
+
 
 ### Lecture 20: Thursday, November 5, 2026
 
