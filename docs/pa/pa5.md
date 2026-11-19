@@ -18,13 +18,13 @@ The summit has several meeting periods, and each delegation must be accompanied 
 
 Determine the maximum number of diplomatic meetings that can be scheduled and construct a schedule assigning each delegation a conference chamber, meeting period, and translator.
 
-**Part 1: Reduce to Max Flow:** You will be given the number of alien delegations ($d$), a number of conference chambers ($c$), a number of meeting periods ($p$), and a number of translators ($t$).  For the sake of this assignment, these entities are all 0-index integers -- so if $d=7$, then the alien delegations are just 0 through 6.  To solve this problem, you will have to construct a graph such as the upper image on the right.  In that image, there are five sets of bipartite "ranges".  With the exception of one of those sets, all edges have capacity set to 1.
+**Part 1: Reduce to Max Flow:** You will be given the number of alien delegations ($$d$$), a number of conference chambers ($$c$$), a number of meeting periods ($$p$$), and a number of translators ($$t$$).  For the sake of this assignment, these entities are all 0-index integers -- so if $$d=7$$, then the alien delegations are just 0 through 6.  To solve this problem, you will have to construct a graph such as the upper image on the right.  In that image, there are five sets of bipartite "ranges".  With the exception of one of those sets, all edges have capacity set to 1.
 
-1. From the start ($s$) to each of the delegations: this represents that there is only one meeting needed per delegation. If a delegation had multiple meetings, then the capacity would be set higher, but that is not part of this assignment.
+1. From the start ($$s$$) to each of the delegations: this represents that there is only one meeting needed per delegation. If a delegation had multiple meetings, then the capacity would be set higher, but that is not part of this assignment.
 2. From the delegations to the chambers: any delegation can fit into any chamber that has a sufficient capacity.  Thus, the lines in this section only connect to chambers that can hold the number of diplomats in the delegation.  In the diagram, both the delegations and the chambers are sorted by size with the smaller delegations / chambers on the bottom.  The delegation sizes will be provided in the input.
 3. From the chambers to the meeting periods: any meeting could potentially be at any period, so this is a complete sub-graph (every chamber connects to every period).
 4. From the meeting periods to the translators: this is based on the translator's availability, which is provided in the input.
-5. From the translators to the terminus ($t$): to allow the max flow to complete.  Each translator has some limit of meetings they can cover, so the capacity on these edges is set to that limit -- 5, in this example, but the actual limit varies by the input case.
+5. From the translators to the terminus ($$t$$): to allow the max flow to complete.  Each translator has some limit of meetings they can cover, so the capacity on these edges is set to that limit -- 5, in this example, but the actual limit varies by the input case.
 
 Once max flow is run on this updated graph, you might get something like the lower of the images to the right.  In that image, the red dashed edges have flow 1, and the green dotted edges allow more flow (translator 3 to the terminus has capacity 3, the other two green edges -- from translators 0 and 2 -- have capacity 2).  This graph was the result of an actual solution for this assignment, the input of which is given below.
 
@@ -40,15 +40,15 @@ You will need to print the max flow value (as an integer) from this part in your
 
 ### Input
 
-The first line of the input will contain $n$, the number of test cases in that file.  Each test case will use a different graph.
+The first line of the input will contain $$n$$, the number of test cases in that file.  Each test case will use a different graph.
 
-The first line of each test case will contain five positive integers: $d$, $c$, $p$, $t$, and $t_c$, space separated.  The first four values are the number of delegations, chambers, periods, and translators, respectively.  The last value is the translator capacity -- how many meetings they can handle.  For the examples shown in the images, $(d,c,p,t,t_c)=(9,5,4,7,5)$.  However, these values -- including $t_c$ -- will vary on the input used to test your program.
+The first line of each test case will contain five positive integers: $$d$$, $$c$$, $$p$$, $$t$$, and $$t_c$$, space separated.  The first four values are the number of delegations, chambers, periods, and translators, respectively.  The last value is the translator capacity -- how many meetings they can handle.  For the examples shown in the images, $$(d,c,p,t,t_c)=(9,5,4,7,5)$$.  However, these values -- including $$t_c$$ -- will vary on the input used to test your program.
 
-The next line will contain $d$ positive integers, which is the delegation sizes of the $d$ delegations.  These will be sorted in non-descending order.
+The next line will contain $$d$$ positive integers, which is the delegation sizes of the $$d$$ delegations.  These will be sorted in non-descending order.
 
-The next line will contain $c$ positive integers, which is the chamber capacity of the $c$ chambers.  These will be sorted in non-descending order.
+The next line will contain $$c$$ positive integers, which is the chamber capacity of the $$c$$ chambers.  These will be sorted in non-descending order.
 
-The next $t$ lines will contain the scheduling information for the $t$ translators.  Each of these lines will start with a positive integer $x$ which is how many periods that translator is available for, followed by the $x$ periods the translator is available for (space separated).
+The next $$t$$ lines will contain the scheduling information for the $$t$$ translators.  Each of these lines will start with a positive integer $$x$$ which is how many periods that translator is available for, followed by the $$x$$ periods the translator is available for (space separated).
 
 All values, both input and output, will fit in a 32-bit singed integer.  All of the attributes referenced (delegations, chambers, periods, and translators) are represented as consecutive integers indexed from 0.
 
@@ -62,7 +62,7 @@ The first line of the output per test case will be the (integer) max flow of the
 
 If you were unable to complete part 2 (extracting the schedule), then you should print out a -1 on a second line for each test case.
 
-If you were able to complete part 2, then the next $d$ lines will contain their path (aka their schedule.)  It will be of the form `1 - 2 - 3 - 0`, which indicates that delegation 1 will use chamber 2 at period 3 with translator 0.  These lines can print out in any order.  Note that the separator between each is three characters: space, dash, space.  You may also print out a single letter prefix before each, such as `d1 - c2 - p3 - t0` to indicate delegation, chamber, period, and translator; either format is acceptable, but the ONLY letters you can use on those lines are 'd', 'c', 'p', and 't' (upper case or lower case).
+If you were able to complete part 2, then the next $$d$$ lines will contain their path (aka their schedule.)  It will be of the form `1 - 2 - 3 - 0`, which indicates that delegation 1 will use chamber 2 at period 3 with translator 0.  These lines can print out in any order.  Note that the separator between each is three characters: space, dash, space.  You may also print out a single letter prefix before each, such as `d1 - c2 - p3 - t0` to indicate delegation, chamber, period, and translator; either format is acceptable, but the ONLY letters you can use on those lines are 'd', 'c', 'p', and 't' (upper case or lower case).
 
 If a delegation is not assigned a chamber / period / translator, then print the delegation number and -1: `4 -1` or `d4 -1`.
 
@@ -72,7 +72,7 @@ All output is to be written to standard output.
 
 ### Sample input
 
-This input corresponds to the first graph shown above.  In that image, the delegations and chambers are sorted by size, with the smaller delegations and chambers shown on the bottom of their respective column.  This means that delegation $d_0$, the smallest delegation, is at the bottom of the delegations column, and likewise with the chamber column.  The number in each node in the image corresponds to its index number in the input.  
+This input corresponds to the first graph shown above.  In that image, the delegations and chambers are sorted by size, with the smaller delegations and chambers shown on the bottom of their respective column.  This means that delegation $$d_0$$, the smallest delegation, is at the bottom of the delegations column, and likewise with the chamber column.  The number in each node in the image corresponds to its index number in the input.  
 
 This file is available as [pa5-example.in](files/pa5-example.in):
 
