@@ -1,10 +1,11 @@
 ---
 layout: default 
-title: "DSA2: PA5: Alien Diplomatic Summit"
+title: PA5 - Alien Diplomatic Summit
 nav_order: 5
 parent: Programming Assignments
 ---
 
+# Programming Assignment 5 - Alien Diplomatic Summit
 
 <figure style="float:right;width:40%;margin-left:20px">
 <a href="graph-before.svg"><img src="files/graph-before.svg"></a>
