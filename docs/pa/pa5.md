@@ -8,8 +8,8 @@ parent: Programming Assignments
 # Programming Assignment 5 - Alien Diplomatic Summit
 
 <figure style="float:right;width:40%;margin-left:20px">
-<a href="graph-before.svg"><img src="files/graph-before.svg"></a>
-<figcaption style="text-align:center">The constructed graph to run max flow on.  The delegations and chambers are sorted by size, with the smaller delegations and chambers on the bottom.</figcaption>
+<a href="files/graph-before.svg"><img src="files/graph-before.svg"></a>
+<figcaption style="text-align:center">The constructed graph to run max flow on.  The delegations and chambers are sorted by size, with the smaller delegations and chambers on the bottom.  Click for a larger version.</figcaption>
 </figure>
 
 Earth has been selected to host the first Intergalactic Diplomatic Summit, bringing together delegations from dozens of alien civilizations. Each delegation has a different number of representatives and requires a conference chamber large enough to accommodate them.
@@ -29,8 +29,8 @@ Determine the maximum number of diplomatic meetings that can be scheduled and co
 Once max flow is run on this updated graph, you might get something like the lower of the images to the right.  In that image, the red dashed edges have flow 1, and the green dotted edges allow more flow (translator 3 to the terminus has capacity 3, the other two green edges -- from translators 0 and 2 -- have capacity 2).  This graph was the result of an actual solution for this assignment, the input of which is given below.
 
 <figure style="float:right;width:40%;margin-left:20px">
-<a href="graph-after.svg"><img src="files/graph-after.svg"></a>
-<figcaption style="text-align:center">The result of running max flow on the graph.  The delegations and chambers are sorted by size, with the smaller delegations and chambers on the bottom.</figcaption>
+<a href="files/graph-after.svg"><img src="files/graph-after.svg"></a>
+<figcaption style="text-align:center">The result of running max flow on the graph.  The delegations and chambers are sorted by size, with the smaller delegations and chambers on the bottom.  Click for a larger version.</figcaption>
 </figure>
 
 You will need to print the max flow value (as an integer) from this part in your final output.  The max flow of the graph shown is 9.
